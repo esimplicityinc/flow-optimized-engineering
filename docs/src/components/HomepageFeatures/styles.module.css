@@ -1,0 +1,38 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+  width: 100%;
+}
+
+.featureCard {
+  background: var(--ifm-card-background-color);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-top: 4px solid var(--feature-color);
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.featureCard:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.featureIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.featureCard h3 {
+  color: var(--feature-color);
+  margin-bottom: 1rem;
+}
+
+.featureCard p {
+  margin: 0;
+  opacity: 0.85;
+  line-height: 1.6;
+}

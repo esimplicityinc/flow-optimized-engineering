@@ -1,0 +1,161 @@
+/**
+ * Flow Optimized Engineering - Custom Styles
+ */
+
+/* Primary color palette - deep blue for trust and stability */
+:root {
+  --ifm-color-primary: #1e40af;
+  --ifm-color-primary-dark: #1a3a9e;
+  --ifm-color-primary-darker: #183695;
+  --ifm-color-primary-darkest: #142d7b;
+  --ifm-color-primary-light: #2246c0;
+  --ifm-color-primary-lighter: #244ac9;
+  --ifm-color-primary-lightest: #3259e3;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  
+  /* Custom FOE variables */
+  --foe-color-understanding: #0891b2;
+  --foe-color-feedback: #7c3aed;
+  --foe-color-confidence: #059669;
+  --foe-color-warning: #d97706;
+  --foe-color-danger: #dc2626;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary-dark: #4b97f9;
+  --ifm-color-primary-darker: #3d8df8;
+  --ifm-color-primary-darkest: #1571f6;
+  --ifm-color-primary-light: #75b3fb;
+  --ifm-color-primary-lighter: #83bbfc;
+  --ifm-color-primary-lightest: #a6d0fd;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Hero section styling */
+.hero--primary {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, #1e3a5f 100%);
+}
+
+/* Custom admonition styles for FOE concepts */
+.admonition.admonition-understanding {
+  border-left-color: var(--foe-color-understanding);
+}
+
+.admonition.admonition-feedback {
+  border-left-color: var(--foe-color-feedback);
+}
+
+.admonition.admonition-confidence {
+  border-left-color: var(--foe-color-confidence);
+}
+
+.admonition.admonition-govcon {
+  border-left-color: var(--foe-color-warning);
+  background-color: rgba(217, 119, 6, 0.1);
+}
+
+/* Pathway cards on homepage */
+.pathway-card {
+  background: var(--ifm-card-background-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all 0.2s ease;
+}
+
+.pathway-card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Phase indicator badges */
+.phase-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.phase-badge--0 { background: #fee2e2; color: #991b1b; }
+.phase-badge--1 { background: #fef3c7; color: #92400e; }
+.phase-badge--2 { background: #fef9c3; color: #854d0e; }
+.phase-badge--3 { background: #dcfce7; color: #166534; }
+.phase-badge--4 { background: #dbeafe; color: #1e40af; }
+.phase-badge--5 { background: #ede9fe; color: #5b21b6; }
+
+/* Principle highlight boxes */
+.principle-box {
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.principle-box--understanding {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.1) 0%, rgba(8, 145, 178, 0.05) 100%);
+  border-left: 4px solid var(--foe-color-understanding);
+}
+
+.principle-box--feedback {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(124, 58, 237, 0.05) 100%);
+  border-left: 4px solid var(--foe-color-feedback);
+}
+
+.principle-box--confidence {
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+  border-left: 4px solid var(--foe-color-confidence);
+}
+
+/* Table styling improvements */
+table {
+  width: 100%;
+}
+
+table th {
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* Code block improvements */
+.prism-code {
+  border-radius: 8px;
+}
+
+/* Navbar improvements */
+.navbar__title {
+  font-weight: 700;
+}
+
+/* Footer styling */
+.footer--dark {
+  background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+}
+
+/* Reading time and doc metadata */
+.theme-doc-markdown header {
+  margin-bottom: 2rem;
+}
+
+/* Blockquote styling for key insights */
+blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote strong {
+  color: var(--ifm-color-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .pathway-card {
+    padding: 1rem;
+  }
+}
