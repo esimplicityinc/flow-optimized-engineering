@@ -11,8 +11,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://flow-optimized.engineering',
-  baseUrl: '/',
+  url: 'https://esimplicityinc.github.io',
+  baseUrl: '/flow-optimized-engineering/',
 
   organizationName: 'esimplicityinc',
   projectName: 'flow-optimized-engineering',
