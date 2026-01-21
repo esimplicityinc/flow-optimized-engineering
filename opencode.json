@@ -1,0 +1,78 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // === Instructions ===
+  "instructions": ["AGENTS.md", "agentspec.md"],
+
+  // === Built-in Tools ===
+  "tools": {
+    "bash": true,
+    "webfetch": true,
+    "write": true,
+    "read": true,
+    "edit": true,
+    "grep": true,
+    "list": true
+  },
+
+  // === Agent Configuration ===
+  // Agents are defined in .opencode/agent/*.md files
+  // These settings customize their behavior
+  "agent": {
+    "orchestrator": {
+      "description": "Orchestrates Red→Green→Refactor cycle using specialized subagents",
+      "mode": "primary"
+    },
+    "app-runner": {
+      "description": "Manages Docker dev environment and monitors application health",
+      "mode": "subagent"
+    },
+    "test-writer": {
+      "description": "Writes unit tests, runs all tests, executes BDD scenarios",
+      "mode": "subagent"
+    },
+    "critic": {
+      "description": "Reviews implementation quality and performs visual inspection",
+      "mode": "subagent"
+    },
+    "git-manager": {
+      "description": "Recommends commits at clean points, drafts messages, executes only when approved",
+      "mode": "subagent"
+    },
+    "ddd-critic": {
+      "description": "Ensures implementation aligns with domain model, suggests updates",
+      "mode": "subagent"
+    },
+    "explorer": {
+      "description": "Codebase research, find patterns, answer questions",
+      "mode": "subagent"
+    },
+    "architect": {
+      "description": "Enforces patterns, hexagonal architecture, DRY, and naming conventions",
+      "mode": "subagent"
+    },
+    "doc-generator": {
+      "description": "Generates CI documentation for each commit across three dimensions",
+      "mode": "subagent"
+    }
+  },
+
+  // === MCP Servers ===
+  "mcp": {
+    "g-search": {
+      "type": "local",
+      "command": ["npx", "-y", "g-search-mcp"],
+      "enabled": true
+    },
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "@playwright/mcp@latest"],
+      "enabled": true
+    }
+  }
+}
