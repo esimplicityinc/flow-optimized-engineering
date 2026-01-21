@@ -14,8 +14,8 @@ const config: Config = {
   url: 'https://flow-optimized.engineering',
   baseUrl: '/',
 
-  organizationName: 'flow-optimized-engineering',
-  projectName: 'foe-docs',
+  organizationName: 'esimplicityinc',
+  projectName: 'flow-optimized-engineering',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -87,7 +87,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/flow-optimized-engineering/foe-docs',
+          href: 'https://github.com/esimplicityinc/flow-optimized-engineering',
           label: 'GitHub',
           position: 'right',
         },
