@@ -256,3 +256,36 @@ Contractors with mature engineering practices:
 - Show you working software regularly
 
 You have significant influence over contractor behavior through how you structure acquisitions and what you measure during performance. Use that influence to encourage engineering maturity: your mission will be better served by contractors who deliver reliably.
+
+---
+
+:::info[Katalyst: Evidence of Engineering Maturity]
+When evaluating contractors, ask about their platform investments. The **Katalyst ecosystem** exemplifies what mature engineering infrastructure looks like:
+
+### What Katalyst Demonstrates
+| Capability | What It Shows | Questions to Ask |
+|------------|---------------|------------------|
+| **[Katalyst Platform](https://d3bvp0fxrpttzf.cloudfront.net/)** | Investment in standardized deployment, observability, GitOps | "How do you deploy? How do you monitor production?" |
+| **[Katalyst Taxonomy](https://esimplicityinc.github.io/katalyst-taxonomy/)** | Systematic architecture documentation, shared vocabulary | "How do you capture architecture decisions? How do new team members learn the system?" |
+| **[Katalyst BDD Test](https://esimplicityinc.github.io/katalyst-bdd-test/docs/)** | Automated multi-layer testing, quality gates | "How do you ensure quality? Can you show me your test coverage across layers?" |
+
+### Red Flags vs. Green Flags
+
+**Green flags** (indicators of Katalyst-like maturity):
+- Can demonstrate working deployment pipeline
+- Has documented architecture with clear boundaries
+- Automated testing at multiple layers
+- Evidence generated continuously, not prepared for audits
+
+**Red flags** (absence of platform investment):
+- "We'll set up infrastructure for this contract"
+- "Our senior developer knows the architecture"
+- "We test manually before release"
+- "We'll document after we build"
+
+### For Recompetes
+Ask incumbents: "What reusable platform capabilities have you built?" Contractors with Katalyst-like investments can show you:
+- Deployment automation that applies to new projects
+- Testing frameworks that accelerate quality assurance
+- Architecture documentation that transfers to new teams
+:::

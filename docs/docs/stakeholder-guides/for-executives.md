@@ -162,4 +162,30 @@ The question isn't whether you can afford to invest. It's whether you can afford
 
 ---
 
+:::info[Katalyst: Strategic Platform Investment]
+The **Katalyst ecosystem** represents the kind of platform investment that creates sustainable competitive advantage:
+
+### Portfolio Value
+| Katalyst Component | Strategic Benefit |
+|-------------------|-------------------|
+| **[Katalyst Platform](https://d3bvp0fxrpttzf.cloudfront.net/)** | Reusable infrastructure reduces startup costs on new contracts |
+| **[Katalyst Taxonomy](https://esimplicityinc.github.io/katalyst-taxonomy/)** | Consistent architecture vocabulary enables cross-team mobility |
+| **[Katalyst BDD Test](https://esimplicityinc.github.io/katalyst-bdd-test/docs/)** | Standardized testing framework accelerates quality assurance |
+
+### Competitive Differentiation
+In proposals, Katalyst-like investments demonstrate:
+- **Existing platform capabilities** that reduce delivery risk
+- **Mature engineering practices** with concrete evidence
+- **Reusable assets** that lower cost for government customers
+- **Institutional knowledge** that survives staff transitions
+
+### ROI Indicators
+Ask engineering leaders:
+- "How many contracts benefit from our platform investments?"
+- "What's our startup time advantage vs. building from scratch?"
+- "How do these investments appear in proposals?"
+:::
+
+---
+
 FOE is about building engineering organizations that deliver reliably, sustain excellence over time, and create competitive advantage through operational maturity. The investment is real, but so are the returns.

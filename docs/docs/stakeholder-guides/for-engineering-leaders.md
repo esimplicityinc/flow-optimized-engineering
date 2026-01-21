@@ -259,3 +259,36 @@ Understand the resistance:
 6. **Expand systematically** based on what you learn
 
 FOE is a practice, not a destination. Start where you are, improve continuously, and build the institutions that make improvement sustainable.
+
+---
+
+:::info[Katalyst: Reference Implementation for Leaders]
+The Katalyst ecosystem provides ready-made institutions you can adopt or adapt:
+
+### Pre-Paved Paths
+Instead of building from scratch, Katalyst offers:
+- **[Katalyst Platform](https://d3bvp0fxrpttzf.cloudfront.net/)**: Production-ready Kubernetes infrastructure with ArgoCD, observability, and standardized deployment pipelines
+- **[Katalyst BDD Test](https://esimplicityinc.github.io/katalyst-bdd-test/docs/)**: Multi-layer testing framework (API/UI/TUI) that enforces quality gates automatically
+
+### Architecture Standardization
+**[Katalyst Taxonomy](https://esimplicityinc.github.io/katalyst-taxonomy/)** provides:
+- A consistent vocabulary across all teams (System → Subsystem → Stack → Layer)
+- Architecture-as-code that evolves with your software
+- Clear boundaries that enable team autonomy within guardrails
+
+### Reduced Implementation Time
+| Without Katalyst | With Katalyst |
+|------------------|---------------|
+| Build deployment pipeline from scratch | Inherit standardized GitOps workflow |
+| Design monitoring approach | Use pre-configured observability stack |
+| Create testing conventions | Adopt BDD framework with layer types |
+| Document architecture manually | Generate from architecture-as-code |
+
+### Institutional Knowledge Built-In
+Katalyst codifies decisions so they survive team changes:
+- Architecture decisions embedded in taxonomy definitions
+- Testing patterns encoded in framework conventions
+- Deployment practices automated in platform configuration
+
+**For recompetes**: Katalyst assets demonstrate mature engineering practices and reduce startup costs on new contracts.
+:::

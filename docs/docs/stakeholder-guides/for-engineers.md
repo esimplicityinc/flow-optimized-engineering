@@ -225,3 +225,30 @@ If something feels like pure bureaucracy, that's worth raising. Not all practice
 6. **Ask why**: Understanding the reason behind practices helps you apply them well
 
 FOE environments are built by the engineers working in them. Your participation in improving practices is part of the job, and it makes everyone's work better, including your own.
+
+---
+
+:::info[Katalyst: FOE in Practice]
+The Katalyst ecosystem provides concrete implementations of FOE principles that you can use in your daily work:
+
+### Katalyst Taxonomy: Understand Your System
+[Katalyst Taxonomy](https://esimplicityinc.github.io/katalyst-taxonomy/) gives you a shared vocabulary for talking about architecture:
+- **System → Subsystem → Stack → Layer** hierarchy makes conversations precise
+- Architecture-as-code means the system description lives with the code
+- When someone asks "where does this belong?", the taxonomy provides the answer
+
+### Katalyst BDD Test: Get Fast Feedback
+[Katalyst BDD Test](https://esimplicityinc.github.io/katalyst-bdd-test/docs/) provides multi-layer testing that catches problems early:
+- **API layer**: Test your backend endpoints
+- **UI layer**: Test your web interfaces
+- **TUI layer**: Test your CLI applications
+- Write tests in Gherkin that non-engineers can read and validate
+
+### Katalyst Platform: Deploy with Confidence
+[Katalyst Platform](https://d3bvp0fxrpttzf.cloudfront.net/) provides the infrastructure that makes deployment boring:
+- Kubernetes-based deployment with ArgoCD GitOps
+- Built-in observability (Prometheus, Grafana, Jaeger)
+- Standardized pipelines so every project deploys the same way
+
+**The FOE connection**: Katalyst is what "paved paths" look like in practice. Instead of figuring out how to test, deploy, and monitor your application, you follow the paths that have been prepared.
+:::

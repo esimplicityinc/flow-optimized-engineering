@@ -332,3 +332,38 @@ Use this checklist to quickly gauge DevX health:
 3. **Plan incremental improvements** following progression guidance
 4. **Track metrics** to verify improvement
 5. **Review quarterly** to maintain momentum
+
+---
+
+:::info[Katalyst: Accelerating Maturity]
+The **Katalyst ecosystem** provides ready-made capabilities that can accelerate your maturity progression:
+
+### Maturity Acceleration by Dimension
+
+| Dimension | Katalyst Contribution | Maturity Impact |
+|-----------|----------------------|-----------------|
+| **Conventions & Standards** | [Katalyst Taxonomy](https://esimplicityinc.github.io/katalyst-taxonomy/) provides architecture-as-code with System → Subsystem → Stack → Layer hierarchy | Level 2 → Level 4: Self-service scaffolding with consistent structure |
+| **Knowledge Codification** | Taxonomy embeds architecture decisions in code; documentation generated from definitions | Level 2 → Level 3: Systematic ADRs and discoverable knowledge |
+| **Build & Test Speed** | [Katalyst BDD Test](https://esimplicityinc.github.io/katalyst-bdd-test/docs/) provides multi-layer testing framework | Level 2 → Level 3: Automated enforcement with consistent patterns |
+| **Deployment Pipeline** | [Katalyst Platform](https://d3bvp0fxrpttzf.cloudfront.net/) provides ArgoCD GitOps with automated deployment | Level 2 → Level 4: Continuous deployment with automatic rollback |
+| **Observability** | Platform includes Prometheus, Grafana, Jaeger stack | Level 2 → Level 3: Structured logging, comprehensive metrics, distributed tracing |
+| **Quality Gates** | BDD Test framework enforces testing at API, UI, and TUI layers | Level 2 → Level 3: Mandatory gates with comprehensive coverage |
+| **Environment Reliability** | Platform provides consistent Kubernetes environments | Level 2 → Level 3: One-command setup with environment parity |
+
+### Katalyst Maturity Assessment
+
+When assessing with Katalyst adoption:
+
+| If you have... | Your starting level is likely... |
+|----------------|----------------------------------|
+| Katalyst Platform deployed | Level 3 in Deployment Pipeline, Observability, Environment Reliability |
+| Katalyst Taxonomy adopted | Level 3 in Conventions & Standards, Level 2-3 in Knowledge Codification |
+| Katalyst BDD Test integrated | Level 3 in Build & Test Speed, Quality Gates |
+
+### Katalyst + Custom Investment
+
+Katalyst provides foundations; you add context-specific value:
+- **Platform**: Base infrastructure → add project-specific dashboards and alerts
+- **Taxonomy**: Architecture vocabulary → add domain-specific layer definitions
+- **BDD Test**: Testing framework → add scenario libraries for your domain
+:::

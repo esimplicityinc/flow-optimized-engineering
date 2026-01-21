@@ -306,3 +306,42 @@ FOE wins proposals when you:
 5. **Demonstrate, don't just describe**: Orals and demonstrations make FOE tangible
 
 Engineering maturity is a genuine discriminator when government customers increasingly recognize that delivery problems stem from engineering practice problems. Position FOE as the solution.
+
+---
+
+:::info[Katalyst: Concrete Platform Evidence]
+The **Katalyst ecosystem** provides tangible evidence of platform investment that can strengthen proposals:
+
+### Platform Components to Cite
+
+| Component | Proposal Value | Sample Language |
+|-----------|---------------|-----------------|
+| **[Katalyst Platform](https://d3bvp0fxrpttzf.cloudfront.net/)** | Production-ready infrastructure | "We bring proven Kubernetes-based deployment infrastructure with integrated observability, reducing environment setup from weeks to days" |
+| **[Katalyst Taxonomy](https://esimplicityinc.github.io/katalyst-taxonomy/)** | Architecture standardization | "Our architecture-as-code approach ensures consistent system design across teams, documented through our taxonomy framework" |
+| **[Katalyst BDD Test](https://esimplicityinc.github.io/katalyst-bdd-test/docs/)** | Quality automation | "Our multi-layer BDD testing framework validates quality at API, UI, and TUI layers automatically" |
+
+### Win Theme Enhancement with Katalyst
+
+**Theme 4 (Reusable Platform Investment)** becomes especially strong:
+
+> "[Company] brings the Katalyst platform ecosystem, including:
+> - **Infrastructure**: Kubernetes-based deployment with ArgoCD GitOps, pre-configured for government environments
+> - **Architecture**: Taxonomy framework providing consistent system modeling across all components
+> - **Quality**: BDD testing framework enabling automated validation at multiple layers
+>
+> These capabilities, refined across multiple programs, accelerate time-to-capability by reducing infrastructure setup and establishing consistent practices from day one."
+
+### Orals Demo Opportunities with Katalyst
+
+- **Show the Platform**: Live ArgoCD deployment, Grafana dashboards, Jaeger traces
+- **Show the Taxonomy**: Architecture definitions, generated documentation
+- **Show BDD Tests**: Cucumber reports, multi-layer test execution
+
+### Competitive Differentiation
+
+| Competitor Claim | Katalyst Counter |
+|------------------|------------------|
+| "We use Kubernetes" | "We bring a complete, proven platform with GitOps, observability, and governance" |
+| "We follow best practices" | "Our Taxonomy codifies practices in architecture-as-code, not just documents" |
+| "We have automated testing" | "Our BDD framework tests at API, UI, and TUI layers with stakeholder-readable scenarios" |
+:::
