@@ -14,7 +14,25 @@ const config: Config = {
   markdown: {
     mermaid: true,
   },
-  themes: ['@docusaurus/theme-mermaid'],
+  themes: [
+    '@docusaurus/theme-mermaid',
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['en'],
+        indexDocs: true,
+        indexBlog: true,
+        indexPages: true,
+        docsRouteBasePath: '/docs',
+        blogRouteBasePath: '/blog',
+        highlightSearchTermsOnTargetPage: true,
+        searchResultLimits: 8,
+        searchResultContextMaxLength: 50,
+        explicitSearchResultPath: true,
+      },
+    ],
+  ],
 
   url: 'https://esimplicityinc.github.io',
   baseUrl: '/flow-optimized-engineering/',
