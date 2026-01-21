@@ -64,7 +64,18 @@
 /* Audience Pathways Section */
 .pathways {
   padding: 5rem 0;
-  background: linear-gradient(180deg, var(--ifm-color-emphasis-100) 0%, transparent 100%);
+  background: linear-gradient(180deg, var(--ifm-color-emphasis-100) 0%, var(--ifm-background-color) 100%);
+  position: relative;
+}
+
+.pathways::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--ifm-color-emphasis-300) 50%, transparent 100%);
 }
 
 .sectionTitle {
@@ -107,13 +118,13 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-light) 100%);
+  background: var(--pathway-color, var(--ifm-color-primary));
   transform: scaleX(0);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pathwayCard:hover {
-  border-color: var(--ifm-color-primary);
+  border-color: var(--pathway-color, var(--ifm-color-primary));
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
   transform: translateY(-10px);
   text-decoration: none;
@@ -132,15 +143,15 @@
   justify-content: center;
   margin-bottom: 1.25rem;
   font-size: 1.5rem;
-  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+  background: var(--pathway-color, var(--ifm-color-primary));
   color: white;
-  box-shadow: 0 6px 16px rgba(30, 64, 175, 0.35);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--pathway-color, var(--ifm-color-primary)) 40%, transparent);
   transition: all 0.3s ease;
 }
 
 .pathwayCard:hover .pathwayIconWrapper {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(30, 64, 175, 0.45);
+  transform: scale(1.08);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--pathway-color, var(--ifm-color-primary)) 50%, transparent);
 }
 
 .pathwayCard h3 {
@@ -164,7 +175,7 @@
   margin-top: 1rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--ifm-color-primary);
+  color: var(--pathway-color, var(--ifm-color-primary));
   opacity: 0;
   transform: translateX(-10px);
   transition: all 0.3s ease;
@@ -175,10 +186,29 @@
   transform: translateX(0);
 }
 
+.pathwayCard h3 {
+  transition: color 0.3s ease;
+}
+
+.pathwayCard:hover h3 {
+  color: var(--pathway-color, var(--ifm-color-primary));
+}
+
 /* Transformation Preview Section */
 .transformation {
   padding: 5rem 0;
-  background: var(--ifm-background-color);
+  background: linear-gradient(180deg, var(--ifm-background-color) 0%, var(--ifm-color-emphasis-100) 100%);
+  position: relative;
+}
+
+.transformation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--ifm-color-emphasis-300) 50%, transparent 100%);
 }
 
 .phaseTimeline {

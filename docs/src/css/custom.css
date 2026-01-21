@@ -51,6 +51,30 @@
   --foe-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
   --foe-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
   --foe-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  
+  /* Enhanced dark mode colors */
+  --foe-color-understanding: #22d3ee;
+  --foe-color-feedback: #a78bfa;
+  --foe-color-confidence: #34d399;
+  --foe-color-warning: #fbbf24;
+}
+
+/* Dark mode specific enhancements */
+[data-theme='dark'] .hero--primary {
+  background: linear-gradient(135deg, #1e3a8a 0%, #0c0a09 50%, #1e293b 100%);
+}
+
+[data-theme='dark'] blockquote {
+  background: rgba(30, 64, 175, 0.15);
+  border-left-color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] table th {
+  background: rgba(30, 64, 175, 0.2);
+}
+
+[data-theme='dark'] .footer--dark {
+  background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
 }
 
 /* Hero section styling with animated gradient */
@@ -320,4 +344,81 @@ a:not(.button):not(.navbar__link):not(.menu__link):not(.card) {
 .badge--warning {
   background: var(--foe-color-warning);
   color: white;
+}
+
+/* Doc page card styling */
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* Improved TOC styling */
+.table-of-contents {
+  border-left: 1px solid var(--ifm-color-emphasis-200);
+  padding-left: 1rem;
+}
+
+.table-of-contents__link {
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  margin-left: -0.5rem;
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* Doc card improvements */
+article.margin-bottom--lg {
+  transition: all 0.3s ease;
+  border-radius: var(--foe-radius-md);
+  border: 1px solid transparent;
+}
+
+article.margin-bottom--lg:hover {
+  border-color: var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* Pagination navigation */
+.pagination-nav__link {
+  border-radius: var(--foe-radius-md);
+  transition: all 0.3s ease;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--foe-shadow-md);
+}
+
+/* Sidebar category improvements */
+.menu__link {
+  border-radius: var(--foe-radius-sm);
+  transition: all 0.2s ease;
+}
+
+.menu__link--active {
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* Breadcrumb styling */
+.breadcrumbs__link {
+  transition: color 0.2s ease;
+}
+
+/* Improved heading anchors */
+.hash-link {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+h2:hover .hash-link,
+h3:hover .hash-link,
+h4:hover .hash-link {
+  opacity: 0.5;
+}
+
+.hash-link:hover {
+  opacity: 1 !important;
 }

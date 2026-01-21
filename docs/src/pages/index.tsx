@@ -47,24 +47,28 @@ function AudiencePathways(): ReactNode {
       description: "Understand how FOE protects margins, reduces risk, and creates competitive advantage in government contracting.",
       link: "/docs/stakeholder-guides/for-executives",
       icon: "chart",
+      color: "#7c3aed", // Purple
     },
     {
       title: "I'm an Engineering Leader",
       description: "Learn how to build institutions, scale practices, and implement FOE across your organization.",
       link: "/docs/stakeholder-guides/for-engineering-leaders",
       icon: "building",
+      color: "#0891b2", // Cyan
     },
     {
       title: "I'm an Engineer",
       description: "Discover the paved paths, feedback loops, and guardrails that let you ship with confidence.",
       link: "/docs/stakeholder-guides/for-engineers",
       icon: "code",
+      color: "#059669", // Green
     },
     {
       title: "I'm Evaluating Vendors",
       description: "Understand what to look for in engineering maturity and how FOE principles create reliable delivery.",
       link: "/docs/stakeholder-guides/for-government-customers",
       icon: "search",
+      color: "#d97706", // Amber
     },
   ];
 
@@ -120,7 +124,7 @@ function AudiencePathways(): ReactNode {
         <div className="row">
           {pathways.map((pathway, idx) => (
             <div key={idx} className="col col--3">
-              <Link to={pathway.link} className={styles.pathwayCard}>
+              <Link to={pathway.link} className={styles.pathwayCard} style={{'--pathway-color': pathway.color} as React.CSSProperties}>
                 <div className={styles.pathwayIconWrapper}>
                   {getIcon(pathway.icon)}
                 </div>
