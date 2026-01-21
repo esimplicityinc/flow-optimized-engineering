@@ -5,7 +5,7 @@ title: "The FOE Triad"
 
 # The FOE Triad: People, Process, Technology
 
-Flow Optimized Engineering transformation requires coordinated change across three interconnected dimensions: **People**, **Process**, and **Technology**. These aren't independent initiatives - they're facets of a single transformation that must move together.
+Flow Optimized Engineering transformation requires coordinated change across three interconnected dimensions: **People**, **Process**, and **Technology**. These aren't independent initiatives; they're facets of a single transformation that must move together.
 
 ## Why All Three Must Change Together
 
@@ -17,15 +17,9 @@ Each dimension of the triad enables and constrains the others:
 
 - **People without technology support** creates burnout. Motivated engineers fighting inadequate tooling eventually lose that motivation or leave.
 
-```
-        People
-         /\
-        /  \
-       /    \
-      /      \
-     /________\
- Process ---- Technology
-```
+![FOE Triad: People, Process, Technology](/img/illustrations/foe-triad-triangle.svg)
+
+*The triad is a system. Pull one corner without the others and you create tension that eventually snaps back.*
 
 The triad is a system. Pull one corner without the others and you create tension that eventually snaps back.
 
@@ -96,18 +90,18 @@ Signs your transformation is out of balance:
 
 Effective transformation moves all three dimensions together:
 
-1. **Start with a specific flow problem** - A deployment that takes too long, an outage pattern, a compliance burden
-2. **Map the triad** - What process governs this? What technology supports it? What skills and mindsets are involved?
-3. **Design changes across all three** - If you're automating deployment, who needs to learn what? What process changes does automation require?
-4. **Implement incrementally** - Small changes across all dimensions beat large changes in one
-5. **Measure outcomes** - Did flow improve? Did the problem get smaller?
+1. **Start with a specific flow problem:** A deployment that takes too long, an outage pattern, a compliance burden
+2. **Map the triad:** What process governs this? What technology supports it? What skills and mindsets are involved?
+3. **Design changes across all three:** If you're automating deployment, who needs to learn what? What process changes does automation require?
+4. **Implement incrementally:** Small changes across all dimensions beat large changes in one
+5. **Measure outcomes:** Did flow improve? Did the problem get smaller?
 
 ## What's Next
 
 The following sections detail each dimension of the triad:
 
-- [**People Changes**](./people-changes.md) - Skills evolution, mindset shifts, and role transformations
-- [**Process Changes**](./process-changes.md) - From CI to CD, safety institutions, and lightweight governance
-- [**Technology Changes**](./technology-changes.md) - Key technologies and how they enable the disciplines
+- [**People Changes**](./people-changes.md): Skills evolution, mindset shifts, and role transformations
+- [**Process Changes**](./process-changes.md): From CI to CD, safety institutions, and lightweight governance
+- [**Technology Changes**](./technology-changes.md): Key technologies and how they enable the disciplines
 
 Finally, [**Coherence Across Levels**](./coherence-across-levels.md) addresses how FOE must translate differently for executives, government customers, and engineering teams.

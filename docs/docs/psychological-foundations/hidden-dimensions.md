@@ -5,7 +5,7 @@ title: "Hidden Dimensions"
 
 # Hidden Dimensions
 
-Beyond the three explicit optimizations - understandability, fast feedback, high confidence - FOE implicitly designs for five psychological dimensions that rarely appear in engineering discussions but fundamentally shape how organizations function. Surfacing these dimensions helps explain why some organizations thrive under complexity while others fragment.
+Beyond the three explicit optimizations (understandability, fast feedback, high confidence), FOE implicitly designs for five psychological dimensions that rarely appear in engineering discussions but fundamentally shape how organizations function. Surfacing these dimensions helps explain why some organizations thrive under complexity while others fragment.
 
 ## The Five Hidden Dimensions
 
@@ -25,7 +25,7 @@ Each dimension represents a fundamental tradeoff that organizations make implici
 
 **The Question:** Who gets to say what's true about how the system behaves?
 
-In traditional organizations, truth is established through authority. The senior engineer's opinion carries weight. The architect's document defines reality. The manager's assessment drives decisions. This works when authority correlates with accuracy - but in complex systems, it often doesn't.
+In traditional organizations, truth is established through authority. The senior engineer's opinion carries weight. The architect's document defines reality. The manager's assessment drives decisions. This works when authority correlates with accuracy, but in complex systems, it often doesn't.
 
 > When authority determines truth, the best argument wins.
 > When evidence determines truth, the best model wins.
@@ -46,9 +46,9 @@ Government programs often have complex authority structures: contracting officer
 
 ## Cognitive Load Distribution
 
-**The Question:** Where does the thinking happen - in human heads or in external systems?
+**The Question:** Where does the thinking happen: in human heads or in external systems?
 
-Human working memory is limited and expensive. Every fact someone has to remember, every check they have to perform manually, every dependency they have to track mentally - it all competes for cognitive resources that could be used for actual problem-solving.
+Human working memory is limited and expensive. Every fact someone has to remember, every check they have to perform manually, every dependency they have to track mentally: it all competes for cognitive resources that could be used for actual problem-solving.
 
 **FOE's Answer:** The system does the remembering. Automate everything that can be automated. Externalize knowledge into code, tests, and documentation. Design interfaces that minimize what needs to be held in mind.
 
@@ -59,7 +59,7 @@ Human working memory is limited and expensive. Every fact someone has to remembe
 - Architecture decisions embedded in code structure, not tribal knowledge
 - Runbooks captured in automation, not documents
 
-**The goal isn't to remove human judgment - it's to focus human judgment on problems that actually require it.** Humans should think about design, priorities, and tradeoffs. Machines should remember checklists, enforce standards, and detect regressions.
+**The goal isn't to remove human judgment; it's to focus human judgment on problems that actually require it.** Humans should think about design, priorities, and tradeoffs. Machines should remember checklists, enforce standards, and detect regressions.
 
 ---
 
@@ -117,13 +117,13 @@ Government programs are often decision-starved: so much capacity goes into routi
 
 **The Question:** How do people develop justified confidence that the system will behave as expected?
 
-Trust isn't a feeling - it's a prediction. You trust a system when you've seen it behave reliably under various conditions and you expect that reliability to continue. Trust is earned through repeated, visible proof, not assertions.
+Trust isn't a feeling; it's a prediction. You trust a system when you've seen it behave reliably under various conditions and you expect that reliability to continue. Trust is earned through repeated, visible proof, not assertions.
 
 **FOE's Answer:** Trust through demonstrated reliability.
 
 - **Repeated:** The system behaves consistently across many interactions
 - **Visible:** System behavior is observable, not hidden
-- **Proof:** Evidence, not assurance - you see it working, not hear that it works
+- **Proof:** Evidence, not assurance: you see it working, not hear that it works
 
 **What this looks like in practice:**
 - Deployment frequency demonstrates that deployments are safe

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="350" fill="url(#bg)" rx="8"/>
+  
+  <!-- Triangle -->
+  <polygon points="200,50 50,280 350,280" fill="none" stroke="#1e40af" stroke-width="3"/>
+  
+  <!-- Connecting lines inside -->
+  <line x1="200" y1="50" x2="125" y2="165" stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="200" y1="50" x2="275" y2="165" stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="125" y1="165" x2="275" y2="165" stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Labels -->
+  <text x="200" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#1e40af">People</text>
+  <text x="30" y="305" text-anchor="start" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#1e40af">Process</text>
+  <text x="370" y="305" text-anchor="end" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#1e40af">Technology</text>
+  
+  <!-- Center text -->
+  <text x="200" y="180" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">FOE</text>
+</svg>

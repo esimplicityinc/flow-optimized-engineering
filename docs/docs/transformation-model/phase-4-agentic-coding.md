@@ -5,7 +5,7 @@ title: "Phase 4: Agentic Coding"
 
 # Phase 4: Agentic Coding
 
-Phase 4 marks the emergence of AI coding agents as a primary mode of software development. This fundamentally changes the economics of code production - making code abundant while creating new scarcities in alignment and verification. Organizations that haven't established Phase 3 disciplines face accelerated chaos.
+Phase 4 marks the emergence of AI coding agents as a primary mode of software development. This fundamentally changes the economics of code production, making code abundant while creating new scarcities in alignment and verification. Organizations that haven't established Phase 3 disciplines face accelerated chaos.
 
 ## The New Economics
 
@@ -110,7 +110,7 @@ Generated code may not follow intended architecture:
 ### Knowledge Drift
 
 Understanding of systems degrades:
-- Code was generated, not designed - so no one fully understands it
+- Code was generated, not designed, so no one fully understands it
 - Documentation describes what was intended, not what exists
 - Tribal knowledge can't form around code nobody wrote
 - Onboarding becomes harder despite more documentation
@@ -138,7 +138,7 @@ Without Phase 3:
 - Governance depends on humans who can't keep pace
 - Changes can't be tracked or rolled back reliably
 
-**Phase 3 disciplines don't just enable Phase 4 - they make it survivable.**
+**Phase 3 disciplines don't just enable Phase 4; they make it survivable.**
 
 ## Symptom Checklist: Phase 4 Challenges
 
@@ -236,4 +236,4 @@ Succeeding at Phase 4 requires:
 5. **Alignment focus**: Invest in intent communication and verification
 6. **Realistic expectations**: Agents accelerate some things; they create new work in others
 
-Phase 4 is not optional - AI coding agents are already here. The question is whether organizations adopt them with discipline or let them amplify existing chaos.
+Phase 4 is not optional; AI coding agents are already here. The question is whether organizations adopt them with discipline or let them amplify existing chaos.

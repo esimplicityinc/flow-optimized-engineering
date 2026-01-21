@@ -5,7 +5,7 @@ title: "The Three Optimizations"
 
 # The Three Optimizations
 
-Flow Optimized Engineering rests on three principles that map directly to how humans actually function under uncertainty. These aren't arbitrary best practices - they're the minimum requirements for sustainable high performance in complex systems.
+Flow Optimized Engineering rests on three principles that map directly to how humans actually function under uncertainty. These aren't arbitrary best practices; they're the minimum requirements for sustainable high performance in complex systems.
 
 ## The Cognitive Foundation
 
@@ -37,9 +37,9 @@ Each principle has a visible optimization and a hidden one:
 
 | Principle | Visible Optimization | Hidden Dimension |
 |-----------|---------------------|------------------|
-| Understanding | System legibility | **Cognitive Offloading** - the system remembers so humans don't have to |
-| Fast Feedback | Quick validation cycles | **Epistemic Hygiene** - cleanliness of belief formation |
-| Confidence | Safe deployment | **Psychological Safety for Decision-Making** - courage by design |
+| Understanding | System legibility | **Cognitive Offloading**: the system remembers so humans don't have to |
+| Fast Feedback | Quick validation cycles | **Epistemic Hygiene**: cleanliness of belief formation |
+| Confidence | Safe deployment | **Psychological Safety for Decision-Making**: courage by design |
 
 The hidden dimensions are where FOE diverges most sharply from conventional approaches. They address the psychological substrate that makes technical practices actually work.
 
@@ -76,7 +76,7 @@ The [FOE Transformation Model](/docs/transformation-model/overview) describes ho
 
 | Phase | Primary Focus | Principle Emphasis |
 |-------|--------------|-------------------|
-| Phase 1 (Chaos) | Survival | None - reactive firefighting |
+| Phase 1 (Chaos) | Survival | None: reactive firefighting |
 | Phase 2 (Stability) | Control | Understanding (often at expense of others) |
 | Phase 3 (Optimization) | Efficiency | Fast Feedback + Confidence |
 | Phase 4 (Flow) | Adaptation | All three in balance |
@@ -91,7 +91,7 @@ When diagnosing problems or planning improvements, ask:
 2. **Fast Feedback**: How quickly do they learn when they're wrong? What's the cost of a mistaken belief?
 3. **Confidence**: Are they willing to act? What's blocking decisive action?
 
-Most dysfunction traces to a deficit in one of these three areas. The fix isn't "try harder" or "be more disciplined" - it's removing the structural barriers to understanding, feedback, or confidence.
+Most dysfunction traces to a deficit in one of these three areas. The fix isn't "try harder" or "be more disciplined"; it's removing the structural barriers to understanding, feedback, or confidence.
 
 :::info
 The three optimizations aren't sequential. You don't achieve understanding, then add feedback, then build confidence. They develop together, each enabling the others. A team that understands their system gains confidence; confidence enables experimentation; experiments provide feedback; feedback improves understanding.
@@ -101,7 +101,7 @@ The three optimizations aren't sequential. You don't achieve understanding, then
 
 The following pages explore each principle in depth:
 
-- [Optimize for Understanding](./optimize-for-understanding)  -  Sensemaking and cognitive load
-- [Optimize for Fast Feedback](./optimize-for-fast-feedback)  -  Learning and belief calibration
-- [Optimize for Confidence](./optimize-for-confidence)  -  Agency and risk tolerance
-- [The Cognitive Triangle](./cognitive-triangle)  -  How the principles interact
+- [Optimize for Understanding](./optimize-for-understanding): Sensemaking and cognitive load
+- [Optimize for Fast Feedback](./optimize-for-fast-feedback): Learning and belief calibration
+- [Optimize for Confidence](./optimize-for-confidence): Agency and risk tolerance
+- [The Cognitive Triangle](./cognitive-triangle): How the principles interact

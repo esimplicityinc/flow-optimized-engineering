@@ -11,9 +11,9 @@ title: "How We Learn (Without Blame)"
 
 ## Our Default Behaviors
 
-- **Small changes**  -  mistakes are contained, lessons are clear
-- **Early signals**  -  we know something's wrong before customers do
-- **Clear rollback paths**  -  every change can be undone
+- **Small changes:** mistakes are contained, lessons are clear
+- **Early signals:** we know something's wrong before customers do
+- **Clear rollback paths:** every change can be undone
 
 ## What This Enables
 
@@ -55,4 +55,4 @@ When failure triggers punishment:
 
 ## Maps To
 
-**Fast Feedback Optimization**  -  Feedback loops that teach before they punish.
+**Fast Feedback Optimization:** Feedback loops that teach before they punish.

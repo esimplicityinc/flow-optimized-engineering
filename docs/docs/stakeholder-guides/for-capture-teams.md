@@ -16,7 +16,7 @@ Government customers increasingly recognize that engineering practices determine
 - Delivered late with security findings requiring expensive remediation
 - Struggled to adapt when requirements changed
 
-FOE directly addresses these concerns. When you can demonstrate mature engineering practices - with evidence - you differentiate from competitors making vague capability claims.
+FOE directly addresses these concerns. When you can demonstrate mature engineering practices, with evidence, you differentiate from competitors making vague capability claims.
 
 ## Win Themes and Discriminators
 
@@ -40,7 +40,7 @@ FOE directly addresses these concerns. When you can demonstrate mature engineeri
 
 ### Theme 2: Institutional Capability, Not Individual Dependency
 
-**The discriminator**: Our engineering capability is institutionalized in platforms, practices, and documentation - not dependent on specific individuals.
+**The discriminator**: Our engineering capability is institutionalized in platforms, practices, and documentation, not dependent on specific individuals.
 
 **Evidence to cite**:
 - Onboarding time for new engineers
@@ -237,7 +237,7 @@ Gather and maintain metrics from current programs:
 > "Compliance is built into our engineering pipeline, not added at the end. Security scanning runs automatically on every code change. Vulnerable dependencies are blocked before they merge. Accessibility is validated continuously. We generate audit evidence automatically, which is why we achieved ATO on [reference program] in [timeline]."
 
 **Q: How will you handle changing requirements?**
-> "Continuous delivery is designed for change. Because we deploy frequently in small increments, changing direction has low cost. We're not locked into month-long plans - we can adjust weekly based on feedback. Our architecture is modular, so changes are isolated rather than rippling through the system."
+> "Continuous delivery is designed for change. Because we deploy frequently in small increments, changing direction has low cost. We're not locked into month-long plans: we can adjust weekly based on feedback. Our architecture is modular, so changes are isolated rather than rippling through the system."
 
 ### Demo Opportunities
 

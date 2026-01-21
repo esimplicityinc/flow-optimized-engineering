@@ -7,11 +7,11 @@ title: "Level 1: Visible"
 
 > **Theme: "We can see what's happening"**
 
-At Level 1, basic observability exists. Work is traceable after the fact. Teams can explain what happened - though not always why. The improvement from Level 0 is significant: you're no longer operating blind.
+At Level 1, basic observability exists. Work is traceable after the fact. Teams can explain what happened, though not always why. The improvement from Level 0 is significant: you're no longer operating blind.
 
 ## What Changed
 
-- Basic observability is in place - logs, metrics, or dashboards exist
+- Basic observability is in place: logs, metrics, or dashboards exist
 - Work is traceable after the fact, even if not in real-time
 - Teams can explain what happened (though not always why)
 - Some documentation exists and is occasionally updated
@@ -51,7 +51,7 @@ At Level 1, basic observability exists. Work is traceable after the fact. Teams 
 
 ## Key Smell
 
-> "We can explain it  -  but it takes a meeting."
+> "We can explain it, but it takes a meeting."
 
 When understanding requires synchronous conversation, you have visibility but not accessibility. The information exists, but getting to it has friction.
 

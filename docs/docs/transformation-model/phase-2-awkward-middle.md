@@ -5,7 +5,7 @@ title: "Phase 2: The Awkward Middle"
 
 # Phase 2: The Awkward Middle
 
-Phase 2 is where tools changed but disciplines didn't. Organizations have adopted modern technologies - Terraform, containers, CI/CD pipelines - but haven't transformed how they operate. This creates a frustrating middle state: all the complexity of modern tooling without the benefits of modern operations.
+Phase 2 is where tools changed but disciplines didn't. Organizations have adopted modern technologies (Terraform, containers, CI/CD pipelines) but haven't transformed how they operate. This creates a frustrating middle state: all the complexity of modern tooling without the benefits of modern operations.
 
 ## Characteristics
 
@@ -96,7 +96,7 @@ Phase 2 is comfortable enough to tolerate but not effective enough to scale. Sev
 
 ## What Fails at This Phase
 
-**Scale**: Heroic models don't scale - you can't hire enough heroes
+**Scale**: Heroic models don't scale; you can't hire enough heroes
 **Consistency**: Special cases accumulate until everything is special
 **Speed**: Approval bottlenecks and manual steps limit deployment velocity
 **Reliability**: Human-dependent processes fail in human ways
@@ -123,7 +123,7 @@ To leave Phase 2, you must establish:
 | **Standards** | Documented | Enforced via automation |
 
 :::tip[GovCon Insight]
-Phase 2 is where most government contractors are stuck - and where most modernization programs stall. This creates both challenge and opportunity:
+Phase 2 is where most government contractors are stuck, and where most modernization programs stall. This creates both challenge and opportunity:
 
 **The challenge:**
 - Contractors often claim Phase 3+ capabilities while operating at Phase 2

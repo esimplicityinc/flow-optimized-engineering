@@ -13,7 +13,7 @@ title: "How We Think About Speed"
 
 We don't optimize for output. We optimize for **observable progress**.
 
-Work should become clearer as it moves forward - not more mysterious. If something is moving fast but nobody can explain what's happening, that's not speed. That's chaos with velocity.
+Work should become clearer as it moves forward, not more mysterious. If something is moving fast but nobody can explain what's happening, that's not speed. That's chaos with velocity.
 
 ## Why This Exists
 
@@ -39,4 +39,4 @@ The problem isn't that things change quickly. The problem is when things change 
 
 ## Maps To
 
-**Understanding Optimization** - Work is legible. Progress is observable. Surprises are minimized.
+**Understanding Optimization:** Work is legible. Progress is observable. Surprises are minimized.

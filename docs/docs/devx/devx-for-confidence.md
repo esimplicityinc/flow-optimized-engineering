@@ -7,7 +7,7 @@ title: "DevX for Confidence"
 
 Confidence is what allows developers to act. Without it, they either move too slowly (paralyzed by fear of breaking things) or move recklessly (ignoring risks they can't manage).
 
-DevX for Confidence creates the conditions where acting is safer than not acting - where the system makes it easy to do the right thing and hard to do the wrong thing.
+DevX for Confidence creates the conditions where acting is safer than not acting, where the system makes it easy to do the right thing and hard to do the wrong thing.
 
 > **The goal:** Quality should be the cheapest option, not the most disciplined.
 
@@ -496,4 +496,4 @@ $ docker run payment-service:abc123  # Identical in dev, staging, production
 
 When confidence is high, teams deploy frequently and recover quickly. When it's low, they batch changes (increasing risk) or avoid changes entirely (slowing delivery).
 
-Confidence isn't about being reckless - it's about having the safety systems that make speed safe.
+Confidence isn't about being reckless; it's about having the safety systems that make speed safe.

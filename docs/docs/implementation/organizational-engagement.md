@@ -30,7 +30,7 @@ Through experience, we've identified five constraints that must be satisfied for
 - Show returns (track improvements delivered)
 
 :::warning
-Without protected time, improvement happens only through heroics - and heroics don't scale or sustain.
+Without protected time, improvement happens only through heroics, and heroics don't scale or sustain.
 :::
 
 ### 2. Organizational Priority Determines Energy
@@ -52,7 +52,7 @@ Without protected time, improvement happens only through heroics - and heroics d
 - Build evidence that creates pull, not just push
 
 :::tip
-FOE should reduce the number of competing priorities by making delivery more predictable - but you need enough priority to get started.
+FOE should reduce the number of competing priorities by making delivery more predictable, but you need enough priority to get started.
 :::
 
 ### 3. Contribution Requires Clear Ownership
@@ -92,7 +92,7 @@ FOE should reduce the number of competing priorities by making delivery more pre
 - Show the cost of gateless contributions (bugs, inconsistency, rework)
 
 :::tip
-The goal is "light governance, real standards" - not no governance.
+The goal is "light governance, real standards," not no governance.
 :::
 
 ### 5. DevX Is a Hard Requirement
@@ -114,7 +114,7 @@ The goal is "light governance, real standards" - not no governance.
 - Celebrate friction reduction wins
 
 :::warning
-Practices with poor DevX will be circumvented. Developers are creative - they'll find workarounds for painful processes.
+Practices with poor DevX will be circumvented. Developers are creative: they'll find workarounds for painful processes.
 :::
 
 ## Change Management Fundamentals
@@ -141,7 +141,7 @@ Performance
 
 Expect the J-curve:
 1. **Initial dip**: New practices slow things down before speeding them up
-2. **Valley**: The hardest part - old ways don't work, new ways aren't automatic
+2. **Valley**: The hardest part: old ways don't work, new ways aren't automatic
 3. **Climb**: Practices become habitual, returns begin
 4. **New normal**: Better performance than before, sustainably
 
@@ -194,7 +194,7 @@ Executives need to see FOE as a business investment, not a technical hobby.
 
 ### Middle Management Level
 
-Middle managers are often the hardest to convince - they're measured on short-term delivery.
+Middle managers are often the hardest to convince: they're measured on short-term delivery.
 
 **Key messages**:
 - FOE makes your job easier (fewer fires, more predictability)
@@ -216,7 +216,7 @@ Middle managers are often the hardest to convince - they're measured on short-te
 
 ### Technical Lead Level
 
-Tech leads are often your strongest allies - they feel the pain most acutely.
+Tech leads are often your strongest allies: they feel the pain most acutely.
 
 **Key messages**:
 - FOE gives you tools to solve problems you've been fighting
@@ -238,7 +238,7 @@ Tech leads are often your strongest allies - they feel the pain most acutely.
 
 ### Developer Level
 
-Developers are the ultimate test - if practices don't work for them, they won't stick.
+Developers are the ultimate test: if practices don't work for them, they won't stick.
 
 **Key messages**:
 - This will make your daily work better
@@ -339,7 +339,7 @@ Use this checklist to assess your organizational engagement:
 
 ## Sustaining Engagement
 
-Engagement isn't a one-time achievement - it requires ongoing attention:
+Engagement isn't a one-time achievement; it requires ongoing attention:
 
 - **Regular communication**: Keep stakeholders informed of progress and challenges
 - **Visible metrics**: Dashboard showing health and improvement
@@ -349,11 +349,11 @@ Engagement isn't a one-time achievement - it requires ongoing attention:
 - **Leadership reinforcement**: Regular visible support from sponsors
 
 :::tip
-The goal is to make FOE "how we work here" - not a special initiative, but the normal way of doing things.
+The goal is to make FOE "how we work here," not a special initiative, but the normal way of doing things.
 :::
 
 ## Conclusion
 
-Organizational engagement is the difference between FOE as a successful transformation and FOE as another failed initiative. The five operating constraints - protected time, organizational priority, clear ownership, light governance, and DevX - are non-negotiable. Without them, even the best technical practices will wither.
+Organizational engagement is the difference between FOE as a successful transformation and FOE as another failed initiative. The five operating constraints, protected time, organizational priority, clear ownership, light governance, and DevX, are non-negotiable. Without them, even the best technical practices will wither.
 
 Invest in engagement. Build your coalition. Communicate relentlessly. And remember: you're changing culture, not just process. That takes time, persistence, and patience.

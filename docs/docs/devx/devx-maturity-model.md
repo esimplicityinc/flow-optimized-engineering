@@ -26,10 +26,10 @@ Each dimension is assessed on a four-level scale:
 
 | Level | Description | Evidence |
 |-------|-------------|----------|
-| **1 - Ad Hoc** | No conventions; every project is unique | Wide variation in project structure; constant questions about "how to do X" |
-| **2 - Defined** | Conventions documented but not enforced | Style guide exists; developers sometimes follow it |
-| **3 - Measured** | Automated enforcement; violations blocked | Linters in CI; consistent structure across projects |
-| **4 - Optimized** | Self-service scaffolding; conventions evolve based on feedback | CLI tools generate compliant projects; regular convention reviews |
+| **1: Ad Hoc** | No conventions; every project is unique | Wide variation in project structure; constant questions about "how to do X" |
+| **2: Defined** | Conventions documented but not enforced | Style guide exists; developers sometimes follow it |
+| **3: Measured** | Automated enforcement; violations blocked | Linters in CI; consistent structure across projects |
+| **4: Optimized** | Self-service scaffolding; conventions evolve based on feedback | CLI tools generate compliant projects; regular convention reviews |
 
 **Assessment Questions:**
 - Can a new developer find where things are without asking?
@@ -40,10 +40,10 @@ Each dimension is assessed on a four-level scale:
 
 | Level | Description | Evidence |
 |-------|-------------|----------|
-| **1 - Ad Hoc** | Knowledge lives in people's heads | "Ask Sarah, she knows"; onboarding takes months |
-| **2 - Defined** | Some documentation exists | README files; scattered wiki pages |
-| **3 - Measured** | Systematic documentation; ADRs for decisions | All services documented; architecture decisions recorded |
-| **4 - Optimized** | Self-updating docs; knowledge is discoverable | Docs generated from code; search across all knowledge |
+| **1: Ad Hoc** | Knowledge lives in people's heads | "Ask Sarah, she knows"; onboarding takes months |
+| **2: Defined** | Some documentation exists | README files; scattered wiki pages |
+| **3: Measured** | Systematic documentation; ADRs for decisions | All services documented; architecture decisions recorded |
+| **4: Optimized** | Self-updating docs; knowledge is discoverable | Docs generated from code; search across all knowledge |
 
 **Assessment Questions:**
 - What happens when a key person is unavailable?
@@ -54,10 +54,10 @@ Each dimension is assessed on a four-level scale:
 
 | Level | Description | Evidence |
 |-------|-------------|----------|
-| **1 - Ad Hoc** | Onboarding is ad hoc; takes weeks | New hires shadow seniors for extended periods |
-| **2 - Defined** | Onboarding checklist exists | Document listing setup steps; still requires help |
-| **3 - Measured** | Mostly automated setup; tracked time-to-productivity | One-command setup; time-to-first-commit measured |
-| **4 - Optimized** | Self-service onboarding; measured and optimized | New developer productive in < 1 day; friction points identified and fixed |
+| **1: Ad Hoc** | Onboarding is ad hoc; takes weeks | New hires shadow seniors for extended periods |
+| **2: Defined** | Onboarding checklist exists | Document listing setup steps; still requires help |
+| **3: Measured** | Mostly automated setup; tracked time-to-productivity | One-command setup; time-to-first-commit measured |
+| **4: Optimized** | Self-service onboarding; measured and optimized | New developer productive in < 1 day; friction points identified and fixed |
 
 **Assessment Questions:**
 - How long from laptop arrival to first production commit?
@@ -70,10 +70,10 @@ Each dimension is assessed on a four-level scale:
 
 | Level | Description | Evidence |
 |-------|-------------|----------|
-| **1 - Ad Hoc** | Slow, unreliable builds; tests often skipped | Builds take > 30 minutes; "I'll run tests later" |
-| **2 - Defined** | CI exists but is slow or flaky | Tests run but take > 15 minutes; flaky tests ignored |
-| **3 - Measured** | Fast, reliable CI; flakiness tracked | CI < 10 minutes; flaky tests < 1%; metrics dashboards |
-| **4 - Optimized** | Incremental builds; instant local feedback | Watch mode; affected-only testing; < 5 minute CI |
+| **1: Ad Hoc** | Slow, unreliable builds; tests often skipped | Builds take > 30 minutes; "I'll run tests later" |
+| **2: Defined** | CI exists but is slow or flaky | Tests run but take > 15 minutes; flaky tests ignored |
+| **3: Measured** | Fast, reliable CI; flakiness tracked | CI < 10 minutes; flaky tests < 1%; metrics dashboards |
+| **4: Optimized** | Incremental builds; instant local feedback | Watch mode; affected-only testing; < 5 minute CI |
 
 **Assessment Questions:**
 - How long does CI take on a typical PR?
@@ -84,10 +84,10 @@ Each dimension is assessed on a four-level scale:
 
 | Level | Description | Evidence |
 |-------|-------------|----------|
-| **1 - Ad Hoc** | Manual deployment; runbooks followed inconsistently | "Follow the deployment doc"; frequent deployment failures |
-| **2 - Defined** | Semi-automated; manual gates | Scripted deployment; requires manual approval/verification |
-| **3 - Measured** | Fully automated; deployment frequency tracked | Push-to-deploy; deployment metrics dashboard |
-| **4 - Optimized** | Continuous deployment; automatic rollback | Multiple deploys per day; automatic canary; auto-rollback |
+| **1: Ad Hoc** | Manual deployment; runbooks followed inconsistently | "Follow the deployment doc"; frequent deployment failures |
+| **2: Defined** | Semi-automated; manual gates | Scripted deployment; requires manual approval/verification |
+| **3: Measured** | Fully automated; deployment frequency tracked | Push-to-deploy; deployment metrics dashboard |
+| **4: Optimized** | Continuous deployment; automatic rollback | Multiple deploys per day; automatic canary; auto-rollback |
 
 **Assessment Questions:**
 - How many manual steps between merge and production?
@@ -98,10 +98,10 @@ Each dimension is assessed on a four-level scale:
 
 | Level | Description | Evidence |
 |-------|-------------|----------|
-| **1 - Ad Hoc** | Limited logging; debugging requires access to production | "Can you check the logs?"; SSH to debug |
-| **2 - Defined** | Centralized logs; basic metrics | Log aggregation; some dashboards |
-| **3 - Measured** | Structured logging; comprehensive metrics; alerting | Correlation IDs; SLO dashboards; actionable alerts |
-| **4 - Optimized** | Distributed tracing; proactive anomaly detection | Request tracing; ML-based alerting; self-healing |
+| **1: Ad Hoc** | Limited logging; debugging requires access to production | "Can you check the logs?"; SSH to debug |
+| **2: Defined** | Centralized logs; basic metrics | Log aggregation; some dashboards |
+| **3: Measured** | Structured logging; comprehensive metrics; alerting | Correlation IDs; SLO dashboards; actionable alerts |
+| **4: Optimized** | Distributed tracing; proactive anomaly detection | Request tracing; ML-based alerting; self-healing |
 
 **Assessment Questions:**
 - How long to identify the cause of a production issue?
@@ -114,10 +114,10 @@ Each dimension is assessed on a four-level scale:
 
 | Level | Description | Evidence |
 |-------|-------------|----------|
-| **1 - Ad Hoc** | Quality depends on discipline; often skipped | "Remember to run tests"; quality varies by developer |
-| **2 - Defined** | Quality checks exist but are bypassable | CI runs tests; but can merge with failures |
-| **3 - Measured** | Mandatory gates; coverage requirements | Cannot merge without passing checks; coverage tracked |
-| **4 - Optimized** | Comprehensive gates; continuous improvement | Security, performance, accessibility checks; gates evolve |
+| **1: Ad Hoc** | Quality depends on discipline; often skipped | "Remember to run tests"; quality varies by developer |
+| **2: Defined** | Quality checks exist but are bypassable | CI runs tests; but can merge with failures |
+| **3: Measured** | Mandatory gates; coverage requirements | Cannot merge without passing checks; coverage tracked |
+| **4: Optimized** | Comprehensive gates; continuous improvement | Security, performance, accessibility checks; gates evolve |
 
 **Assessment Questions:**
 - Is it possible to merge code that fails quality checks?
@@ -128,10 +128,10 @@ Each dimension is assessed on a four-level scale:
 
 | Level | Description | Evidence |
 |-------|-------------|----------|
-| **1 - Ad Hoc** | "Works on my machine"; environment setup is painful | Hours to set up development; frequent environment issues |
-| **2 - Defined** | Documented setup; some containerization | Setup docs exist; Docker used inconsistently |
-| **3 - Measured** | One-command setup; environment parity | All developers use identical environments; < 30 min setup |
-| **4 - Optimized** | Instant environments; preview environments for PRs | Cloud dev environments; automatic PR previews |
+| **1: Ad Hoc** | "Works on my machine"; environment setup is painful | Hours to set up development; frequent environment issues |
+| **2: Defined** | Documented setup; some containerization | Setup docs exist; Docker used inconsistently |
+| **3: Measured** | One-command setup; environment parity | All developers use identical environments; < 30 min setup |
+| **4: Optimized** | Instant environments; preview environments for PRs | Cloud dev environments; automatic PR previews |
 
 **Assessment Questions:**
 - How long to set up a development environment?
@@ -142,10 +142,10 @@ Each dimension is assessed on a four-level scale:
 
 | Level | Description | Evidence |
 |-------|-------------|----------|
-| **1 - Ad Hoc** | Security is reactive; handled after incidents | Security reviews happen after breaches |
-| **2 - Defined** | Security checklist; periodic reviews | Security review before major releases |
-| **3 - Measured** | Automated scanning in CI; security training | SAST/DAST in pipeline; all devs trained |
-| **4 - Optimized** | Security by default; zero-trust architecture | Secure defaults in all templates; automatic credential rotation |
+| **1: Ad Hoc** | Security is reactive; handled after incidents | Security reviews happen after breaches |
+| **2: Defined** | Security checklist; periodic reviews | Security review before major releases |
+| **3: Measured** | Automated scanning in CI; security training | SAST/DAST in pipeline; all devs trained |
+| **4: Optimized** | Security by default; zero-trust architecture | Secure defaults in all templates; automatic credential rotation |
 
 **Assessment Questions:**
 - When is security testing performed?
@@ -285,7 +285,7 @@ DevX debt compounds. Deferring DevX investment slows delivery, which creates mor
 
 ### "We bought a platform, so DevX is solved"
 
-Tools don't create DevX - adoption and integration do. A platform nobody uses provides no value.
+Tools don't create DevX; adoption and integration do. A platform nobody uses provides no value.
 
 **Solution:** Measure adoption and satisfaction, not just deployment.
 

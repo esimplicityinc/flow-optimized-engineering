@@ -5,7 +5,7 @@ title: "Technology Reference"
 
 # Technology Reference
 
-Technologies that support Flow Optimized Engineering principles. This reference is evaluative, not prescriptive - it explains how technologies relate to FOE principles, not which specific products to choose.
+Technologies that support Flow Optimized Engineering principles. This reference is evaluative, not prescriptive: it explains how technologies relate to FOE principles, not which specific products to choose.
 
 **Important**: Technology serves flow. If a technology doesn't improve your ability to move from idea to learning, it's not worth adopting regardless of its features.
 
@@ -19,7 +19,7 @@ Before diving into categories, understand how to evaluate any technology through
 
 1. **Does it reduce friction in the flow?** Technology should make the path from change to verification to release smoother, not add ceremony.
 
-2. **Does it generate evidence automatically?** Good technology creates receipts - audit logs, metrics, traces - as byproducts of operation.
+2. **Does it generate evidence automatically?** Good technology creates receipts, audit logs, metrics, traces, as byproducts of operation.
 
 3. **Does it enable rather than enforce?** Guardrails are better than gates. Technology should make the right thing easy, not just block the wrong thing.
 
@@ -197,7 +197,7 @@ Observability is foundational to FOE. You cannot optimize what you cannot measur
 
 - Start with OpenTelemetry for instrumentation to avoid vendor lock-in
 - Prefer unified platforms that correlate pillars over point solutions
-- Budget for observability - it's not optional overhead
+- Budget for observability: it's not optional overhead
 - Establish observability standards before they're needed in incidents
 
 ---
@@ -400,6 +400,6 @@ Technology choices aren't permanent. Plan for:
 
 ## See Also
 
-- [Pattern Library](/docs/reference/pattern-library) - Patterns these technologies enable
-- [Transformation Model](/docs/transformation-model/overview) - When to adopt what
-- [Glossary](/docs/reference/glossary) - Term definitions
+- [Pattern Library](/docs/reference/pattern-library): Patterns these technologies enable
+- [Transformation Model](/docs/transformation-model/overview): When to adopt what
+- [Glossary](/docs/reference/glossary): Term definitions

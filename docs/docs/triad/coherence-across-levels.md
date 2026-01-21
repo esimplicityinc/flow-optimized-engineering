@@ -7,7 +7,7 @@ title: "Coherence Across Levels"
 
 FOE transformation must land coherently at three organizational levels: **Executive Leadership (ELT)**, **Government Customers**, and **Engineers**. Each group needs FOE translated into their language, addressing their concerns, and connecting to what they value.
 
-Say the same thing three different ways - not three different things.
+Say the same thing three different ways, not three different things.
 
 ## Why Coherence Matters
 
@@ -154,11 +154,11 @@ Government programs involve multiple stakeholders with different concerns:
 
 **Achieving alignment:**
 
-1. **Map stakeholder concerns** - Understand what each cares about
-2. **Translate consistently** - Same FOE story, different emphasis
-3. **Provide appropriate visibility** - Different dashboards for different audiences
-4. **Anticipate objections** - Know what will concern each stakeholder
-5. **Build relationships** - Technical credibility enables trust
+1. **Map stakeholder concerns:** Understand what each cares about
+2. **Translate consistently:** Same FOE story, different emphasis
+3. **Provide appropriate visibility:** Different dashboards for different audiences
+4. **Anticipate objections:** Know what will concern each stakeholder
+5. **Build relationships:** Technical credibility enables trust
 
 **Common misalignment patterns:**
 
@@ -269,11 +269,11 @@ Signs that messaging isn't landing coherently:
 
 When coherence breaks down:
 
-1. **Identify the gap** - Where are messages diverging?
-2. **Trace to source** - What caused the divergence?
-3. **Realign at top** - Get leadership agreement on message
-4. **Cascade consistently** - Roll out aligned message
-5. **Verify landing** - Check understanding at each level
+1. **Identify the gap:** Where are messages diverging?
+2. **Trace to source:** What caused the divergence?
+3. **Realign at top:** Get leadership agreement on message
+4. **Cascade consistently:** Roll out aligned message
+5. **Verify landing:** Check understanding at each level
 
 ## Summary: Same Truth, Different Languages
 

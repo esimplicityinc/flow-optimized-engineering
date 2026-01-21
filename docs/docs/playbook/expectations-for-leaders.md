@@ -18,7 +18,7 @@ title: "What We Expect From Leaders"
 ### Protect teams from surprise deadlines
 
 - Commitments made without team input aren't commitments
-- Buffer time is not laziness - it's risk management
+- Buffer time is not laziness, it's risk management
 - Urgency should be explained, not just asserted
 
 ### Reward clarity over heroics

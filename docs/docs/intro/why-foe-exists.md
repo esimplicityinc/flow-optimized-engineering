@@ -13,13 +13,13 @@ This is not intuitive. We associate speed with recklessness, with cutting corner
 
 > **The faster you go, the more you need to know.**
 
-A car at 25 mph can rely on human reaction time. A car at 150 mph cannot. The difference isn't courage or skill - it's instrumentation. High-speed systems require gauges, telemetry, and feedback loops that operate faster than human perception.
+A car at 25 mph can rely on human reaction time. A car at 150 mph cannot. The difference isn't courage or skill; it's instrumentation. High-speed systems require gauges, telemetry, and feedback loops that operate faster than human perception.
 
 Software delivery is no different. Teams that move slowly can rely on manual review, quarterly planning, and heroic debugging sessions. Teams that deploy multiple times per day cannot. They need automated verification, continuous monitoring, and fast rollback mechanisms.
 
 ## The Gauges Metaphor
 
-Imagine driving a race car with a taped-over dashboard. You can floor the accelerator - but you cannot sustain high speed. You will either crash or, more likely, slow down out of fear.
+Imagine driving a race car with a taped-over dashboard. You can floor the accelerator, but you cannot sustain high speed. You will either crash or, more likely, slow down out of fear.
 
 Now imagine the same car with a full instrument panel: speed, RPM, engine temperature, oil pressure, tire wear. You can push harder because you can see the consequences of your decisions in real time.
 
@@ -78,7 +78,7 @@ This evidence trail has value beyond operational safety:
 :::tip[GovCon Insight]
 Government customers need predictable, explainable delivery. They need to answer: "How do we know this system works? How do we know changes were tested? How do we know the team followed the process?"
 
-FOE's instrumentation produces this evidence automatically. Every deployment generates a verifiable record: what was deployed, what tests passed, what approvals were obtained, what monitoring confirmed. This is not extra work - it is a byproduct of how FOE operates.
+FOE's instrumentation produces this evidence automatically. Every deployment generates a verifiable record: what was deployed, what tests passed, what approvals were obtained, what monitoring confirmed. This is not extra work; it is a byproduct of how FOE operates.
 
 The contractor who can show their work earns trust. The contractor who asks customers to "just trust us" does not.
 :::
@@ -92,4 +92,4 @@ Organizations that reject instrumentation don't achieve speed. They achieve the 
 - Developer burnout from heroic effort to maintain unstable systems
 - Customer distrust from repeated delivery failures
 
-FOE exists because the alternative - uninstrumented speed - is not actually fast. It is expensive, exhausting, and unsustainable.
+FOE exists because the alternative (uninstrumented speed) is not actually fast. It is expensive, exhausting, and unsustainable.

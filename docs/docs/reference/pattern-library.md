@@ -169,18 +169,10 @@ These patterns help you learn from outcomes and improve over time.
 4. Run full pyramid on every commit
 
 **Example**:
-```
-Test Pyramid Target:
-━━━━━━━━━━━━━━━━━━━━━
-│       E2E        │ ~10% - Critical user journeys
-├──────────────────┤
-│   Integration    │ ~20% - Service boundaries
-├──────────────────┤
-│                  │
-│      Unit        │ ~70% - Business logic
-│                  │
-└──────────────────┘
-```
+
+![Test Pyramid](/img/illustrations/test-pyramid.svg)
+
+*Many fast unit tests at the base, fewer integration tests in the middle, minimal E2E tests at the top.*
 
 **Related Patterns**: Test in Production, Mutation Testing
 
@@ -235,7 +227,7 @@ Month 12: On-demand deploys (500+/year)
 Database connection pool exhausted due to connection leak.
 
 ### Not: Who's Fault
-"Developer X wrote buggy code" - Not useful
+"Developer X wrote buggy code": Not useful
 
 ### Instead: System Questions
 - Why didn't connection monitoring alert us?
@@ -437,18 +429,10 @@ rollout:
 4. Monitor and alert on long-lived branches
 
 **Example**:
-```
-Good:
-  main ──●──●──●──●──●──●──●──●── (frequent, small commits)
-        │  │  │  │  │  │  │  │
-        └──┘  └──┘  └──┘  └──┘
 
-Bad:
-  main ──────────────────────●── (one big merge)
-        │                    │
-        └────────────────────┘
-         (weeks of divergence)
-```
+![Trunk-Based Development](/img/illustrations/trunk-based-development.svg)
+
+*Good: frequent small merges. Bad: long-lived branches with painful integration.*
 
 **Related Patterns**: Feature Flags, Continuous Integration
 
@@ -459,44 +443,38 @@ Bad:
 Patterns work together. Common combinations:
 
 ### The Deployment Confidence Stack
-```
-Trunk-Based Development
-        ↓
-Continuous Testing Pyramid
-        ↓
-Immutable Artifacts
-        ↓
-Progressive Rollout
-        ↓
-Automated Rollback
+
+```mermaid
+flowchart TB
+    A[Trunk-Based Development] --> B[Continuous Testing Pyramid]
+    B --> C[Immutable Artifacts]
+    C --> D[Progressive Rollout]
+    D --> E[Automated Rollback]
 ```
 
 ### The Observability Foundation
-```
-Observability by Default
-        ↓
-Service Health Dashboard
-        ↓
-Dependency Mapping
-        ↓
-Automated Alerting
+
+```mermaid
+flowchart TB
+    A[Observability by Default] --> B[Service Health Dashboard]
+    B --> C[Dependency Mapping]
+    C --> D[Automated Alerting]
 ```
 
 ### The Learning Loop
-```
-Metric-Driven Improvement
-        ↓
-Blameless Post-Mortems
-        ↓
-Decision Records
-        ↓
-Knowledge Sharing
+
+```mermaid
+flowchart TB
+    A[Metric-Driven Improvement] --> B[Blameless Post-Mortems]
+    B --> C[Decision Records]
+    C --> D[Knowledge Sharing]
+    D -.-> A
 ```
 
 ---
 
 ## See Also
 
-- [Anti-Patterns](/docs/reference/anti-patterns) - What to avoid
-- [Technology Reference](/docs/reference/technology-reference) - Tools that support these patterns
-- [Transformation Model](/docs/transformation-model/overview) - When to adopt each pattern
+- [Anti-Patterns](/docs/reference/anti-patterns): What to avoid
+- [Technology Reference](/docs/reference/technology-reference): Tools that support these patterns
+- [Transformation Model](/docs/transformation-model/overview): When to adopt each pattern

@@ -5,20 +5,20 @@ title: "Optimize for Fast Feedback"
 
 # Optimize for Fast Feedback
 
-Fast feedback isn't about shipping faster. It's about *learning* faster - closing the gap between making a decision and discovering whether that decision was right.
+Fast feedback isn't about shipping faster. It's about *learning* faster: closing the gap between making a decision and discovering whether that decision was right.
 
 > Every code change is a claim about reality. Fast feedback creates selection environments where wrong claims get corrected before they compound.
 
 ## Why This Isn't About Speed
 
-The agile movement made "velocity" a metric, and something got lost. Teams optimized for throughput - stories completed, features shipped, points burned down - while missing the actual goal: accurate beliefs about what works.
+The agile movement made "velocity" a metric, and something got lost. Teams optimized for throughput, stories completed, features shipped, points burned down, while missing the actual goal: accurate beliefs about what works.
 
 Speed of delivery and speed of learning are different things:
 - You can ship fast while learning nothing (features nobody uses)
 - You can ship slow while learning everything (spikes that inform architecture)
 - You can ship fast *and* learn fast (the actual goal)
 
-FOE optimizes for *calibration* - the alignment between what you believe and what's true. Fast feedback is the mechanism that produces calibration.
+FOE optimizes for *calibration*: the alignment between what you believe and what's true. Fast feedback is the mechanism that produces calibration.
 
 ## Prediction Error and Belief Formation
 
@@ -37,7 +37,7 @@ When feedback is fast:
 - Teams develop accurate intuitions
 
 :::note
-Long feedback loops don't just delay learning - they corrupt it. By the time evidence arrives, the original decision context is forgotten, the people involved have moved on, and the connection between cause and effect is obscured.
+Long feedback loops don't just delay learning; they corrupt it. By the time evidence arrives, the original decision context is forgotten, the people involved have moved on, and the connection between cause and effect is obscured.
 :::
 
 ## What FOE Actually Optimizes
@@ -55,7 +55,7 @@ How quickly can you discover you're wrong?
 | "Does this solve the problem?" | Weeks to months | Days (short iterations) |
 | "Did we build the right thing?" | Months to years | Weeks (user exposure) |
 
-The goal isn't instantaneous feedback everywhere - some things take time to evaluate. The goal is removing *unnecessary* delay. If you could know faster and you don't, you're accumulating belief debt.
+The goal isn't instantaneous feedback everywhere; some things take time to evaluate. The goal is removing *unnecessary* delay. If you could know faster and you don't, you're accumulating belief debt.
 
 ### 2. Visibility of Consequences
 
@@ -95,12 +95,12 @@ In cultures where mistakes are punished, fast feedback is threatening. Teams wil
 Phase 3 (optimization) requires the confidence that Phase 4 (flow) provides. You can't learn from failure if failure is unsafe. This is why the three principles must develop together.
 
 :::info
-Fast feedback in a low-confidence environment doesn't produce learning - it produces anxiety. Teams need to know that discovering "we were wrong" is success, not failure.
+Fast feedback in a low-confidence environment doesn't produce learning; it produces anxiety. Teams need to know that discovering "we were wrong" is success, not failure.
 :::
 
 ## The Hidden Dimension: Epistemic Hygiene
 
-The visible optimization is feedback speed. The hidden optimization is **epistemic hygiene** - the cleanliness of belief formation processes.
+The visible optimization is feedback speed. The hidden optimization is **epistemic hygiene**: the cleanliness of belief formation processes.
 
 > Epistemic hygiene protects against believing things for bad reasons.
 
@@ -136,24 +136,24 @@ The DoD's shift toward DevSecOps is explicitly about feedback speed. Contractors
 
 ### For Developers
 
-1. **Write tests that fail fast**  -  A test suite that takes an hour to run isn't feedback; it's a queue
-2. **Deploy to learn, not just to ship**  -  Every deployment is an experiment
-3. **Instrument for understanding**  -  Metrics should answer questions, not just fill dashboards
-4. **Shorten the loop**  -  Whatever your current feedback cycle, ask how to halve it
+1. **Write tests that fail fast:** A test suite that takes an hour to run isn't feedback; it's a queue
+2. **Deploy to learn, not just to ship:** Every deployment is an experiment
+3. **Instrument for understanding:** Metrics should answer questions, not just fill dashboards
+4. **Shorten the loop:** Whatever your current feedback cycle, ask how to halve it
 
 ### For Tech Leads
 
-1. **Protect feedback time**  -  Test infrastructure is production infrastructure
-2. **Create safe failure modes**  -  Feature flags, canaries, rollback capabilities
-3. **Review feedback quality**  -  Are we learning or just measuring?
-4. **Model epistemic humility**  -  Say "I was wrong" publicly and often
+1. **Protect feedback time:** Test infrastructure is production infrastructure
+2. **Create safe failure modes:** Feature flags, canaries, rollback capabilities
+3. **Review feedback quality:** Are we learning or just measuring?
+4. **Model epistemic humility:** Say "I was wrong" publicly and often
 
 ### For Product Owners
 
-1. **Design experiments, not features**  -  Every release should have a hypothesis
-2. **Define success before building**  -  If you can't measure it, you can't learn from it
-3. **Schedule reflection**  -  Learning doesn't happen automatically; it requires deliberate review
-4. **Kill your darlings**  -  Fast feedback is useless if you won't act on it
+1. **Design experiments, not features:** Every release should have a hypothesis
+2. **Define success before building:** If you can't measure it, you can't learn from it
+3. **Schedule reflection:** Learning doesn't happen automatically; it requires deliberate review
+4. **Kill your darlings:** Fast feedback is useless if you won't act on it
 
 ## The Feedback Stack
 
@@ -169,7 +169,7 @@ Different feedback loops serve different purposes:
 | User feedback | Does this solve the problem? | Usage metrics, interviews | Days to weeks |
 | Business metrics | Does this create value? | Outcome measurement | Weeks to months |
 
-FOE optimizes the entire stack, not just the technical layers. Many teams have fast CI/CD but slow user feedback - they ship quickly but learn slowly.
+FOE optimizes the entire stack, not just the technical layers. Many teams have fast CI/CD but slow user feedback; they ship quickly but learn slowly.
 
 ## Warning Signs
 

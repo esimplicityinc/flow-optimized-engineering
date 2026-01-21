@@ -5,7 +5,7 @@ title: "Technology Changes"
 
 # Technology Changes
 
-Technology is the most visible part of FOE transformation - and the most dangerous to lead with. The right technology enables the disciplines; the wrong approach turns technology into expensive shelfware. This section covers key technologies, why they matter, and how to adopt them in service of flow.
+Technology is the most visible part of FOE transformation, and the most dangerous to lead with. The right technology enables the disciplines; the wrong approach turns technology into expensive shelfware. This section covers key technologies, why they matter, and how to adopt them in service of flow.
 
 ## The Cardinal Rule
 
@@ -22,11 +22,11 @@ Every technology decision should answer: "What discipline does this enable, and 
 **What it is:** A platform for running containerized workloads that handles scheduling, scaling, networking, and lifecycle management.
 
 **Why it matters for FOE:**
-- **Consistency** - Same deployment artifact runs everywhere
-- **Declarative state** - Define what you want, let Kubernetes achieve it
-- **Self-healing** - Automatic restart, rescheduling, replacement
-- **Scaling** - Horizontal scaling based on demand
-- **Resource efficiency** - Better utilization than dedicated VMs
+- **Consistency:** Same deployment artifact runs everywhere
+- **Declarative state:** Define what you want, let Kubernetes achieve it
+- **Self-healing:** Automatic restart, rescheduling, replacement
+- **Scaling:** Horizontal scaling based on demand
+- **Resource efficiency:** Better utilization than dedicated VMs
 
 **Enables these disciplines:**
 - Deployment automation (consistent deployment target)
@@ -40,11 +40,11 @@ Every technology decision should answer: "What discipline does this enable, and 
 **What it is:** A controller that watches Git repositories and reconciles Kubernetes cluster state to match what's declared in Git.
 
 **Why it matters for FOE:**
-- **Git as source of truth** - All state is version controlled
-- **Automated sync** - Changes in Git automatically apply
-- **Audit trail** - Git history shows who changed what when
-- **Drift detection** - Alerts when actual state differs from declared
-- **Rollback** - Revert Git, revert the system
+- **Git as source of truth:** All state is version controlled
+- **Automated sync:** Changes in Git automatically apply
+- **Audit trail:** Git history shows who changed what when
+- **Drift detection:** Alerts when actual state differs from declared
+- **Rollback:** Revert Git, revert the system
 
 **Enables these disciplines:**
 - Change management (every change is a commit)
@@ -53,9 +53,17 @@ Every technology decision should answer: "What discipline does this enable, and 
 - Compliance (complete audit trail)
 
 **How ArgoCD enables flow:**
-```
-Developer commits → PR review → Merge to main → ArgoCD detects → 
-Sync to cluster → Health check → Done (or auto-rollback)
+
+```mermaid
+flowchart LR
+    A[Developer commits] --> B[PR review]
+    B --> C[Merge to main]
+    C --> D[ArgoCD detects]
+    D --> E[Sync to cluster]
+    E --> F[Health check]
+    F --> G{Healthy?}
+    G -->|Yes| H[Done]
+    G -->|No| I[Auto-rollback]
 ```
 
 No manual deployment steps. No "who deployed what" confusion.
@@ -65,10 +73,10 @@ No manual deployment steps. No "who deployed what" confusion.
 **What it is:** A standard for collecting telemetry data (traces, metrics, logs) from applications and infrastructure.
 
 **Why it matters for FOE:**
-- **Vendor neutral** - Not locked to one observability platform
-- **Correlation** - Traces connect logs and metrics
-- **Context propagation** - Follow requests across services
-- **Standardization** - Consistent instrumentation across languages
+- **Vendor neutral:** Not locked to one observability platform
+- **Correlation:** Traces connect logs and metrics
+- **Context propagation:** Follow requests across services
+- **Standardization:** Consistent instrumentation across languages
 
 **Enables these disciplines:**
 - Incident response (faster root cause identification)
@@ -89,10 +97,10 @@ No manual deployment steps. No "who deployed what" confusion.
 **What it is:** A package manager for Kubernetes that templates and manages application deployments.
 
 **Why it matters for FOE:**
-- **Reusable templates** - Don't repeat Kubernetes manifests
-- **Configuration management** - Values files for different environments
-- **Versioning** - Chart versions track deployment configurations
-- **Ecosystem** - Large library of pre-built charts
+- **Reusable templates:** Don't repeat Kubernetes manifests
+- **Configuration management:** Values files for different environments
+- **Versioning:** Chart versions track deployment configurations
+- **Ecosystem:** Large library of pre-built charts
 
 **Enables these disciplines:**
 - Consistency (same chart, different values)
@@ -109,10 +117,10 @@ ArgoCD can deploy Helm charts directly, combining Helm's templating with ArgoCD'
 **Common implementations:** Istio, Linkerd, Cilium Service Mesh
 
 **Why it matters for FOE:**
-- **mTLS everywhere** - Encrypted service communication by default
-- **Traffic control** - Canary deployments, traffic splitting
-- **Observability** - Request metrics without code changes
-- **Resilience** - Retries, timeouts, circuit breakers
+- **mTLS everywhere:** Encrypted service communication by default
+- **Traffic control:** Canary deployments, traffic splitting
+- **Observability:** Request metrics without code changes
+- **Resilience:** Retries, timeouts, circuit breakers
 
 **Enables these disciplines:**
 - Security (encryption without app changes)
@@ -129,10 +137,10 @@ ArgoCD can deploy Helm charts directly, combining Helm's templating with ArgoCD'
 **Common implementations:** Kong, Ambassador, AWS API Gateway, Apigee
 
 **Why it matters for FOE:**
-- **Single entry point** - Consistent external interface
-- **Authentication** - Handle auth in one place
-- **Rate limiting** - Protect services from overload
-- **Routing** - Direct traffic without exposing internal structure
+- **Single entry point:** Consistent external interface
+- **Authentication:** Handle auth in one place
+- **Rate limiting:** Protect services from overload
+- **Routing:** Direct traffic without exposing internal structure
 
 **Enables these disciplines:**
 - Security (authentication, authorization at edge)
@@ -144,10 +152,10 @@ ArgoCD can deploy Helm charts directly, combining Helm's templating with ArgoCD'
 **What it is:** A general-purpose policy engine that makes policy decisions based on structured data.
 
 **Why it matters for FOE:**
-- **Policy as Code** - Policies are versioned, tested, reviewed
-- **Decoupled decisions** - Separate policy from enforcement point
-- **Consistent enforcement** - Same policy engine everywhere
-- **Audit capability** - Policy decisions are logged
+- **Policy as Code:** Policies are versioned, tested, reviewed
+- **Decoupled decisions:** Separate policy from enforcement point
+- **Consistent enforcement:** Same policy engine everywhere
+- **Audit capability:** Policy decisions are logged
 
 **Where OPA enforces:**
 
@@ -268,54 +276,19 @@ When writing technical volumes:
 
 These technologies work together:
 
-```
-                    ┌─────────────────────────────────────────┐
-                    │              External Users              │
-                    └─────────────────────────────────────────┘
-                                       │
-                                       ▼
-                    ┌─────────────────────────────────────────┐
-                    │     API Gateway (auth, rate limiting)    │
-                    └─────────────────────────────────────────┘
-                                       │
-                                       ▼
-                    ┌─────────────────────────────────────────┐
-                    │     Service Mesh (mTLS, observability)   │
-                    │  ┌─────────┐  ┌─────────┐  ┌─────────┐  │
-                    │  │Service A│  │Service B│  │Service C│  │
-                    │  └─────────┘  └─────────┘  └─────────┘  │
-                    └─────────────────────────────────────────┘
-                                       │
-                                       ▼
-                    ┌─────────────────────────────────────────┐
-                    │  Kubernetes (orchestration, scheduling)  │
-                    └─────────────────────────────────────────┘
-                         ▲                          ▲
-                         │                          │
-          ┌──────────────┴──────┐      ┌───────────┴──────────┐
-          │                     │      │                      │
-   ┌──────┴──────┐       ┌──────┴──────┴┐       ┌─────────────┴─┐
-   │   ArgoCD    │       │     OPA       │       │ OpenTelemetry │
-   │   (GitOps)  │       │   (Policy)    │       │ (Observability)│
-   └──────┬──────┘       └───────────────┘       └───────────────┘
-          │
-          ▼
-   ┌─────────────┐
-   │     Git     │
-   │  (Helm +    │
-   │   Values)   │
-   └─────────────┘
-```
+![Technology Stack Integration](/img/illustrations/technology-stack-integration.svg)
+
+*The FOE technology stack layers together, with each layer serving a specific purpose in enabling flow.*
 
 ## Technology Selection Checklist
 
 Before adopting new technology:
 
-- [ ] **Problem defined** - What specific problem does this solve?
-- [ ] **Alternatives evaluated** - What other options exist? Why is this better?
-- [ ] **Total cost understood** - Acquisition, implementation, operation, training?
-- [ ] **Expertise available** - Do we have/can we get the skills?
-- [ ] **Exit strategy** - How would we migrate away if needed?
-- [ ] **Compliance considered** - Does this meet our regulatory requirements?
-- [ ] **Integration mapped** - How does this fit with existing technology?
-- [ ] **Operational readiness** - Can we support this in production?
+- [ ] **Problem defined:** What specific problem does this solve?
+- [ ] **Alternatives evaluated:** What other options exist? Why is this better?
+- [ ] **Total cost understood:** Acquisition, implementation, operation, training?
+- [ ] **Expertise available:** Do we have/can we get the skills?
+- [ ] **Exit strategy:** How would we migrate away if needed?
+- [ ] **Compliance considered:** Does this meet our regulatory requirements?
+- [ ] **Integration mapped:** How does this fit with existing technology?
+- [ ] **Operational readiness:** Can we support this in production?

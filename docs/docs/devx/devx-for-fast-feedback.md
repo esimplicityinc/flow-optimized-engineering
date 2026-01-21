@@ -9,7 +9,7 @@ Fast feedback is the mechanism by which teams learn. The faster developers learn
 
 DevX for Fast Feedback systematically shortens the path from change to insight.
 
-> **The goal:** Developers know within minutes - not hours or days - whether their change worked, what it broke, and whether the system is safe.
+> **The goal:** Developers know within minutes, not hours or days, whether their change worked, what it broke, and whether the system is safe.
 
 ## The Four Questions
 
@@ -316,7 +316,7 @@ Consider two scenarios:
 7. Automatic monitoring and verification (1h)
 8. **Feedback: "It works" or "It failed"** (1h total)
 
-The 26x speedup isn't just convenience - it's a fundamental change in how fast the team learns.
+The 26x speedup isn't just convenience; it's a fundamental change in how fast the team learns.
 
 ## Practical Examples
 

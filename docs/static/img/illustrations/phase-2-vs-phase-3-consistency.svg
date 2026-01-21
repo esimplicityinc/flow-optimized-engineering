@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="200" fill="url(#bg)" rx="8"/>
+  
+  <!-- Phase 2 -->
+  <text x="20" y="40" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#854d0e">Phase 2 Consistency</text>
+  <rect x="20" y="50" width="200" height="30" rx="4" fill="#fef9c3" stroke="#854d0e"/>
+  <rect x="20" y="50" width="200" height="30" rx="4" fill="#854d0e" opacity="0.5"/>
+  <rect x="120" y="50" width="100" height="30" fill="#fef9c3"/>
+  <text x="70" y="70" font-family="system-ui, sans-serif" font-size="10" fill="white">Standard ~50%</text>
+  <text x="170" y="70" font-family="system-ui, sans-serif" font-size="10" fill="#854d0e">Exceptions ~50%</text>
+  
+  <!-- Phase 3 -->
+  <text x="20" y="120" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#166534">Phase 3 Consistency</text>
+  <rect x="20" y="130" width="200" height="30" rx="4" fill="#166534"/>
+  <text x="120" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="white">Standard 100%</text>
+  <text x="20" y="175" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Exceptions: none (standard evolves)</text>
+  
+  <!-- Comparison arrows -->
+  <text x="280" y="90" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">vs</text>
+</svg>

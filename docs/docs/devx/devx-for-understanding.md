@@ -17,11 +17,11 @@ Every developer has limited cognitive capacity. Complex systems consume that cap
 
 | Load Type | Source | DevX Solution |
 |-----------|--------|---------------|
-| **Intrinsic** | Genuine problem complexity | Can't be eliminated - this is the actual work |
+| **Intrinsic** | Genuine problem complexity | Can't be eliminated: this is the actual work |
 | **Extraneous** | Poor tooling, inconsistent conventions, missing docs | DevX eliminates this entirely |
 | **Germane** | Learning and building mental models | DevX accelerates this |
 
-Most organizations force developers to spend cognitive capacity on extraneous load - figuring out *how to do things* - instead of germane load - understanding *what to do*.
+Most organizations force developers to spend cognitive capacity on extraneous load (figuring out *how to do things*) instead of germane load (understanding *what to do*).
 
 DevX for Understanding attacks extraneous load relentlessly.
 

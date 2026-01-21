@@ -43,22 +43,22 @@ The gap between CI and CD is where most organizations stall.
 
 Moving from CI to CD requires:
 
-1. **Automated deployment pipelines** - No manual steps between merge and production
-2. **Environment parity** - Dev, staging, and production behave the same
-3. **Feature flags** - Decouple deployment from release
-4. **Automated rollback** - Detect problems and recover automatically
-5. **Observability** - Know immediately when something's wrong
-6. **Trust** - Organizational confidence in the automation
+1. **Automated deployment pipelines:** No manual steps between merge and production
+2. **Environment parity:** Dev, staging, and production behave the same
+3. **Feature flags:** Decouple deployment from release
+4. **Automated rollback:** Detect problems and recover automatically
+5. **Observability:** Know immediately when something's wrong
+6. **Trust:** Organizational confidence in the automation
 
 ## DevOps Practices That Enable Flow
 
 ### Everything as Code
 
 If it's not in code, it doesn't exist reliably:
-- **Infrastructure as Code** - Terraform, Pulumi, CloudFormation
-- **Configuration as Code** - Helm values, Kubernetes manifests
-- **Policy as Code** - OPA Rego, Sentinel
-- **Documentation as Code** - Living docs that update with the system
+- **Infrastructure as Code:** Terraform, Pulumi, CloudFormation
+- **Configuration as Code:** Helm values, Kubernetes manifests
+- **Policy as Code:** OPA Rego, Sentinel
+- **Documentation as Code:** Living docs that update with the system
 
 Benefits:
 - Version controlled (history, blame, rollback)
@@ -101,10 +101,10 @@ Trunk-based development:
 ### What Makes Something an Institution
 
 An institution isn't just a policy or a tool. It's the combination of:
-- **Mechanism** - The actual thing (tool, automation, process)
-- **Defaults** - Configured so the safe/good path is easiest
-- **Enforcement** - Deviations require deliberate action
-- **Visibility** - Everyone can see the state
+- **Mechanism:** The actual thing (tool, automation, process)
+- **Defaults:** Configured so the safe/good path is easiest
+- **Enforcement:** Deviations require deliberate action
+- **Visibility:** Everyone can see the state
 
 ### FinOps: Team-Level Cost Control
 

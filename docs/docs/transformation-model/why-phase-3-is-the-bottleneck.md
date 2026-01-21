@@ -5,7 +5,7 @@ title: "Why Phase 3 is the Bottleneck"
 
 # Why Phase 3 is the Bottleneck
 
-The central argument of the transformation model: organizations stall at Phase 3 not because they lack tools, but because they lack disciplines. This isn't a technology problem - it's an institutional problem. Understanding this distinction is critical for any organization serious about modernization.
+The central argument of the transformation model: organizations stall at Phase 3 not because they lack tools, but because they lack disciplines. This isn't a technology problem; it's an institutional problem. Understanding this distinction is critical for any organization serious about modernization.
 
 ## The Discipline Gap
 
@@ -33,19 +33,9 @@ Every instance follows the pattern. Not "mostly follows" or "follows except for 
 **Phase 2 reality**: "We have a standard, but some systems are exceptions."
 **Phase 3 requirement**: Standards have no exceptions; if you need different, you change the standard.
 
-```
-Phase 2 Consistency:
-┌─────────────────────────────────────────┐
-│  Standard: ████████████░░░░░░░░░░░░░░░  │  ~50%
-│  Exceptions: ░░░░░░░░░████████████████  │  ~50%
-└─────────────────────────────────────────┘
+![Phase 2 vs Phase 3 Consistency](/img/illustrations/phase-2-vs-phase-3-consistency.svg)
 
-Phase 3 Consistency:
-┌─────────────────────────────────────────┐
-│  Standard: ██████████████████████████   │  100%
-│  Exceptions: (none - standard evolves)    │  0%
-└─────────────────────────────────────────┘
-```
+*Phase 2 tolerates exceptions. Phase 3 requires 100% consistency with evolving standards.*
 
 ### Enforced
 
@@ -60,7 +50,7 @@ Compliance isn't optional or dependent on review. Violations are prevented autom
 | Training | Knowledge fades |
 | Review | Humans miss things, get fatigued |
 | Approval gates | Create bottlenecks, get bypassed |
-| **Automation** | **(Doesn't fail - violations impossible)** |
+| **Automation** | **(Doesn't fail; violations impossible)** |
 
 ### Repeatable
 
@@ -87,23 +77,13 @@ Outcomes are quantified, tracked, and drive decisions. Not feelings about qualit
 
 ## Why the Heroic Model Fails
 
-Phase 2 organizations rely on heroic engineers - individuals with deep knowledge who can solve hard problems. This model cannot cross Phase 3:
+Phase 2 organizations rely on heroic engineers, individuals with deep knowledge who can solve hard problems. This model cannot cross Phase 3:
 
 ### Heroes Don't Scale
 
-```
-Organization Growth:
-────────────────────────────────────────▶ Time
+![Hero Scaling Gap](/img/illustrations/hero-scaling-gap.svg)
 
-Systems: ───────────────────────────────▶ Growing
-                                          (Linear or faster)
-
-Heroes:  ─────────▶ Flat
-                    (Can't hire fast enough,
-                     can't transfer knowledge)
-
-Gap:     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Widening
-```
+*You cannot hire heroes fast enough. The gap between system complexity and hero capacity always widens.*
 
 You cannot hire heroes fast enough. You cannot transfer heroic knowledge fast enough. The gap between system complexity and hero capacity always widens.
 
@@ -127,7 +107,7 @@ Heroes derive value from unique knowledge. Standardization threatens that value:
 - Documented processes could be followed by anyone
 - Their incentive is to remain necessary
 
-This isn't malice - it's rational behavior given incentives. Changing the system requires changing incentives.
+This isn't malice; it's rational behavior given incentives. Changing the system requires changing incentives.
 
 ## The Institutions Required
 
@@ -268,7 +248,7 @@ Crossing Phase 3 requires:
 5. **Patience**: Discipline takes longer than deployment
 6. **Enforcement courage**: Deny exceptions even when it's uncomfortable
 
-The bottleneck is real. Most organizations don't cross it. Those that do achieve sustainable operations that enable everything that follows - including responsible AI adoption.
+The bottleneck is real. Most organizations don't cross it. Those that do achieve sustainable operations that enable everything that follows, including responsible AI adoption.
 
 Phase 3 is where transformation either succeeds or stalls. The tools are available. The patterns are documented. The only question is whether organizations will build the institutional discipline to use them.
 

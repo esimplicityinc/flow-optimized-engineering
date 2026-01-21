@@ -26,7 +26,7 @@ Every FOE transformation encounters obstacles. Some are unique to context, but m
 - Underestimating the importance of foundations
 
 :::warning
-**Phase 3 is the critical foundation.** The verification mindset - automated testing, code review, quality gates - is what makes everything else work. You cannot automate your way past missing disciplines.
+**Phase 3 is the critical foundation.** The verification mindset, automated testing, code review, quality gates, is what makes everything else work. You cannot automate your way past missing disciplines.
 :::
 
 **Warning signs**:
@@ -64,7 +64,7 @@ Every FOE transformation encounters obstacles. Some are unique to context, but m
 - Leadership understands tool purchases more than practice changes
 
 :::warning
-**Tools amplify what you have - good or bad.** A CI/CD pipeline that runs no tests just fails faster. Kubernetes without operational maturity just adds complexity.
+**Tools amplify what you have, good or bad.** A CI/CD pipeline that runs no tests just fails faster. Kubernetes without operational maturity just adds complexity.
 :::
 
 **Warning signs**:
@@ -75,7 +75,7 @@ Every FOE transformation encounters obstacles. Some are unique to context, but m
 - "We have [Tool X]" treated as equivalent to having the capability
 
 **How to recover**:
-1. Audit tool utilization - what percentage of capability are you using?
+1. Audit tool utilization: what percentage of capability are you using?
 2. Identify the disciplines each tool requires to be effective
 3. Build the disciplines, then expand tool utilization
 4. Consider whether simpler tools would work better for your maturity
@@ -103,7 +103,7 @@ Every FOE transformation encounters obstacles. Some are unique to context, but m
 - Heroes may resist systematization (consciously or not)
 
 :::warning
-**Heroes are a single point of failure.** When they leave, get sick, or burn out, the capability leaves with them. Heroes also prevent the organization from learning - why build systems when the hero will handle it?
+**Heroes are a single point of failure.** When they leave, get sick, or burn out, the capability leaves with them. Heroes also prevent the organization from learning: why build systems when the hero will handle it?
 :::
 
 **Warning signs**:
@@ -333,7 +333,7 @@ If you've fallen into a pitfall, here's a general recovery approach:
 
 - Name the pitfall explicitly
 - Share the recognition broadly
-- Avoid blame - pitfalls are systemic, not personal
+- Avoid blame: pitfalls are systemic, not personal
 
 ### Step 2: Assess Impact
 
@@ -362,8 +362,8 @@ If you've fallen into a pitfall, here's a general recovery approach:
 
 ## Conclusion
 
-Pitfalls are part of the journey - every team falls into some of them. The goal isn't perfection; it's recognition and recovery. Build the habit of regularly asking: "Are we falling into any traps?" 
+Pitfalls are part of the journey; every team falls into some of them. The goal isn't perfection; it's recognition and recovery. Build the habit of regularly asking: "Are we falling into any traps?" 
 
-The four fatal pitfalls - phase-skipping, tool worship, heroic model, and motion vs. progress - are the most dangerous because they feel like progress while preventing it. Recognize them early, address them directly, and build institutions that make them less likely.
+The four fatal pitfalls, phase-skipping, tool worship, heroic model, and motion vs. progress, are the most dangerous because they feel like progress while preventing it. Recognize them early, address them directly, and build institutions that make them less likely.
 
 Remember: falling into a pitfall isn't failure. Staying in one is.

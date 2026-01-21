@@ -5,7 +5,7 @@ title: "Optimize for Confidence"
 
 # Optimize for Confidence
 
-Confidence is not certainty. Certainty is knowing the outcome. Confidence is being willing to act when you *don't* know the outcome - because the risk is bounded, visible, and reversible.
+Confidence is not certainty. Certainty is knowing the outcome. Confidence is being willing to act when you *don't* know the outcome, because the risk is bounded, visible, and reversible.
 
 > The goal isn't to eliminate uncertainty. It's to make uncertainty safe enough to act within.
 
@@ -19,7 +19,7 @@ Confidence is not certainty. Certainty is knowing the outcome. Confidence is bei
 | Seeks to eliminate risk | Seeks to bound risk |
 | Rare and often false | Achievable and sustainable |
 
-Certainty is a lie we tell ourselves. Complex systems are inherently unpredictable. Waiting for certainty means waiting forever - or acting when someone forces a deadline, without the preparation that makes action safe.
+Certainty is a lie we tell ourselves. Complex systems are inherently unpredictable. Waiting for certainty means waiting forever, or acting when someone forces a deadline, without the preparation that makes action safe.
 
 Confidence is the engineering virtue. It says: "I've done what can be done to make this safe. I've bounded the blast radius. I can recover if I'm wrong. Let's go."
 
@@ -89,7 +89,7 @@ We're operating within understood parameters. We're not testing the system in wa
 - Monitoring that detects envelope violations
 
 :::note
-These three statements - bounded failure, reversibility, and understood parameters - create rational confidence. Missing any one creates rational fear.
+These three statements, bounded failure, reversibility, and understood parameters, create rational confidence. Missing any one creates rational fear.
 :::
 
 ## Guardrails, Not Handcuffs
@@ -99,7 +99,7 @@ There's a destructive false dichotomy in software development:
 - **Option A**: Heavyweight controls that slow everything down
 - **Option B**: Cowboy coding that moves fast and breaks things
 
-FOE rejects both. The goal is guardrails - constraints that prevent catastrophe while enabling speed.
+FOE rejects both. The goal is guardrails: constraints that prevent catastrophe while enabling speed.
 
 | Handcuffs | Guardrails |
 |-----------|------------|
@@ -119,7 +119,7 @@ Guardrails are automated where possible. They're proportional to actual risk. Th
 
 ## The Hidden Dimension: Psychological Safety for Decision-Making
 
-The visible optimization is operational safety. The hidden optimization is **psychological safety for decision-making** - creating environments where people are willing to make decisions and take responsibility.
+The visible optimization is operational safety. The hidden optimization is **psychological safety for decision-making**: creating environments where people are willing to make decisions and take responsibility.
 
 > This isn't HR psychological safety ("it's okay to speak up in meetings"). This is operational psychological safety ("it's okay to make a judgment call that might be wrong").
 
@@ -158,11 +158,11 @@ When these properties are present, normal people act courageously. When they're 
 :::tip[GovCon Insight]
 Government contracting creates specific confidence challenges:
 
-- **Compliance evidence**: The fear isn't just that something will go wrong - it's that you won't be able to prove you did everything right. FOE's emphasis on traceability, automation, and audit logs produces the evidence that compliance requires.
+- **Compliance evidence**: The fear isn't just that something will go wrong; it's that you won't be able to prove you did everything right. FOE's emphasis on traceability, automation, and audit logs produces the evidence that compliance requires.
 
 - **Predictable delivery**: Government customers have budgets, schedules, and political commitments. Unpredictability is threatening even when things go well. Confidence-optimized teams can make and meet commitments because they understand their system's behavior.
 
-- **Safe-to-fail experiments**: Programs need to try new approaches, but failure is career-threatening. FOE creates bounded experiments - limited scope, clear success criteria, documented learnings - that allow innovation without recklessness.
+- **Safe-to-fail experiments**: Programs need to try new approaches, but failure is career-threatening. FOE creates bounded experiments, limited scope, clear success criteria, documented learnings, that allow innovation without recklessness.
 
 The irony: heavyweight government controls often *reduce* actual safety while increasing the appearance of safety. FOE provides genuine safety with appropriate evidence.
 :::
@@ -171,24 +171,24 @@ The irony: heavyweight government controls often *reduce* actual safety while in
 
 ### For Developers
 
-1. **Build reversibility in**  -  Every change should be undoable
-2. **Limit blast radius**  -  Feature flags, gradual rollouts, circuit breakers
-3. **Document failure modes**  -  What could go wrong? What's the recovery?
-4. **Own your changes**  -  Ship it, watch it, fix it if needed
+1. **Build reversibility in:** Every change should be undoable
+2. **Limit blast radius:** Feature flags, gradual rollouts, circuit breakers
+3. **Document failure modes:** What could go wrong? What's the recovery?
+4. **Own your changes:** Ship it, watch it, fix it if needed
 
 ### For Tech Leads
 
-1. **Make escalation easy**  -  Questions should be welcomed, not punished
-2. **Run blameless postmortems**  -  Systems fail, not people
-3. **Demonstrate recovery**  -  When things go wrong, show that it's survivable
-4. **Protect decision-makers**  -  Shield the team from blame culture
+1. **Make escalation easy:** Questions should be welcomed, not punished
+2. **Run blameless postmortems:** Systems fail, not people
+3. **Demonstrate recovery:** When things go wrong, show that it's survivable
+4. **Protect decision-makers:** Shield the team from blame culture
 
 ### For Leaders
 
-1. **Define risk tolerance explicitly**  -  What's acceptable? What's not?
-2. **Celebrate recovery**  -  A fast fix is a success, not a failure
-3. **Reward appropriate risk-taking**  -  Not just successes, but good decisions with bad outcomes
-4. **Build in slack**  -  Teams under constant pressure can't take any risks
+1. **Define risk tolerance explicitly:** What's acceptable? What's not?
+2. **Celebrate recovery:** A fast fix is a success, not a failure
+3. **Reward appropriate risk-taking:** Not just successes, but good decisions with bad outcomes
+4. **Build in slack:** Teams under constant pressure can't take any risks
 
 ## The Confidence Equation
 
@@ -200,10 +200,10 @@ Increase any factor and confidence rises. Remove any factor and confidence colla
 
 | Missing Factor | Result |
 |---------------|--------|
-| Understanding | Confidence in the dark - recklessness |
-| Reversibility | High-stakes decisions - paralysis |
-| Bounded failure | Unbounded downside - fear |
-| Psychological safety | Personal risk - politics |
+| Understanding | Confidence in the dark: recklessness |
+| Reversibility | High-stakes decisions: paralysis |
+| Bounded failure | Unbounded downside: fear |
+| Psychological safety | Personal risk: politics |
 
 ## Warning Signs
 

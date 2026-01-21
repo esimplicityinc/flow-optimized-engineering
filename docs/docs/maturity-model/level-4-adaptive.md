@@ -7,7 +7,7 @@ title: "Level 4: Adaptive"
 
 > **Theme: "We can absorb change without destabilizing"**
 
-At Level 4, the organization can handle significant change - new tools, new requirements, new scale - without losing the benefits of previous levels. The system actively resists drift and maintains its properties under stress.
+At Level 4, the organization can handle significant change (new tools, new requirements, new scale) without losing the benefits of previous levels. The system actively resists drift and maintains its properties under stress.
 
 :::tip Phase 4/5 Ready
 Level 4 represents readiness for advanced capabilities including agentic tooling, autonomous scaling, and AI-augmented development. The foundation is stable enough to absorb these changes safely.
@@ -80,7 +80,7 @@ Level 4 isn't about having every advanced capability. It's about having the foun
 
 Most organizations don't need Level 4. Most shouldn't aim for it directly.
 
-Level 4 emerges from sustained Level 3 operation plus intentional capability building. It's not a target - it's a recognition that you've built something genuinely resilient.
+Level 4 emerges from sustained Level 3 operation plus intentional capability building. It's not a target: it's a recognition that you've built something genuinely resilient.
 
 :::warning Don't Chase Level 4
 If Level 4 becomes a goal in itself, you've missed the point. The question isn't "how do we get to Level 4?" but "do we have the foundation to safely adopt the capabilities we need?"

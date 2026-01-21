@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="gap" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fecaca"/>
+      <stop offset="100%" style="stop-color:#fee2e2"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="300" fill="url(#bg)" rx="8"/>
+  
+  <!-- Axes -->
+  <line x1="50" y1="250" x2="450" y2="250" stroke="#64748b" stroke-width="2"/>
+  <line x1="50" y1="250" x2="50" y2="50" stroke="#64748b" stroke-width="2"/>
+  
+  <!-- Axis labels -->
+  <text x="250" y="280" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Time</text>
+  <text x="25" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b" transform="rotate(-90, 25, 150)">Capacity</text>
+  
+  <!-- Gap area -->
+  <path d="M50,200 Q250,180 450,80 L450,180 Q250,190 50,200 Z" fill="url(#gap)" opacity="0.5"/>
+  
+  <!-- Systems line (steep growth) -->
+  <path d="M50,200 Q250,150 450,80" fill="none" stroke="#1e40af" stroke-width="3"/>
+  <text x="460" y="75" font-family="system-ui, sans-serif" font-size="10" fill="#1e40af">Systems</text>
+  
+  <!-- Heroes line (flat) -->
+  <path d="M50,200 Q250,190 450,180" fill="none" stroke="#64748b" stroke-width="3"/>
+  <text x="460" y="185" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Heroes</text>
+  
+  <!-- Gap label -->
+  <text x="300" y="150" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#dc2626">Gap: Widening</text>
+</svg>

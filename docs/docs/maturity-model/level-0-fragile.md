@@ -11,7 +11,7 @@ At Level 0, delivery outcomes are unpredictable. Problems surface at milestones 
 
 ## Executive Experience
 
-- Delivery timelines are unreliable - estimates rarely match reality
+- Delivery timelines are unreliable: estimates rarely match reality
 - Risk surfaces at milestones, not during work
 - Confidence in outcomes depends on specific individuals
 - Status updates require meetings, and the answers change based on who you ask
@@ -19,9 +19,9 @@ At Level 0, delivery outcomes are unpredictable. Problems surface at milestones 
 
 ## Engineering Reality
 
-- Tribal knowledge dominates - critical information isn't written down
+- Tribal knowledge dominates: critical information isn't written down
 - Changes are scary because consequences are unclear
-- Debugging is forensic - finding problems means reconstructing history
+- Debugging is forensic: finding problems means reconstructing history
 - New team members take months to become productive
 - Technical debt is invisible until it blocks work
 
@@ -43,9 +43,9 @@ At Level 0, delivery outcomes are unpredictable. Problems surface at milestones 
 
 ## Key Smell
 
-> "Don't touch that  -  only Alex knows how it works."
+> "Don't touch that: only Alex knows how it works."
 
-When knowledge is locked inside individuals, every change becomes a negotiation with the knowledge holder. The system can't teach you anything because the system isn't the source of truth - people are.
+When knowledge is locked inside individuals, every change becomes a negotiation with the knowledge holder. The system can't teach you anything because the system isn't the source of truth: people are.
 
 :::info What This Looks Like
 - Deploy processes that exist only in someone's memory

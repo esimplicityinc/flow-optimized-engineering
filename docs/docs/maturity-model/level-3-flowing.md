@@ -10,7 +10,7 @@ title: "Level 3: Flowing"
 At Level 3, feedback loops are short and trusted. Risk surfaces continuously, not at checkpoints. Documentation and evidence emerge as natural byproducts of work. This is Flow-Optimized Engineering in practice.
 
 :::tip FOE in Practice
-Level 3 represents the full realization of FOE principles. The three optimizations - Understanding, Fast Feedback, and Confidence - reinforce each other in a sustainable cycle.
+Level 3 represents the full realization of FOE principles. The three optimizations (Understanding, Fast Feedback, and Confidence) reinforce each other in a sustainable cycle.
 :::
 
 ## What Changed
@@ -25,7 +25,7 @@ Level 3 represents the full realization of FOE principles. The three optimizatio
 
 - Delivery is predictable even for novel work
 - Risk is visible continuously, not at reviews
-- Confidence is systemic - not dependent on specific people
+- Confidence is systemic, not dependent on specific people
 - Questions can be answered from system data
 - Surprises are rare and quickly understood
 
@@ -57,7 +57,7 @@ Level 3 represents the full realization of FOE principles. The three optimizatio
 
 > "We know we're safe because we can see it."
 
-When safety is visible rather than assumed, when the system provides continuous assurance through its own operation, you've achieved flow. Evidence is not an artifact - it's a constant.
+When safety is visible rather than assumed, when the system provides continuous assurance through its own operation, you've achieved flow. Evidence is not an artifact: it's a constant.
 
 :::info What This Looks Like
 - Continuous integration that provides meaningful signal
@@ -75,7 +75,7 @@ At Level 3, the three optimizations create a reinforcing loop:
 2. **Fast Feedback** builds justified confidence
 3. **Confidence** allows deeper understanding through safe exploration
 
-This isn't a destination - it's an operating mode that requires maintenance.
+This isn't a destination: it's an operating mode that requires maintenance.
 
 ## Movement Indicators
 

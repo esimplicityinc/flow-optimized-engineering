@@ -9,7 +9,7 @@ Flow Optimized Engineering is not about going faster. It's about preserving huma
 
 ## The Real Bottleneck
 
-As systems accelerate - through automation, AI agents, increasing integration complexity - human cognition becomes the limiting factor. Not because humans are slow, but because humans can only hold so much in working memory, can only track so many causal chains, can only make so many high-quality decisions per hour.
+As systems accelerate (through automation, AI agents, increasing integration complexity), human cognition becomes the limiting factor. Not because humans are slow, but because humans can only hold so much in working memory, can only track so many causal chains, can only make so many high-quality decisions per hour.
 
 > "FOE is how you keep smart people smart when the system gets too fast to think about directly."
 
@@ -27,7 +27,7 @@ FOE's three optimizations aren't workflow improvements. They're cognitive load m
 
 Each optimization addresses a specific way that complex systems break human thinking:
 
-**Understandability** protects your ability to form coherent mental models. When systems become incomprehensible, people don't just slow down - they switch from reasoning to pattern-matching, from analysis to cargo-culting, from engineering to hoping.
+**Understandability** protects your ability to form coherent mental models. When systems become incomprehensible, people don't just slow down; they switch from reasoning to pattern-matching, from analysis to cargo-culting, from engineering to hoping.
 
 **Fast Feedback** protects your ability to learn. Without rapid cycles of prediction and correction, beliefs ossify. Teams become confident without becoming accurate. Debates replace experiments.
 
@@ -37,7 +37,7 @@ Each optimization addresses a specific way that complex systems break human thin
 
 The instinctive response to cognitive overload is adding capacity: more engineers, more reviewers, more meetings. This fails for a structural reason.
 
-When the system itself is incomprehensible, adding people doesn't distribute the cognitive load - it multiplies the coordination cost. Each new person must build their own mental model (which takes time), keep it synchronized with others (which requires communication overhead), and navigate disagreements about system behavior (which creates conflict).
+When the system itself is incomprehensible, adding people doesn't distribute the cognitive load; it multiplies the coordination cost. Each new person must build their own mental model (which takes time), keep it synchronized with others (which requires communication overhead), and navigate disagreements about system behavior (which creates conflict).
 
 Ten people who don't understand the system aren't more effective than one person who doesn't understand it. They're often less effective, because now they also don't understand each other's misunderstandings.
 
@@ -53,14 +53,14 @@ FOE is a cognitive architecture. It's a set of design decisions that:
 2. **Defend against entropy** by creating selection pressure for simplicity
 3. **Keep humans in the loop** without making them the bottleneck
 
-The goal isn't to remove humans from decision-making. AI can execute, but humans provide judgment, ethics, and accountability. The goal is to create conditions where human judgment can actually function - where the cognitive prerequisites for good decisions are met.
+The goal isn't to remove humans from decision-making. AI can execute, but humans provide judgment, ethics, and accountability. The goal is to create conditions where human judgment can actually function, where the cognitive prerequisites for good decisions are met.
 
 ## From Psychology to Practice
 
 Understanding the psychological foundations changes how you approach FOE implementation:
 
-- **Understandability** isn't about documentation - it's about what fits in working memory
-- **Fast Feedback** isn't about speed - it's about calibration cycles
-- **High Confidence** isn't about testing - it's about bounded risk
+- **Understandability** isn't about documentation; it's about what fits in working memory
+- **Fast Feedback** isn't about speed; it's about calibration cycles
+- **High Confidence** isn't about testing; it's about bounded risk
 
-The following sections explore each of these psychological dimensions in depth. This isn't abstract theory - it's the explanation for why FOE practices work and why alternatives fail.
+The following sections explore each of these psychological dimensions in depth. This isn't abstract theory; it's the explanation for why FOE practices work and why alternatives fail.

@@ -13,7 +13,7 @@ Without DevX, the three principles remain aspirations. With it, they become the 
 
 ## Why DevX Is a Hard Requirement
 
-Organizations often treat developer experience as a perk - something you invest in once the "real work" is done. This is backwards.
+Organizations often treat developer experience as a perk, something you invest in once the "real work" is done. This is backwards.
 
 DevX determines:
 - How quickly developers can form accurate mental models (Understanding)
@@ -32,7 +32,7 @@ Poor DevX doesn't just slow developers down. It systematically degrades the cogn
 
 ### DevX for Understanding
 
-Understanding requires that the system be legible - that developers can form accurate mental models without archeological expeditions through code, wikis, and Slack history.
+Understanding requires that the system be legible: that developers can form accurate mental models without archeological expeditions through code, wikis, and Slack history.
 
 DevX creates legibility through:
 - **Predictable conventions** that reduce cognitive load
@@ -63,12 +63,12 @@ DevX shortens this path through:
 
 ### DevX for Confidence
 
-Confidence requires that acting be safer than not acting - that the system makes it easy to do the right thing and hard to do the wrong thing.
+Confidence requires that acting be safer than not acting, that the system makes it easy to do the right thing and hard to do the wrong thing.
 
 DevX creates confidence through:
-- **Guardrails not handcuffs** - constraints that protect without blocking
+- **Guardrails not handcuffs:** constraints that protect without blocking
 - **Reproducible environments** that eliminate "works on my machine"
-- **Quality as default** - secure, tested, observable by construction
+- **Quality as default:** secure, tested, observable by construction
 
 > Quality should be the cheapest option, not the most disciplined.
 
@@ -77,11 +77,11 @@ DevX creates confidence through:
 ## The Unifying Idea
 
 The three principles work together:
-- **Understanding removes friction** - you can move fast when you know where you're going
-- **Fast feedback accelerates iteration** - you can course-correct before small mistakes become large ones
-- **Confidence makes speed safe** - you can act decisively when the system protects you from catastrophic errors
+- **Understanding removes friction:** you can move fast when you know where you're going
+- **Fast feedback accelerates iteration:** you can course-correct before small mistakes become large ones
+- **Confidence makes speed safe:** you can act decisively when the system protects you from catastrophic errors
 
-DevX is the substrate that enables this virtuous cycle. It's not a separate concern from delivery - it *is* delivery infrastructure.
+DevX is the substrate that enables this virtuous cycle. It's not a separate concern from delivery; it *is* delivery infrastructure.
 
 ## Designed, Not Discovered
 
@@ -102,7 +102,7 @@ FOE organizations **design** their DevX intentionally:
 Designing DevX means treating developer productivity as a first-class product with its own roadmap, metrics, and investment.
 
 :::tip[GovCon Insight]
-**Developer productivity is a delivery metric.** Government customers ultimately care about sustainable delivery - getting working software into users' hands reliably and repeatedly.
+**Developer productivity is a delivery metric.** Government customers ultimately care about sustainable delivery: getting working software into users' hands reliably and repeatedly.
 
 DevX investment shows up in:
 - **Lower defect rates** (quality as default)
@@ -110,7 +110,7 @@ DevX investment shows up in:
 - **Smoother knowledge transfer** (codified conventions)
 - **Reduced key person risk** (no tribal knowledge)
 
-These aren't just engineering concerns - they're exactly what program managers worry about. FOE gives you the language to connect DevX investments to outcomes evaluators care about.
+These aren't just engineering concerns; they're exactly what program managers worry about. FOE gives you the language to connect DevX investments to outcomes evaluators care about.
 :::
 
 ## DevX as Competitive Advantage
@@ -142,7 +142,7 @@ Track these metrics over time. Degradation is a leading indicator of delivery pr
 
 The following pages explore each dimension of DevX:
 
-- [DevX for Understanding](./devx-for-understanding)  -  Reducing cognitive load and codifying knowledge
-- [DevX for Fast Feedback](./devx-for-fast-feedback)  -  Shortening the path from change to insight
-- [DevX for Confidence](./devx-for-confidence)  -  Guardrails, environments, and quality by default
-- [DevX Maturity Model](./devx-maturity-model)  -  Assessing and improving your DevX
+- [DevX for Understanding](./devx-for-understanding): Reducing cognitive load and codifying knowledge
+- [DevX for Fast Feedback](./devx-for-fast-feedback): Shortening the path from change to insight
+- [DevX for Confidence](./devx-for-confidence): Guardrails, environments, and quality by default
+- [DevX Maturity Model](./devx-maturity-model): Assessing and improving your DevX

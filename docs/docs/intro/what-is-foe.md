@@ -5,7 +5,7 @@ title: "What is FOE?"
 
 # What is Flow Optimized Engineering?
 
-Flow Optimized Engineering (FOE) is a **delivery doctrine** - a way to organize engineering so the organization moves faster without becoming reckless.
+Flow Optimized Engineering (FOE) is a **delivery doctrine**: a way to organize engineering so the organization moves faster without becoming reckless.
 
 FOE is not a methodology, framework, or certification. It is a set of principles and practices that treat speed as an **epistemic problem** (what you can safely know) rather than a motivation problem (how hard people are trying).
 
@@ -22,7 +22,7 @@ FOE is not a methodology, framework, or certification. It is a set of principles
 | Flow | Cycle time, deployment frequency, time-to-recovery | How fast the system learns |
 | Output | Commits, velocity, tickets closed | How busy people appear |
 
-FOE optimizes for flow because flow compounds. Each cycle through the loop - idea to learning - makes the next cycle faster and safer. Output metrics plateau or worse, incentivize gaming.
+FOE optimizes for flow because flow compounds. Each cycle through the loop (idea to learning) makes the next cycle faster and safer. Output metrics plateau or worse, incentivize gaming.
 
 ## What FOE Is Not
 
@@ -56,7 +56,7 @@ Government contracts often require the appearance of certainty: fixed scope, fix
 
 Methodologies prescribe ceremonies. Frameworks impose structure. FOE does neither.
 
-A doctrine is a shared belief about how to operate - a set of principles that guide decisions when the playbook doesn't cover the situation. Military organizations have doctrines. So do high-reliability industries like aviation and nuclear power.
+A doctrine is a shared belief about how to operate: a set of principles that guide decisions when the playbook doesn't cover the situation. Military organizations have doctrines. So do high-reliability industries like aviation and nuclear power.
 
 Software delivery needs a doctrine because:
 1. Every codebase is different

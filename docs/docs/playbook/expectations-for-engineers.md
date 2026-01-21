@@ -19,7 +19,7 @@ title: "What We Expect From Engineers"
 
 - "I'm not sure about this" is valuable information
 - Blockers reported today are cheaper than crises next week
-- Uncertainty is not weakness - hiding it is
+- Uncertainty is not weakness, hiding it is
 
 ### Prefer boring, repeatable solutions
 

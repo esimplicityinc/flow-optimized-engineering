@@ -28,7 +28,7 @@ Writing code based on intuition, momentum, and optimism without systematic verif
 
 ### Why It's Harmful
 
-Vibe coding is **gas without brakes**. You can move fast initially, but you cannot stop safely. Technical debt accumulates invisibly until it suddenly becomes visible - usually at the worst possible time.
+Vibe coding is **gas without brakes**. You can move fast initially, but you cannot stop safely. Technical debt accumulates invisibly until it suddenly becomes visible, usually at the worst possible time.
 
 More insidiously, vibe coding makes improvement impossible to verify. How do you know a change made things better if you weren't measuring before?
 
@@ -142,7 +142,7 @@ Believing that the right tool will solve process and discipline problems. Shoppi
 
 ### Why It's Harmful
 
-Tool worship is **technology without discipline**. Tools are force multipliers - they multiply both good practices and bad ones. A powerful tool wielded poorly causes powerful damage.
+Tool worship is **technology without discipline**. Tools are force multipliers: they multiply both good practices and bad ones. A powerful tool wielded poorly causes powerful damage.
 
 Tool worship also displaces harder work. Buying a tool feels like progress. Changing practices feels like struggle. Organizations choose the path that feels like progress even when it isn't.
 
@@ -218,7 +218,7 @@ Demanding or performing certainty that doesn't exist. Waterfall-style planning t
 
 ### Why It's Harmful
 
-Certainty theater is **false confidence**. It creates illusion of control without actual control. Decisions made with false certainty are worse than decisions made with acknowledged uncertainty - because false certainty discourages adaptation.
+Certainty theater is **false confidence**. It creates illusion of control without actual control. Decisions made with false certainty are worse than decisions made with acknowledged uncertainty, because false certainty discourages adaptation.
 
 Organizations that demand certainty train people to perform confidence rather than communicate reality. Bad news gets suppressed until it becomes catastrophic news.
 
@@ -271,7 +271,7 @@ Tool Worship + Modernization Theater
 Certainty Theater (demand for new "transformation")
 ```
 
-Breaking the cycle requires addressing root causes - usually institutions and disciplines - rather than symptoms.
+Breaking the cycle requires addressing root causes, usually institutions and disciplines, rather than symptoms.
 
 ---
 
@@ -290,6 +290,6 @@ Breaking the cycle requires addressing root causes - usually institutions and di
 
 ## See Also
 
-- [Glossary](/docs/reference/glossary) - FOE term definitions
-- [Key Metaphors](/docs/reference/key-metaphors) - FOE conceptual frameworks
-- [Pattern Library](/docs/reference/pattern-library) - What to do instead
+- [Glossary](/docs/reference/glossary): FOE term definitions
+- [Key Metaphors](/docs/reference/key-metaphors): FOE conceptual frameworks
+- [Pattern Library](/docs/reference/pattern-library): What to do instead

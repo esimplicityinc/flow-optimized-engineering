@@ -5,7 +5,7 @@ title: "FOE vs Alternatives"
 
 # FOE vs Alternatives
 
-FOE is not the only approach to software delivery. It's useful to understand how it differs from common alternatives - and why those alternatives often fail.
+FOE is not the only approach to software delivery. It's useful to understand how it differs from common alternatives, and why those alternatives often fail.
 
 ## The Alternatives
 
@@ -21,7 +21,7 @@ FOE is not the only approach to software delivery. It's useful to understand how
 
 **Why it fails:** Velocity without verification creates fragile systems. Every shortcut accumulates as debt. Eventually, the system becomes so unstable that "fast" teams spend most of their time fighting fires instead of building features.
 
-**FOE's position:** Speed is the goal, but sustainable speed requires investment in flow infrastructure. The team that spends 20% of time on testing and automation will outpace the team that spends 0% - eventually, decisively.
+**FOE's position:** Speed is the goal, but sustainable speed requires investment in flow infrastructure. The team that spends 20% of time on testing and automation will outpace the team that spends 0%, eventually, decisively.
 
 ### Ceremonial Compliance
 
@@ -33,9 +33,9 @@ FOE is not the only approach to software delivery. It's useful to understand how
 - Approval gates that block progress for days
 - Process adherence as the primary success metric
 
-**Why it fails:** Ceremonies optimize for the appearance of control, not actual control. A change advisory board that meets weekly cannot prevent incidents - it can only slow down the response. Documentation that's never updated is worse than no documentation.
+**Why it fails:** Ceremonies optimize for the appearance of control, not actual control. A change advisory board that meets weekly cannot prevent incidents; it can only slow down the response. Documentation that's never updated is worse than no documentation.
 
-**FOE's position:** Verification should be continuous, automated, and fast. If a check doesn't provide actionable information within the flow of work, it's not a check - it's theater.
+**FOE's position:** Verification should be continuous, automated, and fast. If a check doesn't provide actionable information within the flow of work, it's not a check; it's theater.
 
 ### Heroic Engineering
 
@@ -61,9 +61,9 @@ FOE is not the only approach to software delivery. It's useful to understand how
 - Change requests as failures to plan properly
 - "Big bang" releases after months of development
 
-**Why it fails:** Software requirements cannot be fully known in advance. The longer the feedback loop, the more assumptions accumulate. Big releases carry big risk - and often arrive too late to matter.
+**Why it fails:** Software requirements cannot be fully known in advance. The longer the feedback loop, the more assumptions accumulate. Big releases carry big risk, and often arrive too late to matter.
 
-**FOE's position:** Uncertainty is irreducible. Plan to learn, not to predict. Short cycles, fast feedback, and incremental delivery are how you navigate uncertainty - not eliminate it.
+**FOE's position:** Uncertainty is irreducible. Plan to learn, not to predict. Short cycles, fast feedback, and incremental delivery are how you navigate uncertainty, not eliminate it.
 
 ## Comparison Table
 
@@ -92,7 +92,7 @@ Sometimes the clearest way to define something is by what it's not. FOE explicit
 
 DevOps is a set of practices focused on collaboration between development and operations, automation of deployment, and continuous delivery.
 
-FOE is compatible with DevOps - but FOE is not DevOps.
+FOE is compatible with DevOps, but FOE is not DevOps.
 
 | DevOps | FOE |
 |--------|-----|
@@ -119,11 +119,11 @@ FOE shares Agile's preference for iteration and feedback. But Agile is often int
 FOE doesn't replace Agile ceremonies. It provides the engineering foundation that makes Agile delivery sustainable.
 
 :::tip[GovCon Insight]
-Traditional government contracting assumes waterfall: fixed requirements, fixed timeline, sequential phases. Many contractors respond by performing "Agile theater" - running sprints internally while presenting waterfall milestones externally.
+Traditional government contracting assumes waterfall: fixed requirements, fixed timeline, sequential phases. Many contractors respond by performing "Agile theater": running sprints internally while presenting waterfall milestones externally.
 
 This creates two problems: the team operates under conflicting incentives, and the customer receives filtered information.
 
-FOE offers a different approach: deliver in short cycles with continuous verification, but instrument everything so the customer has real-time visibility into progress and quality. The customer gets the predictability they need - not through rigid planning, but through continuous evidence that the system works.
+FOE offers a different approach: deliver in short cycles with continuous verification, but instrument everything so the customer has real-time visibility into progress and quality. The customer gets the predictability they need, not through rigid planning, but through continuous evidence that the system works.
 
 The contractor who can show test results, deployment frequency, and incident metrics demonstrates control more convincingly than the contractor who can only show a Gantt chart.
 :::

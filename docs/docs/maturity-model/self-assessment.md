@@ -5,7 +5,7 @@ title: "FOE Maturity Self-Assessment"
 
 # FOE Maturity Self-Assessment
 
-This assessment helps you understand where your organization actually operates - not where you wish it did, or where your tooling suggests it should.
+This assessment helps you understand where your organization actually operates, not where you wish it did, or where your tooling suggests it should.
 
 :::warning Honest Assessment Over High Scores
 The value of this assessment comes from honesty, not from achieving high scores. A team that accurately identifies Level 1 operation is in a better position than one that claims Level 3 without evidence.
@@ -14,9 +14,9 @@ The value of this assessment comes from honesty, not from achieving high scores.
 ## How to Use This Assessment
 
 1. **Answer based on typical behavior**, not best-case or aspirational scenarios
-2. **Consider what happens under pressure** - maturity often drops when stress increases
-3. **Look for the lowest consistent level** - you operate at the level that holds under strain
-4. **Discuss as a team** - different perspectives reveal different realities
+2. **Consider what happens under pressure**: maturity often drops when stress increases
+3. **Look for the lowest consistent level**: you operate at the level that holds under strain
+4. **Discuss as a team**: different perspectives reveal different realities
 
 ## Understanding Assessment
 
@@ -184,7 +184,7 @@ The value of this assessment comes from honesty, not from achieving high scores.
 
 ### Calculating Your Assessment
 
-1. **For each question, identify your honest answer** based on typical - not best-case - behavior
+1. **For each question, identify your honest answer** based on typical, not best-case, behavior
 2. **Note the distribution of your answers** across levels
 3. **Your operational level is the lowest level where you consistently operate** under normal conditions
 
@@ -194,22 +194,22 @@ The value of this assessment comes from honesty, not from achieving high scores.
 - **Mostly Level 1-2 with improvement trajectory**: Common and healthy
 - **Level 2-3 with occasional drops to Level 1**: Normal under pressure
 - **Consistent Level 3**: Strong FOE implementation
-- **Mixed across optimizations**: Normal - improvement targets become clear
+- **Mixed across optimizations**: Normal, improvement targets become clear
 :::
 
 :::warning Concerning Patterns
 - **Claims of Level 3-4 that don't survive pressure**: Overestimation
 - **Level 0 answers in critical areas**: Immediate risk
 - **Wildly inconsistent answers within teams**: Alignment problem
-- **Consistent Level 4 claims**: Usually overestimation - verify with evidence
+- **Consistent Level 4 claims**: Usually overestimation; verify with evidence
 :::
 
 ### What To Do With Results
 
-1. **Identify the lowest consistent level** - that's your baseline
-2. **Look for optimization gaps** - where is feedback slowest? Understanding weakest? Confidence lowest?
-3. **Choose one area to improve** - sustainable progress beats broad initiatives
-4. **Reassess after changes** - did behavior actually shift?
+1. **Identify the lowest consistent level**: that's your baseline
+2. **Look for optimization gaps**: where is feedback slowest? Understanding weakest? Confidence lowest?
+3. **Choose one area to improve**: sustainable progress beats broad initiatives
+4. **Reassess after changes**: did behavior actually shift?
 
 ---
 
@@ -230,4 +230,4 @@ The best use of this assessment is not to produce a number. It's to enable hones
 - **Quarterly** for teams actively improving
 - **After major incidents** to understand what level you operated at under stress
 - **When team composition changes significantly** to verify knowledge transfer
-- **Never as a compliance exercise** - the moment it becomes mandatory, it loses value
+- **Never as a compliance exercise**: the moment it becomes mandatory, it loses value
