@@ -13,9 +13,9 @@ title: "How Work Moves Through the System"
 
 Every change:
 
-- **Has intent** — we know why it exists
-- **Produces evidence** — we can show what happened
-- **Can be explained after the fact** — auditable without archaeology
+- **Has intent**  -  we know why it exists
+- **Produces evidence**  -  we can show what happened
+- **Can be explained after the fact**  -  auditable without archaeology
 
 ## The Anatomy of Traceable Work
 
@@ -32,7 +32,7 @@ Each link in this chain should be followable by someone who wasn't there.
 - Commits reference intent (ticket, RFC, decision record)
 - Changes are small enough to review meaningfully
 - Deployments are recorded with context
-- When someone asks "why is it like this?"—there's an answer
+- When someone asks "why is it like this?" - there's an answer
 
 ## What This Is NOT
 
@@ -54,4 +54,4 @@ When work is traceable:
 
 ## Maps To
 
-**Understanding Optimization** — Legibility isn't overhead. It's how distributed teams stay coherent.
+**Understanding Optimization**  -  Legibility isn't overhead. It's how distributed teams stay coherent.

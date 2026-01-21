@@ -65,7 +65,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         Confidence is what makes speed safe. When risk is bounded, visible, and reversible, 
-        teams act decisively. Guardrails—not handcuffs—enable autonomy within a safe frame.
+        teams act decisively. Guardrails - not handcuffs - enable autonomy within a safe frame.
       </>
     ),
   },

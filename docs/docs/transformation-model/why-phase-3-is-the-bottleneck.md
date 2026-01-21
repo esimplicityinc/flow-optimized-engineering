@@ -5,7 +5,7 @@ title: "Why Phase 3 is the Bottleneck"
 
 # Why Phase 3 is the Bottleneck
 
-The central argument of the transformation model: organizations stall at Phase 3 not because they lack tools, but because they lack disciplines. This isn't a technology problem—it's an institutional problem. Understanding this distinction is critical for any organization serious about modernization.
+The central argument of the transformation model: organizations stall at Phase 3 not because they lack tools, but because they lack disciplines. This isn't a technology problem - it's an institutional problem. Understanding this distinction is critical for any organization serious about modernization.
 
 ## The Discipline Gap
 
@@ -43,7 +43,7 @@ Phase 2 Consistency:
 Phase 3 Consistency:
 ┌─────────────────────────────────────────┐
 │  Standard: ██████████████████████████   │  100%
-│  Exceptions: (none—standard evolves)    │  0%
+│  Exceptions: (none - standard evolves)    │  0%
 └─────────────────────────────────────────┘
 ```
 
@@ -60,7 +60,7 @@ Compliance isn't optional or dependent on review. Violations are prevented autom
 | Training | Knowledge fades |
 | Review | Humans miss things, get fatigued |
 | Approval gates | Create bottlenecks, get bypassed |
-| **Automation** | **(Doesn't fail—violations impossible)** |
+| **Automation** | **(Doesn't fail - violations impossible)** |
 
 ### Repeatable
 
@@ -87,7 +87,7 @@ Outcomes are quantified, tracked, and drive decisions. Not feelings about qualit
 
 ## Why the Heroic Model Fails
 
-Phase 2 organizations rely on heroic engineers—individuals with deep knowledge who can solve hard problems. This model cannot cross Phase 3:
+Phase 2 organizations rely on heroic engineers - individuals with deep knowledge who can solve hard problems. This model cannot cross Phase 3:
 
 ### Heroes Don't Scale
 
@@ -127,7 +127,7 @@ Heroes derive value from unique knowledge. Standardization threatens that value:
 - Documented processes could be followed by anyone
 - Their incentive is to remain necessary
 
-This isn't malice—it's rational behavior given incentives. Changing the system requires changing incentives.
+This isn't malice - it's rational behavior given incentives. Changing the system requires changing incentives.
 
 ## The Institutions Required
 
@@ -268,7 +268,7 @@ Crossing Phase 3 requires:
 5. **Patience**: Discipline takes longer than deployment
 6. **Enforcement courage**: Deny exceptions even when it's uncomfortable
 
-The bottleneck is real. Most organizations don't cross it. Those that do achieve sustainable operations that enable everything that follows—including responsible AI adoption.
+The bottleneck is real. Most organizations don't cross it. Those that do achieve sustainable operations that enable everything that follows - including responsible AI adoption.
 
 Phase 3 is where transformation either succeeds or stalls. The tools are available. The patterns are documented. The only question is whether organizations will build the institutional discipline to use them.
 

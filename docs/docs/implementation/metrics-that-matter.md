@@ -5,7 +5,7 @@ title: "Metrics That Matter"
 
 # Metrics That Matter
 
-Measurement is essential to improvement—but measuring the wrong things is worse than not measuring at all. FOE takes a disciplined approach to metrics: measure what matters, ignore what doesn't, and never let metrics become the goal.
+Measurement is essential to improvement - but measuring the wrong things is worse than not measuring at all. FOE takes a disciplined approach to metrics: measure what matters, ignore what doesn't, and never let metrics become the goal.
 
 ## The Via Negativa Doctrine
 
@@ -58,7 +58,7 @@ Instead of opinions and intuitions, FOE uses metrics to answer:
 | **Assumptions** | None | "This should help" |
 
 :::tip
-When someone claims a practice is working (or not working), ask: "What's the evidence?" If there's no evidence, there's no claim—only opinion.
+When someone claims a practice is working (or not working), ask: "What's the evidence?" If there's no evidence, there's no claim - only opinion.
 :::
 
 ## DORA Metrics in FOE Context
@@ -268,7 +268,7 @@ Begin with metrics you can collect automatically:
 - Incident tracking systems
 - Calendar data
 
-Avoid metrics that require manual collection—they won't be maintained.
+Avoid metrics that require manual collection - they won't be maintained.
 
 ### Make Metrics Visible
 
@@ -366,6 +366,6 @@ When implementing or reviewing metrics:
 
 ## Conclusion
 
-Metrics are powerful tools that can drive improvement or drive dysfunction. FOE's approach—Via Negativa for what not to measure, evidence-based decision making, balanced scorecards, and continuous vigilance against gaming—keeps metrics in their proper place: servants of improvement, not masters of behavior.
+Metrics are powerful tools that can drive improvement or drive dysfunction. FOE's approach - Via Negativa for what not to measure, evidence-based decision making, balanced scorecards, and continuous vigilance against gaming - keeps metrics in their proper place: servants of improvement, not masters of behavior.
 
 Remember: the goal is better software delivery, not better metrics. Metrics are the map, not the territory. Use them wisely.

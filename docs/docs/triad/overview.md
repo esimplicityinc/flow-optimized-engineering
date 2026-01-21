@@ -5,7 +5,7 @@ title: "The FOE Triad"
 
 # The FOE Triad: People, Process, Technology
 
-Flow Optimized Engineering transformation requires coordinated change across three interconnected dimensions: **People**, **Process**, and **Technology**. These aren't independent initiatives—they're facets of a single transformation that must move together.
+Flow Optimized Engineering transformation requires coordinated change across three interconnected dimensions: **People**, **Process**, and **Technology**. These aren't independent initiatives - they're facets of a single transformation that must move together.
 
 ## Why All Three Must Change Together
 

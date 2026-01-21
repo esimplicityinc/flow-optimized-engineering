@@ -9,7 +9,7 @@ FOE is a strategic investment in engineering coherence that protects margins, re
 
 ## The Executive Summary
 
-Engineering organizations that optimize for flow—the smooth, predictable movement of work from idea to production—outperform those that don't. They deliver faster, fail less catastrophically, retain talent better, and maintain margins under pressure.
+Engineering organizations that optimize for flow - the smooth, predictable movement of work from idea to production - outperform those that don't. They deliver faster, fail less catastrophically, retain talent better, and maintain margins under pressure.
 
 FOE isn't a methodology to adopt or a tool to buy. It's a way of building engineering organizations that can sustain excellence across contracts, teams, and time.
 
@@ -111,7 +111,7 @@ A common misconception: investing in engineering practices slows down delivery. 
 
 **With coherence**, common problems have standard solutions. Engineers spend time on mission-specific challenges. Deployments are routine, low-risk events. Problems are discovered early when fixes are cheap.
 
-The fastest engineering organizations are also the most disciplined. They've invested in the infrastructure—technical and institutional—that makes speed sustainable.
+The fastest engineering organizations are also the most disciplined. They've invested in the infrastructure - technical and institutional - that makes speed sustainable.
 
 ## How FOE Supports Margin Protection
 
@@ -150,7 +150,7 @@ FOE isn't free. It requires:
 - **Practice development**: Creating and maintaining standards takes ongoing effort
 - **Patience**: Returns compound over time; early investments may not show immediate ROI
 
-The question isn't whether you can afford to invest. It's whether you can afford not to—and whether competitors who do invest will eventually outperform you.
+The question isn't whether you can afford to invest. It's whether you can afford not to - and whether competitors who do invest will eventually outperform you.
 
 ## Next Steps
 

@@ -11,15 +11,15 @@ title: "How We Manage Risk"
 
 ## Our Approach
 
-1. **Detect risk early** — through small changes, fast feedback, and visible work
-2. **Contain it locally** — failures are bounded, not cascading
-3. **Make it explainable** — every risk decision has a rationale that can be audited
+1. **Detect risk early**  -  through small changes, fast feedback, and visible work
+2. **Contain it locally**  -  failures are bounded, not cascading
+3. **Make it explainable**  -  every risk decision has a rationale that can be audited
 
 ## What You'll See
 
-- **Clear change narratives** — what changed, why, and what we expected to happen
-- **Evidence tied to decisions** — not just outcomes, but the reasoning that led to them
-- **Fewer "surprises at the end"** — problems surface when they're cheap to fix
+- **Clear change narratives**  -  what changed, why, and what we expected to happen
+- **Evidence tied to decisions**  -  not just outcomes, but the reasoning that led to them
+- **Fewer "surprises at the end"**  -  problems surface when they're cheap to fix
 
 ## What This Looks Like
 
@@ -43,4 +43,4 @@ Slowing down feels safe. But slow cycles mean:
 
 ## Maps To
 
-**Confidence Optimization** — Stakeholders can trust what they see because risk is surfaced, not suppressed.
+**Confidence Optimization**  -  Stakeholders can trust what they see because risk is surfaced, not suppressed.

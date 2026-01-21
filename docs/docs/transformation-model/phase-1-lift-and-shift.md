@@ -31,7 +31,7 @@ Phase 1 represents cloud adoption without cloud-native transformation. Infrastru
 
 ## The Modernization Theater Trap
 
-Phase 1's greatest danger is the narrative it enables: "We've modernized—we're in the cloud now."
+Phase 1's greatest danger is the narrative it enables: "We've modernized - we're in the cloud now."
 
 This theater creates several problems:
 
@@ -98,7 +98,7 @@ You're in Phase 1 if:
 
 To leave Phase 1, you must establish:
 
-1. **Infrastructure as Code adoption**: Not just for some resources—as the default operating model
+1. **Infrastructure as Code adoption**: Not just for some resources - as the default operating model
 2. **Immutable infrastructure patterns**: At least some workloads use disposable, replaceable resources
 3. **Automated provisioning**: Self-service infrastructure, not tickets
 4. **Container adoption**: At least experimentation with containerized workloads
@@ -145,4 +145,4 @@ Escaping Phase 1 requires acknowledging that migration is not modernization. The
 5. **Automate deployment**: Remove manual steps from at least one application's deployment
 6. **Measure differently**: Track operational capabilities, not just migration percentages
 
-Phase 1 isn't failure—it's an incomplete journey. The failure is stopping here and calling it done.
+Phase 1 isn't failure - it's an incomplete journey. The failure is stopping here and calling it done.

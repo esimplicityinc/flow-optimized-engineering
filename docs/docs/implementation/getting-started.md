@@ -5,7 +5,7 @@ title: "Getting Started with FOE"
 
 # Getting Started with FOE
 
-Adopting Flow Optimized Engineering is not a technology rollout—it's a transformation in how your organization thinks about software delivery. This guide provides the first steps for making that transformation real.
+Adopting Flow Optimized Engineering is not a technology rollout - it's a transformation in how your organization thinks about software delivery. This guide provides the first steps for making that transformation real.
 
 ## Before You Begin
 
@@ -121,7 +121,7 @@ The most common failure mode is attempting to jump from Phase 2 to Phase 4. You 
 ### Sequencing Principles
 
 1. **Foundations before automation**: Don't automate a broken process
-2. **Disciplines before tools**: Tools amplify whatever you have—good or bad
+2. **Disciplines before tools**: Tools amplify whatever you have - good or bad
 3. **One team before many**: Prove the model works before scaling
 4. **Evidence before expansion**: Each phase should produce measurable improvement
 
@@ -151,7 +151,7 @@ Be realistic about what FOE adoption requires:
 - Tolerance for the J-curve performance dip
 
 :::tip[GovCon Insight]
-In government contracting, resource requirements must often be justified in contract terms. Frame FOE adoption as a "capability maturation" investment with defined milestones and measurable outcomes. Many contracts include CMMI or similar maturity requirements—FOE provides a more practical path to the same goals.
+In government contracting, resource requirements must often be justified in contract terms. Frame FOE adoption as a "capability maturation" investment with defined milestones and measurable outcomes. Many contracts include CMMI or similar maturity requirements - FOE provides a more practical path to the same goals.
 :::
 
 ## Transition Planning for GovCon

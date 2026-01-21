@@ -5,13 +5,13 @@ title: "FOE Maturity Model"
 
 # FOE Maturity Model
 
-The FOE Maturity Model provides a shared language for understanding how software delivery actually works in your organization—and where it might improve.
+The FOE Maturity Model provides a shared language for understanding how software delivery actually works in your organization - and where it might improve.
 
 ## What This Is
 
-- **A way to describe how delivery works** — not how it should work, but how it actually behaves under pressure
-- **A shared language for improvement** — so executives, engineers, and government reviewers can have the same conversation
-- **A tool for reducing surprise** — by making delivery patterns visible before they become problems
+- **A way to describe how delivery works**  -  not how it should work, but how it actually behaves under pressure
+- **A shared language for improvement**  -  so executives, engineers, and government reviewers can have the same conversation
+- **A tool for reducing surprise**  -  by making delivery patterns visible before they become problems
 
 ## What This Is NOT
 
@@ -58,16 +58,16 @@ Each level is assessed across the three FOE optimizations:
 | **Fast Feedback** | How quickly does the system reveal problems? |
 | **Confidence** | How reliably can teams make decisions and take action? |
 
-A team might be at different levels for different optimizations. That's normal—and useful information. The model helps you see where friction exists and where investment would have the most impact.
+A team might be at different levels for different optimizations. That's normal - and useful information. The model helps you see where friction exists and where investment would have the most impact.
 
 ## Philosophy
 
 This model is:
 
-- **Diagnostic, not judgmental** — It describes what is, not what should be
-- **Behavioral, not tool-based** — It looks at outcomes, not implementations
-- **Consumable by everyone** — Executives, engineers, and government reviewers can all use it
-- **Aligned to FOE optimizations** — Understanding, Fast Feedback, and Confidence
-- **A sensemaking instrument** — Not a ladder to climb
+- **Diagnostic, not judgmental**  -  It describes what is, not what should be
+- **Behavioral, not tool-based**  -  It looks at outcomes, not implementations
+- **Consumable by everyone**  -  Executives, engineers, and government reviewers can all use it
+- **Aligned to FOE optimizations**  -  Understanding, Fast Feedback, and Confidence
+- **A sensemaking instrument**  -  Not a ladder to climb
 
 The goal is never to "reach Level 4." The goal is to operate honestly at your current level while systematically reducing surprise.

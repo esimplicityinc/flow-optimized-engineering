@@ -16,7 +16,7 @@ Level 2 is where Phase 3 practices (Structured Delivery with Confidence) begin t
 ## What Changed
 
 - Standardized delivery paths exist for common work types
-- Change patterns are repeatable—teams know what to expect
+- Change patterns are repeatable - teams know what to expect
 - Evidence is generated automatically, not assembled manually
 - Rollback procedures are defined and tested
 - New team members can follow established patterns

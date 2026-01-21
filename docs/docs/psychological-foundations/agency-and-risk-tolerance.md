@@ -9,7 +9,7 @@ Confidence isn't the same as certainty. Certainty is believing you know the outc
 
 ## The Confidence-Certainty Confusion
 
-When leaders ask for "more confidence" before approving a change, they often mean certainty—guaranteed outcomes, zero risk, complete predictability. This is a category error. Engineering work is fundamentally uncertain. Seeking certainty before acting means never acting.
+When leaders ask for "more confidence" before approving a change, they often mean certainty - guaranteed outcomes, zero risk, complete predictability. This is a category error. Engineering work is fundamentally uncertain. Seeking certainty before acting means never acting.
 
 > Confidence = willingness to act under uncertainty
 >
@@ -44,12 +44,12 @@ Executives don't fear speed. They fear:
 When executives slow things down, they're often trying to contain these risks through the only mechanism available to them: time and scrutiny. If better containment mechanisms existed, they'd use them.
 
 :::tip[GovCon Insight]
-Government oversight bodies—contracting officers, program managers, review boards—face acute accountability pressure with limited control. They're responsible for outcomes but can't directly influence execution. This creates rational risk aversion that looks like bureaucracy but functions as self-protection. FOE's containment mechanisms help by making risk visible and bounded. When an approver can see exactly what's changing, verify it's reversible, and confirm the blast radius is limited, they can approve faster without accepting more risk.
+Government oversight bodies - contracting officers, program managers, review boards - face acute accountability pressure with limited control. They're responsible for outcomes but can't directly influence execution. This creates rational risk aversion that looks like bureaucracy but functions as self-protection. FOE's containment mechanisms help by making risk visible and bounded. When an approver can see exactly what's changing, verify it's reversible, and confirm the blast radius is limited, they can approve faster without accepting more risk.
 :::
 
 ## How FOE Contains Risk
 
-FOE doesn't eliminate risk—it bounds it. Every practice contributes to making the worst case tolerable:
+FOE doesn't eliminate risk - it bounds it. Every practice contributes to making the worst case tolerable:
 
 | Practice | Risk Containment Effect |
 |----------|------------------------|
@@ -82,7 +82,7 @@ Operational psychological safety requires:
 
 ## Courage by Design
 
-Asking people to be braver is ineffective. Courage isn't a personality trait you can demand more of—it's a response to perceived risk-reward ratios. If the environment makes risk feel unbounded, even naturally bold people become cautious.
+Asking people to be braver is ineffective. Courage isn't a personality trait you can demand more of - it's a response to perceived risk-reward ratios. If the environment makes risk feel unbounded, even naturally bold people become cautious.
 
 FOE creates courage by design:
 
@@ -95,7 +95,7 @@ The goal isn't to make people feel safe when they shouldn't. It's to make the ac
 
 ## Enabling Informed Risk-Taking
 
-The alternative to bounded risk isn't no risk—it's unexamined risk. Organizations that can't deploy frequently don't have fewer problems. They have bigger, less visible problems that arrive all at once.
+The alternative to bounded risk isn't no risk - it's unexamined risk. Organizations that can't deploy frequently don't have fewer problems. They have bigger, less visible problems that arrive all at once.
 
 Every month a change sits waiting:
 

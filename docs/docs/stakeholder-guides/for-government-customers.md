@@ -227,7 +227,7 @@ Consider including engineering flow metrics as reportable items:
 - Change failure rate
 - Mean time to restore service
 
-These aren't punitive measures—they're visibility tools that indicate engineering health.
+These aren't punitive measures - they're visibility tools that indicate engineering health.
 
 ### Technical Evaluation Criteria
 
@@ -255,4 +255,4 @@ Contractors with mature engineering practices:
 - Adapt to changing requirements without drama
 - Show you working software regularly
 
-You have significant influence over contractor behavior through how you structure acquisitions and what you measure during performance. Use that influence to encourage engineering maturity—your mission will be better served by contractors who deliver reliably.
+You have significant influence over contractor behavior through how you structure acquisitions and what you measure during performance. Use that influence to encourage engineering maturity - your mission will be better served by contractors who deliver reliably.

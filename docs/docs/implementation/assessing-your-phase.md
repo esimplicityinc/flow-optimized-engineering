@@ -5,12 +5,12 @@ title: "Assessing Your Current Phase"
 
 # Assessing Your Current Phase
 
-Honest self-assessment is the foundation of effective transformation. This guide provides frameworks for determining where you actually are—not where you wish you were or where your slide deck says you are.
+Honest self-assessment is the foundation of effective transformation. This guide provides frameworks for determining where you actually are - not where you wish you were or where your slide deck says you are.
 
 ## The Honesty Imperative
 
 :::warning
-The most common assessment failure is optimism bias. Teams consistently rate themselves 1-2 phases higher than reality. This isn't dishonesty—it's human nature. But it leads to prescriptions that don't fit your actual condition.
+The most common assessment failure is optimism bias. Teams consistently rate themselves 1-2 phases higher than reality. This isn't dishonesty - it's human nature. But it leads to prescriptions that don't fit your actual condition.
 :::
 
 Assessment rules:
@@ -21,7 +21,7 @@ Assessment rules:
 
 ## Phase Symptoms Checklist
 
-Use these checklists to identify your current phase. Be honest—check only what is **consistently true** for your team.
+Use these checklists to identify your current phase. Be honest - check only what is **consistently true** for your team.
 
 ### Phase 1: Chaotic
 
@@ -293,10 +293,10 @@ Phase regression is real. Without continuous attention, teams naturally drift ba
 
 Once you've honestly assessed your phase:
 
-1. **Accept where you are**: No shame in Phase 1—shame is in pretending otherwise
+1. **Accept where you are**: No shame in Phase 1 - shame is in pretending otherwise
 2. **Identify the next phase requirements**: What specific gaps need closing?
 3. **Prioritize ruthlessly**: You can't fix everything at once
 4. **Build institutions**: Create mechanisms that make improvement stick
 5. **Measure progress**: Track leading indicators of phase transition
 
-The goal isn't to reach Phase 5 as fast as possible. The goal is to make sustainable progress—one phase at a time, with each phase's foundations solid before building the next level.
+The goal isn't to reach Phase 5 as fast as possible. The goal is to make sustainable progress - one phase at a time, with each phase's foundations solid before building the next level.

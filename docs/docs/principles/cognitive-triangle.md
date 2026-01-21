@@ -5,7 +5,7 @@ title: "The Cognitive Triangle"
 
 # The Cognitive Triangle
 
-The three optimizations—Understanding, Fast Feedback, and Confidence—form a closed system. Each enables the others. Each can destroy the others. FOE is the practice of keeping all three in balance.
+The three optimizations - Understanding, Fast Feedback, and Confidence - form a closed system. Each enables the others. Each can destroy the others. FOE is the practice of keeping all three in balance.
 
 ```
         Understanding
@@ -49,7 +49,7 @@ Quick recovery from failure makes failure safe. Safe failure enables action.
 ### Confidence → Fast Feedback
 Confident teams create feedback mechanisms. Fearful teams avoid measurement.
 
-**Example:** A confident team instruments everything—they want to know. A fearful team avoids metrics that might reveal problems—they'd rather not know.
+**Example:** A confident team instruments everything - they want to know. A fearful team avoids metrics that might reveal problems - they'd rather not know.
 
 ## What Happens When One Collapses
 
@@ -169,7 +169,7 @@ Government programs fail predictably when one or more optimizations collapse:
 - Blame culture that hides problems
 - Change boards that protect process over outcomes
 
-The most expensive government IT failures—Healthcare.gov's launch, major ERP implementations, canceled modernization efforts—can be diagnosed as failures of this triangle. The fixes proposed are usually process additions that further degrade confidence, creating a vicious cycle.
+The most expensive government IT failures - Healthcare.gov's launch, major ERP implementations, canceled modernization efforts - can be diagnosed as failures of this triangle. The fixes proposed are usually process additions that further degrade confidence, creating a vicious cycle.
 
 FOE offers a different diagnosis: identify which optimization collapsed and rebuild it directly, rather than adding compensating controls.
 :::
@@ -216,15 +216,15 @@ When any one collapses, it degrades the others:
 This creates stagnation or regression: less understanding → slower feedback → less confidence → less action → less learning → even less understanding.
 
 :::info
-The direction of the cycle—virtuous or vicious—is determined by deliberate investment. Left alone, systems drift toward dysfunction. FOE is the continuous effort to keep all three optimizations healthy.
+The direction of the cycle - virtuous or vicious - is determined by deliberate investment. Left alone, systems drift toward dysfunction. FOE is the continuous effort to keep all three optimizations healthy.
 :::
 
 ## Maintaining Balance
 
-1. **Diagnose before treating** — Identify which principle is weakest before adding fixes
-2. **Invest proportionally** — Strengthen the weak link, don't over-invest in strengths
-3. **Watch for collapse indicators** — Know the warning signs for each principle
-4. **Address root causes** — Process additions usually don't fix cognitive deficits
-5. **Expect continuous maintenance** — Balance is dynamic, not achieved once
+1. **Diagnose before treating**  -  Identify which principle is weakest before adding fixes
+2. **Invest proportionally**  -  Strengthen the weak link, don't over-invest in strengths
+3. **Watch for collapse indicators**  -  Know the warning signs for each principle
+4. **Address root causes**  -  Process additions usually don't fix cognitive deficits
+5. **Expect continuous maintenance**  -  Balance is dynamic, not achieved once
 
 The cognitive triangle isn't a model to implement once. It's a lens for continuous diagnosis and a compass for ongoing investment. When something feels wrong, ask: which corner of the triangle has weakened? Fix that, and the others strengthen.

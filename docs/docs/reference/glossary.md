@@ -110,7 +110,7 @@ The property where an operation produces the same result whether executed once o
 The property of being unchangeable after creation. FOE favors immutable artifacts, immutable infrastructure, and immutable audit logs.
 
 ### Institutions
-Lightweight mechanisms that make desired behavior the default and undesired behavior difficult. Not bureaucracy—more like traffic engineering. The "what" of FOE infrastructure. See: [Building Institutions](/docs/implementation/building-institutions).
+Lightweight mechanisms that make desired behavior the default and undesired behavior difficult. Not bureaucracy - more like traffic engineering. The "what" of FOE infrastructure. See: [Building Institutions](/docs/implementation/building-institutions).
 
 ### Instrumentation
 The practice of adding measurement capabilities to systems. FOE treats instrumentation as a first-class requirement, not an afterthought.
@@ -200,7 +200,7 @@ See: [Left-Shift](#left-shift).
 A system design principle where every data element is stored exactly once. In FOE, Git serves as the single source of truth for desired state; production systems serve as the single source of truth for actual state.
 
 ### Sociotechnical System
-A system comprising both technical components and human/organizational components. FOE recognizes that engineering organizations are sociotechnical systems—you cannot optimize the technical without addressing the social.
+A system comprising both technical components and human/organizational components. FOE recognizes that engineering organizations are sociotechnical systems - you cannot optimize the technical without addressing the social.
 
 ---
 
@@ -223,7 +223,7 @@ The sequence of activities required to deliver value to a customer. FOE optimize
 The process of confirming that something meets its specification. In FOE, verification is continuous and automated, not a phase that happens at the end.
 
 ### Via Negativa
-A philosophical approach that defines something by what it is *not*. FOE uses Via Negativa to define anti-patterns—things to explicitly avoid. See: [Anti-Patterns](/docs/reference/anti-patterns).
+A philosophical approach that defines something by what it is *not*. FOE uses Via Negativa to define anti-patterns - things to explicitly avoid. See: [Anti-Patterns](/docs/reference/anti-patterns).
 
 ---
 

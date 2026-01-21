@@ -18,8 +18,8 @@ function HomepageHeader() {
         </Heading>
         <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
         <p className={styles.heroDescription}>
-          A delivery doctrine that optimizes engineering organizations for flow—the repeatable 
-          movement from idea to change to verification to release to learning—without sacrificing 
+          A delivery doctrine that optimizes engineering organizations for flow - the repeatable 
+          movement from idea to change to verification to release to learning - without sacrificing 
           safety, coherence, or the ability to explain your systems.
         </p>
         <div className={styles.buttons}>
@@ -146,8 +146,8 @@ function TransformationPreview(): ReactNode {
           The Transformation Model
         </Heading>
         <p className={styles.sectionSubtitle}>
-          Organizations evolve through distinct phases. Understanding where you are—and what's 
-          required to progress—is the key to sustainable modernization.
+          Organizations evolve through distinct phases. Understanding where you are - and what's 
+          required to progress - is the key to sustainable modernization.
         </p>
         <div className={styles.phaseTimeline}>
           <div className={styles.phaseItem}>
@@ -168,7 +168,7 @@ function TransformationPreview(): ReactNode {
           <div className={clsx(styles.phaseItem, styles.phaseHighlight)}>
             <span className={clsx(styles.phaseBadge, styles.phase3)}>Phase 3</span>
             <strong>Cloud Native Infrastructure</strong>
-            <span>The existential shift—where most get stuck</span>
+            <span>The existential shift - where most get stuck</span>
           </div>
           <div className={styles.phaseItem}>
             <span className={clsx(styles.phaseBadge, styles.phase4)}>Phase 4</span>
@@ -203,7 +203,7 @@ function KeyInsight(): ReactNode {
             under increasing complexity and rate of change</strong>.
           </p>
           <p className={styles.quoteDescription}>
-            As systems accelerate, human cognition becomes the limiting factor—not compute or tooling.
+            As systems accelerate, human cognition becomes the limiting factor - not compute or tooling.
             FOE's three optimizations are cognitive load management strategies that let smart people 
             stay smart when the system gets too fast to think about directly.
           </p>

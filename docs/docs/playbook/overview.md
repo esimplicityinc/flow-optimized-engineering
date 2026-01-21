@@ -9,17 +9,17 @@ This is a field manual, not a philosophy book.
 
 ## What This Is
 
-The FOE Playbook is **minimum viable process**—intentionally small and sharp. It contains the behaviors that matter when work is unclear, stakes are high, and trust is earned through action.
+The FOE Playbook is **minimum viable process** - intentionally small and sharp. It contains the behaviors that matter when work is unclear, stakes are high, and trust is earned through action.
 
 ## Design Principles
 
 This playbook is:
 
-- **Normative, not aspirational** — describes how we actually behave, not how we wish we did
-- **Concrete, not theoretical** — specific actions, not abstract frameworks
-- **Behavior-focused, not tool-focused** — tools change; habits persist
-- **Consumable in small pieces** — each page answers one question
-- **Grounded in lived constraints** — acknowledges that people are busy, systems are messy, and perfection isn't the goal
+- **Normative, not aspirational**  -  describes how we actually behave, not how we wish we did
+- **Concrete, not theoretical**  -  specific actions, not abstract frameworks
+- **Behavior-focused, not tool-focused**  -  tools change; habits persist
+- **Consumable in small pieces**  -  each page answers one question
+- **Grounded in lived constraints**  -  acknowledges that people are busy, systems are messy, and perfection isn't the goal
 
 ## How It Maps to the Three Optimizations
 

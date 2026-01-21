@@ -5,7 +5,7 @@ title: "Phase 5: Cloud Native Code"
 
 # Phase 5: Cloud Native Code
 
-Phase 5 represents the mirror of Phase 3 at the code level. Just as Phase 3 transformed infrastructure from artisanal to standardized, declarative, and policy-governed, Phase 5 does the same for code. This is the destination—code that is as composable, consistent, and automatically governed as cloud-native infrastructure.
+Phase 5 represents the mirror of Phase 3 at the code level. Just as Phase 3 transformed infrastructure from artisanal to standardized, declarative, and policy-governed, Phase 5 does the same for code. This is the destination - code that is as composable, consistent, and automatically governed as cloud-native infrastructure.
 
 ## The Mirror Thesis
 
@@ -45,7 +45,7 @@ Phase 4 Code:                    Phase 5 Code:
 
 ### Composable Architecture
 
-Code becomes like infrastructure resources—composable primitives:
+Code becomes like infrastructure resources - composable primitives:
 
 - **Standard interfaces**: Components connect through well-defined contracts
 - **Interchangeable implementations**: Swap components without cascade effects
@@ -217,14 +217,14 @@ Phase 5 represents the future state vision for long-term modernization strategy.
 - Very few organizations, government or commercial, operate at Phase 5
 - Proposals should be honest about current state while articulating destination
 - Phase 5 is aspiration; Phase 3 is the achievable, valuable milestone
-- Journey matters more than destination—demonstrate understanding of the path
+- Journey matters more than destination - demonstrate understanding of the path
 :::
 
 ## The Path Forward
 
 Moving toward Phase 5:
 
-1. **Achieve Phase 3**: No shortcuts—infrastructure discipline must come first
+1. **Achieve Phase 3**: No shortcuts - infrastructure discipline must come first
 2. **Survive Phase 4**: Establish AI coding practices with discipline
 3. **Define patterns**: Document and version code standards
 4. **Automate governance**: Move policies from review to pipeline

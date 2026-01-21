@@ -5,7 +5,7 @@ title: "Technology Changes"
 
 # Technology Changes
 
-Technology is the most visible part of FOE transformation—and the most dangerous to lead with. The right technology enables the disciplines; the wrong approach turns technology into expensive shelfware. This section covers key technologies, why they matter, and how to adopt them in service of flow.
+Technology is the most visible part of FOE transformation - and the most dangerous to lead with. The right technology enables the disciplines; the wrong approach turns technology into expensive shelfware. This section covers key technologies, why they matter, and how to adopt them in service of flow.
 
 ## The Cardinal Rule
 

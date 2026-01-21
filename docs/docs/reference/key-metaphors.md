@@ -5,7 +5,7 @@ title: "Key Metaphors"
 
 # Key Metaphors
 
-FOE uses specific metaphors to communicate complex concepts quickly and accurately. These aren't decorative language—they're precision tools for thinking and communication.
+FOE uses specific metaphors to communicate complex concepts quickly and accurately. These aren't decorative language - they're precision tools for thinking and communication.
 
 Understanding these metaphors helps you:
 - Communicate FOE concepts to stakeholders
@@ -18,7 +18,7 @@ Understanding these metaphors helps you:
 
 ### The Metaphor
 
-High-performance vehicles don't operate blind. Race cars have telemetry systems streaming hundreds of data points per second. Pilots have instrument panels that make invisible conditions visible. These gauges don't slow the vehicle down—they're what make high-speed operation *safe*.
+High-performance vehicles don't operate blind. Race cars have telemetry systems streaming hundreds of data points per second. Pilots have instrument panels that make invisible conditions visible. These gauges don't slow the vehicle down - they're what make high-speed operation *safe*.
 
 ### FOE Mapping
 
@@ -41,7 +41,7 @@ Use "gauges" when discussing:
 
 ### Key Insight
 
-**You cannot go fast without instruments.** Organizations that resist observability investment are like pilots who think instruments slow them down. The instruments don't create the complexity—they reveal it.
+**You cannot go fast without instruments.** Organizations that resist observability investment are like pilots who think instruments slow them down. The instruments don't create the complexity - they reveal it.
 
 ### Common Misapplication
 
@@ -53,7 +53,7 @@ Don't use this metaphor to justify vanity dashboards or metric proliferation. Go
 
 ### The Metaphor
 
-A cockpit is an interface designed for high-stakes, real-time decision-making. Everything is placed deliberately. Critical information is visible at a glance. Actions are designed to be reversible where possible. The pilot doesn't need to understand how every system works internally—they need to understand system *state* and have *controls* that work reliably.
+A cockpit is an interface designed for high-stakes, real-time decision-making. Everything is placed deliberately. Critical information is visible at a glance. Actions are designed to be reversible where possible. The pilot doesn't need to understand how every system works internally - they need to understand system *state* and have *controls* that work reliably.
 
 ### FOE Mapping
 
@@ -76,7 +76,7 @@ Use "cockpit" when discussing:
 
 ### Key Insight
 
-**Operators need visibility and control, not implementation details.** A good cockpit abstracts complexity without hiding it. Developers shouldn't need to understand Kubernetes internals to deploy safely—but they should see deployment status clearly.
+**Operators need visibility and control, not implementation details.** A good cockpit abstracts complexity without hiding it. Developers shouldn't need to understand Kubernetes internals to deploy safely - but they should see deployment status clearly.
 
 ### Common Misapplication
 
@@ -135,9 +135,9 @@ Don't use this metaphor to argue that *everything* should be cattle. Databases o
 
 ### The Metaphor
 
-In aviation, the operating envelope defines the safe limits within which an aircraft can fly. Exceed the envelope—too fast, too slow, too high, too steep—and the aircraft becomes unstable or uncontrollable. Pilots are trained to stay within the envelope, and aircraft are designed with systems that warn of envelope boundaries.
+In aviation, the operating envelope defines the safe limits within which an aircraft can fly. Exceed the envelope - too fast, too slow, too high, too steep - and the aircraft becomes unstable or uncontrollable. Pilots are trained to stay within the envelope, and aircraft are designed with systems that warn of envelope boundaries.
 
-The envelope isn't a constraint on performance—it's a *definition* of safe performance.
+The envelope isn't a constraint on performance - it's a *definition* of safe performance.
 
 ### FOE Mapping
 
@@ -160,7 +160,7 @@ Use "operating envelope" when discussing:
 
 ### Key Insight
 
-**The envelope enables speed.** Pilots don't resent the envelope—they rely on it. Knowing the safe limits means you can operate confidently at those limits. Without a defined envelope, operators must be conservative because they don't know where the dangers are.
+**The envelope enables speed.** Pilots don't resent the envelope - they rely on it. Knowing the safe limits means you can operate confidently at those limits. Without a defined envelope, operators must be conservative because they don't know where the dangers are.
 
 ### The Envelope Is Contextual
 
@@ -181,7 +181,7 @@ Don't use this metaphor to justify arbitrary restrictions. Every envelope bounda
 
 ### The Metaphor
 
-Receipts are proof of transaction. When you buy something, you get a receipt. When you return something, you need the receipt. Receipts aren't optional documentation—they're the evidence that something happened.
+Receipts are proof of transaction. When you buy something, you get a receipt. When you return something, you need the receipt. Receipts aren't optional documentation - they're the evidence that something happened.
 
 In financial systems, receipts enable audit, reconciliation, and dispute resolution. In legal systems, receipts establish chain of custody. In both cases, receipts matter because *memory is unreliable and claims require evidence*.
 

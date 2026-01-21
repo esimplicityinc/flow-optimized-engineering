@@ -285,7 +285,7 @@ DevX debt compounds. Deferring DevX investment slows delivery, which creates mor
 
 ### "We bought a platform, so DevX is solved"
 
-Tools don't create DevX—adoption and integration do. A platform nobody uses provides no value.
+Tools don't create DevX - adoption and integration do. A platform nobody uses provides no value.
 
 **Solution:** Measure adoption and satisfaction, not just deployment.
 

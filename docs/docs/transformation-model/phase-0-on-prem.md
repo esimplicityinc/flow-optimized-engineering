@@ -5,7 +5,7 @@ title: "Phase 0: On-Prem"
 
 # Phase 0: On-Prem
 
-Phase 0 represents traditional on-premises operations—the baseline from which modernization journeys begin. Understanding this phase matters because its patterns persist far longer than organizations admit, often surviving migration to cloud infrastructure in name only.
+Phase 0 represents traditional on-premises operations - the baseline from which modernization journeys begin. Understanding this phase matters because its patterns persist far longer than organizations admit, often surviving migration to cloud infrastructure in name only.
 
 ## Characteristics
 
@@ -31,7 +31,7 @@ Phase 0 represents traditional on-premises operations—the baseline from which 
 
 ## The "Pets" Mental Model
 
-Phase 0 systems are **pets**—unique servers that receive individual care:
+Phase 0 systems are **pets** - unique servers that receive individual care:
 
 | Pets | Cattle |
 |------|--------|
@@ -106,11 +106,11 @@ Leaving Phase 0 doesn't require perfection. It requires beginning the shift from
 Phase 0 represents the legacy system context that dominates government IT. When engaging with agencies:
 
 - **Acknowledge reality**: Many government systems are genuinely in Phase 0, for valid historical reasons
-- **Avoid judgment**: Phase 0 isn't failure—it's a starting point that reflects constraints that existed when systems were built
+- **Avoid judgment**: Phase 0 isn't failure - it's a starting point that reflects constraints that existed when systems were built
 - **Assess honestly**: Proposals should accurately characterize current state, not assume capabilities that don't exist
 - **Plan transitions**: Moving from Phase 0 requires explicit discipline adoption, not just tool deployment
 
-RFPs often underestimate the gap between Phase 0 and target state. Proposals that demonstrate understanding of this gap—and realistic plans to bridge it—are more credible than those promising rapid transformation.
+RFPs often underestimate the gap between Phase 0 and target state. Proposals that demonstrate understanding of this gap - and realistic plans to bridge it - are more credible than those promising rapid transformation.
 :::
 
 ## The Path Forward

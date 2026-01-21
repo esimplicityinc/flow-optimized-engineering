@@ -9,7 +9,7 @@ title: "The Central Thesis"
 
 FOE's central thesis is that speed and safety are not tradeoffs. They are the same thing, viewed from different angles.
 
-Fast feedback loops make systems safer. Safer systems can move faster. This is not a paradox—it is how every high-performance system operates.
+Fast feedback loops make systems safer. Safer systems can move faster. This is not a paradox - it is how every high-performance system operates.
 
 ## Speed With Coherence
 
@@ -33,7 +33,7 @@ Vibe coding looks like:
 - Ignoring monitoring alerts because "it's probably fine"
 - Postponing documentation because "we'll remember"
 
-Vibe coding works—until it doesn't. And when it stops working, it stops catastrophically.
+Vibe coding works - until it doesn't. And when it stops working, it stops catastrophically.
 
 | Vibe Coding | FOE |
 |-------------|-----|
@@ -46,7 +46,7 @@ FOE is not the enemy of speed. Vibe coding is the enemy of speed, because it tra
 
 ## The Instrumented Cockpit
 
-Picture a fighter pilot's cockpit. Dozens of instruments, heads-up displays, warning systems, automated countermeasures. This is not bureaucracy—it is what allows a human to operate at supersonic speed.
+Picture a fighter pilot's cockpit. Dozens of instruments, heads-up displays, warning systems, automated countermeasures. This is not bureaucracy - it is what allows a human to operate at supersonic speed.
 
 Now picture the same pilot with nothing but a windshield. They could still fly, but they could not fight. They could not push the aircraft to its limits because they would have no way to know where those limits were.
 
@@ -78,14 +78,14 @@ FOE operationalizes speed with coherence through three principles:
 
 2. **Optimize for Fast Feedback:** The faster you learn whether a change worked, the faster you can make the next change. Invest in testing, monitoring, and deployment automation.
 
-3. **Optimize for Confidence:** Confidence is not arrogance—it is calibrated belief based on evidence. Invest in verification, guardrails, and rollback capabilities.
+3. **Optimize for Confidence:** Confidence is not arrogance - it is calibrated belief based on evidence. Invest in verification, guardrails, and rollback capabilities.
 
 These principles are explored in detail in the [Core Principles](/docs/principles/overview) section.
 
 :::tip[GovCon Insight]
 Government customers often ask: "How do we know you're in control of this project?"
 
-FOE provides a concrete answer: real-time dashboards showing deployment status, test coverage, incident response times, and recovery metrics. This is not theater—it is the same instrumentation the team uses to operate safely.
+FOE provides a concrete answer: real-time dashboards showing deployment status, test coverage, incident response times, and recovery metrics. This is not theater - it is the same instrumentation the team uses to operate safely.
 
 Transparency and control are not separate concerns. A team that can show you their gauges is a team that is actually watching them.
 :::

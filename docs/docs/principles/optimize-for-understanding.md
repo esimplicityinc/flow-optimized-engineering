@@ -5,9 +5,9 @@ title: "Optimize for Understanding"
 
 # Optimize for Understanding
 
-Understanding is the ability to form accurate mental models—to predict how a system will behave before you change it. When understanding breaks down, engineers stop reasoning and start pattern-matching. They copy what worked before, avoid what failed before, and treat the system as an adversary rather than a tool.
+Understanding is the ability to form accurate mental models - to predict how a system will behave before you change it. When understanding breaks down, engineers stop reasoning and start pattern-matching. They copy what worked before, avoid what failed before, and treat the system as an adversary rather than a tool.
 
-> Understanding isn't about documentation. It's about whether the system is *legible*—whether a competent person can look at it and form coherent predictions.
+> Understanding isn't about documentation. It's about whether the system is *legible* - whether a competent person can look at it and form coherent predictions.
 
 ## What Cognitive Load Actually Means
 
@@ -20,7 +20,7 @@ Symptoms of cognitive overload:
 - New team members take months to become productive
 - Debugging requires archaeology
 
-These aren't signs of a complex domain. They're signs of a system that has exceeded human comprehension—not because the problem is hard, but because the solution has become illegible.
+These aren't signs of a complex domain. They're signs of a system that has exceeded human comprehension - not because the problem is hard, but because the solution has become illegible.
 
 ## What Happens When Understanding Breaks Down
 
@@ -34,7 +34,7 @@ When engineers can't form accurate mental models, they develop coping mechanisms
 | **Tribal warfare** | "That's their code, not our problem" | Integration failures, blame games |
 | **Learned helplessness** | "That's just how it is" | Stagnation, talent flight |
 
-Phase 2 systems produce these symptoms reliably. The system stabilized—it no longer crashes randomly—but the cost was comprehensibility. The architecture reflects accumulated decisions that made sense at the time but now form a maze.
+Phase 2 systems produce these symptoms reliably. The system stabilized - it no longer crashes randomly - but the cost was comprehensibility. The architecture reflects accumulated decisions that made sense at the time but now form a maze.
 
 :::note
 Understanding debt compounds. Each illegible component forces workarounds, which create new illegibility, which forces more workarounds. Left unchecked, systems become "legacy" within years of creation.
@@ -46,7 +46,7 @@ FOE makes systems legible through four mechanisms:
 
 ### 1. Traceable Change
 
-Every modification should be traceable: what changed, why it changed, who decided, what alternatives were considered. This isn't bureaucracy—it's the system remembering its own history.
+Every modification should be traceable: what changed, why it changed, who decided, what alternatives were considered. This isn't bureaucracy - it's the system remembering its own history.
 
 **Practical implementation:**
 - Commit messages that explain *why*, not just *what*
@@ -86,7 +86,7 @@ The architecture should support, not fight, how humans naturally chunk informati
 
 ## The Hidden Dimension: Cognitive Offloading
 
-The visible optimization is system legibility. The hidden optimization is **cognitive offloading**—using the system itself to remember what humans shouldn't have to.
+The visible optimization is system legibility. The hidden optimization is **cognitive offloading** - using the system itself to remember what humans shouldn't have to.
 
 > The best systems don't require you to remember. They remember for you.
 
@@ -112,24 +112,24 @@ Cognitive offloading isn't about making developers lazy. It's about directing hu
 
 ### For Developers
 
-1. **Write code that explains itself** — Not through comments about what, but structure that reveals why
-2. **Make implicit knowledge explicit** — If you had to ask someone to understand it, document it
-3. **Prefer boring technology** — Novel approaches require novel mental models
-4. **Refactor for clarity** — "It works" is not enough; "It's clear" is the goal
+1. **Write code that explains itself**  -  Not through comments about what, but structure that reveals why
+2. **Make implicit knowledge explicit**  -  If you had to ask someone to understand it, document it
+3. **Prefer boring technology**  -  Novel approaches require novel mental models
+4. **Refactor for clarity**  -  "It works" is not enough; "It's clear" is the goal
 
 ### For Tech Leads
 
-1. **Budget time for legibility** — Clarity isn't gold-plating; it's infrastructure
-2. **Review for understanding** — "Does this make the system more or less comprehensible?"
-3. **Document decisions** — ADRs are cheap; rediscovering lost context is expensive
-4. **Protect coherence** — Push back on changes that fragment the mental model
+1. **Budget time for legibility**  -  Clarity isn't gold-plating; it's infrastructure
+2. **Review for understanding**  -  "Does this make the system more or less comprehensible?"
+3. **Document decisions**  -  ADRs are cheap; rediscovering lost context is expensive
+4. **Protect coherence**  -  Push back on changes that fragment the mental model
 
 ### For Architects
 
-1. **Design for human cognition** — Systems are read more than written
-2. **Create meaningful boundaries** — Modules should map to concepts, not convenience
-3. **Standardize the boring parts** — Save novelty for where it matters
-4. **Make the invisible visible** — If it affects behavior, it should be discoverable
+1. **Design for human cognition**  -  Systems are read more than written
+2. **Create meaningful boundaries**  -  Modules should map to concepts, not convenience
+3. **Standardize the boring parts**  -  Save novelty for where it matters
+4. **Make the invisible visible**  -  If it affects behavior, it should be discoverable
 
 :::tip[GovCon Insight]
 Government contracts require:
@@ -138,7 +138,7 @@ Government contracts require:
 
 - **Explainability**: Phase 2 systems can't explain themselves. When stakeholders ask "how does this work?", legible systems provide answers. Illegible systems provide shrugs and caveats.
 
-- **Knowledge Transfer**: Government customers fear contractor lock-in. Systems optimized for understanding are systems that can be handed off—to new contractors, to government staff, to future maintainers.
+- **Knowledge Transfer**: Government customers fear contractor lock-in. Systems optimized for understanding are systems that can be handed off - to new contractors, to government staff, to future maintainers.
 
 These aren't separate concerns from good engineering. They're the natural output of understanding-optimized systems.
 :::

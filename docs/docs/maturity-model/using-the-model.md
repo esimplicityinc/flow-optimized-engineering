@@ -36,8 +36,8 @@ The model is valuable in specific contexts:
 
 Help leadership understand delivery health without oversimplifying:
 
-- "Our deployment process is Level 2—repeatable and reliable for standard changes."
-- "We're seeing Level 1 patterns in our observability—we can investigate problems but can't prevent them yet."
+- "Our deployment process is Level 2 - repeatable and reliable for standard changes."
+- "We're seeing Level 1 patterns in our observability - we can investigate problems but can't prevent them yet."
 - "This initiative would move us from discovering risk at milestones to continuous visibility."
 
 ### Government Reviews
@@ -45,16 +45,16 @@ Help leadership understand delivery health without oversimplifying:
 Provide assurance through behavioral description:
 
 - "We can demonstrate Level 2 repeatability in our change management process."
-- "Our evidence generation is continuous—that's a Level 3 characteristic."
+- "Our evidence generation is continuous - that's a Level 3 characteristic."
 - "We're explicitly not claiming Level 4; our goal is sustainable Level 3 operation."
 
 ### Engineering Retrospectives
 
 Identify specific improvement opportunities:
 
-- "That incident took three days to debug—that's Level 0 feedback speed."
+- "That incident took three days to debug - that's Level 0 feedback speed."
 - "Our new dashboards are giving us Level 1 visibility into queue depth."
-- "We caught that regression in CI—our feedback loops are working at Level 2."
+- "We caught that regression in CI - our feedback loops are working at Level 2."
 
 ## 3. Measure Movement, Not Position
 
@@ -74,7 +74,7 @@ An organization that moves from Level 0 to Level 1 has made more meaningful prog
 
 ## How This Fits the Playbook
 
-The maturity model reinforces—but doesn't replace—the FOE practices:
+The maturity model reinforces - but doesn't replace - the FOE practices:
 
 ### For Leaders
 
@@ -138,7 +138,7 @@ Watch for these misuses of the model:
 
 ## The Honest Conversation
 
-The most valuable use of the maturity model is enabling honest conversation about how delivery actually works. This requires psychological safety—people need to describe reality without fear of punishment.
+The most valuable use of the maturity model is enabling honest conversation about how delivery actually works. This requires psychological safety - people need to describe reality without fear of punishment.
 
 If your organization can't have honest conversations about maturity, that's important information. It suggests Level 0 or Level 1 operation regardless of what the tooling looks like.
 

@@ -11,7 +11,7 @@ You're responsible for building engineering organizations that deliver reliably 
 
 Engineering leaders occupy a unique position: you translate executive expectations into technical reality and shape the environment where engineers do their work. FOE succeeds or fails based on how well you build and sustain the institutions that enable flow.
 
-Your job isn't to personally optimize every workflow. It's to create the conditions where optimization happens naturally—where good practices spread, friction is systematically reduced, and institutional knowledge accumulates rather than evaporates.
+Your job isn't to personally optimize every workflow. It's to create the conditions where optimization happens naturally - where good practices spread, friction is systematically reduced, and institutional knowledge accumulates rather than evaporates.
 
 ## Building Institutions, Not Just Solutions
 
@@ -185,7 +185,7 @@ Architecture decisions affect flow. Optimize for:
 
 ### Technical Debt as Flow Blocker
 
-Technical debt isn't inherently bad—it's a tool for managing short-term tradeoffs. But debt that blocks flow is a priority:
+Technical debt isn't inherently bad - it's a tool for managing short-term tradeoffs. But debt that blocks flow is a priority:
 
 - Debt that makes deployments risky
 - Debt that prevents automated testing

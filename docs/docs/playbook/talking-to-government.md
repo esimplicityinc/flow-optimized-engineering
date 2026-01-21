@@ -67,8 +67,8 @@ We don't do that.
 
 We're not asking you to trust us.
 
-We're showing you the system that makes trust unnecessary—because the evidence speaks for itself.
+We're showing you the system that makes trust unnecessary - because the evidence speaks for itself.
 
 ## Maps To
 
-**Trust through transparency** — adapted for audit culture, where "show your work" isn't optional.
+**Trust through transparency** - adapted for audit culture, where "show your work" isn't optional.

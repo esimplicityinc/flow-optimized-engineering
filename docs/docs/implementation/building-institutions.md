@@ -5,7 +5,7 @@ title: "Building Institutions"
 
 # Building Institutions
 
-In FOE, "institutions" are lightweight but real mechanisms that make desired behavior the default. They're not bureaucracy—they're the scaffolding that makes good practices automatic rather than heroic.
+In FOE, "institutions" are lightweight but real mechanisms that make desired behavior the default. They're not bureaucracy - they're the scaffolding that makes good practices automatic rather than heroic.
 
 ## What Institutions Are (And Aren't)
 
@@ -72,7 +72,7 @@ These are the fundamental institutions that support FOE transformation:
 - Security scanning
 - Build verification
 
-**Enforcement**: Technical block—code cannot be merged without passing CI.
+**Enforcement**: Technical block - code cannot be merged without passing CI.
 
 **Common Failure Modes**:
 - Allowing bypasses "just this once"
@@ -90,7 +90,7 @@ These are the fundamental institutions that support FOE transformation:
 - Time expectations (e.g., review within 4 hours)
 - Clear approval criteria
 
-**Enforcement**: Technical block—approval required before merge.
+**Enforcement**: Technical block - approval required before merge.
 
 **Common Failure Modes**:
 - Rubber-stamp approvals
@@ -268,7 +268,7 @@ FOE governance is "light but real":
 - Accountable ownership
 
 :::tip
-The goal of governance is to make the right thing easy and the wrong thing hard—not to make everything hard.
+The goal of governance is to make the right thing easy and the wrong thing hard - not to make everything hard.
 :::
 
 ## GovCon: Policy Development and Sustainable Practices
@@ -301,10 +301,10 @@ When writing policies for government contracts:
 [What problem this solves]
 
 ## Requirement
-[What must happen—outcome-focused]
+[What must happen - outcome-focused]
 
 ## Implementation
-[How this is typically achieved—flexible]
+[How this is typically achieved - flexible]
 
 ## Verification
 [How compliance is measured]
@@ -339,6 +339,6 @@ Use this checklist when creating or evaluating an institution:
 
 ## Conclusion
 
-Institutions are how FOE practices become sustainable. Without them, good practices depend on vigilance and heroics—and both run out eventually. With them, good practices become the default, and the team's energy goes toward improvement rather than maintenance.
+Institutions are how FOE practices become sustainable. Without them, good practices depend on vigilance and heroics - and both run out eventually. With them, good practices become the default, and the team's energy goes toward improvement rather than maintenance.
 
 The investment in building institutions pays compound returns. Each institution that works reduces the effort required to maintain quality, freeing capacity for the next improvement. This is how teams build momentum toward higher phases of maturity.

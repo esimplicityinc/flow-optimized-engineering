@@ -11,9 +11,9 @@ title: "How We Make Decisions Under Uncertainty"
 
 ## What We Optimize For
 
-- **Reversible decisions** — prefer choices that can be undone
-- **Visible consequences** — know what failure looks like before it happens
-- **Bounded downside** — limit blast radius by design
+- **Reversible decisions**  -  prefer choices that can be undone
+- **Visible consequences**  -  know what failure looks like before it happens
+- **Bounded downside**  -  limit blast radius by design
 
 ## The Decision Framework
 
@@ -56,4 +56,4 @@ Most decisions are Type 2. We treat them that way.
 
 ## Maps To
 
-**Confidence Optimization** — Confidence isn't certainty. It's knowing you can recover.
+**Confidence Optimization**  -  Confidence isn't certainty. It's knowing you can recover.

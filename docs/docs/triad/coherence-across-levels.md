@@ -7,7 +7,7 @@ title: "Coherence Across Levels"
 
 FOE transformation must land coherently at three organizational levels: **Executive Leadership (ELT)**, **Government Customers**, and **Engineers**. Each group needs FOE translated into their language, addressing their concerns, and connecting to what they value.
 
-Say the same thing three different ways—not three different things.
+Say the same thing three different ways - not three different things.
 
 ## Why Coherence Matters
 

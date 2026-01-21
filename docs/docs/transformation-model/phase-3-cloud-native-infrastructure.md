@@ -5,7 +5,7 @@ title: "Phase 3: Cloud Native Infrastructure"
 
 # Phase 3: Cloud Native Infrastructure
 
-Phase 3 represents the existential shift—not more tooling, but a fundamentally different way of operating. Infrastructure becomes cattle in truth, not just rhetoric. Operations become declarative and reconciliation-based. Standardized patterns replace special cases. This is where organizations either transform or plateau.
+Phase 3 represents the existential shift - not more tooling, but a fundamentally different way of operating. Infrastructure becomes cattle in truth, not just rhetoric. Operations become declarative and reconciliation-based. Standardized patterns replace special cases. This is where organizations either transform or plateau.
 
 ## The Existential Shift
 
@@ -60,7 +60,7 @@ Phase 2:                              Phase 3:
 └────────────────────────┘            └────────────────────────┘
 ```
 
-This isn't rigidity—it's discipline. When a pattern doesn't work, you improve the pattern for everyone, not create an exception for yourself.
+This isn't rigidity - it's discipline. When a pattern doesn't work, you improve the pattern for everyone, not create an exception for yourself.
 
 ### From Heroes to Systems
 
@@ -187,7 +187,7 @@ Nothing requires manual execution. Change flows from Git to reality via automati
 
 ## Why Most Organizations Get Stuck
 
-Phase 3 is where transformation efforts fail. Not for technical reasons—the technology is mature and well-documented. The failures are organizational:
+Phase 3 is where transformation efforts fail. Not for technical reasons - the technology is mature and well-documented. The failures are organizational:
 
 ### The Discipline Gap
 
@@ -251,7 +251,7 @@ Phase 3 is a stable, valuable state. Moving to Phase 4 requires:
 | **Zero Trust Networking** | Identity-based access, no implicit trust |
 
 :::tip[GovCon Insight]
-Phase 3 represents what real modernization looks like—and it's rare in government contracting. This creates significant opportunity:
+Phase 3 represents what real modernization looks like - and it's rare in government contracting. This creates significant opportunity:
 
 **Why Phase 3 matters for contracts:**
 - Agencies increasingly need true cloud-native capability, not modernization theater
@@ -287,6 +287,6 @@ Organizations that achieve Phase 3 have:
 4. **Enforced disciplines**: Making standards mandatory, not optional
 5. **Trusted systems**: Accepting that automation should run without supervision
 
-Phase 3 is not the end—Phases 4 and 5 extend these disciplines to code and AI. But Phase 3 is the foundation. Without it, AI adoption creates chaos. With it, AI adoption accelerates value.
+Phase 3 is not the end - Phases 4 and 5 extend these disciplines to code and AI. But Phase 3 is the foundation. Without it, AI adoption creates chaos. With it, AI adoption accelerates value.
 
 This is why Phase 3 is the bottleneck. Not because the technology is hard, but because the disciplines are.

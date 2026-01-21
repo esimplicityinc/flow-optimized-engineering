@@ -9,7 +9,7 @@ FOE is about making your daily work better: less friction, faster feedback, more
 
 ## What FOE Actually Means for Your Day-to-Day
 
-FOE optimizes for **flow**—the smooth, uninterrupted movement of your work from idea to production. When flow is good:
+FOE optimizes for **flow** - the smooth, uninterrupted movement of your work from idea to production. When flow is good:
 
 - You spend time solving interesting problems, not fighting tooling
 - Feedback comes fast enough to stay in context
@@ -41,7 +41,7 @@ Here's the trade-off: guardrails that catch problems early save you from debuggi
 
 **Good guardrails** protect you. They catch mistakes before they become incidents. They're automated so they don't require your attention. They have clear error messages so you know how to fix issues.
 
-**Bad guardrails** create friction without value. They block legitimate work without explanation. They require manual intervention for routine tasks. If you encounter these, that's worth raising—not every guardrail is well-designed.
+**Bad guardrails** create friction without value. They block legitimate work without explanation. They require manual intervention for routine tasks. If you encounter these, that's worth raising - not every guardrail is well-designed.
 
 ## Faster Feedback Loops
 
@@ -107,7 +107,7 @@ The goal is **safe autonomy**: you can move fast because the guardrails catch mi
 
 ## How to Contribute to FOE Practices
 
-FOE isn't something done to you—it's something you help build. Here's how:
+FOE isn't something done to you - it's something you help build. Here's how:
 
 ### Improve Documentation
 
@@ -186,7 +186,7 @@ Automating the boring parts creates space for interesting work. If your job sati
 
 ### "Will standardization limit my creativity?"
 
-Standardization of infrastructure and patterns creates a foundation for creativity in problem-solving. You're not creative in how you configure deployment—you're creative in how you solve user problems. FOE redirects creative energy toward higher-value work.
+Standardization of infrastructure and patterns creates a foundation for creativity in problem-solving. You're not creative in how you configure deployment - you're creative in how you solve user problems. FOE redirects creative energy toward higher-value work.
 
 ### "What if I disagree with a standard?"
 
@@ -224,4 +224,4 @@ If something feels like pure bureaucracy, that's worth raising. Not all practice
 5. **Contribute improvements**: Small improvements compound over time
 6. **Ask why**: Understanding the reason behind practices helps you apply them well
 
-FOE environments are built by the engineers working in them. Your participation in improving practices is part of the job, and it makes everyone's work better—including your own.
+FOE environments are built by the engineers working in them. Your participation in improving practices is part of the job, and it makes everyone's work better - including your own.

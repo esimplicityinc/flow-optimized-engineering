@@ -5,7 +5,7 @@ title: "Sensemaking Under Complexity"
 
 # Sensemaking Under Complexity
 
-Understanding isn't a feeling—it's a functional capability. You understand a system when you can form a mental model that predicts outcomes. When that capability breaks down, engineering becomes something else entirely.
+Understanding isn't a feeling - it's a functional capability. You understand a system when you can form a mental model that predicts outcomes. When that capability breaks down, engineering becomes something else entirely.
 
 ## What Understanding Actually Means
 
@@ -16,13 +16,13 @@ Psychologically, understanding is the ability to simulate. When you understand a
 - **Design** changes that achieve intended effects
 - **Communicate** with others using a shared model
 
-These aren't abstract skills. They're the foundation of engineering work. Without them, you're not engineering—you're experimenting blindly and hoping.
+These aren't abstract skills. They're the foundation of engineering work. Without them, you're not engineering - you're experimenting blindly and hoping.
 
 > Understanding = the ability to form a coherent mental model that predicts outcomes
 
 ## When Systems Lose Understandability
 
-Phase 2 systems—those characterized by coupling, opacity, and scale—break understanding in specific, predictable ways:
+Phase 2 systems - those characterized by coupling, opacity, and scale - break understanding in specific, predictable ways:
 
 **Working memory overload.** Humans can hold roughly 4-7 items in working memory simultaneously. When a system has dozens of interacting components, you simply cannot hold the full causal picture in your head. You're forced to reason about fragments, losing sight of interactions.
 
@@ -48,7 +48,7 @@ These aren't character failures. They're predictable responses to cognitive envi
 
 ## The Cockpit Principle
 
-Aircraft cockpits exist because humans can't directly perceive altitude, airspeed, attitude, engine status, and navigation simultaneously while also flying the plane. The cockpit doesn't replace pilot judgment—it makes pilot judgment possible by presenting information in cognitively tractable forms.
+Aircraft cockpits exist because humans can't directly perceive altitude, airspeed, attitude, engine status, and navigation simultaneously while also flying the plane. The cockpit doesn't replace pilot judgment - it makes pilot judgment possible by presenting information in cognitively tractable forms.
 
 This is **Cognitive Offloading**: moving information processing from the human brain to external representations. The altimeter doesn't think, but it lets the pilot think about altitude without calculating it from air pressure.
 
@@ -60,7 +60,7 @@ FOE applies the same principle to software systems:
 - **Architecture** that limits what you need to hold in your head
 
 :::tip[GovCon Insight]
-Government programs chronically underinvest in observability and invest heavily in documentation. This is backwards. Documentation captures what someone understood at a point in time—it doesn't help you understand what's happening now. Observability tools are the cognitive offloading infrastructure that lets operators maintain situational awareness despite system complexity. Every dollar spent on real-time visibility typically saves multiples in reduced training costs, faster incident resolution, and fewer costly surprises during audits.
+Government programs chronically underinvest in observability and invest heavily in documentation. This is backwards. Documentation captures what someone understood at a point in time - it doesn't help you understand what's happening now. Observability tools are the cognitive offloading infrastructure that lets operators maintain situational awareness despite system complexity. Every dollar spent on real-time visibility typically saves multiples in reduced training costs, faster incident resolution, and fewer costly surprises during audits.
 :::
 
 ## How FOE Restores Sensemaking
@@ -71,7 +71,7 @@ FOE's understandability optimization isn't about making systems "simpler" in som
 
 **Explicit interfaces.** Interactions between components are visible and predictable. Hidden dependencies are made explicit or eliminated.
 
-**Observable state.** The system continuously externalizes its internal state in human-readable forms. You don't have to imagine what's happening—you can see it.
+**Observable state.** The system continuously externalizes its internal state in human-readable forms. You don't have to imagine what's happening - you can see it.
 
 **Traceable causation.** Changes propagate through visible channels. When something breaks, you can trace backward from symptom to cause.
 
