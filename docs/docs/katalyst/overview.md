@@ -33,6 +33,40 @@ flowchart TB
     KBT --> KP
 ```
 
+## Development Workflow with Katalyst
+
+```mermaid
+flowchart LR
+    subgraph UNDERSTAND["1. Understand"]
+        D["Define Architecture"]
+        D --> T["kata tree"]
+        D --> V["Visualize Structure"]
+    end
+    
+    subgraph TEST["2. Test"]
+        W["Write BDD Scenarios"]
+        W --> R["Run Multi-Layer Tests"]
+        R --> API["API Tests"]
+        R --> UI["UI Tests"]
+        R --> TUI["TUI Tests"]
+    end
+    
+    subgraph DEPLOY["3. Deploy"]
+        G["Git Push"]
+        G --> A["ArgoCD Sync"]
+        A --> K["Kubernetes"]
+        K --> O["Observe"]
+    end
+    
+    UNDERSTAND --> TEST
+    TEST --> DEPLOY
+    DEPLOY -.->|"Feedback"| UNDERSTAND
+```
+
+This workflow embodies the FOE cognitive triangle: **Understand → Act → Confirm → Learn**.
+
+---
+
 ## Component Overview
 
 ### Katalyst Platform
@@ -44,6 +78,36 @@ flowchart TB
 - Full observability stack (Grafana, Prometheus, Loki, Tempo)
 - Service mesh with Istio for mTLS and traffic management
 - External Secrets Operator for secure secrets management
+
+```mermaid
+flowchart TB
+    subgraph GITOPS["GitOps Flow"]
+        GIT["Git Repository<br/><i>Source of Truth</i>"]
+        GIT --> ARGO["ArgoCD<br/><i>Continuous Delivery</i>"]
+    end
+    
+    subgraph K8S["Kubernetes Cluster"]
+        ARGO --> APP["Applications"]
+        APP --> POD["Pods"]
+    end
+    
+    subgraph OBSERVE["Observability Stack"]
+        POD --> PROM["Prometheus<br/><i>Metrics</i>"]
+        POD --> LOKI["Loki<br/><i>Logs</i>"]
+        POD --> TEMPO["Tempo<br/><i>Traces</i>"]
+        PROM --> GRAF["Grafana<br/><i>Dashboards</i>"]
+        LOKI --> GRAF
+        TEMPO --> GRAF
+    end
+    
+    subgraph SECURITY["Security"]
+        ESO["External Secrets<br/><i>Secrets Management</i>"]
+        ISTIO["Istio<br/><i>Service Mesh</i>"]
+    end
+    
+    ESO --> POD
+    ISTIO --> POD
+```
 
 **Learn more:** [Katalyst Platform Documentation](https://d3bvp0fxrpttzf.cloudfront.net/)
 
@@ -59,6 +123,26 @@ flowchart TB
 - Fully Qualified Taxonomy Names (FQTN) for unambiguous component references
 - Schema validation ensuring consistency
 
+```mermaid
+flowchart TB
+    subgraph HIERARCHY["Architecture Hierarchy"]
+        SYS["System<br/><i>e.g., my-platform</i>"]
+        SYS --> SUB1["Subsystem<br/><i>e.g., frontend</i>"]
+        SYS --> SUB2["Subsystem<br/><i>e.g., backend</i>"]
+        SUB1 --> STK1["Stack<br/><i>e.g., web-app</i>"]
+        SUB2 --> STK2["Stack<br/><i>e.g., api-services</i>"]
+        STK1 --> L1["Layer<br/><i>e.g., react-ui</i>"]
+        STK2 --> L2["Layer<br/><i>e.g., user-api</i>"]
+        STK2 --> L3["Layer<br/><i>e.g., order-api</i>"]
+    end
+    
+    subgraph FQTN["Fully Qualified Taxonomy Name"]
+        NAME["my-platform/backend/api-services/user-api"]
+    end
+    
+    L2 -.-> NAME
+```
+
 **Learn more:** [Katalyst Taxonomy Documentation](https://esimplicityinc.github.io/katalyst-taxonomy/)
 
 ---
@@ -72,6 +156,36 @@ flowchart TB
 - Cucumber/Gherkin syntax for readable specifications
 - Automatic cleanup and resource management
 - Tag-based test filtering (@api, @ui, @tui, @hybrid)
+
+```mermaid
+flowchart TB
+    subgraph SCENARIOS["Gherkin Scenarios"]
+        F["Feature Files<br/><i>Business-readable specs</i>"]
+    end
+    
+    subgraph STEPS["Step Definitions"]
+        S["Cucumber Steps<br/><i>Test logic</i>"]
+    end
+    
+    subgraph ADAPTERS["Ports & Adapters"]
+        direction LR
+        API["API Adapter<br/>HTTP/REST"]
+        UI["UI Adapter<br/>Playwright Browser"]
+        TUI["TUI Adapter<br/>Terminal/CLI"]
+    end
+    
+    subgraph SYSTEM["System Under Test"]
+        SUT["Your Application"]
+    end
+    
+    F --> S
+    S --> API
+    S --> UI
+    S --> TUI
+    API --> SUT
+    UI --> SUT
+    TUI --> SUT
+```
 
 **Learn more:** [Katalyst BDD Test Documentation](https://esimplicityinc.github.io/katalyst-bdd-test/docs/)
 
@@ -200,6 +314,34 @@ Follow the [Katalyst Platform Developer Guide](https://d3bvp0fxrpttzf.cloudfront
 | **Deployment Safety** | Manual verification | ArgoCD auto-sync with rollback |
 | **Observability** | Pieced together | Integrated Grafana/Prometheus/Loki/Tempo |
 | **Onboarding** | Weeks of exploration | Hours with visual tools |
+
+### The Cognitive Triangle in Practice
+
+Katalyst implements FOE's cognitive triangle through continuous cycles of understanding, action, and learning:
+
+```mermaid
+flowchart LR
+    subgraph UNDERSTAND["Understand"]
+        T["Taxonomy<br/>What exists?<br/>How is it organized?"]
+    end
+    
+    subgraph ACT["Act"]
+        B["BDD Test<br/>Write scenarios<br/>Execute tests"]
+    end
+    
+    subgraph CONFIRM["Confirm"]
+        P["Platform<br/>Deploy safely<br/>Observe behavior"]
+    end
+    
+    subgraph LEARN["Learn"]
+        L["Feedback<br/>Metrics<br/>Insights"]
+    end
+    
+    UNDERSTAND --> ACT
+    ACT --> CONFIRM
+    CONFIRM --> LEARN
+    LEARN --> UNDERSTAND
+```
 
 ---
 

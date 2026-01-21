@@ -167,6 +167,8 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'katalyst/overview',
+        'katalyst/getting-started',
+        'katalyst/case-studies',
       ],
     },
     {
