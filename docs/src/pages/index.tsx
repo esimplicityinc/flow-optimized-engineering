@@ -12,12 +12,12 @@ function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
+      <div className={clsx('container', styles.heroContent)}>
+        <Heading as="h1" className={styles.heroTitle}>
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <p style={{fontSize: '1.1rem', opacity: 0.9, maxWidth: '700px', margin: '0 auto 2rem'}}>
+        <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
+        <p className={styles.heroDescription}>
           A delivery doctrine that optimizes engineering organizations for flow—the repeatable 
           movement from idea to change to verification to release to learning—without sacrificing 
           safety, coherence, or the ability to explain your systems.
@@ -30,7 +30,7 @@ function HomepageHeader() {
           </Link>
           <Link
             className="button button--outline button--lg"
-            style={{marginLeft: '1rem', color: 'white', borderColor: 'white'}}
+            style={{color: 'white', borderColor: 'rgba(255,255,255,0.5)'}}
             to="/docs/principles/overview">
             Core Principles
           </Link>
@@ -46,41 +46,89 @@ function AudiencePathways(): ReactNode {
       title: "I'm an Executive",
       description: "Understand how FOE protects margins, reduces risk, and creates competitive advantage in government contracting.",
       link: "/docs/stakeholder-guides/for-executives",
-      icon: "📊",
+      icon: "chart",
     },
     {
       title: "I'm an Engineering Leader",
       description: "Learn how to build institutions, scale practices, and implement FOE across your organization.",
       link: "/docs/stakeholder-guides/for-engineering-leaders",
-      icon: "🏗️",
+      icon: "building",
     },
     {
       title: "I'm an Engineer",
       description: "Discover the paved paths, feedback loops, and guardrails that let you ship with confidence.",
       link: "/docs/stakeholder-guides/for-engineers",
-      icon: "💻",
+      icon: "code",
     },
     {
       title: "I'm Evaluating Vendors",
       description: "Understand what to look for in engineering maturity and how FOE principles create reliable delivery.",
       link: "/docs/stakeholder-guides/for-government-customers",
-      icon: "🔍",
+      icon: "search",
     },
   ];
+
+  const getIcon = (icon: string) => {
+    const icons: Record<string, ReactNode> = {
+      chart: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"></line>
+          <line x1="12" y1="20" x2="12" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg>
+      ),
+      building: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+          <path d="M9 22v-4h6v4"></path>
+          <path d="M8 6h.01"></path>
+          <path d="M16 6h.01"></path>
+          <path d="M12 6h.01"></path>
+          <path d="M12 10h.01"></path>
+          <path d="M12 14h.01"></path>
+          <path d="M16 10h.01"></path>
+          <path d="M16 14h.01"></path>
+          <path d="M8 10h.01"></path>
+          <path d="M8 14h.01"></path>
+        </svg>
+      ),
+      code: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+      ),
+      search: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      ),
+    };
+    return icons[icon] || icons.chart;
+  };
 
   return (
     <section className={styles.pathways}>
       <div className="container">
-        <Heading as="h2" className="text--center" style={{marginBottom: '2rem'}}>
+        <Heading as="h2" className={styles.sectionTitle}>
           Find Your Path
         </Heading>
+        <p className={styles.sectionSubtitle}>
+          FOE serves different stakeholders differently. Start with the guide that matches your role.
+        </p>
         <div className="row">
           {pathways.map((pathway, idx) => (
             <div key={idx} className="col col--3">
               <Link to={pathway.link} className={styles.pathwayCard}>
-                <span className={styles.pathwayIcon}>{pathway.icon}</span>
+                <div className={styles.pathwayIconWrapper}>
+                  {getIcon(pathway.icon)}
+                </div>
                 <Heading as="h3">{pathway.title}</Heading>
                 <p>{pathway.description}</p>
+                <span className={styles.pathwayArrow}>
+                  Learn more →
+                </span>
               </Link>
             </div>
           ))}
@@ -94,10 +142,10 @@ function TransformationPreview(): ReactNode {
   return (
     <section className={styles.transformation}>
       <div className="container">
-        <Heading as="h2" className="text--center" style={{marginBottom: '1rem'}}>
+        <Heading as="h2" className={styles.sectionTitle}>
           The Transformation Model
         </Heading>
-        <p className="text--center" style={{maxWidth: '700px', margin: '0 auto 2rem'}}>
+        <p className={styles.sectionSubtitle}>
           Organizations evolve through distinct phases. Understanding where you are—and what's 
           required to progress—is the key to sustainable modernization.
         </p>
@@ -133,7 +181,7 @@ function TransformationPreview(): ReactNode {
             <span>Standardized, composable, policy-governed</span>
           </div>
         </div>
-        <div className="text--center" style={{marginTop: '2rem'}}>
+        <div className="text--center" style={{marginTop: '2.5rem'}}>
           <Link
             className="button button--primary button--lg"
             to="/docs/transformation-model/overview">
@@ -148,13 +196,13 @@ function TransformationPreview(): ReactNode {
 function KeyInsight(): ReactNode {
   return (
     <section className={styles.keyInsight}>
-      <div className="container">
+      <div className={clsx('container', styles.keyInsightContent)}>
         <blockquote>
-          <p style={{fontSize: '1.5rem', fontWeight: 500}}>
-            "FOE is not about speed. FOE is about <strong>preserving human judgment 
-            under increasing complexity and rate of change</strong>."
+          <p className={styles.quoteText}>
+            FOE is not about speed. FOE is about <strong>preserving human judgment 
+            under increasing complexity and rate of change</strong>.
           </p>
-          <p style={{fontSize: '1rem', opacity: 0.8}}>
+          <p className={styles.quoteDescription}>
             As systems accelerate, human cognition becomes the limiting factor—not compute or tooling.
             FOE's three optimizations are cognitive load management strategies that let smart people 
             stay smart when the system gets too fast to think about directly.

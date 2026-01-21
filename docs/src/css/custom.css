@@ -1,5 +1,6 @@
 /**
  * Flow Optimized Engineering - Custom Styles
+ * A polished, professional design system
  */
 
 /* Primary color palette - deep blue for trust and stability */
@@ -20,6 +21,20 @@
   --foe-color-confidence: #059669;
   --foe-color-warning: #d97706;
   --foe-color-danger: #dc2626;
+  
+  /* Enhanced design tokens */
+  --foe-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --foe-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --foe-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --foe-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --foe-radius-sm: 6px;
+  --foe-radius-md: 12px;
+  --foe-radius-lg: 16px;
+  --foe-radius-xl: 24px;
+  
+  /* Typography */
+  --ifm-heading-font-weight: 700;
+  --ifm-font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 [data-theme='dark'] {
@@ -31,11 +46,77 @@
   --ifm-color-primary-lighter: #83bbfc;
   --ifm-color-primary-lightest: #a6d0fd;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+  --foe-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --foe-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --foe-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+  --foe-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
 }
 
-/* Hero section styling */
+/* Hero section styling with animated gradient */
 .hero--primary {
-  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, #1e3a5f 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #0f172a 50%, #1e3a5f 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero--primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Enhanced buttons */
+.button--secondary {
+  background: white;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  border: none;
+  box-shadow: var(--foe-shadow-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button--secondary:hover {
+  background: #f8fafc;
+  color: var(--ifm-color-primary-dark);
+  box-shadow: var(--foe-shadow-lg);
+  transform: translateY(-2px);
+}
+
+.button--outline {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button--outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+  border: none;
+  box-shadow: var(--foe-shadow-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button--primary:hover {
+  box-shadow: var(--foe-shadow-lg);
+  transform: translateY(-2px);
 }
 
 /* Custom admonition styles for FOE concepts */
@@ -59,17 +140,17 @@
 /* Pathway cards on homepage */
 .pathway-card {
   background: var(--ifm-card-background-color);
-  border-radius: 8px;
+  border-radius: var(--foe-radius-md);
   padding: 1.5rem;
   margin: 1rem 0;
   border: 1px solid var(--ifm-color-emphasis-200);
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pathway-card:hover {
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+  box-shadow: var(--foe-shadow-lg);
+  transform: translateY(-4px);
 }
 
 /* Phase indicator badges */
@@ -92,7 +173,7 @@
 /* Principle highlight boxes */
 .principle-box {
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: var(--foe-radius-md);
   margin: 1.5rem 0;
 }
 
@@ -114,6 +195,8 @@
 /* Table styling improvements */
 table {
   width: 100%;
+  border-radius: var(--foe-radius-md);
+  overflow: hidden;
 }
 
 table th {
@@ -122,10 +205,15 @@ table th {
 
 /* Code block improvements */
 .prism-code {
-  border-radius: 8px;
+  border-radius: var(--foe-radius-md);
 }
 
 /* Navbar improvements */
+.navbar {
+  box-shadow: var(--foe-shadow-sm);
+  backdrop-filter: blur(8px);
+}
+
 .navbar__title {
   font-weight: 700;
 }
@@ -145,7 +233,7 @@ blockquote {
   border-left: 4px solid var(--ifm-color-primary);
   background: var(--ifm-color-emphasis-100);
   padding: 1rem 1.5rem;
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 var(--foe-radius-md) var(--foe-radius-md) 0;
   font-style: italic;
 }
 
@@ -153,9 +241,83 @@ blockquote strong {
   color: var(--ifm-color-primary);
 }
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+/* Enhanced link hover */
+a:not(.button):not(.navbar__link):not(.menu__link):not(.card) {
+  transition: color 0.2s ease;
+}
+
+/* Card hover effects */
+.card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  box-shadow: var(--foe-shadow-lg);
+}
+
 /* Responsive adjustments */
 @media (max-width: 996px) {
   .pathway-card {
     padding: 1rem;
   }
+}
+
+/* Animate elements on scroll */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Focus states for accessibility */
+:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* Badge styling */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.badge--primary {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.badge--success {
+  background: var(--foe-color-confidence);
+  color: white;
+}
+
+.badge--warning {
+  background: var(--foe-color-warning);
+  color: white;
 }

@@ -1,38 +1,113 @@
+/**
+ * Homepage Features - Enhanced Styling
+ */
+
 .features {
   display: flex;
-  align-items: center;
-  padding: 4rem 0;
+  align-items: stretch;
+  padding: 5rem 0;
   width: 100%;
+  background: linear-gradient(180deg, transparent 0%, var(--ifm-color-emphasis-100) 100%);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.sectionSubtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.8;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .featureCard {
   background: var(--ifm-card-background-color);
-  border-radius: 12px;
-  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
   height: 100%;
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-top: 4px solid var(--feature-color);
   text-align: center;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.featureCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--feature-color) 0%, var(--feature-color-light, var(--feature-color)) 100%);
 }
 
 .featureCard:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  border-color: transparent;
+}
+
+.featureIconWrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, var(--feature-color) 0%, color-mix(in srgb, var(--feature-color) 80%, black) 100%);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--feature-color) 35%, transparent);
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover .featureIconWrapper {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--feature-color) 45%, transparent);
 }
 
 .featureIcon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  color: white;
 }
 
-.featureCard h3 {
+.featureTitle {
   color: var(--feature-color);
   margin-bottom: 1rem;
+  font-size: 1.35rem;
+  font-weight: 700;
 }
 
-.featureCard p {
+.featureDescription {
   margin: 0;
   opacity: 0.85;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 996px) {
+  .features {
+    padding: 3rem 0;
+  }
+  
+  .featureCard {
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .featureIconWrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+  }
 }
