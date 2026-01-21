@@ -163,3 +163,92 @@ Teams that optimize for understanding experience:
 - Sustainable pace (no constant firefighting)
 
 Understanding isn't a luxury. It's the foundation on which everything else rests. Without it, fast feedback produces noise and confidence becomes recklessness.
+
+---
+
+## Katalyst Implementation
+
+:::info[With Katalyst]
+Katalyst Taxonomy provides concrete mechanisms for optimizing understanding through **architecture-as-code**. Instead of relying on stale documentation or tribal knowledge, your entire system structure is defined in machine-readable, version-controlled YAML files.
+:::
+
+### How Katalyst Taxonomy Enables Understanding
+
+Katalyst Taxonomy implements the four understanding mechanisms:
+
+| FOE Mechanism | Katalyst Implementation |
+|---------------|------------------------|
+| **Traceable Change** | All architecture definitions in Git with full history |
+| **Explicit Invariants** | Schema validation enforces structural rules |
+| **Visible Policies** | Layer types encode organizational standards |
+| **Coherent Mental Models** | Four-tier hierarchy (System → Subsystem → Stack → Layer) |
+
+### Architecture Discovery in Seconds
+
+Instead of asking "what services do we have?", run:
+
+```bash
+kata tree
+```
+
+Output:
+```
+platform
+├── backend-services
+│   ├── api-gateway
+│   │   ├── app (app-docker)
+│   │   └── k8s (k8s-kustomize)
+│   └── auth-service
+│       ├── app (app-docker)
+│       └── k8s (k8s-kustomize)
+└── data-platform
+    └── analytics-pipeline
+        └── iac (iac-terragrunt)
+```
+
+Every component is discoverable. Every relationship is explicit. No archaeology required.
+
+### Ownership is Always Clear
+
+Every node declares its owners:
+
+```yaml
+apiVersion: katalyst.taxonomy/v1alpha
+kind: TaxonomyNode
+metadata:
+  name: api-gateway
+spec:
+  description: Public API gateway handling authentication and routing
+  owners:
+    - api-team@example.com
+    - sre-team@example.com
+  dependsOn:
+    nodes:
+      - auth-service
+```
+
+When something breaks at 3am, you know who to page. When you need to understand a component, you know who to ask.
+
+### Dependencies are Explicit
+
+No more discovering hidden dependencies through production incidents:
+
+```bash
+kata json | jq '.documents[] | select(.spec.dependsOn.nodes | length > 0) | {name: .metadata.name, depends: .spec.dependsOn.nodes}'
+```
+
+### Cognitive Offloading via the CLI
+
+Katalyst Taxonomy is the ultimate cognitive offloading tool:
+
+| Human Task | Katalyst Command |
+|------------|------------------|
+| "What services exist?" | `kata tree` |
+| "Who owns this?" | `kata get <service>` |
+| "What depends on what?" | `kata json \| jq ...` |
+| "Is our structure valid?" | `kata lint` |
+| "Let me explore interactively" | `kata tui` |
+
+The system remembers so you don't have to.
+
+**Learn more:** [Katalyst Taxonomy Documentation](https://esimplicityinc.github.io/katalyst-taxonomy/)

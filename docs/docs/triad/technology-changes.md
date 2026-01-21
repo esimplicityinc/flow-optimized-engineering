@@ -7,6 +7,10 @@ title: "Technology Changes"
 
 Technology is the most visible part of FOE transformation, and the most dangerous to lead with. The right technology enables the disciplines; the wrong approach turns technology into expensive shelfware. This section covers key technologies, why they matter, and how to adopt them in service of flow.
 
+:::info[With Katalyst]
+The technologies described in this section are fully implemented in the **[Katalyst Platform](https://d3bvp0fxrpttzf.cloudfront.net/)**. Rather than assembling these components yourself, Katalyst provides a pre-integrated, production-ready stack with ArgoCD, Istio, OpenTelemetry-based observability, and more.
+:::
+
 ## The Cardinal Rule
 
 **Technology serves the disciplines. The disciplines don't serve technology.**
@@ -292,3 +296,51 @@ Before adopting new technology:
 - [ ] **Compliance considered:** Does this meet our regulatory requirements?
 - [ ] **Integration mapped:** How does this fit with existing technology?
 - [ ] **Operational readiness:** Can we support this in production?
+
+---
+
+## Katalyst: The Reference Implementation
+
+:::info[With Katalyst]
+The Katalyst ecosystem provides a complete, pre-integrated implementation of the FOE technology stack. Instead of assembling and maintaining these components individually, Katalyst offers them as a cohesive platform.
+:::
+
+### Katalyst Platform Components
+
+| FOE Technology | Katalyst Implementation | Documentation |
+|---------------|------------------------|---------------|
+| **Container Orchestration** | Kubernetes (EKS) | [Platform Docs](https://d3bvp0fxrpttzf.cloudfront.net/) |
+| **GitOps** | ArgoCD | [Deploying Apps](https://d3bvp0fxrpttzf.cloudfront.net/docs/developer-guide/deploying-apps/overview) |
+| **Observability** | Grafana + Prometheus + Loki + Tempo | [Observability Guide](https://d3bvp0fxrpttzf.cloudfront.net/docs/developer-guide/observability/overview) |
+| **Service Mesh** | Istio | [Networking Guide](https://d3bvp0fxrpttzf.cloudfront.net/docs/developer-guide/networking/ingress) |
+| **Secrets Management** | External Secrets Operator + AWS Secrets Manager | [Secrets Guide](https://d3bvp0fxrpttzf.cloudfront.net/docs/developer-guide/secrets/external-secrets) |
+| **CI/CD** | GitHub Actions | [CI/CD Guide](https://d3bvp0fxrpttzf.cloudfront.net/docs/developer-guide/cicd/github-actions) |
+
+### Katalyst Taxonomy: Architecture as Code
+
+Beyond infrastructure, **[Katalyst Taxonomy](https://esimplicityinc.github.io/katalyst-taxonomy/)** provides architecture-as-code capabilities:
+
+- **Hierarchical Modeling**: System → Subsystem → Stack → Layer
+- **Layer Types**: Consistent scaffolding for `app-docker`, `k8s-kustomize`, `iac-terragrunt`
+- **CLI Tools**: `kata tree`, `kata lint`, `kata create`
+- **Discovery**: Visual architecture navigation with `kata tui`
+
+### Katalyst BDD Test: Multi-Layer Testing
+
+**[Katalyst BDD Test](https://esimplicityinc.github.io/katalyst-bdd-test/docs/)** provides unified testing across:
+
+- API testing with Playwright
+- Browser UI testing
+- Terminal UI (TUI) testing
+- Hybrid cross-layer tests
+
+All using BDD/Gherkin syntax for readable, executable specifications.
+
+### Why Use Katalyst?
+
+| Approach | Effort | Risk | Maintenance |
+|----------|--------|------|-------------|
+| **DIY Assembly** | High (months) | High (integration bugs) | High (updates, security) |
+| **Katalyst Platform** | Low (days) | Low (pre-validated) | Shared (platform team) |
+
+Katalyst represents the "paved path" that FOE advocates: a pre-built, well-lit road that lets teams focus on their applications rather than infrastructure plumbing.

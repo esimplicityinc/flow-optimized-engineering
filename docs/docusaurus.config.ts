@@ -55,6 +55,17 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: 'docs',
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: 'FOE + Katalyst',
+              badge: true,
+            },
+            'foe-core': {
+              label: 'FOE Core',
+              banner: 'none',
+            },
+          },
         },
         blog: {
           showReadingTime: true,
@@ -109,6 +120,11 @@ const config: Config = {
           position: 'left',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownActiveClassDisabled: true,
+        },
         {
           href: 'https://github.com/esimplicityinc/flow-optimized-engineering',
           label: 'GitHub',
@@ -171,6 +187,23 @@ const config: Config = {
             {
               label: 'Blog',
               to: '/blog',
+            },
+          ],
+        },
+        {
+          title: 'Katalyst Ecosystem',
+          items: [
+            {
+              label: 'Katalyst Platform',
+              href: 'https://d3bvp0fxrpttzf.cloudfront.net/',
+            },
+            {
+              label: 'Katalyst Taxonomy',
+              href: 'https://esimplicityinc.github.io/katalyst-taxonomy/',
+            },
+            {
+              label: 'Katalyst BDD Test',
+              href: 'https://esimplicityinc.github.io/katalyst-bdd-test/docs/',
             },
           ],
         },

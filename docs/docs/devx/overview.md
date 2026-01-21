@@ -138,6 +138,65 @@ DevX effectiveness shows up in:
 
 Track these metrics over time. Degradation is a leading indicator of delivery problems.
 
+---
+
+## Katalyst: DevX as a Product
+
+:::info[With Katalyst]
+The Katalyst ecosystem is DevX made real. It provides the designed, not discovered, developer experience that FOE requires: consistent conventions, automated pipelines, observable systems, and confidence-enabling guardrails.
+:::
+
+### Katalyst Components Map to DevX Dimensions
+
+| DevX Dimension | Katalyst Component | What It Provides |
+|----------------|-------------------|------------------|
+| **Understanding** | Katalyst Taxonomy | Architecture-as-code, `kata tree`, visual discovery |
+| **Fast Feedback** | Katalyst BDD Test | Multi-layer testing, immediate verification |
+| **Confidence** | Katalyst Platform | GitOps, auto-rollback, observability, guardrails |
+
+### The Developer Journey with Katalyst
+
+```mermaid
+flowchart LR
+    subgraph "Understand"
+        A[kata tree] --> B[Navigate architecture]
+        B --> C[Find what you need]
+    end
+    
+    subgraph "Build"
+        D[kata create] --> E[Scaffold new service]
+        E --> F[Write code]
+    end
+    
+    subgraph "Verify"
+        G[Write BDD tests] --> H[npx playwright test]
+        H --> I[Immediate feedback]
+    end
+    
+    subgraph "Deploy"
+        J[git push] --> K[ArgoCD sync]
+        K --> L[Health check]
+        L --> M{Healthy?}
+        M -->|Yes| N[Done]
+        M -->|No| O[Auto-rollback]
+    end
+    
+    C --> D
+    F --> G
+    I --> J
+```
+
+### DevX Metrics with Katalyst
+
+| Metric | Without Katalyst | With Katalyst |
+|--------|-----------------|---------------|
+| **Time to first commit** | Days (setup, onboarding) | Hours (clear conventions) |
+| **Time from commit to production** | Hours to days | Minutes (automated GitOps) |
+| **Mean time to recovery** | Hours (manual investigation) | Minutes (auto-rollback) |
+| **Onboarding friction** | High (tribal knowledge) | Low (`kata tree` + docs) |
+
+**Learn more:** [Katalyst Implementation Overview](/docs/katalyst/overview)
+
 ## What Comes Next
 
 The following pages explore each dimension of DevX:

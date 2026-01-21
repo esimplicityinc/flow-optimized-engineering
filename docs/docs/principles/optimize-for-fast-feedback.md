@@ -191,3 +191,143 @@ Teams that optimize for fast feedback experience:
 - Reduced waste (stop building the wrong things)
 
 Fast feedback is how teams develop accurate intuitions. It's the difference between a team that gets better over time and one that just gets older.
+
+---
+
+## Katalyst Implementation
+
+:::info[With Katalyst]
+Katalyst BDD Test provides a unified testing framework built on Playwright that enables fast feedback across all system layers: API, UI, and TUI. Using ports and adapters architecture, tests remain clean and maintainable while providing comprehensive coverage.
+:::
+
+### How Katalyst BDD Test Enables Fast Feedback
+
+Katalyst BDD Test addresses the feedback stack at multiple levels:
+
+| Feedback Loop | Katalyst Mechanism |
+|---------------|-------------------|
+| **Does this logic work?** | API testing with `@api` tagged scenarios |
+| **Does the UI work?** | Browser testing with `@ui` tagged scenarios |
+| **Does the CLI work?** | Terminal testing with `@tui` tagged scenarios |
+| **Do layers integrate?** | Hybrid testing with `@hybrid` tagged scenarios |
+
+### Readable, Executable Specifications
+
+Tests are written in Gherkin, making them readable by non-technical stakeholders:
+
+```gherkin
+@api
+Feature: User Management API
+
+  Scenario: Create and verify user
+    Given I am authenticated as an admin via API
+    When I POST "/admin/users" with JSON body:
+      """
+      { "email": "test@example.com", "name": "Test User" }
+      """
+    Then the response status should be 201
+    And I store the value at "id" as "userId"
+    
+    When I GET "/admin/users/{userId}"
+    Then the response status should be 200
+    And the value at "email" should equal "test@example.com"
+```
+
+### Ports and Adapters: Clean Separation
+
+The framework uses hexagonal architecture to separate *what* from *how*:
+
+```typescript
+// Port defines WHAT (interface)
+interface ApiPort {
+  sendJson(method: string, path: string, body?: unknown): Promise<ApiResult>;
+}
+
+// Adapter defines HOW (implementation)
+class PlaywrightApiAdapter implements ApiPort {
+  async sendJson(method, path, body) {
+    // Playwright-specific implementation
+  }
+}
+```
+
+This separation means:
+- Tests don't change when implementation details change
+- Different adapters can be swapped without rewriting tests
+- Mock adapters enable fast unit testing of step logic
+
+### Multi-Layer Testing in One Framework
+
+Instead of maintaining separate frameworks for API, UI, and integration tests:
+
+```gherkin
+@hybrid
+Feature: User Creation Flow
+
+  Scenario: Admin creates user via UI, user logs in via API
+    # UI layer
+    Given I am logged in as an admin via UI
+    When I click button "Create User"
+    And I fill field "Email" with "new@example.com"
+    And I click button "Submit"
+    Then I should see text "User created"
+    
+    # API layer
+    When I POST "/auth/login" with JSON body:
+      """
+      { "email": "new@example.com", "password": "temp123" }
+      """
+    Then the response status should be 200
+```
+
+### Automatic Resource Cleanup
+
+The framework automatically cleans up resources created during tests:
+
+```gherkin
+When I POST "/admin/users" with JSON body:
+  """
+  { "email": "test@example.com" }
+  """
+Then the response status should be 201
+And I register cleanup for "user" at "{response.id}"
+
+# After scenario completes, user is automatically deleted
+```
+
+### Fast Feedback via Tag Filtering
+
+Run only the tests you need:
+
+```bash
+# Run only API tests (fastest)
+npx playwright test --grep @api
+
+# Run only UI tests
+npx playwright test --grep @ui
+
+# Run hybrid integration tests
+npx playwright test --grep @hybrid
+```
+
+### Integrating with CI/CD
+
+Katalyst BDD Test integrates with the Katalyst Platform CI/CD pipeline:
+
+```yaml
+# GitHub Actions workflow
+- name: Run BDD Tests
+  run: npx playwright test
+  env:
+    API_BASE_URL: ${{ secrets.API_BASE_URL }}
+    
+- name: Upload Test Results
+  uses: actions/upload-artifact@v3
+  with:
+    name: playwright-report
+    path: playwright-report/
+```
+
+Tests run on every PR. Failures block merge. Fast feedback is institutionalized.
+
+**Learn more:** [Katalyst BDD Test Documentation](https://esimplicityinc.github.io/katalyst-bdd-test/docs/)

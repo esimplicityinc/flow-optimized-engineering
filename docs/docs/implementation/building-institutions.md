@@ -343,3 +343,119 @@ Use this checklist when creating or evaluating an institution:
 Institutions are how FOE practices become sustainable. Without them, good practices depend on vigilance and heroics, and both run out eventually. With them, good practices become the default, and the team's energy goes toward improvement rather than maintenance.
 
 The investment in building institutions pays compound returns. Each institution that works reduces the effort required to maintain quality, freeing capacity for the next improvement. This is how teams build momentum toward higher phases of maturity.
+
+---
+
+## Katalyst: Institutions as Code
+
+:::info[With Katalyst]
+Katalyst Taxonomy provides **institutional enforcement through layer types**. Instead of relying on documentation, checklists, or human vigilance, Katalyst encodes your institutions directly into the scaffolding that creates new components.
+:::
+
+### Layer Types as Institutional Mechanisms
+
+Each Katalyst layer type is an institution:
+
+| Layer Type | Institution It Enforces | What It Includes |
+|------------|------------------------|------------------|
+| `app-docker` | Consistent containerization | Dockerfile, docker-compose, CI config |
+| `k8s-kustomize` | Kubernetes deployment standards | Base manifests, environment overlays |
+| `k8s-argocd` | GitOps deployment | ArgoCD application definitions |
+| `iac-terragrunt` | Infrastructure standards | Terragrunt modules, state management |
+
+### Technical Enforcement via Scaffolding
+
+When a developer runs:
+
+```bash
+kata create layer api-gateway \
+  --layer-type app-docker \
+  --parent backend-services \
+  --owner platform-team@example.com \
+  --environment dev
+```
+
+The institution is automatically enforced:
+
+```
+api-gateway/
+├── layer.yaml              # Taxonomy definition (ownership, dependencies)
+├── Dockerfile              # Multi-stage build following standards
+├── docker-compose.yaml     # Local development configuration
+├── .github/
+│   └── workflows/
+│       └── ci.yaml         # CI/CD pipeline (pre-configured)
+├── base/
+│   └── kustomization.yaml  # Shared Kubernetes config
+└── dev/
+    └── kustomization.yaml  # Environment-specific overlay
+```
+
+Every new service automatically includes:
+- Correct directory structure
+- Pre-configured CI/CD
+- Observability integration
+- Schema-validated configuration
+
+### Schema Validation as Continuous Enforcement
+
+The `kata lint` command validates that all nodes conform to institutional requirements:
+
+```bash
+kata lint
+```
+
+Output:
+```
+Validating 47 taxonomy nodes...
+ERROR: api-gateway/layer.yaml
+  - Missing required field: spec.owners
+  - Invalid environment: 'production' (expected: dev, staging, prod)
+
+WARN: auth-service/layer.yaml
+  - No dependsOn declared (consider if this is intentional)
+
+Valid: 45/47 nodes
+```
+
+Run this in CI to catch violations before they merge.
+
+### Institution Anatomy → Katalyst Mapping
+
+| Institution Component | Katalyst Implementation |
+|----------------------|------------------------|
+| **Purpose** | Layer type description |
+| **Mechanism** | Scaffolding templates |
+| **Trigger** | `kata create` command |
+| **Enforcement** | Schema validation + `kata lint` |
+| **Owner** | Platform team maintains layer types |
+| **Measure** | Lint pass rate, scaffolding adoption |
+
+### Creating Custom Institutions
+
+Organizations can define custom layer types that encode their specific standards:
+
+```yaml
+# .global/taxonomy/layer-types/secure-api.yaml
+apiVersion: katalyst.taxonomy/v1alpha
+kind: LayerType
+metadata:
+  name: secure-api
+spec:
+  description: API service with security hardening
+  inherits: app-docker
+  templates:
+    - path: security/
+      source: templates/security-config/
+    - path: .github/workflows/security-scan.yaml
+      source: templates/security-scan.yaml
+  requiredAnnotations:
+    - security-classification
+    - data-handling-policy
+```
+
+Now every `secure-api` layer includes security scanning and requires security metadata.
+
+**Learn more:** 
+- [Katalyst Taxonomy Layer Types](https://esimplicityinc.github.io/katalyst-taxonomy/users/layer-types/)
+- [Creating Custom Layer Types](https://esimplicityinc.github.io/katalyst-taxonomy/extending/plugins/layer-types/)

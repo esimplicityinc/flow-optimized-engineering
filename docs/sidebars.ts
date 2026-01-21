@@ -160,6 +160,17 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Katalyst Implementation',
+      link: {
+        type: 'doc',
+        id: 'katalyst/overview',
+      },
+      items: [
+        'katalyst/overview',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Reference',
       link: {
         type: 'generated-index',
