@@ -55,15 +55,16 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: 'docs',
-          lastVersion: 'current',
+          lastVersion: 'foe-core',
           versions: {
             current: {
               label: 'FOE + Katalyst',
-              badge: true,
+              path: 'katalyst',
+              banner: 'none',
             },
             'foe-core': {
               label: 'FOE Core',
-              banner: 'none',
+              badge: false,
             },
           },
         },

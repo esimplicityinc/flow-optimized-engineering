@@ -195,7 +195,7 @@ flowchart LR
 | **Mean time to recovery** | Hours (manual investigation) | Minutes (auto-rollback) |
 | **Onboarding friction** | High (tribal knowledge) | Low (`kata tree` + docs) |
 
-**Learn more:** [Katalyst Implementation Overview](/docs/katalyst/overview)
+**Learn more:** [Katalyst Implementation Overview](../katalyst/overview)
 
 ## What Comes Next
 
