@@ -238,6 +238,11 @@ table th {
   backdrop-filter: blur(8px);
 }
 
+.navbar__logo img {
+  height: 32px;
+  width: auto;
+}
+
 .navbar__title {
   font-weight: 700;
 }
@@ -317,6 +322,15 @@ a:not(.button):not(.navbar__link):not(.menu__link):not(.card) {
 :focus-visible {
   outline: 2px solid var(--ifm-color-primary);
   outline-offset: 2px;
+}
+
+/* Hide navbar on infographic/landing page */
+html.hide-navbar .navbar {
+  display: none !important;
+}
+
+html.hide-navbar .main-wrapper {
+  padding-top: 0 !important;
 }
 
 /* Badge styling */
