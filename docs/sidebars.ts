@@ -94,6 +94,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'katalyst/overview',
         'katalyst/getting-started',
+        'katalyst/agentic-coding',
         'katalyst/case-studies',
       ],
     },

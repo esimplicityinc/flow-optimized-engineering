@@ -140,6 +140,55 @@ Without Phase 3:
 
 **Phase 3 disciplines don't just enable Phase 4; they make it survivable.**
 
+---
+
+## Katalyst: The Phase 3 Foundation for Agentic Coding
+
+The [Katalyst ecosystem](../katalyst/overview) provides the concrete implementation of Phase 3 disciplines that make Phase 4 survivable. These aren't "nice to have" optimizations—they're the infrastructure that determines whether agents amplify your productivity or your chaos.
+
+| Phase 3 Discipline | Katalyst Implementation | Why Agents Need It |
+|--------------------|------------------------|-------------------|
+| **Declarative state** | Kubernetes API | Agents need queryable, consistent truth |
+| **Standardized patterns** | Taxonomy layer types | Agents follow defined patterns, not guesses |
+| **Automated enforcement** | Schema validation, CI gates | Human review can't scale to agent output |
+| **Reconciliation-based ops** | ArgoCD GitOps | Drift corrected automatically at machine speed |
+| **Policy as code** | OPA/Gatekeeper integration | Governance happens before damage, not after |
+| **Observability** | Prometheus/Grafana/Loki | Agents verify their own work programmatically |
+
+### The Agent Cognitive Loop
+
+Agents need the same cognitive triangle humans do—**Understand, Act, Confirm**—but they can't fake it with intuition:
+
+```mermaid
+flowchart LR
+    subgraph UNDERSTAND["Understand"]
+        Q1["Query K8s API"]
+        Q2["Query Taxonomy"]
+    end
+    
+    subgraph ACT["Act"]
+        A1["Commit to Git"]
+        A2["ArgoCD Syncs"]
+    end
+    
+    subgraph CONFIRM["Confirm"]
+        C1["Check Prometheus"]
+        C2["Run BDD Tests"]
+    end
+    
+    UNDERSTAND --> ACT --> CONFIRM
+    CONFIRM -->|"Feedback"| UNDERSTAND
+```
+
+Without Katalyst infrastructure, agents:
+- **Can't understand**: No reliable way to query system state
+- **Can't act safely**: Changes bypass review, can't be rolled back
+- **Can't confirm**: No programmatic feedback on whether changes worked
+
+**See [Katalyst for Agentic Coding](../katalyst/agentic-coding) for detailed implementation guidance.**
+
+---
+
 ## Symptom Checklist: Phase 4 Challenges
 
 You're experiencing Phase 4 entropy if:
