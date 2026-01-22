@@ -1,0 +1,14 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6"/>
+      <stop offset="100%" style="stop-color:#1E40AF"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="40" height="40" rx="8" fill="url(#logoGrad)"/>
+  <!-- F letter stylized as flow -->
+  <path d="M10 8 L30 8 L30 13 L15 13 L15 17 L27 17 L27 22 L15 22 L15 32 L10 32 Z" fill="#FFFFFF"/>
+  <!-- Flow accent line -->
+  <path d="M25 25 Q30 28 30 33" stroke="#60A5FA" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg>
