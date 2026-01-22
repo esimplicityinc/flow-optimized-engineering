@@ -86,80 +86,6 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'The FOE Triad',
-      link: {
-        type: 'doc',
-        id: 'triad/overview',
-      },
-      items: [
-        'triad/people-changes',
-        'triad/process-changes',
-        'triad/technology-changes',
-        'triad/coherence-across-levels',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Developer Experience',
-      link: {
-        type: 'doc',
-        id: 'devx/overview',
-      },
-      items: [
-        'devx/devx-for-understanding',
-        'devx/devx-for-fast-feedback',
-        'devx/devx-for-confidence',
-        'devx/devx-maturity-model',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Stakeholder Guides',
-      link: {
-        type: 'generated-index',
-        title: 'Stakeholder Guides',
-        description: 'FOE guidance tailored for your role.',
-        slug: '/stakeholder-guides',
-      },
-      items: [
-        'stakeholder-guides/for-executives',
-        'stakeholder-guides/for-engineering-leaders',
-        'stakeholder-guides/for-engineers',
-        'stakeholder-guides/for-government-customers',
-        'stakeholder-guides/for-capture-teams',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Psychological Foundations',
-      link: {
-        type: 'doc',
-        id: 'psychological-foundations/overview',
-      },
-      items: [
-        'psychological-foundations/sensemaking-under-complexity',
-        'psychological-foundations/learning-and-calibration',
-        'psychological-foundations/agency-and-risk-tolerance',
-        'psychological-foundations/hidden-dimensions',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Implementation',
-      link: {
-        type: 'doc',
-        id: 'implementation/getting-started',
-      },
-      items: [
-        'implementation/assessing-your-phase',
-        'implementation/building-institutions',
-        'implementation/metrics-that-matter',
-        'implementation/organizational-engagement',
-        'implementation/common-pitfalls',
-      ],
-    },
-    {
-      type: 'category',
       label: 'Katalyst Implementation',
       link: {
         type: 'doc',
@@ -173,19 +99,106 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Reference',
+      label: 'Going Deeper',
       link: {
         type: 'generated-index',
-        title: 'Reference',
-        description: 'Glossary, patterns, and additional resources.',
-        slug: '/reference',
+        title: 'Going Deeper',
+        description: 'Advanced topics, detailed guides, and theoretical foundations.',
+        slug: '/going-deeper',
       },
+      collapsed: true,
       items: [
-        'reference/glossary',
-        'reference/key-metaphors',
-        'reference/anti-patterns',
-        'reference/pattern-library',
-        'reference/technology-reference',
+        {
+          type: 'category',
+          label: 'The FOE Triad',
+          link: {
+            type: 'doc',
+            id: 'triad/overview',
+          },
+          items: [
+            'triad/people-changes',
+            'triad/process-changes',
+            'triad/technology-changes',
+            'triad/coherence-across-levels',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Developer Experience',
+          link: {
+            type: 'doc',
+            id: 'devx/overview',
+          },
+          items: [
+            'devx/devx-for-understanding',
+            'devx/devx-for-fast-feedback',
+            'devx/devx-for-confidence',
+            'devx/devx-maturity-model',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Stakeholder Guides',
+          link: {
+            type: 'generated-index',
+            title: 'Stakeholder Guides',
+            description: 'FOE guidance tailored for your role.',
+            slug: '/stakeholder-guides',
+          },
+          items: [
+            'stakeholder-guides/for-executives',
+            'stakeholder-guides/for-engineering-leaders',
+            'stakeholder-guides/for-engineers',
+            'stakeholder-guides/for-government-customers',
+            'stakeholder-guides/for-capture-teams',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Psychological Foundations',
+          link: {
+            type: 'doc',
+            id: 'psychological-foundations/overview',
+          },
+          items: [
+            'psychological-foundations/sensemaking-under-complexity',
+            'psychological-foundations/learning-and-calibration',
+            'psychological-foundations/agency-and-risk-tolerance',
+            'psychological-foundations/hidden-dimensions',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Implementation',
+          link: {
+            type: 'doc',
+            id: 'implementation/getting-started',
+          },
+          items: [
+            'implementation/assessing-your-phase',
+            'implementation/building-institutions',
+            'implementation/metrics-that-matter',
+            'implementation/organizational-engagement',
+            'implementation/common-pitfalls',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Reference',
+          link: {
+            type: 'generated-index',
+            title: 'Reference',
+            description: 'Glossary, patterns, and additional resources.',
+            slug: '/reference',
+          },
+          items: [
+            'reference/glossary',
+            'reference/key-metaphors',
+            'reference/anti-patterns',
+            'reference/pattern-library',
+            'reference/technology-reference',
+          ],
+        },
       ],
     },
   ],
