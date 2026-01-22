@@ -144,7 +144,7 @@ Without Phase 3:
 
 ## Katalyst: The Phase 3 Foundation for Agentic Coding
 
-The [Katalyst ecosystem](../katalyst/overview) provides the concrete implementation of Phase 3 disciplines that make Phase 4 survivable. These aren't "nice to have" optimizations—they're the infrastructure that determines whether agents amplify your productivity or your chaos.
+The [Katalyst ecosystem](../katalyst/overview) provides the concrete implementation of Phase 3 disciplines that make Phase 4 survivable. These aren't "nice to have" optimizations: they're the infrastructure that determines whether agents amplify your productivity or your chaos.
 
 | Phase 3 Discipline | Katalyst Implementation | Why Agents Need It |
 |--------------------|------------------------|-------------------|
@@ -157,7 +157,7 @@ The [Katalyst ecosystem](../katalyst/overview) provides the concrete implementat
 
 ### The Agent Cognitive Loop
 
-Agents need the same cognitive triangle humans do—**Understand, Act, Confirm**—but they can't fake it with intuition:
+Agents need the same cognitive triangle humans do, **Understand, Act, Confirm**, but they can't fake it with intuition:
 
 ```mermaid
 flowchart LR

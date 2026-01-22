@@ -7,7 +7,7 @@ title: "Katalyst for Agentic Coding"
 
 AI coding agents are transforming software development. But here's what most organizations miss: **the infrastructure that was "nice to have" for human developers is now non-negotiable for AI agents.**
 
-Without declarative, API-driven, self-healing infrastructure, agents don't accelerate your productivity—they amplify your chaos at machine speed.
+Without declarative, API-driven, self-healing infrastructure, agents don't accelerate your productivity: they amplify your chaos at machine speed.
 
 ## The Shift: From Best Practice to Survival Requirement
 
@@ -17,11 +17,11 @@ For years, we've advocated for cloud-native infrastructure as a "best practice."
 
 | Capability | For Humans | For Agents |
 |------------|-----------|------------|
-| Consistent environments | Nice to have | **Required** — agents can't "figure it out" |
-| Declarative state | Best practice | **Required** — agents need queryable truth |
-| GitOps deployment | Modern approach | **Required** — agents need safe change paths |
-| Observability | Helpful for debugging | **Required** — agents need feedback signals |
-| Auto-rollback | Safety net | **Required** — agent mistakes happen fast |
+| Consistent environments | Nice to have | **Required**: agents can't "figure it out" |
+| Declarative state | Best practice | **Required**: agents need queryable truth |
+| GitOps deployment | Modern approach | **Required**: agents need safe change paths |
+| Observability | Helpful for debugging | **Required**: agents need feedback signals |
+| Auto-rollback | Safety net | **Required**: agent mistakes happen fast |
 
 **The bottom line:** Human developers can compensate for infrastructure gaps with intuition, experience, and asking colleagues. Agents cannot.
 
@@ -272,7 +272,7 @@ flowchart TB
 
 ## The Platform as Agent Guardrails
 
-Katalyst doesn't just enable agents—it constrains them safely.
+Katalyst doesn't just enable agents, it constrains them safely.
 
 ### Guardrail 1: GitOps as Chokepoint
 
@@ -420,7 +420,7 @@ Organizations that skip Phase 3 and adopt AI agents experience:
 
 **For AI agents:** Katalyst makes safe operation possible at all.
 
-Cloud-native infrastructure isn't a nice-to-have optimization anymore. It's the foundation that determines whether AI agents multiply your productivity—or multiply your problems.
+Cloud-native infrastructure isn't a nice-to-have optimization anymore. It's the foundation that determines whether AI agents multiply your productivity, or multiply your problems.
 :::
 
 The organizations that thrive with AI agents won't be those with the best prompts or the most powerful models. They'll be the ones with infrastructure that gives agents:
@@ -429,13 +429,13 @@ The organizations that thrive with AI agents won't be those with the best prompt
 2. **Safe ways to make changes** that can be reviewed and rolled back
 3. **Clear feedback** on whether changes worked
 
-Katalyst provides all three. That's why it's not just a platform—it's the prerequisite for the agentic era.
+Katalyst provides all three. That's why it's not just a platform: it's the prerequisite for the agentic era.
 
 ---
 
 ## Next Steps
 
-- [Phase 4: Agentic Coding](../transformation-model/phase-4-agentic-coding) — The transformation context
-- [Why Phase 3 is the Bottleneck](../transformation-model/why-phase-3-is-the-bottleneck) — Why you need this foundation first
-- [Katalyst Platform Overview](./overview) — The full implementation
-- [Getting Started with Katalyst](./getting-started) — Start building the foundation
+- [Phase 4: Agentic Coding](../transformation-model/phase-4-agentic-coding): The transformation context
+- [Why Phase 3 is the Bottleneck](../transformation-model/why-phase-3-is-the-bottleneck): Why you need this foundation first
+- [Katalyst Platform Overview](./overview): The full implementation
+- [Getting Started with Katalyst](./getting-started): Start building the foundation

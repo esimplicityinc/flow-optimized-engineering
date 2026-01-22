@@ -13,7 +13,7 @@ These case studies illustrate how the Katalyst ecosystem implements FOE principl
 
 A federal agency needed to modernize a 15-year-old monolithic application:
 - **200+ database tables** with undocumented relationships
-- **No automated tests** — manual QA took 3 weeks per release
+- **No automated tests**: manual QA took 3 weeks per release
 - **Monthly deployments** with frequent rollbacks
 - **Tribal knowledge** concentrated in two senior developers
 
