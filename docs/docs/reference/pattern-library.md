@@ -414,6 +414,121 @@ rollout:
 
 ---
 
+### Hexagonal Architecture (Ports & Adapters)
+
+**Problem**: Business logic is tangled with infrastructure code. Database queries, API calls, and framework dependencies are scattered throughout. Testing requires spinning up real databases and external services. Changes to infrastructure require changes to business logic.
+
+**Solution**: Structure applications with a core domain that has no external dependencies. Define ports (interfaces) for how the core communicates with the outside world. Implement adapters that connect those ports to actual infrastructure. The core becomes testable in isolation; infrastructure becomes swappable.
+
+**When to Use**: Any service with meaningful business logic. Especially valuable in microservices architectures and systems that need multi-layer testing.
+
+**Implementation**:
+
+```mermaid
+flowchart LR
+    subgraph DRIVING["Driving Side (Input)"]
+        A1["REST Adapter"]
+        A2["CLI Adapter"]
+        A3["Queue Adapter"]
+    end
+    
+    subgraph CORE["Application Core"]
+        P1["Input Ports"]
+        BL["Domain Logic"]
+        P2["Output Ports"]
+    end
+    
+    subgraph DRIVEN["Driven Side (Output)"]
+        A4["DB Adapter"]
+        A5["API Adapter"]
+        A6["Cache Adapter"]
+    end
+    
+    A1 --> P1
+    A2 --> P1
+    A3 --> P1
+    P1 --> BL
+    BL --> P2
+    P2 --> A4
+    P2 --> A5
+    P2 --> A6
+```
+
+1. **Identify the core domain**: What's the actual business logic, separate from how it's delivered or stored?
+2. **Define input ports**: Interfaces for use cases the application supports
+3. **Define output ports**: Interfaces for external services the core needs
+4. **Implement adapters**: REST controllers, database repositories, API clients
+5. **Wire it together**: Dependency injection connects adapters to ports
+
+**Example**:
+
+```typescript
+// Port: defines what the core needs (no implementation details)
+interface OrderRepository {
+  save(order: Order): Promise<void>;
+  findById(id: string): Promise<Order | null>;
+}
+
+// Core: pure business logic, depends only on ports
+class OrderService {
+  constructor(private orders: OrderRepository) {}
+  
+  async placeOrder(items: Item[]): Promise<Order> {
+    const order = Order.create(items);  // Domain logic
+    order.validate();                    // Domain logic
+    await this.orders.save(order);       // Via port
+    return order;
+  }
+}
+
+// Adapter: connects port to real infrastructure
+class PostgresOrderRepository implements OrderRepository {
+  async save(order: Order): Promise<void> {
+    await this.db.query('INSERT INTO orders...', order);
+  }
+}
+
+// Test adapter: connects port to in-memory store
+class InMemoryOrderRepository implements OrderRepository {
+  private orders = new Map<string, Order>();
+  async save(order: Order): Promise<void> {
+    this.orders.set(order.id, order);
+  }
+}
+```
+
+**FOE Alignment**:
+
+| Principle | How Hexagonal Architecture Supports It |
+|-----------|---------------------------------------|
+| **Understanding** | Clear boundaries make code navigable; domain logic is explicit |
+| **Fast Feedback** | Core testable without infrastructure; fast unit tests |
+| **Confidence** | Adapters are swappable; infrastructure changes don't break logic |
+
+**Katalyst Integration**:
+
+[Katalyst BDD Test](/docs/katalyst/katalyst/overview) is built on hexagonal architecture principles. The testing framework uses ports and adapters to enable the same test scenarios to run against different layers:
+
+```gherkin
+@api
+Scenario: Create order via API
+  Given I am authenticated
+  When I POST "/orders" with items
+  Then the order should be created
+
+@ui  
+Scenario: Create order via UI
+  Given I am logged in
+  When I add items to cart and checkout
+  Then the order should be created
+```
+
+Same business scenario, different adapters (API adapter vs UI adapter). The ports (test step interfaces) stay the same; only the adapters change.
+
+**Related Patterns**: Dependency Injection, Domain-Driven Design, Clean Architecture
+
+---
+
 ### Trunk-Based Development
 
 **Problem**: Long-lived branches diverge from trunk. Merges are painful and error-prone. Integration happens late when problems are expensive to fix.

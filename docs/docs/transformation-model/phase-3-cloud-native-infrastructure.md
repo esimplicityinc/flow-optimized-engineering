@@ -102,6 +102,67 @@ External interface management:
 - Request transformation
 - API versioning and deprecation
 
+### Hexagonal Architecture (Ports & Adapters)
+
+Application structure that decouples core business logic from external infrastructure:
+
+```mermaid
+flowchart TB
+    subgraph DRIVING["Driving Adapters (Input)"]
+        API["REST API"]
+        CLI["CLI"]
+        QUEUE["Message Queue"]
+        UI["Web UI"]
+    end
+    
+    subgraph CORE["Core Domain"]
+        subgraph PORTS_IN["Input Ports"]
+            P1["Use Cases"]
+        end
+        BL["Business Logic"]
+        subgraph PORTS_OUT["Output Ports"]
+            P2["Repositories"]
+            P3["External Services"]
+        end
+    end
+    
+    subgraph DRIVEN["Driven Adapters (Output)"]
+        DB["Database"]
+        EXT["External API"]
+        CACHE["Cache"]
+        MSG["Message Broker"]
+    end
+    
+    API --> P1
+    CLI --> P1
+    QUEUE --> P1
+    UI --> P1
+    P1 --> BL
+    BL --> P2
+    BL --> P3
+    P2 --> DB
+    P2 --> CACHE
+    P3 --> EXT
+    P3 --> MSG
+```
+
+**Why it matters for Phase 3:**
+- **Independent deployability**: Swap adapters without changing business logic
+- **Testability**: Core domain testable without infrastructure (databases, APIs, queues)
+- **Bounded contexts**: Natural alignment with microservices and domain-driven design
+- **Multi-layer verification**: Test through different adapter types (API, UI, CLI)
+- **Gradual migration**: Change infrastructure by replacing adapters, not rewriting core
+
+**The pattern enforces separation:**
+
+| Layer | Contains | Dependencies |
+|-------|----------|--------------|
+| **Core Domain** | Business logic, domain models, use cases | None (pure logic) |
+| **Ports** | Interfaces defining contracts | Core domain only |
+| **Adapters** | Infrastructure implementations | Ports + external systems |
+
+This architecture is foundational for Phase 3 because it makes the declarative, reconciliation-based approach possible: infrastructure becomes pluggable configuration rather than embedded coupling.
+
 ### Policy as Code (OPA/Gatekeeper)
 
 Governance that enforces itself:
