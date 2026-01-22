@@ -111,6 +111,11 @@ const config: Config = {
           position: 'left',
         },
         {
+          to: '/infographic',
+          label: 'Visual Guide',
+          position: 'left',
+        },
+        {
           to: '/docs/playbook/overview',
           label: 'Playbook',
           position: 'left',

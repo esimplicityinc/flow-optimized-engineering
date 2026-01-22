@@ -1,0 +1,679 @@
+/**
+ * FOE Infographic Styles
+ * A beautiful visual guide to Flow Optimized Engineering
+ */
+
+.infographic {
+  --gradient-purple: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+  --gradient-amber: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  --gradient-green: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  --gradient-blue: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+  overflow-x: hidden;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.gradientOrb1,
+.gradientOrb2,
+.gradientOrb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: float 20s ease-in-out infinite;
+}
+
+.gradientOrb1 {
+  width: 600px;
+  height: 600px;
+  background: var(--gradient-purple);
+  top: -200px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.gradientOrb2 {
+  width: 500px;
+  height: 500px;
+  background: var(--gradient-amber);
+  bottom: -150px;
+  right: -100px;
+  animation-delay: -7s;
+}
+
+.gradientOrb3 {
+  width: 400px;
+  height: 400px;
+  background: var(--gradient-green);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -14s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -30px) scale(1.05); }
+  50% { transform: translate(-20px, 20px) scale(0.95); }
+  75% { transform: translate(20px, 30px) scale(1.02); }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: #94A3B8;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 800;
+  color: white;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 0 1.5rem;
+  background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  color: #94A3B8;
+  font-weight: 400;
+  margin: 0;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: #64748B;
+  font-size: 0.875rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* ============================================
+   THESIS BANNER
+   ============================================ */
+
+.thesis {
+  background: linear-gradient(135deg, #1E40AF 0%, #1E293B 100%);
+  padding: 5rem 2rem;
+  position: relative;
+}
+
+.thesisContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+.thesisIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #93C5FD;
+}
+
+.thesis blockquote {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 1.5rem;
+  border: none;
+  padding: 0;
+}
+
+.thesis blockquote strong {
+  color: #93C5FD;
+}
+
+.thesis p {
+  font-size: 1.125rem;
+  color: #CBD5E1;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================
+   SECTION HEADERS
+   ============================================ */
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionNumber {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 50px;
+}
+
+.sectionHeader h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.sectionHeader p {
+  font-size: 1.25rem;
+  color: var(--ifm-color-emphasis-600);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   THREE PRINCIPLES
+   ============================================ */
+
+.principles {
+  padding: 6rem 2rem;
+  background: var(--ifm-background-color);
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.principleCard {
+  background: var(--ifm-card-background-color);
+  border-radius: 24px;
+  padding: 2.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.principleCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.principleCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  border-color: var(--accent-color);
+}
+
+.principleCard:hover::before {
+  transform: scaleX(1);
+}
+
+.principleIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: white;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent-color) 40%, transparent);
+}
+
+.principleIcon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.principleCard h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.principleSubtitle {
+  font-size: 1rem;
+  color: var(--accent-color);
+  font-weight: 500;
+  margin: 0 0 1rem;
+}
+
+.principleDescription {
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.7;
+  margin: 0 0 1.5rem;
+}
+
+.practices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.practiceTag {
+  padding: 0.375rem 0.875rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* ============================================
+   COGNITIVE TRIANGLE
+   ============================================ */
+
+.triangle {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, var(--ifm-color-emphasis-100) 0%, var(--ifm-background-color) 100%);
+}
+
+.triangleContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .triangleContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.triangleVisual {
+  display: flex;
+  justify-content: center;
+}
+
+.triangleSvg {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.triangleNode {
+  transition: transform 0.3s ease;
+}
+
+.triangleNode:hover {
+  transform: scale(1.1);
+}
+
+.triangleEdge {
+  animation: dash 30s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+.triangleExplanation {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cycleStep {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.stepNumber {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.cycleStep strong {
+  display: block;
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+  color: var(--ifm-heading-color);
+}
+
+.cycleStep p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+}
+
+/* ============================================
+   PLAYBOOK SECTION
+   ============================================ */
+
+.playbook {
+  padding: 6rem 2rem;
+  background: var(--ifm-background-color);
+}
+
+.playbookGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.playbookCard {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: var(--ifm-card-background-color);
+  border-radius: 20px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.playbookCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--card-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.playbookCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+}
+
+.playbookCard:hover::after {
+  transform: scaleX(1);
+}
+
+.playbookIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.playbookCard h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--ifm-heading-color);
+  transition: color 0.3s ease;
+}
+
+.playbookCard:hover h3 {
+  color: var(--card-color);
+}
+
+.playbookCard p {
+  font-size: 0.95rem;
+  color: var(--ifm-color-emphasis-600);
+  line-height: 1.6;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.playbookArrow {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--card-color);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.playbookCard:hover .playbookArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================
+   METRICS SECTION
+   ============================================ */
+
+.metrics {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  color: white;
+}
+
+.metrics .sectionHeader h2 {
+  color: white;
+}
+
+.metrics .sectionHeader p {
+  color: #94A3B8;
+}
+
+.metrics .sectionNumber {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60A5FA;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.metricCard {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.metricCard:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-4px);
+}
+
+.metricValue {
+  display: block;
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #60A5FA 0%, #34D399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.metricLabel {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.metricDescription {
+  display: block;
+  font-size: 0.875rem;
+  color: #64748B;
+}
+
+/* ============================================
+   CALL TO ACTION
+   ============================================ */
+
+.cta {
+  padding: 6rem 2rem;
+  background: var(--ifm-background-color);
+  text-align: center;
+}
+
+.ctaContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.cta p {
+  font-size: 1.25rem;
+  color: var(--ifm-color-emphasis-600);
+  margin: 0 0 2rem;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  padding: 1rem 2.5rem;
+  background: var(--gradient-blue);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.5);
+  color: white;
+  text-decoration: none;
+}
+
+.ctaSecondary {
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 2px solid var(--ifm-color-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.ctaSecondary:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+  text-decoration: none;
+}
+
+/* ============================================
+   DARK MODE ADJUSTMENTS
+   ============================================ */
+
+[data-theme='dark'] .principleCard {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .playbookCard {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .practiceTag {
+  background: #334155;
+  color: #CBD5E1;
+}
+
+[data-theme='dark'] .triangle {
+  background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+}
+
+[data-theme='dark'] .cta {
+  background: #0F172A;
+}
