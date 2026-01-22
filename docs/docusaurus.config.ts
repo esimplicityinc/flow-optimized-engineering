@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Flow Optimized Engineering',
   tagline: 'Speed with Coherence: A Delivery Doctrine for the Agentic Era',
-  favicon: 'img/favicon.svg',
+  favicon: 'img/foe-logo.png',
 
   future: {
     v4: true,
@@ -96,7 +96,7 @@ const config: Config = {
       title: 'Flow Optimized Engineering',
       logo: {
         alt: 'FOE Logo',
-        src: 'img/foe-logo.svg',
+        src: 'img/foe-logo.png',
       },
       items: [
         {
