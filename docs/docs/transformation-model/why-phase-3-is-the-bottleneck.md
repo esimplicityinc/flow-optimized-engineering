@@ -33,7 +33,7 @@ Every instance follows the pattern. Not "mostly follows" or "follows except for 
 **Phase 2 reality**: "We have a standard, but some systems are exceptions."
 **Phase 3 requirement**: Standards have no exceptions; if you need different, you change the standard.
 
-![Phase 2 vs Phase 3 Consistency](/img/illustrations/phase-2-vs-phase-3-consistency.svg)
+![Phase 2 vs Phase 3 Consistency](/img/illustrations/phase2-vs-phase3.png)
 
 *Phase 2 tolerates exceptions. Phase 3 requires 100% consistency with evolving standards.*
 
@@ -81,7 +81,7 @@ Phase 2 organizations rely on heroic engineers, individuals with deep knowledge 
 
 ### Heroes Don't Scale
 
-![Hero Scaling Gap](/img/illustrations/hero-scaling-gap.svg)
+![Hero Scaling Gap](/img/illustrations/hero-scaling.png)
 
 *You cannot hire heroes fast enough. The gap between system complexity and hero capacity always widens.*
 

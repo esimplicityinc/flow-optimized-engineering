@@ -280,7 +280,7 @@ When writing technical volumes:
 
 These technologies work together:
 
-![Technology Stack Integration](/img/illustrations/technology-stack-integration.svg)
+![Technology Stack Integration](/img/illustrations/technology-stack.png)
 
 *The FOE technology stack layers together, with each layer serving a specific purpose in enabling flow.*
 

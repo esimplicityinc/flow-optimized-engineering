@@ -170,7 +170,7 @@ These patterns help you learn from outcomes and improve over time.
 
 **Example**:
 
-![Test Pyramid](/img/illustrations/test-pyramid.svg)
+![Test Pyramid](/img/illustrations/test-pyramid.png)
 
 *Many fast unit tests at the base, fewer integration tests in the middle, minimal E2E tests at the top.*
 
@@ -430,7 +430,7 @@ rollout:
 
 **Example**:
 
-![Trunk-Based Development](/img/illustrations/trunk-based-development.svg)
+![Trunk-Based Development](/img/illustrations/trunk-based-dev.png)
 
 *Good: frequent small merges. Bad: long-lived branches with painful integration.*
 

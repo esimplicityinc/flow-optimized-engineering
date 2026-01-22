@@ -18,7 +18,7 @@ Organizations don't modernize in a single leap. They evolve through distinct pha
 | **4** | Agentic Coding | AI agents, code abundance |
 | **5** | Cloud Native Code | Standardized, composable, policy-governed code |
 
-![Transformation Phases Timeline](/img/illustrations/transformation-phases-timeline.svg)
+![Transformation Phases Timeline](/img/illustrations/transformation-timeline.png)
 
 *Phase 3 is the bottleneck where most organizations stall. Phase 4 and 5 depend on having Phase 3 disciplines in place.*
 

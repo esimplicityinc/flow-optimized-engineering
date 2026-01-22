@@ -32,6 +32,8 @@ The test of an institution: Does the desired behavior happen automatically, even
 
 ## The Anatomy of a Good Institution
 
+![Institution Anatomy](/img/illustrations/institution-anatomy.png)
+
 Every effective institution has these components:
 
 ```mermaid

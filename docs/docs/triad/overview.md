@@ -17,7 +17,7 @@ Each dimension of the triad enables and constrains the others:
 
 - **People without technology support** creates burnout. Motivated engineers fighting inadequate tooling eventually lose that motivation or leave.
 
-![FOE Triad: People, Process, Technology](/img/illustrations/foe-triad-triangle.svg)
+![FOE Triad: People, Process, Technology](/img/illustrations/foe-triad.png)
 
 *The triad is a system. Pull one corner without the others and you create tension that eventually snaps back.*
 
