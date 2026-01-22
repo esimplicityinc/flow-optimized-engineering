@@ -507,7 +507,7 @@ class InMemoryOrderRepository implements OrderRepository {
 
 **Katalyst Integration**:
 
-[Katalyst BDD Test](/docs/katalyst/katalyst/overview) is built on hexagonal architecture principles. The testing framework uses ports and adapters to enable the same test scenarios to run against different layers:
+[Katalyst BDD Test](/docs/katalyst/overview) is built on hexagonal architecture principles. The testing framework uses ports and adapters to enable the same test scenarios to run against different layers:
 
 ```gherkin
 @api

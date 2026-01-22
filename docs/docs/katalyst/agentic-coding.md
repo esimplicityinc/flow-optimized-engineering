@@ -392,7 +392,7 @@ sequenceDiagram
 
 ## The Connection to Phase 3
 
-This is why [Phase 3 (Cloud-Native Infrastructure)](/docs/katalyst/transformation-model/phase-3-cloud-native-infrastructure) is prerequisite for [Phase 4 (Agentic Coding)](/docs/katalyst/transformation-model/phase-4-agentic-coding).
+This is why [Phase 3 (Cloud-Native Infrastructure)](/docs/transformation-model/phase-3-cloud-native-infrastructure) is prerequisite for [Phase 4 (Agentic Coding)](/docs/transformation-model/phase-4-agentic-coding).
 
 | Phase 3 Discipline | Why Agents Require It |
 |-------------------|----------------------|
@@ -435,7 +435,7 @@ Katalyst provides all three. That's why it's not just a platform: it's the prere
 
 ## Next Steps
 
-- [Phase 4: Agentic Coding](/docs/katalyst/transformation-model/phase-4-agentic-coding): The transformation context
-- [Why Phase 3 is the Bottleneck](/docs/katalyst/transformation-model/why-phase-3-is-the-bottleneck): Why you need this foundation first
-- [Katalyst Platform Overview](/docs/katalyst/katalyst/overview): The full implementation
-- [Getting Started with Katalyst](/docs/katalyst/katalyst/getting-started): Start building the foundation
+- [Phase 4: Agentic Coding](/docs/transformation-model/phase-4-agentic-coding): The transformation context
+- [Why Phase 3 is the Bottleneck](/docs/transformation-model/why-phase-3-is-the-bottleneck): Why you need this foundation first
+- [Katalyst Platform Overview](/docs/katalyst/overview): The full implementation
+- [Getting Started with Katalyst](/docs/katalyst/getting-started): Start building the foundation
