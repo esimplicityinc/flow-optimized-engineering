@@ -117,16 +117,6 @@ const config: Config = {
           label: 'Visual Guide',
           position: 'left',
         },
-        {
-          to: '/docs/playbook/overview',
-          label: 'Playbook',
-          position: 'left',
-        },
-        {
-          to: '/docs/maturity-model/overview',
-          label: 'Maturity Model',
-          position: 'left',
-        },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           type: 'docsVersionDropdown',
