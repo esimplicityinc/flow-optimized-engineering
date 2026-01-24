@@ -58,7 +58,7 @@ const sidebars: SidebarsConfig = {
         description: 'Playbooks, models, and implementation guides for FOE.',
         slug: '/resources',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         {
           type: 'category',
