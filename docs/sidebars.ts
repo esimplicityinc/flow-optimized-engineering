@@ -34,6 +34,23 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Stakeholder Guides',
+      link: {
+        type: 'generated-index',
+        title: 'Stakeholder Guides',
+        description: 'FOE guidance tailored for your role.',
+        slug: '/stakeholder-guides',
+      },
+      items: [
+        'stakeholder-guides/for-executives',
+        'stakeholder-guides/for-engineering-leaders',
+        'stakeholder-guides/for-engineers',
+        'stakeholder-guides/for-government-customers',
+        'stakeholder-guides/for-capture-teams',
+      ],
+    },
+    {
+      type: 'category',
       label: 'The FOE Playbook',
       link: {
         type: 'doc',
@@ -135,23 +152,6 @@ const sidebars: SidebarsConfig = {
             'devx/devx-for-fast-feedback',
             'devx/devx-for-confidence',
             'devx/devx-maturity-model',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Stakeholder Guides',
-          link: {
-            type: 'generated-index',
-            title: 'Stakeholder Guides',
-            description: 'FOE guidance tailored for your role.',
-            slug: '/stakeholder-guides',
-          },
-          items: [
-            'stakeholder-guides/for-executives',
-            'stakeholder-guides/for-engineering-leaders',
-            'stakeholder-guides/for-engineers',
-            'stakeholder-guides/for-government-customers',
-            'stakeholder-guides/for-capture-teams',
           ],
         },
         {
