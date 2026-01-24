@@ -421,6 +421,23 @@ article.margin-bottom--lg:hover {
   transition: color 0.2s ease;
 }
 
+/* Sidebar section dividers */
+/* Divider above Resources section */
+.theme-doc-sidebar-menu > li:has(> div > a[href*="/resources"]),
+.theme-doc-sidebar-menu > li:has(> div > a[href$="/docs/resources"]) {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
+/* Divider above Going Deeper section */
+.theme-doc-sidebar-menu > li:has(> div > a[href*="/going-deeper"]),
+.theme-doc-sidebar-menu > li:has(> div > a[href$="/docs/going-deeper"]) {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
 /* Improved heading anchors */
 .hash-link {
   opacity: 0;
