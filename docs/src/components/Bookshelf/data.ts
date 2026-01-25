@@ -88,6 +88,23 @@ export const categories: Category[] = [
     ],
   },
   {
+    id: 'psychological-safety',
+    title: 'Psychological Safety + Team Culture',
+    subtitle: 'Creating environments where teams can act decisively',
+    color: '#ec4899', // Pink - warmth/safety
+    items: [
+      {
+        id: 'fearless-organization',
+        title: 'The Fearless Organization',
+        author: 'Amy Edmondson',
+        foeRelevance: 'The research foundation for psychological safety; without it, teams can\'t take the risks that enable fast feedback and learning.',
+        coverId: 8833979,
+        externalUrl: 'https://openlibrary.org/works/OL20185510W',
+        type: 'book',
+      },
+    ],
+  },
+  {
     id: 'leadership-purpose',
     title: 'Leadership + Purpose',
     subtitle: 'Alignment as a prerequisite for flow',
@@ -111,6 +128,32 @@ export const categories: Category[] = [
         externalUrl: 'https://openlibrary.org/works/OL13806374W',
         type: 'book',
       },
+      {
+        id: 'measure-what-matters',
+        title: 'Measure What Matters',
+        author: 'John Doerr',
+        foeRelevance: 'OKRs for alignment and focus; connects engineering work to outcomes, reducing thrash from unclear priorities.',
+        coverId: 10706481,
+        externalUrl: 'https://openlibrary.org/works/OL24232412W',
+        type: 'book',
+      },
+    ],
+  },
+  {
+    id: 'engineering-leadership',
+    title: 'Engineering Leadership',
+    subtitle: 'Creating conditions for flow at scale',
+    color: '#6366f1', // Indigo - leadership/vision
+    items: [
+      {
+        id: 'staff-engineer',
+        title: 'Staff Engineer',
+        author: 'Will Larson',
+        foeRelevance: 'Technical leadership beyond the management track; how senior ICs create leverage through architecture, mentorship, and organizational influence.',
+        coverId: 10637714,
+        externalUrl: 'https://openlibrary.org/works/OL24199831W',
+        type: 'book',
+      },
     ],
   },
   {
@@ -128,13 +171,64 @@ export const categories: Category[] = [
         externalUrl: 'https://openlibrary.org/works/OL16726829W',
         type: 'book',
       },
+      {
+        id: 'black-swan',
+        title: 'The Black Swan',
+        author: 'Nassim Nicholas Taleb',
+        foeRelevance: 'Epistemic humility about rare events; why prediction fails and robustness matters—foundational for FOE\'s confidence pillar.',
+        coverId: 5721840,
+        externalUrl: 'https://openlibrary.org/works/OL3295030W',
+        type: 'book',
+      },
+    ],
+  },
+  {
+    id: 'architecture-design',
+    title: 'Architecture + Design Patterns',
+    subtitle: 'Structural decisions that enable change',
+    color: '#0891b2', // Cyan - matches understanding color
+    items: [
+      {
+        id: 'ddd',
+        title: 'Domain-Driven Design',
+        author: 'Eric Evans',
+        foeRelevance: 'Ubiquitous language and bounded contexts; aligns code structure to business understanding, reducing cognitive load and enabling team autonomy.',
+        coverId: 5548424,
+        externalUrl: 'https://openlibrary.org/works/OL4464385W',
+        type: 'book',
+      },
+      {
+        id: 'clean-architecture',
+        title: 'Clean Architecture',
+        author: 'Robert C. Martin',
+        foeRelevance: 'Dependency rules and boundaries; keeps the core stable while enabling rapid iteration at the edges—structural support for fast feedback.',
+        coverId: 8605114,
+        externalUrl: 'https://openlibrary.org/works/OL19809141W',
+        type: 'book',
+      },
+      {
+        id: 'hexagonal-architecture',
+        title: 'Hexagonal Architecture',
+        author: 'Alistair Cockburn',
+        foeRelevance: 'Ports and adapters pattern; isolates business logic from infrastructure, enabling testing and swappability—core to maintainable systems.',
+        externalUrl: 'https://alistair.cockburn.us/hexagonal-architecture/',
+        type: 'resource',
+      },
+      {
+        id: 'twelve-factor',
+        title: 'The Twelve-Factor App',
+        author: 'Adam Wiggins / Heroku',
+        foeRelevance: 'Cloud-native application principles; config, dependencies, disposability—foundational patterns for deployment confidence.',
+        externalUrl: 'https://12factor.net',
+        type: 'resource',
+      },
     ],
   },
   {
     id: 'agile-craftsmanship',
     title: 'Agile Craftsmanship + Code Economics',
     subtitle: 'Keep change cheap',
-    color: '#0891b2', // Cyan - matches understanding color
+    color: '#14b8a6', // Teal
     items: [
       {
         id: 'xp-explained',
@@ -152,6 +246,67 @@ export const categories: Category[] = [
         foeRelevance: 'Systematically keep the codebase malleable so flow doesn\'t collapse under tech debt.',
         coverId: 7087623,
         externalUrl: 'https://openlibrary.org/works/OL16551230W',
+        type: 'book',
+      },
+    ],
+  },
+  {
+    id: 'cognitive-load-dx',
+    title: 'Cognitive Load + Developer Experience',
+    subtitle: 'Reducing friction in the development loop',
+    color: '#8b5cf6', // Violet
+    items: [
+      {
+        id: 'software-eng-google',
+        title: 'Software Engineering at Google',
+        author: 'Titus Winters, Tom Manshreck & Hyrum Wright',
+        foeRelevance: 'Lessons from scale: code review, testing, documentation culture—how Google institutionalizes understanding and fast feedback.',
+        coverId: 10450993,
+        externalUrl: 'https://openlibrary.org/works/OL22293580W',
+        type: 'book',
+      },
+      {
+        id: 'programmers-brain',
+        title: 'The Programmer\'s Brain',
+        author: 'Felienne Hermans',
+        foeRelevance: 'Cognitive science applied to code; how developers read, understand, and remember—directly supports FOE\'s understanding pillar.',
+        coverId: 11352839,
+        externalUrl: 'https://openlibrary.org/works/OL24658954W',
+        type: 'book',
+      },
+      {
+        id: 'docs-for-developers',
+        title: 'Docs for Developers',
+        author: 'Jared Bhatti, Zachary Sarah Corleissen, Jen Lambourne, David Nunez & Heidi Waterhouse',
+        foeRelevance: 'Documentation as a product; reduces cognitive load by offloading knowledge to artifacts—essential for understanding at scale.',
+        coverId: 11329695,
+        externalUrl: 'https://openlibrary.org/works/OL24645251W',
+        type: 'book',
+      },
+    ],
+  },
+  {
+    id: 'product-strategy',
+    title: 'Product Discovery + Strategy',
+    subtitle: 'Building the right thing, not just building it right',
+    color: '#f59e0b', // Amber
+    items: [
+      {
+        id: 'inspired',
+        title: 'Inspired',
+        author: 'Marty Cagan',
+        foeRelevance: 'Product teams over feature factories; empowered engineers who understand the "why" move faster with less rework.',
+        coverId: 9700654,
+        externalUrl: 'https://openlibrary.org/works/OL16803591W',
+        type: 'book',
+      },
+      {
+        id: 'empowered',
+        title: 'Empowered',
+        author: 'Marty Cagan & Chris Jones',
+        foeRelevance: 'How leaders create the environment for empowered product teams; organizational conditions that enable flow.',
+        coverId: 10847862,
+        externalUrl: 'https://openlibrary.org/works/OL21688399W',
         type: 'book',
       },
     ],
@@ -217,9 +372,9 @@ export const categories: Category[] = [
     ],
   },
   {
-    id: 'flow-theory',
-    title: 'Flow Theory',
-    subtitle: 'Explicitly about flow in product development',
+    id: 'flow-visibility',
+    title: 'Flow Theory + Work Visibility',
+    subtitle: 'Seeing and optimizing how work moves',
     color: '#7c3aed', // Purple
     items: [
       {
@@ -229,6 +384,15 @@ export const categories: Category[] = [
         foeRelevance: 'Queueing economics, batch size, WIP cost—arguably the most "FOE-literal" flow book.',
         coverId: 7763174,
         externalUrl: 'https://openlibrary.org/works/OL17530761W',
+        type: 'book',
+      },
+      {
+        id: 'making-work-visible',
+        title: 'Making Work Visible',
+        author: 'Dominica DeGrandis',
+        foeRelevance: 'The five thieves of time; visualizing WIP, dependencies, and unplanned work—essential for identifying flow blockers.',
+        coverId: 12722418,
+        externalUrl: 'https://openlibrary.org/works/OL19727714W',
         type: 'book',
       },
     ],
@@ -251,9 +415,9 @@ export const categories: Category[] = [
     ],
   },
   {
-    id: 'reliability',
-    title: 'Reliability as a First-Class Design Constraint',
-    subtitle: 'Confidence at speed',
+    id: 'observability-reliability',
+    title: 'Observability + Production Confidence',
+    subtitle: 'Understanding systems in production',
     color: '#059669', // Green - confidence
     items: [
       {
@@ -265,13 +429,31 @@ export const categories: Category[] = [
         externalUrl: 'https://openlibrary.org/works/OL20028554W',
         type: 'book',
       },
+      {
+        id: 'observability-engineering',
+        title: 'Observability Engineering',
+        author: 'Charity Majors, Liz Fong-Jones & George Miranda',
+        foeRelevance: 'Beyond monitoring to understanding; high-cardinality debugging, production as the ultimate feedback loop.',
+        coverId: 12736555,
+        externalUrl: 'https://openlibrary.org/works/OL25337316W',
+        type: 'book',
+      },
+      {
+        id: 'release-it',
+        title: 'Release It! (2nd Edition)',
+        author: 'Michael Nygard',
+        foeRelevance: 'Stability patterns for production: circuit breakers, bulkheads, timeouts—design patterns that build deployment confidence.',
+        coverId: 743624,
+        externalUrl: 'https://openlibrary.org/works/OL8848832W',
+        type: 'book',
+      },
     ],
   },
   {
     id: 'team-org-design',
     title: 'Team + Org Design for Fast Flow',
     subtitle: 'Structure as a performance lever',
-    color: '#0891b2', // Cyan - understanding
+    color: '#0ea5e9', // Sky blue
     items: [
       {
         id: 'team-topologies',

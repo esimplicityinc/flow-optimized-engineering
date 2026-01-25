@@ -72,6 +72,62 @@ const FourKeysIconLarge = () => (
   </svg>
 );
 
+// Hexagonal Architecture icon for modal
+const HexagonalIconLarge = () => (
+  <svg viewBox="0 0 100 100" fill="none" style={{ width: '70%', height: 'auto' }}>
+    <circle cx="50" cy="50" r="45" fill="white" fillOpacity="0.15"/>
+    {/* Main hexagon */}
+    <polygon 
+      points="50,15 80,32.5 80,67.5 50,85 20,67.5 20,32.5" 
+      stroke="white" 
+      strokeWidth="3" 
+      fill="white" 
+      fillOpacity="0.2"
+    />
+    {/* Inner hexagon (core) */}
+    <polygon 
+      points="50,30 65,40 65,60 50,70 35,60 35,40" 
+      stroke="white" 
+      strokeWidth="2" 
+      fill="white" 
+      fillOpacity="0.9"
+    />
+    {/* Ports - small circles on edges */}
+    <circle cx="50" cy="15" r="4" fill="white"/>
+    <circle cx="80" cy="32.5" r="4" fill="white"/>
+    <circle cx="80" cy="67.5" r="4" fill="white"/>
+    <circle cx="50" cy="85" r="4" fill="white"/>
+    <circle cx="20" cy="67.5" r="4" fill="white"/>
+    <circle cx="20" cy="32.5" r="4" fill="white"/>
+  </svg>
+);
+
+// 12 Factor App icon for modal
+const TwelveFactorIconLarge = () => (
+  <svg viewBox="0 0 100 100" fill="none" style={{ width: '70%', height: 'auto' }}>
+    <circle cx="50" cy="50" r="45" fill="white" fillOpacity="0.15"/>
+    {/* 12 factors as a 4x3 grid of circles */}
+    <g fill="white" fillOpacity="0.9">
+      {/* Row 1 */}
+      <circle cx="28" cy="30" r="6"/>
+      <circle cx="44" cy="30" r="6"/>
+      <circle cx="60" cy="30" r="6"/>
+      <circle cx="76" cy="30" r="6"/>
+      {/* Row 2 */}
+      <circle cx="28" cy="50" r="6"/>
+      <circle cx="44" cy="50" r="6"/>
+      <circle cx="60" cy="50" r="6"/>
+      <circle cx="76" cy="50" r="6"/>
+      {/* Row 3 */}
+      <circle cx="28" cy="70" r="6"/>
+      <circle cx="44" cy="70" r="6"/>
+      <circle cx="60" cy="70" r="6"/>
+      <circle cx="76" cy="70" r="6"/>
+    </g>
+    <text x="50" y="92" textAnchor="middle" fill="white" fontFamily="system-ui, sans-serif" fontSize="10" fontWeight="700" letterSpacing="1">12 FACTOR</text>
+  </svg>
+);
+
 // Get the appropriate icon for a resource
 function getResourceIcon(bookId: string) {
   switch (bookId) {
@@ -79,6 +135,10 @@ function getResourceIcon(bookId: string) {
       return <DoraIconLarge />;
     case 'four-keys':
       return <FourKeysIconLarge />;
+    case 'hexagonal-architecture':
+      return <HexagonalIconLarge />;
+    case 'twelve-factor':
+      return <TwelveFactorIconLarge />;
     default:
       return null;
   }
