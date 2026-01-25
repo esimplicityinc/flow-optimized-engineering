@@ -280,6 +280,7 @@ const sidebars: SidebarsConfig = {
             'reference/anti-patterns',
             'reference/pattern-library',
             'reference/technology-reference',
+            'reference/bookshelf',
           ],
         },
       ],

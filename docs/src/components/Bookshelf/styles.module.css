@@ -1,0 +1,980 @@
+/**
+ * FOE Bookshelf - Component Styles
+ * Three views: Grid, Shelf (3D), and Cards
+ */
+
+/* ==========================================================================
+   SHARED STYLES
+   ========================================================================== */
+
+.container {
+  margin: 2rem 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.headerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.titleIcon {
+  font-size: 1.5rem;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+.stats {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.statNumber {
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+}
+
+/* View Toggle Buttons */
+.viewToggle {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+}
+
+.viewButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-600);
+  transition: all 0.2s ease;
+}
+
+.viewButton:hover {
+  color: var(--ifm-color-emphasis-800);
+  background: var(--ifm-color-emphasis-200);
+}
+
+.viewButtonActive {
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.viewButtonIcon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Category Sections */
+.category {
+  margin-bottom: 3rem;
+}
+
+.categoryHeader {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--ifm-color-emphasis-200);
+}
+
+.categoryTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.categoryDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.categorySubtitle {
+  margin: 0;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   GRID VIEW
+   ========================================================================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.5rem;
+}
+
+.gridItem {
+  position: relative;
+  aspect-ratio: 2/3;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.gridItem:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.15),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.gridCover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--ifm-color-emphasis-200) 0%, var(--ifm-color-emphasis-300) 100%);
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.5) 40%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+.gridItem:hover .gridOverlay {
+  opacity: 1;
+}
+
+.gridItemTitle {
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.3;
+}
+
+.gridItemAuthor {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.gridItemActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.gridItemButton {
+  flex: 1;
+  padding: 0.35rem 0.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  text-align: center;
+}
+
+.gridItemButtonPrimary {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.gridItemButtonPrimary:hover {
+  background: var(--ifm-color-primary-dark);
+  color: white;
+  text-decoration: none;
+}
+
+.gridItemButtonSecondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(4px);
+}
+
+.gridItemButtonSecondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+/* Resource badge for non-books */
+.resourceBadge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   SHELF VIEW (3D Aesthetic)
+   ========================================================================== */
+
+.shelfContainer {
+  perspective: 1000px;
+}
+
+.shelf {
+  position: relative;
+  padding: 1.5rem 1rem 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.shelfBooks {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+}
+
+.shelfBook {
+  position: relative;
+  width: 60px;
+  height: 180px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.shelfBook:hover {
+  transform: translateY(-20px) rotateY(-15deg);
+  z-index: 10;
+}
+
+.shelfBookSpine {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px 6px 6px 2px;
+  box-shadow: 
+    2px 2px 8px rgba(0, 0, 0, 0.3),
+    inset -2px 0 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: linear-gradient(90deg, 
+    rgba(0, 0, 0, 0.1) 0%, 
+    transparent 10%, 
+    transparent 90%, 
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+
+.shelfBookCover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shelfBookTitle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 0.25rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  color: white;
+  font-size: 0.55rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+  writing-mode: horizontal-tb;
+}
+
+/* Shelf wood effect */
+.shelfWood {
+  position: absolute;
+  bottom: 0;
+  left: -1rem;
+  right: -1rem;
+  height: 20px;
+  background: linear-gradient(180deg, 
+    #8B7355 0%, 
+    #6B5344 50%,
+    #5D4637 100%
+  );
+  border-radius: 0 0 4px 4px;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.shelfWood::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+[data-theme='dark'] .shelfWood {
+  background: linear-gradient(180deg, 
+    #4a3f35 0%, 
+    #3a302a 50%,
+    #2d2420 100%
+  );
+}
+
+/* Shelf tooltip */
+.shelfTooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem 1rem;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  max-width: 280px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.shelfBook:hover .shelfTooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.shelfTooltipTitle {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.shelfTooltipAuthor {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.8rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.shelfTooltipActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.shelfTooltipButton {
+  flex: 1;
+  padding: 0.4rem 0.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.shelfTooltipButtonPrimary {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.shelfTooltipButtonPrimary:hover {
+  background: var(--ifm-color-primary-dark);
+  color: white;
+  text-decoration: none;
+}
+
+.shelfTooltipButtonSecondary {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-700);
+}
+
+.shelfTooltipButtonSecondary:hover {
+  background: var(--ifm-color-emphasis-300);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   CARDS VIEW
+   ========================================================================== */
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateX(4px);
+}
+
+.cardCoverWrapper {
+  flex-shrink: 0;
+  width: 80px;
+  height: 120px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cardCover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--ifm-color-emphasis-200) 0%, var(--ifm-color-emphasis-300) 100%);
+}
+
+.resourceCover {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+.resourceIcon {
+  width: 100%;
+  height: 100%;
+}
+
+.resourceCoverGrid {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.resourceIconGrid {
+  width: 80%;
+  height: 80%;
+}
+
+.resourceCoverShelf {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.resourceIconShelf {
+  width: 70%;
+  height: auto;
+}
+
+.cardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.cardAuthor {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.9rem;
+  margin: 0 0 0.75rem 0;
+}
+
+.cardRelevance {
+  flex: 1;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+.cardActions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.cardButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.cardButtonPrimary {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.cardButtonPrimary:hover {
+  background: var(--ifm-color-primary-dark);
+  color: white;
+  text-decoration: none;
+}
+
+.cardButtonSecondary {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-700);
+}
+
+.cardButtonSecondary:hover {
+  background: var(--ifm-color-emphasis-200);
+  text-decoration: none;
+}
+
+.cardButtonIcon {
+  width: 14px;
+  height: 14px;
+}
+
+.cardTypeBadge {
+  padding: 0.2rem 0.6rem;
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-dark);
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+[data-theme='dark'] .cardTypeBadge {
+  background: rgba(96, 165, 250, 0.2);
+  color: var(--ifm-color-primary-light);
+}
+
+/* ==========================================================================
+   DETAIL MODAL
+   ========================================================================== */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modalOverlayVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  position: relative;
+  background: var(--ifm-background-surface-color, var(--ifm-background-color));
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  transform: scale(0.95) translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+[data-theme='dark'] .modal {
+  background: #1e1e1e;
+}
+
+.modalOverlayVisible .modal {
+  transform: scale(1) translateY(0);
+}
+
+.modalHeader {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  padding-right: 3.5rem; /* Space for close button */
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: inherit;
+}
+
+.modalCover {
+  width: 120px;
+  height: 180px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.modalInfo {
+  flex: 1;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.modalAuthor {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+}
+
+.modalMeta {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.modalBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.modalBadgeType {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-700);
+}
+
+.modalBadgeCategory {
+  color: white;
+}
+
+.modalClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-surface-color, var(--ifm-background-color));
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.modalClose:hover {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .modalClose {
+  background: #2d2d2d;
+  border-color: #404040;
+  color: #ccc;
+}
+
+[data-theme='dark'] .modalClose:hover {
+  background: #3d3d3d;
+}
+
+.modalBody {
+  padding: 1.5rem;
+  background: inherit;
+}
+
+.modalSection {
+  margin-bottom: 0;
+}
+
+.modalSectionTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ifm-color-primary);
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--ifm-color-primary-lightest);
+}
+
+[data-theme='dark'] .modalSectionTitle {
+  color: var(--ifm-color-primary-light);
+  border-bottom-color: var(--ifm-color-emphasis-300);
+}
+
+.modalRelevance {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ifm-font-color-base);
+  margin: 0;
+}
+
+.modalActions {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  background: inherit;
+}
+
+.modalButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.modalButtonPrimary {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.modalButtonPrimary:hover {
+  background: var(--ifm-color-primary-dark);
+  color: white;
+  text-decoration: none;
+}
+
+.modalButtonSecondary {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-800);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.modalButtonSecondary:hover {
+  background: var(--ifm-color-emphasis-200);
+  border-color: var(--ifm-color-emphasis-400);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   CUSTOM COVER (for non-book resources)
+   ========================================================================== */
+
+.customCover {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+  padding: 1rem;
+}
+
+.customCoverIcon {
+  width: 60%;
+  height: auto;
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES
+   ========================================================================== */
+
+@media (max-width: 996px) {
+  .headerTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .viewToggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .shelfBook {
+    width: 50px;
+    height: 150px;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .cardCoverWrapper {
+    width: 100%;
+    height: 200px;
+  }
+
+  .modalHeader {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .modalActions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .shelfBooks {
+    justify-content: center;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.category:nth-child(2) { animation-delay: 0.1s; }
+.category:nth-child(3) { animation-delay: 0.2s; }
+.category:nth-child(4) { animation-delay: 0.3s; }
+.category:nth-child(5) { animation-delay: 0.4s; }
+.category:nth-child(6) { animation-delay: 0.5s; }
+.category:nth-child(7) { animation-delay: 0.6s; }
+.category:nth-child(8) { animation-delay: 0.7s; }
+.category:nth-child(9) { animation-delay: 0.8s; }
+.category:nth-child(10) { animation-delay: 0.9s; }
+
+/* Loading state for images */
+.coverLoading {
+  background: linear-gradient(
+    90deg,
+    var(--ifm-color-emphasis-200) 0%,
+    var(--ifm-color-emphasis-100) 50%,
+    var(--ifm-color-emphasis-200) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
