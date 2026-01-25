@@ -5,10 +5,15 @@ title: Using AI Agents
 
 # Using AI Agents
 
-Two OpenCode agents help you contribute to Field Guides:
+Three OpenCode agents help you contribute to Field Guides:
 
-- **Alchemist** - Document experiments from engineering experiences
-- **Synthesist** - Create methods by synthesizing experiments
+| Agent | Purpose | When to Use |
+|-------|---------|-------------|
+| **Alchemist** | Document experiments | You have an experience to capture |
+| **Synthesist** | Create methods | You have experiments that reveal a pattern |
+| **Prospector** | Find experiment opportunities | You want to mine a repo for undocumented learnings |
+
+**Start with Alchemist** - experiments are fundamentally human experiences worth documenting. Once you understand that workflow, **Synthesist** helps you build methods from evidence. **Prospector** automates discovery when you want to systematically mine repositories for opportunities.
 
 These agents guide you through structured workflows, ensuring your contributions are rigorous, well-formatted, and properly linked.
 
@@ -17,6 +22,7 @@ These agents guide you through structured workflows, ensuring your contributions
 - [OpenCode CLI](https://opencode.ai) installed and configured
 - For Alchemist: An engineering experience to document (project, experiment, lesson learned)
 - For Synthesist: One or more documented experiments in the Field Guides
+- For Prospector: A git repository to analyze (optionally with GitHub access)
 
 ---
 
@@ -366,19 +372,28 @@ Methods are placed based on maturity level:
 
 ## How They Work Together
 
-The two agents form a complete contribution workflow:
+The three agents form a complete contribution workflow:
 
-```
-                                    ┌─────────────────────────────────┐
-                                    │                                 │
-                                    ▼                                 │
-Experience ──► [Alchemist] ──► Experiment ──► [Synthesist] ──► Method │
-                                    │                            │    │
-                                    │                            │    │
-                                    └────────────────────────────┘    │
-                                      (methods link to experiments)   │
-                                                                      │
-                                    (experiments link to methods) ────┘
+```mermaid
+flowchart LR
+    subgraph human["Human-Driven (Primary)"]
+        E[Experience] --> A[Alchemist]
+        A --> X[Experiment]
+        X --> S[Synthesist]
+        S --> M[Method]
+    end
+    
+    subgraph auto["Automated Discovery (Optional)"]
+        R[Repository] --> P[Prospector]
+        P --> O[Opportunities]
+    end
+    
+    O -.-> A
+    M -.-> X
+    X -.-> M
+    
+    style human fill:#e8f5e9
+    style auto fill:#fff3e0
 ```
 
 ### Typical Workflow
@@ -386,6 +401,13 @@ Experience ──► [Alchemist] ──► Experiment ──► [Synthesist] ─
 1. **Document with Alchemist** - When you have a raw engineering experience
 2. **Synthesize with Synthesist** - When you have enough experiments to extract a method
 3. **Update with Synthesist** - When new experiments strengthen existing methods
+4. **Discover with Prospector** - When you want to mine a repository for undocumented learnings
+
+### Prospector: Automated Discovery
+
+The Prospector is an **optional automation layer**. It doesn't replace the human-driven workflow - it helps you find opportunities you might have missed.
+
+Most experiments will still start with a human saying "I learned something worth capturing" and invoking Alchemist directly. Use Prospector when you want to systematically surface learning opportunities from repository history.
 
 ### Bidirectional Links
 
@@ -396,3 +418,116 @@ Both agents maintain the relationship between methods and experiments:
 - The `<RelatedExperiments />` and `<RelatedMethods />` components render these links automatically
 
 This creates a web of evidence where readers can trace any method back to the experiments that support it, and any experiment forward to the methods it informs.
+
+---
+
+## Prospector
+
+The Prospector mines repositories for undocumented experiments - moments where something was tried and something was learned, but never formally captured.
+
+Think of it as an automated way to surface the learning opportunities hiding in your git history, CI pipelines, and GitHub discussions.
+
+### When to Use
+
+- You're onboarding to a new codebase and want to understand its history
+- You suspect there are undocumented learnings in your team's repository
+- You want to systematically find experiment opportunities across a project
+- You're doing a retrospective and want data-driven insights
+
+### How to Invoke
+
+```
+@prospector
+```
+
+The Prospector will ask about scope, GitHub integration, and timeframe before beginning analysis.
+
+### The 5-Phase Workflow
+
+| Phase | Name | What Happens |
+|-------|------|--------------|
+| 1 | **Initialization** | Gather repo path, GitHub URL (optional), timeframe |
+| 2 | **Parallel Analysis** | 7 subagents analyze the repo simultaneously |
+| 3 | **Synthesis** | Correlate findings, identify overlaps, score opportunities |
+| 4 | **Report** | Present prioritized experiment opportunities with evidence |
+| 5 | **Handoff** | Send selected opportunities to Alchemist for documentation |
+
+<details>
+<summary><strong>Architecture & Subagents</strong></summary>
+
+The Prospector orchestrates 7 specialized subagents that run in parallel:
+
+```mermaid
+flowchart TB
+    P[Prospector] --> L[Local Analysis]
+    P --> G[GitHub Analysis]
+    
+    L --> C[prospector-commits]
+    L --> CI[prospector-ci]
+    L --> T[prospector-tests]
+    L --> D[prospector-docs]
+    L --> DEP[prospector-deps]
+    
+    G --> I[prospector-issues]
+    G --> PR[prospector-prs]
+    
+    style L fill:#e3f2fd
+    style G fill:#fce4ec
+```
+
+**Local Analysis (always runs):**
+
+| Subagent | Analyzes | Signals |
+|----------|----------|---------|
+| `prospector-commits` | Git commit history | Debugging crunches, refactoring waves, revert patterns |
+| `prospector-ci` | CI/CD configuration | Pipeline evolution, test stage additions, failure patterns |
+| `prospector-tests` | Test files | Coverage gaps, late test additions, test-to-code ratios |
+| `prospector-docs` | Documentation | Doc gaps, outdated docs, knowledge concentration |
+| `prospector-deps` | Dependencies | Major version bumps, fork decisions, security updates |
+
+**GitHub Analysis (requires URL):**
+
+| Subagent | Analyzes | Signals |
+|----------|----------|---------|
+| `prospector-issues` | GitHub issues | Bug clusters, retrospectives, tech debt acknowledgments |
+| `prospector-prs` | Pull requests | Architectural debates, reverted PRs, learning moments |
+
+All subagents run **in parallel** for performance, then findings are correlated to identify the strongest opportunities.
+
+</details>
+
+### What Gets Produced
+
+A **Prospector Report** with prioritized opportunities:
+
+```markdown
+# Prospector Report: [repo name]
+
+## Analysis Summary
+- **Repository:** /path/to/repo
+- **GitHub:** github.com/org/repo
+- **Timeframe:** Last 6 months
+- **Commits analyzed:** 342
+
+## Experiment Opportunities
+
+### 1. Authentication Refactoring - Evidence: High
+**FOE Principle:** Understanding
+**Sources:** commits, PRs, issues
+**Timeframe:** Oct-Nov 2025
+
+The team rewrote the auth system twice in 6 weeks. PR discussions 
+reveal initial assumptions about session handling were wrong.
+
+**Hypothesis Hint:** "If we had invested time understanding the 
+existing auth flow, then we could have avoided the rewrite..."
+```
+
+You select which opportunities to document, and Prospector hands them to Alchemist with pre-populated context.
+
+### Tips for Best Results
+
+1. **Start with a focused timeframe** - "Last 6 months" is usually most actionable
+2. **Include GitHub if available** - Issues and PRs often contain the richest learning context
+3. **Don't document everything** - Select 1-2 high-evidence opportunities to start
+4. **Human judgment matters** - Prospector surfaces patterns; you decide what's meaningful
