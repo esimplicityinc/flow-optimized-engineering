@@ -1,0 +1,11 @@
+{
+  "label": "Methods",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Architecture Methods",
+    "description": "Flow-optimized methods for structural system decisions."
+  }
+}

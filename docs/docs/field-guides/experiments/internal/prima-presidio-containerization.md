@@ -3,7 +3,8 @@ sidebar_position: 2
 title: "Containerizing Heavy ML Dependencies"
 status: completed
 source_type: internal
-methods: []
+methods:
+  - architecture/methods/emerging/service-boundary-extraction
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';
