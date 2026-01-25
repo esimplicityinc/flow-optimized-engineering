@@ -189,6 +189,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'field-guides/for-leadership',
                 'field-guides/contributing-experiments',
+                'field-guides/using-ai-agents',
                 'field-guides/contributing-implementation',
               ],
             },
