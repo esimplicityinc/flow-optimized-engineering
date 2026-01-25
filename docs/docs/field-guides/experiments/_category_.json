@@ -1,0 +1,11 @@
+{
+  "label": "Experiments",
+  "position": 10,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Experiments",
+    "description": "Documented evidence supporting Field Guide methods."
+  }
+}
