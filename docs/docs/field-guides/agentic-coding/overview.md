@@ -33,7 +33,9 @@ Methods with strong supporting evidence (Validated or Proven):
 
 Methods currently being tested (Hypothesized or Experimenting):
 
-- [Placeholder Emerging Method](./methods/emerging/placeholder-emerging-method) - An example method in early stages
+- [Understanding-First Protocol Adoption](./methods/emerging/understanding-first-protocol-adoption) - Invest in protocol model understanding before making architectural decisions
+- [Early Feedback Loop Investment](./methods/emerging/early-feedback-loop-investment) - Build test/CI infrastructure as foundation, not overhead
+- [Knowledge Distribution as Reliability](./methods/emerging/knowledge-distribution-as-reliability) - Treat concentrated knowledge as a system risk to actively address
 
 ## Getting Started
 
