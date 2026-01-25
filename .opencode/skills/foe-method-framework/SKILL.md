@@ -2,9 +2,9 @@
 name: foe-method-framework
 description: |
   Framework for creating and managing Flow Optimized Engineering methods. Use when creating 
-  new methods, updating method maturity levels, linking experiments to methods, or 
-  understanding the method structure. Methods are practices backed by experiments within 
-  Field Guides.
+  new methods, updating method maturity levels, linking experiments to methods, adopting
+  methods from external frameworks, or understanding the method structure. Methods are 
+  practices backed by experiments within Field Guides.
 ---
 
 # FOE Method Framework
@@ -76,10 +76,76 @@ When a method advances from Experimenting to Validated:
 | Experimenting → Validated | Completed experiment(s) with positive results |
 | Validated → Proven | Multiple experiments across different contexts |
 
+## External Frameworks
+
+External Frameworks are established industry methodologies (e.g., DORA, SPACE, Accelerate) that contain well-defined methods. Field Guides can **adopt** methods from these frameworks.
+
+### Framework Location
+
+```
+docs/docs/external-frameworks/
+├── overview.md
+└── [framework-slug]/
+    ├── overview.md         # Framework metadata and description
+    └── methods/
+        └── method-name.md  # Canonical method definitions
+```
+
+### Framework Status Levels
+
+| Status | Description |
+|--------|-------------|
+| Emerging Standard | Gaining traction, early adoption |
+| Well-Established | Widely recognized, significant adoption |
+| Industry Standard | De facto standard in the industry |
+
+### Adopting Framework Methods
+
+To adopt an external method into a field guide:
+
+1. Add to the guide's `overview.md` frontmatter:
+   ```yaml
+   adopted_methods:
+     - framework: dora
+       method: deployment-frequency
+       foe_maturity: hypothesized
+       experiments: []
+   ```
+
+2. Update the MethodList component in the guide's overview:
+   ```jsx
+   <MethodList 
+     guideId="your-guide"
+     methods={[...]}
+     adoptedMethods={[
+       {
+         framework: 'dora',
+         method: 'deployment-frequency',
+         foe_maturity: 'hypothesized',
+         title: 'Deployment Frequency',
+         description: 'How often code is deployed to production',
+         frameworkTitle: 'DORA',
+       },
+     ]}
+   />
+   ```
+
+### Key Principles
+
+- **Reference, don't duplicate** - Canonical method lives in `/external-frameworks/`
+- **Independent FOE maturity** - Track your own maturity separate from framework status
+- **Add your evidence** - Link FOE experiments to validate in your context
+- **Cherry-pick** - Adopt individual methods, not entire frameworks
+
+### Creating a New External Framework
+
+See `references/external-frameworks.md` for the full template.
+
 ## References
 
 - `references/method-template.md` - Full template with examples
 - `references/maturity-levels.md` - Detailed maturity criteria
+- `references/external-frameworks.md` - External framework template
 
 ## Assets
 

@@ -54,6 +54,18 @@
     "doc-generator": {
       "description": "Generates CI documentation for each commit across three dimensions",
       "mode": "subagent"
+    },
+    "prospector-literature": {
+      "description": "Mines external sources (bookshelf + web) for evidence supporting or contradicting FOE methods",
+      "mode": "primary"
+    },
+    "prospector-bookshelf": {
+      "description": "Searches FOE Bookshelf for sources relevant to specified methods",
+      "mode": "subagent"
+    },
+    "prospector-web": {
+      "description": "Searches web for academic and practitioner evidence with quality tagging",
+      "mode": "subagent"
     }
   },
 
