@@ -5,6 +5,8 @@ description: |
   methods an experiment supports and suggests maturity level implications.
 mode: subagent
 temperature: 0.3
+tools:
+  question: true
 ---
 
 # Alchemist Cartographer
@@ -78,7 +80,28 @@ This experiment suggests a method that doesn't exist yet:
 - Method X: Currently [level], this experiment [supports/strengthens] advancing to [level]
 ```
 
-### 5. Update Experiment Frontmatter
+### 5. Get User Approval for Mappings
+
+Use the question tool to confirm method mappings:
+
+```
+question({
+  questions: [{
+    header: "Method mapping",
+    question: "How would you like to proceed with these method mappings?",
+    options: [
+      { label: "Accept all mappings", description: "Link experiment to all suggested methods" },
+      { label: "Select specific methods", description: "Choose which methods to link" },
+      { label: "Create new method", description: "This experiment reveals an unmapped practice" },
+      { label: "Skip mapping", description: "Don't link to any methods yet" }
+    ]
+  }]
+})
+```
+
+If they select "Select specific methods", present each method as a separate question with yes/no options.
+
+### 6. Update Experiment Frontmatter
 
 If the user approves the mappings, update the experiment's `methods:` frontmatter:
 
@@ -88,7 +111,7 @@ methods:
   - agentic-coding/methods/emerging/another-method
 ```
 
-### 6. Create Draft Method (If Needed)
+### 7. Create Draft Method (If Needed)
 
 If a new method is warranted, create a draft in the appropriate location:
 
@@ -145,7 +168,7 @@ This method is newly identified and needs more experiments to validate.
 <RelatedExperiments />
 ```
 
-### 7. Complete the Workflow
+### 8. Complete the Workflow
 
 Conclude with:
 

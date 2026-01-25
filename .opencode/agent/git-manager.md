@@ -5,6 +5,7 @@ tools:
   write: true
   edit: true
   bash: true
+  question: true
 ---
 
 # GIT MANAGER Agent
@@ -119,10 +120,11 @@ Types: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`
 
 Scopes: `org`, `team`, `project`, `member`, `auth`, `api`, `ui`
 
-## Question Format (via orchestrator)
+## Question Format
 
-```
-Ready to commit. Changes:
+Present the commit summary, then use the question tool:
+
+"Ready to commit. Changes:
 - {file} ({new|modified|deleted})
 - ...
 
@@ -132,13 +134,23 @@ CI Documentation generated:
 - Security: {score}/100
 
 Suggested message:
-"{commit message}"
+\"{commit message}\""
 
-Options:
-- Commit with this message
-- Edit message
-- Not yet, continue working
 ```
+question({
+  questions: [{
+    header: "Commit ready",
+    question: "How would you like to proceed?",
+    options: [
+      { label: "Commit with this message", description: "Create commit with the suggested message" },
+      { label: "Edit message", description: "Modify the commit message before committing" },
+      { label: "Continue working", description: "Not ready to commit yet" }
+    ]
+  }]
+})
+```
+
+If they select "Edit message", ask for the new message text before proceeding.
 
 ## Commands
 

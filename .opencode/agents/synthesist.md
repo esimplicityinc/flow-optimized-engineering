@@ -5,6 +5,8 @@ description: |
   Walks through each section interactively to ensure the method captures the right insights.
 mode: primary
 temperature: 0.3
+tools:
+  question: true
 permission:
   task:
     "synthesist-*": allow
@@ -50,7 +52,20 @@ After receiving paths:
 1. Read each experiment file
 2. If only 1 experiment, warn: "Note: Methods are stronger with multiple experiments. We can proceed with one, but consider this method 'early stage' until more evidence accumulates."
 3. Summarize what you found: experiment titles, statuses, key themes
-4. Ask: "Are you creating a **new method** or **updating an existing method** with these experiments?"
+4. Use the question tool to determine mode:
+
+```
+question({
+  questions: [{
+    header: "Method mode",
+    question: "Are you creating a new method or updating an existing one?",
+    options: [
+      { label: "Create new method", description: "Build a new method from these experiments" },
+      { label: "Update existing method", description: "Add experiments to an existing method" }
+    ]
+  }]
+})
+```
 
 ### Step 2: Pattern Analysis
 
@@ -73,39 +88,54 @@ Does this capture the essence of what you're trying to codify?"
 
 ### Step 3: Name & Overview
 
-"**Step 3 of 7: Name & Overview**
+"**Step 3 of 7: Name & Overview**"
 
-Based on the analysis, here are suggested names:
+Use the question tool to select the method name:
 
-1. **[Name 1]** - [Why this fits]
-2. **[Name 2]** - [Why this fits]
-3. **[Name 3]** - [Why this fits]
+```
+question({
+  questions: [{
+    header: "Method name",
+    question: "Which name best captures this method?",
+    options: [
+      { label: "[Name 1]", description: "[Why this fits - emphasizes X]" },
+      { label: "[Name 2]", description: "[Why this fits - emphasizes Y]" },
+      { label: "[Name 3]", description: "[Why this fits - emphasizes Z]" }
+    ]
+  }]
+})
+```
 
-Which resonates? Or suggest your own.
-
-Once we have a name, let's craft the overview - a 2-3 paragraph description of:
+Once they select (or provide custom name), craft the overview together - a 2-3 paragraph description of:
 - What problem this method solves
 - The core insight or approach
-- Why it works"
+- Why it works
 
-Collaborate with the user to refine the name and overview. Don't proceed until they're satisfied.
+Collaborate with the user to refine the overview. Don't proceed until they're satisfied.
 
 ### Step 4: Applicability
 
 "**Step 4 of 7: Applicability**
 
-Now let's define when this method applies.
+Now let's define when this method applies."
 
-**When to Use** - What situations make this method valuable?
-Based on your experiments, I suggest:
-- [Situation 1 from experiments]
-- [Situation 2 from experiments]
+Present your suggestions, then use the question tool:
 
-**When NOT to Use** - What are the counter-indications?
-- [Counter-indication 1]
-- [Counter-indication 2]
+```
+question({
+  questions: [{
+    header: "Applicability review",
+    question: "I've drafted 'When to Use' and 'When NOT to Use' sections. How do they look?",
+    options: [
+      { label: "Looks good", description: "Proceed with these applicability guidelines" },
+      { label: "Add more situations", description: "I have additional use cases to include" },
+      { label: "Revise suggestions", description: "Some of these need adjustment" }
+    ]
+  }]
+})
+```
 
-What would you add or change?"
+Iterate based on their feedback before proceeding.
 
 ### Step 5: How It Works
 
@@ -130,27 +160,37 @@ Does this capture the practice accurately? What's missing or needs refinement?"
 
 ### Step 6: Maturity & Placement
 
-"**Step 6 of 7: Maturity & Placement**
+"**Step 6 of 7: Maturity & Placement**"
 
-**Maturity Level**
+Present your analysis, then use the question tool for confirmation:
 
-Based on [N] experiment(s) with [outcomes], I recommend: **[level]**
+```
+question({
+  questions: [
+    {
+      header: "Maturity level",
+      question: "Based on [N] experiment(s), I recommend [level]. Does this seem right?",
+      options: [
+        { label: "Hypothesized", description: "Proposed, not yet tested" },
+        { label: "Experimenting", description: "Active experiments underway" },
+        { label: "Validated", description: "Supporting evidence exists" },
+        { label: "Proven", description: "Multiple confirming experiments" }
+      ]
+    },
+    {
+      header: "Field Guide placement",
+      question: "This method fits best in which Field Guide?",
+      options: [
+        { label: "[Guide 1]", description: "Based on primary experiment theme" },
+        { label: "[Guide 2]", description: "Alternative placement option" }
+      ]
+    }
+  ]
+})
+```
 
-| Level | Criteria | Your Fit |
-|-------|----------|----------|
-| Hypothesized | Proposed, not tested | [fit assessment] |
-| Experimenting | Active experiments | [fit assessment] |
-| Validated | Supporting evidence exists | [fit assessment] |
-| Proven | Multiple confirming experiments | [fit assessment] |
-
-**Field Guide Placement**
-
-Based on the experiment themes, this method fits best in: **[Guide Name]**
-
-This means the file will be created at:
+Confirm the file path based on their selections:
 `docs/docs/field-guides/[guide-slug]/methods/[emerging|established]/[method-slug].md`
-
-Does this placement make sense?"
 
 ### Step 7: Generate & Review
 

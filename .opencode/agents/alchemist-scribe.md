@@ -7,6 +7,7 @@ mode: subagent
 temperature: 0.2
 tools:
   bash: false
+  question: true
 ---
 
 # Alchemist Scribe
@@ -142,20 +143,31 @@ Did your hypothesis hold? What should others take away from this?
 ### 1. Generate a Draft
 Based on all the information gathered, write a complete first draft.
 
-### 2. Show Preview
-Present the draft to the user:
+### 2. Show Preview and Get Approval
+Present the draft to the user, then use the question tool:
 
 "Here's the draft experiment documentation:
 
 [Full markdown content]
 
 **Proposed filename:** `[filename].md`
-**Location:** `docs/docs/field-guides/experiments/`
+**Location:** `docs/docs/field-guides/experiments/`"
 
-Would you like me to:
-- Make any changes to the content?
-- Adjust the title or filename?
-- Proceed and create the file?"
+```
+question({
+  questions: [{
+    header: "Documentation review",
+    question: "How would you like to proceed with this experiment documentation?",
+    options: [
+      { label: "Create the file", description: "Save to experiments folder as shown" },
+      { label: "Edit content", description: "Make changes to the documentation" },
+      { label: "Change filename", description: "Adjust the title or filename" }
+    ]
+  }]
+})
+```
+
+If they select "Edit content" or "Change filename", ask for specifics and regenerate.
 
 ### 3. Create the File
 Once approved, write the file to the correct location.

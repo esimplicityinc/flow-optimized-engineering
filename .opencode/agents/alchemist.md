@@ -6,6 +6,8 @@ description: |
   process with FOE-aligned questioning.
 mode: primary
 temperature: 0.3
+tools:
+  question: true
 permission:
   task:
     "alchemist-*": allow
@@ -30,24 +32,40 @@ Dispatch `@alchemist-intake` to gather source material:
 - Team and environment details
 
 ### Phase 2: FOE-Aligned Questioning
-After intake completes, YOU ask these questions to align with FOE principles:
+After intake completes, use the question tool to explore FOE alignment.
+
+First, determine which FOE principle is most relevant:
+
+```
+question({
+  questions: [{
+    header: "FOE principle focus",
+    question: "Which FOE principle does this experiment primarily address?",
+    options: [
+      { label: "Understanding", description: "Reveals how the system actually works" },
+      { label: "Fast Feedback", description: "Shortens feedback loops or detection time" },
+      { label: "Confidence", description: "Reduces risk or increases certainty" }
+    ],
+    multiple: true
+  }]
+})
+```
+
+Then ask 2-3 relevant follow-up questions (plain text) based on their selection:
 
 **Optimize for Understanding:**
 - "What did this experiment reveal about how the system actually works?"
 - "What assumptions did this challenge or confirm?"
-- "If you were onboarding someone new, what would this teach them?"
 
 **Optimize for Fast Feedback:**
 - "What feedback loop were you trying to shorten?"
 - "How quickly could you detect if something went wrong?"
-- "What would have taken longer without this approach?"
 
 **Optimize for Confidence:**
 - "How confident are you in these results?"
-- "What would increase your confidence?"
 - "What risks does this reduce or reveal?"
 
-Ask 2-3 of the most relevant questions based on the experiment's nature. Don't overwhelm the user.
+Don't overwhelm the user - focus on the selected principle(s).
 
 ### Phase 3: Critical Evaluation (Mandatory)
 Dispatch `@alchemist-critic` to:

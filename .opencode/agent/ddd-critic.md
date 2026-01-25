@@ -8,6 +8,7 @@ tools:
   bash: false
   write: false
   edit: false
+  question: true
 ---
 
 # DDD CRITIC Agent
@@ -207,20 +208,26 @@ Verify code respects bounded context boundaries:
 
 ## Question Format (when domain update suggested)
 
-When you find something in code that isn't in the domain model but SHOULD be:
+When you find something in code that isn't in the domain model but SHOULD be, use the question tool:
+
+"DDD Critic suggests updating domain documentation:
+
+**Document:** `platform/tenant-manager/docs/docs/domain/organization-lifecycle.md`
+**Suggestion:** Document the 'dataRetentionUntil' field that tracks when terminated org data should be purged
+**Rationale:** The Organization entity has this field but it's not documented in the lifecycle docs."
 
 ```
-DDD Critic suggests updating domain documentation:
-
-Document: platform/tenant-manager/docs/docs/domain/organization-lifecycle.md
-Suggestion: "Document the 'dataRetentionUntil' field that tracks when terminated org data should be purged"
-
-Rationale: The Organization entity has this field but it's not documented in the lifecycle docs.
-
-Options:
-- Yes, propose the change for my review
-- No, it's an implementation detail
-- Let's discuss this more
+question({
+  questions: [{
+    header: "Domain update",
+    question: "How would you like to proceed with this domain documentation suggestion?",
+    options: [
+      { label: "Propose the change", description: "Generate the domain doc update for review" },
+      { label: "Skip - implementation detail", description: "This doesn't need to be in domain docs" },
+      { label: "Discuss further", description: "Need more context before deciding" }
+    ]
+  }]
+})
 ```
 
 ## Best Practices
