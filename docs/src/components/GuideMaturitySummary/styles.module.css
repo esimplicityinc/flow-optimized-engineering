@@ -1,0 +1,85 @@
+.container {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 0.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.level {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.score {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.875rem;
+}
+
+.pending {
+  color: var(--ifm-color-emphasis-500);
+  font-style: italic;
+}
+
+.progressContainer {
+  height: 0.5rem;
+  background: var(--ifm-color-emphasis-200);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progressBar {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+.distribution {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.distributionItem {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+}
+
+.distributionDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.distributionLabel {
+  color: var(--ifm-color-emphasis-600);
+}
+
+.distributionCount {
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.empty {
+  color: var(--ifm-color-emphasis-500);
+  font-style: italic;
+  margin: 0;
+}
