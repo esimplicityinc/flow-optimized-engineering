@@ -1,8 +1,13 @@
 ---
-sidebar_position: 12
+sidebar_position: 3
 title: "NUMMI: Same Workers, Different System"
 status: completed
-source_type: external
+source_type: literature
+source:
+  authors: ["James Womack", "Daniel Jones", "Daniel Roos"]
+  organization: "MIT International Motor Vehicle Program"
+  year: 1990
+  url: "https://www.lean.org/the-lean-post/articles/nummi-the-plant-that-changed-the-auto-industry/"
 methods: []
 ---
 
@@ -10,7 +15,7 @@ import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # NUMMI: Same Workers, Different System
 
-> **Status:** Completed | **Source:** External Research
+> **Source:** Womack, Jones & Roos (1990), MIT IMVP Study
 
 The NUMMI (New United Motor Manufacturing, Inc.) plant transformation demonstrates that system design, not individual talent, determines outcomes. GM's worst-performing plant, with workers described as "the worst workforce in the automobile industry," became one of America's best after implementing the Toyota Production System - with 85%+ of the same employees.
 

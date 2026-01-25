@@ -1,7 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 title: "Prima: Enterprise AI Platform via OSS Fork Strategy"
 status: completed
+source_type: internal
 methods:
   - agentic-coding/methods/emerging/understanding-first-protocol-adoption
   - agentic-coding/methods/emerging/early-feedback-loop-investment

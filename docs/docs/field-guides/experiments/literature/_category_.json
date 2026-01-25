@@ -1,0 +1,10 @@
+{
+  "label": "Literature Evidence",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "Published research and case studies that provide external evidence for FOE methods."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "label": "Internal Experiments",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "Experiments conducted by our teams, documenting what we tried and what we learned."
+  }
+}

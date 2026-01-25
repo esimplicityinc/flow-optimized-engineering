@@ -1,7 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 title: "Containerizing Heavy ML Dependencies"
 status: completed
+source_type: internal
 methods: []
 ---
 

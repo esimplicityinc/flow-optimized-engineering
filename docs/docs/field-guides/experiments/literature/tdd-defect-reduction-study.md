@@ -1,8 +1,13 @@
 ---
-sidebar_position: 13
+sidebar_position: 4
 title: "TDD Defect Reduction: Microsoft/IBM Study"
 status: completed
-source_type: external
+source_type: literature
+source:
+  authors: ["Nachiappan Nagappan", "E. Michael Maximilien", "Thirumalesh Bhat", "Laurie Williams"]
+  organization: "Microsoft Research / IBM"
+  year: 2008
+  url: "https://www.microsoft.com/en-us/research/publication/realizing-quality-improvement-through-test-driven-development-results-and-experiences-of-four-industrial-teams/"
 methods: []
 ---
 
@@ -10,7 +15,7 @@ import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # TDD Defect Reduction: Microsoft/IBM Study
 
-> **Status:** Completed | **Source:** External Research
+> **Source:** Nagappan et al. (2008), Microsoft/IBM Industrial Study
 
 A landmark study of four industrial teams at Microsoft and IBM found that Test-Driven Development (TDD) reduces defect density by 40-90% compared to similar non-TDD projects, with a development time increase of 15-35%. The study provides rigorous evidence that writing tests first improves code quality.
 

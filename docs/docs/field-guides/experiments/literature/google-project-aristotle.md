@@ -1,8 +1,13 @@
 ---
-sidebar_position: 11
+sidebar_position: 2
 title: "Google Project Aristotle: Psychological Safety"
 status: completed
-source_type: external
+source_type: literature
+source:
+  authors: ["Amy Edmondson", "Julia Rozovsky"]
+  organization: "Harvard Business School / Google"
+  year: 2015
+  url: "https://rework.withgoogle.com/guides/understanding-team-effectiveness"
 methods: []
 ---
 
@@ -10,7 +15,7 @@ import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Google Project Aristotle: Psychological Safety
 
-> **Status:** Completed | **Source:** External Research
+> **Source:** Edmondson (1999), Google Project Aristotle (2012-2015)
 
 Google's multi-year study of 180 teams found that psychological safety is the #1 predictor of team effectiveness - more important than individual talent, team composition, or work style. Teams with high psychological safety are 2x more likely to be rated effective by executives and bring in more revenue.
 

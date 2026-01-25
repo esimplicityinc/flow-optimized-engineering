@@ -22,7 +22,41 @@ Load the `foe-experiment-framework` skill to ensure you have the latest template
 skill({ name: "foe-experiment-framework" })
 ```
 
+## Determine Experiment Type
+
+Before writing, determine which type of experiment this is:
+
+### Internal Experiments
+First-hand experiments conducted by the team. Characterized by:
+- Direct involvement in running the experiment
+- Access to raw data and observations
+- Specific context, dates, and team details
+- Detailed approach steps that were actually followed
+
+### Literature Evidence
+Research, studies, and documented practices from external sources. Characterized by:
+- Published research papers or industry reports
+- Case studies from other organizations
+- Well-known frameworks with documented outcomes
+- Industry surveys or longitudinal studies
+
+**Ask the user if unclear:**
+```
+question({
+  questions: [{
+    header: "Experiment type",
+    question: "What type of experiment evidence is this?",
+    options: [
+      { label: "Internal experiment", description: "First-hand experiment we conducted ourselves" },
+      { label: "Literature evidence", description: "External research, study, or documented practice" }
+    ]
+  }]
+})
+```
+
 ## Document Structure
+
+### For Internal Experiments
 
 Create a markdown file with this structure:
 
@@ -30,6 +64,7 @@ Create a markdown file with this structure:
 ---
 sidebar_position: 1
 title: "Experiment Title"
+source_type: internal
 status: completed    # or: in-progress
 methods:
   - guide-name/methods/established/method-slug
@@ -124,11 +159,92 @@ Did your hypothesis hold? What should others take away from this?
 <RelatedMethods />
 ```
 
+### For Literature Evidence
+
+Use this structure for external research and documented practices:
+
+```markdown
+---
+sidebar_position: 1
+title: "Study/Research Title"
+source_type: literature
+source:
+  authors:
+    - "Author Name"
+  organization: "Organization Name"
+  year: 2024
+  url: "https://source-url.com"
+status: completed
+methods:
+  - guide-name/methods/established/method-slug
+---
+
+import RelatedMethods from '@site/src/components/RelatedMethods';
+
+# Study/Research Title
+
+> **Source:** [Organization/Authors], [Year]
+
+Brief summary of what this research demonstrates and why it matters for FOE.
+
+## Study Overview
+
+- **Researchers:** Who conducted this study?
+- **Scope:** Sample size, duration, organizations involved
+- **Methodology:** How was the research conducted?
+
+## Key Findings
+
+What did the research discover? Be specific with data.
+
+| Finding | Evidence |
+|---------|----------|
+| Finding 1 | Supporting data |
+| Finding 2 | Supporting data |
+
+## FOE Relevance
+
+### Understanding
+What does this teach us about how software development works?
+
+### Feedback
+What does this reveal about effective feedback loops?
+
+### Confidence
+How does this help us build confidence in our practices?
+
+## Limitations
+
+Be honest about the study's limitations:
+- Methodological constraints
+- Context-specific factors
+- Generalizability concerns
+
+## Application
+
+How should teams apply these findings?
+
+## References
+
+- [Primary source](url)
+- [Related research](url)
+
+---
+
+<RelatedMethods />
+```
+
 ## File Naming and Location
 
-- **Location:** `docs/docs/field-guides/experiments/`
+### Internal Experiments
+- **Location:** `docs/docs/field-guides/experiments/internal/`
 - **Filename:** Use kebab-case, descriptive name: `experiment-name.md`
 - **Example:** `ci-parallelization-impact.md`
+
+### Literature Evidence
+- **Location:** `docs/docs/field-guides/experiments/literature/`
+- **Filename:** Use kebab-case, typically source-topic: `source-key-finding.md`
+- **Example:** `dora-four-key-metrics.md`, `google-project-aristotle.md`
 
 ## Writing Guidelines
 
@@ -150,8 +266,9 @@ Present the draft to the user, then use the question tool:
 
 [Full markdown content]
 
+**Type:** [Internal Experiment / Literature Evidence]
 **Proposed filename:** `[filename].md`
-**Location:** `docs/docs/field-guides/experiments/`"
+**Location:** `docs/docs/field-guides/experiments/[internal|literature]/`"
 
 ```
 question({
@@ -175,7 +292,7 @@ Once approved, write the file to the correct location.
 ### 4. Handoff
 Conclude with:
 
-"**Documentation complete.** Created `docs/docs/field-guides/experiments/[filename].md`
+"**Documentation complete.** Created `docs/docs/field-guides/experiments/[internal|literature]/[filename].md`
 
 The Cartographer will now help map this experiment to relevant methods."
 

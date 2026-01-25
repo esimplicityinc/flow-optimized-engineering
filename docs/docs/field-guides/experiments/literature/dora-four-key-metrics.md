@@ -1,8 +1,13 @@
 ---
-sidebar_position: 10
+sidebar_position: 1
 title: "DORA Four Key Metrics Research"
 status: completed
-source_type: external
+source_type: literature
+source:
+  authors: ["Nicole Forsgren", "Jez Humble", "Gene Kim"]
+  organization: "DORA / Google Cloud"
+  year: 2018
+  url: "https://dora.dev"
 methods: []
 ---
 
@@ -10,7 +15,7 @@ import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # DORA Four Key Metrics Research
 
-> **Status:** Completed | **Source:** External Research
+> **Source:** Forsgren, Humble & Kim (2018) | DORA Research Program
 
 The DORA (DevOps Research and Assessment) program's multi-year study of 39,000+ technology professionals demonstrates that software delivery performance is measurable through four key metrics, and that high performers achieve dramatically better outcomes without sacrificing stability for speed.
 
