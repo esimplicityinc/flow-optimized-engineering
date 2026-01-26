@@ -1,9 +1,20 @@
 ---
 sidebar_position: 1
 title: Architecture
+adopted_methods:
+  - framework: bdd
+    method: discovery-workshops
+    foe_maturity: hypothesized
+  - framework: bdd
+    method: three-amigos
+    foe_maturity: hypothesized
+  - framework: bdd
+    method: example-mapping
+    foe_maturity: hypothesized
 ---
 
 import GuideMaturitySummary from '@site/src/components/GuideMaturitySummary';
+import MethodList from '@site/src/components/MethodList';
 
 # Architecture
 
@@ -28,6 +39,41 @@ Methods with strong supporting evidence (Validated or Proven):
 Methods currently being tested (Hypothesized or Experimenting):
 
 - [Service Boundary Extraction](./methods/emerging/service-boundary-extraction) - Extract components with natural boundaries to dedicated containers
+
+### Adopted Methods
+
+External framework methods adopted for architectural decision-making:
+
+<MethodList 
+  guideId="architecture"
+  methods={[]}
+  adoptedMethods={[
+    {
+      framework: 'bdd',
+      method: 'discovery-workshops',
+      foe_maturity: 'hypothesized',
+      title: 'Discovery Workshops',
+      description: 'Collaborative conversations to explore and agree on desired system behavior through concrete examples',
+      frameworkTitle: 'BDD',
+    },
+    {
+      framework: 'bdd',
+      method: 'three-amigos',
+      foe_maturity: 'hypothesized',
+      title: 'Three Amigos',
+      description: 'Cross-functional meeting format where business, dev, and test perspectives collaborate on requirements',
+      frameworkTitle: 'BDD',
+    },
+    {
+      framework: 'bdd',
+      method: 'example-mapping',
+      foe_maturity: 'hypothesized',
+      title: 'Example Mapping',
+      description: 'A structured technique using colored cards to map user stories to rules, examples, and questions',
+      frameworkTitle: 'BDD',
+    },
+  ]}
+/>
 
 ## Getting Started
 
