@@ -60,6 +60,13 @@
   white-space: nowrap;
 }
 
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
 .cardDescription {
   font-size: 0.875rem;
   color: var(--ifm-color-emphasis-700);

@@ -1,0 +1,75 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.1rem;
+  color: var(--ifm-color-primary);
+}
+
+.status {
+  flex-shrink: 0;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.description {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  flex-grow: 1;
+}
+
+.methodCount {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.empty {
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: 0.5rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.empty p {
+  margin: 0.5rem 0;
+}
+
+.hint {
+  font-size: 0.9rem;
+}

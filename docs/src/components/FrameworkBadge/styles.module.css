@@ -1,0 +1,48 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  background-color: #f0f9ff; /* sky-50 */
+  color: #0369a1; /* sky-700 */
+  border: 1px solid #7dd3fc; /* sky-300 */
+  white-space: nowrap;
+}
+
+.badge.small {
+  padding: 0.125rem 0.375rem;
+  font-size: 0.625rem;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  background-color: #0369a1; /* sky-700 */
+  color: white;
+  font-size: 0.625rem;
+  font-weight: 700;
+}
+
+.small .icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  font-size: 0.5rem;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:hover .badge {
+  background-color: #e0f2fe; /* sky-100 */
+  border-color: #38bdf8; /* sky-400 */
+}

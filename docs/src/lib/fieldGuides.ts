@@ -155,4 +155,115 @@ export interface ExperimentFrontmatter {
 export interface GuideFrontmatter {
   title: string;
   sidebar_position?: number;
+  adopted_methods?: AdoptedMethod[];
+}
+
+// =============================================================================
+// External Frameworks
+// =============================================================================
+
+export type FrameworkStatus = 'emerging-standard' | 'well-established' | 'industry-standard';
+
+export interface FrameworkStatusConfig {
+  status: FrameworkStatus;
+  label: string;
+  description: string;
+  color: string;
+  bgColor: string;
+}
+
+export const FRAMEWORK_STATUS: Record<FrameworkStatus, FrameworkStatusConfig> = {
+  'emerging-standard': {
+    status: 'emerging-standard',
+    label: 'Emerging Standard',
+    description: 'Gaining traction, early adoption phase',
+    color: '#ca8a04', // yellow-600
+    bgColor: '#fef9c3', // yellow-100
+  },
+  'well-established': {
+    status: 'well-established',
+    label: 'Well-Established',
+    description: 'Widely recognized, significant adoption',
+    color: '#2563eb', // blue-600
+    bgColor: '#dbeafe', // blue-100
+  },
+  'industry-standard': {
+    status: 'industry-standard',
+    label: 'Industry Standard',
+    description: 'De facto standard in the industry',
+    color: '#16a34a', // green-600
+    bgColor: '#dcfce7', // green-100
+  },
+};
+
+/**
+ * External Framework source metadata
+ */
+export interface FrameworkSource {
+  url: string;
+  authors?: string[];
+  publication_year?: number;
+  organization?: string;
+}
+
+/**
+ * External Framework frontmatter (overview.md)
+ */
+export interface FrameworkFrontmatter {
+  title: string;
+  slug: string;
+  sidebar_position?: number;
+  status: FrameworkStatus;
+  source: FrameworkSource;
+  version?: string;
+  pillars?: string[];
+  related_frameworks?: string[];
+  description?: string;
+}
+
+/**
+ * External Framework method frontmatter
+ */
+export interface FrameworkMethodFrontmatter {
+  title: string;
+  sidebar_position?: number;
+  pillar?: string;
+  description?: string;
+}
+
+/**
+ * Adopted method reference in field guide frontmatter
+ */
+export interface AdoptedMethod {
+  framework: string;
+  method: string;
+  foe_maturity: MaturityLevel;
+  experiments?: string[];
+}
+
+// =============================================================================
+// Framework Utility Functions
+// =============================================================================
+
+/**
+ * Get framework status config from a status level
+ */
+export function getFrameworkStatusConfig(status: FrameworkStatus): FrameworkStatusConfig {
+  return FRAMEWORK_STATUS[status];
+}
+
+/**
+ * Build the path to an external framework method
+ */
+export function buildFrameworkMethodPath(framework: string, method: string): string {
+  return `/external-frameworks/${framework}/methods/${method}`;
+}
+
+/**
+ * Parse an adopted method into its framework and method parts
+ */
+export function parseAdoptedMethodRef(ref: string): { framework: string; method: string } | null {
+  const parts = ref.split('/');
+  if (parts.length !== 2) return null;
+  return { framework: parts[0], method: parts[1] };
 }
