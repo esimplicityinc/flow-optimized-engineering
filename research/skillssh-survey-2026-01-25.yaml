@@ -1,0 +1,641 @@
+---
+# Skills.sh Survey for FOE Adaptation
+# Crawl Date: 2026-01-25
+# Focus: AI coding skills relevant to Flow Optimized Engineering
+
+source: skills.sh
+crawl_date: "2026-01-25"
+url_base: "https://skills.sh"
+total_skills_reviewed: 20
+skills_highly_relevant: 12
+skills_moderately_relevant: 5
+skills_informational: 3
+
+# FOE Principles Reference:
+# - Optimize for understanding
+# - Fast feedback loops
+# - Build confidence through evidence
+# - Incremental development
+# - Living documentation
+
+findings:
+
+  # ============================================
+  # HIGH RELEVANCE - Method Candidates
+  # ============================================
+
+  - id: skillssh-001
+    skill_name: "test-driven-development"
+    url: "https://skills.sh/obra/superpowers/test-driven-development"
+    source_repo: "obra/superpowers"
+    installs: "1.3K weekly"
+    description: |
+      Comprehensive TDD skill enforcing strict red-green-refactor cycle.
+      Core principle: "If you didn't watch the test fail, you don't know if it tests the right thing."
+      Includes iron law: NO PRODUCTION CODE WITHOUT A FAILING TEST FIRST.
+    key_capabilities:
+      - Red-green-refactor cycle enforcement
+      - Verification checklists for each phase
+      - Common rationalization prevention
+      - Anti-pattern detection
+      - Integration with debugging workflows
+    foe_adaptation_notes:
+      alignment: "Extremely high - directly supports fast feedback and confidence building"
+      target_guide: "continuous-feedback"
+      current_fit: |
+        Already embodies FOE principles:
+        - Fast feedback through immediate test verification
+        - Confidence through evidence (watching tests fail then pass)
+        - Incremental development (one test at a time)
+      modifications_needed:
+        - "Add FOE-specific language around 'optimize for understanding'"
+        - "Link to experiment documentation for TDD outcomes"
+        - "Add metrics collection for TDD cycle times"
+      potential_methods:
+        - "test-first-development"
+        - "red-green-refactor-cycle"
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: skillssh-002
+    skill_name: "subagent-driven-development"
+    url: "https://skills.sh/obra/superpowers/subagent-driven-development"
+    source_repo: "obra/superpowers"
+    installs: "1.0K weekly"
+    description: |
+      Multi-agent orchestration pattern: fresh subagent per task with two-stage review
+      (spec compliance first, then code quality). Enables parallel work with quality gates.
+    key_capabilities:
+      - Fresh context per task (no pollution)
+      - Two-stage review process (spec then quality)
+      - Implementer/reviewer separation
+      - Review loops until approval
+      - Integration with TDD and planning skills
+    foe_adaptation_notes:
+      alignment: "High - supports incremental development with continuous feedback"
+      target_guide: "ai-native-development"
+      current_fit: |
+        Strong FOE alignment:
+        - Incremental task execution
+        - Built-in feedback loops (reviews)
+        - Quality gates before proceeding
+      modifications_needed:
+        - "Add experiment tracking for subagent outcomes"
+        - "Include understanding verification checkpoints"
+        - "Add metrics for review iteration counts"
+        - "Document as FOE method for AI-assisted development"
+      potential_methods:
+        - "ai-agent-orchestration"
+        - "multi-agent-review-loops"
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: skillssh-003
+    skill_name: "systematic-debugging"
+    url: "https://skills.sh/obra/superpowers/systematic-debugging"
+    source_repo: "obra/superpowers"
+    installs: "1.3K weekly"
+    description: |
+      Four-phase debugging process: Root Cause Investigation → Pattern Analysis → 
+      Hypothesis Testing → Implementation. Iron law: NO FIXES WITHOUT ROOT CAUSE 
+      INVESTIGATION FIRST.
+    key_capabilities:
+      - Mandatory root cause investigation
+      - Evidence gathering before fixes
+      - Hypothesis-driven testing
+      - 3-fix rule (question architecture after 3 failed fixes)
+      - Integration with TDD for fix verification
+    foe_adaptation_notes:
+      alignment: "Very high - embodies 'optimize for understanding' principle"
+      target_guide: "continuous-feedback"
+      current_fit: |
+        Excellent FOE alignment:
+        - Understanding before action
+        - Evidence-based decision making
+        - Prevents thrashing (fast feedback through systematic approach)
+      modifications_needed:
+        - "Add experiment documentation for debugging sessions"
+        - "Include learning capture for future reference"
+        - "Add metrics for time-to-resolution comparison"
+      potential_methods:
+        - "root-cause-first-debugging"
+        - "hypothesis-driven-fixes"
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: skillssh-004
+    skill_name: "verification-before-completion"
+    url: "https://skills.sh/obra/superpowers/verification-before-completion"
+    source_repo: "obra/superpowers"
+    installs: "1.0K weekly"
+    description: |
+      Enforces evidence before claims. Core principle: "Claiming work is complete 
+      without verification is dishonesty, not efficiency." Gate function requires
+      running verification commands before any completion claims.
+    key_capabilities:
+      - Mandatory verification gate
+      - Evidence requirements for each claim type
+      - Rationalization prevention
+      - Red flag detection
+      - Integration with all completion workflows
+    foe_adaptation_notes:
+      alignment: "Extremely high - directly supports confidence through evidence"
+      target_guide: "continuous-feedback"
+      current_fit: |
+        Perfect FOE alignment:
+        - Evidence-based confidence
+        - Fast feedback (immediate verification)
+        - Prevents false completion claims
+      modifications_needed:
+        - "Add verification metrics tracking"
+        - "Link to experiment outcomes"
+        - "Document as core FOE practice"
+      potential_methods:
+        - "evidence-based-completion"
+        - "verification-gates"
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: skillssh-005
+    skill_name: "writing-plans"
+    url: "https://skills.sh/obra/superpowers/writing-plans"
+    source_repo: "obra/superpowers"
+    installs: "1.1K weekly"
+    description: |
+      Creates comprehensive implementation plans with bite-sized tasks (2-5 minutes each).
+      Assumes engineer has zero context. Documents files, code, testing, and verification
+      for each step. Emphasizes DRY, YAGNI, TDD, frequent commits.
+    key_capabilities:
+      - Bite-sized task granularity
+      - Complete context per task
+      - Exact file paths and code
+      - Verification steps included
+      - Integration with execution skills
+    foe_adaptation_notes:
+      alignment: "High - supports incremental development and understanding"
+      target_guide: "incremental-development"
+      current_fit: |
+        Strong FOE alignment:
+        - Incremental task breakdown
+        - Understanding through explicit context
+        - Built-in verification steps
+      modifications_needed:
+        - "Add FOE-specific plan templates"
+        - "Include experiment hypothesis sections"
+        - "Add learning capture sections"
+      potential_methods:
+        - "incremental-planning"
+        - "context-complete-tasks"
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: skillssh-006
+    skill_name: "dispatching-parallel-agents"
+    url: "https://skills.sh/obra/superpowers/dispatching-parallel-agents"
+    source_repo: "obra/superpowers"
+    installs: "933 weekly"
+    description: |
+      Pattern for parallel investigation of independent problems. Dispatch one agent
+      per problem domain, let them work concurrently, then integrate results.
+    key_capabilities:
+      - Independent domain identification
+      - Focused agent task creation
+      - Parallel dispatch coordination
+      - Result integration
+      - Conflict detection
+    foe_adaptation_notes:
+      alignment: "Medium-high - supports fast feedback through parallelization"
+      target_guide: "ai-native-development"
+      current_fit: |
+        Good FOE alignment:
+        - Fast feedback through parallel work
+        - Focused understanding per domain
+      modifications_needed:
+        - "Add coordination patterns for FOE workflows"
+        - "Include experiment tracking across agents"
+        - "Document integration verification"
+      potential_methods:
+        - "parallel-agent-investigation"
+    foe_relevance: method_candidate
+    signal_strength: medium
+
+  - id: skillssh-007
+    skill_name: "executing-plans"
+    url: "https://skills.sh/obra/superpowers/executing-plans"
+    source_repo: "obra/superpowers"
+    installs: "1.1K weekly"
+    description: |
+      Batch execution with checkpoints for review. Load plan, review critically,
+      execute in batches of 3 tasks, report for feedback between batches.
+    key_capabilities:
+      - Critical plan review before execution
+      - Batch execution (default 3 tasks)
+      - Checkpoint reporting
+      - Feedback integration
+      - Blocker handling
+    foe_adaptation_notes:
+      alignment: "High - supports incremental development with feedback loops"
+      target_guide: "incremental-development"
+      current_fit: |
+        Strong FOE alignment:
+        - Incremental batch execution
+        - Built-in feedback checkpoints
+        - Critical review before action
+      modifications_needed:
+        - "Add experiment outcome tracking per batch"
+        - "Include learning capture at checkpoints"
+      potential_methods:
+        - "batch-execution-with-checkpoints"
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: skillssh-008
+    skill_name: "brainstorming"
+    url: "https://skills.sh/obra/superpowers/brainstorming"
+    source_repo: "obra/superpowers"
+    installs: "2.0K weekly"
+    description: |
+      Collaborative design process: understand context, ask questions one at a time,
+      explore 2-3 approaches with trade-offs, present design in small sections
+      (200-300 words) with validation after each.
+    key_capabilities:
+      - One question at a time
+      - Multiple choice preferred
+      - 2-3 approach exploration
+      - Incremental design validation
+      - YAGNI enforcement
+    foe_adaptation_notes:
+      alignment: "High - supports understanding and incremental development"
+      target_guide: "incremental-development"
+      current_fit: |
+        Strong FOE alignment:
+        - Optimize for understanding (questions first)
+        - Incremental validation
+        - YAGNI principle
+      modifications_needed:
+        - "Add experiment hypothesis generation"
+        - "Include decision documentation for living docs"
+      potential_methods:
+        - "incremental-design-validation"
+    foe_relevance: method_candidate
+    signal_strength: medium
+
+  # ============================================
+  # MEDIUM RELEVANCE - Experiment Candidates
+  # ============================================
+
+  - id: skillssh-009
+    skill_name: "session-handoff"
+    url: "https://skills.sh/softaworks/agent-toolkit/session-handoff"
+    source_repo: "softaworks/agent-toolkit"
+    installs: "1.3K weekly"
+    description: |
+      Creates comprehensive handoff documents for context preservation across sessions.
+      Includes smart scaffolding, validation, staleness checking, and handoff chaining.
+    key_capabilities:
+      - Automated scaffold generation
+      - Validation and quality scoring
+      - Staleness detection
+      - Handoff chaining for long projects
+      - Resume workflow with verification
+    foe_adaptation_notes:
+      alignment: "Medium - supports living documentation and context preservation"
+      target_guide: "living-documentation"
+      current_fit: |
+        Partial FOE alignment:
+        - Documentation that stays current
+        - Context preservation for understanding
+      modifications_needed:
+        - "Integrate with FOE experiment tracking"
+        - "Add method linkage to handoffs"
+        - "Include learning capture sections"
+      experiment_potential: |
+        Could experiment with handoff effectiveness metrics:
+        - Time to resume work
+        - Context accuracy after handoff
+        - Learning preservation rate
+    foe_relevance: experiment_candidate
+    signal_strength: medium
+
+  - id: skillssh-010
+    skill_name: "requesting-code-review"
+    url: "https://skills.sh/obra/superpowers/requesting-code-review"
+    source_repo: "obra/superpowers"
+    installs: "983 weekly"
+    description: |
+      Dispatches code reviewer subagent to catch issues early. Mandatory after each
+      task in subagent-driven development, after major features, before merge.
+    key_capabilities:
+      - Git SHA-based review requests
+      - Structured review template
+      - Issue categorization (Critical/Important/Minor)
+      - Feedback action workflow
+      - Integration with development workflows
+    foe_adaptation_notes:
+      alignment: "High - supports fast feedback and confidence"
+      target_guide: "continuous-feedback"
+      current_fit: |
+        Good FOE alignment:
+        - Fast feedback through early review
+        - Confidence through external validation
+      modifications_needed:
+        - "Add review outcome tracking"
+        - "Include learning from review patterns"
+      experiment_potential: |
+        Could experiment with:
+        - Review timing impact on defect rates
+        - Review iteration patterns
+    foe_relevance: experiment_candidate
+    signal_strength: medium
+
+  - id: skillssh-011
+    skill_name: "qa-test-planner"
+    url: "https://skills.sh/softaworks/agent-toolkit/qa-test-planner"
+    source_repo: "softaworks/agent-toolkit"
+    installs: "1.3K weekly"
+    description: |
+      Comprehensive QA skill for test plans, manual test cases, regression suites,
+      Figma validation, and bug documentation.
+    key_capabilities:
+      - Test plan generation
+      - Manual test case creation
+      - Regression suite building
+      - Design validation against Figma
+      - Structured bug reporting
+    foe_adaptation_notes:
+      alignment: "Medium - supports quality assurance and confidence"
+      target_guide: "continuous-feedback"
+      current_fit: |
+        Partial FOE alignment:
+        - Systematic quality verification
+        - Evidence-based testing
+      modifications_needed:
+        - "Add FOE-specific test categories"
+        - "Include experiment validation tests"
+        - "Link to method verification"
+      experiment_potential: |
+        Could experiment with:
+        - Test plan effectiveness metrics
+        - Regression suite coverage optimization
+    foe_relevance: experiment_candidate
+    signal_strength: medium
+
+  - id: skillssh-012
+    skill_name: "reducing-entropy"
+    url: "https://skills.sh/softaworks/agent-toolkit/reducing-entropy"
+    source_repo: "softaworks/agent-toolkit"
+    installs: "1.2K weekly"
+    description: |
+      Biases toward smallest possible codebase. Core question: "What does the codebase
+      look like after?" Measures end state, not effort.
+    key_capabilities:
+      - Codebase size optimization
+      - Deletion-first mindset
+      - Red flag detection for code growth
+      - Reference mindsets for philosophical grounding
+    foe_adaptation_notes:
+      alignment: "Medium - supports sustainable pace through simplicity"
+      target_guide: "sustainable-pace"
+      current_fit: |
+        Partial FOE alignment:
+        - Simplicity supports understanding
+        - Less code = less maintenance
+      modifications_needed:
+        - "Add metrics for codebase health"
+        - "Include complexity tracking"
+      experiment_potential: |
+        Could experiment with:
+        - Codebase size vs. defect correlation
+        - Deletion impact on velocity
+    foe_relevance: experiment_candidate
+    signal_strength: medium
+
+  - id: skillssh-013
+    skill_name: "dependency-updater"
+    url: "https://skills.sh/softaworks/agent-toolkit/dependency-updater"
+    source_repo: "softaworks/agent-toolkit"
+    installs: "1.3K weekly"
+    description: |
+      Smart dependency management with auto-detection, safe updates (minor/patch auto,
+      major prompted), and security auditing across multiple languages.
+    key_capabilities:
+      - Multi-language support
+      - Semantic versioning awareness
+      - Safe auto-updates for minor/patch
+      - Individual prompts for major updates
+      - Security audit integration
+    foe_adaptation_notes:
+      alignment: "Medium - supports sustainable pace through maintenance"
+      target_guide: "sustainable-pace"
+      current_fit: |
+        Partial FOE alignment:
+        - Reduces maintenance burden
+        - Security through updates
+      modifications_needed:
+        - "Add update impact tracking"
+        - "Include breaking change documentation"
+      experiment_potential: |
+        Could experiment with:
+        - Update frequency vs. stability
+        - Security vulnerability response times
+    foe_relevance: experiment_candidate
+    signal_strength: low
+
+  # ============================================
+  # INFORMATIONAL - Reference Material
+  # ============================================
+
+  - id: skillssh-014
+    skill_name: "skill-creator"
+    url: "https://skills.sh/anthropics/skills/skill-creator"
+    source_repo: "anthropics/skills"
+    installs: "6.2K weekly"
+    description: |
+      Meta-skill for creating effective skills. Covers progressive disclosure,
+      skill anatomy, creation process, and packaging.
+    key_capabilities:
+      - Skill structure guidance
+      - Progressive disclosure patterns
+      - Creation workflow
+      - Validation and packaging
+    foe_adaptation_notes:
+      alignment: "Medium - useful for creating FOE-specific skills"
+      target_guide: "ai-native-development"
+      current_fit: |
+        Reference material for:
+        - Creating FOE method skills
+        - Structuring experiment documentation
+      modifications_needed:
+        - "Study for FOE skill creation patterns"
+      use_case: "Reference for creating FOE-native skills"
+    foe_relevance: informational
+    signal_strength: medium
+
+  - id: skillssh-015
+    skill_name: "webapp-testing"
+    url: "https://skills.sh/anthropics/skills/webapp-testing"
+    source_repo: "anthropics/skills"
+    installs: "1.7K weekly"
+    description: |
+      Web application testing with Playwright. Includes server lifecycle management,
+      reconnaissance-then-action pattern, and helper scripts.
+    key_capabilities:
+      - Playwright script generation
+      - Server lifecycle management
+      - DOM inspection patterns
+      - Multi-server support
+    foe_adaptation_notes:
+      alignment: "Low-medium - supports testing practices"
+      target_guide: "continuous-feedback"
+      current_fit: |
+        Useful for:
+        - Automated verification
+        - UI testing patterns
+      modifications_needed:
+        - "Integrate with FOE verification workflows"
+    foe_relevance: informational
+    signal_strength: low
+
+  - id: skillssh-016
+    skill_name: "agent-md-refactor"
+    url: "https://skills.sh/softaworks/agent-toolkit/agent-md-refactor"
+    source_repo: "softaworks/agent-toolkit"
+    installs: "1.3K weekly"
+    description: |
+      Refactors bloated agent instruction files using progressive disclosure.
+      Keeps essentials at root, organizes rest into linked files.
+    key_capabilities:
+      - Contradiction detection
+      - Essential content identification
+      - Category organization
+      - File structure creation
+      - Redundancy pruning
+    foe_adaptation_notes:
+      alignment: "Medium - supports living documentation"
+      target_guide: "living-documentation"
+      current_fit: |
+        Useful for:
+        - Organizing FOE documentation
+        - Progressive disclosure patterns
+      modifications_needed:
+        - "Apply to FOE field guide organization"
+    foe_relevance: informational
+    signal_strength: low
+
+  - id: skillssh-017
+    skill_name: "crafting-effective-readmes"
+    url: "https://skills.sh/softaworks/agent-toolkit/crafting-effective-readmes"
+    source_repo: "softaworks/agent-toolkit"
+    installs: "1.3K weekly"
+    description: |
+      README creation guidance based on audience and project type. Covers OSS,
+      personal, internal, and config documentation patterns.
+    key_capabilities:
+      - Audience-based content selection
+      - Project type templates
+      - Task-specific workflows
+      - Essential section guidance
+    foe_adaptation_notes:
+      alignment: "Low - general documentation guidance"
+      target_guide: "living-documentation"
+      current_fit: |
+        Reference for:
+        - FOE documentation standards
+        - Method documentation templates
+    foe_relevance: informational
+    signal_strength: low
+
+# ============================================
+# SUMMARY AND RECOMMENDATIONS
+# ============================================
+
+summary:
+  total_reviewed: 17
+  method_candidates: 8
+  experiment_candidates: 5
+  informational: 4
+  
+  highest_foe_alignment:
+    - test-driven-development
+    - verification-before-completion
+    - systematic-debugging
+    - subagent-driven-development
+    
+  recommended_adaptations:
+    immediate:
+      - skill: test-driven-development
+        action: "Adapt as FOE method with experiment tracking"
+        effort: low
+        value: high
+        
+      - skill: verification-before-completion
+        action: "Adopt as core FOE practice"
+        effort: low
+        value: high
+        
+      - skill: systematic-debugging
+        action: "Adapt with learning capture"
+        effort: medium
+        value: high
+        
+    near_term:
+      - skill: subagent-driven-development
+        action: "Document as AI-native development method"
+        effort: medium
+        value: high
+        
+      - skill: writing-plans
+        action: "Create FOE-specific planning templates"
+        effort: medium
+        value: medium
+        
+      - skill: executing-plans
+        action: "Integrate with FOE experiment tracking"
+        effort: medium
+        value: medium
+        
+    experimental:
+      - skill: session-handoff
+        action: "Experiment with handoff effectiveness"
+        effort: high
+        value: medium
+        
+      - skill: dispatching-parallel-agents
+        action: "Experiment with parallel investigation patterns"
+        effort: high
+        value: medium
+
+  key_patterns_observed:
+    - name: "Evidence-before-claims"
+      skills: [verification-before-completion, systematic-debugging, test-driven-development]
+      foe_principle: "Build confidence through evidence"
+      
+    - name: "Incremental-with-checkpoints"
+      skills: [executing-plans, writing-plans, brainstorming]
+      foe_principle: "Incremental development"
+      
+    - name: "Fresh-context-per-task"
+      skills: [subagent-driven-development, dispatching-parallel-agents]
+      foe_principle: "Optimize for understanding"
+      
+    - name: "Two-stage-review"
+      skills: [subagent-driven-development, requesting-code-review]
+      foe_principle: "Fast feedback loops"
+
+  notable_sources:
+    - repo: "obra/superpowers"
+      skills_count: 10
+      quality: "High - well-structured, comprehensive, interconnected"
+      recommendation: "Primary source for FOE method adaptation"
+      
+    - repo: "softaworks/agent-toolkit"
+      skills_count: 6
+      quality: "Good - practical, focused, well-documented"
+      recommendation: "Secondary source for specific capabilities"
+      
+    - repo: "anthropics/skills"
+      skills_count: 3
+      quality: "Good - official patterns, meta-skills"
+      recommendation: "Reference for skill creation patterns"
+
+errors: []

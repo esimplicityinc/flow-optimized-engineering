@@ -1,0 +1,911 @@
+source: web
+crawl_date: 01-25-26
+sources_searched:
+  - hacker_news
+  - arxiv
+  - anthropic_blog
+  - openai_blog
+errors: []
+
+findings:
+  # ============================================
+  # HACKER NEWS - HIGH ENGAGEMENT
+  # ============================================
+  - id: web-001
+    source_type: hacker_news
+    title: "AI coding assistants are getting worse?"
+    url: "https://spectrum.ieee.org/ai-coding-degrades"
+    date: 01-08-26
+    author: "voxadam"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 451
+      comments: 740
+    key_insights:
+      - IEEE Spectrum article questioning AI coding assistant quality degradation
+      - Massive community engagement indicates widespread concern
+      - Discussion around model quality changes over time
+    topics:
+      - ai-coding-quality
+      - model-degradation
+      - developer-experience
+    foe_relevance: experiment_candidate
+    signal_strength: high
+
+  - id: web-002
+    source_type: hacker_news
+    title: "Tabby: Self-hosted AI coding assistant"
+    url: "https://github.com/TabbyML/tabby"
+    date: 01-12-25
+    author: "saikatsg"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 366
+      comments: 150
+    key_insights:
+      - Open-source self-hosted alternative to commercial AI coding tools
+      - Strong interest in privacy-preserving AI coding solutions
+      - Active community development
+    topics:
+      - self-hosted
+      - open-source
+      - privacy
+    foe_relevance: informational
+    signal_strength: high
+
+  - id: web-003
+    source_type: hacker_news
+    title: "Hacking Your Own AI Coding Assistant with Claude Pro and MCP"
+    url: "https://www.zbeegnew.dev/tech/build_your_own_ai_coding_assistant_a_cost-effective_alternative_to_cursor/"
+    date: 03-19-25
+    author: "zbeegnew"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 106
+      comments: 46
+    key_insights:
+      - DIY approach to building AI coding assistants using MCP
+      - Cost-effective alternative to commercial tools like Cursor
+      - Demonstrates MCP's flexibility for custom workflows
+    topics:
+      - mcp
+      - diy-tools
+      - cost-optimization
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: web-004
+    source_type: hacker_news
+    title: "AI Coding assistants provide little value because a programmer's job is to think"
+    url: "https://www.doliver.org/articles/programming-is-a-thinkers-game"
+    date: 04-27-25
+    author: "d0liver"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 100
+      comments: 200
+    key_insights:
+      - Contrarian view on AI coding assistant value proposition
+      - Emphasizes cognitive aspects of programming over code generation
+      - High engagement suggests resonant debate topic
+    topics:
+      - productivity-debate
+      - cognitive-work
+      - ai-limitations
+    foe_relevance: informational
+    signal_strength: medium
+
+  - id: web-005
+    source_type: hacker_news
+    title: "How Cursor (AI IDE) Works"
+    url: "https://blog.sshh.io/p/how-cursor-ai-ide-works"
+    date: 03-17-25
+    author: "bchelli"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 120
+      comments: 8
+    key_insights:
+      - Technical deep-dive into Cursor's architecture
+      - Explains context management and prompt engineering
+      - Valuable for understanding commercial AI IDE patterns
+    topics:
+      - cursor
+      - architecture
+      - context-management
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: web-006
+    source_type: hacker_news
+    title: "Show HN: DevSwarm, run multiple AI coding assistants in parallel"
+    url: "https://devswarm.ai/"
+    date: 09-08-25
+    author: "mikebiglan"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 15
+      comments: 1
+    key_insights:
+      - Multi-agent parallel execution on separate git branches
+      - Addresses coordination challenges in agentic workflows
+      - Novel approach to comparing AI assistant outputs
+    topics:
+      - multi-agent
+      - parallel-execution
+      - git-workflow
+    foe_relevance: method_candidate
+    signal_strength: medium
+
+  - id: web-007
+    source_type: hacker_news
+    title: "Show HN: AI Rules Manager - Package manager for AI coding assistant rules"
+    url: "https://github.com/jomadu/ai-rules-manager"
+    date: 09-10-25
+    author: "jomadu"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 13
+      comments: 3
+    key_insights:
+      - Treats AI rules as versioned dependencies like npm packages
+      - Addresses rule management chaos across projects
+      - Supports multiple AI tools (Cursor, Copilot, Amazon Q)
+    topics:
+      - rules-management
+      - versioning
+      - tooling
+    foe_relevance: method_candidate
+    signal_strength: medium
+
+  - id: web-008
+    source_type: hacker_news
+    title: "Show HN: LunaRoute - a high-performance local proxy for AI coding assistants"
+    url: "https://github.com/erans/lunaroute"
+    date: 10-21-25
+    author: "erans"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 8
+      comments: 1
+    key_insights:
+      - Local proxy for visibility into LLM interactions
+      - Session recording and debugging capabilities
+      - Privacy and compliance features (redaction, tokenization)
+    topics:
+      - observability
+      - proxy
+      - privacy
+    foe_relevance: method_candidate
+    signal_strength: medium
+
+  - id: web-009
+    source_type: hacker_news
+    title: "Auto Claude - Autonomous multi-agent coding framework"
+    url: "https://github.com/AndyMik90/Auto-Claude"
+    date: 01-09-26
+    author: "t0mas88"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 3
+      comments: 0
+    key_insights:
+      - Autonomous multi-agent framework built on Claude
+      - Recent release indicates active development in multi-agent space
+    topics:
+      - multi-agent
+      - autonomous
+      - framework
+    foe_relevance: experiment_candidate
+    signal_strength: low
+
+  - id: web-010
+    source_type: hacker_news
+    title: "Claude Flow multi agent coding swarm"
+    url: "https://github.com/ruvnet/claude-flow"
+    date: 07-10-25
+    author: "sabrina_ramonov"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 3
+      comments: 0
+    key_insights:
+      - Swarm-based approach to multi-agent coding
+      - Explores emergent behavior in agent coordination
+    topics:
+      - multi-agent
+      - swarm
+      - coordination
+    foe_relevance: experiment_candidate
+    signal_strength: low
+
+  - id: web-011
+    source_type: hacker_news
+    title: "Multi-Agent Coding Pipeline: Claude Code and Codex [Open Source]"
+    url: "https://github.com/Z-M-Huang/claude-codex"
+    date: 01-16-26
+    author: "zh_code"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: null
+      comments: null
+    key_insights:
+      - Combines Claude Code and OpenAI Codex in pipeline
+      - Open source multi-agent implementation
+      - Recent release (within past 30 days)
+    topics:
+      - multi-agent
+      - pipeline
+      - open-source
+    foe_relevance: experiment_candidate
+    signal_strength: medium
+
+  # ============================================
+  # HACKER NEWS - MCP SPECIFIC
+  # ============================================
+  - id: web-012
+    source_type: hacker_news
+    title: "Federated Data Access for MCP (Model Context Protocol)"
+    url: "https://mindsdb.com/blog/mindsdb-now-supports-model-context-protocol-the-unified-ai-data-hub-your-enterprise-needs"
+    date: 04-07-25
+    author: "torrmal"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 17
+      comments: 3
+    key_insights:
+      - MindsDB adds MCP support for federated data access
+      - Enterprise-focused MCP implementation
+      - Unified AI data hub concept
+    topics:
+      - mcp
+      - enterprise
+      - data-access
+    foe_relevance: informational
+    signal_strength: medium
+
+  - id: web-013
+    source_type: hacker_news
+    title: "Postgres MCP (model context protocol) with Cursor"
+    url: "https://github.com/crystaldba/postgres-mcp"
+    date: 04-11-25
+    author: "benwen"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 5
+      comments: 0
+    key_insights:
+      - Database-specific MCP server implementation
+      - Integration with Cursor IDE
+      - Practical MCP use case for database operations
+    topics:
+      - mcp
+      - postgres
+      - cursor
+    foe_relevance: method_candidate
+    signal_strength: medium
+
+  - id: web-014
+    source_type: hacker_news
+    title: "JetBrains debuts agentic AI coding with 'Junie'"
+    url: "https://devclass.com/2025/01/25/jetbrains-introduces-agentic-ai-coding-with-junie/"
+    date: 01-27-25
+    author: "rbanffy"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 3
+      comments: 0
+    key_insights:
+      - JetBrains enters agentic AI coding market
+      - Major IDE vendor adopting agentic paradigm
+      - Industry validation of agentic approach
+    topics:
+      - jetbrains
+      - agentic
+      - ide
+    foe_relevance: informational
+    signal_strength: medium
+
+  # ============================================
+  # ARXIV - ACADEMIC RESEARCH
+  # ============================================
+  - id: web-015
+    source_type: arxiv
+    title: "SWE-Pruner: Self-Adaptive Context Pruning for Coding Agents"
+    url: "https://arxiv.org/abs/2601.16746v1"
+    date: 01-23-26
+    authors:
+      - "Yuhang Wang"
+      - "Yuling Shi"
+      - "Mo Yang"
+      - "et al."
+    quality_tier: academic
+    key_insights:
+      - Task-aware adaptive context pruning for coding agents
+      - Achieves 23-54% token reduction on SWE-Bench
+      - Lightweight neural skimmer (0.6B parameters)
+      - Mimics how human programmers selectively skim code
+    topics:
+      - context-management
+      - token-efficiency
+      - swe-bench
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: web-016
+    source_type: arxiv
+    title: "Where Do AI Coding Agents Fail? An Empirical Study of Failed Agentic Pull Requests in GitHub"
+    url: "https://arxiv.org/abs/2601.15195v1"
+    date: 01-21-26
+    authors:
+      - "Ramtin Ehsani"
+      - "Sakshi Pathak"
+      - "Shriya Rawal"
+      - "et al."
+    quality_tier: academic
+    key_insights:
+      - Large-scale study of 33k agent-authored PRs
+      - Documentation and CI tasks have highest merge success
+      - Bug-fix and performance tasks perform worst
+      - Identifies socio-technical factors in agentic workflow success
+    topics:
+      - empirical-study
+      - pull-requests
+      - failure-analysis
+    foe_relevance: experiment_candidate
+    signal_strength: high
+
+  - id: web-017
+    source_type: arxiv
+    title: "Will It Survive? Deciphering the Fate of AI-Generated Code in Open Source"
+    url: "https://arxiv.org/abs/2601.16809v1"
+    date: 01-23-26
+    authors:
+      - "Musfiqur Rahman"
+      - "Emad Shihab"
+    quality_tier: academic
+    key_insights:
+      - Survival analysis of 200k+ code units across 201 projects
+      - Agent-authored code survives significantly longer than expected
+      - 15.8% lower modification rate for agent code
+      - Challenges "disposable code" narrative
+    topics:
+      - code-survival
+      - empirical-study
+      - open-source
+    foe_relevance: experiment_candidate
+    signal_strength: high
+
+  - id: web-018
+    source_type: arxiv
+    title: "AI builds, We Analyze: An Empirical Study of AI-Generated Build Code Quality"
+    url: "https://arxiv.org/abs/2601.16839v1"
+    date: 01-23-26
+    authors:
+      - "Anwar Ghammam"
+      - "Mohamed Almukhtar"
+    quality_tier: academic
+    key_insights:
+      - First study on AI-generated build system code quality
+      - Identified 364 maintainability and security-related build smells
+      - 61%+ of Agentic-PRs approved with minimal human intervention
+      - AI can both introduce and remove code smells
+    topics:
+      - build-systems
+      - code-quality
+      - empirical-study
+    foe_relevance: experiment_candidate
+    signal_strength: high
+
+  - id: web-019
+    source_type: arxiv
+    title: "When Agents Fail: A Comprehensive Study of Bugs in LLM Agents with Automated Labeling"
+    url: "https://arxiv.org/abs/2601.15232v1"
+    date: 01-21-26
+    authors:
+      - "Niful Islam"
+      - "Ragib Shahriar Ayon"
+      - "Deepak George Thomas"
+      - "et al."
+    quality_tier: academic
+    key_insights:
+      - Analysis of 1,187 bug-related posts from Stack Overflow, GitHub, Hugging Face
+      - Covers 7 LLM frameworks plus custom implementations
+      - BugReAct agent achieves automated bug annotation at $0.01/post
+      - First comprehensive bug taxonomy for LLM agents
+    topics:
+      - bug-analysis
+      - debugging
+      - agent-failures
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: web-020
+    source_type: arxiv
+    title: "Vibe Coding Kills Open Source"
+    url: "https://arxiv.org/abs/2601.15494v1"
+    date: 01-21-26
+    authors:
+      - "Miklós Koren"
+      - "Gábor Békés"
+      - "Julian Hinz"
+      - "Aaron Lohmann"
+    quality_tier: academic
+    key_insights:
+      - Economic analysis of vibe coding's impact on OSS ecosystem
+      - Vibe coding raises productivity but weakens user engagement
+      - May reduce OSS availability and quality despite higher productivity
+      - Calls for new maintainer compensation models
+    topics:
+      - vibe-coding
+      - open-source-economics
+      - sustainability
+    foe_relevance: informational
+    signal_strength: high
+
+  - id: web-021
+    source_type: arxiv
+    title: "VibeTensor: System Software for Deep Learning, Fully Generated by AI Agents"
+    url: "https://arxiv.org/abs/2601.16238v1"
+    date: 01-21-26
+    authors:
+      - "Bing Xu"
+      - "Terry Chen"
+      - "Fengzhe Zhou"
+      - "et al. (NVIDIA)"
+    quality_tier: academic
+    key_insights:
+      - Complete deep learning runtime generated by AI agents
+      - PyTorch-style tensor library with C++20 core, CUDA support
+      - Milestone for AI-assisted software engineering
+      - Identifies "Frankenstein" composition effect in generated systems
+    topics:
+      - ai-generated-systems
+      - deep-learning
+      - system-software
+    foe_relevance: experiment_candidate
+    signal_strength: high
+
+  - id: web-022
+    source_type: arxiv
+    title: "LLM-in-Sandbox Elicits General Agentic Intelligence"
+    url: "https://arxiv.org/abs/2601.16206v1"
+    date: 01-22-26
+    authors:
+      - "Daixuan Cheng"
+      - "Shaohan Huang"
+      - "Yuxian Gu"
+      - "et al."
+    quality_tier: academic
+    key_insights:
+      - LLMs can explore within code sandbox for non-code tasks
+      - Spontaneous use of external resources and file systems
+      - LLM-in-Sandbox-RL enhances capabilities without agentic training data
+      - Generalizes across math, physics, chemistry, biomedicine
+    topics:
+      - sandbox-execution
+      - agentic-intelligence
+      - reinforcement-learning
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: web-023
+    source_type: arxiv
+    title: "REprompt: Prompt Generation for Intelligent Software Development Guided by Requirements Engineering"
+    url: "https://arxiv.org/abs/2601.16507v1"
+    date: 01-23-26
+    authors:
+      - "Junjie Shi"
+      - "Weisong Sun"
+      - "Zhenpeng Chen"
+      - "et al."
+    quality_tier: academic
+    key_insights:
+      - Multi-agent prompt optimization framework
+      - Grounds prompt generation in requirements engineering principles
+      - Addresses gap between prompt engineering and formal requirements
+      - Optimizes both system and user prompts
+    topics:
+      - prompt-engineering
+      - requirements-engineering
+      - multi-agent
+    foe_relevance: method_candidate
+    signal_strength: medium
+
+  - id: web-024
+    source_type: arxiv
+    title: "How to Build AI Agents by Augmenting LLMs with Codified Human Expert Domain Knowledge?"
+    url: "https://arxiv.org/abs/2601.15153v1"
+    date: 01-21-26
+    authors:
+      - "Choro Ulan uulu"
+      - "Mikhail Kulyabin"
+      - "Iris Fuhrmann"
+      - "et al."
+    quality_tier: academic
+    key_insights:
+      - Framework for capturing human domain knowledge in AI agents
+      - 206% improvement in output quality over baseline
+      - Non-experts achieve expert-level outcomes
+      - Industrial case study in simulation data visualization
+    topics:
+      - domain-knowledge
+      - expert-systems
+      - knowledge-capture
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: web-025
+    source_type: arxiv
+    title: "RubberDuckBench: A Benchmark for AI Coding Assistants"
+    url: "https://arxiv.org/abs/2601.16456v1"
+    date: 01-23-26
+    authors:
+      - "Ferida Mohammad"
+      - "Fatma Ayad"
+      - "Petros Maniatis"
+      - "Satish Chandra"
+      - "Elizabeth Dinella"
+    quality_tier: academic
+    key_insights:
+      - Multilingual benchmark from real GitHub PR comments
+      - Even SOTA models fail to give consistent correct responses
+      - Grok 4 (69.29%), Claude Opus 4 (68.5%), GPT-5 (67.8%) best performers
+      - Models hallucinate in 58.3% of responses on average
+    topics:
+      - benchmarking
+      - evaluation
+      - hallucination
+    foe_relevance: experiment_candidate
+    signal_strength: high
+
+  - id: web-026
+    source_type: arxiv
+    title: "CLEANER: Self-Purified Trajectories Boost Agentic Reinforcement Learning"
+    url: "https://arxiv.org/abs/2601.15141v1"
+    date: 01-21-26
+    authors:
+      - "Tianshi Xu"
+      - "Yuteng Chen"
+      - "Meng Li"
+    quality_tier: academic
+    key_insights:
+      - Addresses noisy trajectories in agentic RL exploration
+      - Self-correction mechanism for trajectory purification
+      - Matches SOTA with 1/3 training steps
+      - Solves credit assignment issue in outcome-based rewards
+    topics:
+      - reinforcement-learning
+      - trajectory-optimization
+      - self-correction
+    foe_relevance: method_candidate
+    signal_strength: medium
+
+  - id: web-027
+    source_type: arxiv
+    title: "Privacy Collapse: Benign Fine-Tuning Can Break Contextual Privacy in Language Models"
+    url: "https://arxiv.org/abs/2601.15220v1"
+    date: 01-21-26
+    authors:
+      - "Anmol Goel"
+      - "Cornelius Emde"
+      - "Sangdoo Yun"
+      - "et al."
+    quality_tier: academic
+    key_insights:
+      - Benign fine-tuning can degrade contextual privacy
+      - Privacy collapse is a "silent failure" - models pass safety benchmarks
+      - Critical gap in current safety evaluations for agents
+      - Affects both agentic and memory-based tasks
+    topics:
+      - privacy
+      - fine-tuning
+      - safety
+    foe_relevance: informational
+    signal_strength: high
+
+  # ============================================
+  # COMPANY BLOGS - ANTHROPIC
+  # ============================================
+  - id: web-028
+    source_type: anthropic_blog
+    title: "Introducing Claude Opus 4.5"
+    url: "https://anthropic.com/news/claude-opus-4-5"
+    date: 11-24-25
+    quality_tier: industry_research
+    key_insights:
+      - Best model for coding, agents, and computer use
+      - Meaningful improvements to everyday tasks
+      - Dramatically improved token efficiency
+      - Frontier performance benchmark
+    topics:
+      - claude
+      - model-release
+      - coding
+    foe_relevance: informational
+    signal_strength: high
+
+  - id: web-029
+    source_type: anthropic_blog
+    title: "Introducing Claude Sonnet 4.5"
+    url: "https://anthropic.com/news/claude-sonnet-4-5"
+    date: 09-29-25
+    quality_tier: industry_research
+    key_insights:
+      - New benchmark records in coding, reasoning, computer use
+      - Most aligned model from Anthropic
+      - Claude Agent SDK release for building capable agents
+    topics:
+      - claude
+      - agent-sdk
+      - alignment
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: web-030
+    source_type: anthropic_blog
+    title: "Introducing Labs"
+    url: "https://anthropic.com/news/introducing-anthropic-labs"
+    date: 01-13-26
+    quality_tier: industry_research
+    key_insights:
+      - New experimental features platform
+      - Early access to cutting-edge capabilities
+      - Signals continued rapid development
+    topics:
+      - anthropic
+      - experimental
+      - platform
+    foe_relevance: informational
+    signal_strength: medium
+
+  - id: web-031
+    source_type: anthropic_blog
+    title: "Claude's new constitution"
+    url: "https://anthropic.com/news/claude-new-constitution"
+    date: 01-22-26
+    quality_tier: industry_research
+    key_insights:
+      - Updated constitutional AI principles
+      - Implications for agent behavior and safety
+      - Foundation for agentic capabilities
+    topics:
+      - constitutional-ai
+      - safety
+      - alignment
+    foe_relevance: informational
+    signal_strength: medium
+
+  # ============================================
+  # COMPANY BLOGS - OPENAI
+  # ============================================
+  - id: web-032
+    source_type: openai_blog
+    title: "Unrolling the Codex agent loop"
+    url: "https://openai.com/index/unrolling-the-codex-agent-loop/"
+    date: 01-23-26
+    quality_tier: industry_research
+    key_insights:
+      - Technical deep-dive into Codex agent architecture
+      - Engineering insights on agent loop design
+      - Official documentation of agentic patterns
+    topics:
+      - codex
+      - agent-loop
+      - architecture
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: web-033
+    source_type: openai_blog
+    title: "Introducing OpenAI for Healthcare"
+    url: "https://openai.com/index/openai-for-healthcare/"
+    date: 01-08-26
+    quality_tier: industry_research
+    key_insights:
+      - Healthcare-specific AI offerings
+      - Domain-specific agent applications
+      - Enterprise focus
+    topics:
+      - healthcare
+      - enterprise
+      - domain-specific
+    foe_relevance: informational
+    signal_strength: medium
+
+  - id: web-034
+    source_type: openai_blog
+    title: "Introducing ChatGPT Health"
+    url: "https://openai.com/index/introducing-chatgpt-health/"
+    date: 01-07-26
+    quality_tier: industry_research
+    key_insights:
+      - Specialized health-focused ChatGPT variant
+      - Domain-specific fine-tuning approach
+      - Consumer health applications
+    topics:
+      - healthcare
+      - consumer
+      - specialization
+    foe_relevance: informational
+    signal_strength: low
+
+  # ============================================
+  # TOOLS & FRAMEWORKS
+  # ============================================
+  - id: web-035
+    source_type: hacker_news
+    title: "Show HN: SHAI - open-source, terminal-native AI coding assistant"
+    url: "https://github.com/ovh/shai"
+    date: 10-09-25
+    author: "Marlinski"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 16
+      comments: 0
+    key_insights:
+      - Terminal-native AI coding assistant
+      - LLM-agnostic with MCP support
+      - Function calling and OAuth support
+      - Custom agent configuration
+    topics:
+      - terminal
+      - open-source
+      - mcp
+    foe_relevance: method_candidate
+    signal_strength: medium
+
+  - id: web-036
+    source_type: hacker_news
+    title: "Beyond file trees: why AI coding assistants need smarter context"
+    url: "https://www.nuanced.dev/blog/beyond-file-trees"
+    date: 01-28-25
+    author: "aymandfire"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 11
+      comments: 6
+    key_insights:
+      - Critique of current context management approaches
+      - Need for semantic understanding beyond file structure
+      - Implications for agent architecture design
+    topics:
+      - context-management
+      - architecture
+      - semantic-understanding
+    foe_relevance: method_candidate
+    signal_strength: medium
+
+  - id: web-037
+    source_type: hacker_news
+    title: "The productivity paradox of AI coding assistants"
+    url: "https://www.cerbos.dev/blog/productivity-paradox-of-ai-coding-assistants"
+    date: 09-12-25
+    author: "knes"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 10
+      comments: 2
+    key_insights:
+      - Analysis of productivity claims vs reality
+      - Hidden costs of AI-assisted development
+      - Framework for evaluating actual productivity gains
+    topics:
+      - productivity
+      - evaluation
+      - cost-benefit
+    foe_relevance: experiment_candidate
+    signal_strength: medium
+
+  - id: web-038
+    source_type: hacker_news
+    title: "AI-calls-Editor: IDE-native refactoring for AI coding assistants"
+    url: "https://blog.strnisa.com/p/ai-calls-editor"
+    date: 11-20-25
+    author: "strnisa"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 7
+      comments: 0
+    key_insights:
+      - IDE-native refactoring capabilities for AI assistants
+      - Bridges gap between AI suggestions and IDE tooling
+      - Novel interaction pattern for agentic coding
+    topics:
+      - ide-integration
+      - refactoring
+      - tooling
+    foe_relevance: method_candidate
+    signal_strength: low
+
+  - id: web-039
+    source_type: hacker_news
+    title: "Hacker slips malicious 'wiping' command into Amazon's Q AI coding assistant"
+    url: "https://www.zdnet.com/article/hacker-slips-malicious-wiping-command-into-amazons-q-ai-coding-assistant-and-devs-are-worried/"
+    date: 07-24-25
+    author: "CrankyBear"
+    quality_tier: practitioner
+    engagement_metrics:
+      points: 75
+      comments: 12
+    key_insights:
+      - Security vulnerability in AI coding assistant
+      - Prompt injection attack vector
+      - Highlights need for sandboxing and security in agentic tools
+    topics:
+      - security
+      - prompt-injection
+      - amazon-q
+    foe_relevance: informational
+    signal_strength: high
+
+# ============================================
+# SUMMARY & TRENDS
+# ============================================
+summary:
+  total_findings: 39
+  by_source:
+    hacker_news: 22
+    arxiv: 13
+    anthropic_blog: 4
+    openai_blog: 3
+  
+  key_trends:
+    - name: "Multi-agent architectures gaining traction"
+      evidence:
+        - "Multiple HN posts on multi-agent frameworks (Auto Claude, Claude Flow, DevSwarm)"
+        - "Academic research on agent coordination and failure modes"
+        - "Industry tools supporting parallel agent execution"
+      signal_strength: high
+    
+    - name: "MCP ecosystem expanding"
+      evidence:
+        - "Database-specific MCP servers (Postgres)"
+        - "Enterprise adoption (MindsDB)"
+        - "DIY tutorials for MCP-based assistants"
+      signal_strength: high
+    
+    - name: "Quality and reliability concerns emerging"
+      evidence:
+        - "IEEE Spectrum article on degrading AI coding quality (451 points)"
+        - "RubberDuckBench showing 58.3% hallucination rate"
+        - "Empirical studies on agent PR failure modes"
+      signal_strength: high
+    
+    - name: "Context management as key challenge"
+      evidence:
+        - "SWE-Pruner achieving 23-54% token reduction"
+        - "Articles on smarter context beyond file trees"
+        - "Cursor architecture analysis highlighting context handling"
+      signal_strength: high
+    
+    - name: "Security and privacy concerns"
+      evidence:
+        - "Amazon Q prompt injection vulnerability"
+        - "Privacy collapse in fine-tuned models"
+        - "Tools for observability and redaction (LunaRoute)"
+      signal_strength: medium
+    
+    - name: "Vibe coding economic impact"
+      evidence:
+        - "Academic paper on OSS sustainability concerns"
+        - "VibeTensor demonstrating full system generation"
+        - "Debate on programmer cognitive work vs code generation"
+      signal_strength: medium
+
+  foe_method_candidates:
+    - "Context pruning strategies (SWE-Pruner)"
+    - "MCP-based custom assistant building"
+    - "AI rules versioning and management"
+    - "Multi-agent parallel execution patterns"
+    - "Domain knowledge codification frameworks"
+    - "Agent loop architecture patterns (Codex)"
+    - "Trajectory purification for agentic RL"
+
+  foe_experiment_candidates:
+    - "AI coding quality degradation measurement"
+    - "Agent PR success/failure analysis"
+    - "Code survival analysis for AI-generated code"
+    - "Build system code quality assessment"
+    - "Productivity paradox validation"
+    - "Hallucination rate benchmarking"
