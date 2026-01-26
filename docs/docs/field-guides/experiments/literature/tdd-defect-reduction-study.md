@@ -8,7 +8,8 @@ source:
   organization: "Microsoft Research / IBM"
   year: 2008
   url: "https://www.microsoft.com/en-us/research/publication/realizing-quality-improvement-through-test-driven-development-results-and-experiences-of-four-industrial-teams/"
-methods: []
+methods:
+  - external-frameworks/bdd/methods/executable-specifications
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

@@ -2,7 +2,7 @@
 sidebar_position: 7
 title: User Story Template
 pillar: discovery
-description: "As a [role], I want [feature], so that [benefit]" - A template emphasizing business value and user perspective.
+description: 'A template for expressing requirements as "As a [role], I want [feature], so that [benefit]" emphasizing business value.'
 ---
 
 # User Story Template

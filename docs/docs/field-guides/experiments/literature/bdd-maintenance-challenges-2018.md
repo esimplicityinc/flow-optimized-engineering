@@ -9,8 +9,8 @@ source:
   year: 2018
   url: "https://ieeexplore.ieee.org/abstract/document/8330207/"
 methods:
-  - agentic-coding/methods/adopted/bdd/executable-specifications
-  - agentic-coding/methods/adopted/bdd/given-when-then
+  - external-frameworks/bdd/methods/executable-specifications
+  - external-frameworks/bdd/methods/given-when-then
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

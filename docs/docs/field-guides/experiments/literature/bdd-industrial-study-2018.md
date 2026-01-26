@@ -9,9 +9,9 @@ source:
   year: 2018
   url: "https://dl.acm.org/doi/abs/10.1145/3234152.3234167"
 methods:
-  - agentic-coding/methods/adopted/bdd/given-when-then
-  - agentic-coding/methods/adopted/bdd/executable-specifications
-  - architecture/methods/adopted/bdd/three-amigos
+  - external-frameworks/bdd/methods/given-when-then
+  - external-frameworks/bdd/methods/executable-specifications
+  - external-frameworks/bdd/methods/three-amigos
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

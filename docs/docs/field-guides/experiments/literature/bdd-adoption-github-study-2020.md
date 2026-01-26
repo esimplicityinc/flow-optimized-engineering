@@ -9,8 +9,8 @@ source:
   year: 2020
   url: "https://www.sciencedirect.com/science/article/pii/S095058492030063X"
 methods:
-  - agentic-coding/methods/adopted/bdd/given-when-then
-  - agentic-coding/methods/adopted/bdd/executable-specifications
+  - external-frameworks/bdd/methods/given-when-then
+  - external-frameworks/bdd/methods/executable-specifications
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

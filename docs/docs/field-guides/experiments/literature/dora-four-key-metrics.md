@@ -8,7 +8,11 @@ source:
   organization: "DORA / Google Cloud"
   year: 2018
   url: "https://dora.dev"
-methods: []
+methods:
+  - external-frameworks/dora/methods/deployment-frequency
+  - external-frameworks/dora/methods/lead-time-for-changes
+  - external-frameworks/dora/methods/change-failure-rate
+  - external-frameworks/dora/methods/time-to-restore-service
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

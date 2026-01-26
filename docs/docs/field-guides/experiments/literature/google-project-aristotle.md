@@ -8,7 +8,9 @@ source:
   organization: "Harvard Business School / Google"
   year: 2015
   url: "https://rework.withgoogle.com/guides/understanding-team-effectiveness"
-methods: []
+methods:
+  - external-frameworks/bdd/methods/three-amigos
+  - external-frameworks/bdd/methods/discovery-workshops
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';
