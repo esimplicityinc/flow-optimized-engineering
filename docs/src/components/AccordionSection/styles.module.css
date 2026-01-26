@@ -1,0 +1,289 @@
+/**
+ * AccordionSection Component Styles
+ * Expandable sections for executive strategy document
+ */
+
+.section {
+  scroll-margin-top: 100px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 3rem 0;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+/* Header - clickable to expand */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+  user-select: none;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.header:hover {
+  background: var(--ifm-color-emphasis-100);
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.header:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.number {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  min-width: 2rem;
+}
+
+.title {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  margin: 0;
+  color: var(--ifm-heading-color);
+  letter-spacing: -0.02em;
+}
+
+.ownerBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--ifm-color-emphasis-500);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.ownerBadge svg {
+  width: 18px;
+  height: 18px;
+}
+
+.header:hover .ownerBadge {
+  opacity: 1;
+}
+
+/* Chevron indicator */
+.chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--ifm-color-emphasis-500);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.chevron svg {
+  width: 20px;
+  height: 20px;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Executive summary - always visible */
+.summary {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--ifm-color-emphasis-800);
+  margin-bottom: 1rem;
+}
+
+.summary p {
+  margin: 0 0 1rem;
+}
+
+.summary p:last-child {
+  margin-bottom: 0;
+}
+
+.summary blockquote {
+  margin: 1.5rem 0;
+  padding: 1.25rem 1.5rem;
+  background: var(--ifm-color-emphasis-100);
+  border-left: 4px solid var(--ifm-color-primary);
+  border-radius: 0 8px 8px 0;
+  font-style: normal;
+}
+
+.summary blockquote p {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+/* Expandable content */
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contentOpen {
+  max-height: 5000px; /* Large enough for any content */
+}
+
+.contentInner {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.contentInner h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.contentInner h3:first-child {
+  margin-top: 0;
+}
+
+.contentInner p {
+  margin: 0 0 1rem;
+  line-height: 1.7;
+}
+
+.contentInner ul,
+.contentInner ol {
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.contentInner li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.contentInner table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.contentInner th,
+.contentInner td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.contentInner th {
+  background: var(--ifm-color-emphasis-100);
+  font-weight: 600;
+}
+
+.contentInner tr:hover td {
+  background: var(--ifm-color-emphasis-50);
+}
+
+/* Expand button */
+.expandButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.expandButton:hover {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.expandButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Dark mode */
+[data-theme='dark'] .section {
+  border-color: #334155;
+}
+
+[data-theme='dark'] .header:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .summary blockquote {
+  background: rgba(30, 64, 175, 0.15);
+}
+
+[data-theme='dark'] .contentInner {
+  border-color: #334155;
+}
+
+[data-theme='dark'] .contentInner th {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .contentInner th,
+[data-theme='dark'] .contentInner td {
+  border-color: #334155;
+}
+
+[data-theme='dark'] .expandButton {
+  border-color: #475569;
+  color: #94A3B8;
+}
+
+[data-theme='dark'] .expandButton:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Print styles */
+@media print {
+  .section {
+    page-break-inside: avoid;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .header {
+    cursor: default;
+  }
+
+  .chevron,
+  .expandButton {
+    display: none;
+  }
+
+  .content {
+    max-height: none !important;
+    overflow: visible;
+  }
+
+  .contentInner {
+    padding-top: 1rem;
+  }
+}

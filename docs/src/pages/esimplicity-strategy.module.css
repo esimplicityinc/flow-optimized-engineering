@@ -1,0 +1,656 @@
+/**
+ * eSimplicity FOE Strategy Page Styles
+ * Executive-friendly consulting deck aesthetic
+ */
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+
+.strategyPage {
+  --strategy-bg-hero: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+  --strategy-bg-section: #F8FAFC;
+  --strategy-bg-section-alt: #FFFFFF;
+  --strategy-accent: #1E40AF;
+  --strategy-accent-light: #3B82F6;
+  --strategy-text-muted: #64748B;
+  --strategy-border: #E2E8F0;
+  --strategy-max-width: 900px;
+  --strategy-sidebar-width: 260px;
+}
+
+[data-theme='dark'] .strategyPage {
+  --strategy-bg-section: #1E293B;
+  --strategy-bg-section-alt: #0F172A;
+  --strategy-border: #334155;
+  --strategy-text-muted: #94A3B8;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+.strategyPage {
+  min-height: 100vh;
+}
+
+.pageWrapper {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  gap: 3rem;
+}
+
+.mainContent {
+  flex: 1;
+  max-width: var(--strategy-max-width);
+  min-width: 0;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--strategy-bg-hero);
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.heroOrb1,
+.heroOrb2,
+.heroOrb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+}
+
+.heroOrb1 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+  top: -150px;
+  left: -100px;
+}
+
+.heroOrb2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+  bottom: -100px;
+  right: -50px;
+}
+
+.heroOrb3 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #059669 0%, #34D399 100%);
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.heroLogo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: #94A3B8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  color: white;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+}
+
+.heroSubtitle {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  color: #94A3B8;
+  font-weight: 400;
+  margin: 0 0 2rem;
+  line-height: 1.5;
+}
+
+.heroMeta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  color: #64748B;
+  font-size: 0.875rem;
+}
+
+.heroMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.heroMetaItem svg {
+  width: 16px;
+  height: 16px;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748B;
+  font-size: 0.8rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.scrollIndicator svg {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ============================================
+   CONTENT SECTIONS
+   ============================================ */
+
+.sectionsContainer {
+  padding: 4rem 0;
+}
+
+/* ============================================
+   VISUAL ELEMENTS
+   ============================================ */
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.card {
+  padding: 1.5rem;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--strategy-border);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--strategy-accent-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cardIcon {
+  width: 40px;
+  height: 40px;
+  color: var(--strategy-accent);
+  margin-bottom: 1rem;
+}
+
+.cardIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.cardDescription {
+  font-size: 0.9rem;
+  color: var(--strategy-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Highlight box */
+.highlightBox {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(30, 64, 175, 0.03) 100%);
+  border-left: 4px solid var(--strategy-accent);
+  border-radius: 0 12px 12px 0;
+  margin: 1.5rem 0;
+}
+
+.highlightBox p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ifm-heading-color);
+}
+
+/* Warning box */
+.warningBox {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.08) 0%, rgba(217, 119, 6, 0.03) 100%);
+  border-left: 4px solid #D97706;
+  border-radius: 0 12px 12px 0;
+  margin: 1.5rem 0;
+}
+
+/* Org diagram */
+.orgDiagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+}
+
+.orgBox {
+  padding: 1.5rem 2rem;
+  background: var(--ifm-card-background-color);
+  border: 2px solid var(--strategy-border);
+  border-radius: 12px;
+  text-align: center;
+  min-width: 200px;
+}
+
+.orgBoxTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.orgBoxSubtitle {
+  font-size: 0.875rem;
+  color: var(--strategy-text-muted);
+  margin: 0;
+}
+
+.orgConnector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--strategy-text-muted);
+}
+
+.orgConnector svg {
+  width: 32px;
+  height: 32px;
+}
+
+.orgConnectorLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Architecture diagram */
+.architectureDiagram {
+  padding: 2rem;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  border-radius: 16px;
+  color: white;
+}
+
+.architectureTitle {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 2rem;
+  color: white;
+}
+
+.architectureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.architectureItem {
+  text-align: center;
+  padding: 1.25rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.architectureItemLabel {
+  display: block;
+  font-size: 0.75rem;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.architectureItemValue {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* Code block style */
+.directoryTree {
+  padding: 1.5rem;
+  background: #1E293B;
+  border-radius: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+  color: #E2E8F0;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.directoryTree code {
+  white-space: pre;
+}
+
+/* Metrics grid */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.metricCard {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--strategy-border);
+  border-radius: 12px;
+}
+
+.metricValue {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--strategy-accent);
+  margin-bottom: 0.25rem;
+}
+
+.metricLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+  margin-bottom: 0.25rem;
+}
+
+.metricTarget {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--strategy-text-muted);
+}
+
+/* ============================================
+   CALL TO ACTION
+   ============================================ */
+
+.cta {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+  text-align: center;
+  color: white;
+}
+
+.ctaContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  margin: 0 0 1rem;
+  color: white;
+}
+
+.ctaDescription {
+  font-size: 1.125rem;
+  margin: 0 0 2rem;
+  opacity: 0.9;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButton {
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ctaButtonPrimary {
+  background: white;
+  color: var(--strategy-accent);
+}
+
+.ctaButtonPrimary:hover {
+  background: #F1F5F9;
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: var(--strategy-accent);
+}
+
+.ctaButtonSecondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.ctaButtonSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: white;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1100px) {
+  .pageWrapper {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 996px) {
+  .pageWrapper {
+    flex-direction: column;
+    padding: 0 1.5rem;
+  }
+
+  .mainContent {
+    max-width: 100%;
+  }
+
+  .hero {
+    min-height: 60vh;
+    padding: 3rem 1.5rem;
+  }
+
+  .orgDiagram {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .orgConnector {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 50vh;
+  }
+
+  .heroMeta {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .architectureGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .hero {
+    min-height: auto;
+    background: white !important;
+    color: black !important;
+    padding: 2rem;
+  }
+
+  .heroBackground {
+    display: none;
+  }
+
+  .heroTitle,
+  .heroSubtitle {
+    color: black !important;
+  }
+
+  .heroBadge {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #475569;
+  }
+
+  .scrollIndicator {
+    display: none;
+  }
+
+  .pageWrapper {
+    display: block;
+  }
+
+  .sectionsContainer {
+    padding: 1rem 0;
+  }
+
+  .cta {
+    background: #f1f5f9 !important;
+    color: black !important;
+  }
+
+  .ctaTitle {
+    color: black !important;
+  }
+
+  .ctaButtons {
+    display: none;
+  }
+
+  .architectureDiagram {
+    background: #f1f5f9 !important;
+    color: black !important;
+  }
+
+  .architectureTitle {
+    color: black !important;
+  }
+
+  .architectureItemLabel {
+    color: #475569 !important;
+  }
+
+  .architectureItemValue {
+    color: black !important;
+  }
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+[data-theme='dark'] .card {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .orgDiagram {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .orgBox {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .metricCard {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .highlightBox {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%);
+}

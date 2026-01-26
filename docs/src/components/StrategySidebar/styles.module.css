@@ -1,0 +1,261 @@
+/**
+ * StrategySidebar Component Styles
+ * Sticky navigation for strategy document
+ */
+
+/* Mobile toggle button */
+.mobileToggle {
+  display: none;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.mobileToggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mobileToggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  max-height: calc(100vh - 120px);
+  width: 260px;
+  min-width: 260px;
+  overflow-y: auto;
+  padding: 1.5rem;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.sidebarHeader {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.sidebarTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* Section list */
+.sectionList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sectionList li {
+  margin-bottom: 0.25rem;
+}
+
+.sectionLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sectionLink:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.sectionLinkActive {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.sectionLinkActive:hover {
+  background: var(--ifm-color-primary-dark);
+}
+
+.sectionNumber {
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  min-width: 1.5rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.sectionLinkActive .sectionNumber {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sectionTitle {
+  flex: 1;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.sectionLinkActive .sectionTitle {
+  color: white;
+}
+
+.sectionOwner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: var(--ifm-color-emphasis-400);
+  opacity: 0.7;
+}
+
+.sectionOwner svg {
+  width: 14px;
+  height: 14px;
+}
+
+.sectionLinkActive .sectionOwner {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Legend */
+.legend {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.legendTitle {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-emphasis-500);
+  margin-bottom: 0.75rem;
+}
+
+.legendItems {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.legendItem svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Backdrop for mobile */
+.backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+}
+
+/* Dark mode */
+[data-theme='dark'] .sidebar {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .sidebarHeader {
+  border-color: #334155;
+}
+
+[data-theme='dark'] .sectionLink:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .legend {
+  border-color: #334155;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .sidebar {
+    width: 220px;
+    min-width: 220px;
+    padding: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 996px) {
+  .mobileToggle {
+    display: flex;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    min-width: 300px;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid var(--ifm-color-emphasis-200);
+    z-index: 95;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+
+  .backdrop {
+    display: block;
+  }
+}
+
+/* Print styles */
+@media print {
+  .sidebar,
+  .mobileToggle,
+  .backdrop {
+    display: none !important;
+  }
+}
