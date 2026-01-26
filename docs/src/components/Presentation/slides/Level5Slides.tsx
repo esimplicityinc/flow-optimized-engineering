@@ -122,6 +122,17 @@ export function Level5Slides() {
           alignItems: 'center',
           minHeight: '60vh'
         }}>
+          <img 
+            src="/flow-optimized-engineering/img/foe-white-square-trans.png" 
+            alt="FOE Logo"
+            style={{ 
+              width: '100px', 
+              height: '100px', 
+              marginBottom: '1.5em',
+              opacity: 0.9
+            }}
+          />
+          
           <blockquote style={{ 
             border: 'none', 
             background: 'none',
@@ -165,7 +176,17 @@ export function Level5Slides() {
 
       {/* Slide 40 - Questions & Discussion */}
       <section>
-        <h2 style={{ marginBottom: '1.5em' }}>Thank You</h2>
+        <img 
+          src="/flow-optimized-engineering/img/foe-logo.svg" 
+          alt="FOE Logo"
+          style={{ 
+            width: '80px', 
+            height: '80px', 
+            marginBottom: '1em'
+          }}
+        />
+        
+        <h2 style={{ marginBottom: '1em' }}>Thank You</h2>
 
         <div style={{ marginBottom: '2em' }}>
           <p style={{ fontSize: '0.85em', marginBottom: '0.5em' }}>
@@ -195,24 +216,21 @@ export function Level5Slides() {
           </p>
         </div>
 
-        {/* QR Code Placeholder */}
+        {/* QR Code */}
         <div className="fragment" style={{ 
-          marginTop: '2em',
-          opacity: 0.6
+          marginTop: '2em'
         }}>
-          <div style={{ 
-            width: '120px', 
-            height: '120px', 
-            border: '2px dashed var(--foe-text-light)',
-            borderRadius: '8px',
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '0.5em',
-            color: 'var(--foe-text-light)'
-          }}>
-            [QR Code]
-          </div>
+          <img 
+            src="/flow-optimized-engineering/img/qr-foe-docs.svg" 
+            alt="QR Code for FOE Documentation"
+            style={{ 
+              width: '120px', 
+              height: '120px',
+              borderRadius: '8px',
+              background: 'white',
+              padding: '8px'
+            }}
+          />
           <p style={{ fontSize: '0.5em', color: 'var(--foe-text-light)', marginTop: '0.5em' }}>
             Scan for docs
           </p>

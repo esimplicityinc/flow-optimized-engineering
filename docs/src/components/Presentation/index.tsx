@@ -141,15 +141,15 @@ export function Presentation({
       
       {/* FOE Logo watermark */}
       <img 
-        src="/img/foe-logo.svg" 
+        src="/flow-optimized-engineering/img/foe-logo.svg" 
         alt="FOE" 
         className="slide-logo"
         style={{
           position: 'fixed',
           bottom: '20px',
           right: '30px',
-          height: '40px',
-          opacity: 0.6,
+          height: '50px',
+          opacity: 0.7,
           zIndex: 100,
         }}
       />

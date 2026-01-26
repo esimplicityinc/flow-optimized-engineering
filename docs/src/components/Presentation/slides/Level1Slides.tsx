@@ -19,22 +19,16 @@ function TitleSlide() {
       className="title-slide dark-bg"
     >
       <div style={{ marginBottom: '2em' }}>
-        {/* FOE Logo placeholder - reference to actual logo */}
-        <div 
+        <img 
+          src="/flow-optimized-engineering/img/foe-white-square-trans.png" 
+          alt="FOE Logo"
           style={{ 
-            width: '120px', 
-            height: '120px', 
+            width: '150px', 
+            height: '150px', 
             margin: '0 auto 1em',
-            background: 'rgba(255,255,255,0.1)',
-            borderRadius: '24px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '3em'
+            display: 'block',
           }}
-        >
-          FOE
-        </div>
+        />
       </div>
       <h1 style={{ color: 'white', marginBottom: '0.3em' }}>
         Flow Optimized Engineering

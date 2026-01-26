@@ -15,47 +15,22 @@ export function Level2Slides() {
           Each enables the others. Each can destroy the others.
         </p>
         
-        <div className="triangle-container" style={{ height: '400px' }}>
-          <svg viewBox="0 0 500 400" style={{ width: '100%', height: '100%' }}>
-            {/* Triangle lines */}
-            <line x1="250" y1="60" x2="80" y2="340" stroke="#94a3b8" strokeWidth="2" strokeDasharray="8,4" />
-            <line x1="250" y1="60" x2="420" y2="340" stroke="#94a3b8" strokeWidth="2" strokeDasharray="8,4" />
-            <line x1="80" y1="340" x2="420" y2="340" stroke="#94a3b8" strokeWidth="2" strokeDasharray="8,4" />
-            
-            {/* Bidirectional arrows along edges */}
-            <text x="145" y="180" fontSize="20" fill="#64748b">↕</text>
-            <text x="340" y="180" fontSize="20" fill="#64748b">↕</text>
-            <text x="250" y="370" fontSize="20" fill="#64748b">↔</text>
-          </svg>
-          
-          {/* Nodes */}
-          <div className="triangle-node understanding" style={{
-            position: 'absolute',
-            top: '20px',
-            left: '50%',
-            transform: 'translateX(-50%)'
-          }}>
-            <span style={{ fontSize: '1.5em' }}>🧠</span><br />
-            Understanding
-          </div>
-          
-          <div className="triangle-node feedback" style={{
-            position: 'absolute',
-            bottom: '20px',
-            left: '5%'
-          }}>
-            <span style={{ fontSize: '1.5em' }}>🔄</span><br />
-            Fast Feedback
-          </div>
-          
-          <div className="triangle-node confidence" style={{
-            position: 'absolute',
-            bottom: '20px',
-            right: '5%'
-          }}>
-            <span style={{ fontSize: '1.5em' }}>🛡️</span><br />
-            Confidence
-          </div>
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center',
+          marginTop: '1em'
+        }}>
+          <img 
+            src="/flow-optimized-engineering/img/illustrations/cognitive-triangle.png" 
+            alt="Cognitive Triangle: Understanding, Fast Feedback, Confidence"
+            style={{ 
+              maxHeight: '450px',
+              maxWidth: '90%',
+              borderRadius: '12px',
+              boxShadow: '0 10px 25px rgba(0,0,0,0.1)'
+            }}
+          />
         </div>
         
         <aside className="notes">
