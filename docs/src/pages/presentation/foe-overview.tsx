@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from '@docusaurus/Head';
-import { Presentation } from '../../components/Presentation';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 /**
  * FOE Overview Presentation
@@ -41,7 +41,12 @@ export default function FOEOverviewPresentation() {
           }
         `}</style>
       </Head>
-      <Presentation />
+      <BrowserOnly fallback={<div style={{ minHeight: '100vh', background: '#0F172A' }} />}>
+        {() => {
+          const { Presentation } = require('../../components/Presentation');
+          return <Presentation />;
+        }}
+      </BrowserOnly>
     </>
   );
 }
