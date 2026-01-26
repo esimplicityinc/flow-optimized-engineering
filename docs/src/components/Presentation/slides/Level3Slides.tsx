@@ -1,5 +1,6 @@
 import React from 'react';
 import { Slide, FragmentBlock } from '../Slide';
+import { FlaskConical } from 'lucide-react';
 
 /**
  * Level 3: Evidence & Research slides (19-28)
@@ -14,8 +15,8 @@ export function Level3Slides() {
         <p style={{ fontSize: '1.3em', marginTop: '1.5em' }}>
           These principles are backed by rigorous research
         </p>
-        <div style={{ marginTop: '3em', fontSize: '4em', opacity: 0.3 }}>
-          🔬
+        <div style={{ marginTop: '3em', opacity: 0.3, display: 'flex', justifyContent: 'center' }}>
+          <FlaskConical size={96} color="white" strokeWidth={1.5} aria-hidden="true" />
         </div>
         <aside className="notes">
           Transition to evidence section. FOE isn't a philosophy pulled from thin air - 
@@ -101,7 +102,7 @@ export function Level3Slides() {
           fontSize: '1.4em', 
           marginTop: '1.5em',
           borderLeftColor: 'var(--foe-feedback)',
-          background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(124, 58, 237, 0.03) 100%)'
+          background: 'linear-gradient(135deg, rgba(204, 139, 250, 0.08) 0%, rgba(204, 139, 250, 0.03) 100%)'
         }}>
           "Speed and stability are NOT tradeoffs"
         </blockquote>
@@ -138,7 +139,7 @@ export function Level3Slides() {
             <FragmentBlock>
               <div className="highlight-box" style={{ 
                 borderColor: 'var(--foe-understanding)',
-                background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.1) 0%, rgba(8, 145, 178, 0.05) 100%)'
+                background: 'linear-gradient(135deg, rgba(62, 197, 187, 0.1) 0%, rgba(62, 197, 187, 0.05) 100%)'
               }}>
                 <h4 style={{ color: 'var(--foe-understanding)', margin: '0 0 0.5em 0' }}>#1 Predictor</h4>
                 <p style={{ fontSize: '1.1em', margin: 0, fontWeight: 600 }}>Psychological Safety</p>
@@ -202,7 +203,7 @@ export function Level3Slides() {
           <FragmentBlock>
             <div style={{ 
               padding: '1.5em', 
-              background: 'rgba(220, 38, 38, 0.1)', 
+              background: 'rgba(239, 68, 68, 0.1)', 
               borderRadius: '12px',
               border: '2px solid var(--foe-danger)'
             }}>
@@ -216,7 +217,7 @@ export function Level3Slides() {
           <FragmentBlock>
             <div style={{ 
               padding: '1.5em', 
-              background: 'rgba(5, 150, 105, 0.1)', 
+              background: 'rgba(59, 130, 246, 0.1)', 
               borderRadius: '12px',
               border: '2px solid var(--foe-confidence)'
             }}>
@@ -253,7 +254,7 @@ export function Level3Slides() {
         <div className="three-columns" style={{ marginTop: '1.5em' }}>
           <FragmentBlock>
             <div className="stat-block" style={{ 
-              background: 'rgba(5, 150, 105, 0.1)', 
+              background: 'rgba(59, 130, 246, 0.1)', 
               borderRadius: '12px', 
               padding: '1.5em' 
             }}>
@@ -266,7 +267,7 @@ export function Level3Slides() {
           </FragmentBlock>
           <FragmentBlock>
             <div className="stat-block" style={{ 
-              background: 'rgba(217, 119, 6, 0.1)', 
+              background: 'rgba(245, 158, 11, 0.1)', 
               borderRadius: '12px', 
               padding: '1.5em' 
             }}>
@@ -279,7 +280,7 @@ export function Level3Slides() {
           </FragmentBlock>
           <FragmentBlock>
             <div className="stat-block" style={{ 
-              background: 'rgba(124, 58, 237, 0.1)', 
+              background: 'rgba(204, 139, 250, 0.1)', 
               borderRadius: '12px', 
               padding: '1.5em' 
             }}>
@@ -322,7 +323,7 @@ export function Level3Slides() {
           <div>
             <FragmentBlock>
               <div className="stat-block" style={{ 
-                background: 'linear-gradient(135deg, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0.05) 100%)', 
+                background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%)', 
                 borderRadius: '16px',
                 border: '2px solid var(--foe-confidence)',
                 padding: '1.5em'

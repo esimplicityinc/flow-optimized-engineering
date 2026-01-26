@@ -1,5 +1,22 @@
 import React from 'react';
 import { Slide, FragmentBlock } from '../Slide';
+import { 
+  Brain, 
+  RefreshCw, 
+  Shield, 
+  BookOpen, 
+  Megaphone, 
+  Dice5, 
+  Frown, 
+  AlertTriangle, 
+  Loader2 
+} from 'lucide-react';
+
+// Icon styling constants
+const principleIconSize = 48;
+const diagramIconSize = 32;
+const failureModeIconSize = 36;
+const checklistIconSize = 20;
 
 /**
  * Level 2 Slides: Core Principles (Slides 9-18)
@@ -8,6 +25,46 @@ import { Slide, FragmentBlock } from '../Slide';
 export function Level2Slides() {
   return (
     <>
+      {/* Section Divider - Core Principles */}
+      <Slide backgroundGradient darkBg>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '60vh'
+        }}>
+          <div style={{
+            fontSize: '0.9em',
+            textTransform: 'uppercase',
+            letterSpacing: '0.2em',
+            color: 'rgba(255,255,255,0.6)',
+            marginBottom: '1em'
+          }}>
+            Part 2
+          </div>
+          <h2 style={{ 
+            color: 'white', 
+            fontSize: '2em',
+            margin: 0,
+            fontWeight: 700
+          }}>
+            Core Principles
+          </h2>
+          <p style={{
+            color: 'rgba(255,255,255,0.7)',
+            fontSize: '1em',
+            marginTop: '1em'
+          }}>
+            The Cognitive Triangle
+          </p>
+        </div>
+        <aside className="notes">
+          Section transition. We've established WHY speed and safety aren't tradeoffs.
+          Now we'll explore the three principles that make this possible.
+        </aside>
+      </Slide>
+
       {/* Slide 9 - The Cognitive Triangle (Expanded) */}
       <Slide>
         <h2>Three Optimizations, One System</h2>
@@ -42,9 +99,11 @@ export function Level2Slides() {
 
       {/* Slide 10 - Principle 1: Understanding */}
       <Slide>
-        <div style={{ borderLeft: '8px solid #0891b2', paddingLeft: '1.5em' }}>
-          <div style={{ fontSize: '3em', marginBottom: '0.2em' }}>🧠</div>
-          <h2 style={{ color: '#0891b2', margin: '0 0 0.5em 0' }}>
+        <div style={{ borderLeft: '8px solid #3EC5BB', paddingLeft: '1.5em' }}>
+          <div style={{ marginBottom: '0.5em' }}>
+            <Brain size={principleIconSize} color="#3EC5BB" strokeWidth={1.5} aria-hidden="true" />
+          </div>
+          <h2 style={{ color: '#3EC5BB', margin: '0 0 0.5em 0' }}>
             Optimize for Understanding
           </h2>
           <p style={{ 
@@ -61,7 +120,7 @@ export function Level2Slides() {
           <div style={{ 
             marginTop: '2em',
             padding: '1em 1.5em',
-            background: 'rgba(8, 145, 178, 0.1)',
+            background: 'rgba(62, 197, 187, 0.1)',
             borderRadius: '12px',
             fontSize: '0.8em'
           }}>
@@ -79,32 +138,32 @@ export function Level2Slides() {
 
       {/* Slide 11 - Understanding in Practice */}
       <Slide>
-        <h2 style={{ color: '#0891b2' }}>What Understanding Looks Like</h2>
+        <h2 style={{ color: '#3EC5BB' }}>What Understanding Looks Like</h2>
         
         <div className="card-grid">
           <FragmentBlock animation="fade-up" index={0}>
-            <div className="card" style={{ borderTop: '4px solid #0891b2' }}>
+            <div className="card" style={{ borderTop: '4px solid #3EC5BB' }}>
               <h4>Traceable Change</h4>
               <p>Commits explain "why" not just "what"—you can follow the reasoning</p>
             </div>
           </FragmentBlock>
           
           <FragmentBlock animation="fade-up" index={1}>
-            <div className="card" style={{ borderTop: '4px solid #0891b2' }}>
+            <div className="card" style={{ borderTop: '4px solid #3EC5BB' }}>
               <h4>Explicit Invariants</h4>
               <p>Assertions document assumptions—the code tells you what must be true</p>
             </div>
           </FragmentBlock>
           
           <FragmentBlock animation="fade-up" index={2}>
-            <div className="card" style={{ borderTop: '4px solid #0891b2' }}>
+            <div className="card" style={{ borderTop: '4px solid #3EC5BB' }}>
               <h4>Visible Policies</h4>
               <p>Configuration over magic—behavior is explicit, not hidden</p>
             </div>
           </FragmentBlock>
           
           <FragmentBlock animation="fade-up" index={3}>
-            <div className="card" style={{ borderTop: '4px solid #0891b2' }}>
+            <div className="card" style={{ borderTop: '4px solid #3EC5BB' }}>
               <h4>Coherent Mental Models</h4>
               <p>Domain-Driven Design—code reflects how the business thinks</p>
             </div>
@@ -121,9 +180,11 @@ export function Level2Slides() {
 
       {/* Slide 12 - Principle 2: Fast Feedback */}
       <Slide>
-        <div style={{ borderLeft: '8px solid #7c3aed', paddingLeft: '1.5em' }}>
-          <div style={{ fontSize: '3em', marginBottom: '0.2em' }}>🔄</div>
-          <h2 style={{ color: '#7c3aed', margin: '0 0 0.5em 0' }}>
+        <div style={{ borderLeft: '8px solid #CC8BFA', paddingLeft: '1.5em' }}>
+          <div style={{ marginBottom: '0.5em' }}>
+            <RefreshCw size={principleIconSize} color="#CC8BFA" strokeWidth={1.5} aria-hidden="true" />
+          </div>
+          <h2 style={{ color: '#CC8BFA', margin: '0 0 0.5em 0' }}>
             Optimize for Fast Feedback
           </h2>
           <p style={{ 
@@ -140,12 +201,11 @@ export function Level2Slides() {
           <div style={{ 
             marginTop: '2em',
             padding: '1em 1.5em',
-            background: 'rgba(124, 58, 237, 0.1)',
+            background: 'rgba(204, 139, 250, 0.1)',
             borderRadius: '12px',
             fontSize: '0.8em'
           }}>
-            <strong>The goal:</strong> Learn whether you're on the right track 
-            before you've invested too much in the wrong direction.
+            <strong>The goal:</strong> Learn you're wrong before you've gone too far.
           </div>
         </FragmentBlock>
         
@@ -158,12 +218,12 @@ export function Level2Slides() {
 
       {/* Slide 13 - Fast Feedback in Practice */}
       <Slide>
-        <h2 style={{ color: '#7c3aed' }}>Three Focus Areas</h2>
+        <h2 style={{ color: '#CC8BFA' }}>Three Focus Areas</h2>
         
         <div className="three-columns" style={{ marginTop: '1.5em' }}>
           <FragmentBlock animation="fade-up" index={0}>
             <div className="principle-card feedback" style={{ padding: '1.5em' }}>
-              <h3 style={{ fontSize: '1em', color: '#7c3aed' }}>Time-to-Disconfirmation</h3>
+              <h3 style={{ fontSize: '1em', color: '#CC8BFA' }}>Time-to-Disconfirmation</h3>
               <p style={{ fontSize: '0.7em', marginTop: '0.5em' }}>
                 How quickly can you discover you're <em>wrong</em>?
               </p>
@@ -175,7 +235,7 @@ export function Level2Slides() {
           
           <FragmentBlock animation="fade-up" index={1}>
             <div className="principle-card feedback" style={{ padding: '1.5em' }}>
-              <h3 style={{ fontSize: '1em', color: '#7c3aed' }}>Visibility of Consequences</h3>
+              <h3 style={{ fontSize: '1em', color: '#CC8BFA' }}>Visibility of Consequences</h3>
               <p style={{ fontSize: '0.7em', marginTop: '0.5em' }}>
                 Can you <em>see</em> the impact of your changes?
               </p>
@@ -187,7 +247,7 @@ export function Level2Slides() {
           
           <FragmentBlock animation="fade-up" index={2}>
             <div className="principle-card feedback" style={{ padding: '1.5em' }}>
-              <h3 style={{ fontSize: '1em', color: '#7c3aed' }}>Selection Pressure</h3>
+              <h3 style={{ fontSize: '1em', color: '#CC8BFA' }}>Selection Pressure</h3>
               <p style={{ fontSize: '0.7em', marginTop: '0.5em' }}>
                 Does feedback drive better decisions?
               </p>
@@ -207,9 +267,11 @@ export function Level2Slides() {
 
       {/* Slide 14 - Principle 3: Confidence */}
       <Slide>
-        <div style={{ borderLeft: '8px solid #059669', paddingLeft: '1.5em' }}>
-          <div style={{ fontSize: '3em', marginBottom: '0.2em' }}>🛡️</div>
-          <h2 style={{ color: '#059669', margin: '0 0 0.5em 0' }}>
+        <div style={{ borderLeft: '8px solid #3B82F6', paddingLeft: '1.5em' }}>
+          <div style={{ marginBottom: '0.5em' }}>
+            <Shield size={principleIconSize} color="#3B82F6" strokeWidth={1.5} aria-hidden="true" />
+          </div>
+          <h2 style={{ color: '#3B82F6', margin: '0 0 0.5em 0' }}>
             Optimize for Confidence
           </h2>
           <p style={{ 
@@ -226,12 +288,11 @@ export function Level2Slides() {
           <div style={{ 
             marginTop: '2em',
             padding: '1em 1.5em',
-            background: 'rgba(5, 150, 105, 0.1)',
+            background: 'rgba(59, 130, 246, 0.1)',
             borderRadius: '12px',
             fontSize: '0.8em'
           }}>
-            <strong>The goal:</strong> Create conditions where acting under uncertainty 
-            is safe—so you can move fast without breaking things.
+            <strong>The goal:</strong> Make acting under uncertainty safe.
           </div>
         </FragmentBlock>
         
@@ -244,7 +305,7 @@ export function Level2Slides() {
 
       {/* Slide 15 - The Three Confidence Statements */}
       <Slide>
-        <h2 style={{ color: '#059669' }}>The Confidence Test</h2>
+        <h2 style={{ color: '#3B82F6' }}>The Confidence Test</h2>
         <p style={{ fontSize: '0.8em', color: 'var(--foe-text-light)', marginBottom: '1.5em' }}>
           Before taking action, can you honestly say...
         </p>
@@ -290,30 +351,41 @@ export function Level2Slides() {
         <h2>The Virtuous Cycle</h2>
         
         <div style={{ position: 'relative', height: '400px', margin: '1em auto', maxWidth: '700px' }}>
-          <svg viewBox="0 0 700 400" style={{ width: '100%', height: '100%' }}>
+          <svg 
+            viewBox="0 0 700 400" 
+            style={{ width: '100%', height: '100%' }}
+            role="img"
+            aria-labelledby="virtuous-cycle-title virtuous-cycle-desc"
+          >
+            <title id="virtuous-cycle-title">The Virtuous Cycle of Flow Optimized Engineering</title>
+            <desc id="virtuous-cycle-desc">
+              A triangular diagram showing how Understanding, Fast Feedback, and Confidence 
+              reinforce each other: Understanding enables confident action, Confidence enables 
+              experimentation, and Feedback improves understanding.
+            </desc>
             {/* Curved bidirectional arrows */}
             {/* Understanding to Feedback */}
-            <path d="M 200 100 Q 350 50 500 100" fill="none" stroke="#0891b2" strokeWidth="3" markerEnd="url(#arrow-cyan)" />
-            <path d="M 500 120 Q 350 70 200 120" fill="none" stroke="#7c3aed" strokeWidth="3" markerEnd="url(#arrow-purple)" />
+            <path d="M 200 100 Q 350 50 500 100" fill="none" stroke="#3EC5BB" strokeWidth="3" markerEnd="url(#arrow-cyan)" />
+            <path d="M 500 120 Q 350 70 200 120" fill="none" stroke="#CC8BFA" strokeWidth="3" markerEnd="url(#arrow-purple)" />
             
             {/* Feedback to Confidence */}
-            <path d="M 550 150 Q 620 250 550 350" fill="none" stroke="#7c3aed" strokeWidth="3" markerEnd="url(#arrow-purple)" />
-            <path d="M 520 350 Q 590 250 520 150" fill="none" stroke="#059669" strokeWidth="3" markerEnd="url(#arrow-green)" />
+            <path d="M 550 150 Q 620 250 550 350" fill="none" stroke="#CC8BFA" strokeWidth="3" markerEnd="url(#arrow-purple)" />
+            <path d="M 520 350 Q 590 250 520 150" fill="none" stroke="#3B82F6" strokeWidth="3" markerEnd="url(#arrow-green)" />
             
             {/* Confidence to Understanding */}
-            <path d="M 450 380 Q 350 420 200 350" fill="none" stroke="#059669" strokeWidth="3" markerEnd="url(#arrow-green)" />
-            <path d="M 200 320 Q 350 390 450 350" fill="none" stroke="#0891b2" strokeWidth="3" markerEnd="url(#arrow-cyan)" />
+            <path d="M 450 380 Q 350 420 200 350" fill="none" stroke="#3B82F6" strokeWidth="3" markerEnd="url(#arrow-green)" />
+            <path d="M 200 320 Q 350 390 450 350" fill="none" stroke="#3EC5BB" strokeWidth="3" markerEnd="url(#arrow-cyan)" />
             
             {/* Arrow markers */}
             <defs>
               <marker id="arrow-cyan" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L9,3 z" fill="#0891b2" />
+                <path d="M0,0 L0,6 L9,3 z" fill="#3EC5BB" />
               </marker>
               <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L9,3 z" fill="#7c3aed" />
+                <path d="M0,0 L0,6 L9,3 z" fill="#CC8BFA" />
               </marker>
               <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L9,3 z" fill="#059669" />
+                <path d="M0,0 L0,6 L9,3 z" fill="#3B82F6" />
               </marker>
             </defs>
           </svg>
@@ -323,28 +395,36 @@ export function Level2Slides() {
             position: 'absolute',
             top: '80px',
             left: '50px',
-            background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.2) 0%, rgba(8, 145, 178, 0.1) 100%)',
-            border: '2px solid #0891b2',
+            background: 'linear-gradient(135deg, rgba(62, 197, 187, 0.2) 0%, rgba(62, 197, 187, 0.1) 100%)',
+            border: '2px solid #3EC5BB',
             borderRadius: '12px',
             padding: '0.8em 1.2em',
-            textAlign: 'center'
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '0.3em'
           }}>
-            <div style={{ fontSize: '1.5em' }}>🧠</div>
-            <div style={{ fontWeight: 600, color: '#0891b2' }}>Understanding</div>
+            <Brain size={diagramIconSize} color="#3EC5BB" strokeWidth={1.5} aria-hidden="true" />
+            <div style={{ fontWeight: 600, color: '#3EC5BB' }}>Understanding</div>
           </div>
           
           <div style={{
             position: 'absolute',
             top: '80px',
             right: '50px',
-            background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(124, 58, 237, 0.1) 100%)',
-            border: '2px solid #7c3aed',
+            background: 'linear-gradient(135deg, rgba(204, 139, 250, 0.2) 0%, rgba(204, 139, 250, 0.1) 100%)',
+            border: '2px solid #CC8BFA',
             borderRadius: '12px',
             padding: '0.8em 1.2em',
-            textAlign: 'center'
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '0.3em'
           }}>
-            <div style={{ fontSize: '1.5em' }}>🔄</div>
-            <div style={{ fontWeight: 600, color: '#7c3aed' }}>Fast Feedback</div>
+            <RefreshCw size={diagramIconSize} color="#CC8BFA" strokeWidth={1.5} aria-hidden="true" />
+            <div style={{ fontWeight: 600, color: '#CC8BFA' }}>Fast Feedback</div>
           </div>
           
           <div style={{
@@ -352,14 +432,18 @@ export function Level2Slides() {
             bottom: '20px',
             left: '50%',
             transform: 'translateX(-50%)',
-            background: 'linear-gradient(135deg, rgba(5, 150, 105, 0.2) 0%, rgba(5, 150, 105, 0.1) 100%)',
-            border: '2px solid #059669',
+            background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%)',
+            border: '2px solid #3B82F6',
             borderRadius: '12px',
             padding: '0.8em 1.2em',
-            textAlign: 'center'
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '0.3em'
           }}>
-            <div style={{ fontSize: '1.5em' }}>🛡️</div>
-            <div style={{ fontWeight: 600, color: '#059669' }}>Confidence</div>
+            <Shield size={diagramIconSize} color="#3B82F6" strokeWidth={1.5} aria-hidden="true" />
+            <div style={{ fontWeight: 600, color: '#3B82F6' }}>Confidence</div>
           </div>
         </div>
         
@@ -376,75 +460,110 @@ export function Level2Slides() {
         </aside>
       </Slide>
 
-      {/* Slide 17 - What Happens When One Collapses */}
+      {/* Slide 17 - Isolated Principle Failures */}
       <Slide>
-        <h2>Failure Modes</h2>
+        <h2>Failure Modes: Isolated Principles</h2>
         <p style={{ fontSize: '0.75em', color: 'var(--foe-text-light)', marginBottom: '1em' }}>
-          What happens when principles are missing or isolated
+          What happens when you have only one principle
         </p>
         
         <div className="card-grid cols-3" style={{ fontSize: '0.8em' }}>
           <FragmentBlock animation="fade-up" index={0}>
-            <div className="card" style={{ background: 'rgba(8, 145, 178, 0.1)', textAlign: 'center' }}>
-              <div style={{ fontWeight: 700, color: '#0891b2' }}>U alone</div>
-              <div style={{ fontSize: '1.8em', margin: '0.3em 0' }}>📚</div>
+            <div className="card" style={{ background: 'rgba(62, 197, 187, 0.1)', textAlign: 'center' }}>
+              <div style={{ fontWeight: 700, color: '#3EC5BB' }}>Understanding alone</div>
+              <div style={{ margin: '0.5em 0', display: 'flex', justifyContent: 'center' }}>
+                <BookOpen size={failureModeIconSize} color="#3EC5BB" strokeWidth={1.5} aria-hidden="true" />
+              </div>
               <div style={{ fontWeight: 600 }}>Theoretical</div>
               <div style={{ fontSize: '0.8em', color: 'var(--foe-text-light)' }}>Analysis paralysis</div>
             </div>
           </FragmentBlock>
           
           <FragmentBlock animation="fade-up" index={1}>
-            <div className="card" style={{ background: 'rgba(124, 58, 237, 0.1)', textAlign: 'center' }}>
-              <div style={{ fontWeight: 700, color: '#7c3aed' }}>FF alone</div>
-              <div style={{ fontSize: '1.8em', margin: '0.3em 0' }}>📢</div>
+            <div className="card" style={{ background: 'rgba(204, 139, 250, 0.1)', textAlign: 'center' }}>
+              <div style={{ fontWeight: 700, color: '#CC8BFA' }}>Fast Feedback alone</div>
+              <div style={{ margin: '0.5em 0', display: 'flex', justifyContent: 'center' }}>
+                <Megaphone size={failureModeIconSize} color="#CC8BFA" strokeWidth={1.5} aria-hidden="true" />
+              </div>
               <div style={{ fontWeight: 600 }}>Noise</div>
               <div style={{ fontSize: '0.8em', color: 'var(--foe-text-light)' }}>Data without insight</div>
             </div>
           </FragmentBlock>
           
           <FragmentBlock animation="fade-up" index={2}>
-            <div className="card" style={{ background: 'rgba(5, 150, 105, 0.1)', textAlign: 'center' }}>
-              <div style={{ fontWeight: 700, color: '#059669' }}>C alone</div>
-              <div style={{ fontSize: '1.8em', margin: '0.3em 0' }}>🎲</div>
+            <div className="card" style={{ background: 'rgba(59, 130, 246, 0.1)', textAlign: 'center' }}>
+              <div style={{ fontWeight: 700, color: '#3B82F6' }}>Confidence alone</div>
+              <div style={{ margin: '0.5em 0', display: 'flex', justifyContent: 'center' }}>
+                <Dice5 size={failureModeIconSize} color="#3B82F6" strokeWidth={1.5} aria-hidden="true" />
+              </div>
               <div style={{ fontWeight: 600 }}>Reckless</div>
               <div style={{ fontSize: '0.8em', color: 'var(--foe-text-light)' }}>Move fast, break things</div>
             </div>
           </FragmentBlock>
-          
-          <FragmentBlock animation="fade-up" index={3}>
-            <div className="card" style={{ background: 'rgba(217, 119, 6, 0.1)', textAlign: 'center' }}>
-              <div style={{ fontWeight: 700, color: 'var(--foe-warning)' }}>U + FF without C</div>
-              <div style={{ fontSize: '1.8em', margin: '0.3em 0' }}>😰</div>
+        </div>
+        
+        <aside className="notes">
+          When a single principle operates in isolation, it becomes a liability.
+          Theoretical teams study but don't ship - endless design docs, no code.
+          Noisy teams have dashboards everywhere but no insight - data without meaning.
+          Reckless teams move fast and break things - confidence without basis.
+        </aside>
+      </Slide>
+
+      {/* Slide 17b - Missing One Principle Failures */}
+      <Slide>
+        <h2>Failure Modes: Missing One</h2>
+        <p style={{ fontSize: '0.75em', color: 'var(--foe-text-light)', marginBottom: '1em' }}>
+          What happens when two principles work without the third
+        </p>
+        
+        <div className="card-grid cols-3" style={{ fontSize: '0.8em' }}>
+          <FragmentBlock animation="fade-up" index={0}>
+            <div className="card" style={{ background: 'rgba(245, 158, 11, 0.1)', textAlign: 'center' }}>
+              <div style={{ fontWeight: 700, color: 'var(--foe-warning)' }}>Missing Confidence</div>
+              <div style={{ margin: '0.5em 0', display: 'flex', justifyContent: 'center' }}>
+                <Frown size={failureModeIconSize} color="#F59E0B" strokeWidth={1.5} aria-hidden="true" />
+              </div>
               <div style={{ fontWeight: 600 }}>Paralyzed</div>
               <div style={{ fontSize: '0.8em', color: 'var(--foe-text-light)' }}>Know what's wrong, afraid to act</div>
             </div>
           </FragmentBlock>
           
-          <FragmentBlock animation="fade-up" index={4}>
-            <div className="card" style={{ background: 'rgba(217, 119, 6, 0.1)', textAlign: 'center' }}>
-              <div style={{ fontWeight: 700, color: 'var(--foe-warning)' }}>U + C without FF</div>
-              <div style={{ fontSize: '1.8em', margin: '0.3em 0' }}>😤</div>
+          <FragmentBlock animation="fade-up" index={1}>
+            <div className="card" style={{ background: 'rgba(245, 158, 11, 0.1)', textAlign: 'center' }}>
+              <div style={{ fontWeight: 700, color: 'var(--foe-warning)' }}>Missing Feedback</div>
+              <div style={{ margin: '0.5em 0', display: 'flex', justifyContent: 'center' }}>
+                <AlertTriangle size={failureModeIconSize} color="#F59E0B" strokeWidth={1.5} aria-hidden="true" />
+              </div>
               <div style={{ fontWeight: 600 }}>Arrogant</div>
               <div style={{ fontSize: '0.8em', color: 'var(--foe-text-light)' }}>Confident but unchecked</div>
             </div>
           </FragmentBlock>
           
-          <FragmentBlock animation="fade-up" index={5}>
-            <div className="card" style={{ background: 'rgba(217, 119, 6, 0.1)', textAlign: 'center' }}>
-              <div style={{ fontWeight: 700, color: 'var(--foe-warning)' }}>FF + C without U</div>
-              <div style={{ fontSize: '1.8em', margin: '0.3em 0' }}>🌀</div>
+          <FragmentBlock animation="fade-up" index={2}>
+            <div className="card" style={{ background: 'rgba(245, 158, 11, 0.1)', textAlign: 'center' }}>
+              <div style={{ fontWeight: 700, color: 'var(--foe-warning)' }}>Missing Understanding</div>
+              <div style={{ margin: '0.5em 0', display: 'flex', justifyContent: 'center' }}>
+                <Loader2 size={failureModeIconSize} color="#F59E0B" strokeWidth={1.5} aria-hidden="true" />
+              </div>
               <div style={{ fontWeight: 600 }}>Chaotic</div>
               <div style={{ fontSize: '0.8em', color: 'var(--foe-text-light)' }}>Rapid iteration, no direction</div>
             </div>
           </FragmentBlock>
         </div>
         
+        <div className="fragment" style={{ marginTop: '1.5em' }}>
+          <p style={{ fontSize: '0.85em', textAlign: 'center', fontStyle: 'italic' }}>
+            All three principles are needed for sustainable flow.
+          </p>
+        </div>
+        
         <aside className="notes">
-          Each failure mode is instructive. Theoretical teams study but don't ship.
-          Noisy teams have dashboards but no insight. Reckless teams move fast and
-          break things. Paralyzed teams know the problems but can't act. Arrogant
-          teams are confident but don't learn. Chaotic teams iterate without direction.
-          All three principles are needed for sustainable flow.
+          Two out of three isn't enough either.
+          Paralyzed teams know the problems and see the data, but can't act on it.
+          Arrogant teams understand and feel confident, but never verify they're right.
+          Chaotic teams iterate fast with confidence, but have no direction.
+          The lesson: balance all three or the system degrades.
         </aside>
       </Slide>
 
@@ -461,8 +580,11 @@ export function Level2Slides() {
         
         <div className="three-columns" style={{ fontSize: '0.75em', marginTop: '1.5em' }}>
           <FragmentBlock animation="fade-up" index={0}>
-            <div style={{ textAlign: 'left', padding: '1em', background: 'rgba(8, 145, 178, 0.08)', borderRadius: '12px' }}>
-              <h4 style={{ color: '#0891b2', margin: '0 0 0.5em 0' }}>🧠 Check Understanding</h4>
+            <div style={{ textAlign: 'left', padding: '1em', background: 'rgba(62, 197, 187, 0.08)', borderRadius: '12px' }}>
+              <h4 style={{ color: '#3EC5BB', margin: '0 0 0.5em 0', display: 'flex', alignItems: 'center', gap: '0.4em' }}>
+                <Brain size={checklistIconSize} color="#3EC5BB" strokeWidth={2} aria-hidden="true" />
+                Check Understanding
+              </h4>
               <ul style={{ margin: 0, paddingLeft: '1.2em', lineHeight: 1.6 }}>
                 <li>Can I explain what this code does?</li>
                 <li>Do I know why it was built this way?</li>
@@ -472,8 +594,11 @@ export function Level2Slides() {
           </FragmentBlock>
           
           <FragmentBlock animation="fade-up" index={1}>
-            <div style={{ textAlign: 'left', padding: '1em', background: 'rgba(124, 58, 237, 0.08)', borderRadius: '12px' }}>
-              <h4 style={{ color: '#7c3aed', margin: '0 0 0.5em 0' }}>🔄 Check Feedback</h4>
+            <div style={{ textAlign: 'left', padding: '1em', background: 'rgba(204, 139, 250, 0.08)', borderRadius: '12px' }}>
+              <h4 style={{ color: '#CC8BFA', margin: '0 0 0.5em 0', display: 'flex', alignItems: 'center', gap: '0.4em' }}>
+                <RefreshCw size={checklistIconSize} color="#CC8BFA" strokeWidth={2} aria-hidden="true" />
+                Check Feedback
+              </h4>
               <ul style={{ margin: 0, paddingLeft: '1.2em', lineHeight: 1.6 }}>
                 <li>How long until I know if this works?</li>
                 <li>Can I see the effects of my changes?</li>
@@ -483,8 +608,11 @@ export function Level2Slides() {
           </FragmentBlock>
           
           <FragmentBlock animation="fade-up" index={2}>
-            <div style={{ textAlign: 'left', padding: '1em', background: 'rgba(5, 150, 105, 0.08)', borderRadius: '12px' }}>
-              <h4 style={{ color: '#059669', margin: '0 0 0.5em 0' }}>🛡️ Check Confidence</h4>
+            <div style={{ textAlign: 'left', padding: '1em', background: 'rgba(59, 130, 246, 0.08)', borderRadius: '12px' }}>
+              <h4 style={{ color: '#3B82F6', margin: '0 0 0.5em 0', display: 'flex', alignItems: 'center', gap: '0.4em' }}>
+                <Shield size={checklistIconSize} color="#3B82F6" strokeWidth={2} aria-hidden="true" />
+                Check Confidence
+              </h4>
               <ul style={{ margin: 0, paddingLeft: '1.2em', lineHeight: 1.6 }}>
                 <li>Do I know what failure looks like?</li>
                 <li>Can I roll back if needed?</li>

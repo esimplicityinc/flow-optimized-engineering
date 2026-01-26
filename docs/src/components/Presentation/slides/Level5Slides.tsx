@@ -8,6 +8,49 @@ import React from 'react';
 export function Level5Slides() {
   return (
     <>
+      {/* Section Divider - Next Steps */}
+      <section
+        className="dark-bg"
+        data-background="linear-gradient(135deg, #3223BD 0%, #1a1237 100%)"
+      >
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '60vh'
+        }}>
+          <div style={{
+            fontSize: '0.9em',
+            textTransform: 'uppercase',
+            letterSpacing: '0.2em',
+            color: 'rgba(255,255,255,0.6)',
+            marginBottom: '1em'
+          }}>
+            Part 5
+          </div>
+          <h2 style={{ 
+            color: 'white', 
+            fontSize: '2em',
+            margin: 0,
+            fontWeight: 700
+          }}>
+            Getting Started
+          </h2>
+          <p style={{
+            color: 'rgba(255,255,255,0.7)',
+            fontSize: '1em',
+            marginTop: '1em'
+          }}>
+            Your Roadmap Forward
+          </p>
+        </div>
+        <aside className="notes">
+          Final section. We've covered what FOE is, why it works, and how to implement it.
+          Now let's give them concrete next steps.
+        </aside>
+      </section>
+
       {/* Slide 37 - Self-Assessment */}
       <section>
         <h2>Where Are You?</h2>
@@ -113,14 +156,15 @@ export function Level5Slides() {
       {/* Slide 39 - The FOE Promise (Core Thesis) */}
       <section 
         className="dark-bg"
-        data-background="linear-gradient(135deg, #1e40af 0%, #0f172a 100%)"
+        data-background="linear-gradient(135deg, #3223BD 0%, #1a1237 100%)"
       >
+        <h2 style={{ color: 'white', marginBottom: '0.5em' }}>The FOE Promise</h2>
         <div style={{ 
           display: 'flex', 
           flexDirection: 'column', 
           justifyContent: 'center', 
           alignItems: 'center',
-          minHeight: '60vh'
+          minHeight: '50vh'
         }}>
           <img 
             src="/flow-optimized-engineering/img/foe-white-square-trans.png" 
@@ -202,7 +246,7 @@ export function Level5Slides() {
         <div className="fragment" style={{ 
           marginTop: '2em',
           padding: '1.5em',
-          background: 'rgba(30, 64, 175, 0.05)',
+          background: 'rgba(50, 35, 189, 0.05)',
           borderRadius: '12px',
           display: 'inline-block'
         }}>

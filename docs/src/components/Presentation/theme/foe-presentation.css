@@ -6,22 +6,40 @@
 /* Import reveal.js base styles */
 @import 'reveal.js/dist/reveal.css';
 
-/* CSS Variables - FOE Brand Colors */
+/* Import Google Fonts - eSimplicity brand fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* CSS Variables - eSimplicity Brand Colors
+   
+   Color Palette (harmonious cool tones):
+   - Primary Purple: #3223BD (eSimplicity brand)
+   - Understanding (Teal): #3EC5BB (eSimplicity accent)
+   - Feedback (Light Purple): #CC8BFA (eSimplicity accent)
+   - Confidence (Blue): #3B82F6 (complementary blue)
+   
+   This creates a cohesive triad: Teal → Blue → Purple
+*/
 :root {
-  --foe-primary: #1e40af;
-  --foe-primary-dark: #1a3a9e;
-  --foe-primary-light: #3259e3;
-  --foe-understanding: #0891b2;
-  --foe-feedback: #7c3aed;
-  --foe-confidence: #059669;
-  --foe-warning: #d97706;
-  --foe-danger: #dc2626;
-  --foe-text: #1e293b;
-  --foe-text-light: #64748b;
+  --foe-primary: #3223BD;
+  --foe-primary-dark: #281c96;
+  --foe-primary-light: #4a3dd4;
+  --foe-understanding: #3EC5BB;
+  --foe-feedback: #CC8BFA;
+  --foe-confidence: #3B82F6;
+  --foe-warning: #F59E0B;
+  --foe-danger: #EF4444;
+  --foe-text: #1C1C1C;
+  --foe-text-light: #565656;
   --foe-bg: #ffffff;
-  --foe-bg-dark: #0f172a;
-  --foe-gradient-start: #1e40af;
-  --foe-gradient-end: #0f172a;
+  --foe-bg-dark: #1C1C1C;
+  --foe-bg-light: #F3F3F3;
+  --foe-bg-accent: #D9DCF8;
+  --foe-gradient-start: #3223BD;
+  --foe-gradient-end: #1a1237;
+  
+  /* Typography - eSimplicity brand */
+  --foe-font-display: 'Nunito Sans', system-ui, -apple-system, sans-serif;
+  --foe-font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
 }
 
 /* Base presentation styles */
@@ -30,7 +48,7 @@
 }
 
 .reveal {
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--foe-font-display);
   font-size: 42px;
   font-weight: normal;
   color: var(--foe-text);
@@ -111,7 +129,7 @@
   width: 90%;
   margin: 20px auto;
   padding: 1.5em 2em;
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(30, 64, 175, 0.03) 100%);
+  background: linear-gradient(135deg, rgba(50, 35, 189, 0.08) 0%, rgba(50, 35, 189, 0.03) 100%);
   border-left: 6px solid var(--foe-primary);
   border-radius: 0 12px 12px 0;
   font-style: italic;
@@ -131,7 +149,7 @@
   margin: 20px auto;
   text-align: left;
   font-size: 0.55em;
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: var(--foe-font-mono);
   line-height: 1.4;
   word-wrap: break-word;
   background: #1e293b;
@@ -141,7 +159,7 @@
 }
 
 .reveal code {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: var(--foe-font-mono);
   text-transform: none;
 }
 
@@ -162,11 +180,11 @@
 
 .reveal table td {
   padding: 0.5em 1em;
-  border-bottom: 1px solid rgba(30, 64, 175, 0.1);
+  border-bottom: 1px solid rgba(50, 35, 189, 0.1);
 }
 
 .reveal table tr:nth-child(even) {
-  background: rgba(30, 64, 175, 0.05);
+  background: rgba(50, 35, 189, 0.05);
 }
 
 /* Images */
@@ -253,7 +271,7 @@
   padding: 1.5em;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   text-align: left;
-  border: 1px solid rgba(30, 64, 175, 0.1);
+  border: 1px solid rgba(50, 35, 189, 0.1);
 }
 
 .reveal .card h4 {
@@ -276,17 +294,17 @@
 }
 
 .reveal .principle-card.understanding {
-  background: linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(8, 145, 178, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(62, 197, 187, 0.15) 0%, rgba(62, 197, 187, 0.05) 100%);
   border: 2px solid var(--foe-understanding);
 }
 
 .reveal .principle-card.feedback {
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(124, 58, 237, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(204, 139, 250, 0.15) 0%, rgba(204, 139, 250, 0.05) 100%);
   border: 2px solid var(--foe-feedback);
 }
 
 .reveal .principle-card.confidence {
-  background: linear-gradient(135deg, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
   border: 2px solid var(--foe-confidence);
 }
 
@@ -335,20 +353,39 @@
   color: var(--foe-confidence);
 }
 
-/* Controls styling */
+/* Controls styling - Navigation arrows */
 .reveal .controls {
   color: var(--foe-primary);
 }
 
+.reveal .controls button {
+  opacity: 0.7;
+  transform: scale(1.3);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.reveal .controls button:hover {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+.reveal .controls button.enabled {
+  opacity: 0.85;
+}
+
+.reveal .controls button.enabled:hover {
+  opacity: 1;
+}
+
 /* Progress bar */
 .reveal .progress {
-  background: rgba(30, 64, 175, 0.2);
+  background: rgba(50, 35, 189, 0.2);
   color: var(--foe-primary);
 }
 
 /* Slide number */
 .reveal .slide-number {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--foe-font-display);
   font-size: 14px;
   color: var(--foe-text-light);
   background: transparent;
@@ -361,11 +398,12 @@
 
 /* Logo placement */
 .reveal .slide-logo {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   right: 30px;
-  height: 40px;
+  height: 50px;
   opacity: 0.7;
+  z-index: 100;
 }
 
 /* Title slide styling */
@@ -533,7 +571,7 @@
 
 /* Highlight box */
 .reveal .highlight-box {
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(30, 64, 175, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(50, 35, 189, 0.1) 0%, rgba(50, 35, 189, 0.05) 100%);
   border: 2px solid var(--foe-primary);
   border-radius: 16px;
   padding: 1.5em 2em;
@@ -608,4 +646,177 @@
 
 .reveal .matrix .level-high {
   background: #dcfce7;
+}
+
+/* ==========================================================================
+   Utility Classes - Reduce inline styles
+   ========================================================================== */
+
+/* Background utilities for principle colors */
+.reveal .bg-understanding {
+  background: linear-gradient(135deg, rgba(62, 197, 187, 0.15) 0%, rgba(62, 197, 187, 0.05) 100%);
+  border: 2px solid var(--foe-understanding);
+}
+
+.reveal .bg-understanding-soft {
+  background: rgba(62, 197, 187, 0.1);
+}
+
+.reveal .bg-understanding-muted {
+  background: rgba(62, 197, 187, 0.08);
+}
+
+.reveal .bg-feedback {
+  background: linear-gradient(135deg, rgba(204, 139, 250, 0.15) 0%, rgba(204, 139, 250, 0.05) 100%);
+  border: 2px solid var(--foe-feedback);
+}
+
+.reveal .bg-feedback-soft {
+  background: rgba(204, 139, 250, 0.1);
+}
+
+.reveal .bg-feedback-muted {
+  background: rgba(204, 139, 250, 0.08);
+}
+
+.reveal .bg-confidence {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
+  border: 2px solid var(--foe-confidence);
+}
+
+.reveal .bg-confidence-soft {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.reveal .bg-confidence-muted {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.reveal .bg-warning {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
+  border: 2px solid var(--foe-warning);
+}
+
+.reveal .bg-warning-soft {
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.reveal .bg-danger {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0.05) 100%);
+  border: 2px solid var(--foe-danger);
+}
+
+.reveal .bg-danger-soft {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Text color utilities */
+.reveal .text-understanding { color: var(--foe-understanding); }
+.reveal .text-feedback { color: var(--foe-feedback); }
+.reveal .text-confidence { color: var(--foe-confidence); }
+.reveal .text-warning { color: var(--foe-warning); }
+.reveal .text-danger { color: var(--foe-danger); }
+.reveal .text-muted { color: var(--foe-text-light); }
+
+/* Border utilities */
+.reveal .border-understanding { border-color: var(--foe-understanding); }
+.reveal .border-feedback { border-color: var(--foe-feedback); }
+.reveal .border-confidence { border-color: var(--foe-confidence); }
+
+.reveal .border-left-understanding {
+  border-left: 8px solid var(--foe-understanding);
+  padding-left: 1.5em;
+}
+
+.reveal .border-left-feedback {
+  border-left: 8px solid var(--foe-feedback);
+  padding-left: 1.5em;
+}
+
+.reveal .border-left-confidence {
+  border-left: 8px solid var(--foe-confidence);
+  padding-left: 1.5em;
+}
+
+.reveal .border-top-understanding {
+  border-top: 4px solid var(--foe-understanding);
+}
+
+.reveal .border-top-feedback {
+  border-top: 4px solid var(--foe-feedback);
+}
+
+.reveal .border-top-confidence {
+  border-top: 4px solid var(--foe-confidence);
+}
+
+/* Common box styles */
+.reveal .principle-box {
+  padding: 1.5em 2em;
+  border-radius: 16px;
+}
+
+.reveal .principle-box-sm {
+  padding: 1em 1.5em;
+  border-radius: 12px;
+}
+
+.reveal .info-box {
+  padding: 1em 1.5em;
+  border-radius: 12px;
+  font-size: 0.8em;
+}
+
+/* Flex utilities */
+.reveal .flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reveal .flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Text utilities */
+.reveal .text-center { text-align: center; }
+.reveal .text-left { text-align: left; }
+.reveal .font-semibold { font-weight: 600; }
+.reveal .font-bold { font-weight: 700; }
+.reveal .italic { font-style: italic; }
+
+/* Spacing utilities */
+.reveal .mt-0 { margin-top: 0; }
+.reveal .mt-1 { margin-top: 0.5em; }
+.reveal .mt-2 { margin-top: 1em; }
+.reveal .mt-3 { margin-top: 1.5em; }
+.reveal .mt-4 { margin-top: 2em; }
+.reveal .mb-0 { margin-bottom: 0; }
+.reveal .mb-1 { margin-bottom: 0.5em; }
+.reveal .mb-2 { margin-bottom: 1em; }
+
+/* Reduced motion support for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .reveal .fragment,
+  .reveal [data-auto-animate],
+  .reveal .slides section {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .reveal .fade-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .reveal .fragment.fade-in,
+  .reveal .fragment.fade-up,
+  .reveal .fragment.fade-down,
+  .reveal .fragment.fade-left,
+  .reveal .fragment.fade-right {
+    transition: none !important;
+  }
 }

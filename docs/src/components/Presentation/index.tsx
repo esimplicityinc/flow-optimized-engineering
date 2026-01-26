@@ -53,7 +53,7 @@ export function Presentation({
       
       // Navigation and Controls
       controls: true,
-      controlsLayout: 'bottom-right',
+      controlsLayout: 'bottom-left',
       controlsBackArrows: 'faded',
       progress: true,
       slideNumber: showSlideNumber,
@@ -139,20 +139,7 @@ export function Presentation({
         <Level5Slides />
       </div>
       
-      {/* FOE Logo watermark */}
-      <img 
-        src="/flow-optimized-engineering/img/foe-logo.svg" 
-        alt="FOE" 
-        className="slide-logo"
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '30px',
-          height: '50px',
-          opacity: 0.7,
-          zIndex: 100,
-        }}
-      />
+
     </div>
   );
 }

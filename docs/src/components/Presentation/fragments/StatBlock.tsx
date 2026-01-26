@@ -9,10 +9,10 @@ interface StatBlockProps {
 }
 
 const colorMap = {
-  primary: '#1e40af',
-  understanding: '#0891b2',
-  feedback: '#7c3aed',
-  confidence: '#059669',
+  primary: '#3223BD',
+  understanding: '#3EC5BB',
+  feedback: '#CC8BFA',
+  confidence: '#3B82F6',
 };
 
 /**
@@ -53,7 +53,7 @@ export function StatBlock({
         className="stat-label"
         style={{
           fontSize: '0.5em',
-          color: '#64748b',
+          color: '#475569',
           textTransform: 'uppercase',
           letterSpacing: '0.1em',
         }}

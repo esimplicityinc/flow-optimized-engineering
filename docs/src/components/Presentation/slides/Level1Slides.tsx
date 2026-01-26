@@ -15,7 +15,7 @@ import React from 'react';
 function TitleSlide() {
   return (
     <section 
-      data-background="linear-gradient(135deg, #1e40af 0%, #0f172a 100%)"
+      data-background="linear-gradient(135deg, #3223BD 0%, #1a1237 100%)"
       className="title-slide dark-bg"
     >
       <div style={{ marginBottom: '2em' }}>
@@ -36,6 +36,34 @@ function TitleSlide() {
       <p className="subtitle" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.3em' }}>
         Go Faster by Knowing More, Not by Caring Less
       </p>
+      
+      {/* QR Code - bottom right */}
+      <div style={{
+        position: 'absolute',
+        bottom: '40px',
+        right: '40px',
+        textAlign: 'center',
+      }}>
+        <img 
+          src="/flow-optimized-engineering/img/qr-foe-docs.svg" 
+          alt="QR Code for FOE Documentation"
+          style={{ 
+            width: '120px', 
+            height: '120px',
+            background: 'white',
+            padding: '8px',
+            borderRadius: '8px',
+          }}
+        />
+        <div style={{ 
+          color: 'rgba(255,255,255,0.7)', 
+          fontSize: '0.4em', 
+          marginTop: '0.5em' 
+        }}>
+          Scan for docs
+        </div>
+      </div>
+      
       <aside className="notes">
         Welcome everyone. Today I want to introduce you to Flow Optimized Engineering - 
         a delivery doctrine that challenges a fundamental assumption most organizations make: 
@@ -47,7 +75,112 @@ function TitleSlide() {
 }
 
 /**
- * Slide 2: The Challenge
+ * Slide 2: Agenda
+ * Overview of what we'll cover
+ */
+function AgendaSlide() {
+  return (
+    <section>
+      <h2>What We'll Cover</h2>
+      <div style={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        gap: '0.8em', 
+        marginTop: '1.5em',
+        maxWidth: '700px',
+        margin: '1.5em auto 0'
+      }}>
+        <div className="fragment" style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1em',
+          padding: '0.8em 1.2em',
+          background: 'linear-gradient(135deg, rgba(50, 35, 189, 0.08) 0%, rgba(50, 35, 189, 0.03) 100%)',
+          borderRadius: '10px',
+          borderLeft: '4px solid #3223BD'
+        }}>
+          <div style={{ fontWeight: 700, color: '#3223BD', fontSize: '1.2em', minWidth: '30px' }}>1</div>
+          <div style={{ textAlign: 'left' }}>
+            <div style={{ fontWeight: 600 }}>The False Tradeoff</div>
+            <div style={{ fontSize: '0.75em', color: '#475569' }}>Why speed vs. safety is a myth</div>
+          </div>
+        </div>
+        
+        <div className="fragment" style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1em',
+          padding: '0.8em 1.2em',
+          background: 'linear-gradient(135deg, rgba(62, 197, 187, 0.08) 0%, rgba(62, 197, 187, 0.03) 100%)',
+          borderRadius: '10px',
+          borderLeft: '4px solid #3EC5BB'
+        }}>
+          <div style={{ fontWeight: 700, color: '#3EC5BB', fontSize: '1.2em', minWidth: '30px' }}>2</div>
+          <div style={{ textAlign: 'left' }}>
+            <div style={{ fontWeight: 600 }}>Core Principles</div>
+            <div style={{ fontSize: '0.75em', color: '#475569' }}>Understanding, Fast Feedback, Confidence</div>
+          </div>
+        </div>
+        
+        <div className="fragment" style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1em',
+          padding: '0.8em 1.2em',
+          background: 'linear-gradient(135deg, rgba(204, 139, 250, 0.08) 0%, rgba(204, 139, 250, 0.03) 100%)',
+          borderRadius: '10px',
+          borderLeft: '4px solid #CC8BFA'
+        }}>
+          <div style={{ fontWeight: 700, color: '#CC8BFA', fontSize: '1.2em', minWidth: '30px' }}>3</div>
+          <div style={{ textAlign: 'left' }}>
+            <div style={{ fontWeight: 600 }}>The Evidence</div>
+            <div style={{ fontSize: '0.75em', color: '#475569' }}>Research that backs FOE</div>
+          </div>
+        </div>
+        
+        <div className="fragment" style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1em',
+          padding: '0.8em 1.2em',
+          background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.03) 100%)',
+          borderRadius: '10px',
+          borderLeft: '4px solid #3B82F6'
+        }}>
+          <div style={{ fontWeight: 700, color: '#3B82F6', fontSize: '1.2em', minWidth: '30px' }}>4</div>
+          <div style={{ textAlign: 'left' }}>
+            <div style={{ fontWeight: 600 }}>Implementation</div>
+            <div style={{ fontSize: '0.75em', color: '#475569' }}>Field Guides, Methods, Experiments</div>
+          </div>
+        </div>
+        
+        <div className="fragment" style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1em',
+          padding: '0.8em 1.2em',
+          background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.03) 100%)',
+          borderRadius: '10px',
+          borderLeft: '4px solid #F59E0B'
+        }}>
+          <div style={{ fontWeight: 700, color: '#F59E0B', fontSize: '1.2em', minWidth: '30px' }}>5</div>
+          <div style={{ textAlign: 'left' }}>
+            <div style={{ fontWeight: 600 }}>Getting Started</div>
+            <div style={{ fontSize: '0.75em', color: '#475569' }}>Your next steps</div>
+          </div>
+        </div>
+      </div>
+      <aside className="notes">
+        Quick roadmap for the presentation. We'll start with the problem most organizations face,
+        then introduce the three principles, show the research backing them, demonstrate how to
+        implement them, and end with concrete next steps you can take Monday morning.
+      </aside>
+    </section>
+  );
+}
+
+/**
+ * Slide 3: The Challenge
  * Presents the false dichotomy most organizations face
  */
 function ChallengeSlide() {
@@ -62,13 +195,13 @@ function ChallengeSlide() {
           <div 
             style={{ 
               padding: '2em', 
-              background: 'linear-gradient(135deg, rgba(217, 119, 6, 0.15) 0%, rgba(217, 119, 6, 0.05) 100%)',
+              background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%)',
               borderRadius: '16px',
-              border: '2px solid #d97706'
+              border: '2px solid #F59E0B'
             }}
           >
-            <h3 style={{ color: '#d97706', marginBottom: '0.5em' }}>Move Fast</h3>
-            <p style={{ fontSize: '0.8em', color: '#64748b' }}>
+            <h3 style={{ color: '#F59E0B', marginBottom: '0.5em' }}>Move Fast</h3>
+            <p style={{ fontSize: '0.8em', color: '#475569' }}>
               Skip reviews, reduce testing, push through technical debt
             </p>
           </div>
@@ -77,20 +210,20 @@ function ChallengeSlide() {
           <div 
             style={{ 
               padding: '2em', 
-              background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.15) 0%, rgba(30, 64, 175, 0.05) 100%)',
+              background: 'linear-gradient(135deg, rgba(50, 35, 189, 0.15) 0%, rgba(50, 35, 189, 0.05) 100%)',
               borderRadius: '16px',
-              border: '2px solid #1e40af'
+              border: '2px solid #3223BD'
             }}
           >
-            <h3 style={{ color: '#1e40af', marginBottom: '0.5em' }}>...Or Be Careful?</h3>
-            <p style={{ fontSize: '0.8em', color: '#64748b' }}>
+            <h3 style={{ color: '#3223BD', marginBottom: '0.5em' }}>...Or Be Careful?</h3>
+            <p style={{ fontSize: '0.8em', color: '#475569' }}>
               Heavy processes, extensive approvals, slow release cycles
             </p>
           </div>
         </div>
       </div>
       <div className="fragment" data-fragment-index={2} style={{ marginTop: '2em' }}>
-        <p style={{ fontSize: '1.2em', fontWeight: '600', color: '#dc2626' }}>
+        <p style={{ fontSize: '1.2em', fontWeight: '600', color: '#EF4444' }}>
           This is a false choice.
         </p>
       </div>
@@ -113,9 +246,10 @@ function ChallengeSlide() {
 function ThesisSlide() {
   return (
     <section 
-      data-background="linear-gradient(135deg, #1e40af 0%, #0f172a 100%)"
+      data-background="linear-gradient(135deg, #3223BD 0%, #1a1237 100%)"
       className="dark-bg"
     >
+      <h2 style={{ color: 'white', marginBottom: '1em' }}>The FOE Thesis</h2>
       <blockquote 
         style={{ 
           background: 'rgba(255,255,255,0.1)', 
@@ -158,13 +292,13 @@ function GaugesMetaphorSlide() {
                 padding: '2em', 
                 background: '#fee2e2',
                 borderRadius: '16px',
-                border: '2px solid #dc2626'
+                border: '2px solid #EF4444'
               }}
             >
-              <h4 style={{ color: '#dc2626', marginBottom: '0.8em' }}>
+              <h4 style={{ color: '#EF4444', marginBottom: '0.8em' }}>
                 Taped Dashboard
               </h4>
-              <p style={{ fontSize: '0.75em', color: '#64748b', marginBottom: '0.5em' }}>
+              <p style={{ fontSize: '0.75em', color: '#475569', marginBottom: '0.5em' }}>
                 No speedometer, no fuel gauge, no warning lights
               </p>
               <p style={{ fontSize: '0.85em', fontWeight: '600' }}>
@@ -178,13 +312,13 @@ function GaugesMetaphorSlide() {
                 padding: '2em', 
                 background: '#dcfce7',
                 borderRadius: '16px',
-                border: '2px solid #059669'
+                border: '2px solid #3B82F6'
               }}
             >
-              <h4 style={{ color: '#059669', marginBottom: '0.8em' }}>
+              <h4 style={{ color: '#3B82F6', marginBottom: '0.8em' }}>
                 Full Instruments
               </h4>
-              <p style={{ fontSize: '0.75em', color: '#64748b', marginBottom: '0.5em' }}>
+              <p style={{ fontSize: '0.75em', color: '#475569', marginBottom: '0.5em' }}>
                 Real-time data on every system, instant feedback
               </p>
               <p style={{ fontSize: '0.85em', fontWeight: '600' }}>
@@ -197,7 +331,7 @@ function GaugesMetaphorSlide() {
       <div className="fragment" data-fragment-index={2} style={{ marginTop: '1.5em' }}>
         <p style={{ fontSize: '1.1em' }}>
           <strong>Race car drivers don't slow down for safety.</strong><br />
-          <span style={{ color: '#64748b' }}>They instrument everything so they can go faster.</span>
+          <span style={{ color: '#475569' }}>They instrument everything so they can go faster.</span>
         </p>
       </div>
       <aside className="notes">
@@ -223,7 +357,7 @@ function WhatFOEIsSlide() {
       <h2>A Delivery Doctrine</h2>
       <div className="two-columns" style={{ marginTop: '1.5em', gap: '3em' }}>
         <div>
-          <h3 style={{ color: '#059669', marginBottom: '0.8em' }}>FOE IS</h3>
+          <h3 style={{ color: '#3B82F6', marginBottom: '0.8em' }}>FOE IS</h3>
           <ul className="check-list">
             <li className="fragment" data-fragment-index={0}>
               <strong>Principles</strong> that guide decisions
@@ -240,7 +374,7 @@ function WhatFOEIsSlide() {
           </ul>
         </div>
         <div>
-          <h3 style={{ color: '#dc2626', marginBottom: '0.8em' }}>FOE IS NOT</h3>
+          <h3 style={{ color: '#EF4444', marginBottom: '0.8em' }}>FOE IS NOT</h3>
           <ul className="check-list cross-list">
             <li className="fragment" data-fragment-index={4}>
               A rigid methodology
@@ -279,7 +413,7 @@ function BusinessCaseSlide() {
   return (
     <section>
       <h2>The Performance Gap</h2>
-      <p style={{ fontSize: '0.9em', color: '#64748b', marginBottom: '1.5em' }}>
+      <p style={{ fontSize: '0.9em', color: '#475569', marginBottom: '1.5em' }}>
         Elite performers vs. the rest (DORA State of DevOps Research)
       </p>
       <div className="card-grid cols-4" style={{ marginTop: '1em' }}>
@@ -304,13 +438,13 @@ function BusinessCaseSlide() {
         <div 
           className="highlight-box" 
           style={{ 
-            background: 'linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%)',
-            border: '2px solid #059669'
+            background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%)',
+            border: '2px solid #3B82F6'
           }}
         >
           <p style={{ margin: 0, fontSize: '1.1em' }}>
             <strong>Elite teams deploy faster AND fail less.</strong><br />
-            <span style={{ color: '#64748b', fontSize: '0.85em' }}>
+            <span style={{ color: '#475569', fontSize: '0.85em' }}>
               Speed and stability are correlated, not opposed.
             </span>
           </p>
@@ -344,22 +478,22 @@ function FlowVsOutputSlide() {
             data-fragment-index={0}
             style={{ 
               padding: '1.5em', 
-              background: 'linear-gradient(135deg, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0.05) 100%)',
+              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%)',
               borderRadius: '16px',
-              border: '2px solid #059669',
+              border: '2px solid #3B82F6',
               marginBottom: '1em'
             }}
           >
-            <h3 style={{ color: '#059669', marginBottom: '0.5em', fontSize: '1.2em' }}>Flow</h3>
+            <h3 style={{ color: '#3B82F6', marginBottom: '0.5em', fontSize: '1.2em' }}>Flow</h3>
             <p style={{ fontSize: '0.8em', margin: 0 }}>
               Repeatable, sustainable movement from idea to impact
             </p>
           </div>
           <div className="fragment" data-fragment-index={1} style={{ textAlign: 'left', paddingLeft: '1em' }}>
-            <p style={{ fontSize: '0.75em', color: '#64748b', margin: '0.3em 0' }}>
+            <p style={{ fontSize: '0.75em', color: '#475569', margin: '0.3em 0' }}>
               <strong>Idea</strong> &rarr; <strong>Change</strong> &rarr; <strong>Verify</strong> &rarr; <strong>Release</strong> &rarr; <strong>Learn</strong>
             </p>
-            <p style={{ fontSize: '0.75em', color: '#64748b', margin: '0.5em 0' }}>
+            <p style={{ fontSize: '0.75em', color: '#475569', margin: '0.5em 0' }}>
               Continuous, measurable, improvable
             </p>
           </div>
@@ -370,22 +504,22 @@ function FlowVsOutputSlide() {
             data-fragment-index={2}
             style={{ 
               padding: '1.5em', 
-              background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(220, 38, 38, 0.05) 100%)',
+              background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0.05) 100%)',
               borderRadius: '16px',
-              border: '2px solid #dc2626',
+              border: '2px solid #EF4444',
               marginBottom: '1em'
             }}
           >
-            <h3 style={{ color: '#dc2626', marginBottom: '0.5em', fontSize: '1.2em' }}>Output</h3>
+            <h3 style={{ color: '#EF4444', marginBottom: '0.5em', fontSize: '1.2em' }}>Output</h3>
             <p style={{ fontSize: '0.8em', margin: 0 }}>
               Activity metrics disconnected from outcomes
             </p>
           </div>
           <div className="fragment" data-fragment-index={3} style={{ textAlign: 'left', paddingLeft: '1em' }}>
-            <p style={{ fontSize: '0.75em', color: '#64748b', margin: '0.3em 0' }}>
+            <p style={{ fontSize: '0.75em', color: '#475569', margin: '0.3em 0' }}>
               Lines of code, story points, tickets closed
             </p>
-            <p style={{ fontSize: '0.75em', color: '#64748b', margin: '0.5em 0' }}>
+            <p style={{ fontSize: '0.75em', color: '#475569', margin: '0.5em 0' }}>
               Can be gamed, creates perverse incentives
             </p>
           </div>
@@ -395,9 +529,9 @@ function FlowVsOutputSlide() {
         <table style={{ width: '100%', fontSize: '0.7em' }}>
           <thead>
             <tr>
-              <th style={{ background: '#1e40af', color: 'white', padding: '0.6em' }}>Metric Type</th>
-              <th style={{ background: '#1e40af', color: 'white', padding: '0.6em' }}>Example</th>
-              <th style={{ background: '#1e40af', color: 'white', padding: '0.6em' }}>Problem</th>
+              <th style={{ background: '#3223BD', color: 'white', padding: '0.6em' }}>Metric Type</th>
+              <th style={{ background: '#3223BD', color: 'white', padding: '0.6em' }}>Example</th>
+              <th style={{ background: '#3223BD', color: 'white', padding: '0.6em' }}>Problem</th>
             </tr>
           </thead>
           <tbody>
@@ -436,7 +570,7 @@ function PrinciplesPreviewSlide() {
   return (
     <section data-auto-animate>
       <h2>The Cognitive Triangle</h2>
-      <p style={{ fontSize: '0.9em', color: '#64748b', marginBottom: '1.5em' }}>
+      <p style={{ fontSize: '0.9em', color: '#475569', marginBottom: '1.5em' }}>
         Three interconnected principles that enable sustainable velocity
       </p>
       <div className="three-columns" style={{ marginTop: '2em' }}>
@@ -445,18 +579,18 @@ function PrinciplesPreviewSlide() {
             className="principle-card understanding"
             style={{ 
               padding: '1.5em',
-              background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(8, 145, 178, 0.05) 100%)',
-              border: '2px solid #0891b2',
+              background: 'linear-gradient(135deg, rgba(62, 197, 187, 0.15) 0%, rgba(62, 197, 187, 0.05) 100%)',
+              border: '2px solid #3EC5BB',
               borderRadius: '16px'
             }}
           >
-            <div style={{ fontSize: '2em', marginBottom: '0.3em', color: '#0891b2' }}>
+            <div style={{ fontSize: '2em', marginBottom: '0.3em', color: '#3EC5BB' }}>
               1
             </div>
-            <h3 style={{ color: '#0891b2', fontSize: '1em', marginBottom: '0.5em' }}>
+            <h3 style={{ color: '#3EC5BB', fontSize: '1em', marginBottom: '0.5em' }}>
               Understanding
             </h3>
-            <p style={{ fontSize: '0.6em', color: '#64748b', margin: 0 }}>
+            <p style={{ fontSize: '0.6em', color: '#475569', margin: 0 }}>
               Optimize for comprehension
             </p>
           </div>
@@ -466,18 +600,18 @@ function PrinciplesPreviewSlide() {
             className="principle-card feedback"
             style={{ 
               padding: '1.5em',
-              background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(124, 58, 237, 0.05) 100%)',
-              border: '2px solid #7c3aed',
+              background: 'linear-gradient(135deg, rgba(204, 139, 250, 0.15) 0%, rgba(204, 139, 250, 0.05) 100%)',
+              border: '2px solid #CC8BFA',
               borderRadius: '16px'
             }}
           >
-            <div style={{ fontSize: '2em', marginBottom: '0.3em', color: '#7c3aed' }}>
+            <div style={{ fontSize: '2em', marginBottom: '0.3em', color: '#CC8BFA' }}>
               2
             </div>
-            <h3 style={{ color: '#7c3aed', fontSize: '1em', marginBottom: '0.5em' }}>
+            <h3 style={{ color: '#CC8BFA', fontSize: '1em', marginBottom: '0.5em' }}>
               Fast Feedback
             </h3>
-            <p style={{ fontSize: '0.6em', color: '#64748b', margin: 0 }}>
+            <p style={{ fontSize: '0.6em', color: '#475569', margin: 0 }}>
               Minimize time to signal
             </p>
           </div>
@@ -487,18 +621,18 @@ function PrinciplesPreviewSlide() {
             className="principle-card confidence"
             style={{ 
               padding: '1.5em',
-              background: 'linear-gradient(135deg, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0.05) 100%)',
-              border: '2px solid #059669',
+              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%)',
+              border: '2px solid #3B82F6',
               borderRadius: '16px'
             }}
           >
-            <div style={{ fontSize: '2em', marginBottom: '0.3em', color: '#059669' }}>
+            <div style={{ fontSize: '2em', marginBottom: '0.3em', color: '#3B82F6' }}>
               3
             </div>
-            <h3 style={{ color: '#059669', fontSize: '1em', marginBottom: '0.5em' }}>
+            <h3 style={{ color: '#3B82F6', fontSize: '1em', marginBottom: '0.5em' }}>
               Confidence
             </h3>
-            <p style={{ fontSize: '0.6em', color: '#64748b', margin: 0 }}>
+            <p style={{ fontSize: '0.6em', color: '#475569', margin: 0 }}>
               Enable fearless change
             </p>
           </div>
@@ -542,6 +676,7 @@ export function Level1Slides() {
   return (
     <>
       <TitleSlide />
+      <AgendaSlide />
       <ChallengeSlide />
       <ThesisSlide />
       <GaugesMetaphorSlide />
@@ -556,6 +691,7 @@ export function Level1Slides() {
 // Also export individual slides for flexibility
 export {
   TitleSlide,
+  AgendaSlide,
   ChallengeSlide,
   ThesisSlide,
   GaugesMetaphorSlide,

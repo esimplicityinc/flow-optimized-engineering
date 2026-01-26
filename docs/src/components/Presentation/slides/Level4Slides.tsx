@@ -8,6 +8,49 @@ import React from 'react';
 export function Level4Slides() {
   return (
     <>
+      {/* Section Divider - Implementation */}
+      <section
+        className="dark-bg"
+        data-background="linear-gradient(135deg, #3223BD 0%, #1a1237 100%)"
+      >
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '60vh'
+        }}>
+          <div style={{
+            fontSize: '0.9em',
+            textTransform: 'uppercase',
+            letterSpacing: '0.2em',
+            color: 'rgba(255,255,255,0.6)',
+            marginBottom: '1em'
+          }}>
+            Part 4
+          </div>
+          <h2 style={{ 
+            color: 'white', 
+            fontSize: '2em',
+            margin: 0,
+            fontWeight: 700
+          }}>
+            Implementation
+          </h2>
+          <p style={{
+            color: 'rgba(255,255,255,0.7)',
+            fontSize: '1em',
+            marginTop: '1em'
+          }}>
+            From Theory to Practice
+          </p>
+        </div>
+        <aside className="notes">
+          Section transition. We've covered the research that validates FOE.
+          Now let's see how to actually implement it.
+        </aside>
+      </section>
+
       {/* Slide 29 - From Theory to Practice */}
       <section>
         <h2>Field Guides, Methods, and Experiments</h2>
@@ -49,7 +92,7 @@ export function Level4Slides() {
           }}>
             {['Method 1', 'Method 2', 'Method 3'].map((method, i) => (
               <div key={i} style={{
-                background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(8, 145, 178, 0.05) 100%)',
+                background: 'linear-gradient(135deg, rgba(62, 197, 187, 0.15) 0%, rgba(62, 197, 187, 0.05) 100%)',
                 border: '2px solid var(--foe-understanding)',
                 padding: '0.8em 1.5em',
                 borderRadius: '10px',
@@ -76,7 +119,7 @@ export function Level4Slides() {
           }}>
             {['Exp A', 'Exp B', 'Exp C', 'Exp D', 'Exp E'].map((exp, i) => (
               <div key={i} style={{
-                background: 'linear-gradient(135deg, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0.05) 100%)',
+                background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%)',
                 border: '2px solid var(--foe-confidence)',
                 padding: '0.5em 1em',
                 borderRadius: '8px',
@@ -113,8 +156,8 @@ export function Level4Slides() {
           height: '350px'
         }}>
           {[
-            { level: 0, name: 'Fragile', desc: 'We find out late', height: '80px', color: '#dc2626' },
-            { level: 1, name: 'Visible', desc: 'We can see what\'s happening', height: '130px', color: '#d97706' },
+            { level: 0, name: 'Fragile', desc: 'We find out late', height: '80px', color: '#EF4444' },
+            { level: 1, name: 'Visible', desc: 'We can see what\'s happening', height: '130px', color: '#F59E0B' },
             { level: 2, name: 'Repeatable', desc: 'We can change safely', height: '180px', color: '#ca8a04' },
             { level: 3, name: 'Flowing', desc: 'System teaches us', height: '230px', color: 'var(--foe-understanding)' },
             { level: 4, name: 'Adaptive', desc: 'We absorb change', height: '280px', color: 'var(--foe-confidence)' }
@@ -197,8 +240,8 @@ export function Level4Slides() {
             position: 'relative'
           }}>
             {[
-              { phase: 0, name: 'On-Prem', color: '#dc2626' },
-              { phase: 1, name: 'Lift & Shift', color: '#d97706' },
+              { phase: 0, name: 'On-Prem', color: '#EF4444' },
+              { phase: 1, name: 'Lift & Shift', color: '#F59E0B' },
               { phase: 2, name: 'Awkward Middle', color: '#ca8a04' },
               { phase: 3, name: 'Cloud Native Infra', color: 'var(--foe-understanding)' },
               { phase: 4, name: 'Agentic Coding', color: 'var(--foe-feedback)' },
@@ -287,13 +330,13 @@ export function Level4Slides() {
           <div className="fragment">
             <h4 style={{ color: 'var(--foe-confidence)' }}>What They Need</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              <li style={{ padding: '0.5em 0', borderBottom: '1px solid rgba(5, 150, 105, 0.2)' }}>
+              <li style={{ padding: '0.5em 0', borderBottom: '1px solid rgba(59, 130, 246, 0.2)' }}>
                 IaC as a <em>discipline</em>
               </li>
-              <li style={{ padding: '0.5em 0', borderBottom: '1px solid rgba(5, 150, 105, 0.2)' }}>
+              <li style={{ padding: '0.5em 0', borderBottom: '1px solid rgba(59, 130, 246, 0.2)' }}>
                 Continuous Delivery <em>culture</em>
               </li>
-              <li style={{ padding: '0.5em 0', borderBottom: '1px solid rgba(5, 150, 105, 0.2)' }}>
+              <li style={{ padding: '0.5em 0', borderBottom: '1px solid rgba(59, 130, 246, 0.2)' }}>
                 Observable systems <em>practice</em>
               </li>
               <li style={{ padding: '0.5em 0' }}>
@@ -331,7 +374,7 @@ export function Level4Slides() {
         
         <div className="three-columns" style={{ marginTop: '1.5em' }}>
           <div className="fragment principle-card" style={{
-            background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.15) 0%, rgba(30, 64, 175, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(50, 35, 189, 0.15) 0%, rgba(50, 35, 189, 0.05) 100%)',
             border: '2px solid var(--foe-primary)',
             padding: '1.5em'
           }}>
@@ -343,7 +386,7 @@ export function Level4Slides() {
           </div>
           
           <div className="fragment principle-card" style={{
-            background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(124, 58, 237, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(204, 139, 250, 0.15) 0%, rgba(204, 139, 250, 0.05) 100%)',
             border: '2px solid var(--foe-feedback)',
             padding: '1.5em'
           }}>
@@ -355,7 +398,7 @@ export function Level4Slides() {
           </div>
           
           <div className="fragment principle-card" style={{
-            background: 'linear-gradient(135deg, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%)',
             border: '2px solid var(--foe-confidence)',
             padding: '1.5em'
           }}>
@@ -412,7 +455,7 @@ export function Level4Slides() {
               fontSize: '0.7em'
             }}>
               <div style={{
-                background: 'rgba(124, 58, 237, 0.1)',
+                background: 'rgba(204, 139, 250, 0.1)',
                 padding: '0.5em 1em',
                 borderRadius: '20px',
                 color: 'var(--foe-feedback)'
@@ -420,7 +463,7 @@ export function Level4Slides() {
                 <strong>3</strong> native methods
               </div>
               <div style={{
-                background: 'rgba(30, 64, 175, 0.1)',
+                background: 'rgba(50, 35, 189, 0.1)',
                 padding: '0.5em 1em',
                 borderRadius: '20px',
                 color: 'var(--foe-primary)'
@@ -445,7 +488,7 @@ export function Level4Slides() {
               fontSize: '0.7em'
             }}>
               <div style={{
-                background: 'rgba(8, 145, 178, 0.1)',
+                background: 'rgba(62, 197, 187, 0.1)',
                 padding: '0.5em 1em',
                 borderRadius: '20px',
                 color: 'var(--foe-understanding)'
@@ -453,7 +496,7 @@ export function Level4Slides() {
                 <strong>1</strong> native method
               </div>
               <div style={{
-                background: 'rgba(30, 64, 175, 0.1)',
+                background: 'rgba(50, 35, 189, 0.1)',
                 padding: '0.5em 1em',
                 borderRadius: '20px',
                 color: 'var(--foe-primary)'
@@ -561,7 +604,7 @@ export function Level4Slides() {
         
         <div className="three-columns" style={{ marginTop: '1.5em' }}>
           <div className="fragment" style={{
-            background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(8, 145, 178, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(62, 197, 187, 0.15) 0%, rgba(62, 197, 187, 0.05) 100%)',
             border: '2px solid var(--foe-understanding)',
             borderRadius: '16px',
             padding: '1.5em 1em',
@@ -594,7 +637,7 @@ export function Level4Slides() {
           </div>
           
           <div className="fragment" style={{
-            background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(124, 58, 237, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(204, 139, 250, 0.15) 0%, rgba(204, 139, 250, 0.05) 100%)',
             border: '2px solid var(--foe-feedback)',
             borderRadius: '16px',
             padding: '1.5em 1em',
@@ -627,7 +670,7 @@ export function Level4Slides() {
           </div>
           
           <div className="fragment" style={{
-            background: 'linear-gradient(135deg, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%)',
             border: '2px solid var(--foe-confidence)',
             borderRadius: '16px',
             padding: '1.5em 1em',
@@ -663,7 +706,7 @@ export function Level4Slides() {
         <div className="fragment" style={{
           marginTop: '1.5em',
           padding: '1em 2em',
-          background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(30, 64, 175, 0.05) 100%)',
+          background: 'linear-gradient(135deg, rgba(50, 35, 189, 0.1) 0%, rgba(50, 35, 189, 0.05) 100%)',
           borderRadius: '12px',
           textAlign: 'center',
           fontSize: '0.75em'

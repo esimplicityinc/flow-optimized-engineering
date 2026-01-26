@@ -35,8 +35,8 @@ export function QuoteBlock({
         width: '90%',
         margin: '20px auto',
         padding: '1.5em 2em',
-        background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(30, 64, 175, 0.03) 100%)',
-        borderLeft: '6px solid #1e40af',
+        background: 'linear-gradient(135deg, rgba(50, 35, 189, 0.08) 0%, rgba(50, 35, 189, 0.03) 100%)',
+        borderLeft: '6px solid #3223BD',
         borderRadius: '0 12px 12px 0',
         fontStyle: 'italic',
         fontSize: fontSizes[size],
@@ -49,7 +49,7 @@ export function QuoteBlock({
           className="quote-attribution"
           style={{
             fontSize: '0.6em',
-            color: '#64748b',
+            color: '#475569',
             marginTop: '0.8em',
             fontStyle: 'normal',
           }}

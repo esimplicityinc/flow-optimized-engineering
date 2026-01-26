@@ -31,7 +31,7 @@ export function Slide({
     : background;
   
   const bgStyle = backgroundGradient 
-    ? 'linear-gradient(135deg, #1e40af 0%, #0f172a 100%)' 
+    ? 'linear-gradient(135deg, #3223BD 0%, #1a1237 100%)' 
     : undefined;
 
   return (

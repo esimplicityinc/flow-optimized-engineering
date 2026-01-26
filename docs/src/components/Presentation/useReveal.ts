@@ -46,7 +46,7 @@ export function useReveal(options: UseRevealOptions = {}) {
       
       // Navigation and Controls
       controls: true,
-      controlsLayout: 'bottom-right',
+      controlsLayout: 'bottom-left',
       controlsBackArrows: 'faded',
       progress: true,
       slideNumber: mergedOptions.slideNumber,

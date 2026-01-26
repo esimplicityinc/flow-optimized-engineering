@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { PrincipleIcons, defaultIconProps } from '../icons';
 
 type PrincipleType = 'understanding' | 'feedback' | 'confidence';
 
@@ -6,28 +7,25 @@ interface PrincipleCardProps {
   principle: PrincipleType;
   title: string;
   children: ReactNode;
-  icon?: string;
+  /** Size of the icon in pixels */
+  iconSize?: number;
+  /** Hide the icon */
+  hideIcon?: boolean;
 }
 
 const principleStyles: Record<PrincipleType, { color: string; bg: string }> = {
   understanding: {
-    color: '#0891b2',
-    bg: 'linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(8, 145, 178, 0.05) 100%)',
+    color: '#3EC5BB',
+    bg: 'linear-gradient(135deg, rgba(62, 197, 187, 0.15) 0%, rgba(62, 197, 187, 0.05) 100%)',
   },
   feedback: {
-    color: '#7c3aed',
-    bg: 'linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(124, 58, 237, 0.05) 100%)',
+    color: '#CC8BFA',
+    bg: 'linear-gradient(135deg, rgba(204, 139, 250, 0.15) 0%, rgba(204, 139, 250, 0.05) 100%)',
   },
   confidence: {
-    color: '#059669',
-    bg: 'linear-gradient(135deg, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0.05) 100%)',
+    color: '#3B82F6',
+    bg: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%)',
   },
-};
-
-const defaultIcons: Record<PrincipleType, string> = {
-  understanding: '🧠',
-  feedback: '🔄',
-  confidence: '🛡️',
 };
 
 /**
@@ -42,10 +40,11 @@ export function PrincipleCard({
   principle, 
   title, 
   children, 
-  icon 
+  iconSize = defaultIconProps.size,
+  hideIcon = false,
 }: PrincipleCardProps) {
   const styles = principleStyles[principle];
-  const displayIcon = icon || defaultIcons[principle];
+  const IconComponent = PrincipleIcons[principle];
 
   return (
     <div
@@ -58,9 +57,14 @@ export function PrincipleCard({
         border: `2px solid ${styles.color}`,
       }}
     >
-      {displayIcon && (
-        <div className="icon" style={{ fontSize: '3em', marginBottom: '0.3em' }}>
-          {displayIcon}
+      {!hideIcon && IconComponent && (
+        <div className="icon" style={{ marginBottom: '0.5em' }}>
+          <IconComponent 
+            size={iconSize} 
+            color={styles.color} 
+            strokeWidth={defaultIconProps.strokeWidth}
+            aria-hidden="true"
+          />
         </div>
       )}
       <h3 style={{ 
@@ -71,7 +75,7 @@ export function PrincipleCard({
         {title}
       </h3>
       <div style={{ 
-        color: '#64748b', 
+        color: '#475569', 
         fontSize: '0.8em',
         lineHeight: 1.4,
       }}>

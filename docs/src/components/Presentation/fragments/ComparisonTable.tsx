@@ -30,8 +30,8 @@ export function ComparisonTable({
   leftHeader,
   rightHeader,
   rows,
-  leftColor = '#059669',
-  rightColor = '#d97706',
+  leftColor = '#3B82F6',
+  rightColor = '#F59E0B',
 }: ComparisonTableProps) {
   return (
     <table
@@ -45,7 +45,7 @@ export function ComparisonTable({
         <tr>
           <th style={{ 
             padding: '0.8em', 
-            background: '#1e40af', 
+            background: '#3223BD', 
             color: 'white',
             width: '20%',
           }}>
@@ -74,26 +74,26 @@ export function ComparisonTable({
           <tr 
             key={index}
             style={{
-              background: index % 2 === 0 ? 'rgba(30, 64, 175, 0.05)' : 'transparent',
+              background: index % 2 === 0 ? 'rgba(50, 35, 189, 0.05)' : 'transparent',
             }}
           >
             <td style={{ 
               padding: '0.6em 1em', 
               fontWeight: 600,
-              borderBottom: '1px solid rgba(30, 64, 175, 0.1)',
+              borderBottom: '1px solid rgba(50, 35, 189, 0.1)',
             }}>
               {row.label}
             </td>
             <td style={{ 
               padding: '0.6em 1em',
-              borderBottom: '1px solid rgba(30, 64, 175, 0.1)',
+              borderBottom: '1px solid rgba(50, 35, 189, 0.1)',
               textAlign: 'center',
             }}>
               {row.left}
             </td>
             <td style={{ 
               padding: '0.6em 1em',
-              borderBottom: '1px solid rgba(30, 64, 175, 0.1)',
+              borderBottom: '1px solid rgba(50, 35, 189, 0.1)',
               textAlign: 'center',
             }}>
               {row.right}
