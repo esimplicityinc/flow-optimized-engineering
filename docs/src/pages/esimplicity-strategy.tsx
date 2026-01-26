@@ -103,7 +103,7 @@ function Section1(): ReactNode {
           <blockquote>
             <p>
               eSimplicity will not pursue an "agentic coding strategy" in isolation. Instead, we will
-              implement Flow Optimized Engineering (FOE) as the governing doctrine—with agentic tooling
+              implement Flow Optimized Engineering (FOE) as the governing doctrine, with agentic tooling
               as one powerful capability within that structure.
             </p>
           </blockquote>
@@ -129,7 +129,7 @@ function Section1(): ReactNode {
           blanket restrictions, creating shadow IT and adversarial dynamics.
         </li>
         <li>
-          <strong>Cultural Backlash:</strong> Engineers feel surveilled, deskilled, or replaced—leading
+          <strong>Cultural Backlash:</strong> Engineers feel surveilled, deskilled, or replaced, leading
           to quiet resistance, attrition, and loss of institutional knowledge.
         </li>
       </ul>
@@ -175,10 +175,10 @@ function Section1(): ReactNode {
       <ul>
         <li>
           <strong>Safe:</strong> Every AI-generated change flows through the same validation gates
-          as human-authored code. The system doesn't trust the source—it trusts the evidence.
+          as human-authored code. The system doesn't trust the source; it trusts the evidence.
         </li>
         <li>
-          <strong>Legible:</strong> All work—human or machine—produces artifacts that can be
+          <strong>Legible:</strong> All work, human or machine, produces artifacts that can be
           reviewed, understood, and audited. Speed without traceability is just faster failure.
         </li>
         <li>
@@ -201,13 +201,13 @@ function Section2(): ReactNode {
         <p>
           FOE is built on three foundational truths about engineering that hold regardless of whether
           the work is performed by humans, AI agents, or some combination. These truths become more
-          critical—not less—as we introduce faster, more autonomous tooling.
+          critical, not less, as we introduce faster, more autonomous tooling.
         </p>
       }
     >
       <h3>Truth 1: Flow is the Unit of Progress</h3>
       <p>
-        Not output. Not activity. Not utilization. <em>Flow</em>—the uninterrupted movement of
+        Not output. Not activity. Not utilization. <em>Flow</em>: the uninterrupted movement of
         value from concept to customer.
       </p>
       <p>
@@ -223,7 +223,7 @@ function Section2(): ReactNode {
       </p>
       <p>
         Legibility means every change carries its rationale, every decision is traceable, and
-        every outcome can be attributed to its causes. This isn't bureaucracy—it's the
+        every outcome can be attributed to its causes. This isn't bureaucracy; it's the
         prerequisite for learning.
       </p>
 
@@ -259,8 +259,8 @@ function Section3(): ReactNode {
       executiveSummary={
         <p>
           Clear ownership enables coordinated action without bottlenecks. RIC serves as the custodian
-          of FOE doctrine—the environment and standards. Prima operates as the agentic enablement
-          team—building tools and running experiments. The distinction: RIC creates the conditions
+          of FOE doctrine: the environment and standards. Prima operates as the agentic enablement
+          team, building tools and running experiments. The distinction: RIC creates the conditions
           where agentic tooling can thrive; Prima builds the sensory organs that let us see and respond.
         </p>
       }
@@ -284,7 +284,7 @@ function Section3(): ReactNode {
 
       <h3>RIC: Custodian of FOE Doctrine</h3>
       <p>
-        RIC treats FOE as <em>infrastructure</em>—foundational systems that other capabilities depend upon:
+        RIC treats FOE as <em>infrastructure</em>: foundational systems that other capabilities depend upon:
       </p>
       <ul>
         <li><strong>Establishing norms and patterns:</strong> Defining what "good" looks like for AI-augmented engineering</li>
@@ -340,7 +340,7 @@ function Section4(): ReactNode {
         <p>
           FOE is fundamentally about people, not tools. The deepest changes happen in how teams communicate,
           how leaders respond to uncertainty, and how organizations treat the humans who build their systems.
-          Psychological safety becomes operational safety—the freedom to surface problems early without fear
+          Psychological safety becomes operational safety: the freedom to surface problems early without fear
           determines whether issues are caught in development or discovered in production.
         </p>
       }
@@ -349,7 +349,7 @@ function Section4(): ReactNode {
       <p>
         We often treat psychological safety as an HR concern. FOE recognizes that psychological safety
         <em> is</em> operational safety. When engineers fear blame, they hide problems. When they hide
-        problems, systems fail. The freedom to say "I don't know" isn't a nice-to-have—it's the mechanism
+        problems, systems fail. The freedom to say "I don't know" isn't a nice-to-have; it's the mechanism
         by which organizations detect risk before it becomes incident.
       </p>
 
@@ -363,7 +363,7 @@ function Section4(): ReactNode {
       <ul>
         <li>It masks systemic problems that compound over time</li>
         <li>It burns out your best people while training everyone else to depend on them</li>
-        <li>It makes the organization fragile—success depends on specific individuals</li>
+        <li>It makes the organization fragile: success depends on specific individuals</li>
         <li>It prevents learning: if heroes always save the day, you never discover what's broken</li>
       </ul>
 
@@ -421,7 +421,7 @@ function Section5(): ReactNode {
       executiveSummary={
         <p>
           AI creates a dangerous paradox: it makes junior developers productive without making them wise,
-          while senior developers—the ones who provide judgment—are retiring faster than they're being replaced.
+          while senior developers, the ones who provide judgment, are retiring faster than they're being replaced.
           Organizations face a trilemma where AI accelerates output while simultaneously punishing weak
           foundations and depleting the expertise needed to build strong ones.
         </p>
@@ -471,7 +471,7 @@ function Section5(): ReactNode {
       <ul>
         <li><strong>The senior provides:</strong> Judgment, risk identification, quality standards, knowledge transfer</li>
         <li><strong>The juniors provide:</strong> Implementation capacity and opportunity for seniors to teach</li>
-        <li><strong>The tooling provides:</strong> Leverage—AI handles mechanical work, freeing humans for judgment</li>
+        <li><strong>The tooling provides:</strong> Leverage. AI handles mechanical work, freeing humans for judgment</li>
       </ul>
 
       <div className={styles.highlightBox}>
@@ -493,7 +493,7 @@ function Section6(): ReactNode {
       owner="prima"
       executiveSummary={
         <p>
-          Prima will fork the OpenCode framework to create the Prima Local Agent—a local-first,
+          Prima will fork the OpenCode framework to create the Prima Local Agent: a local-first,
           offline-capable, audit-friendly foundation for agentic coding. This isn't about choosing
           a vendor; it's about architectural philosophy. If an agent cannot explain what it did locally,
           it cannot be trusted globally.
@@ -549,7 +549,7 @@ function Section6(): ReactNode {
 
       <h3>A Legibility Surface, Not a Productivity Hack</h3>
       <p>
-        The goal isn't primarily speed or cost savings. It's <em>legibility</em>—the ability to understand,
+        The goal isn't primarily speed or cost savings. It's <em>legibility</em>: the ability to understand,
         verify, and trust what automated systems are doing on your behalf. This is FOE applied to AI tooling
         itself: optimize for understanding, fast feedback, and confidence.
       </p>
@@ -567,7 +567,7 @@ function Section7(): ReactNode {
       executiveSummary={
         <p>
           The <code>.agent/</code> directory convention provides a tool-agnostic home for agent
-          definitions—markdown files, simple metadata, and human-readable instructions that work
+          definitions: markdown files, simple metadata, and human-readable instructions that work
           across any AI coding assistant. As the agent ecosystem converges on simple patterns,
           this convention ensures eSimplicity can adopt new tools without rewriting institutional knowledge.
         </p>
@@ -618,9 +618,9 @@ function Section8(): ReactNode {
       executiveSummary={
         <p>
           FOE reframes compliance as an evidence production problem rather than a paperwork problem.
-          By generating compliance artifacts as automatic byproducts of normal work—configuration
+          By generating compliance artifacts as automatic byproducts of normal work (configuration
           managed by agents, changes that produce receipts, deployment modes that fit agency
-          constraints—we collapse ATO friction without pretending regulatory requirements don't exist.
+          constraints), we collapse ATO friction without pretending regulatory requirements don't exist.
         </p>
       }
     >
@@ -684,7 +684,7 @@ function Section9(): ReactNode {
       owner="shared"
       executiveSummary={
         <p>
-          The Field Guide is not documentation—it's institutional memory expressed as hypotheses
+          The Field Guide is not documentation; it's institutional memory expressed as hypotheses
           with experiments attached. Every method starts as a guess, graduates through maturity
           levels as evidence accumulates, and can be downgraded when new evidence contradicts
           prior beliefs. Agents help maintain this living system.
@@ -728,7 +728,7 @@ function Section9(): ReactNode {
       </table>
       <p>
         Critically, methods can move backwards. A "Proven" method that starts failing gets downgraded.
-        The system has no ego—only evidence.
+        The system has no ego, only evidence.
       </p>
 
       <h3>Agent-Assisted Maintenance</h3>
@@ -753,7 +753,7 @@ function Section10(): ReactNode {
       owner="ric"
       executiveSummary={
         <p>
-          FOE is not optional or a sidecar—it is embedded in every repository we touch. Every change
+          FOE is not optional or a sidecar; it is embedded in every repository we touch. Every change
           is treated as a claim about reality that must earn its keep through evidence. This scaffolding
           ensures that learning is captured where work happens, not reconstructed after the fact.
         </p>
@@ -792,7 +792,7 @@ function Section10(): ReactNode {
 
       <h3>Agents Enforce Discipline</h3>
       <p>
-        A critical mental shift: agents are not here to bypass rigor—they enforce it.
+        A critical mental shift: agents are not here to bypass rigor; they enforce it.
         Agents generate tests before code, link changes to hypotheses, and flag gaps in evidence.
       </p>
 
@@ -816,7 +816,7 @@ function Section11(): ReactNode {
       executiveSummary={
         <p>
           Katalyst is the platform that makes agentic coding survivable. It serves as the DevEx layer,
-          testing substrate, and BDD backbone—the critical Phase 3 enabler. Without this foundation,
+          testing substrate, and BDD backbone: the critical Phase 3 enabler. Without this foundation,
           Phase 4 aspirations collapse into Phase 2 chaos at higher velocity.
         </p>
       }
@@ -824,13 +824,13 @@ function Section11(): ReactNode {
       <h3>Why Phase 3 Is the Organizational Bottleneck</h3>
       <p>
         Most organizations assume Phase 4 (Agentic Coding) is the hard part. They are wrong.
-        Phase 3—establishing disciplined, evidence-based practices—is where organizations stall.
+        Phase 3, establishing disciplined, evidence-based practices, is where organizations stall.
         Phase 4 without Phase 3 is just faster chaos.
       </p>
 
       <h3>The Discipline Gap</h3>
       <div className={styles.warningBox}>
-        <p><strong>Tools don't create disciplines—they enable or amplify existing ones.</strong></p>
+        <p><strong>Tools don't create disciplines; they enable or amplify existing ones.</strong></p>
       </div>
       <table>
         <thead>
@@ -912,7 +912,7 @@ function Section12(): ReactNode {
       executiveSummary={
         <p>
           This is not an AI strategy. This is not a tooling initiative. This is an attempt to make
-          software development behave like a mature engineering discipline—one where claims require
+          software development behave like a mature engineering discipline, one where claims require
           evidence, learning compounds, and truth becomes cheaper than assumption. The altered economics
           of AI make this both possible and necessary.
         </p>
