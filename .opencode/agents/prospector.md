@@ -12,6 +12,7 @@ permission:
   task:
     "prospector-*": allow
     "alchemist": allow
+    "app-runner": allow
 ---
 
 # Prospector

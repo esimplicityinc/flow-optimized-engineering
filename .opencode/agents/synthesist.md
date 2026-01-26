@@ -10,6 +10,7 @@ tools:
 permission:
   task:
     "synthesist-*": allow
+    "app-runner": allow
 ---
 
 # Synthesist

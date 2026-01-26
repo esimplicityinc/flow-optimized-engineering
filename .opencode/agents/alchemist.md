@@ -11,6 +11,7 @@ tools:
 permission:
   task:
     "alchemist-*": allow
+    "app-runner": allow
 ---
 
 # Alchemist

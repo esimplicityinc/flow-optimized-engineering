@@ -10,6 +10,7 @@ tools:
 permission:
   task:
     "cartographer-*": allow
+    "app-runner": allow
 ---
 
 # Framework Cartographer
