@@ -3,7 +3,7 @@ description: |
   Starts and manages local development servers. Use this agent when you need to run the docs
   site locally, verify builds, or open the application in a browser for visual inspection.
   Handles npm commands, waits for server startup, and opens browser when ready.
-mode: general
+mode: subagent
 temperature: 0.2
 tools:
   bash: true

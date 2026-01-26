@@ -5,7 +5,7 @@ title: Using AI Agents
 
 # Using AI Agents
 
-Four OpenCode agents help you contribute to Field Guides:
+Five OpenCode agents help you contribute to Field Guides:
 
 | Agent | Purpose | When to Use |
 |-------|---------|-------------|
@@ -13,8 +13,9 @@ Four OpenCode agents help you contribute to Field Guides:
 | **Synthesist** | Create methods | You have experiments that reveal a pattern |
 | **Prospector** | Find experiment opportunities | You want to mine a repo or literature for learnings |
 | **Framework Cartographer** | Import external frameworks | You want to adopt methods from DORA, BDD, etc. |
+| **Scout** | Survey external trends | You want to discover what's new in agentic coding |
 
-**Start with Alchemist** - experiments are fundamentally human experiences worth documenting. Once you understand that workflow, **Synthesist** helps you build methods from evidence. **Prospector** automates discovery when you want to systematically mine repositories or literature for opportunities. **Framework Cartographer** imports established industry frameworks, making their methods available for adoption.
+**Start with Alchemist** - experiments are fundamentally human experiences worth documenting. Once you understand that workflow, **Synthesist** helps you build methods from evidence. **Prospector** automates discovery when you want to systematically mine repositories or literature for opportunities. **Framework Cartographer** imports established industry frameworks, making their methods available for adoption. **Scout** surveys the external landscape (Reddit, YouTube, GitHub, skills.sh) to discover trends and opportunities that might inform FOE methods.
 
 These agents guide you through structured workflows, ensuring your contributions are rigorous, well-formatted, and properly linked.
 
@@ -544,9 +545,209 @@ foe_alignment:
 
 ---
 
+## Scout
+
+The Scout surveys the external landscape of agentic coding - Reddit discussions, YouTube tutorials, GitHub repos, skills.sh, and broader web sources - to discover trends and opportunities that might inform FOE methods.
+
+Think of it as your intelligence agent for staying current with the rapidly evolving agentic coding ecosystem.
+
+### When to Use
+
+- You want to know what's trending in agentic coding this week
+- You're looking for practices or tools that could become FOE methods
+- You want to find external research or case studies to document as literature evidence
+- You're curious what the community is discussing about AI coding assistants
+
+### How to Invoke
+
+```
+@scout
+```
+
+Scout will ask about your focus area, timeframe, and which sources to crawl.
+
+### The 6-Phase Workflow
+
+| Phase | Name | What Happens |
+|-------|------|--------------|
+| 1 | **Intake** | Determine focus area, timeframe, sources to include |
+| 2 | **Context Loading** | Read previous reports for delta comparison |
+| 3 | **Parallel Crawl** | Dispatch all 5 subagents simultaneously |
+| 4 | **Synthesis** | Merge findings, identify trends, deduplicate |
+| 5 | **Opportunity Mapping** | Tag items as method or experiment candidates |
+| 6 | **Report Generation** | Write structured markdown with frontmatter |
+
+<details>
+<summary><strong>Example Session</strong></summary>
+
+```
+You: @scout
+
+Scout: I'm ready to survey the agentic coding landscape. Let me understand 
+what you're looking for:
+
+1. **Focus:** General scan of all trends, or specific topic?
+2. **Timeframe:** Past week (default), past month, or custom?
+3. **Sources:** All 5 crawlers, or specific ones?
+
+What would you like to explore?
+
+You: General scan, past week, all sources
+
+Scout: Starting a comprehensive scan of the agentic coding landscape...
+
+[Dispatches 5 subagents in parallel]
+
+- @scout-reddit scanning r/LocalLLaMA, r/ClaudeAI, r/ChatGPT...
+- @scout-youtube searching for tutorials and demos...
+- @scout-github checking trending repos and releases...
+- @scout-skillssh analyzing skills.sh catalog...
+- @scout-web scanning HN, Twitter, arXiv, blogs...
+
+[After all return]
+
+**Synthesis complete.** I found 23 findings across all sources.
+
+Key trends this week:
+1. MCP adoption accelerating - mentioned across Reddit, GitHub, YouTube
+2. New multi-agent framework from Microsoft getting attention
+3. skills.sh has 3 skills relevant for FOE adaptation
+
+[Generates full report at research/agentic-trends/01-25-26-trends.md]
+```
+
+</details>
+
+<details>
+<summary><strong>Architecture & Subagents</strong></summary>
+
+```
+Scout (Primary Orchestrator)
+├── scout-reddit    → r/LocalLLaMA, r/ClaudeAI, r/ChatGPT, r/MachineLearning
+├── scout-youtube   → Tutorials, demos, conference talks
+├── scout-github    → Trending repos, releases, discussions
+├── scout-skillssh  → skills.sh catalog with FOE adaptation analysis
+└── scout-web       → HN, Twitter/X, arXiv, company blogs
+```
+
+All subagents run **in parallel** for performance, then findings are merged and deduplicated.
+
+#### scout-reddit
+
+Crawls Reddit communities focused on AI and coding:
+- Searches target subreddits using Google site search
+- Extracts post titles, summaries, upvote counts
+- Identifies discussions about tools, techniques, and trends
+- Returns structured YAML with relevance scoring
+
+#### scout-youtube
+
+Searches YouTube for agentic coding content:
+- Finds tutorials, demos, and conference talks
+- Extracts video titles, channels, view counts
+- Summarizes content focus and key topics
+- Prioritizes recent uploads and high-engagement content
+
+#### scout-github
+
+Monitors GitHub for trending repositories and releases:
+- Uses `gh` CLI for API access to repos and releases
+- Tracks key repos (LangChain, AutoGen, CrewAI, etc.)
+- Extracts star counts, recent activity, release notes
+- Identifies new frameworks and significant updates
+
+#### scout-skillssh
+
+Analyzes skills.sh for reusable AI coding skills:
+- Catalogs available skills with descriptions
+- Assesses each skill's fit for FOE adaptation
+- Notes what modifications would be needed
+- Suggests which field guide each skill supports
+
+#### scout-web
+
+Crawls broader web sources:
+- Hacker News discussions
+- Twitter/X announcements and threads
+- arXiv papers on agents
+- Company blogs (Anthropic, OpenAI, etc.)
+- Tags each source with quality tier
+
+</details>
+
+### What Gets Created
+
+After completing the workflow, you'll have a trend report:
+
+```
+research/agentic-trends/01-25-26-trends.md
+```
+
+With frontmatter for downstream processing:
+
+```yaml
+---
+type: scout-report
+title: "Agentic Coding Trends"
+date: "01-25-26"
+period_start: "01-18-26"
+period_end: "01-25-26"
+status: new
+
+sources_crawled:
+  - reddit
+  - youtube
+  - github
+  - skills_sh
+  - hacker_news
+  - twitter
+  - arxiv
+  - company_blogs
+
+metrics:
+  total_findings: 23
+  new_since_last: 15
+  method_candidates: 3
+  experiment_candidates: 5
+  skills_analyzed: 8
+
+delta_comparison:
+  previous_report: "01-18-26-trends.md"
+  new_trends: ["mcp-adoption", "multi-agent-frameworks"]
+  evolved_trends: ["cursor-ecosystem"]
+---
+```
+
+### Report Sections
+
+1. **Executive Summary** - 3-5 bullet points of key takeaways
+2. **Key Trends** - Top findings with analysis
+3. **FOE Opportunities** - Method and experiment candidates
+4. **Skills Analysis** - Relevant skills.sh findings with adaptation notes
+5. **Source Breakdown** - Detailed findings by source
+6. **What's New** - Delta from last report
+
+### Delta Tracking
+
+Scout compares each finding against previous reports:
+- **NEW** - Not mentioned before
+- **EVOLVED** - Mentioned before but showing growth/change
+- **RECURRING** - Stable trend, still relevant
+
+This prevents report fatigue by highlighting what's genuinely new.
+
+### Tips for Best Results
+
+1. **Start with a general scan** - Get the lay of the land before focusing
+2. **Weekly cadence works well** - Agentic coding moves fast but not daily
+3. **Follow up on opportunities** - Use Alchemist to document experiment candidates
+4. **Check skills.sh adaptations** - Skills can become FOE methods with modification
+
+---
+
 ## How They Work Together
 
-The four agents form a complete contribution workflow:
+The five agents form a complete contribution workflow:
 
 ```mermaid
 flowchart LR
@@ -564,13 +765,17 @@ flowchart LR
         PL --> EV[Evidence]
     end
     
-    subgraph external["External Frameworks"]
+    subgraph external["External Sources"]
         F[Framework] --> C[Cartographer]
         C --> AM[Adopted Methods]
+        W[Web/Community] --> SC[Scout]
+        SC --> TR[Trend Reports]
     end
     
     O -.-> A
     EV -.-> A
+    TR -.-> A
+    TR -.-> M
     AM -.-> M
     M -.-> X
     X -.-> M
@@ -588,6 +793,7 @@ flowchart LR
 4. **Discover with Prospector** - When you want to mine a repository for undocumented learnings
 5. **Find evidence with Prospector Literature** - When you want external validation for methods
 6. **Import with Cartographer** - When you want to adopt methods from established frameworks
+7. **Survey with Scout** - When you want to discover external trends that might inform FOE
 
 ### Prospector: Automated Discovery
 
