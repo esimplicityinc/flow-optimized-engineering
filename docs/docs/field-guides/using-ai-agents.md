@@ -5,15 +5,16 @@ title: Using AI Agents
 
 # Using AI Agents
 
-Three OpenCode agents help you contribute to Field Guides:
+Four OpenCode agents help you contribute to Field Guides:
 
 | Agent | Purpose | When to Use |
 |-------|---------|-------------|
 | **Alchemist** | Document experiments | You have an experience to capture |
 | **Synthesist** | Create methods | You have experiments that reveal a pattern |
-| **Prospector** | Find experiment opportunities | You want to mine a repo for undocumented learnings |
+| **Prospector** | Find experiment opportunities | You want to mine a repo or literature for learnings |
+| **Framework Cartographer** | Import external frameworks | You want to adopt methods from DORA, BDD, etc. |
 
-**Start with Alchemist** - experiments are fundamentally human experiences worth documenting. Once you understand that workflow, **Synthesist** helps you build methods from evidence. **Prospector** automates discovery when you want to systematically mine repositories for opportunities.
+**Start with Alchemist** - experiments are fundamentally human experiences worth documenting. Once you understand that workflow, **Synthesist** helps you build methods from evidence. **Prospector** automates discovery when you want to systematically mine repositories or literature for opportunities. **Framework Cartographer** imports established industry frameworks, making their methods available for adoption.
 
 These agents guide you through structured workflows, ensuring your contributions are rigorous, well-formatted, and properly linked.
 
@@ -370,9 +371,182 @@ Methods are placed based on maturity level:
 
 ---
 
+## Framework Cartographer
+
+The Framework Cartographer imports established industry frameworks (like DORA, BDD, SPACE) into the External Frameworks documentation, making their methods available for adoption by Field Guides.
+
+### When to Use
+
+- You want to adopt methods from a recognized industry framework
+- You're referencing established practices that should be properly documented
+- You want to import a framework that partially exists (add new methods)
+
+### How to Invoke
+
+```
+@framework-cartographer
+```
+
+The Cartographer will ask what framework you want to import.
+
+### The 7-Phase Workflow
+
+| Phase | Name | What Happens |
+|-------|------|--------------|
+| 1 | **Input Gathering** | Provide framework name, URL, or specific method |
+| 2 | **Research** | Subagent searches for authoritative sources, extracts metadata |
+| 3 | **Validation** | Verify legitimacy, determine status level, assess FOE alignment |
+| 4 | **Check Existing** | See if framework already exists in the system |
+| 5 | **Scope Selection** | Choose which methods to import (all or select) |
+| 6 | **Documentation** | Create framework overview and method files |
+| 7 | **Adoption Suggestions** | Recommend Field Guide adoptions based on FOE alignment |
+
+<details>
+<summary><strong>Example Session</strong></summary>
+
+```
+You: @framework-cartographer
+
+Cartographer: Welcome to the Framework Cartographer. I help map external 
+industry frameworks into our documentation system.
+
+What would you like to import? You can provide:
+- A URL to a framework (e.g., https://dora.dev)
+- A framework name (e.g., 'DORA', 'SPACE', 'Team Topologies')
+- A specific method (e.g., 'DORA Deployment Frequency')
+
+You: BDD
+
+Cartographer: Let me research BDD (Behavior-Driven Development)...
+
+[cartographer-researcher activates, searches web for authoritative sources]
+
+Research complete. Now validating...
+
+[cartographer-validator activates, verifies legitimacy]
+
+**Validation Results for BDD:**
+- Status: well-established
+- Creator: Dan North (2006)
+- FOE Alignment: High (Understanding, Feedback, Confidence)
+- Methods identified: 7
+
+Does this look accurate?
+- [x] Looks correct
+
+Cartographer: This framework has 7 methods. What would you like to import?
+- [ ] All methods (Recommended)
+- [ ] Select methods
+- [ ] Single method
+
+You: All methods
+
+[cartographer-scribe creates documentation files]
+
+**Framework imported successfully!**
+
+Created:
+- docs/docs/external-frameworks/bdd/overview.md
+- docs/docs/external-frameworks/bdd/methods/discovery-workshops.md
+- docs/docs/external-frameworks/bdd/methods/three-amigos.md
+- ... (7 method files)
+
+**Suggested Adoptions:**
+| Method | Suggested Field Guide | FOE Principle |
+|--------|----------------------|---------------|
+| Given-When-Then | Agentic Coding | Understanding |
+| Executable Specifications | Agentic Coding | Fast Feedback |
+
+Would you like me to add any of these adoptions?
+```
+
+</details>
+
+<details>
+<summary><strong>Architecture & Subagents</strong></summary>
+
+```
+Framework Cartographer (Primary Orchestrator)
+├── cartographer-researcher → Searches web for authoritative sources
+├── cartographer-validator  → Verifies legitimacy, determines status level
+└── cartographer-scribe     → Writes framework and method documentation
+```
+
+#### cartographer-researcher
+
+Gathers information about the framework:
+- Searches for authoritative primary sources
+- Extracts metadata (authors, organization, year)
+- Identifies methods/practices within the framework
+- Finds supporting citations
+
+#### cartographer-validator
+
+Validates research findings:
+- Verifies the framework is legitimate and recognized
+- Determines status level: `emerging`, `well-established`, or `industry-standard`
+- Assesses FOE alignment (Understanding, Feedback, Confidence)
+- Flags any concerns or missing information
+
+#### cartographer-scribe
+
+Creates the documentation:
+- Generates `_category_.json` files for Docusaurus navigation
+- Creates framework `overview.md` with proper frontmatter
+- Creates individual method `.md` files
+- Shows preview for approval before writing files
+
+</details>
+
+### What Gets Created
+
+After completing the workflow, you'll have:
+
+**Framework structure:**
+```
+docs/docs/external-frameworks/[framework]/
+├── _category_.json
+├── overview.md
+└── methods/
+    ├── _category_.json
+    ├── method-1.md
+    ├── method-2.md
+    └── ...
+```
+
+**Method frontmatter includes:**
+```yaml
+---
+title: "Method Name"
+framework: [framework-slug]
+pillar: [framework pillar if applicable]
+foe_alignment:
+  understanding: high | medium | low
+  fast_feedback: high | medium | low
+  confidence: high | medium | low
+---
+```
+
+### Framework Status Levels
+
+| Status | Criteria | Examples |
+|--------|----------|----------|
+| `emerging` | New, limited adoption, evolving | - |
+| `well-established` | Mature, widely adopted, stable | BDD, Team Topologies |
+| `industry-standard` | Universal recognition, de facto standard | DORA |
+
+### Tips for Best Results
+
+1. **Start with the name** - Most established frameworks are recognized by name
+2. **Review validation** - Check that the research captured the framework accurately
+3. **Import all methods** - Easier to adopt selectively than re-import later
+4. **Add adoptions** - Methods are more useful when adopted into Field Guides
+
+---
+
 ## How They Work Together
 
-The three agents form a complete contribution workflow:
+The four agents form a complete contribution workflow:
 
 ```mermaid
 flowchart LR
@@ -383,17 +557,27 @@ flowchart LR
         S --> M[Method]
     end
     
-    subgraph auto["Automated Discovery (Optional)"]
+    subgraph auto["Automated Discovery"]
         R[Repository] --> P[Prospector]
         P --> O[Opportunities]
+        L[Literature] --> PL[Prospector Literature]
+        PL --> EV[Evidence]
+    end
+    
+    subgraph external["External Frameworks"]
+        F[Framework] --> C[Cartographer]
+        C --> AM[Adopted Methods]
     end
     
     O -.-> A
+    EV -.-> A
+    AM -.-> M
     M -.-> X
     X -.-> M
     
     style human fill:#e8f5e9
     style auto fill:#fff3e0
+    style external fill:#e3f2fd
 ```
 
 ### Typical Workflow
@@ -402,12 +586,14 @@ flowchart LR
 2. **Synthesize with Synthesist** - When you have enough experiments to extract a method
 3. **Update with Synthesist** - When new experiments strengthen existing methods
 4. **Discover with Prospector** - When you want to mine a repository for undocumented learnings
+5. **Find evidence with Prospector Literature** - When you want external validation for methods
+6. **Import with Cartographer** - When you want to adopt methods from established frameworks
 
 ### Prospector: Automated Discovery
 
 The Prospector is an **optional automation layer**. It doesn't replace the human-driven workflow - it helps you find opportunities you might have missed.
 
-Most experiments will still start with a human saying "I learned something worth capturing" and invoking Alchemist directly. Use Prospector when you want to systematically surface learning opportunities from repository history.
+Most experiments will still start with a human saying "I learned something worth capturing" and invoking Alchemist directly. Use Prospector when you want to systematically surface learning opportunities from repository history or external literature.
 
 ### Bidirectional Links
 
@@ -524,6 +710,91 @@ existing auth flow, then we could have avoided the rewrite..."
 ```
 
 You select which opportunities to document, and Prospector hands them to Alchemist with pre-populated context.
+
+### Literature Prospector
+
+In addition to mining repositories, Prospector can search **external sources** for evidence that supports or challenges FOE methods.
+
+#### How to Invoke
+
+```
+@prospector-literature
+```
+
+The Literature Prospector will ask which methods to investigate and what type of evidence to find.
+
+#### What It Searches
+
+| Source | Description | Quality Tier |
+|--------|-------------|--------------|
+| **FOE Bookshelf** | 35+ curated books and resources with pre-mapped FOE relevance | High signal |
+| **Academic sources** | Research papers, studies, meta-analyses | Tier 1 |
+| **Industry research** | DORA reports, Thoughtworks Radar | Tier 2 |
+| **Case studies** | Engineering blogs from major tech companies | Tier 3 |
+| **Practitioner content** | Blogs, talks, community insights | Tier 4 |
+
+#### When to Use
+
+- You want external validation for an existing method
+- You're curious if research supports or contradicts a method's claims
+- You want to strengthen a method's maturity level with literature evidence
+- You're writing a method and want to cite supporting sources
+
+<details>
+<summary><strong>Architecture & Subagents</strong></summary>
+
+```
+Prospector Literature (Orchestrator)
+├── prospector-bookshelf → Searches FOE curated reading list
+└── prospector-web       → Searches web with quality tier tagging
+```
+
+#### prospector-bookshelf
+
+Searches the FOE Bookshelf (35+ books/resources):
+- Matches method keywords against book metadata
+- Uses the `keywords[]` array and `foeRelevance` text
+- Returns ranked matches with connection reasoning
+- High signal-to-noise ratio (pre-curated sources)
+
+#### prospector-web
+
+Searches the web for evidence:
+- Generates targeted queries for academic and practitioner sources
+- Tags every result with a quality tier (academic, industry-research, case-study, practitioner)
+- Fetches and assesses top results for relevance
+- Flags contradicting evidence for method review
+
+</details>
+
+#### What Gets Produced
+
+A **Literature Evidence Report** with quality-tiered findings:
+
+```markdown
+# Literature Prospector Report
+
+## Method: Understanding-First Protocol Adoption
+**Current Maturity:** experimenting
+**Investigation Mode:** both
+
+## Bookshelf Evidence
+
+### High Relevance
+1. **The Programmer's Brain** by Felienne Hermans
+   - **Evidence Type:** supporting
+   - **Connection:** Directly supports distinction between API familiarity 
+     and model understanding through cognitive science research...
+
+## Web Evidence
+
+### Academic Sources (Tier 1)
+1. **The Role of Mental Models in API Usability** - Myers, B. et al.
+   - **Quality:** academic (CHI conference)
+   - **Key Finding:** Developers with accurate mental models made 40% fewer errors...
+```
+
+After reviewing the report, you can hand off selected sources to Alchemist for formal literature evidence documentation.
 
 ### Tips for Best Results
 
