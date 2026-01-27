@@ -2,7 +2,7 @@
 sidebar_position: 2
 title: "Google Project Aristotle: Psychological Safety"
 status: completed
-source_type: literature
+source_type: external
 source:
   authors: ["Amy Edmondson", "Julia Rozovsky"]
   organization: "Harvard Business School / Google"

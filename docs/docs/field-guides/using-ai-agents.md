@@ -11,11 +11,11 @@ Five OpenCode agents help you contribute to Field Guides:
 |-------|---------|-------------|
 | **Alchemist** | Document observations | You have an experience to capture |
 | **Synthesist** | Create methods | You have observations that reveal a pattern |
-| **Prospector** | Find observation opportunities | You want to mine a repo or literature for learnings |
+| **Prospector** | Find observation opportunities | You want to mine a repo or external sources for learnings |
 | **Framework Cartographer** | Import external frameworks | You want to adopt methods from DORA, BDD, etc. |
 | **Scout** | Survey external trends | You want to discover what's new in agentic coding |
 
-**Start with Alchemist** - observations are fundamentally human experiences worth documenting. Once you understand that workflow, **Synthesist** helps you build methods from evidence. **Prospector** automates discovery when you want to systematically mine repositories or literature for opportunities. **Framework Cartographer** imports established industry frameworks, making their methods available for adoption. **Scout** surveys the external landscape (Reddit, YouTube, GitHub, skills.sh) to discover trends and opportunities that might inform FOE methods.
+**Start with Alchemist** - observations are fundamentally human experiences worth documenting. Once you understand that workflow, **Synthesist** helps you build methods from evidence. **Prospector** automates discovery when you want to systematically mine repositories or external sources for opportunities. **Framework Cartographer** imports established industry frameworks, making their methods available for adoption. **Scout** surveys the external landscape (Reddit, YouTube, GitHub, skills.sh) to discover trends and opportunities that might inform FOE methods.
 
 These agents guide you through structured workflows, ensuring your contributions are rigorous, well-formatted, and properly linked.
 
@@ -555,7 +555,7 @@ Think of it as your intelligence agent for staying current with the rapidly evol
 
 - You want to know what's trending in agentic coding this week
 - You're looking for practices or tools that could become FOE methods
-- You want to find external research or case studies to document as literature evidence
+- You want to find external research or case studies to document as external observation
 - You're curious what the community is discussing about AI coding assistants
 
 ### How to Invoke
@@ -799,7 +799,7 @@ flowchart LR
 
 The Prospector is an **optional automation layer**. It doesn't replace the human-driven workflow - it helps you find opportunities you might have missed.
 
-Most observations will still start with a human saying "I learned something worth capturing" and invoking Alchemist directly. Use Prospector when you want to systematically surface learning opportunities from repository history or external literature.
+Most observations will still start with a human saying "I learned something worth capturing" and invoking Alchemist directly. Use Prospector when you want to systematically surface learning opportunities from repository history or external sources.
 
 ### Bidirectional Links
 
@@ -924,7 +924,7 @@ In addition to mining repositories, Prospector can search **external sources** f
 #### How to Invoke
 
 ```
-@prospector-literature
+@prospector-external
 ```
 
 The Literature Prospector will ask which methods to investigate and what type of evidence to find.
@@ -943,7 +943,7 @@ The Literature Prospector will ask which methods to investigate and what type of
 
 - You want external validation for an existing method
 - You're curious if research supports or contradicts a method's claims
-- You want to strengthen a method's maturity level with literature evidence
+- You want to strengthen a method's maturity level with external observation
 - You're writing a method and want to cite supporting sources
 
 <details>
@@ -1000,7 +1000,7 @@ A **Literature Evidence Report** with quality-tiered findings:
    - **Key Finding:** Developers with accurate mental models made 40% fewer errors...
 ```
 
-After reviewing the report, you can hand off selected sources to Alchemist for formal literature evidence documentation.
+After reviewing the report, you can hand off selected sources to Alchemist for formal external observation documentation.
 
 ### Tips for Best Results
 

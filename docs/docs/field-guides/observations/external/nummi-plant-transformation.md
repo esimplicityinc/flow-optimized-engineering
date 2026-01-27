@@ -2,7 +2,7 @@
 sidebar_position: 3
 title: "NUMMI: Same Workers, Different System"
 status: completed
-source_type: literature
+source_type: external
 source:
   authors: ["James Womack", "Daniel Jones", "Daniel Roos"]
   organization: "MIT International Motor Vehicle Program"

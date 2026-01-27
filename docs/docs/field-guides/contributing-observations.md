@@ -8,7 +8,7 @@ title: Contributing Observations
 Observations are the evidence behind our methods. We collect two types of evidence:
 
 1. **Internal Observations** - First-hand observations conducted by teams
-2. **Literature Evidence** - Published research, studies, and documented practices from external sources
+2. **External Observations** - Published research, studies, and documented practices from external sources
 
 Both types are valuable and help establish method maturity.
 
@@ -85,28 +85,28 @@ What do the results mean?
 Did your hypothesis hold? What should others take away from this?
 ```
 
-## Literature Evidence
+## External Observations
 
 These are research studies, industry reports, and documented practices from external sources that provide evidence for FOE methods.
 
-### What Makes Good Literature Evidence?
+### What Makes Good External Observation Evidence?
 
-Literature evidence should:
+External observation evidence should:
 
 1. **Be credible** - Published research, reputable organizations, peer-reviewed studies
 2. **Have clear methodology** - Documented approach that can be evaluated
 3. **Include measurable outcomes** - Data and findings, not just opinions
 4. **Be relevant to FOE** - Connects to understanding, feedback, or confidence
 
-### Literature Evidence Template
+### External Observation Template
 
-Create a new markdown file in `/docs/field-guides/observations/literature/` using this structure:
+Create a new markdown file in `/docs/field-guides/observations/external/` using this structure:
 
 ```markdown
 ---
 sidebar_position: 1
 title: "Study/Research Title"
-source_type: literature
+source_type: external
 source:
   authors:
     - "Author Name"
@@ -178,7 +178,7 @@ methods:
   - agentic-coding/methods/emerging/another-method
 ```
 
-Both internal observations and literature evidence can support multiple methods.
+Both internal observations and external observations can support multiple methods.
 
 ## Observation Status
 
@@ -195,14 +195,14 @@ When you add evidence that supports a method:
 - **Observing methods** with completed observations may advance to **Validated**
 - **Validated methods** with multiple confirming observations may advance to **Proven**
 
-Literature evidence from large-scale studies (like DORA research) can provide strong support for method advancement.
+External observations from large-scale studies (like DORA research) can provide strong support for method advancement.
 
 ## Submitting Your Evidence
 
 1. Create your observation file following the appropriate template above
 2. Place it in the correct folder:
    - Internal observations: `/docs/field-guides/observations/internal/`
-   - Literature evidence: `/docs/field-guides/observations/literature/`
+   - External observations: `/docs/field-guides/observations/external/`
 3. Submit a pull request to the repository
 4. In your PR description, note which methods your observation supports
 5. A maintainer will review and merge

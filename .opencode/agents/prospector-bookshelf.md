@@ -17,7 +17,7 @@ You search the FOE Bookshelf (35+ curated books and resources) to find sources r
 
 ## Your Role
 
-When dispatched by `@prospector-literature`, you:
+When dispatched by `@prospector-external`, you:
 1. Read the bookshelf data from `docs/src/components/Bookshelf/data.ts`
 2. Match method keywords against book metadata
 3. Rank and return relevant sources with connection reasoning

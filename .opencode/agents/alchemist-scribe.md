@@ -33,7 +33,7 @@ First-hand observations conducted by the team. Characterized by:
 - Specific context, dates, and team details
 - Detailed approach steps that were actually followed
 
-### Literature Evidence
+### External Observations
 Research, studies, and documented practices from external sources. Characterized by:
 - Published research papers or industry reports
 - Case studies from other organizations
@@ -48,7 +48,7 @@ question({
     question: "What type of observation evidence is this?",
     options: [
       { label: "Internal observation", description: "First-hand observation we conducted ourselves" },
-      { label: "Literature evidence", description: "External research, study, or documented practice" }
+      { label: "External observation", description: "External research, study, or documented practice" }
     ]
   }]
 })
@@ -159,7 +159,7 @@ Did your hypothesis hold? What should others take away from this?
 <RelatedMethods />
 ```
 
-### For Literature Evidence
+### For External Observations
 
 Use this structure for external research and documented practices:
 
@@ -167,7 +167,7 @@ Use this structure for external research and documented practices:
 ---
 sidebar_position: 1
 title: "Study/Research Title"
-source_type: literature
+source_type: external
 source:
   authors:
     - "Author Name"
@@ -241,8 +241,8 @@ How should teams apply these findings?
 - **Filename:** Use kebab-case, descriptive name: `observation-name.md`
 - **Example:** `ci-parallelization-impact.md`
 
-### Literature Evidence
-- **Location:** `docs/docs/field-guides/observations/literature/`
+### External Observations
+- **Location:** `docs/docs/field-guides/observations/external/`
 - **Filename:** Use kebab-case, typically source-topic: `source-key-finding.md`
 - **Example:** `dora-four-key-metrics.md`, `google-project-aristotle.md`
 
@@ -268,7 +268,7 @@ Present the draft to the user, then use the question tool:
 
 **Type:** [Internal Observation / Literature Evidence]
 **Proposed filename:** `[filename].md`
-**Location:** `docs/docs/field-guides/observations/[internal|literature]/`"
+**Location:** `docs/docs/field-guides/observations/[internal|external]/`"
 
 ```
 question({
@@ -292,7 +292,7 @@ Once approved, write the file to the correct location.
 ### 4. Handoff
 Conclude with:
 
-"**Documentation complete.** Created `docs/docs/field-guides/observations/[internal|literature]/[filename].md`
+"**Documentation complete.** Created `docs/docs/field-guides/observations/[internal|external]/[filename].md`
 
 The Cartographer will now help map this observation to relevant methods."
 

@@ -5,7 +5,7 @@ description: |
   evidence for methods, creating new observation files, understanding the observation 
   structure, or validating observation format. Embeds FOE principles (optimize for 
   understanding, fast feedback, confidence) into observation design and evaluation.
-  Supports both internal observations (our own learnings) and literature evidence 
+  Supports both internal observations (our own learnings) and external observations 
   (published research).
 ---
 
@@ -27,18 +27,18 @@ First-person observations documented by our teams. These document:
 
 **Location:** `docs/docs/field-guides/observations/internal/`
 
-### Literature Evidence
+### External Observations
 
 Published research, case studies, and external evidence that supports FOE methods. These document:
 - What **researchers** studied
 - Their methodology and findings
 - How their evidence supports FOE principles
 
-**Location:** `docs/docs/field-guides/observations/literature/`
+**Location:** `docs/docs/field-guides/observations/external/`
 
 ## Key Differences
 
-| Aspect | Internal Observations | Literature Evidence |
+| Aspect | Internal Observations | External Observations |
 |--------|---------------------|---------------------|
 | **Who ran it** | Our team | External researchers |
 | **Hypothesis format** | "If we [X], then [Y]..." | "The researchers hypothesized..." |
@@ -71,16 +71,16 @@ methods:
 6. **Limitations** - Honest assessment of constraints
 7. **Conclusion** - Key takeaways and recommendations
 
-## Literature Evidence Structure
+## External Observation Structure
 
-See `references/literature-template.md` for the complete template.
+See `references/external-template.md` for the complete template.
 
 **Frontmatter:**
 ```yaml
 ---
 title: "Research Study Title"
 status: completed
-source_type: literature
+source_type: external
 source:
   authors: ["Name 1", "Name 2"]
   organization: "Organization Name"
@@ -101,7 +101,7 @@ methods: []
 
 ## FOE Alignment
 
-Every observation (internal or literature) should consider the three FOE principles:
+Every observation (internal or external) should consider the three FOE principles:
 
 ### Optimize for Understanding
 - What did this reveal about how systems actually work?
@@ -129,7 +129,7 @@ Both types of observations affect method maturity:
 | Validated | Multiple confirming observations support Proven |
 | Proven | Contradicting observations may lower confidence |
 
-Literature evidence can provide stronger support for maturity advancement due to larger sample sizes, academic rigor, and replication across organizations.
+External observations can provide stronger support for maturity advancement due to larger sample sizes, academic rigor, and replication across organizations.
 
 ## Quality Checklist
 
@@ -147,16 +147,16 @@ Literature evidence can provide stronger support for maturity advancement due to
 - [ ] Key quantitative findings included
 - [ ] Limitations acknowledged (both theirs and ours)
 - [ ] FOE application explained in Analysis
-- [ ] `source_type: literature` in frontmatter
+- [ ] `source_type: external` in frontmatter
 
 ## References
 
 - `references/observation-template.md` - Internal observation template
-- `references/literature-template.md` - Literature evidence template
+- `references/external-template.md` - External observation template
 - `references/foe-principles.md` - Deep dive on FOE principles
 - `references/maturity-model.md` - How maturity levels work
 
 ## Assets
 
 - `assets/observation-scaffold.md` - Minimal scaffold for internal observations
-- `assets/literature-scaffold.md` - Minimal scaffold for literature evidence
+- `assets/external-scaffold.md` - Minimal scaffold for external observations

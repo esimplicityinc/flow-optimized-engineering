@@ -2,7 +2,7 @@
 sidebar_position: 8
 title: "BDD Specification Maintenance Challenges"
 status: completed
-source_type: literature
+source_type: external
 source:
   authors: ["Lauren Patrick Binamungu", "Suzanne M. Embury", "Nikolaos Konstantinou"]
   organization: "IEEE SANER Conference"

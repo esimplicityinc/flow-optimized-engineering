@@ -2,7 +2,7 @@
 sidebar_position: 6
 title: "BDD Benefits and Challenges: Industrial Study"
 status: completed
-source_type: literature
+source_type: external
 source:
   authors: ["Leticia Pereira", "Helen Sharp", "Cleidson de Souza", "Gabriel Oliveira", "Steve Marczak", "Rafael Prikladnicki"]
   organization: "ACM XP Conference"

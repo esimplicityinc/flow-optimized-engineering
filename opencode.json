@@ -55,7 +55,7 @@
       "description": "Generates CI documentation for each commit across three dimensions",
       "mode": "subagent"
     },
-    "prospector-literature": {
+    "prospector-external": {
       "description": "Mines external sources (bookshelf + web) for evidence supporting or contradicting FOE methods",
       "mode": "primary"
     },

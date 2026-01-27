@@ -2,7 +2,7 @@
 sidebar_position: 1
 title: "TITLE"
 status: completed
-source_type: literature
+source_type: external
 source:
   authors: ["AUTHOR"]
   organization: "ORGANIZATION"

@@ -78,7 +78,7 @@ For each significant finding, assess FOE relevance:
 | Tag | Meaning | Action |
 |-----|---------|--------|
 | `method_candidate` | Could become an FOE method | Link to relevant field guide |
-| `observation_candidate` | External research to document | Note as literature evidence |
+| `observation_candidate` | External research to document | Note as external observation |
 | `informational` | Good to know, no direct action | Include in report |
 
 Link findings to relevant:

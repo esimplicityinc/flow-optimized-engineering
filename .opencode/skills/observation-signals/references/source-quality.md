@@ -1,6 +1,6 @@
 # Source Quality Tiers
 
-Reference guide for tagging external evidence sources by quality tier. Used by `@prospector-web` when searching for literature evidence.
+Reference guide for tagging external evidence sources by quality tier. Used by `@prospector-web` when searching for external observations.
 
 ## Overview
 

@@ -2,7 +2,7 @@
 sidebar_position: 5
 title: "BDD Systematic Literature Review"
 status: completed
-source_type: literature
+source_type: external
 source:
   authors: ["Muhammad Shoaib Farooq", "Uzma Omer", "Adnan Rasheed", "Muhammad Aslam Rasheed"]
   organization: "IEEE Access"

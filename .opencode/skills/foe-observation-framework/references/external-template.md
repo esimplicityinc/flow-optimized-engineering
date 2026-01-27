@@ -1,6 +1,6 @@
-# Literature Evidence Template
+# External Observation Template
 
-This is the complete template for documenting external research as literature evidence.
+This is the complete template for documenting external research as external observations.
 
 ## Frontmatter
 
@@ -9,7 +9,7 @@ This is the complete template for documenting external research as literature ev
 sidebar_position: 1
 title: "Research Study Title"
 status: completed
-source_type: literature
+source_type: external
 source:
   authors: ["Author 1", "Author 2"]
   organization: "Organization Name"
@@ -27,7 +27,7 @@ methods:
 | `sidebar_position` | Yes | Number | Order in sidebar |
 | `title` | Yes | String | Human-readable title |
 | `status` | Yes | `completed` | Literature evidence is always completed |
-| `source_type` | Yes | `literature` | Marks this as external research |
+| `source_type` | Yes | `external` | Marks this as external research |
 | `source.authors` | Yes | Array | Research authors |
 | `source.organization` | Yes | String | Research organization |
 | `source.year` | Yes | Number | Publication year |
@@ -41,7 +41,7 @@ methods:
 sidebar_position: 1
 title: "Research Study Title"
 status: completed
-source_type: literature
+source_type: external
 source:
   authors: ["Author 1", "Author 2"]
   organization: "Organization Name"

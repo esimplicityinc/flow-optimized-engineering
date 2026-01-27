@@ -2,7 +2,7 @@
 sidebar_position: 7
 title: "BDD Adoption in Open Source Projects"
 status: completed
-source_type: literature
+source_type: external
 source:
   authors: ["Fiorella Zampetti", "Andrea Di Sorbo", "Corrado Aaron Visaggio", "Gerardo Canfora", "Massimiliano Di Penta"]
   organization: "Information and Software Technology (Elsevier)"

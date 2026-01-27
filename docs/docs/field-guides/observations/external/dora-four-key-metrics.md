@@ -2,7 +2,7 @@
 sidebar_position: 1
 title: "DORA Four Key Metrics Research"
 status: completed
-source_type: literature
+source_type: external
 source:
   authors: ["Nicole Forsgren", "Jez Humble", "Gene Kim"]
   organization: "DORA / Google Cloud"

@@ -2,7 +2,7 @@
 sidebar_position: 4
 title: "TDD Defect Reduction: Microsoft/IBM Study"
 status: completed
-source_type: literature
+source_type: external
 source:
   authors: ["Nachiappan Nagappan", "E. Michael Maximilien", "Thirumalesh Bhat", "Laurie Williams"]
   organization: "Microsoft Research / IBM"
