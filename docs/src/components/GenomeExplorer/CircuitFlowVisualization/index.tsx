@@ -38,41 +38,109 @@ const DEFAULT_GENES: GeneLevels = {
 // Gene level cycle values
 const GENE_LEVELS = [0.3, 0.5, 0.7, 0.9];
 
-// Circuit computation functions (simplified from circuitModel.ts)
+// ============================================
+// UNIFIED CHAOS MODEL
+// ============================================
+// 
+// Core insight: AI is an accelerant. It amplifies whatever state you're in.
+// - Low FOE + High AI = CHAOS (velocity without control)
+// - High FOE + High AI = FLOW (velocity with control)
+//
+// The spine genes convert AI capacity into evidence.
+// Without spine, AI creates risk. With spine, AI creates permission.
+
+/**
+ * Compute spine strength (average of the 4 spine genes)
+ */
 function computeSpineStrength(genes: GeneLevels): number {
   return (genes.constraints + genes.verification + genes.operability + genes.governance) / 4;
 }
 
-function computeAIMultiplier(aiFactor: number, genes: GeneLevels): number {
-  const baseGain = 1 + (aiFactor * 4);
-  const safetyFactor = Math.sqrt((genes.constraints * genes.verification));
-  return baseGain * Math.max(0.2, safetyFactor);
+/**
+ * Compute chaos level - uncontrolled velocity
+ * Chaos = AI pressure × lack of spine
+ */
+function computeChaos(aiFactor: number, spineStrength: number): number {
+  return aiFactor * (1 - spineStrength);
 }
 
-function computeEvidenceYield(genes: GeneLevels, totalCapacity: number): number {
-  const spineStrength = computeSpineStrength(genes);
-  return totalCapacity * spineStrength * 100;
+/**
+ * Compute control level - harnessed velocity  
+ * Control = spine's ability to channel AI
+ */
+function computeControl(aiFactor: number, spineStrength: number): number {
+  return spineStrength * aiFactor;
 }
 
-function computePermission(evidenceYield: number, risk: number, spineStrength: number): number {
-  const base = evidenceYield * 0.5 + spineStrength * 30;
-  const riskPenalty = risk * 0.3;
-  return Math.max(0, Math.min(100, base - riskPenalty));
+/**
+ * Logarithmic curve for spine effects
+ * Gradual change near the middle, accelerates at extremes
+ * Returns -1 to +1 based on spine relative to 0.5 threshold
+ */
+function spineEffectCurve(spineStrength: number): number {
+  const centered = spineStrength - 0.5; // -0.5 to +0.5
+  // Power curve: gradual near center, steep at edges
+  const sign = centered >= 0 ? 1 : -1;
+  const magnitude = Math.pow(Math.abs(centered) * 2, 1.4); // 1.4 = curve steepness
+  return sign * magnitude;
 }
 
+/**
+ * Risk = chaos manifested
+ * High AI + weak spine = high risk
+ */
 function computeRisk(aiFactor: number, spineStrength: number): number {
-  const baseRisk = aiFactor * 50 * (1 - spineStrength);
-  return Math.max(0, Math.min(100, baseRisk));
+  const chaos = computeChaos(aiFactor, spineStrength);
+  // Logarithmic: risk accelerates as chaos builds
+  const risk = Math.pow(chaos, 0.8) * 100;
+  return Math.max(0, Math.min(100, risk));
 }
 
-function computeOutcomes(permission: number, genes: GeneLevels): number {
+/**
+ * Evidence = what the spine produces from AI capacity
+ * No spine = evidence doesn't scale with AI
+ * Strong spine = evidence multiplies with AI
+ */
+function computeEvidenceYield(aiFactor: number, spineStrength: number): number {
+  const control = computeControl(aiFactor, spineStrength);
+  // Base evidence from spine + AI-boosted evidence
+  const baseEvidence = spineStrength * 30; // Some evidence even without AI
+  const aiEvidence = control * 80; // AI multiplies spine effectiveness
+  return Math.max(0, Math.min(100, baseEvidence + aiEvidence));
+}
+
+/**
+ * Permission = evidence - risk (the net outcome)
+ * This is what you're actually allowed to ship/deploy
+ */
+function computePermission(evidence: number, risk: number, spineStrength: number): number {
+  // Permission = evidence minus risk penalty, with spine providing baseline
+  const basePermission = spineStrength * 20; // Spine gives some inherent permission
+  const netPermission = basePermission + evidence * 0.7 - risk * 0.5;
+  return Math.max(0, Math.min(100, netPermission));
+}
+
+/**
+ * Outcomes = permission gates product effectiveness
+ * You can only deliver outcomes if you have permission to ship
+ */
+function computeOutcomes(permission: number, genes: GeneLevels, aiFactor: number): number {
   const productGeneAvg = (genes.discovery + genes.tradeoffs + genes.adoption + genes.strategy) / 4;
-  return (permission / 100) * productGeneAvg * 100;
+  // AI boosts potential outcomes, but permission gates actual delivery
+  const potential = productGeneAvg * (1 + aiFactor * 0.5) * 100;
+  const realized = potential * (permission / 100);
+  return Math.max(0, Math.min(100, realized));
 }
 
-function computeThroughput(aiFactor: number, aiMultiplier: number, genes: GeneLevels): number {
+/**
+ * Throughput = raw capacity (how fast you CAN move)
+ * This is velocity - good or bad depending on control
+ */
+function computeThroughput(aiFactor: number, genes: GeneLevels): number {
   const educationAvg = (genes.mentalModels + genes.communication + genes.enablement + genes.cognitiveErgonomics) / 4;
-  return Math.min(100, (aiMultiplier * 20) * educationAvg);
+  // AI dramatically boosts throughput, education genes help harness it
+  const throughput = (1 + aiFactor * 3) * educationAvg * 50;
+  return Math.max(0, Math.min(100, throughput));
 }
 
 function findBottleneck(genes: GeneLevels, aiFactor: number): { name: string; severity: number } {
@@ -118,22 +186,24 @@ function CircuitFlowVisualization({
     geneLevelsFromMaturity(0.5)
   );
   
-  // Computed circuit state
+  // Computed circuit state using unified chaos model
   const circuitState = useMemo(() => {
     const spineStrength = computeSpineStrength(geneLevels);
-    const aiMultiplier = computeAIMultiplier(aiFactor, geneLevels);
-    const totalCapacity = aiMultiplier * 0.5;
-    const evidenceYield = computeEvidenceYield(geneLevels, totalCapacity);
+    const chaos = computeChaos(aiFactor, spineStrength);
+    const control = computeControl(aiFactor, spineStrength);
+    
+    // Core outputs
     const risk = computeRisk(aiFactor, spineStrength);
+    const evidenceYield = computeEvidenceYield(aiFactor, spineStrength);
     const permission = computePermission(evidenceYield, risk, spineStrength);
-    const outcomes = computeOutcomes(permission, geneLevels);
-    const throughput = computeThroughput(aiFactor, aiMultiplier, geneLevels);
+    const outcomes = computeOutcomes(permission, geneLevels, aiFactor);
+    const throughput = computeThroughput(aiFactor, geneLevels);
     const bottleneck = findBottleneck(geneLevels, aiFactor);
     
     return {
       spineStrength,
-      aiMultiplier,
-      totalCapacity,
+      chaos,
+      control,
       evidenceYield,
       risk,
       permission,

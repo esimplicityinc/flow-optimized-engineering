@@ -264,6 +264,15 @@ export const edges: Edge[] = [
 
   // === PRIMA PLATFORM ===
   {
+    id: 'e-prima-katalyst-uses',
+    source: 'prima',
+    target: 'katalyst',
+    label: 'Uses',
+    animated: true,
+    style: { stroke: COLORS.platform },
+    markerEnd: { type: MarkerType.ArrowClosed, color: COLORS.platform },
+  },
+  {
     id: 'e-prima-katalyst-runs',
     source: 'prima',
     target: 'katalyst',
@@ -305,9 +314,10 @@ export const edges: Edge[] = [
     id: 'e-bd-katalyst',
     source: 'bd-system-needs',
     target: 'katalyst',
-    label: 'Informs',
-    style: { stroke: COLORS.governance, strokeDasharray: '5,5' },
-    markerEnd: { type: MarkerType.ArrowClosed, color: COLORS.governance },
+    label: 'Builds',
+    animated: true,
+    style: { stroke: COLORS.platform },
+    markerEnd: { type: MarkerType.ArrowClosed, color: COLORS.platform },
   },
 
   // === STRATEGY ALIGNMENT ===
@@ -315,7 +325,7 @@ export const edges: Edge[] = [
     id: 'e-foe-katalyst',
     source: 'foe',
     target: 'katalyst',
-    label: 'Enables',
+    label: 'Align to/enable',
     animated: true,
     style: { stroke: COLORS.governance },
     markerEnd: { type: MarkerType.ArrowClosed, color: COLORS.governance },

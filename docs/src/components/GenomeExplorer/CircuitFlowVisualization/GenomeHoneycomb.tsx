@@ -110,12 +110,36 @@ function calculateDemandGap(
 }
 
 /**
- * Calculate delivery mode for a gene (determines INTERIOR color)
+ * Interpolate between two hex colors
+ */
+function interpolateColor(color1: string, color2: string, ratio: number): string {
+  // Parse hex colors
+  const r1 = parseInt(color1.slice(1, 3), 16);
+  const g1 = parseInt(color1.slice(3, 5), 16);
+  const b1 = parseInt(color1.slice(5, 7), 16);
+  
+  const r2 = parseInt(color2.slice(1, 3), 16);
+  const g2 = parseInt(color2.slice(3, 5), 16);
+  const b2 = parseInt(color2.slice(5, 7), 16);
+  
+  // Interpolate
+  const r = Math.round(r1 + (r2 - r1) * ratio);
+  const g = Math.round(g1 + (g2 - g1) * ratio);
+  const b = Math.round(b1 + (b2 - b1) * ratio);
+  
+  // Convert back to hex
+  return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+}
+
+/**
+ * Calculate delivery mode for a gene (determines BORDER color)
  * 
  * The delivery mode shifts from human → system based on:
  * - Demand pressure (gap between required and current level)
  * - Gene's scalability (how easily it can be productized)
  * - AI factor (higher AI = more pressure to scale)
+ * 
+ * Color smoothly transitions from warm orange (human) to cool cyan (system)
  */
 function calculateDeliveryMode(
   gene: GeneDefinition,
@@ -141,19 +165,21 @@ function calculateDeliveryMode(
   // Clamp between 0.15 (always some human) and 0.95 (always some system)
   systemRatio = Math.min(0.95, Math.max(0.15, systemRatio));
   
-  // Determine mode based on thresholds
-  let mode: DeliveryMode;
-  let color: string;
+  // Smooth color interpolation from human (orange) to system (cyan)
+  const color = interpolateColor(
+    DELIVERY_MODE_COLORS.human,
+    DELIVERY_MODE_COLORS.system,
+    systemRatio
+  );
   
+  // Determine mode label based on thresholds (for display/accessibility)
+  let mode: DeliveryMode;
   if (systemRatio < 0.4) {
     mode = 'human';
-    color = DELIVERY_MODE_COLORS.human;
   } else if (systemRatio < 0.6) {
     mode = 'hybrid';
-    color = DELIVERY_MODE_COLORS.hybrid;
   } else {
     mode = 'system';
-    color = DELIVERY_MODE_COLORS.system;
   }
   
   return {
@@ -249,21 +275,17 @@ function GenomeHoneycomb({
         })}
       </div>
       
-      {/* Delivery mode legend (for border) */}
+      {/* Delivery mode legend (for border) - gradient from Human to System */}
       <div className={styles.genomeLegend}>
         <span className={styles.legendLabel}>Border:</span>
-        <div className={styles.legendItem}>
-          <div className={styles.legendDot} style={{ background: DELIVERY_MODE_COLORS.human }} />
-          <span>Human</span>
-        </div>
-        <div className={styles.legendItem}>
-          <div className={styles.legendDot} style={{ background: DELIVERY_MODE_COLORS.hybrid }} />
-          <span>Hybrid</span>
-        </div>
-        <div className={styles.legendItem}>
-          <div className={styles.legendDot} style={{ background: DELIVERY_MODE_COLORS.system }} />
-          <span>System</span>
-        </div>
+        <span className={styles.legendEndLabel} style={{ color: DELIVERY_MODE_COLORS.human }}>Human</span>
+        <div 
+          className={styles.legendGradient}
+          style={{ 
+            background: `linear-gradient(90deg, ${DELIVERY_MODE_COLORS.human}, ${DELIVERY_MODE_COLORS.system})` 
+          }}
+        />
+        <span className={styles.legendEndLabel} style={{ color: DELIVERY_MODE_COLORS.system }}>System</span>
       </div>
     </div>
   );

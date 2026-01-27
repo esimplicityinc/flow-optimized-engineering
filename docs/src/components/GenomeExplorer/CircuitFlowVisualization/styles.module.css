@@ -327,7 +327,8 @@
 
 .genomeLegend {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.5rem;
   margin-top: 1rem;
 }
 
@@ -352,6 +353,17 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-right: 0.25rem;
+}
+
+.legendGradient {
+  width: 80px;
+  height: 6px;
+  border-radius: 3px;
+}
+
+.legendEndLabel {
+  font-size: 0.6rem;
+  font-weight: 600;
 }
 
 /* ============================================

@@ -75,11 +75,10 @@ export interface DeliveryModeResult {
   color: string;              // Color for this mode
 }
 
-// Delivery mode colors (exclusive - don't overlap with domain colors)
+// Delivery mode colors (smooth transition from Human to System)
 export const DELIVERY_MODE_COLORS = {
-  human: '#F59E0B',   // Orange - primarily human service
-  hybrid: '#FBBF24',  // Yellow - balanced human + system  
-  system: '#06B6D4',  // Cyan - primarily system/product
+  human: '#F59E0B',   // Warm orange - primarily human service
+  system: '#06B6D4',  // Cool cyan - primarily system/product
 } as const;
 
 // Circuit state (computed values)
