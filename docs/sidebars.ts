@@ -63,6 +63,21 @@ const sidebars: SidebarsConfig = {
         'implementation/esimplicity-ecosystem',
         {
           type: 'category',
+          label: 'Implementation',
+          link: {
+            type: 'doc',
+            id: 'implementation/getting-started',
+          },
+          items: [
+            'implementation/assessing-your-phase',
+            'implementation/building-institutions',
+            'implementation/metrics-that-matter',
+            'implementation/organizational-engagement',
+            'implementation/common-pitfalls',
+          ],
+        },
+        {
+          type: 'category',
           label: 'The FOE Playbook',
           link: {
             type: 'doc',
@@ -356,21 +371,6 @@ const sidebars: SidebarsConfig = {
             'psychological-foundations/learning-and-calibration',
             'psychological-foundations/agency-and-risk-tolerance',
             'psychological-foundations/hidden-dimensions',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Implementation',
-          link: {
-            type: 'doc',
-            id: 'implementation/getting-started',
-          },
-          items: [
-            'implementation/assessing-your-phase',
-            'implementation/building-institutions',
-            'implementation/metrics-that-matter',
-            'implementation/organizational-engagement',
-            'implementation/common-pitfalls',
           ],
         },
         {
