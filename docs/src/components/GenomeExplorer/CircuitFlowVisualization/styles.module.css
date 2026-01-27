@@ -393,7 +393,7 @@
 
 @keyframes flowDash {
   to {
-    stroke-dashoffset: -28;
+    stroke-dashoffset: 28;
   }
 }
 
@@ -404,10 +404,10 @@
 }
 
 @keyframes flowParticle {
-  0% { opacity: 0; offset-distance: 0%; }
+  0% { opacity: 0; offset-distance: 100%; }
   10% { opacity: 1; }
   90% { opacity: 1; }
-  100% { opacity: 0; offset-distance: 100%; }
+  100% { opacity: 0; offset-distance: 0%; }
 }
 
 .flowLabel {
@@ -571,9 +571,33 @@
   color: var(--circuit-text-muted);
 }
 
-/* Presets */
+/* Dual slider rows */
+.sliderRow {
+  margin-bottom: 1.5rem;
+}
+
+.sliderRow:last-child {
+  margin-bottom: 0;
+}
+
+/* FOE Maturity slider - different gradient */
+.sliderFOE {
+  background: linear-gradient(90deg, 
+    var(--color-critical) 0%,
+    var(--color-warning) 30%,
+    var(--color-balanced) 70%,
+    var(--color-systems) 100%
+  );
+}
+
+.sliderFOE::-webkit-slider-thumb {
+  border-color: var(--color-systems);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+/* Presets (hidden now, but keep for potential future use) */
 .presets {
-  display: flex;
+  display: none;
   gap: 0.75rem;
   margin-top: 1rem;
 }

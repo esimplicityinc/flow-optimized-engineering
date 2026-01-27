@@ -249,23 +249,6 @@ function GenomeHoneycomb({
         })}
       </div>
       
-      {/* Domain legend (for internal dot) */}
-      <div className={styles.genomeLegend}>
-        <span className={styles.legendLabel}>Dot:</span>
-        <div className={styles.legendItem}>
-          <div className={styles.legendDot} style={{ background: DOMAIN_COLORS.product }} />
-          <span>Product</span>
-        </div>
-        <div className={styles.legendItem}>
-          <div className={styles.legendDot} style={{ background: DOMAIN_COLORS.education }} />
-          <span>Education</span>
-        </div>
-        <div className={styles.legendItem}>
-          <div className={styles.legendDot} style={{ background: DOMAIN_COLORS.systems }} />
-          <span>Systems</span>
-        </div>
-      </div>
-      
       {/* Delivery mode legend (for border) */}
       <div className={styles.genomeLegend}>
         <span className={styles.legendLabel}>Border:</span>

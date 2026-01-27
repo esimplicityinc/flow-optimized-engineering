@@ -15,7 +15,7 @@ import VoltagePanel from './VoltagePanel';
 import GenomeHoneycomb, { SPINE_GENES } from './GenomeHoneycomb';
 import OutputGauges from './OutputGauges';
 import FlowLines from './FlowLines';
-import AIFactorSlider, { PRESETS } from './AIFactorSlider';
+import AIFactorSlider, { geneLevelsFromMaturity } from './AIFactorSlider';
 import InsightPanel, { generateInsight } from './InsightPanel';
 import styles from './styles.module.css';
 
@@ -113,12 +113,10 @@ function CircuitFlowVisualization({
 }: CircuitFlowVisualizationProps): React.ReactElement {
   // State
   const [aiFactor, setAiFactor] = useState(initialAiFactor);
+  const [foeMaturity, setFoeMaturity] = useState(0.5); // 0 = no spine, 1 = strong spine
   const [geneLevels, setGeneLevels] = useState<GeneLevels>(
-    initialPreset 
-      ? PRESETS.find(p => p.id === initialPreset)?.genes || DEFAULT_GENES
-      : DEFAULT_GENES
+    geneLevelsFromMaturity(0.5)
   );
-  const [activePreset, setActivePreset] = useState<string | undefined>(initialPreset);
   
   // Computed circuit state
   const circuitState = useMemo(() => {
@@ -173,7 +171,6 @@ function CircuitFlowVisualization({
       return { ...prev, [geneId]: GENE_LEVELS[nextIndex] };
     });
     
-    setActivePreset(undefined); // Clear preset when manually adjusting
     onGeneClick?.(geneId);
   }, [interactive, onGeneClick]);
   
@@ -183,16 +180,11 @@ function CircuitFlowVisualization({
   
   const handleAIFactorChange = useCallback((value: number) => {
     setAiFactor(value);
-    setActivePreset(undefined); // Clear preset when manually adjusting
   }, []);
   
-  const handlePresetSelect = useCallback((presetId: string) => {
-    const preset = PRESETS.find(p => p.id === presetId);
-    if (preset) {
-      setAiFactor(preset.aiFactor);
-      setGeneLevels(preset.genes);
-      setActivePreset(presetId);
-    }
+  const handleFOEMaturityChange = useCallback((value: number) => {
+    setFoeMaturity(value);
+    setGeneLevels(geneLevelsFromMaturity(value));
   }, []);
   
   return (
@@ -207,16 +199,14 @@ function CircuitFlowVisualization({
       
       {/* Main Circuit Layout */}
       <div className={styles.circuitLayout}>
-        {/* Left: Voltage Sources */}
-        <VoltagePanel aiFactor={aiFactor} animated={true} />
+        {/* Left: Client Needs */}
+        <VoltagePanel aiFactor={aiFactor} spineStrength={circuitState.spineStrength} animated={true} />
         
         {/* Flow Lines: Input */}
         <FlowLines 
           direction="in" 
           speed={inputFlowSpeed} 
           intensity={0.5 + aiFactor * 0.5}
-          geneLevels={geneLevels}
-          aiFactor={aiFactor}
         />
         
         {/* Center: Genome Honeycomb */}
@@ -233,8 +223,6 @@ function CircuitFlowVisualization({
           direction="out" 
           speed={outputFlowSpeed} 
           intensity={circuitState.permission / 100}
-          geneLevels={geneLevels}
-          aiFactor={aiFactor}
         />
         
         {/* Right: Output Gauges */}
@@ -248,13 +236,13 @@ function CircuitFlowVisualization({
         />
       </div>
       
-      {/* AI Factor Slider */}
+      {/* Dual Sliders: AI Factor + FOE Maturity */}
       {interactive && (
         <AIFactorSlider
-          value={aiFactor}
-          onChange={handleAIFactorChange}
-          onPresetSelect={handlePresetSelect}
-          activePreset={activePreset}
+          aiFactor={aiFactor}
+          foeMaturity={foeMaturity}
+          onAIFactorChange={handleAIFactorChange}
+          onFOEMaturityChange={handleFOEMaturityChange}
         />
       )}
       

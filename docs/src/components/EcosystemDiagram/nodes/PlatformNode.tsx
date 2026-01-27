@@ -8,6 +8,7 @@ import { useHistory } from '@docusaurus/router';
 import { 
   Layers,
   Rocket,
+  Compass,
 } from 'lucide-react';
 import type { EcosystemNodeData } from '../data';
 import styles from '../EcosystemDiagram.module.css';
@@ -15,6 +16,7 @@ import styles from '../EcosystemDiagram.module.css';
 const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   Layers,
   Rocket,
+  Compass,
 };
 
 function PlatformNode({ data }: NodeProps<EcosystemNodeData>) {
@@ -22,8 +24,16 @@ function PlatformNode({ data }: NodeProps<EcosystemNodeData>) {
   const history = useHistory();
   const IconComponent = iconMap[data.icon] || Layers;
   
-  // Determine if this is KATALYST (center) or PRIMA
+  // Determine node type for styling
   const isKatalyst = data.label === 'KATALYST';
+  const isFoe = data.label === 'Flow Optimized Engineering';
+  
+  // Get the appropriate style class
+  const getNodeClass = () => {
+    if (isKatalyst) return styles.katalystNode;
+    if (isFoe) return styles.foeNode;
+    return styles.primaNode;
+  };
 
   const handleClick = () => {
     if (data.link) {
@@ -33,7 +43,7 @@ function PlatformNode({ data }: NodeProps<EcosystemNodeData>) {
 
   return (
     <div 
-      className={`${styles.platformNode} ${isKatalyst ? styles.katalystNode : styles.primaNode}`}
+      className={`${styles.platformNode} ${getNodeClass()}`}
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
       onClick={handleClick}

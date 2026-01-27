@@ -1,80 +1,89 @@
 /**
- * VoltagePanel - Displays the 4 voltage/demand sources
+ * VoltagePanel - Displays the 4 client needs
+ * 
+ * When AI is high but spine is weak, Accountability and Safety
+ * decrease to show these client needs are NOT being met.
  */
 
 import React from 'react';
 import type { VoltagePanelProps } from './types';
 import styles from './styles.module.css';
 
-// Voltage source definitions
-const VOLTAGE_SOURCES = [
+// Client need definitions
+const CLIENT_NEEDS = [
   {
-    id: 'accountability',
-    name: 'Accountability',
-    description: 'Government baseline need for assurance',
-    baseLevel: 1.0,
-    aiEffect: 0, // Doesn't change with AI
+    id: 'mission',
+    name: 'Mission Capability',
+    description: 'Core mission delivery requirements',
+    baseLevel: 0.9,
+    behavior: 'static', // Doesn't depend on spine - AI always helps here
+    color: '#34D399',
+  },
+  {
+    id: 'transparency',
+    name: 'Transparency',
+    description: 'Visibility into what AI is doing and why',
+    baseLevel: 0.3, // Starts LOW
+    behavior: 'spine-rocket', // Drops without spine, rockets to FULL with spine
+    rocketMultiplier: 3.0, // Hits 100% at balanced
     color: '#60A5FA',
   },
   {
     id: 'safety',
     name: 'Safety',
     description: 'Operational continuity requirements',
-    baseLevel: 0.8,
-    aiEffect: 0.1, // Slightly increases with AI
+    baseLevel: 0.35, // Starts LOW
+    behavior: 'spine-rocket', // Drops without spine, rockets to FULL with spine
+    rocketMultiplier: 2.8, // Hits 100% at balanced
     color: '#FBBF24',
   },
   {
     id: 'prestige',
     name: 'Prestige',
     description: 'Career advancement signals',
-    baseLevel: 0.6,
-    aiEffect: -0.4, // Decreases with AI (shifts to assurance)
+    baseLevel: 0.3, // Starts LOW
+    behavior: 'spine-rocket', // Drops without spine, rockets to FULL with spine
+    rocketMultiplier: 3.0, // Hits 100% at balanced
     color: '#A78BFA',
-  },
-  {
-    id: 'ai-shock',
-    name: 'AI Shock',
-    description: 'New external pressure from AI capabilities',
-    baseLevel: 0,
-    aiEffect: 2.0, // Directly scales with AI factor
-    color: '#F472B6',
   },
 ];
 
-function VoltagePanel({ aiFactor, animated = true }: VoltagePanelProps): React.ReactElement {
+function VoltagePanel({ aiFactor, spineStrength, animated = true }: VoltagePanelProps): React.ReactElement {
   return (
     <div className={styles.voltagePanel}>
-      <div className={styles.voltagePanelTitle}>Voltage Sources</div>
+      <div className={styles.voltagePanelTitle}>Client Needs</div>
       
-      {VOLTAGE_SOURCES.map((source) => {
-        // Calculate effective level based on AI factor
-        let effectiveLevel: number;
-        if (source.id === 'ai-shock') {
-          // AI Shock scales directly with AI factor
-          effectiveLevel = source.baseLevel + (source.aiEffect * aiFactor);
-        } else if (source.id === 'prestige') {
-          // Prestige decreases with AI (shifts to assurance)
-          effectiveLevel = Math.max(0.1, source.baseLevel + (source.aiEffect * aiFactor));
-        } else {
-          // Others slightly increase or stay stable
-          effectiveLevel = source.baseLevel + (source.aiEffect * aiFactor);
-        }
+      {CLIENT_NEEDS.map((need) => {
+        let effectiveLevel = need.baseLevel;
         
-        // Normalize to 0-1 for display (AI shock can go to 2.0)
-        const displayLevel = Math.min(1, effectiveLevel);
-        const isOverdriven = effectiveLevel > 1;
-        const isPulsing = animated && (source.id === 'ai-shock' && aiFactor > 0.5);
+        if (need.behavior === 'spine-rocket' && 'rocketMultiplier' in need) {
+          // Rocket mode:
+          // - Spine below 0.55 = penalty (bars drop)
+          // - Spine above 0.55 = bonus (bars rise)
+          // - Effect scales with AI factor (no AI = no movement)
+          
+          const threshold = 0.55; // "Balanced" is above this
+          const spineRelative = spineStrength - threshold;
+          const effect = spineRelative * need.rocketMultiplier * aiFactor;
+          
+          effectiveLevel = need.baseLevel + effect;
+        }
+        // 'static' behavior: effectiveLevel stays at baseLevel
+        
+        // Normalize to 0-1 for display
+        const displayLevel = Math.min(1, Math.max(0.1, effectiveLevel));
+        const isUnderserved = effectiveLevel < need.baseLevel * 0.8; // Dropped more than 20%
+        const isExceeding = effectiveLevel > need.baseLevel * 1.3; // Gained more than 30%
         
         return (
           <div 
-            key={source.id} 
+            key={need.id} 
             className={styles.voltageSource}
-            title={source.description}
+            title={need.description}
           >
             <div 
               className={styles.voltageIcon}
-              style={{ '--voltage-color': source.color } as React.CSSProperties}
+              style={{ '--voltage-color': need.color } as React.CSSProperties}
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
@@ -83,16 +92,17 @@ function VoltagePanel({ aiFactor, animated = true }: VoltagePanelProps): React.R
             
             <div className={styles.voltageInfo}>
               <span className={styles.voltageName}>
-                {source.name}
-                {isOverdriven && ' (!)'}
+                {need.name}
+                {isUnderserved && ' ⚠'}
+                {isExceeding && ' ✓'}
               </span>
               <div className={styles.voltageBar}>
                 <div 
-                  className={`${styles.voltageBarFill} ${isPulsing ? styles.pulsing : ''}`}
+                  className={styles.voltageBarFill}
                   style={{ 
                     width: `${displayLevel * 100}%`,
-                    '--voltage-color': source.color,
-                    background: source.color,
+                    '--voltage-color': need.color,
+                    background: need.color,
                   } as React.CSSProperties}
                 />
               </div>

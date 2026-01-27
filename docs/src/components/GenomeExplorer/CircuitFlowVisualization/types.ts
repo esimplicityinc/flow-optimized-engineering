@@ -128,6 +128,7 @@ export interface CircuitFlowVisualizationProps {
 
 export interface VoltagePanelProps {
   aiFactor: number;
+  spineStrength: number;
   animated?: boolean;
 }
 
@@ -152,8 +153,6 @@ export interface FlowLinesProps {
   direction: 'in' | 'out';
   speed: number;
   intensity: number; // 0-1, affects opacity/particle density
-  geneLevels: GeneLevels;
-  aiFactor: number;
 }
 
 export interface AIFactorSliderProps {

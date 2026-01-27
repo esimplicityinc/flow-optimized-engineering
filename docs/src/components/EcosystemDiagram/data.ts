@@ -111,38 +111,15 @@ export const nodes: Node<EcosystemNodeData>[] = [
   },
   {
     id: 'foe',
-    type: 'conceptNode',
-    position: { x: 400, y: 350 },
+    type: 'platformNode',
+    position: { x: 350, y: 350 },
     data: {
       label: 'Flow Optimized Engineering',
       description: 'The governing ontology that everything aligns to',
       link: '/docs/intro/what-is-foe',
       icon: 'Compass',
       category: 'concept',
-    },
-  },
-  {
-    id: 'maturity-model',
-    type: 'conceptNode',
-    position: { x: 300, y: 500 },
-    data: {
-      label: 'Maturity Model',
-      description: 'Assessment framework for organizational capability',
-      link: '/docs/maturity-model/overview',
-      icon: 'TrendingUp',
-      category: 'concept',
-    },
-  },
-  {
-    id: 'field-guides',
-    type: 'conceptNode',
-    position: { x: 500, y: 500 },
-    data: {
-      label: 'Engineering Field Guides',
-      description: 'Practical guidance backed by evidence',
-      link: '/docs/field-guides/overview',
-      icon: 'BookOpen',
-      category: 'concept',
+      subComponents: ['Maturity Model', 'Field Guides'],
     },
   },
   {
@@ -254,22 +231,7 @@ export const edges: Edge[] = [
     style: { stroke: COLORS.governance },
     markerEnd: { type: MarkerType.ArrowClosed, color: COLORS.governance },
   },
-  {
-    id: 'e-foe-maturity',
-    source: 'foe',
-    target: 'maturity-model',
-    label: 'Contains',
-    style: { stroke: COLORS.concept },
-    markerEnd: { type: MarkerType.ArrowClosed, color: COLORS.concept },
-  },
-  {
-    id: 'e-foe-guides',
-    source: 'foe',
-    target: 'field-guides',
-    label: 'Contains',
-    style: { stroke: COLORS.concept },
-    markerEnd: { type: MarkerType.ArrowClosed, color: COLORS.concept },
-  },
+
 
   // === RIC TEAMS ===
   {
