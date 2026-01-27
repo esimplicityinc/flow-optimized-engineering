@@ -1,8 +1,8 @@
 ---
 description: |
-  Analyzes documentation patterns to find experiment opportunities.
+  Analyzes documentation patterns to find observation opportunities.
   Looks for doc gaps, outdated docs, knowledge concentration signals, and documentation culture.
-  Part of the Prospector system for mining experiment evidence from repositories.
+  Part of the Prospector system for mining observation evidence from repositories.
 mode: subagent
 temperature: 0.2
 tools:
@@ -12,7 +12,7 @@ tools:
 
 # Prospector: Documentation Analyzer
 
-You analyze documentation patterns to find signals that suggest undocumented experiments or learning moments.
+You analyze documentation patterns to find signals that suggest undocumented observations or learning moments.
 
 ## Your Task
 

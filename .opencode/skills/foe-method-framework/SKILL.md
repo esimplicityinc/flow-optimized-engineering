@@ -2,9 +2,9 @@
 name: foe-method-framework
 description: |
   Framework for creating and managing Flow Optimized Engineering methods. Use when creating 
-  new methods, updating method maturity levels, linking experiments to methods, adopting
+  new methods, updating method maturity levels, linking observations to methods, adopting
   methods from external frameworks, or understanding the method structure. Methods are 
-  practices backed by experiments within Field Guides.
+  practices backed by observations within Field Guides.
 ---
 
 # FOE Method Framework
@@ -15,7 +15,7 @@ This skill provides the structure and principles for creating and managing metho
 
 A method is a documented practice or approach that solves a specific engineering challenge. Methods are:
 - **Actionable** - They describe something you can do
-- **Evidence-backed** - They link to experiments that support them
+- **Evidence-backed** - They link to observations that support them
 - **Maturity-tracked** - They have a maturity level indicating how well-tested they are
 
 ## Method Locations
@@ -28,7 +28,7 @@ docs/docs/field-guides/
     └── methods/
         ├── established/    # Validated or Proven methods
         │   └── method-name.md
-        └── emerging/       # Hypothesized or Experimenting methods
+        └── emerging/       # Hypothesized or Observing methods
             └── method-name.md
 ```
 
@@ -37,33 +37,33 @@ docs/docs/field-guides/
 | Level | Value | Folder | Description |
 |-------|-------|--------|-------------|
 | Hypothesized | 1 | `emerging/` | Proposed, not yet tested |
-| Experimenting | 2 | `emerging/` | Active experiments underway |
+| Observing | 2 | `emerging/` | Active observations underway |
 | Validated | 3 | `established/` | Supporting evidence exists |
-| Proven | 4 | `established/` | Multiple confirming experiments |
+| Proven | 4 | `established/` | Multiple confirming observations |
 
 ## File Structure
 
 See `references/method-template.md` for the complete template.
 
 Key sections:
-1. **Frontmatter** - Metadata including maturity and linked experiments
+1. **Frontmatter** - Metadata including maturity and linked observations
 2. **Overview** - What the method is and why it matters
 3. **When to Use / When NOT to Use** - Applicability guidance
 4. **How It Works** - Step-by-step instructions
-5. **Supporting Evidence** - Link to experiments
+5. **Supporting Evidence** - Link to observations
 
 ## Creating a New Method
 
-1. Determine the maturity level (usually starts at `experimenting` with first experiment)
+1. Determine the maturity level (usually starts at `observing` with first observation)
 2. Choose the correct folder (`emerging/` or `established/`)
 3. Create the markdown file with proper frontmatter
-4. Link any supporting experiments
-5. Include the `<RelatedExperiments />` component
+4. Link any supporting observations
+5. Include the `<RelatedObservations />` component
 
 ## Maturity Transitions
 
 ### Emerging → Established
-When a method advances from Experimenting to Validated:
+When a method advances from Observing to Validated:
 1. Move the file from `emerging/` to `established/`
 2. Update the `maturity` frontmatter
 3. Update the guide overview to reflect the change
@@ -72,9 +72,9 @@ When a method advances from Experimenting to Validated:
 
 | Transition | Criteria |
 |------------|----------|
-| Hypothesized → Experimenting | First experiment created |
-| Experimenting → Validated | Completed experiment(s) with positive results |
-| Validated → Proven | Multiple experiments across different contexts |
+| Hypothesized → Observing | First observation created |
+| Observing → Validated | Completed observation(s) with positive results |
+| Validated → Proven | Multiple observations across different contexts |
 
 ## External Frameworks
 
@@ -109,7 +109,7 @@ To adopt an external method into a field guide:
      - framework: dora
        method: deployment-frequency
        foe_maturity: hypothesized
-       experiments: []
+       observations: []
    ```
 
 2. Update the MethodList component in the guide's overview:
@@ -134,7 +134,7 @@ To adopt an external method into a field guide:
 
 - **Reference, don't duplicate** - Canonical method lives in `/external-frameworks/`
 - **Independent FOE maturity** - Track your own maturity separate from framework status
-- **Add your evidence** - Link FOE experiments to validate in your context
+- **Add your evidence** - Link FOE observations to validate in your context
 - **Cherry-pick** - Adopt individual methods, not entire frameworks
 
 ### Creating a New External Framework

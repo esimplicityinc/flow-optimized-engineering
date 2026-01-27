@@ -1,0 +1,728 @@
+/**
+ * CircuitVisualization Styles
+ * 
+ * Interactive circuit metaphor for capacity → permission conversion.
+ * Uses CSS custom properties for theming and CSS Grid for layout.
+ */
+
+/* ==========================================================================
+   CUSTOM PROPERTIES
+   ========================================================================== */
+
+.container {
+  --circuit-color-primary: var(--ifm-color-primary);
+  --circuit-color-success: #10B981;
+  --circuit-color-warning: #F59E0B;
+  --circuit-color-danger: #EF4444;
+  --circuit-color-flow-start: var(--ifm-color-primary-light);
+  --circuit-color-flow-end: var(--ifm-color-primary);
+  --circuit-bg: var(--ifm-background-surface-color, var(--ifm-background-color));
+  --circuit-border: var(--ifm-color-emphasis-200);
+  --circuit-text: var(--ifm-font-color-base);
+  --circuit-text-muted: var(--ifm-color-emphasis-600);
+  
+  background: var(--circuit-bg);
+  border: 1px solid var(--circuit-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+[data-theme='dark'] .container {
+  --circuit-bg: #1a1a2e;
+  --circuit-border: #2d2d44;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+.header {
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--circuit-color-primary);
+  margin: 0;
+}
+
+/* ==========================================================================
+   AI FACTOR SLIDER
+   ========================================================================== */
+
+.sliderSection {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+}
+
+[data-theme='dark'] .sliderSection {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sliderLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--circuit-text-muted);
+}
+
+.sliderValue {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--circuit-color-primary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-200);
+  appearance: none;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--circuit-color-primary);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--circuit-color-primary);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.sliderMarkers {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--circuit-text-muted);
+}
+
+/* ==========================================================================
+   CIRCUIT LAYOUT
+   ========================================================================== */
+
+.circuitLayout {
+  display: grid;
+  grid-template-columns: 140px 40px 1fr 40px 180px;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--circuit-text-muted);
+  margin: 0 0 0.75rem 0;
+  text-align: center;
+}
+
+/* ==========================================================================
+   VOLTAGE SOURCES
+   ========================================================================== */
+
+.voltageSources {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.voltageSource {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 6px;
+  border: 1px solid var(--circuit-border);
+}
+
+[data-theme='dark'] .voltageSource {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.voltageIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--circuit-color-warning);
+}
+
+.voltageIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.voltageInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.voltageName {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.voltageBar {
+  height: 6px;
+  background: var(--ifm-color-emphasis-200);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.voltageBarFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* ==========================================================================
+   FLOW LINES
+   ========================================================================== */
+
+.flowLine {
+  position: relative;
+  height: 100%;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flowLineSvg {
+  width: 100%;
+  height: 20px;
+  overflow: visible;
+}
+
+.flowPath {
+  animation: flowAnimation 2s linear infinite;
+}
+
+@keyframes flowAnimation {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.flowArrow {
+  position: absolute;
+  right: -4px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid var(--circuit-color-flow-end);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+/* ==========================================================================
+   GENE SECTION
+   ========================================================================== */
+
+.geneSection {
+  text-align: center;
+}
+
+.geneHint {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--circuit-text-muted);
+  font-style: italic;
+  margin-top: -0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.geneGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.geneDomainColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.geneDomainLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.geneDomainNodes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+/* ==========================================================================
+   GENE NODES
+   ========================================================================== */
+
+.geneNode {
+  position: relative;
+  width: var(--gene-size, 20px);
+  height: var(--gene-size, 20px);
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: default;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.geneNodeInteractive {
+  cursor: pointer;
+}
+
+.geneNodeInteractive:hover {
+  transform: scale(1.2);
+}
+
+.geneNodeInteractive:hover .geneNodeInner {
+  box-shadow: 0 0 12px var(--gene-color);
+}
+
+.geneNodeInner {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--gene-color);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.geneNodeSpine .geneNodeInner {
+  box-shadow: 0 0 8px var(--gene-color);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 6px var(--gene-color);
+  }
+  to {
+    box-shadow: 0 0 14px var(--gene-color);
+  }
+}
+
+.geneNodeLabel {
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.geneNode:hover .geneNodeLabel,
+.geneNode:focus .geneNodeLabel {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   OUTPUT SECTION / PERMISSION GAUGE
+   ========================================================================== */
+
+.outputSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.permissionGauge {
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  border: 2px solid var(--circuit-border);
+}
+
+[data-theme='dark'] .permissionGauge {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.permissionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.permissionLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--circuit-text-muted);
+}
+
+.permissionValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.permissionBar {
+  height: 12px;
+  background: var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.permissionBarFill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s ease, background-color 0.3s ease;
+}
+
+/* ==========================================================================
+   INSIGHT SECTION
+   ========================================================================== */
+
+.insightSection {
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  border-left: 4px solid var(--circuit-color-primary);
+}
+
+[data-theme='dark'] .insightSection {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.insightFlow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.insightFlowItem {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  background: var(--circuit-bg);
+  border-radius: 4px;
+  border: 1px solid var(--circuit-border);
+}
+
+.insightFlowArrow {
+  color: var(--circuit-color-primary);
+  font-weight: bold;
+}
+
+.bottleneck {
+  font-size: 0.8rem;
+  color: var(--circuit-color-warning);
+  margin-bottom: 0.5rem;
+}
+
+.insight {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--circuit-text);
+  margin: 0;
+}
+
+/* ==========================================================================
+   SIMPLIFIED VARIANT
+   ========================================================================== */
+
+.simplified {
+  --circuit-color-primary: var(--ifm-color-primary);
+  --circuit-color-success: #10B981;
+  --circuit-color-warning: #F59E0B;
+  --circuit-color-danger: #EF4444;
+  --circuit-bg: var(--ifm-background-surface-color, var(--ifm-background-color));
+  --circuit-border: var(--ifm-color-emphasis-200);
+  --circuit-text-muted: var(--ifm-color-emphasis-600);
+  
+  background: var(--circuit-bg);
+  border: 1px solid var(--circuit-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin: 1rem 0;
+}
+
+[data-theme='dark'] .simplified {
+  --circuit-bg: #1a1a2e;
+  --circuit-border: #2d2d44;
+}
+
+.simplifiedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.simplifiedTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.simplifiedHint {
+  font-size: 0.65rem;
+  color: var(--circuit-text-muted);
+  font-style: italic;
+}
+
+.simplified .geneGrid {
+  margin-bottom: 1rem;
+}
+
+.simplified .permissionGauge {
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   MINI VARIANT
+   ========================================================================== */
+
+.mini {
+  --circuit-color-success: #10B981;
+  --circuit-color-warning: #F59E0B;
+  --circuit-color-danger: #EF4444;
+  
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+[data-theme='dark'] .mini {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.miniLabel {
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.miniBar {
+  width: 60px;
+  height: 6px;
+  background: var(--ifm-color-emphasis-200);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.miniBarFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.miniValue {
+  font-weight: 700;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  min-width: 35px;
+  text-align: right;
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES
+   ========================================================================== */
+
+@media (max-width: 996px) {
+  .circuitLayout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .voltageSources {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .voltageSource {
+    flex: 1;
+    min-width: 120px;
+    max-width: 160px;
+  }
+  
+  .flowLine {
+    display: none;
+  }
+  
+  .geneGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .outputSection {
+    max-width: 300px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .container,
+  .simplified {
+    padding: 1rem;
+  }
+  
+  .geneGrid {
+    gap: 0.75rem;
+  }
+  
+  .geneDomainLabel {
+    font-size: 0.6rem;
+  }
+  
+  .insightFlow {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .insightFlowArrow {
+    transform: rotate(90deg);
+  }
+  
+  .voltageSources {
+    flex-direction: column;
+  }
+  
+  .voltageSource {
+    max-width: none;
+  }
+  
+  .mini {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container,
+.simplified {
+  animation: fadeIn 0.4s ease;
+}
+
+/* Pulse animation for active flow */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.voltageBarFill {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY
+   ========================================================================== */
+
+.geneNode:focus {
+  outline: none;
+}
+
+.geneNode:focus-visible {
+  outline: 2px solid var(--circuit-color-primary);
+  outline-offset: 2px;
+}
+
+.slider:focus {
+  outline: none;
+}
+
+.slider:focus-visible {
+  outline: 2px solid var(--circuit-color-primary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .flowPath,
+  .voltageBarFill,
+  .geneNodeSpine .geneNodeInner {
+    animation: none;
+  }
+  
+  .container,
+  .simplified,
+  .geneNode,
+  .geneNodeInteractive:hover,
+  .permissionBarFill,
+  .miniBarFill {
+    transition: none;
+  }
+}

@@ -1,0 +1,438 @@
+/**
+ * SystemDiagram Styles
+ * FOE Brand Colors applied throughout
+ */
+
+/* Container */
+.container {
+  width: 100%;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--ifm-background-surface-color);
+}
+
+.diagramWrapper {
+  height: 500px;
+  position: relative;
+}
+
+.mobileWrapper {
+  height: 350px;
+}
+
+/* View Toggle */
+.viewToggle {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.toggleButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--ifm-color-content);
+  transition: all 0.2s ease;
+}
+
+.toggleButton:hover {
+  background: var(--ifm-color-primary-contrast-background);
+  border-color: var(--ifm-color-primary);
+}
+
+.toggleButton svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ==========================================
+   AGENT NODE
+   ========================================== */
+
+.agentNode {
+  background: linear-gradient(135deg, #3223BD 0%, #4834d4 100%);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  min-width: 110px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(50, 35, 189, 0.3);
+}
+
+.agentNode:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(50, 35, 189, 0.4);
+}
+
+.agentNode:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.agentIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+}
+
+.agentLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ==========================================
+   CONTENT NODE
+   ========================================== */
+
+.contentNode {
+  background: white;
+  border: 2px solid #3EC5BB;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  min-width: 100px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(62, 197, 187, 0.2);
+}
+
+.contentNode:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(62, 197, 187, 0.3);
+  border-color: #3223BD;
+}
+
+.contentNode:focus {
+  outline: 2px solid #3223BD;
+  outline-offset: 2px;
+}
+
+.contentIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.3rem;
+  color: #3EC5BB;
+}
+
+.contentLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+}
+
+/* Dark mode content node */
+[data-theme='dark'] .contentNode {
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* ==========================================
+   INPUT NODE
+   ========================================== */
+
+.inputNode {
+  background: var(--ifm-color-emphasis-100);
+  border: 1px dashed #6B7280;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  min-width: 90px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inputNode:hover {
+  transform: translateY(-1px);
+  background: var(--ifm-color-emphasis-200);
+}
+
+.inputNode:focus {
+  outline: 2px solid #6B7280;
+  outline-offset: 2px;
+}
+
+.inputIcon {
+  color: #6B7280;
+}
+
+.inputLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ifm-color-content-secondary);
+}
+
+/* ==========================================
+   MOBILE NODE
+   ========================================== */
+
+.mobileNode {
+  background: linear-gradient(135deg, #3223BD 0%, #4834d4 100%);
+  color: white;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  min-width: 200px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  box-shadow: 0 2px 12px rgba(50, 35, 189, 0.3);
+}
+
+.mobileNode:hover,
+.mobileNode:active {
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(50, 35, 189, 0.4);
+}
+
+.mobileIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.mobileLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.mobileDesc {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+/* ==========================================
+   TOOLTIP
+   ========================================== */
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  background: var(--ifm-color-emphasis-900);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  min-width: 180px;
+  max-width: 250px;
+  text-align: left;
+  z-index: 1000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--ifm-color-emphasis-900);
+}
+
+.tooltipTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.tooltipDesc {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+
+.tooltipHint {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.tooltipMobile {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   HANDLE (Connection Points)
+   ========================================== */
+
+.handle {
+  width: 8px;
+  height: 8px;
+  background: var(--ifm-color-emphasis-400);
+  border: none;
+}
+
+/* ==========================================
+   LEGEND
+   ========================================== */
+
+.legend {
+  padding: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.legendCompact {
+  padding: 0.75rem;
+}
+
+.legendTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.legendItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.legendCircle {
+  border-radius: 50%;
+}
+
+.legendLabel {
+  font-size: 0.75rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+.legendLine {
+  width: 20px;
+  height: 2px;
+  background: #3223BD;
+  flex-shrink: 0;
+}
+
+.legendLineDashed {
+  width: 20px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    #6B7280 0px,
+    #6B7280 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   CONTROLS OVERRIDE
+   ========================================== */
+
+.controls {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 768px) {
+  .diagramWrapper {
+    height: 400px;
+  }
+  
+  .legendItems {
+    gap: 0.75rem 1rem;
+  }
+  
+  .legendLabel {
+    font-size: 0.7rem;
+  }
+  
+  .tooltip {
+    display: none;
+  }
+}
+
+/* ==========================================
+   DARK MODE
+   ========================================== */
+
+[data-theme='dark'] .container {
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .viewToggle {
+  background: var(--ifm-color-emphasis-200);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .legend {
+  background: var(--ifm-color-emphasis-200);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .inputNode {
+  background: var(--ifm-color-emphasis-200);
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .agentNode,
+  .contentNode,
+  .inputNode,
+  .mobileNode {
+    transition: none;
+  }
+  
+  .agentNode:hover,
+  .contentNode:hover,
+  .inputNode:hover,
+  .mobileNode:hover {
+    transform: none;
+  }
+}

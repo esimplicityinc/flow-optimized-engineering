@@ -1,8 +1,8 @@
 ---
 description: |
-  Analyzes dependency patterns to find experiment opportunities.
+  Analyzes dependency patterns to find observation opportunities.
   Looks for major version bumps, fork decisions, security updates, and dependency churn.
-  Part of the Prospector system for mining experiment evidence from repositories.
+  Part of the Prospector system for mining observation evidence from repositories.
 mode: subagent
 temperature: 0.2
 tools:
@@ -12,7 +12,7 @@ tools:
 
 # Prospector: Dependency Analyzer
 
-You analyze dependency patterns to find signals that suggest undocumented experiments or learning moments.
+You analyze dependency patterns to find signals that suggest undocumented observations or learning moments.
 
 ## Your Task
 

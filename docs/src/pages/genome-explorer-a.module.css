@@ -1,0 +1,1572 @@
+/**
+ * Genome Explorer - Version A: Classic Grid Layout
+ * Professional, traditional layout with dark hero and interactive gene grid
+ */
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+
+.genomePage {
+  --genome-bg-hero: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+  --genome-bg-section: #F8FAFC;
+  --genome-bg-section-alt: #FFFFFF;
+  --genome-text-muted: #64748B;
+  --genome-border: #E2E8F0;
+  --genome-card-bg: #FFFFFF;
+  --genome-max-width: 1200px;
+  
+  /* Domain colors */
+  --color-product: #3B82F6;
+  --color-education: #10B981;
+  --color-systems: #8B5CF6;
+  
+  /* Species colors */
+  --color-mission: #3B82F6;
+  --color-enablement: #10B981;
+}
+
+[data-theme='dark'] .genomePage {
+  --genome-bg-section: #1E293B;
+  --genome-bg-section-alt: #0F172A;
+  --genome-border: #334155;
+  --genome-text-muted: #94A3B8;
+  --genome-card-bg: #1E293B;
+}
+
+/* ============================================
+   BASE LAYOUT
+   ============================================ */
+
+.genomePage {
+  min-height: 100vh;
+}
+
+.sectionContainer {
+  max-width: var(--genome-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.sectionSubtitle {
+  font-size: 1rem;
+  color: var(--genome-text-muted);
+  margin: 0 0 2rem;
+  max-width: 600px;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--genome-bg-hero);
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.heroOrb1,
+.heroOrb2,
+.heroOrb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+}
+
+.heroOrb1 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, var(--color-product) 0%, #60A5FA 100%);
+  top: -150px;
+  left: -100px;
+}
+
+.heroOrb2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, var(--color-systems) 0%, #A78BFA 100%);
+  bottom: -100px;
+  right: -50px;
+}
+
+.heroOrb3 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, var(--color-education) 0%, #34D399 100%);
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.dnaHelix {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba(255, 255, 255, 0.02) 40px,
+    rgba(255, 255, 255, 0.02) 80px
+  );
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: #94A3B8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  color: white;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+}
+
+.heroSubtitle {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  color: #94A3B8;
+  font-weight: 400;
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.heroIntro {
+  font-size: 1rem;
+  color: #64748B;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748B;
+  font-size: 0.8rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.scrollIndicator svg {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ============================================
+   PERMISSION ECONOMY SECTION
+   ============================================ */
+
+.permissionEconomySection {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+}
+
+/* ============================================
+   CIRCUIT SECTION
+   ============================================ */
+
+.circuitSection {
+  padding: 3rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.circuitSection h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.circuitSection > p {
+  text-align: center;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 2rem;
+}
+
+/* ============================================
+   EXPLORER TABS
+   ============================================ */
+
+.explorerTabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tabButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--ifm-color-emphasis-600);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.tabButton:hover {
+  color: var(--ifm-color-primary);
+}
+
+.tabButton.active {
+  color: var(--ifm-color-primary);
+  border-bottom-color: var(--ifm-color-primary);
+}
+
+.ecosystemContent {
+  min-height: 400px;
+}
+
+/* ============================================
+   CTA SECTION (Three Pillars)
+   ============================================ */
+
+.ctaSection {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+}
+
+/* ============================================
+   EVOLUTION SECTION
+   ============================================ */
+
+.evolutionSection {
+  padding: 3rem 0;
+  background: var(--genome-bg-section-alt);
+  border-bottom: 1px solid var(--genome-border);
+}
+
+.evolutionToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.5rem;
+  background: var(--genome-card-bg);
+  border: 1px solid var(--genome-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.evolutionToggle:hover {
+  border-color: var(--color-product);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.evolutionToggleContent {
+  flex: 1;
+}
+
+.evolutionToggleTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--ifm-heading-color);
+}
+
+.evolutionToggleSubtitle {
+  font-size: 0.9rem;
+  color: var(--genome-text-muted);
+  margin: 0;
+}
+
+.evolutionToggleIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--genome-text-muted);
+  transition: transform 0.2s ease;
+}
+
+.evolutionToggleIcon.expanded {
+  transform: rotate(180deg);
+}
+
+.evolutionToggleIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.evolutionTimeline {
+  margin-top: 1.5rem;
+}
+
+.evolutionPhase {
+  background: var(--genome-card-bg);
+  border: 1px solid var(--genome-border);
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.evolutionPhaseHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.evolutionPhaseHeader:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.phaseNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--color-product), var(--color-systems));
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.phaseTitles {
+  flex: 1;
+}
+
+.phaseTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.125rem;
+  color: var(--ifm-heading-color);
+}
+
+.phaseSubtitle {
+  font-size: 0.8rem;
+  color: var(--genome-text-muted);
+}
+
+.phaseExpandIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--genome-text-muted);
+  transition: transform 0.2s ease;
+}
+
+.phaseExpandIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.evolutionPhase.expanded .phaseExpandIcon {
+  transform: rotate(180deg);
+}
+
+.evolutionPhaseContent {
+  display: none;
+  padding: 0 1.5rem 1.5rem;
+  padding-left: calc(1.5rem + 32px + 1rem);
+}
+
+.evolutionPhase.expanded .evolutionPhaseContent {
+  display: block;
+}
+
+.phaseContentList {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: var(--ifm-font-color-base);
+  line-height: 1.7;
+}
+
+.phaseContentList li {
+  margin-bottom: 0.5rem;
+}
+
+.phaseKeyInsight {
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+  border-left: 3px solid var(--color-product);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  color: var(--ifm-font-color-base);
+}
+
+/* ============================================
+   GENE EXPLORER SECTION
+   ============================================ */
+
+.explorerSection {
+  padding: 4rem 0;
+  background: var(--genome-bg-section);
+}
+
+.explorerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.explorerControls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Domain Tabs */
+.domainTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.domainTab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--genome-card-bg);
+  border: 1px solid var(--genome-border);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--genome-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.domainTab:hover {
+  border-color: var(--tab-color, var(--genome-text-muted));
+  color: var(--ifm-font-color-base);
+}
+
+.domainTab.active {
+  background: var(--tab-color, var(--color-product));
+  border-color: var(--tab-color, var(--color-product));
+  color: white;
+}
+
+.domainTab.active .domainTabIndicator {
+  background-color: white !important;
+}
+
+.domainTabIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Species Toggle */
+.speciesToggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.speciesToggleLabel {
+  font-size: 0.875rem;
+  color: var(--genome-text-muted);
+}
+
+.speciesToggleButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.speciesToggleBtn {
+  padding: 0.375rem 0.875rem;
+  background: var(--genome-card-bg);
+  border: 1px solid var(--genome-border);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--genome-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.speciesToggleBtn:hover {
+  border-color: var(--genome-text-muted);
+}
+
+.speciesToggleBtn.active {
+  color: white;
+}
+
+.speciesToggleBtn.mission.active {
+  background: var(--color-mission);
+  border-color: var(--color-mission);
+}
+
+.speciesToggleBtn.enablement.active {
+  background: var(--color-enablement);
+  border-color: var(--color-enablement);
+}
+
+/* Gene Grid */
+.explorerContent {
+  margin-bottom: 2rem;
+}
+
+.geneGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Gene Card */
+.geneCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background: var(--genome-card-bg);
+  border: 2px solid var(--genome-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.geneCard:hover {
+  border-color: var(--domain-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.geneCard.selected {
+  border-color: var(--domain-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--domain-color) 20%, transparent);
+}
+
+.geneCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.domainIndicator {
+  width: 4px;
+  height: 24px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.geneName {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+}
+
+.geneDefinition {
+  font-size: 0.875rem;
+  color: var(--genome-text-muted);
+  line-height: 1.5;
+  margin: 0 0 1rem;
+  flex: 1;
+}
+
+.geneWeights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--genome-border);
+}
+
+.weightRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weightLabel {
+  font-size: 0.75rem;
+  color: var(--genome-text-muted);
+}
+
+.weightDots {
+  display: flex;
+  gap: 4px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.weightDots.highlighted {
+  opacity: 1;
+}
+
+.weightDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--genome-border);
+  transition: transform 0.2s ease;
+}
+
+.weightDot.active {
+  transform: scale(1.2);
+}
+
+/* Domain Legend */
+.domainLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: var(--genome-card-bg);
+  border: 1px solid var(--genome-border);
+  border-radius: 8px;
+  font-size: 0.8rem;
+}
+
+.legendLabel {
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--genome-text-muted);
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   GENE DETAIL PANEL
+   ============================================ */
+
+.detailOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.detailOverlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.detailPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 500px;
+  height: 100vh;
+  background: var(--genome-card-bg);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 101;
+  overflow-y: auto;
+}
+
+.detailPanel.open {
+  transform: translateX(0);
+}
+
+.detailHeader {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.detailTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.detailDomainBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: white;
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.closeButton svg {
+  width: 18px;
+  height: 18px;
+}
+
+.detailTitle {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+}
+
+.detailDefinition {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.detailContent {
+  padding: 1.5rem;
+}
+
+/* Then vs Now Comparison */
+.thenNowComparison {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.comparisonItem {
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 10px;
+}
+
+.comparisonLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.comparisonIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: var(--color-product);
+}
+
+.comparisonIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.comparisonText {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ifm-font-color-base);
+  margin: 0;
+}
+
+/* Detail Sections */
+.detailSection {
+  margin-bottom: 1.5rem;
+}
+
+.detailSectionTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  color: var(--ifm-heading-color);
+}
+
+.examplesList {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--ifm-font-color-base);
+  line-height: 1.6;
+}
+
+.examplesList li {
+  margin-bottom: 0.5rem;
+}
+
+/* Key Question */
+.keyQuestion {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+  border-left: 3px solid var(--color-product);
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 1.5rem;
+}
+
+.keyQuestionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--color-product);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.keyQuestionLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.25rem;
+  color: var(--genome-text-muted);
+}
+
+.keyQuestionText {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--ifm-heading-color);
+}
+
+/* Species Weights Detail */
+.speciesWeightsDetail {
+  margin-bottom: 1.5rem;
+}
+
+.speciesWeightBars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.speciesWeightBar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.speciesWeightLabel {
+  font-size: 0.8rem;
+  color: var(--genome-text-muted);
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.weightBarTrack {
+  flex: 1;
+  height: 8px;
+  background: var(--genome-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.weightBarFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.speciesWeightValue {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  width: 30px;
+  text-align: right;
+}
+
+/* Strategy Link */
+.strategyLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--genome-border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+  transition: all 0.2s ease;
+}
+
+.strategyLink:hover {
+  border-color: var(--color-product);
+  transform: translateX(4px);
+  text-decoration: none;
+}
+
+.strategyLink span:first-child {
+  font-size: 0.75rem;
+  color: var(--genome-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.strategyLinkSection {
+  flex: 1;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+}
+
+.strategyLink svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-product);
+}
+
+/* ============================================
+   SPECIES SECTION
+   ============================================ */
+
+.speciesSection {
+  padding: 4rem 0;
+  background: var(--genome-bg-section-alt);
+}
+
+.speciesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+/* Species Card */
+.speciesCard {
+  background: var(--genome-card-bg);
+  border: 2px solid var(--genome-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.speciesCard:hover {
+  border-color: var(--species-color);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.speciesHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.speciesIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  color: white;
+}
+
+.speciesIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.speciesName {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 0.125rem;
+  color: var(--ifm-heading-color);
+}
+
+.speciesSubtitle {
+  font-size: 0.875rem;
+  color: var(--genome-text-muted);
+}
+
+.speciesInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.speciesInfoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.speciesInfoLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--genome-text-muted);
+}
+
+.speciesInfoValue {
+  font-size: 0.875rem;
+  color: var(--ifm-font-color-base);
+  line-height: 1.4;
+}
+
+.speciesStance {
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+}
+
+.speciesStanceLabel {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--genome-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.speciesStanceText {
+  font-size: 1rem;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0;
+  color: var(--ifm-heading-color);
+}
+
+/* Gene Heatmap */
+.geneHeatmap {
+  margin-bottom: 1.25rem;
+}
+
+.heatmapTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  color: var(--ifm-heading-color);
+}
+
+.heatmapGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.heatmapCell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+.heatmapCell:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.heatmapCellName {
+  color: var(--ifm-font-color-base);
+  text-transform: uppercase;
+}
+
+/* Required Genes */
+.requiredGenes {
+  margin-bottom: 1.25rem;
+}
+
+.requiredGenesTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  color: var(--ifm-heading-color);
+}
+
+.requiredGenesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.requiredGeneTag {
+  padding: 0.375rem 0.75rem;
+  background: transparent;
+  border: 1px solid;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.requiredGeneTag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Failure Mode */
+.failureMode {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(239, 68, 68, 0.03) 100%);
+  border-left: 3px solid #EF4444;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 1.25rem;
+}
+
+.failureModeIcon {
+  display: flex;
+  align-items: flex-start;
+  color: #EF4444;
+}
+
+.failureModeIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.failureModeLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.25rem;
+  color: #EF4444;
+}
+
+.failureModeText {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--ifm-font-color-base);
+}
+
+/* Fitness Function */
+.fitnessFunction {
+  padding: 1rem;
+  background: color-mix(in srgb, var(--species-color) 8%, transparent);
+  border-radius: 10px;
+}
+
+.fitnessFunctionLabel {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--genome-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.fitnessFunctionText {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--ifm-heading-color);
+}
+
+/* ============================================
+   EXTINCTION SECTION
+   ============================================ */
+
+.extinctionSection {
+  padding: 4rem 0;
+  background: var(--genome-bg-section);
+}
+
+.extinctionHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.extinctionWarningIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  border-radius: 12px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.extinctionWarningIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.extinctionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Extinction Card */
+.extinctionCard {
+  background: var(--genome-card-bg);
+  border: 2px solid var(--genome-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.extinctionCard:hover {
+  border-color: #F59E0B;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.1);
+}
+
+.extinctionHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.extinctionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+  border-radius: 8px;
+  color: #EF4444;
+  flex-shrink: 0;
+}
+
+.extinctionIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.extinctionName {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--ifm-heading-color);
+}
+
+.extinctionDomainBadge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.extinctionDescription {
+  font-size: 0.9rem;
+  color: var(--ifm-font-color-base);
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+.extinctionReason {
+  font-size: 0.85rem;
+  color: var(--ifm-font-color-base);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(239, 68, 68, 0.03) 100%);
+  border-radius: 8px;
+}
+
+.extinctionReason strong {
+  color: #EF4444;
+}
+
+.extinctionSigns {
+  font-size: 0.8rem;
+  color: var(--genome-text-muted);
+}
+
+.extinctionSigns strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-font-color-base);
+}
+
+.extinctionSigns ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.extinctionSigns li {
+  margin-bottom: 0.25rem;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+
+.cta {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #1E40AF 0%, #7C3AED 100%);
+  text-align: center;
+  color: white;
+}
+
+.ctaContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  margin: 0 0 1rem;
+  color: white;
+}
+
+.ctaDescription {
+  font-size: 1.125rem;
+  margin: 0 0 2rem;
+  opacity: 0.9;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButton {
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ctaButtonPrimary {
+  background: white;
+  color: #1E40AF;
+}
+
+.ctaButtonPrimary:hover {
+  background: #F1F5F9;
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: #1E40AF;
+}
+
+.ctaButtonSecondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.ctaButtonSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: white;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 996px) {
+  .sectionContainer {
+    padding: 0 1.5rem;
+  }
+
+  .hero {
+    min-height: 60vh;
+    padding: 3rem 1.5rem;
+  }
+
+  .speciesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailPanel {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 50vh;
+  }
+
+  .geneGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .domainTabs {
+    justify-content: center;
+  }
+
+  .speciesToggle {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .domainLegend {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .evolutionPhaseContent {
+    padding-left: 1.5rem;
+  }
+
+  .extinctionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .speciesInfo {
+    grid-template-columns: 1fr;
+  }
+
+  .heatmapGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+[data-theme='dark'] .geneCard {
+  background: #1E293B;
+}
+
+[data-theme='dark'] .geneCard:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .speciesCard {
+  background: #1E293B;
+}
+
+[data-theme='dark'] .speciesCard:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .extinctionCard {
+  background: #1E293B;
+}
+
+[data-theme='dark'] .detailPanel {
+  background: #0F172A;
+}
+
+[data-theme='dark'] .evolutionToggle {
+  background: #1E293B;
+}
+
+[data-theme='dark'] .evolutionPhase {
+  background: #1E293B;
+}
+
+[data-theme='dark'] .domainTab {
+  background: #1E293B;
+}
+
+[data-theme='dark'] .speciesToggleBtn {
+  background: #1E293B;
+}
+
+[data-theme='dark'] .weightBarTrack {
+  background: #334155;
+}

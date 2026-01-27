@@ -42,7 +42,7 @@ Use the question tool to determine:
 Before dispatching crawlers:
 1. Read `research/agentic-trends/` for previous reports
 2. Identify the most recent report for delta comparison
-3. Note existing FOE methods/experiments to avoid duplicate suggestions
+3. Note existing FOE methods/observations to avoid duplicate suggestions
 4. Build a baseline of what's already been covered
 
 ### Phase 3: Parallel Crawl
@@ -78,7 +78,7 @@ For each significant finding, assess FOE relevance:
 | Tag | Meaning | Action |
 |-----|---------|--------|
 | `method_candidate` | Could become an FOE method | Link to relevant field guide |
-| `experiment_candidate` | External research to document | Note as literature evidence |
+| `observation_candidate` | External research to document | Note as literature evidence |
 | `informational` | Good to know, no direct action | Include in report |
 
 Link findings to relevant:
@@ -117,7 +117,7 @@ metrics:
   total_findings: 0
   new_since_last: 0
   method_candidates: 0
-  experiment_candidates: 0
+  observation_candidates: 0
   skills_analyzed: 0
 
 priority_items:
@@ -148,7 +148,7 @@ discovered: MM-DD-YY
 signal_strength: high|medium|low
 delta_status: new|evolved|recurring
 foe_relevance:
-  type: method_candidate|experiment_candidate|informational
+  type: method_candidate|observation_candidate|informational
   guides: []
   methods: []
   notes: ""
@@ -163,7 +163,7 @@ foe_relevance:
 2. **Key Trends** - Top 5-10 findings with analysis
 3. **FOE Opportunities**
    - Method Candidates table
-   - Experiment Candidates table
+   - Observation Candidates table
 4. **Skills Analysis** - Findings from skills.sh with adaptation notes
 5. **Source Breakdown** - Detailed findings organized by source
 6. **What's New** - Delta from last report (NEW, EVOLVED, RECURRING tags)

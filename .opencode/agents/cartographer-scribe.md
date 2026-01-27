@@ -242,7 +242,7 @@ After approval:
 ### Next Steps:
 1. Review the generated documentation
 2. Consider adopting methods into relevant Field Guides
-3. Add FOE experiments to build independent maturity
+3. Add FOE observations to build independent maturity
 
 The framework is now available at:
 `/docs/external-frameworks/[slug]/overview`

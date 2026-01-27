@@ -1,0 +1,125 @@
+.accordionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.accordionItem {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--ifm-background-surface-color);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.accordionItem:hover {
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+.accordionItem.open {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.accordionItem.standalone {
+  margin-top: 1rem;
+}
+
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ifm-color-content);
+  transition: background-color 0.15s ease;
+}
+
+.accordionHeader:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.accordionHeader:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: -2px;
+}
+
+.accordionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.accordionIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.open .accordionIcon {
+  transform: rotate(90deg);
+}
+
+.accordionTitle {
+  flex: 1;
+}
+
+.accordionContent {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordionInner {
+  padding: 0 1rem 1rem 2.75rem;
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.accordionInner p {
+  margin: 0 0 0.75rem 0;
+}
+
+.accordionInner p:last-child {
+  margin-bottom: 0;
+}
+
+.accordionInner ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.accordionInner li {
+  margin-bottom: 0.5rem;
+}
+
+.accordionInner li:last-child {
+  margin-bottom: 0;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .accordionItem {
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .accordionItem:hover {
+  border-color: var(--ifm-color-emphasis-400);
+}
+
+[data-theme='dark'] .accordionItem.open {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .accordionHeader:hover {
+  background: var(--ifm-color-emphasis-200);
+}

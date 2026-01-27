@@ -19,14 +19,14 @@ Field Guides System
 │   │   │   └── methods/
 │   │   │       ├── established/
 │   │   │       └── emerging/
-│   │   └── experiments/
+│   │   └── observations/
 │   └── Frontmatter Schema (see below)
 ├── Shared Types
 │   └── /src/lib/fieldGuides.ts
 └── Components
     └── /src/components/
         ├── MaturityBadge/
-        ├── RelatedExperiments/
+        ├── RelatedObservations/
         ├── RelatedMethods/
         ├── GuideMaturitySummary/
         └── MethodList/
@@ -40,17 +40,17 @@ Field Guides System
 ---
 title: "Method Name"
 sidebar_position: 1
-maturity: validated           # hypothesized | experimenting | validated | proven
-experiments:
-  - experiment-slug           # relative to /docs/field-guides/experiments/
+maturity: validated           # hypothesized | observing | validated | proven
+observations:
+  - observation-slug           # relative to /docs/field-guides/observations/
 ---
 ```
 
-### Experiment Frontmatter
+### Observation Frontmatter
 
 ```yaml
 ---
-title: "Experiment Name"
+title: "Observation Name"
 sidebar_position: 1
 status: completed             # in-progress | completed
 methods:
@@ -64,7 +64,7 @@ All maturity-related types and utilities live in `/src/lib/fieldGuides.ts`:
 
 ```typescript
 // Maturity levels
-type MaturityLevel = 'hypothesized' | 'experimenting' | 'validated' | 'proven';
+type MaturityLevel = 'hypothesized' | 'observing' | 'validated' | 'proven';
 
 // Level configuration
 interface MaturityConfig {
@@ -91,7 +91,7 @@ Guide maturity is calculated as the average of its method maturity values:
 | Average Range | Resulting Level |
 |---------------|-----------------|
 | < 1.5 | Hypothesized |
-| 1.5 - 2.5 | Experimenting |
+| 1.5 - 2.5 | Observing |
 | 2.5 - 3.5 | Validated |
 | > 3.5 | Proven |
 
@@ -110,25 +110,25 @@ import MaturityBadge from '@site/src/components/MaturityBadge';
 **Props:**
 - `maturity: MaturityLevel` - The maturity level to display
 
-### RelatedExperiments
+### RelatedObservations
 
-Renders linked experiments from the current method's frontmatter.
+Renders linked observations from the current method's frontmatter.
 
 ```tsx
-import RelatedExperiments from '@site/src/components/RelatedExperiments';
+import RelatedObservations from '@site/src/components/RelatedObservations';
 
-// In a method doc - reads `experiments` from frontmatter
-<RelatedExperiments />
+// In a method doc - reads `observations` from frontmatter
+<RelatedObservations />
 ```
 
 ### RelatedMethods
 
-Renders linked methods from the current experiment's frontmatter.
+Renders linked methods from the current observation's frontmatter.
 
 ```tsx
 import RelatedMethods from '@site/src/components/RelatedMethods';
 
-// In an experiment doc - reads `methods` from frontmatter
+// In an observation doc - reads `methods` from frontmatter
 <RelatedMethods />
 ```
 
@@ -197,9 +197,9 @@ npm run typecheck
 
 ## Testing Changes
 
-1. Verify components render correctly in method and experiment pages
+1. Verify components render correctly in method and observation pages
 2. Check maturity calculations by adjusting method maturity values
-3. Test cross-linking by adding/removing experiment references
+3. Test cross-linking by adding/removing observation references
 4. Verify sidebar navigation reflects the structure
 
 ## Pull Request Guidelines

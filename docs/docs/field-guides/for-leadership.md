@@ -17,7 +17,7 @@ Field Guides fix this by:
 
 1. **Collecting methods** - Practical approaches that teams have tried
 2. **Tracking evidence** - Did it actually work? How do we know?
-3. **Showing maturity** - Is this battle-tested or still experimental?
+3. **Showing maturity** - Is this battle-tested or still observational?
 
 ## What You'll See
 
@@ -27,7 +27,7 @@ Each guide has a simple health indicator:
 |--------|---------------|
 | **Proven** | Multiple teams have validated this works |
 | **Validated** | Evidence shows it works |
-| **Experimenting** | We're testing it now |
+| **Observing** | We're testing it now |
 | **Hypothesized** | Proposed but not yet tested |
 
 The more proven methods in a guide, the more confident you can be in adopting it.
@@ -41,7 +41,7 @@ The more proven methods in a guide, the more confident you can be in adopting it
 ## What You Don't Need to Worry About
 
 - The technical implementation details
-- How experiments are structured
+- How observations are structured
 - The specifics of maturity calculations
 
 Your teams handle all of that. You just need to know: *Is this ready for broader adoption?* The maturity indicator answers that question at a glance.

@@ -1,8 +1,8 @@
 ---
 description: |
-  Analyzes git commit history to find patterns suggesting experiment opportunities.
+  Analyzes git commit history to find patterns suggesting observation opportunities.
   Looks for debugging crunches, refactoring waves, revert patterns, and learning moments.
-  Part of the Prospector system for mining experiment evidence from repositories.
+  Part of the Prospector system for mining observation evidence from repositories.
 mode: subagent
 temperature: 0.2
 tools:
@@ -12,7 +12,7 @@ tools:
 
 # Prospector: Commit Analyzer
 
-You analyze git commit history to find patterns that suggest undocumented experiments or learning moments.
+You analyze git commit history to find patterns that suggest undocumented observations or learning moments.
 
 ## Your Task
 

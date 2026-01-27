@@ -10,7 +10,7 @@ Detailed criteria for each maturity level and guidance on transitions.
 
 **Characteristics:**
 - Based on theory, intuition, or external evidence
-- No internal experiments yet
+- No internal observations yet
 - May come from: reading, conferences, other organizations
 - Lives in `methods/emerging/`
 
@@ -19,7 +19,7 @@ Detailed criteria for each maturity level and guidance on transitions.
 **Example Frontmatter:**
 ```yaml
 maturity: hypothesized
-experiments: []
+observations: []
 ```
 
 **Appropriate Tone:**
@@ -28,25 +28,25 @@ experiments: []
 
 ---
 
-### Experimenting (Value: 2)
+### Observing (Value: 2)
 
-**Definition:** A method actively being tested with experiments in progress.
+**Definition:** A method actively being tested with observations in progress.
 
 **Characteristics:**
-- At least one experiment exists (in-progress or completed)
+- At least one observation exists (in-progress or completed)
 - Results are preliminary or inconclusive
 - Still refining the approach
 - Lives in `methods/emerging/`
 
 **Evidence Required:**
-- At least one experiment documented
+- At least one observation documented
 - Clear hypothesis being tested
 
 **Example Frontmatter:**
 ```yaml
-maturity: experimenting
-experiments:
-  - initial-test-experiment
+maturity: observing
+observations:
+  - initial-test-observation
 ```
 
 **Appropriate Tone:**
@@ -57,26 +57,26 @@ experiments:
 
 ### Validated (Value: 3)
 
-**Definition:** A method with supporting evidence from completed experiments.
+**Definition:** A method with supporting evidence from completed observations.
 
 **Characteristics:**
-- One or more completed experiments
+- One or more completed observations
 - Results support the method's claims
 - Limitations honestly documented
 - Ready for broader adoption (with awareness of context)
 - Lives in `methods/established/`
 
 **Evidence Required:**
-- Completed experiment(s) with positive results
+- Completed observation(s) with positive results
 - Clear documentation of approach and outcomes
 - Honest acknowledgment of limitations
 
 **Example Frontmatter:**
 ```yaml
 maturity: validated
-experiments:
-  - completed-experiment-1
-  - completed-experiment-2
+observations:
+  - completed-observation-1
+  - completed-observation-2
 ```
 
 **Appropriate Tone:**
@@ -87,17 +87,17 @@ experiments:
 
 ### Proven (Value: 4)
 
-**Definition:** A method confirmed by multiple experiments across different contexts.
+**Definition:** A method confirmed by multiple observations across different contexts.
 
 **Characteristics:**
-- Multiple completed experiments
+- Multiple completed observations
 - Evidence from different teams/projects/contexts
 - Consistent positive results
 - Well-understood limitations and applicability
 - Lives in `methods/established/`
 
 **Evidence Required:**
-- Multiple completed experiments (typically 3+)
+- Multiple completed observations (typically 3+)
 - Evidence from varied contexts
 - No significant contradicting evidence
 - Clear applicability guidance
@@ -105,11 +105,11 @@ experiments:
 **Example Frontmatter:**
 ```yaml
 maturity: proven
-experiments:
-  - experiment-team-a
-  - experiment-team-b
-  - experiment-different-project
-  - experiment-enterprise-context
+observations:
+  - observation-team-a
+  - observation-team-b
+  - observation-different-project
+  - observation-enterprise-context
 ```
 
 **Appropriate Tone:**
@@ -120,28 +120,28 @@ experiments:
 
 ## Transition Criteria
 
-### Hypothesized → Experimenting
+### Hypothesized → Observing
 
-**Trigger:** First experiment is created
+**Trigger:** First observation is created
 
 **Checklist:**
-- [ ] An experiment file exists in `field-guides/experiments/`
-- [ ] The experiment references this method in its `methods:` frontmatter
-- [ ] The method's `experiments:` frontmatter includes the experiment slug
+- [ ] An observation file exists in `field-guides/observations/`
+- [ ] The observation references this method in its `methods:` frontmatter
+- [ ] The method's `observations:` frontmatter includes the observation slug
 
-**Action:** Update `maturity: experimenting`
+**Action:** Update `maturity: observing`
 
 ---
 
-### Experimenting → Validated
+### Observing → Validated
 
-**Trigger:** Completed experiment(s) show positive results
+**Trigger:** Completed observation(s) show positive results
 
 **Checklist:**
-- [ ] At least one experiment has `status: completed`
+- [ ] At least one observation has `status: completed`
 - [ ] Results support the method's claims (not contradicting)
-- [ ] Experiment honestly documents limitations
-- [ ] Method documentation reflects learnings from experiments
+- [ ] Observation honestly documents limitations
+- [ ] Method documentation reflects learnings from observations
 
 **Actions:**
 1. Update `maturity: validated`
@@ -153,12 +153,12 @@ experiments:
 
 ### Validated → Proven
 
-**Trigger:** Multiple confirming experiments across contexts
+**Trigger:** Multiple confirming observations across contexts
 
 **Checklist:**
-- [ ] Three or more completed experiments
-- [ ] Experiments from different teams/projects/contexts
-- [ ] Consistent positive results across experiments
+- [ ] Three or more completed observations
+- [ ] Observations from different teams/projects/contexts
+- [ ] Consistent positive results across observations
 - [ ] No significant contradicting evidence
 - [ ] Method documentation is comprehensive and polished
 
@@ -174,23 +174,23 @@ Methods can move backwards if evidence warrants:
 **Trigger:** New contradicting evidence or limited context discovered
 
 **Scenarios:**
-- A new experiment contradicts previous findings
-- Discovery that previous experiments were in unusually favorable contexts
+- A new observation contradicts previous findings
+- Discovery that previous observations were in unusually favorable contexts
 - Replication attempts fail in different environments
 
-### Validated → Experimenting
+### Validated → Observing
 **Trigger:** Foundational evidence challenged
 
 **Scenarios:**
-- Key supporting experiment is retracted or revised
-- Methodological issues discovered in supporting experiments
+- Key supporting observation is retracted or revised
+- Methodological issues discovered in supporting observations
 - Significant change in environment invalidates previous results
 
 ### Any → Hypothesized
 **Trigger:** Complete invalidation
 
 **Scenarios:**
-- All supporting experiments contradicted
+- All supporting observations contradicted
 - Fundamental flaw in approach discovered
 - Only appropriate if starting fresh with revised hypothesis
 

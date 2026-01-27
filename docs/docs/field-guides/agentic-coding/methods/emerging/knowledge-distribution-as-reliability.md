@@ -1,22 +1,22 @@
 ---
 sidebar_position: 3
 title: "Knowledge Distribution as Reliability"
-maturity: experimenting
-experiments:
+maturity: observing
+observations:
   - prima-oss-fork-strategy
 ---
 
 import MaturityBadge from '@site/src/components/MaturityBadge';
-import RelatedExperiments from '@site/src/components/RelatedExperiments';
+import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Knowledge Distribution as Reliability
 
-<MaturityBadge maturity="experimenting" />
+<MaturityBadge maturity="observing" />
 
 Treat concentrated knowledge as a system reliability risk to be actively addressed—when only 2-3 people understand a system, that's not a compliment to those people, it's a fragility to fix.
 
 :::caution Early Stage
-This method is still being validated through experiments. Results may vary and 
+This method is still being validated through observations. Results may vary and 
 the approach may evolve as we learn more.
 :::
 
@@ -26,7 +26,7 @@ When only 2-3 people understand a complex system, the team becomes dependent on 
 
 Knowledge Distribution as Reliability treats concentrated knowledge as a system risk to be actively addressed, not a fact to accept. The pattern is predictable: low understanding → low confidence → heroics → fragility. The solution isn't just documentation—it's deliberate knowledge distribution through pairing, rotation, and teaching.
 
-The Prima experiment captured this directly: "The main limitation was understanding and lack of confidence, not technical capability." The team struggled to support their first clients because knowledge was concentrated in the few people who could navigate the large forked codebases. Those heroes became bottlenecks, and even they lacked confidence because no single person fully understood the system.
+The Prima observation captured this directly: "The main limitation was understanding and lack of confidence, not technical capability." The team struggled to support their first clients because knowledge was concentrated in the few people who could navigate the large forked codebases. Those heroes became bottlenecks, and even they lacked confidence because no single person fully understood the system.
 
 ## When to Use
 
@@ -85,7 +85,7 @@ Run a "fire drill": have someone who doesn't usually handle a component investig
 
 ## Example
 
-From the Prima experiment:
+From the Prima observation:
 
 **The concentration pattern:**
 - Large forked codebases (OpenAI Codex CLI, AnythingLLM) that few people understood
@@ -119,8 +119,8 @@ If you're testing this method:
 1. Review the current approach
 2. Map knowledge concentration in your team
 3. Try deliberate distribution (pairing, rotation)
-4. Document your experiment—especially the relationship between distribution and team confidence
+4. Document your observation—especially the relationship between distribution and team confidence
 
 ## Supporting Evidence
 
-<RelatedExperiments />
+<RelatedObservations />

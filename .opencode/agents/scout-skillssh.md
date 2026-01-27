@@ -83,7 +83,7 @@ findings:
       current_functionality: "Reviews code for general best practices"
       modifications_needed:
         - "Add FOE-specific review criteria"
-        - "Integrate with experiment validation"
+        - "Integrate with observation validation"
         - "Add method maturity assessment"
       effort_estimate: medium
       potential_value: "Could accelerate code review in FOE workflows"
@@ -103,7 +103,7 @@ findings:
       target_guide: "living-documentation"
       current_functionality: "Generates standard API docs"
       modifications_needed:
-        - "Add experiment documentation format"
+        - "Add observation documentation format"
         - "Include method linkage"
         - "Support FOE frontmatter schemas"
       effort_estimate: high
@@ -128,7 +128,7 @@ findings:
 - Supports feedback loops
 - Enables incremental work
 - Aids documentation
-- Facilitates experimentation
+- Facilitates observationation
 - Promotes sustainable practices
 
 **Low fit indicators:**

@@ -89,13 +89,13 @@ For each selected method, read its documentation to extract:
 1. **Method title and description** - What does it claim?
 2. **Current maturity level** - How much evidence already exists?
 3. **Core claims/hypotheses** - What are the specific assertions?
-4. **Existing experiments** - What evidence is already linked?
+4. **Existing observations** - What evidence is already linked?
 5. **Keywords for search** - Derive from title, description, and claims
 
 Build a search context:
 ```yaml
 method: understanding-first-protocol-adoption
-maturity: experimenting
+maturity: observing
 core_claims:
   - "Investing time to understand protocol conceptual models before architecture decisions reduces rework"
   - "API familiarity is not the same as model understanding"
@@ -155,7 +155,7 @@ Present the report:
 ## Method: [Method Title]
 **Current Maturity:** [level]
 **Investigation Mode:** [supporting/contradicting/both]
-**Existing Evidence:** [count] experiments linked
+**Existing Evidence:** [count] observations linked
 
 ---
 
@@ -208,7 +208,7 @@ Sources from the FOE curated reading list (35+ books/resources):
 **Recommendation:** This method should be flagged for review. Consider:
 - Adding nuance to "When NOT to Use" section
 - Documenting conditions where the method may not apply
-- Creating an experiment to test the conflicting claim
+- Creating an observation to test the conflicting claim
 
 ---
 
@@ -335,7 +335,7 @@ What would you like me to investigate?
 ## Source Quality Reference
 
 Load the source quality reference from:
-`.opencode/skills/experiment-signals/references/source-quality.md`
+`.opencode/skills/observation-signals/references/source-quality.md`
 
 Use this to consistently tag web search results by quality tier.
 
@@ -345,7 +345,7 @@ Literature evidence can impact method maturity:
 
 | Evidence Found | Maturity Impact |
 |----------------|-----------------|
-| Tier 1-2 supporting | Can advance hypothesized → experimenting |
+| Tier 1-2 supporting | Can advance hypothesized → observing |
 | Multiple Tier 1-2 supporting | Strong support for validated status |
 | Tier 1 contradicting | Flag for review, add nuance |
 | Mixed evidence | Document both, note conditions |

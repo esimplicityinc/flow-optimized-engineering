@@ -8,10 +8,10 @@ This is the complete template for method documentation.
 ---
 sidebar_position: 1
 title: "Method Name"
-maturity: experimenting    # hypothesized | experimenting | validated | proven
-experiments:
-  - experiment-slug
-  - another-experiment-slug
+maturity: observing    # hypothesized | observing | validated | proven
+observations:
+  - observation-slug
+  - another-observation-slug
 ---
 ```
 
@@ -22,7 +22,7 @@ experiments:
 | `sidebar_position` | Yes | Number | Order in sidebar |
 | `title` | Yes | String | Human-readable title |
 | `maturity` | Yes | See levels | Current maturity level |
-| `experiments` | No | Array of slugs | Linked experiment file names (without .md) |
+| `observations` | No | Array of slugs | Linked observation file names (without .md) |
 
 ## Complete Template (Emerging Method)
 
@@ -30,22 +30,22 @@ experiments:
 ---
 sidebar_position: 1
 title: "Method Name"
-maturity: experimenting
-experiments:
-  - experiment-slug
+maturity: observing
+observations:
+  - observation-slug
 ---
 
 import MaturityBadge from '@site/src/components/MaturityBadge';
-import RelatedExperiments from '@site/src/components/RelatedExperiments';
+import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Method Name
 
-<MaturityBadge maturity="experimenting" />
+<MaturityBadge maturity="observing" />
 
 [1-2 sentence description of what this method is and why it matters]
 
 :::caution Early Stage
-This method is still being validated through experiments. Results may vary and 
+This method is still being validated through observations. Results may vary and 
 the approach may evolve as we learn more.
 :::
 
@@ -107,11 +107,11 @@ If you're testing this method:
 
 1. Review the current approach
 2. Try it in your context  
-3. Document your experiment
+3. Document your observation
 
 ## Supporting Evidence
 
-<RelatedExperiments />
+<RelatedObservations />
 ```
 
 ## Complete Template (Established Method)
@@ -121,14 +121,14 @@ If you're testing this method:
 sidebar_position: 1
 title: "Method Name"
 maturity: validated
-experiments:
-  - experiment-1
-  - experiment-2
-  - experiment-3
+observations:
+  - observation-1
+  - observation-2
+  - observation-3
 ---
 
 import MaturityBadge from '@site/src/components/MaturityBadge';
-import RelatedExperiments from '@site/src/components/RelatedExperiments';
+import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Method Name
 
@@ -184,7 +184,7 @@ Avoid this method when:
 
 ## Supporting Evidence
 
-<RelatedExperiments />
+<RelatedObservations />
 ```
 
 ## Writing Guidelines

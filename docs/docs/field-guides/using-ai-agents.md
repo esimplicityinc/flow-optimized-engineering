@@ -9,28 +9,28 @@ Five OpenCode agents help you contribute to Field Guides:
 
 | Agent | Purpose | When to Use |
 |-------|---------|-------------|
-| **Alchemist** | Document experiments | You have an experience to capture |
-| **Synthesist** | Create methods | You have experiments that reveal a pattern |
-| **Prospector** | Find experiment opportunities | You want to mine a repo or literature for learnings |
+| **Alchemist** | Document observations | You have an experience to capture |
+| **Synthesist** | Create methods | You have observations that reveal a pattern |
+| **Prospector** | Find observation opportunities | You want to mine a repo or literature for learnings |
 | **Framework Cartographer** | Import external frameworks | You want to adopt methods from DORA, BDD, etc. |
 | **Scout** | Survey external trends | You want to discover what's new in agentic coding |
 
-**Start with Alchemist** - experiments are fundamentally human experiences worth documenting. Once you understand that workflow, **Synthesist** helps you build methods from evidence. **Prospector** automates discovery when you want to systematically mine repositories or literature for opportunities. **Framework Cartographer** imports established industry frameworks, making their methods available for adoption. **Scout** surveys the external landscape (Reddit, YouTube, GitHub, skills.sh) to discover trends and opportunities that might inform FOE methods.
+**Start with Alchemist** - observations are fundamentally human experiences worth documenting. Once you understand that workflow, **Synthesist** helps you build methods from evidence. **Prospector** automates discovery when you want to systematically mine repositories or literature for opportunities. **Framework Cartographer** imports established industry frameworks, making their methods available for adoption. **Scout** surveys the external landscape (Reddit, YouTube, GitHub, skills.sh) to discover trends and opportunities that might inform FOE methods.
 
 These agents guide you through structured workflows, ensuring your contributions are rigorous, well-formatted, and properly linked.
 
 ## Prerequisites
 
 - [OpenCode CLI](https://opencode.ai) installed and configured
-- For Alchemist: An engineering experience to document (project, experiment, lesson learned)
-- For Synthesist: One or more documented experiments in the Field Guides
+- For Alchemist: An engineering experience to document (project, observation, lesson learned)
+- For Synthesist: One or more documented observations in the Field Guides
 - For Prospector: A git repository to analyze (optionally with GitHub access)
 
 ---
 
 ## Alchemist
 
-The Alchemist transforms raw engineering experiences into documented experiments. It guides you through a 5-phase workflow that ensures your learnings are captured with rigor and aligned with FOE principles.
+The Alchemist transforms raw engineering experiences into documented observations. It guides you through a 5-phase workflow that ensures your learnings are captured with rigor and aligned with FOE principles.
 
 ### When to Use
 
@@ -54,8 +54,8 @@ The Alchemist will greet you and begin the intake process.
 | 1 | **Intake** | Gather source material (files, URLs, notes, timeline, team context) |
 | 2 | **FOE Questioning** | Align your learning with FOE principles (Understanding, Feedback, Confidence) |
 | 3 | **Critical Review** | Challenge methodology, identify confounding variables, question causation |
-| 4 | **Documentation** | Generate the experiment markdown file with proper structure |
-| 5 | **Method Mapping** | Link experiment to existing methods or create draft methods |
+| 4 | **Documentation** | Generate the observation markdown file with proper structure |
+| 5 | **Method Mapping** | Link observation to existing methods or create draft methods |
 
 <details>
 <summary><strong>Example Session</strong></summary>
@@ -70,14 +70,14 @@ Let's begin. I'll guide you through five phases:
 1. Intake - Gathering your documentation and context
 2. FOE Alignment - Understanding what this means for flow
 3. Critical Review - Ensuring methodological rigor
-4. Documentation - Creating the experiment file
+4. Documentation - Creating the observation file
 5. Method Mapping - Connecting to methods
 
 Ready? Let's start with intake...
 
 [Alchemist-Intake activates]
 
-Intake: I'll help gather the source material for your experiment. 
+Intake: I'll help gather the source material for your observation. 
 
 What would you like to document? Please share:
 - Any relevant files, URLs, or documentation
@@ -117,8 +117,8 @@ but we didn't account for the time needed to understand the codebase...
 Alchemist (Primary Orchestrator)
 ├── alchemist-intake       → Gathers documentation and context
 ├── alchemist-critic       → Challenges methodology (mandatory)
-├── alchemist-scribe       → Writes experiment markdown file
-└── alchemist-cartographer → Maps experiment to methods
+├── alchemist-scribe       → Writes observation markdown file
+└── alchemist-cartographer → Maps observation to methods
 ```
 
 #### alchemist-intake
@@ -135,24 +135,24 @@ Performs mandatory critical evaluation:
 - Challenges methodology and assumptions
 - Identifies confounding variables
 - Questions causation claims (correlation vs causation)
-- Suggests improvements to strengthen the experiment
-- This phase cannot be skipped - rigorous critique makes experiments more valuable
+- Suggests improvements to strengthen the observation
+- This phase cannot be skipped - rigorous critique makes observations more valuable
 
 #### alchemist-scribe
 
-Writes the final experiment documentation:
-- Loads the `foe-experiment-framework` skill for templates
+Writes the final observation documentation:
+- Loads the `foe-observation-framework` skill for templates
 - Generates properly structured markdown with frontmatter
 - Shows preview for user approval before creating file
-- Places file in `docs/docs/field-guides/experiments/`
+- Places file in `docs/docs/field-guides/observations/`
 
 #### alchemist-cartographer
 
-Maps the experiment to methods:
+Maps the observation to methods:
 - Searches existing methods for relevant connections
-- Suggests which methods this experiment supports
-- Can create draft methods if experiment reveals new approaches
-- Updates experiment frontmatter with method links
+- Suggests which methods this observation supports
+- Can create draft methods if observation reveals new approaches
+- Updates observation frontmatter with method links
 - Suggests maturity level implications
 
 </details>
@@ -162,14 +162,14 @@ Maps the experiment to methods:
 After completing the workflow, you'll have:
 
 ```
-docs/docs/field-guides/experiments/your-experiment-name.md
+docs/docs/field-guides/observations/your-observation-name.md
 ```
 
 With frontmatter linking to relevant methods:
 
 ```yaml
 ---
-title: "Your Experiment Title"
+title: "Your Observation Title"
 status: completed
 methods:
   - agentic-coding/methods/emerging/some-method
@@ -179,21 +179,21 @@ methods:
 ### Tips for Best Results
 
 1. **Come prepared** - Have links to PRs, docs, retrospectives, or notes ready
-2. **Don't skip the critique** - The `alchemist-critic` phase strengthens your experiment by identifying limitations you might have missed
-3. **Failed experiments are valuable** - Learning what *doesn't* work saves others from the same dead ends
-4. **Be specific** - Concrete details (dates, metrics, team size) make experiments more credible and useful
+2. **Don't skip the critique** - The `alchemist-critic` phase strengthens your observation by identifying limitations you might have missed
+3. **Failed observations are valuable** - Learning what *doesn't* work saves others from the same dead ends
+4. **Be specific** - Concrete details (dates, metrics, team size) make observations more credible and useful
 
 ---
 
 ## Synthesist
 
-The Synthesist creates methods by finding patterns across documented experiments. It guides you through a 7-step wizard to ensure methods are grounded in evidence, properly structured, and placed correctly within Field Guides.
+The Synthesist creates methods by finding patterns across documented observations. It guides you through a 7-step wizard to ensure methods are grounded in evidence, properly structured, and placed correctly within Field Guides.
 
 ### When to Use
 
-- You have documented experiments that reveal a reusable practice
+- You have documented observations that reveal a reusable practice
 - You want to codify lessons learned into guidance others can follow
-- You want to add new experiments to strengthen an existing method
+- You want to add new observations to strengthen an existing method
 
 ### How to Invoke
 
@@ -201,28 +201,28 @@ The Synthesist creates methods by finding patterns across documented experiments
 @synthesist
 ```
 
-The Synthesist will greet you and ask for your experiments.
+The Synthesist will greet you and ask for your observations.
 
 ### Two Modes
 
 | Mode | When to Use |
 |------|-------------|
-| **Create New Method** | Experiments reveal a practice not yet captured |
-| **Update Existing Method** | New experiments provide additional evidence for an existing method |
+| **Create New Method** | Observations reveal a practice not yet captured |
+| **Update Existing Method** | New observations provide additional evidence for an existing method |
 
-The Synthesist asks which mode you want after gathering your experiments.
+The Synthesist asks which mode you want after gathering your observations.
 
 ### The 7-Step Wizard
 
 | Step | Name | What Happens |
 |------|------|--------------|
-| 1 | **Gather** | Provide experiment file paths; warns if only 1 experiment |
+| 1 | **Gather** | Provide observation file paths; warns if only 1 observation |
 | 2 | **Analyze** | Find patterns, common problems, shared approaches |
 | 3 | **Name** | Choose method name from AI-suggested options |
 | 4 | **Scope** | Define "When to Use" and "When NOT to Use" |
 | 5 | **Steps** | Extract actionable how-to guidance |
 | 6 | **Place** | Set maturity level and choose field guide |
-| 7 | **Generate** | Create method file, update experiment frontmatter |
+| 7 | **Generate** | Create method file, update observation frontmatter |
 
 <details>
 <summary><strong>Example Session</strong></summary>
@@ -231,10 +231,10 @@ The Synthesist asks which mode you want after gathering your experiments.
 You: @synthesist
 
 Synthesist: Welcome to the Synthesist. I help transform your documented 
-experiments into methods that others can follow.
+observations into methods that others can follow.
 
 I'll guide you through 7 steps:
-1. Gather - Collect your experiments
+1. Gather - Collect your observations
 2. Analyze - Find patterns across them
 3. Name - Choose a method name and overview
 4. Scope - Define when to use (and when not to)
@@ -244,17 +244,17 @@ I'll guide you through 7 steps:
 
 Ready? Let's start with Step 1...
 
-**Step 1 of 7: Gather Experiments**
+**Step 1 of 7: Gather Observations**
 
-Which experiments should inform this method? Please provide file paths 
-or experiment names.
+Which observations should inform this method? Please provide file paths 
+or observation names.
 
-You: docs/docs/field-guides/experiments/prima-oss-fork-strategy.md
+You: docs/docs/field-guides/observations/prima-oss-fork-strategy.md
 
-Synthesist: I've read the experiment:
+Synthesist: I've read the observation:
 - **Prima: Enterprise AI Platform via OSS Fork Strategy** (completed)
 
-Note: Methods are stronger with multiple experiments. We can proceed 
+Note: Methods are stronger with multiple observations. We can proceed 
 with one, but consider this method 'early stage' until more evidence 
 accumulates.
 
@@ -266,7 +266,7 @@ Synthesist: **Step 2 of 7: Pattern Analysis**
 
 [synthesist-analyzer activates and returns analysis]
 
-Based on analyzing your experiment, here's what I found:
+Based on analyzing your observation, here's what I found:
 
 **Common Problem:** Teams fork large OSS codebases without investing 
 time to understand them, leading to technical and knowledge debt.
@@ -301,25 +301,25 @@ You: I like option 1
 
 ```
 Synthesist (Primary Guided Wizard)
-├── synthesist-analyzer → Finds patterns across experiments
-└── synthesist-scribe   → Writes method file, updates experiments
+├── synthesist-analyzer → Finds patterns across observations
+└── synthesist-scribe   → Writes method file, updates observations
 ```
 
 #### synthesist-analyzer
 
-Analyzes experiments to find synthesizable patterns:
-- Loads both `foe-experiment-framework` and `foe-method-framework` skills
+Analyzes observations to find synthesizable patterns:
+- Loads both `foe-observation-framework` and `foe-method-framework` skills
 - Identifies common problems, shared approaches, consistent outcomes
 - Generates 2-3 method name suggestions with rationale
-- Assesses appropriate maturity level based on experiment count and outcomes
+- Assesses appropriate maturity level based on observation count and outcomes
 - Suggests applicability (when to use / when not to use)
 
 **Maturity Assessment Rubric:**
 
-| Experiments | Outcomes | Recommended Maturity |
+| Observations | Outcomes | Recommended Maturity |
 |-------------|----------|---------------------|
-| 1 | Any | `experimenting` |
-| 2+ | Mixed | `experimenting` |
+| 1 | Any | `observing` |
+| 2+ | Mixed | `observing` |
 | 2+ | Consistently positive | `validated` |
 | 3+ | Positive across contexts | `proven` |
 
@@ -329,10 +329,10 @@ Writes the method and maintains bidirectional links:
 - Loads `foe-method-framework` skill for templates
 - Generates method markdown with proper structure and frontmatter
 - Places file in correct folder based on maturity:
-  - `hypothesized` / `experimenting` → `methods/emerging/`
+  - `hypothesized` / `observing` → `methods/emerging/`
   - `validated` / `proven` → `methods/established/`
 - Shows preview for user approval
-- Updates each experiment's `methods:` frontmatter to reference the new method
+- Updates each observation's `methods:` frontmatter to reference the new method
 - Reports completion with file paths
 
 </details>
@@ -346,7 +346,7 @@ After completing the wizard, you'll have:
 docs/docs/field-guides/{guide}/methods/emerging/your-method.md
 ```
 
-**Updated experiment frontmatter:**
+**Updated observation frontmatter:**
 ```yaml
 methods:
   - guide-name/methods/emerging/your-method
@@ -359,13 +359,13 @@ Methods are placed based on maturity level:
 | Maturity | Folder | Criteria |
 |----------|--------|----------|
 | Hypothesized | `emerging/` | Proposed, not yet tested |
-| Experimenting | `emerging/` | Active experiments underway |
+| Observing | `emerging/` | Active observations underway |
 | Validated | `established/` | Supporting evidence exists |
-| Proven | `established/` | Multiple confirming experiments |
+| Proven | `established/` | Multiple confirming observations |
 
 ### Tips for Best Results
 
-1. **Multiple experiments = stronger methods** - One experiment can work, but the method will start at "experimenting" maturity
+1. **Multiple observations = stronger methods** - One observation can work, but the method will start at "observing" maturity
 2. **Be specific about applicability** - Vague "when to use" guidance isn't useful; be concrete about situations
 3. **Don't overclaim maturity** - It's better to start lower and advance than to overclaim and lose credibility
 4. **Let the wizard guide you** - The step-by-step process ensures nothing is missed
@@ -574,7 +574,7 @@ Scout will ask about your focus area, timeframe, and which sources to crawl.
 | 2 | **Context Loading** | Read previous reports for delta comparison |
 | 3 | **Parallel Crawl** | Dispatch all 5 subagents simultaneously |
 | 4 | **Synthesis** | Merge findings, identify trends, deduplicate |
-| 5 | **Opportunity Mapping** | Tag items as method or experiment candidates |
+| 5 | **Opportunity Mapping** | Tag items as method or observation candidates |
 | 6 | **Report Generation** | Write structured markdown with frontmatter |
 
 <details>
@@ -708,7 +708,7 @@ metrics:
   total_findings: 23
   new_since_last: 15
   method_candidates: 3
-  experiment_candidates: 5
+  observation_candidates: 5
   skills_analyzed: 8
 
 delta_comparison:
@@ -722,7 +722,7 @@ delta_comparison:
 
 1. **Executive Summary** - 3-5 bullet points of key takeaways
 2. **Key Trends** - Top findings with analysis
-3. **FOE Opportunities** - Method and experiment candidates
+3. **FOE Opportunities** - Method and observation candidates
 4. **Skills Analysis** - Relevant skills.sh findings with adaptation notes
 5. **Source Breakdown** - Detailed findings by source
 6. **What's New** - Delta from last report
@@ -740,7 +740,7 @@ This prevents report fatigue by highlighting what's genuinely new.
 
 1. **Start with a general scan** - Get the lay of the land before focusing
 2. **Weekly cadence works well** - Agentic coding moves fast but not daily
-3. **Follow up on opportunities** - Use Alchemist to document experiment candidates
+3. **Follow up on opportunities** - Use Alchemist to document observation candidates
 4. **Check skills.sh adaptations** - Skills can become FOE methods with modification
 
 ---
@@ -753,7 +753,7 @@ The five agents form a complete contribution workflow:
 flowchart LR
     subgraph human["Human-Driven (Primary)"]
         E[Experience] --> A[Alchemist]
-        A --> X[Experiment]
+        A --> X[Observation]
         X --> S[Synthesist]
         S --> M[Method]
     end
@@ -788,8 +788,8 @@ flowchart LR
 ### Typical Workflow
 
 1. **Document with Alchemist** - When you have a raw engineering experience
-2. **Synthesize with Synthesist** - When you have enough experiments to extract a method
-3. **Update with Synthesist** - When new experiments strengthen existing methods
+2. **Synthesize with Synthesist** - When you have enough observations to extract a method
+3. **Update with Synthesist** - When new observations strengthen existing methods
 4. **Discover with Prospector** - When you want to mine a repository for undocumented learnings
 5. **Find evidence with Prospector Literature** - When you want external validation for methods
 6. **Import with Cartographer** - When you want to adopt methods from established frameworks
@@ -799,23 +799,23 @@ flowchart LR
 
 The Prospector is an **optional automation layer**. It doesn't replace the human-driven workflow - it helps you find opportunities you might have missed.
 
-Most experiments will still start with a human saying "I learned something worth capturing" and invoking Alchemist directly. Use Prospector when you want to systematically surface learning opportunities from repository history or external literature.
+Most observations will still start with a human saying "I learned something worth capturing" and invoking Alchemist directly. Use Prospector when you want to systematically surface learning opportunities from repository history or external literature.
 
 ### Bidirectional Links
 
-Both agents maintain the relationship between methods and experiments:
+Both agents maintain the relationship between methods and observations:
 
-- **Method frontmatter** lists its supporting experiments
-- **Experiment frontmatter** lists the methods it supports
-- The `<RelatedExperiments />` and `<RelatedMethods />` components render these links automatically
+- **Method frontmatter** lists its supporting observations
+- **Observation frontmatter** lists the methods it supports
+- The `<RelatedObservations />` and `<RelatedMethods />` components render these links automatically
 
-This creates a web of evidence where readers can trace any method back to the experiments that support it, and any experiment forward to the methods it informs.
+This creates a web of evidence where readers can trace any method back to the observations that support it, and any observation forward to the methods it informs.
 
 ---
 
 ## Prospector
 
-The Prospector mines repositories for undocumented experiments - moments where something was tried and something was learned, but never formally captured.
+The Prospector mines repositories for undocumented observations - moments where something was tried and something was learned, but never formally captured.
 
 Think of it as an automated way to surface the learning opportunities hiding in your git history, CI pipelines, and GitHub discussions.
 
@@ -823,7 +823,7 @@ Think of it as an automated way to surface the learning opportunities hiding in 
 
 - You're onboarding to a new codebase and want to understand its history
 - You suspect there are undocumented learnings in your team's repository
-- You want to systematically find experiment opportunities across a project
+- You want to systematically find observation opportunities across a project
 - You're doing a retrospective and want data-driven insights
 
 ### How to Invoke
@@ -841,7 +841,7 @@ The Prospector will ask about scope, GitHub integration, and timeframe before be
 | 1 | **Initialization** | Gather repo path, GitHub URL (optional), timeframe |
 | 2 | **Parallel Analysis** | 7 subagents analyze the repo simultaneously |
 | 3 | **Synthesis** | Correlate findings, identify overlaps, score opportunities |
-| 4 | **Report** | Present prioritized experiment opportunities with evidence |
+| 4 | **Report** | Present prioritized observation opportunities with evidence |
 | 5 | **Handoff** | Send selected opportunities to Alchemist for documentation |
 
 <details>
@@ -901,7 +901,7 @@ A **Prospector Report** with prioritized opportunities:
 - **Timeframe:** Last 6 months
 - **Commits analyzed:** 342
 
-## Experiment Opportunities
+## Observation Opportunities
 
 ### 1. Authentication Refactoring - Evidence: High
 **FOE Principle:** Understanding
@@ -981,7 +981,7 @@ A **Literature Evidence Report** with quality-tiered findings:
 # Literature Prospector Report
 
 ## Method: Understanding-First Protocol Adoption
-**Current Maturity:** experimenting
+**Current Maturity:** observing
 **Investigation Mode:** both
 
 ## Bookshelf Evidence

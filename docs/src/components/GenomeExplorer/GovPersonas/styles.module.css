@@ -1,0 +1,702 @@
+/**
+ * GovPersonas Component Styles
+ * 
+ * Displays the government ecosystem personas showing who participates
+ * in the permission economy and what they exchange.
+ */
+
+/* ============================================
+   CONTAINER STYLES
+   ============================================ */
+
+.ecosystemContainer,
+.cardsContainer,
+.flowContainer {
+  padding: 2rem;
+  background: var(--ifm-background-color);
+  border-radius: 12px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.ecosystemTitle,
+.flowTitle {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  color: var(--ifm-color-primary);
+}
+
+/* ============================================
+   ECOSYSTEM VARIANT - TWO COLUMN GRID
+   ============================================ */
+
+.ecosystemGrid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.sideColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sideHeader {
+  text-align: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--ifm-color-emphasis-200);
+  margin-bottom: 0.5rem;
+}
+
+.sideTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.sideSubtitle {
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.personaList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ============================================
+   PERSONA CARD
+   ============================================ */
+
+.personaCard {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
+  animation-delay: calc(var(--card-index, 0) * 0.1s);
+}
+
+.personaCard:nth-child(1) { --card-index: 1; }
+.personaCard:nth-child(2) { --card-index: 2; }
+.personaCard:nth-child(3) { --card-index: 3; }
+.personaCard:nth-child(4) { --card-index: 4; }
+.personaCard:nth-child(5) { --card-index: 5; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.personaCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.personaCard:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* Demand side (Government) - Blue */
+.demandSide {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.02) 100%);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.demandSide:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.04) 100%);
+}
+
+/* Supply side (Vendor) - Green */
+.supplySide {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0.02) 100%);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.supplySide:hover {
+  border-color: rgba(16, 185, 129, 0.5);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(16, 185, 129, 0.04) 100%);
+}
+
+/* Highlighted state - Glowing border */
+.highlighted {
+  animation: pulse 2s ease infinite;
+  border-width: 2px;
+}
+
+.highlighted.demandSide {
+  border-color: #3B82F6;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.highlighted.supplySide {
+  border-color: #10B981;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+/* ============================================
+   PERSONA HEADER
+   ============================================ */
+
+.personaHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.personaIcon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.demandSide .personaIcon {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3B82F6;
+}
+
+.supplySide .personaIcon {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+}
+
+.personaIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.personaName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--ifm-color-emphasis-900);
+}
+
+.personaDescription {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+/* ============================================
+   EXCHANGE LISTS (Consumes/Emits/Produces)
+   ============================================ */
+
+.personaExchange {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.consumesList,
+.emitsList,
+.producesList {
+  font-size: 0.75rem;
+}
+
+.exchangeLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.consumesList .exchangeLabel {
+  color: #EF4444;
+}
+
+.consumesList .exchangeLabel svg {
+  transform: rotate(180deg);
+}
+
+.emitsList .exchangeLabel,
+.producesList .exchangeLabel {
+  color: #10B981;
+}
+
+.personaExchange ul {
+  margin: 0;
+  padding-left: 1rem;
+  list-style: none;
+}
+
+.personaExchange li {
+  position: relative;
+  color: var(--ifm-color-emphasis-700);
+  padding: 0.125rem 0;
+}
+
+.personaExchange li::before {
+  content: '';
+  position: absolute;
+  left: -0.75rem;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.consumesList li::before {
+  background: #EF4444;
+}
+
+.emitsList li::before,
+.producesList li::before {
+  background: #10B981;
+}
+
+/* ============================================
+   FLOW ARROWS (Ecosystem variant)
+   ============================================ */
+
+.flowArrows {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2rem 0;
+  min-width: 120px;
+}
+
+.flowArrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.flowLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.arrowLine {
+  position: relative;
+  width: 60px;
+  height: 2px;
+  background: var(--ifm-color-emphasis-300);
+  overflow: hidden;
+}
+
+.arrowDash {
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--ifm-color-primary), transparent);
+  animation: flowDash 1.5s linear infinite;
+}
+
+@keyframes flowDash {
+  from {
+    left: -20px;
+  }
+  to {
+    left: 80px;
+  }
+}
+
+/* ============================================
+   KEY INSIGHT SECTION
+   ============================================ */
+
+.keyInsight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+
+.insightLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ifm-color-emphasis-300), transparent);
+}
+
+.insightContent {
+  text-align: center;
+  padding: 1rem 1.5rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  max-width: 500px;
+}
+
+.insightLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--ifm-color-primary);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.insightText {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-800);
+  line-height: 1.5;
+}
+
+.highlight {
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+}
+
+/* ============================================
+   CARDS VARIANT - GRID LAYOUT
+   ============================================ */
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.cardsContainer .personaCard {
+  padding: 1.25rem;
+}
+
+.cardsContainer .personaDescription {
+  display: block;
+}
+
+/* ============================================
+   FLOW VARIANT - SANKEY STYLE
+   ============================================ */
+
+.sankeyDiagram {
+  display: grid;
+  grid-template-columns: 1fr 200px 1fr;
+  gap: 1rem;
+  min-height: 400px;
+  align-items: stretch;
+}
+
+.flowColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.flowColumnTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 0.5rem;
+}
+
+.flowNode {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: calc(var(--flow-index, 0) * 0.15s);
+  opacity: 0;
+}
+
+.flowNode:hover {
+  transform: scale(1.02);
+}
+
+.supplyNode {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.supplyNode:hover {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+.demandNode {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.demandNode:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.flowNode.highlighted {
+  animation: pulse 2s ease infinite;
+}
+
+.flowNodeIcon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.supplyNode .flowNodeIcon {
+  color: #10B981;
+}
+
+.demandNode .flowNodeIcon {
+  color: #3B82F6;
+}
+
+.flowNodeIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.flowNodeName {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* Flow Paths SVG */
+.flowPaths {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flowSvg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.flowPath {
+  fill: none;
+  stroke: var(--ifm-color-emphasis-300);
+  stroke-width: 2;
+  stroke-dasharray: 8 4;
+  animation: flowPathAnimation 2s linear infinite;
+  animation-delay: var(--path-delay, 0s);
+}
+
+@keyframes flowPathAnimation {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.flowLabelsContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.flowResourceLabel {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-emphasis-500);
+  background: var(--ifm-background-color);
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* ============================================
+   DARK MODE SUPPORT
+   ============================================ */
+
+[data-theme='dark'] .ecosystemContainer,
+[data-theme='dark'] .cardsContainer,
+[data-theme='dark'] .flowContainer {
+  background: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .personaCard {
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .demandSide {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.04) 100%);
+}
+
+[data-theme='dark'] .supplySide {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(16, 185, 129, 0.04) 100%);
+}
+
+[data-theme='dark'] .personaName {
+  color: var(--ifm-color-emphasis-100);
+}
+
+[data-theme='dark'] .personaDescription {
+  color: var(--ifm-color-emphasis-400);
+}
+
+[data-theme='dark'] .personaExchange li {
+  color: var(--ifm-color-emphasis-400);
+}
+
+[data-theme='dark'] .insightContent {
+  background: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .insightText {
+  color: var(--ifm-color-emphasis-100);
+}
+
+[data-theme='dark'] .flowNodeName {
+  color: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .flowPath {
+  stroke: var(--ifm-color-emphasis-400);
+}
+
+[data-theme='dark'] .flowResourceLabel {
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-400);
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media screen and (max-width: 768px) {
+  .ecosystemContainer,
+  .cardsContainer,
+  .flowContainer {
+    padding: 1rem;
+  }
+
+  .ecosystemGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .flowArrows {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    min-width: auto;
+  }
+
+  .flowArrow {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .arrowLine {
+    width: 30px;
+  }
+
+  .keyInsight {
+    flex-direction: column;
+  }
+
+  .insightLine {
+    width: 60%;
+    height: 1px;
+  }
+
+  .insightContent {
+    max-width: 100%;
+  }
+
+  /* Flow variant mobile */
+  .sankeyDiagram {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .flowPaths {
+    display: none;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .personaCard {
+    padding: 0.75rem;
+  }
+
+  .personaHeader {
+    gap: 0.5rem;
+  }
+
+  .personaIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .personaIcon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .personaName {
+    font-size: 0.85rem;
+  }
+
+  .ecosystemTitle,
+  .flowTitle {
+    font-size: 1.25rem;
+  }
+}

@@ -3,7 +3,7 @@ description: |
   Searches FOE Bookshelf for sources relevant to specified methods. Matches method
   keywords against book titles, authors, foeRelevance text, and keywords array.
   Returns ranked matches with connection reasoning. Part of the Prospector system
-  for mining experiment evidence from external sources.
+  for mining observation evidence from external sources.
 mode: subagent
 temperature: 0.2
 tools:
@@ -229,7 +229,7 @@ matches:
       evidence_type: nuanced
       connection: |
         Could be seen as contradicting "understanding first" by advocating for learning through 
-        experimentation. However, the method doesn't preclude experimentation—it argues for 
+        observationation. However, the method doesn't preclude observationation—it argues for 
         understanding the model as a prerequisite for making good architectural bets. Lean 
         Startup's validated learning approach could complement understanding-first by 
         providing a framework for testing model assumptions.

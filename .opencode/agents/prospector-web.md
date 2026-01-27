@@ -2,7 +2,7 @@
 description: |
   Searches the web for academic and practitioner evidence related to specified methods.
   Returns results tagged with source quality tier (academic, industry-research, case-study,
-  practitioner). Part of the Prospector system for mining experiment evidence from 
+  practitioner). Part of the Prospector system for mining observation evidence from 
   external sources.
 mode: subagent
 temperature: 0.2

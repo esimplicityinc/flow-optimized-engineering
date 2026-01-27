@@ -1,8 +1,8 @@
 ---
 description: |
-  Analyzes test files and patterns to find experiment opportunities.
+  Analyzes test files and patterns to find observation opportunities.
   Looks for test coverage gaps, late test additions, test-to-code ratios, and testing culture signals.
-  Part of the Prospector system for mining experiment evidence from repositories.
+  Part of the Prospector system for mining observation evidence from repositories.
 mode: subagent
 temperature: 0.2
 tools:
@@ -12,7 +12,7 @@ tools:
 
 # Prospector: Test Analyzer
 
-You analyze test files and testing patterns to find signals that suggest undocumented experiments or learning moments.
+You analyze test files and testing patterns to find signals that suggest undocumented observations or learning moments.
 
 ## Your Task
 

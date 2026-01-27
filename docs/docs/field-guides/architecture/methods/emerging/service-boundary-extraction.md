@@ -2,12 +2,12 @@
 sidebar_position: 1
 title: "Service Boundary Extraction"
 maturity: hypothesized
-experiments:
+observations:
   - prima-presidio-containerization
 ---
 
 import MaturityBadge from '@site/src/components/MaturityBadge';
-import RelatedExperiments from '@site/src/components/RelatedExperiments';
+import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Service Boundary Extraction
 
@@ -16,7 +16,7 @@ import RelatedExperiments from '@site/src/components/RelatedExperiments';
 Extract components with natural boundaries—different dependency profiles, scaling requirements, or deployment cadences—to dedicated containers, making implicit architectural separation explicit.
 
 :::caution Early Stage
-This method is still being validated through experiments. Results may vary and 
+This method is still being validated through observations. Results may vary and 
 the approach may evolve as we learn more.
 :::
 
@@ -121,7 +121,7 @@ After extraction:
 
 ## Example
 
-From the Prima Presidio experiment:
+From the Prima Presidio observation:
 
 **The Problem:** The main service embedded Presidio PII analyzer, bringing PyTorch, spaCy, and transformers dependencies. Every build pulled these heavy ML libraries, even though PII detection was just one capability.
 
@@ -153,7 +153,7 @@ If you're testing this method:
 
 1. Review the current approach
 2. Try extracting a component in your context—especially for triggers beyond heavy dependencies (scaling, deployment cadence, team ownership)
-3. Document your experiment with baseline measurements
+3. Document your observation with baseline measurements
 4. Share what worked and what didn't
 
 We're particularly interested in:
@@ -163,6 +163,6 @@ We're particularly interested in:
 
 ## Supporting Evidence
 
-<RelatedExperiments experiments={[
+<RelatedObservations observations={[
   { slug: 'internal/prima-presidio-containerization', title: 'Containerizing Heavy ML Dependencies', status: 'completed' }
 ]} />

@@ -1,0 +1,1657 @@
+/**
+ * Genome Explorer - Version D: Story-First Narrative
+ * 
+ * Cinematic, editorial scroll-driven experience with
+ * full-screen chapters and dramatic reveal animations.
+ */
+
+/* ============================================
+   BASE & VARIABLES
+   ============================================ */
+
+.narrative {
+  --color-dark-bg: #0a0a0f;
+  --color-dark-surface: #12121a;
+  --color-dark-card: #1a1a24;
+  --color-light-bg: #fafafa;
+  --color-light-surface: #ffffff;
+  --color-text-primary: #f0f0f5;
+  --color-text-secondary: #8888aa;
+  --color-text-muted: #55556a;
+  --color-accent-blue: #3B82F6;
+  --color-accent-green: #10B981;
+  --color-accent-purple: #8B5CF6;
+  --color-accent-amber: #F59E0B;
+  --color-accent-red: #EF4444;
+  --color-somber: #2d2d3a;
+  --gradient-blue: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+  --gradient-green: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  --gradient-purple: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
+}
+
+/* ============================================
+   PROGRESS INDICATOR
+   ============================================ */
+
+.progressIndicator {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .progressIndicator {
+    right: 0.75rem;
+    gap: 0.75rem;
+  }
+}
+
+.progressDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s var(--transition-smooth);
+  position: relative;
+  text-decoration: none;
+}
+
+.progressDot:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.2);
+}
+
+.progressDot.active {
+  background: var(--color-accent-blue);
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+}
+
+.progressDot.passed {
+  background: rgba(59, 130, 246, 0.5);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.progressLabel {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+.progressDot:hover .progressLabel {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .progressLabel {
+    display: none;
+  }
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(180deg, var(--color-dark-bg) 0%, #0d0d15 100%);
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.gradientOrb1,
+.gradientOrb2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+  animation: float 25s ease-in-out infinite;
+}
+
+.gradientOrb1 {
+  width: 600px;
+  height: 600px;
+  background: var(--gradient-purple);
+  top: -200px;
+  left: -150px;
+}
+
+.gradientOrb2 {
+  width: 500px;
+  height: 500px;
+  background: var(--gradient-blue);
+  bottom: -150px;
+  right: -150px;
+  animation-delay: -10s;
+}
+
+.dnaHelix {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 Q45 15 30 30 Q15 45 30 60' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -40px) scale(1.1); }
+  66% { transform: translate(-30px, 30px) scale(0.95); }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  max-width: 900px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 50px;
+  color: var(--color-accent-purple);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 12vw, 8rem);
+  font-weight: 800;
+  color: white;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  margin: 0 0 1.5rem;
+  background: linear-gradient(135deg, #FFFFFF 0%, #888899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* ============================================
+   CHAPTER SECTIONS
+   ============================================ */
+
+.chapter {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s var(--transition-smooth), transform 1s var(--transition-smooth);
+}
+
+.chapter.fullHeight {
+  min-height: 100vh;
+}
+
+.chapter.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.chapterInner {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.chapterHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.chapterSubtitle {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-purple);
+  margin-bottom: 1rem;
+}
+
+.chapterTitle {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* Theme variations */
+.themeDark {
+  background: linear-gradient(180deg, var(--color-dark-bg) 0%, var(--color-dark-surface) 100%);
+  color: var(--color-text-primary);
+}
+
+.themeDark .chapterTitle {
+  color: white;
+}
+
+.themeLight {
+  background: linear-gradient(180deg, #f5f5fa 0%, #ffffff 100%);
+  color: #1a1a2e;
+}
+
+.themeLight .chapterTitle {
+  color: #0a0a12;
+}
+
+.themeLight .chapterSubtitle {
+  color: var(--color-accent-blue);
+}
+
+.themeBlue {
+  background: linear-gradient(180deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+  color: var(--color-text-primary);
+}
+
+.themeGreen {
+  background: linear-gradient(180deg, #052e16 0%, #14532d 50%, #052e16 100%);
+  color: var(--color-text-primary);
+}
+
+.themePurple {
+  background: linear-gradient(180deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+  color: var(--color-text-primary);
+}
+
+.themeSomber {
+  background: linear-gradient(180deg, #1a1a1f 0%, var(--color-somber) 50%, #1a1a1f 100%);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.themeSomber .chapterSubtitle {
+  color: var(--color-accent-red);
+  opacity: 0.8;
+}
+
+/* ============================================
+   REVEAL ANIMATIONS
+   ============================================ */
+
+.revealItem {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+
+.revealItem.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   QUOTE BLOCKS
+   ============================================ */
+
+.quoteBlock {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.quoteBlock blockquote {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  font-style: italic;
+  position: relative;
+}
+
+.quoteBlock blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -2rem;
+  left: -1rem;
+  font-size: 6rem;
+  color: var(--color-accent-purple);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.quoteBlockAlt {
+  max-width: 800px;
+  margin: 3rem auto 0;
+  padding: 2rem 3rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 4px solid var(--color-accent-blue);
+  border-radius: 0 12px 12px 0;
+}
+
+.quoteBlockAlt blockquote {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: rgba(30, 41, 59, 0.9);
+  margin: 0;
+  font-style: italic;
+}
+
+.themeLight .quoteBlockAlt blockquote {
+  color: #1e293b;
+}
+
+/* ============================================
+   OLD WORLD CHAPTER
+   ============================================ */
+
+.oldWorldTraits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.traitCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.traitCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-4px);
+}
+
+.traitCard h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-accent-purple);
+  margin: 0 0 0.75rem;
+}
+
+.traitCard p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.insightBox {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  text-align: center;
+}
+
+.insightBox p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.insightBox strong {
+  color: var(--color-accent-purple);
+}
+
+/* ============================================
+   SHOCK CHAPTER
+   ============================================ */
+
+.shockHeadline {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.shockHeadline h3 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.shockComparison {
+  display: flex;
+  align-items: stretch;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .shockComparison {
+    flex-direction: column;
+  }
+}
+
+.shockColumn {
+  flex: 1;
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  border: 2px solid #e2e8f0;
+}
+
+.shockColumn.expensive {
+  border-color: var(--color-accent-amber);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, white 100%);
+}
+
+.shockColumnHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.shockColumnHeader svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-accent-green);
+}
+
+.shockColumn.expensive .shockColumnHeader svg {
+  color: var(--color-accent-amber);
+}
+
+.shockColumnHeader span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.shockColumn ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.shockColumn li {
+  padding: 0.75rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #475569;
+  font-size: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.shockColumn li:last-child {
+  border-bottom: none;
+}
+
+.shockColumn li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.1rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent-green);
+}
+
+.shockColumn.expensive li::before {
+  background: var(--color-accent-amber);
+}
+
+.shockDivider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .shockDivider {
+    flex-direction: row;
+    padding: 0;
+  }
+}
+
+.shockDividerLine {
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(180deg, transparent 0%, #cbd5e1 50%, transparent 100%);
+}
+
+@media (max-width: 768px) {
+  .shockDividerLine {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #cbd5e1 50%, transparent 100%);
+  }
+}
+
+.shockDividerIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--gradient-purple);
+  border-radius: 50%;
+  color: white;
+  font-weight: 800;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
+}
+
+/* ============================================
+   PRESSURES CHAPTER
+   ============================================ */
+
+.pressuresIntro {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 4rem;
+}
+
+.pressuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.pressureCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.4s var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.pressureCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--pressure-color);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pressureCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.pressureCard:hover::before {
+  opacity: 1;
+}
+
+.pressureIcon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 1.5rem;
+  color: var(--pressure-color);
+}
+
+.pressureIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pressureCard h4 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 1rem;
+}
+
+.pressureCard p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.pressureInsight {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+}
+
+.pressureInsight p {
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.pressureInsight strong {
+  color: var(--color-accent-blue);
+}
+
+/* ============================================
+   GENOME CHAPTER
+   ============================================ */
+
+.genomeIntro {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 4rem;
+}
+
+.domainSection {
+  margin-bottom: 4rem;
+  padding: 2.5rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.domainBlue {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.02) 100%);
+  border-color: rgba(59, 130, 246, 0.15);
+}
+
+.domainGreen {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0.02) 100%);
+  border-color: rgba(16, 185, 129, 0.15);
+}
+
+.domainPurple {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(139, 92, 246, 0.02) 100%);
+  border-color: rgba(139, 92, 246, 0.15);
+}
+
+.domainHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.domainBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.25rem;
+  background: var(--domain-color);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+}
+
+.domainDesc {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.geneGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.geneCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.geneCard::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gene-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.geneCard:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.geneCard:hover::before {
+  transform: scaleX(1);
+}
+
+.geneCard h5 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gene-color);
+  margin: 0 0 0.75rem;
+}
+
+.geneCard p {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+.geneHint {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.geneCard:hover .geneHint {
+  opacity: 1;
+}
+
+/* ============================================
+   GENE MODAL
+   ============================================ */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: var(--color-dark-card);
+  border-radius: 24px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.4s var(--transition-smooth);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modalClose {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.modalClose svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+.modalClose:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modalHeader {
+  padding: 2.5rem 2.5rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modalDomain {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--modal-color);
+  margin-bottom: 0.75rem;
+}
+
+.modalHeader h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 1rem;
+}
+
+.modalDefinition {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.modalBody {
+  padding: 2rem 2.5rem;
+}
+
+.thenNow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 600px) {
+  .thenNow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.thenColumn,
+.nowColumn {
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.thenColumn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nowColumn {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.03) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.thenColumn h4,
+.nowColumn h4 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.75rem;
+}
+
+.thenColumn h4 {
+  color: var(--color-text-muted);
+}
+
+.nowColumn h4 {
+  color: var(--color-accent-green);
+}
+
+.thenColumn p,
+.nowColumn p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.modalQuestion {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.03) 100%);
+  border-radius: 12px;
+  border-left: 4px solid var(--color-accent-purple);
+}
+
+.modalQuestion h4 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-purple);
+  margin: 0 0 0.5rem;
+}
+
+.modalQuestion p {
+  font-size: 1.125rem;
+  color: var(--color-text-primary);
+  margin: 0;
+  font-style: italic;
+}
+
+.modalExamples h4 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin: 0 0 1rem;
+}
+
+.modalExamples ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.modalExamples li {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  position: relative;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.modalExamples li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.9rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--modal-color);
+}
+
+.modalFooter {
+  padding: 1.5rem 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.modalLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--modal-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.modalLink:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+/* ============================================
+   SPECIES CHAPTER
+   ============================================ */
+
+.speciesIntro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.speciesIntro p {
+  font-size: 1.25rem;
+  color: #475569;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.speciesSplit {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 900px) {
+  .speciesSplit {
+    flex-direction: column;
+  }
+}
+
+.speciesCard {
+  flex: 1;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s var(--transition-smooth);
+}
+
+.speciesCard:hover {
+  transform: translateY(-8px);
+}
+
+.missionCard {
+  border-top: 5px solid var(--color-accent-blue);
+}
+
+.enablementCard {
+  border-top: 5px solid var(--color-accent-purple);
+}
+
+.speciesHeader {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #f8fafc 0%, white 100%);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.speciesIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+}
+
+.missionCard .speciesIcon {
+  background: var(--gradient-blue);
+  color: white;
+}
+
+.enablementCard .speciesIcon {
+  background: var(--gradient-purple);
+  color: white;
+}
+
+.speciesIcon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.speciesHeader h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.25rem;
+}
+
+.speciesSubtitle {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.speciesBody {
+  padding: 2rem;
+}
+
+.speciesField {
+  margin-bottom: 1.5rem;
+}
+
+.speciesField:last-child {
+  margin-bottom: 0;
+}
+
+.speciesField label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+
+.speciesField p {
+  font-size: 0.95rem;
+  color: #334155;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.speciesGenes {
+  padding: 1.5rem 2rem;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.speciesGenesLabel {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94a3b8;
+  margin-bottom: 0.75rem;
+}
+
+.speciesGeneTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.geneTag {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.speciesDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+@media (max-width: 900px) {
+  .speciesDivider {
+    padding: 0;
+  }
+}
+
+.speciesDividerContent {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  border-radius: 16px;
+}
+
+.speciesDividerContent span {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.speciesDividerContent p {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.speciesQuote {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.speciesQuote blockquote {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #334155;
+  margin: 0;
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border-radius: 16px;
+}
+
+/* ============================================
+   EXTINCTION CHAPTER
+   ============================================ */
+
+.extinctionIntro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.extinctionIntro p {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.extinctionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.extinctionCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+}
+
+.extinctionMarker {
+  width: 48px;
+  height: 48px;
+  color: var(--color-accent-red);
+  opacity: 0.6;
+  margin-bottom: 1.5rem;
+}
+
+.extinctionMarker svg {
+  width: 100%;
+  height: 100%;
+}
+
+.extinctionCard h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 0.75rem;
+}
+
+.extinctionDesc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.extinctionWhy {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.extinctionWhy span {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-red);
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.extinctionWhy p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.extinctionClose {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.extinctionClose p {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* ============================================
+   EPILOGUE
+   ============================================ */
+
+.epilogueContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.epilogueQuote {
+  margin-bottom: 4rem;
+}
+
+.epilogueQuote blockquote {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-style: italic;
+}
+
+.epilogueMessage {
+  margin-bottom: 4rem;
+}
+
+.epilogueMessage p {
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.epilogueMessage p:last-child {
+  margin-bottom: 0;
+}
+
+.epilogueMessage strong {
+  color: var(--color-accent-green);
+}
+
+.epilogueCTA {
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+}
+
+.epilogueCTA h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 1rem;
+}
+
+.epilogueCTA p {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 2rem;
+  line-height: 1.7;
+}
+
+.epilogueButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--gradient-blue);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.5);
+  color: white;
+  text-decoration: none;
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.secondaryButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  text-decoration: none;
+}
+
+/* ============================================
+   PERMISSION ECONOMY CHAPTER
+   ============================================ */
+
+.chapterQuote {
+  max-width: 700px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.chapterQuote blockquote {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-style: italic;
+  padding: 2rem;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 16px;
+  border-left: 4px solid var(--color-accent-purple);
+}
+
+.paradoxFlow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.paradoxStep {
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.paradoxArrow {
+  font-size: 1.5rem;
+  color: var(--color-accent-purple);
+}
+
+/* ============================================
+   ENABLEMENT SPINE CHAPTER
+   ============================================ */
+
+.chapterLead {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+.chapterLead strong {
+  color: var(--color-accent-purple);
+}
+
+.themePurple .chapterLead {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.spineGenes {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.spineGene {
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spineGene:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 40px rgba(139, 92, 246, 0.5);
+}
+
+/* ============================================
+   ECOSYSTEM CHAPTER
+   ============================================ */
+
+.themeLight .chapterLead {
+  color: #475569;
+}
+
+.themeLight .chapterLead strong {
+  color: var(--color-accent-blue);
+}
+
+.keyExchange {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 4px solid #3B82F6;
+  border-radius: 0 8px 8px 0;
+  margin: 2rem auto;
+  max-width: 600px;
+  color: #1e293b;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.keyExchange strong {
+  display: block;
+  color: #3B82F6;
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .chapter {
+    padding: 4rem 1.5rem;
+  }
+
+  .chapterTitle {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .quoteBlock blockquote {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+
+  .quoteBlock blockquote::before {
+    font-size: 4rem;
+    top: -1.5rem;
+    left: -0.5rem;
+  }
+
+  .oldWorldTraits {
+    grid-template-columns: 1fr;
+  }
+
+  .pressuresGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .geneGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    margin: 1rem;
+    max-height: 95vh;
+  }
+
+  .modalHeader,
+  .modalBody,
+  .modalFooter {
+    padding: 1.5rem;
+  }
+
+  .epilogueCTA {
+    padding: 2rem 1.5rem;
+  }
+
+  .epilogueButtons {
+    flex-direction: column;
+  }
+}

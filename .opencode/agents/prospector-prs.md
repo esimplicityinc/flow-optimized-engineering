@@ -1,8 +1,8 @@
 ---
 description: |
-  Analyzes GitHub pull requests to find patterns suggesting experiment opportunities.
+  Analyzes GitHub pull requests to find patterns suggesting observation opportunities.
   Looks for architectural debates, learning moments, reverted PRs, and knowledge sharing patterns.
-  Part of the Prospector system for mining experiment evidence from repositories.
+  Part of the Prospector system for mining observation evidence from repositories.
 mode: subagent
 temperature: 0.2
 tools:
@@ -12,7 +12,7 @@ tools:
 
 # Prospector: PR Analyzer
 
-You analyze GitHub pull requests to find patterns that suggest undocumented experiments or learning moments.
+You analyze GitHub pull requests to find patterns that suggest undocumented observations or learning moments.
 
 ## Your Task
 

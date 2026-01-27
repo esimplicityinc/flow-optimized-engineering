@@ -1,0 +1,1289 @@
+/* =============================================================================
+   Permission Game Styles
+   A comprehensive, polished stylesheet for the interactive Permission Game
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   CSS Custom Properties
+   ----------------------------------------------------------------------------- */
+
+.gameContainer {
+  --game-bg: #0F172A;
+  --game-surface: #1E293B;
+  --game-surface-hover: #273548;
+  --game-border: #334155;
+  --game-text: #F1F5F9;
+  --game-text-muted: #94A3B8;
+  --game-text-dim: #64748B;
+  
+  /* Domain Colors */
+  --product-color: #3B82F6;
+  --product-color-dim: rgba(59, 130, 246, 0.2);
+  --education-color: #10B981;
+  --education-color-dim: rgba(16, 185, 129, 0.2);
+  --systems-color: #8B5CF6;
+  --systems-color-dim: rgba(139, 92, 246, 0.2);
+  
+  /* Permission Levels */
+  --permission-high: #10B981;
+  --permission-mid: #F59E0B;
+  --permission-low: #EF4444;
+  
+  /* Risk Levels */
+  --risk-high: #EF4444;
+  --risk-mid: #F59E0B;
+  --risk-low: #10B981;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* -----------------------------------------------------------------------------
+   Game Container
+   ----------------------------------------------------------------------------- */
+
+.gameContainer {
+  min-height: 100vh;
+  background: var(--game-bg);
+  color: var(--game-text);
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+/* -----------------------------------------------------------------------------
+   Game Header
+   ----------------------------------------------------------------------------- */
+
+.gameHeader {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(135deg, var(--game-surface) 0%, #162033 100%);
+  border-bottom: 1px solid var(--game-border);
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-lg);
+  backdrop-filter: blur(8px);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.gameTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, var(--product-color), var(--systems-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gameSubtitle {
+  font-size: 0.875rem;
+  color: var(--game-text-muted);
+  margin: 0;
+}
+
+.headerControls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.sessionTime {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--game-bg);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--game-text-muted);
+}
+
+.sessionTime svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+.scoreDisplay {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: linear-gradient(135deg, var(--permission-high), #059669);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+}
+
+.scoreLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+.scoreValue {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.presetButton {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--game-surface);
+  border: 1px solid var(--game-border);
+  border-radius: var(--radius-md);
+  color: var(--game-text);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.presetButton:hover {
+  background: var(--game-surface-hover);
+  border-color: var(--product-color);
+}
+
+.presetButton svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-fast);
+}
+
+.presetButton[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+/* -----------------------------------------------------------------------------
+   Presets Panel
+   ----------------------------------------------------------------------------- */
+
+.presetsPanel {
+  background: var(--game-surface);
+  border-bottom: 1px solid var(--game-border);
+  padding: var(--spacing-lg);
+  display: none;
+  animation: slideDown var(--transition-normal) ease-out;
+}
+
+.presetsPanel.open {
+  display: block;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.presetsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.presetCard {
+  background: var(--game-bg);
+  border: 1px solid var(--game-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.presetCard:hover {
+  border-color: var(--product-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.presetCard.active {
+  border-color: var(--product-color);
+  background: var(--product-color-dim);
+}
+
+.presetName {
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.presetDescription {
+  font-size: 0.75rem;
+  color: var(--game-text-muted);
+  line-height: 1.4;
+}
+
+/* -----------------------------------------------------------------------------
+   Main Content
+   ----------------------------------------------------------------------------- */
+
+.mainContent {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  overflow: auto;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* -----------------------------------------------------------------------------
+   Control Panel
+   ----------------------------------------------------------------------------- */
+
+.controlPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  height: fit-content;
+  position: sticky;
+  top: calc(70px + var(--spacing-lg));
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  padding-right: var(--spacing-sm);
+}
+
+.controlPanel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.controlPanel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.controlPanel::-webkit-scrollbar-thumb {
+  background: var(--game-border);
+  border-radius: 3px;
+}
+
+.controlPanel::-webkit-scrollbar-thumb:hover {
+  background: var(--game-text-dim);
+}
+
+/* -----------------------------------------------------------------------------
+   Control Sections
+   ----------------------------------------------------------------------------- */
+
+.controlSection {
+  background: var(--game-surface);
+  border: 1px solid var(--game-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--game-text-muted);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.sectionTitle svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* -----------------------------------------------------------------------------
+   AI Slider
+   ----------------------------------------------------------------------------- */
+
+.aiSlider {
+  padding: var(--spacing-sm) 0;
+}
+
+.aiSliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.aiSliderLabel {
+  font-weight: 500;
+}
+
+.aiSliderValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--product-color);
+}
+
+.aiSliderTrack {
+  position: relative;
+  height: 8px;
+  background: var(--game-bg);
+  border-radius: 4px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.aiSliderInput {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.aiSliderInput::-webkit-slider-runnable-track {
+  height: 8px;
+  background: linear-gradient(90deg, var(--game-border) 0%, var(--product-color) 100%);
+  border-radius: 4px;
+}
+
+.aiSliderInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--game-text);
+  border: 3px solid var(--product-color);
+  border-radius: 50%;
+  margin-top: -6px;
+  cursor: grab;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.aiSliderInput::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 12px rgba(59, 130, 246, 0.4);
+}
+
+.aiSliderInput::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(0.95);
+}
+
+.aiSliderInput::-moz-range-track {
+  height: 8px;
+  background: linear-gradient(90deg, var(--game-border) 0%, var(--product-color) 100%);
+  border-radius: 4px;
+}
+
+.aiSliderInput::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--game-text);
+  border: 3px solid var(--product-color);
+  border-radius: 50%;
+  cursor: grab;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.aiSliderLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--game-text-dim);
+}
+
+/* -----------------------------------------------------------------------------
+   Team Ratio
+   ----------------------------------------------------------------------------- */
+
+.teamRatio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+}
+
+.ratioInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.ratioLabel {
+  font-size: 0.75rem;
+  color: var(--game-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ratioValue {
+  width: 80px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--game-bg);
+  border: 1px solid var(--game-border);
+  border-radius: var(--radius-md);
+  color: var(--game-text);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.ratioValue:focus {
+  outline: none;
+  border-color: var(--product-color);
+  box-shadow: 0 0 0 3px var(--product-color-dim);
+}
+
+.ratioDivider {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--game-text-dim);
+  padding-top: 1.25rem;
+}
+
+.ratioTotal {
+  font-size: 0.875rem;
+  color: var(--game-text-muted);
+  text-align: center;
+  margin-top: var(--spacing-sm);
+}
+
+/* -----------------------------------------------------------------------------
+   Domain Groups
+   ----------------------------------------------------------------------------- */
+
+.domainGroup {
+  margin-bottom: var(--spacing-md);
+}
+
+.domainGroup:last-child {
+  margin-bottom: 0;
+}
+
+.domainHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--game-border);
+}
+
+.domainDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.domainDot.product { background: var(--product-color); }
+.domainDot.education { background: var(--education-color); }
+.domainDot.systems { background: var(--systems-color); }
+
+.domainName {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.domainGenes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* -----------------------------------------------------------------------------
+   Gene Sliders
+   ----------------------------------------------------------------------------- */
+
+.geneSlider {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+}
+
+.geneInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.geneName {
+  font-size: 0.875rem;
+  color: var(--game-text);
+}
+
+.spineBadge {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  background: var(--systems-color-dim);
+  color: var(--systems-color);
+  border-radius: var(--radius-sm);
+}
+
+.geneControl {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.geneInput {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 6px;
+  background: var(--game-bg);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.geneInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--game-text);
+  border: 2px solid var(--product-color);
+  border-radius: 50%;
+  cursor: grab;
+  transition: all var(--transition-fast);
+}
+
+.geneInput.product::-webkit-slider-thumb { border-color: var(--product-color); }
+.geneInput.education::-webkit-slider-thumb { border-color: var(--education-color); }
+.geneInput.systems::-webkit-slider-thumb { border-color: var(--systems-color); }
+
+.geneInput::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.geneInput::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--game-text);
+  border: 2px solid var(--product-color);
+  border-radius: 50%;
+  cursor: grab;
+  transition: all var(--transition-fast);
+}
+
+.geneInput.product::-moz-range-thumb { border-color: var(--product-color); }
+.geneInput.education::-moz-range-thumb { border-color: var(--education-color); }
+.geneInput.systems::-moz-range-thumb { border-color: var(--systems-color); }
+
+.geneValue {
+  font-size: 0.875rem;
+  font-weight: 600;
+  min-width: 36px;
+  text-align: right;
+  color: var(--game-text-muted);
+}
+
+/* -----------------------------------------------------------------------------
+   Metrics Panel
+   ----------------------------------------------------------------------------- */
+
+.metricsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.primaryMetrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.secondaryMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* -----------------------------------------------------------------------------
+   Metric Cards
+   ----------------------------------------------------------------------------- */
+
+.metricCard {
+  background: var(--game-surface);
+  border: 1px solid var(--game-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  transition: all var(--transition-fast);
+}
+
+.metricCard:hover {
+  border-color: var(--game-text-dim);
+}
+
+.metricCard.primary {
+  padding: var(--spacing-lg);
+}
+
+.metricCard.highlight {
+  border-color: var(--permission-high);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+}
+
+.metricCard.warning {
+  border-color: var(--permission-mid);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
+}
+
+.metricCard.danger {
+  border-color: var(--permission-low);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.1);
+}
+
+.metricHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-md);
+}
+
+.metricTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--game-text-muted);
+}
+
+.metricDelta {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.metricDelta.positive {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--permission-high);
+}
+
+.metricDelta.negative {
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--permission-low);
+}
+
+.metricDelta.neutral {
+  background: rgba(148, 163, 184, 0.2);
+  color: var(--game-text-muted);
+}
+
+.metricValue {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: var(--spacing-md);
+}
+
+.metricValue.high { color: var(--permission-high); }
+.metricValue.mid { color: var(--permission-mid); }
+.metricValue.low { color: var(--permission-low); }
+
+.metricDescription {
+  font-size: 0.875rem;
+  color: var(--game-text-muted);
+  line-height: 1.4;
+}
+
+/* -----------------------------------------------------------------------------
+   Progress Bars
+   ----------------------------------------------------------------------------- */
+
+.progressBar {
+  position: relative;
+  height: 8px;
+  background: var(--game-bg);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: var(--spacing-sm);
+}
+
+.progressBar.large {
+  height: 12px;
+}
+
+.progressFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 4px;
+  transition: width var(--transition-slow) ease-out;
+}
+
+.progressFill.high { background: var(--permission-high); }
+.progressFill.mid { background: var(--permission-mid); }
+.progressFill.low { background: var(--permission-low); }
+
+.progressFill.product { background: var(--product-color); }
+.progressFill.education { background: var(--education-color); }
+.progressFill.systems { background: var(--systems-color); }
+
+.progressLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--game-text);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* -----------------------------------------------------------------------------
+   Metric Rows (Secondary)
+   ----------------------------------------------------------------------------- */
+
+.metricRow {
+  display: grid;
+  grid-template-columns: 1fr auto 120px;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--game-surface);
+  border: 1px solid var(--game-border);
+  border-radius: var(--radius-md);
+}
+
+.metricRowLabel {
+  font-size: 0.875rem;
+  color: var(--game-text-muted);
+}
+
+.metricRowValue {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.metricRowBar {
+  position: relative;
+  height: 6px;
+  background: var(--game-bg);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* -----------------------------------------------------------------------------
+   Stakeholder Section
+   ----------------------------------------------------------------------------- */
+
+.stakeholderSection {
+  background: var(--game-surface);
+  border: 1px solid var(--game-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+}
+
+.stakeholderTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--game-text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.stakeholderList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.stakeholderItem {
+  display: grid;
+  grid-template-columns: 1fr auto 80px;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.stakeholderName {
+  font-size: 0.875rem;
+  color: var(--game-text);
+}
+
+.stakeholderValue {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.stakeholderBar {
+  position: relative;
+  height: 6px;
+  background: var(--game-bg);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* -----------------------------------------------------------------------------
+   Bottleneck Alert
+   ----------------------------------------------------------------------------- */
+
+.bottleneckAlert {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid var(--permission-mid);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+
+.bottleneckIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--permission-mid);
+  flex-shrink: 0;
+}
+
+.bottleneckContent {
+  flex: 1;
+}
+
+.bottleneckTitle {
+  font-weight: 600;
+  color: var(--permission-mid);
+  margin-bottom: var(--spacing-xs);
+}
+
+.bottleneckMessage {
+  font-size: 0.875rem;
+  color: var(--game-text-muted);
+  line-height: 1.4;
+}
+
+.bottleneckAction {
+  font-size: 0.75rem;
+  color: var(--permission-mid);
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: var(--spacing-sm);
+}
+
+/* -----------------------------------------------------------------------------
+   Circuit Panel
+   ----------------------------------------------------------------------------- */
+
+.circuitPanel {
+  background: var(--game-surface);
+  border-top: 1px solid var(--game-border);
+  transition: max-height var(--transition-normal) ease-out;
+  overflow: hidden;
+}
+
+.circuitPanel.collapsed {
+  max-height: 56px;
+}
+
+.circuitPanel.expanded {
+  max-height: 600px;
+}
+
+.circuitToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: transparent;
+  border: none;
+  color: var(--game-text);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.circuitToggle:hover {
+  background: var(--game-surface-hover);
+}
+
+.circuitToggle svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-fast);
+}
+
+.circuitPanel.expanded .circuitToggle svg {
+  transform: rotate(180deg);
+}
+
+.circuitContent {
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.circuitStage {
+  background: var(--game-bg);
+  border: 1px solid var(--game-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+.stageName {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--game-text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+
+.stageFormula {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.875rem;
+  color: var(--product-color);
+  background: rgba(59, 130, 246, 0.1);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-sm);
+  overflow-x: auto;
+}
+
+.stageResult {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.stageResultLabel {
+  color: var(--game-text-muted);
+}
+
+.stageResultValue {
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+   Game Footer
+   ----------------------------------------------------------------------------- */
+
+.gameFooter {
+  background: var(--game-surface);
+  border-top: 1px solid var(--game-border);
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: center;
+}
+
+.insightText {
+  font-size: 0.875rem;
+  color: var(--game-text-muted);
+  font-style: italic;
+}
+
+.insightHighlight {
+  color: var(--product-color);
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* -----------------------------------------------------------------------------
+   Animations
+   ----------------------------------------------------------------------------- */
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animatePulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animateFadeIn {
+  animation: fadeIn var(--transition-normal) ease-out;
+}
+
+.animateSlideUp {
+  animation: slideUp var(--transition-normal) ease-out;
+}
+
+/* Value change animation */
+.valueChanged {
+  animation: valueFlash 0.3s ease-out;
+}
+
+@keyframes valueFlash {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* -----------------------------------------------------------------------------
+   Responsive Design
+   ----------------------------------------------------------------------------- */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .controlPanel {
+    position: static;
+    max-height: none;
+    padding-right: 0;
+  }
+  
+  .gameHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+  
+  .headerControls {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .presetsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+  
+  .primaryMetrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .gameHeader {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .gameTitle {
+    font-size: 1.25rem;
+  }
+  
+  .mainContent {
+    padding: var(--spacing-md);
+  }
+  
+  .controlSection {
+    padding: var(--spacing-sm);
+  }
+  
+  .teamRatio {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .ratioDivider {
+    display: none;
+  }
+  
+  .ratioInput {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .geneSlider {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
+  }
+  
+  .geneControl {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .geneInput {
+    flex: 1;
+  }
+  
+  .metricRow {
+    grid-template-columns: 1fr auto;
+    gap: var(--spacing-sm);
+  }
+  
+  .metricRowBar {
+    display: none;
+  }
+  
+  .stakeholderItem {
+    grid-template-columns: 1fr auto;
+  }
+  
+  .stakeholderBar {
+    display: none;
+  }
+  
+  .circuitContent {
+    padding: 0 var(--spacing-md) var(--spacing-md);
+  }
+  
+  .stageFormula {
+    font-size: 0.75rem;
+  }
+  
+  .metricValue {
+    font-size: 2rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 400px) {
+  .headerControls {
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+  
+  .sessionTime,
+  .scoreDisplay,
+  .presetButton {
+    font-size: 0.75rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  .presetsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Light Theme Support
+   ----------------------------------------------------------------------------- */
+
+[data-theme='light'] .gameContainer {
+  --game-bg: #F8FAFC;
+  --game-surface: #FFFFFF;
+  --game-surface-hover: #F1F5F9;
+  --game-border: #E2E8F0;
+  --game-text: #1E293B;
+  --game-text-muted: #64748B;
+  --game-text-dim: #94A3B8;
+  
+  --product-color-dim: rgba(59, 130, 246, 0.1);
+  --education-color-dim: rgba(16, 185, 129, 0.1);
+  --systems-color-dim: rgba(139, 92, 246, 0.1);
+}
+
+[data-theme='light'] .gameHeader {
+  background: linear-gradient(135deg, var(--game-surface) 0%, #F1F5F9 100%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='light'] .metricCard {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .controlSection {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .aiSliderInput::-webkit-slider-thumb {
+  background: var(--game-surface);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='light'] .geneInput::-webkit-slider-thumb {
+  background: var(--game-surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* -----------------------------------------------------------------------------
+   Utility Classes
+   ----------------------------------------------------------------------------- */
+
+.hidden {
+  display: none !important;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.noSelect {
+  user-select: none;
+}
+
+/* Focus styles for accessibility */
+.gameContainer *:focus-visible {
+  outline: 2px solid var(--product-color);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .gameContainer *,
+  .gameContainer *::before,
+  .gameContainer *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

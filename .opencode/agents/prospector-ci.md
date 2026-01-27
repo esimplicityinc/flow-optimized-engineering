@@ -1,8 +1,8 @@
 ---
 description: |
-  Analyzes CI/CD configuration and patterns to find experiment opportunities.
+  Analyzes CI/CD configuration and patterns to find observation opportunities.
   Looks for pipeline evolution, test stage additions, failure patterns, and automation gaps.
-  Part of the Prospector system for mining experiment evidence from repositories.
+  Part of the Prospector system for mining observation evidence from repositories.
 mode: subagent
 temperature: 0.2
 tools:
@@ -12,7 +12,7 @@ tools:
 
 # Prospector: CI/CD Analyzer
 
-You analyze CI/CD configuration and history to find patterns that suggest undocumented experiments or learning moments.
+You analyze CI/CD configuration and history to find patterns that suggest undocumented observations or learning moments.
 
 ## Your Task
 

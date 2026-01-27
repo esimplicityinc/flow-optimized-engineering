@@ -2,16 +2,16 @@
  * Field Guides - Shared Types and Constants
  *
  * This module defines the maturity model for methods and guides,
- * as well as types for experiments and their relationships.
+ * as well as types for observations and their relationships.
  */
 
 // =============================================================================
 // Maturity Levels
 // =============================================================================
 
-export type MaturityLevel = 'hypothesized' | 'experimenting' | 'validated' | 'proven';
+export type MaturityLevel = 'hypothesized' | 'observing' | 'validated' | 'proven';
 
-export type ExperimentStatus = 'in-progress' | 'completed';
+export type ObservationStatus = 'in-progress' | 'completed';
 
 export interface MaturityConfig {
   level: MaturityLevel;
@@ -27,15 +27,15 @@ export const MATURITY_LEVELS: Record<MaturityLevel, MaturityConfig> = {
     level: 'hypothesized',
     value: 1,
     label: 'Hypothesized',
-    description: 'Proposed method, no experiments yet',
+    description: 'Proposed method, no observations yet',
     color: '#6b7280', // gray-500
     bgColor: '#f3f4f6', // gray-100
   },
-  experimenting: {
-    level: 'experimenting',
+  observing: {
+    level: 'observing',
     value: 2,
-    label: 'Experimenting',
-    description: 'Active experiments in progress',
+    label: 'Observing',
+    description: 'Active observations in progress',
     color: '#ca8a04', // yellow-600
     bgColor: '#fef9c3', // yellow-100
   },
@@ -43,7 +43,7 @@ export const MATURITY_LEVELS: Record<MaturityLevel, MaturityConfig> = {
     level: 'validated',
     value: 3,
     label: 'Validated',
-    description: 'Supporting evidence from experiments',
+    description: 'Supporting evidence from observations',
     color: '#2563eb', // blue-600
     bgColor: '#dbeafe', // blue-100
   },
@@ -51,13 +51,13 @@ export const MATURITY_LEVELS: Record<MaturityLevel, MaturityConfig> = {
     level: 'proven',
     value: 4,
     label: 'Proven',
-    description: 'Multiple experiments, widely applicable',
+    description: 'Multiple observations, widely applicable',
     color: '#16a34a', // green-600
     bgColor: '#dcfce7', // green-100
   },
 };
 
-export const EXPERIMENT_STATUS: Record<ExperimentStatus, { label: string; color: string }> = {
+export const OBSERVATION_STATUS: Record<ObservationStatus, { label: string; color: string }> = {
   'in-progress': {
     label: 'In Progress',
     color: '#ca8a04', // yellow-600
@@ -67,6 +67,10 @@ export const EXPERIMENT_STATUS: Record<ExperimentStatus, { label: string; color:
     color: '#16a34a', // green-600
   },
 };
+
+// Legacy exports for backwards compatibility
+export type ExperimentStatus = ObservationStatus;
+export const EXPERIMENT_STATUS = OBSERVATION_STATUS;
 
 // =============================================================================
 // Maturity Thresholds for Guide Calculations
@@ -80,7 +84,7 @@ export interface MaturityThreshold {
 
 export const MATURITY_THRESHOLDS: MaturityThreshold[] = [
   { min: 0, max: 1.5, level: 'hypothesized' },
-  { min: 1.5, max: 2.5, level: 'experimenting' },
+  { min: 1.5, max: 2.5, level: 'observing' },
   { min: 2.5, max: 3.5, level: 'validated' },
   { min: 3.5, max: 4, level: 'proven' },
 ];
@@ -142,15 +146,18 @@ export interface MethodFrontmatter {
   title: string;
   sidebar_position?: number;
   maturity: MaturityLevel;
-  experiments?: string[];
+  observations?: string[];
 }
 
-export interface ExperimentFrontmatter {
+export interface ObservationFrontmatter {
   title: string;
   sidebar_position?: number;
-  status: ExperimentStatus;
+  status: ObservationStatus;
   methods?: string[];
 }
+
+// Legacy type alias
+export type ExperimentFrontmatter = ObservationFrontmatter;
 
 export interface GuideFrontmatter {
   title: string;
@@ -238,7 +245,7 @@ export interface AdoptedMethod {
   framework: string;
   method: string;
   foe_maturity: MaturityLevel;
-  experiments?: string[];
+  observations?: string[];
 }
 
 // =============================================================================

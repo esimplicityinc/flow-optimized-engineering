@@ -142,7 +142,7 @@ findings:
 |-------|----------|
 | **high** | Core agentic coding tool/framework. 1k+ stars or from major org. Active development. |
 | **medium** | Related tooling or library. 100-1k stars. Regular updates. |
-| **low** | Tangentially related. <100 stars. Experimental/unmaintained. |
+| **low** | Tangentially related. <100 stars. Observational/unmaintained. |
 
 ## Error Handling
 

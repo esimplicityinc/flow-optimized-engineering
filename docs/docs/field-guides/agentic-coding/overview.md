@@ -30,13 +30,13 @@ A collection of flow-optimized methods for AI-assisted software development.
   guideId="agentic-coding" 
   methods={[
     { maturity: 'proven' },
-    { maturity: 'experimenting' },
+    { maturity: 'observing' },
   ]} 
 />
 
 ## What This Guide Covers
 
-Agentic coding - working with AI coding assistants - changes how we write software. But not all approaches are equal. This guide collects methods that have been tested and refined through real experiments.
+Agentic coding - working with AI coding assistants - changes how we write software. But not all approaches are equal. This guide collects methods that have been tested and refined through real observations.
 
 ## Methods
 
@@ -46,19 +46,19 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
     { 
       slug: 'understanding-first-protocol-adoption', 
       title: 'Understanding-First Protocol Adoption', 
-      maturity: 'experimenting',
+      maturity: 'observing',
       description: 'Invest in protocol model understanding before making architectural decisions',
     },
     { 
       slug: 'early-feedback-loop-investment', 
       title: 'Early Feedback Loop Investment', 
-      maturity: 'experimenting',
+      maturity: 'observing',
       description: 'Build test/CI infrastructure as foundation, not overhead',
     },
     { 
       slug: 'knowledge-distribution-as-reliability', 
       title: 'Knowledge Distribution as Reliability', 
-      maturity: 'experimenting',
+      maturity: 'observing',
       description: 'Treat concentrated knowledge as a system risk to actively address',
     },
   ]}
@@ -110,6 +110,6 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
 
 1. Browse the methods above
 2. Check their maturity level to understand how well-tested they are
-3. Review the supporting experiments to understand the evidence
+3. Review the supporting observations to understand the evidence
 4. Try the methods that fit your context
-5. Consider [contributing your own experiments](../contributing-experiments)
+5. Consider [contributing your own observations](../contributing-observations)

@@ -1,0 +1,1349 @@
+/**
+ * Genome Explorer - Version C: Interactive Dashboard
+ * 
+ * Clean, minimal dashboard aesthetic with data-rich visualizations.
+ * Card-based UI with subtle shadows and monospace stats.
+ */
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+
+:root {
+  --dashboard-bg: #f8fafc;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+[data-theme='dark'] {
+  --dashboard-bg: #0f172a;
+  --card-bg: #1e293b;
+  --border-color: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+}
+
+/* ============================================
+   HEADER BAR
+   ============================================ */
+
+.headerBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 60px;
+  z-index: 100;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.headerLogo {
+  font-size: 2rem;
+}
+
+.headerTitles {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.headerSubtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filterLabel {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.filterSelect {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.filterSelect:hover {
+  border-color: var(--ifm-color-primary);
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* ============================================
+   STATS ROW
+   ============================================ */
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: var(--dashboard-bg);
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.statCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.statIcon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.statValue {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--stat-color, var(--text-primary));
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.25rem;
+}
+
+/* ============================================
+   MAIN DASHBOARD GRID
+   ============================================ */
+
+.dashboardMain {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: var(--dashboard-bg);
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.panelSection {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.panelSectionTitle {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin: 0 0 1rem 0;
+  padding: 0 0.5rem;
+}
+
+/* ============================================
+   DOMAIN PANELS
+   ============================================ */
+
+.domainPanel {
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.domainPanel:hover {
+  border-color: var(--domain-color);
+}
+
+.domainHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.domainHeader:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme='dark'] .domainHeader:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.domainTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.domainIndicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--domain-color);
+}
+
+.domainName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.domainCount {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.4rem;
+  background: var(--dashboard-bg);
+  border-radius: 4px;
+  color: var(--text-secondary);
+}
+
+.domainChevron {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+}
+
+.domainChevron.expanded {
+  color: var(--domain-color);
+}
+
+.domainContent {
+  padding: 0 1rem 1rem;
+}
+
+.domainDescription {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem 0;
+  line-height: 1.5;
+}
+
+.geneChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.geneChip {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--dashboard-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--text-secondary);
+}
+
+.geneChip:hover {
+  background: var(--domain-color);
+  color: white;
+  border-color: var(--domain-color);
+}
+
+.geneChip.selected {
+  background: var(--domain-color);
+  color: white;
+  border-color: var(--domain-color);
+}
+
+/* ============================================
+   GENE DETAIL CARD
+   ============================================ */
+
+.detailSection,
+.comparisonSection {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.sectionTitle {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin: 0 0 1rem 0;
+}
+
+.geneDetailCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.geneDetailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.geneDetailTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.geneDomainBadge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  color: white;
+}
+
+.geneDetailTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.geneStrategyLink {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--dashboard-bg);
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+}
+
+.geneDefinition {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Then vs Now Comparison */
+.thenNowComparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem;
+  background: var(--dashboard-bg);
+  border-radius: var(--radius-md);
+}
+
+.comparisonColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.comparisonLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.comparisonText {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.comparisonArrow {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  align-self: center;
+  font-weight: 300;
+}
+
+/* Weight Bars */
+.weightBars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.weightBarRow {
+  display: grid;
+  grid-template-columns: 80px 1fr 30px;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.weightBarLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.weightBarTrack {
+  height: 8px;
+  background: var(--dashboard-bg);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.weightBarFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.weightValue {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: right;
+}
+
+/* Examples */
+.geneExamples {
+  padding-top: 0.5rem;
+}
+
+.examplesLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.examplesList {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+}
+
+.examplesList li {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+/* Key Question */
+.keyQuestion {
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+  border-radius: var(--radius-md);
+  border-left: 3px solid #3B82F6;
+}
+
+.keyQuestionLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #3B82F6;
+}
+
+.keyQuestionText {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text-primary);
+  margin: 0.5rem 0 0 0;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: var(--text-muted);
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.3;
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   SPECIES COMPARISON
+   ============================================ */
+
+.speciesTabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.speciesTab {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: var(--dashboard-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--text-secondary);
+}
+
+.speciesTab:hover {
+  border-color: var(--text-muted);
+}
+
+.speciesTab.active {
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.comparisonContent {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* ============================================
+   RADAR CHART
+   ============================================ */
+
+.radarContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.radarHeader {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.radarTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.radarSubtitle {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.radarSvg {
+  width: 200px;
+  height: 200px;
+}
+
+.radarGrid {
+  fill: none;
+  stroke: var(--border-color);
+  stroke-width: 1;
+}
+
+.radarAxis {
+  stroke: var(--border-color);
+  stroke-width: 1;
+}
+
+.radarPolygon {
+  fill-opacity: 0.3;
+  stroke-width: 2;
+  transition: fill-opacity 0.3s;
+}
+
+.radarPolygon:hover {
+  fill-opacity: 0.5;
+}
+
+.missionPolygon {
+  fill: #3B82F6;
+  stroke: #3B82F6;
+}
+
+.enablementPolygon {
+  fill: #10B981;
+  stroke: #10B981;
+}
+
+.radarPoint {
+  transition: r 0.2s;
+}
+
+.radarPoint:hover {
+  r: 6;
+}
+
+.missionPoint {
+  fill: #3B82F6;
+}
+
+.enablementPoint {
+  fill: #10B981;
+}
+
+.radarLabels {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.radarLabel {
+  position: absolute;
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+/* Position labels around the radar */
+.radarLabel[data-position="0"] { top: 5%; left: 50%; }
+.radarLabel[data-position="1"] { top: 25%; left: 93%; }
+.radarLabel[data-position="2"] { top: 75%; left: 93%; }
+.radarLabel[data-position="3"] { top: 95%; left: 50%; }
+.radarLabel[data-position="4"] { top: 75%; left: 7%; }
+.radarLabel[data-position="5"] { top: 25%; left: 7%; }
+
+/* ============================================
+   SPECIES SCORECARD
+   ============================================ */
+
+.scorecard {
+  background: var(--dashboard-bg);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  border-left: 3px solid var(--species-color);
+}
+
+.scorecardHeader {
+  margin-bottom: 1rem;
+}
+
+.scorecardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.scorecardSubtitle {
+  font-size: 0.75rem;
+  color: var(--species-color);
+  font-weight: 500;
+}
+
+.scorecardMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.scorecardMetric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.metricLabel {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.metricValue {
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.scorecardGenes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.geneCategory {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.geneCategoryLabel {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.geneCategoryChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.requiredGene,
+.supportingGene {
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+}
+
+.requiredGene {
+  background: var(--species-color);
+  color: white;
+}
+
+.supportingGene {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-secondary);
+}
+
+[data-theme='dark'] .supportingGene {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.scorecardFailure {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.failureLabel {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #F59E0B;
+}
+
+.failureText {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0.25rem 0 0 0;
+  line-height: 1.5;
+}
+
+/* ============================================
+   WEIGHT MATRIX (HEATMAP)
+   ============================================ */
+
+.matrixSection {
+  padding: 0 2rem 1.5rem;
+  background: var(--dashboard-bg);
+}
+
+.matrixContainer {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.matrixHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.matrixTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.matrixLegend {
+  display: flex;
+  gap: 1rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.legendBox {
+  width: 16px;
+  height: 16px;
+  background: #3B82F6;
+  border-radius: 3px;
+}
+
+.matrixTable {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.matrixHeaderRow {
+  display: grid;
+  grid-template-columns: 1fr 80px 80px 60px;
+  gap: 2px;
+  padding: 0.5rem 0.75rem;
+  background: var(--dashboard-bg);
+  border-radius: var(--radius-sm);
+}
+
+.matrixCorner,
+.matrixColHeader {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.matrixCorner {
+  text-align: left;
+}
+
+.matrixRow {
+  display: grid;
+  grid-template-columns: 1fr 80px 80px 60px;
+  gap: 2px;
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  text-align: left;
+}
+
+.matrixRow:hover {
+  background: var(--dashboard-bg);
+}
+
+.matrixRow.selected {
+  background: var(--dashboard-bg);
+  border-color: var(--ifm-color-primary);
+}
+
+.matrixGeneName {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.matrixCell {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.35rem;
+  border-radius: 4px;
+  color: white;
+}
+
+.matrixDomainCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.matrixDomainDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* ============================================
+   EXTINCTION ALERTS
+   ============================================ */
+
+.alertsSection {
+  padding: 0 2rem 1.5rem;
+  background: var(--dashboard-bg);
+}
+
+.extinctionContainer {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(239, 68, 68, 0.05) 100%);
+  border: 1px solid #F59E0B;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+
+.extinctionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.extinctionIcon {
+  font-size: 1.25rem;
+  color: #F59E0B;
+}
+
+.extinctionTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.extinctionSubtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.extinctionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.extinctionCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  width: 100%;
+}
+
+.extinctionCard:hover {
+  border-color: #F59E0B;
+  box-shadow: var(--shadow-md);
+}
+
+.extinctionCard.expanded {
+  border-color: #F59E0B;
+}
+
+.extinctionCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.extinctionDomainIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.extinctionName {
+  flex: 1;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.extinctionChevron {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.extinctionDetails {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.extinctionDescription {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
+
+.extinctionWhyDies {
+  margin-bottom: 1rem;
+}
+
+.whyDiesLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #EF4444;
+}
+
+.extinctionWhyDies p {
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  margin: 0.25rem 0 0 0;
+  line-height: 1.5;
+}
+
+.extinctionSigns {
+  margin: 0;
+}
+
+.signsLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #F59E0B;
+}
+
+.extinctionSigns ul {
+  margin: 0.35rem 0 0 0;
+  padding-left: 1rem;
+}
+
+.extinctionSigns li {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.15rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.dashboardFooter {
+  padding: 2rem;
+  background: var(--ifm-color-emphasis-100);
+  margin-top: 0;
+  border-radius: 0;
+}
+
+.dashboardFooter p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.footerMuted {
+  margin-top: 0.35rem !important;
+  font-size: 0.75rem !important;
+  color: var(--text-muted) !important;
+}
+
+/* ============================================
+   SCARCITY TABLE
+   ============================================ */
+
+.scarcityTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.scarcityTable th,
+.scarcityTable td {
+  padding: 0.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  text-align: left;
+}
+
+.scarcityTable th {
+  background: var(--ifm-color-emphasis-100);
+  font-weight: 600;
+}
+
+.scarce {
+  background: rgba(239, 68, 68, 0.2);
+  color: #EF4444;
+  font-weight: 600;
+}
+
+.balanced {
+  background: rgba(245, 158, 11, 0.2);
+  color: #F59E0B;
+}
+
+.abundant {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10B981;
+}
+
+/* ============================================
+   ECONOMY SUMMARY
+   ============================================ */
+
+.economySummary {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  margin: 0;
+}
+
+/* ============================================
+   GOVCON PANELS
+   ============================================ */
+
+.govConPanelsRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  padding: 0 2rem 1.5rem;
+  background: var(--dashboard-bg);
+}
+
+.dashboardPanel {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.panelHeader h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.panelBadge {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   PERSONAS SECTION
+   ============================================ */
+
+.personasSection {
+  padding: 0 2rem 1.5rem;
+  background: var(--dashboard-bg);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media screen and (max-width: 1200px) {
+  .comparisonContent {
+    grid-template-columns: 1fr;
+  }
+  
+  .radarSection {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .headerBar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .statsRow {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem;
+  }
+  
+  .dashboardMain {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  
+  .extinctionGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .thenNowComparison {
+    grid-template-columns: 1fr;
+  }
+  
+  .comparisonArrow {
+    transform: rotate(90deg);
+    justify-self: center;
+  }
+  
+  .matrixSection,
+  .alertsSection {
+    padding: 0 1rem 1rem;
+  }
+  
+  .govConPanelsRow {
+    grid-template-columns: 1fr;
+    padding: 0 1rem 1rem;
+  }
+  
+  .personasSection {
+    padding: 0 1rem 1rem;
+  }
+  
+  .economySummary {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .statValue {
+    font-size: 2rem;
+  }
+  
+  .matrixHeaderRow,
+  .matrixRow {
+    grid-template-columns: 1fr 60px 60px 40px;
+  }
+  
+  .matrixGeneName {
+    font-size: 0.75rem;
+  }
+  
+  .geneDetailTitle {
+    font-size: 1.25rem;
+  }
+  
+  .scarcityTable {
+    font-size: 0.75rem;
+  }
+  
+  .scarcityTable th,
+  .scarcityTable td {
+    padding: 0.35rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .headerTitle {
+    font-size: 1rem;
+  }
+  
+  .filterGroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .speciesTabs {
+    flex-direction: column;
+  }
+}

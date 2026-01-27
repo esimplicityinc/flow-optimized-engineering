@@ -1,22 +1,22 @@
 ---
 sidebar_position: 2
 title: "Early Feedback Loop Investment"
-maturity: experimenting
-experiments:
+maturity: observing
+observations:
   - prima-oss-fork-strategy
 ---
 
 import MaturityBadge from '@site/src/components/MaturityBadge';
-import RelatedExperiments from '@site/src/components/RelatedExperiments';
+import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Early Feedback Loop Investment
 
-<MaturityBadge maturity="experimenting" />
+<MaturityBadge maturity="observing" />
 
 Treat CI, automated tests, and deployment pipelines as foundation, not overhead—establish them early before the codebase grows large enough to make adding them feel "monumental."
 
 :::caution Early Stage
-This method is still being validated through experiments. Results may vary and 
+This method is still being validated through observations. Results may vary and 
 the approach may evolve as we learn more.
 :::
 
@@ -26,7 +26,7 @@ Under velocity pressure, teams often defer testing and deployment infrastructure
 
 Early Feedback Loop Investment treats CI, automated tests, and deployment pipelines as *foundation*, not overhead. The time "saved" by skipping this investment is consumed many times over in debugging, production incidents, and support burden.
 
-The Prima experiment showed this pattern starkly: no test infrastructure meant 7 production bugs on the first day users onboarded. The December debugging crunch—commits like "prod debugging logs" and "temporarily disabled tool toggle feature"—revealed problems that automated tests would have caught weeks earlier. The team noted that the large OSS codebase made adding tests feel "monumental," but the alternative proved worse.
+The Prima observation showed this pattern starkly: no test infrastructure meant 7 production bugs on the first day users onboarded. The December debugging crunch—commits like "prod debugging logs" and "temporarily disabled tool toggle feature"—revealed problems that automated tests would have caught weeks earlier. The team noted that the large OSS codebase made adding tests feel "monumental," but the alternative proved worse.
 
 ## When to Use
 
@@ -73,11 +73,11 @@ This creates a shared understanding of "working" that doesn't depend on any indi
 
 ### Step 4: Budget Test Time into Velocity
 
-Explicitly allocate time for test infrastructure in estimates. If velocity pressure causes this to be cut, escalate—the Prima experiment shows the cost of skipping it: 7 production bugs on day one, a December debugging crunch, and ongoing support burden.
+Explicitly allocate time for test infrastructure in estimates. If velocity pressure causes this to be cut, escalate—the Prima observation shows the cost of skipping it: 7 production bugs on day one, a December debugging crunch, and ongoing support burden.
 
 ## Example
 
-From the Prima experiment:
+From the Prima observation:
 
 **What happened without early feedback loops:**
 - December 20-31, 2025: Commits like "prod debugging logs," "more debug," "temporarily disabled tool toggle feature"
@@ -107,8 +107,8 @@ If you're testing this method:
 
 1. Review the current approach
 2. Try establishing feedback loops early in your next project
-3. Document your experiment—especially the relationship between early investment and later stability
+3. Document your observation—especially the relationship between early investment and later stability
 
 ## Supporting Evidence
 
-<RelatedExperiments />
+<RelatedObservations />

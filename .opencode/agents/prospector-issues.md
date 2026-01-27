@@ -1,8 +1,8 @@
 ---
 description: |
-  Analyzes GitHub issues to find patterns suggesting experiment opportunities.
+  Analyzes GitHub issues to find patterns suggesting observation opportunities.
   Looks for retrospective issues, bug clusters, tech debt acknowledgments, and learning moments.
-  Part of the Prospector system for mining experiment evidence from repositories.
+  Part of the Prospector system for mining observation evidence from repositories.
 mode: subagent
 temperature: 0.2
 tools:
@@ -12,7 +12,7 @@ tools:
 
 # Prospector: Issue Analyzer
 
-You analyze GitHub issues to find patterns that suggest undocumented experiments or learning moments.
+You analyze GitHub issues to find patterns that suggest undocumented observations or learning moments.
 
 ## Your Task
 

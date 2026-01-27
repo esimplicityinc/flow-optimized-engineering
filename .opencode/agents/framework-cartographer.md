@@ -174,4 +174,4 @@ Use Framework Cartographer when:
 
 Do NOT use when:
 - Creating native FOE methods (use Synthesist instead)
-- Documenting internal experiments (use Alchemist instead)
+- Documenting internal observations (use Alchemist instead)

@@ -1,22 +1,22 @@
 ---
 sidebar_position: 1
 title: "Understanding-First Protocol Adoption"
-maturity: experimenting
-experiments:
+maturity: observing
+observations:
   - prima-oss-fork-strategy
 ---
 
 import MaturityBadge from '@site/src/components/MaturityBadge';
-import RelatedExperiments from '@site/src/components/RelatedExperiments';
+import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Understanding-First Protocol Adoption
 
-<MaturityBadge maturity="experimenting" />
+<MaturityBadge maturity="observing" />
 
 When adopting emerging protocols, invest time to understand the protocol's conceptual model—not just its API—before making architectural decisions that depend on it.
 
 :::caution Early Stage
-This method is still being validated through experiments. Results may vary and 
+This method is still being validated through observations. Results may vary and 
 the approach may evolve as we learn more.
 :::
 
@@ -26,7 +26,7 @@ When adopting emerging protocols or technologies, teams often learn the API with
 
 Understanding-First Protocol Adoption inverts this pattern: before making architectural decisions that depend on a protocol, invest time to understand *how the protocol thinks about the world*—its model of isolation, state, identity, and boundaries. This is different from learning to call its API.
 
-The Prima experiment demonstrated this clearly: the team adopted MCP without understanding its workspace isolation model, leading to a security issue where headers leaked between workspaces (Issue #156). The team later reflected: "The team didn't understand MCP well enough to make good architectural decisions. They couldn't distinguish between using MCP as a standard for integrating systems, using it to integrate different systems, or building their own bespoke integration."
+The Prima observation demonstrated this clearly: the team adopted MCP without understanding its workspace isolation model, leading to a security issue where headers leaked between workspaces (Issue #156). The team later reflected: "The team didn't understand MCP well enough to make good architectural decisions. They couldn't distinguish between using MCP as a standard for integrating systems, using it to integrate different systems, or building their own bespoke integration."
 
 ## When to Use
 
@@ -67,7 +67,7 @@ Document the protocol's assumptions about:
 - **Identity:** How are actors/resources identified?
 - **Failure:** How does the protocol expect errors to be handled?
 
-If the documentation doesn't answer these questions clearly (common with emerging protocols), budget extra time to discover them through experimentation.
+If the documentation doesn't answer these questions clearly (common with emerging protocols), budget extra time to discover them through observationation.
 
 ### Step 3: Validate Understanding Before Architecture
 
@@ -87,7 +87,7 @@ Write down your understanding of the protocol's model for the team. This becomes
 
 ## Example
 
-From the Prima experiment, the team adopted MCP for integrating their AI platform components. They learned the API—how to make MCP calls—but didn't understand the protocol's workspace isolation model.
+From the Prima observation, the team adopted MCP for integrating their AI platform components. They learned the API—how to make MCP calls—but didn't understand the protocol's workspace isolation model.
 
 **What they missed:** MCP workspaces have isolation boundaries. Headers and tokens should not leak between workspaces.
 
@@ -102,9 +102,9 @@ From the Prima experiment, the team adopted MCP for integrating their AI platfor
 
 1. **Confusing API familiarity with model understanding** - Being able to make calls doesn't mean you understand the protocol's assumptions. Ask yourself: "Could I explain why the protocol is designed this way?"
 
-2. **Skipping this under velocity pressure** - The Prima experiment shows the time "saved" is consumed by debugging and hotfixes. Understanding investment has positive ROI even under pressure.
+2. **Skipping this under velocity pressure** - The Prima observation shows the time "saved" is consumed by debugging and hotfixes. Understanding investment has positive ROI even under pressure.
 
-3. **Assuming documentation is complete** - Emerging protocols often have gaps. Budget time to discover the model through experimentation, not just reading.
+3. **Assuming documentation is complete** - Emerging protocols often have gaps. Budget time to discover the model through observationation, not just reading.
 
 ## How You Can Help
 
@@ -112,8 +112,8 @@ If you're testing this method:
 
 1. Review the current approach
 2. Try it when adopting a new protocol in your context
-3. Document your experiment—especially what you learned about the protocol's model that wasn't obvious from the API
+3. Document your observation—especially what you learned about the protocol's model that wasn't obvious from the API
 
 ## Supporting Evidence
 
-<RelatedExperiments />
+<RelatedObservations />
