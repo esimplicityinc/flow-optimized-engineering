@@ -1,0 +1,481 @@
+/**
+ * EcosystemDiagram Styles
+ * Visualizes the eSimplicity ecosystem relationships
+ */
+
+/* Container */
+.container {
+  width: 100%;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--ifm-background-surface-color);
+}
+
+.diagramWrapper {
+  height: 600px;
+  position: relative;
+}
+
+.mobileWrapper {
+  height: 400px;
+}
+
+/* View Toggle */
+.viewToggle {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.toggleButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--ifm-color-content);
+  transition: all 0.2s ease;
+}
+
+.toggleButton:hover {
+  background: var(--ifm-color-primary-contrast-background);
+  border-color: var(--ifm-color-primary);
+}
+
+.toggleButton svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ==========================================
+   TEAM NODE
+   ========================================== */
+
+.teamNode {
+  background: linear-gradient(135deg, #3223BD 0%, #4834d4 100%);
+  color: white;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  min-width: 120px;
+  max-width: 160px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(50, 35, 189, 0.3);
+}
+
+.teamNode:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(50, 35, 189, 0.4);
+}
+
+.teamNode:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.teamIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.3rem;
+}
+
+.teamLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* ==========================================
+   CONCEPT NODE
+   ========================================== */
+
+.conceptNode {
+  background: white;
+  border: 2px solid #3EC5BB;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  min-width: 110px;
+  max-width: 180px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(62, 197, 187, 0.2);
+}
+
+.conceptNode:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(62, 197, 187, 0.3);
+  border-color: #3223BD;
+}
+
+.conceptNode:focus {
+  outline: 2px solid #3223BD;
+  outline-offset: 2px;
+}
+
+.conceptIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.3rem;
+  color: #3EC5BB;
+}
+
+.conceptLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  line-height: 1.3;
+}
+
+/* Dark mode concept node */
+[data-theme='dark'] .conceptNode {
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* ==========================================
+   PLATFORM NODE (Compound with sub-components)
+   ========================================== */
+
+.platformNode {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  min-width: 180px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.platformNode:hover {
+  transform: translateY(-2px);
+}
+
+.platformNode:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* KATALYST - Blue, gravitational center */
+.katalystNode {
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+  min-width: 220px;
+}
+
+.katalystNode:hover {
+  box-shadow: 0 6px 30px rgba(59, 130, 246, 0.5);
+}
+
+/* PRIMA - Light purple */
+.primaNode {
+  background: linear-gradient(135deg, #CC8BFA 0%, #A855F7 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(204, 139, 250, 0.4);
+}
+
+.primaNode:hover {
+  box-shadow: 0 6px 24px rgba(204, 139, 250, 0.5);
+}
+
+.platformHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.platformIcon {
+  display: flex;
+}
+
+.platformLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.subComponents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.subComponent {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 500;
+}
+
+/* ==========================================
+   MOBILE NODE
+   ========================================== */
+
+.mobileNode {
+  background: linear-gradient(135deg, #3223BD 0%, #4834d4 100%);
+  color: white;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  min-width: 220px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  box-shadow: 0 2px 12px rgba(50, 35, 189, 0.3);
+}
+
+.mobileNode:hover,
+.mobileNode:active {
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(50, 35, 189, 0.4);
+}
+
+.mobileIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.mobileLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.mobileDesc {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+/* ==========================================
+   TOOLTIP
+   ========================================== */
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  background: var(--ifm-color-emphasis-900);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  min-width: 180px;
+  max-width: 280px;
+  text-align: left;
+  z-index: 1000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--ifm-color-emphasis-900);
+}
+
+.tooltipTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.tooltipDesc {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+
+.tooltipSubs {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  font-style: italic;
+  margin-bottom: 0.3rem;
+}
+
+.tooltipHint {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.tooltipMobile {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   HANDLE (Connection Points)
+   ========================================== */
+
+.handle {
+  width: 8px;
+  height: 8px;
+  background: var(--ifm-color-emphasis-400);
+  border: none;
+}
+
+/* ==========================================
+   LEGEND
+   ========================================== */
+
+.legend {
+  padding: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.legendCompact {
+  padding: 0.75rem;
+}
+
+.legendTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.legendItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.legendCircle {
+  border-radius: 50%;
+}
+
+.legendLabel {
+  font-size: 0.75rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+.legendLine {
+  width: 20px;
+  height: 2px;
+  flex-shrink: 0;
+}
+
+.legendLineDashed {
+  width: 20px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    #6B7280 0px,
+    #6B7280 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   CONTROLS OVERRIDE
+   ========================================== */
+
+.controls {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 768px) {
+  .diagramWrapper {
+    height: 450px;
+  }
+  
+  .legendItems {
+    gap: 0.75rem 1rem;
+  }
+  
+  .legendLabel {
+    font-size: 0.7rem;
+  }
+  
+  .tooltip {
+    display: none;
+  }
+}
+
+/* ==========================================
+   DARK MODE
+   ========================================== */
+
+[data-theme='dark'] .container {
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .viewToggle {
+  background: var(--ifm-color-emphasis-200);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .legend {
+  background: var(--ifm-color-emphasis-200);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .teamNode,
+  .conceptNode,
+  .platformNode,
+  .mobileNode {
+    transition: none;
+  }
+  
+  .teamNode:hover,
+  .conceptNode:hover,
+  .platformNode:hover,
+  .mobileNode:hover {
+    transform: none;
+  }
+}

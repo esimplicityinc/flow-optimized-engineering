@@ -60,6 +60,7 @@ const sidebars: SidebarsConfig = {
       },
       collapsed: true,
       items: [
+        'implementation/esimplicity-ecosystem',
         {
           type: 'category',
           label: 'The FOE Playbook',

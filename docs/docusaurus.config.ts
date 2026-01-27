@@ -105,12 +105,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'docsSidebar',
           position: 'left',
-          label: 'Documentation',
-        },
-        {
-          to: '/docs/intro/what-is-foe',
           label: 'Get Started',
-          position: 'left',
         },
         {
           to: '/docs/implementation/getting-started',
