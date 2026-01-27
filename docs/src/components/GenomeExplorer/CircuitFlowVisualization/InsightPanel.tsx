@@ -1,9 +1,10 @@
 /**
- * InsightPanel - Dynamic bottleneck detection and insights
+ * InsightPanel - Dynamic bottleneck detection and delivery mode insights
  */
 
 import React from 'react';
 import type { InsightPanelProps } from './types';
+import { DELIVERY_MODE_COLORS } from './types';
 import styles from './styles.module.css';
 
 function InsightPanel({
@@ -46,15 +47,32 @@ function InsightPanel({
         {insight}
       </p>
       
-      {/* Status legend */}
+      {/* Delivery mode legend */}
       <div className={styles.statusLegend}>
         <div className={styles.statusItem}>
+          <div className={styles.statusDot} style={{ background: DELIVERY_MODE_COLORS.human }} />
+          <span>Human Service</span>
+        </div>
+        <div className={styles.statusItem}>
+          <div className={styles.statusDot} style={{ background: DELIVERY_MODE_COLORS.hybrid }} />
+          <span>Hybrid</span>
+        </div>
+        <div className={styles.statusItem}>
+          <div className={styles.statusDot} style={{ background: DELIVERY_MODE_COLORS.system }} />
+          <span>System/Product</span>
+        </div>
+      </div>
+      
+      {/* Demand status legend */}
+      <div className={styles.statusLegend}>
+        <span className={styles.legendLabel}>Border = Demand Status:</span>
+        <div className={styles.statusItem}>
           <div className={`${styles.statusDot} ${styles.critical}`} />
-          <span>Under capacity</span>
+          <span>Critical</span>
         </div>
         <div className={styles.statusItem}>
           <div className={`${styles.statusDot} ${styles.warning}`} />
-          <span>Needs attention</span>
+          <span>Warning</span>
         </div>
         <div className={styles.statusItem}>
           <div className={`${styles.statusDot} ${styles.balanced}`} />
@@ -69,56 +87,59 @@ function InsightPanel({
   );
 }
 
-// Generate insight based on circuit state
+// Generate insight based on circuit state with delivery mode context
 export function generateInsight(
   aiFactor: number,
   spineStrength: number,
   permission: number,
   risk: number,
 ): string {
-  // High AI without spine
+  // High AI without spine - need to shift to system delivery
   if (aiFactor > 0.6 && spineStrength < 0.4) {
-    return `High AI capacity (${Math.round(aiFactor * 100)}%) without adequate evidence capability. ` +
-      `The Systems genes (Constraints, Verification, Operability, Governance) need investment ` +
-      `to convert this capacity into permission. Currently creating risk, not outcomes.`;
+    return `High AI capacity (${Math.round(aiFactor * 100)}%) requires shifting spine genes ` +
+      `to system delivery. Constraints, Verification, Operability, and Governance can't scale ` +
+      `as human services at this demand level. Productize evidence generation to unlock permission.`;
   }
   
-  // High AI with weak verification specifically
+  // High AI with weak verification - system delivery needed
   if (aiFactor > 0.5 && spineStrength < 0.5) {
-    return `AI is amplifying output but evidence generation is lagging. ` +
-      `Focus on Verification and Governance genes to build the "proof pipeline" ` +
-      `that risk owners need before granting permission.`;
+    return `The demand for evidence exceeds human delivery capacity. ` +
+      `Verification and Governance need to shift from consulting services to automated systems. ` +
+      `Build the "proof pipeline" that scales with AI output.`;
   }
   
-  // Balanced high-AI state
+  // Balanced high-AI state - system delivery working
   if (aiFactor > 0.6 && spineStrength > 0.6 && permission > 60) {
-    return `Strong configuration. The Evidence Engine is converting AI capacity into ` +
-      `government permission. Evidence scales with output, and permission keeps pace with capability.`;
+    return `Strong configuration. Spine genes have shifted to system delivery, enabling ` +
+      `evidence to scale with AI capacity. Product and Education genes can remain ` +
+      `human-intensive because the evidence bottleneck is resolved.`;
   }
   
   // Low AI but strong spine (pre-adaptation)
   if (aiFactor < 0.3 && spineStrength > 0.6) {
-    return `Pre-AI posture with strong systems foundation. This organization is well-positioned ` +
-      `to adopt AI - the evidence infrastructure is already in place. Consider increasing AI adoption.`;
+    return `Pre-AI posture with systems foundation ready. At low demand, human delivery ` +
+      `is still viable for most genes. As AI adoption increases, watch for genes that need ` +
+      `to shift from human (orange) to system (green) delivery.`;
   }
   
   // High risk state
   if (risk > 50) {
-    return `Risk levels are elevated. This typically happens when AI output exceeds ` +
-      `the organization's ability to verify and govern it. Strengthen the Systems genes ` +
-      `to bring risk under control.`;
+    return `Risk is elevated because demand exceeds delivery capacity. ` +
+      `Genes showing orange (human) under high AI load need to productize. ` +
+      `You can't scale assurance through consulting alone.`;
   }
   
   // Low permission despite effort
   if (permission < 40 && aiFactor > 0.3) {
-    return `Permission is constrained despite available capacity. The "voltage" is there ` +
-      `but it's not flowing through to outcomes. Check which genes are creating resistance.`;
+    return `Permission is bottlenecked. Look for genes with red/orange borders (demand gap) ` +
+      `and orange interior (human delivery) - these need to shift toward system delivery ` +
+      `to meet the AI-era demand curve.`;
   }
   
   // Default balanced state
-  return `Adjust the AI Factor slider and gene levels to explore different configurations. ` +
-    `The hexagon border colors show which genes are under-capacity (red) or balanced (green) ` +
-    `for the current AI level.`;
+  return `Gene colors show delivery mode: orange = human service, amber = hybrid, ` +
+    `green = system/product. Border colors show demand gap. As AI factor increases, ` +
+    `genes must shift from human to system delivery to scale.`;
 }
 
 export default InsightPanel;

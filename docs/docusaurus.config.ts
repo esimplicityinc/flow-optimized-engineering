@@ -113,11 +113,10 @@ const config: Config = {
           position: 'left',
         },
         {
-          to: '/infographic',
-          label: 'Visual Guide',
+          to: '/docs/implementation/getting-started',
+          label: 'Implementation Plan',
           position: 'left',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
           type: 'docsVersionDropdown',
           position: 'right',
@@ -181,10 +180,6 @@ const config: Config = {
             {
               label: 'Implementation Guide',
               to: '/docs/implementation/getting-started',
-            },
-            {
-              label: 'Blog',
-              to: '/blog',
             },
           ],
         },

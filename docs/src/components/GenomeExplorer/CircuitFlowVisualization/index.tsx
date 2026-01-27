@@ -215,6 +215,8 @@ function CircuitFlowVisualization({
           direction="in" 
           speed={inputFlowSpeed} 
           intensity={0.5 + aiFactor * 0.5}
+          geneLevels={geneLevels}
+          aiFactor={aiFactor}
         />
         
         {/* Center: Genome Honeycomb */}
@@ -231,6 +233,8 @@ function CircuitFlowVisualization({
           direction="out" 
           speed={outputFlowSpeed} 
           intensity={circuitState.permission / 100}
+          geneLevels={geneLevels}
+          aiFactor={aiFactor}
         />
         
         {/* Right: Output Gauges */}

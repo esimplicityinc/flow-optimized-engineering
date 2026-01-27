@@ -56,6 +56,32 @@ export interface DemandGapResult {
   color: string;
 }
 
+// Delivery mode types
+export type DeliveryMode = 'human' | 'hybrid' | 'system';
+
+// Gene delivery configuration - how easily a gene can be productized
+export interface GeneDeliveryConfig {
+  id: string;
+  name: string;
+  baseSystemRatio: number;    // Inherent system component (0.2 - 0.55)
+  scalabilityFactor: number;  // How much it shifts under pressure (0.3 - 0.95)
+}
+
+// Delivery mode result for a gene
+export interface DeliveryModeResult {
+  geneId: string;
+  systemRatio: number;        // 0-1, how much system vs human
+  mode: DeliveryMode;         // Threshold-based category
+  color: string;              // Color for this mode
+}
+
+// Delivery mode colors (exclusive - don't overlap with domain colors)
+export const DELIVERY_MODE_COLORS = {
+  human: '#F59E0B',   // Orange - primarily human service
+  hybrid: '#FBBF24',  // Yellow - balanced human + system  
+  system: '#06B6D4',  // Cyan - primarily system/product
+} as const;
+
 // Circuit state (computed values)
 export interface CircuitState {
   // Voltage totals
@@ -126,6 +152,8 @@ export interface FlowLinesProps {
   direction: 'in' | 'out';
   speed: number;
   intensity: number; // 0-1, affects opacity/particle density
+  geneLevels: GeneLevels;
+  aiFactor: number;
 }
 
 export interface AIFactorSliderProps {
