@@ -17,6 +17,21 @@ adopted_methods:
   - framework: bdd
     method: gherkin
     foe_maturity: hypothesized
+  - framework: team-topologies
+    method: fast-flow
+    foe_maturity: hypothesized
+  - framework: team-topologies
+    method: enabling-team
+    foe_maturity: hypothesized
+  - framework: team-topologies
+    method: team-cognitive-load
+    foe_maturity: hypothesized
+  - framework: continuous-delivery
+    method: deployment-pipeline
+    foe_maturity: hypothesized
+  - framework: continuous-delivery
+    method: trunk-based-development
+    foe_maturity: hypothesized
 ---
 
 import GuideMaturitySummary from '@site/src/components/GuideMaturitySummary';
@@ -102,6 +117,46 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       title: 'Gherkin',
       description: 'A domain-specific language for writing executable specifications',
       frameworkTitle: 'BDD',
+    },
+    {
+      framework: 'team-topologies',
+      method: 'fast-flow',
+      foe_maturity: 'hypothesized',
+      title: 'Fast Flow',
+      description: 'Optimize for speed of work moving from idea to customer value',
+      frameworkTitle: 'Team Topologies',
+    },
+    {
+      framework: 'team-topologies',
+      method: 'enabling-team',
+      foe_maturity: 'hypothesized',
+      title: 'Enabling Team',
+      description: 'Teams that help other teams overcome obstacles and build capabilities',
+      frameworkTitle: 'Team Topologies',
+    },
+    {
+      framework: 'team-topologies',
+      method: 'team-cognitive-load',
+      foe_maturity: 'hypothesized',
+      title: 'Team Cognitive Load',
+      description: 'Use cognitive load as a constraint for what teams can own',
+      frameworkTitle: 'Team Topologies',
+    },
+    {
+      framework: 'continuous-delivery',
+      method: 'deployment-pipeline',
+      foe_maturity: 'hypothesized',
+      title: 'Deployment Pipeline',
+      description: 'Automated process from commit to production with progressive validation',
+      frameworkTitle: 'Continuous Delivery',
+    },
+    {
+      framework: 'continuous-delivery',
+      method: 'trunk-based-development',
+      foe_maturity: 'hypothesized',
+      title: 'Trunk-Based Development',
+      description: 'Collaborate on code in a single branch, avoiding long-lived feature branches',
+      frameworkTitle: 'Continuous Delivery',
     },
   ]}
 />
