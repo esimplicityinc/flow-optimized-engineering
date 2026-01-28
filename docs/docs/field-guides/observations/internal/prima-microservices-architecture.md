@@ -184,6 +184,38 @@ Engine's `control_tower.py` adapter (773 lines) has detailed knowledge of Contro
 
 This is a **distributed monolith signal**: when Service A has intimate knowledge of Service B's internal structure, API changes in B require coordinated changes in A.
 
+### GitHub Issues: Qualitative Evidence
+
+Analysis of GitHub issues across prima-* repositories reveals coordination challenges:
+
+**Monorepo Consideration (Issue #397):**
+> "Prompted by **customer deployment concerns**, we want to move Prima to a **monorepo**."
+
+This is direct evidence that the distributed architecture creates deployment friction.
+
+**Cross-Service Coordination Required:**
+
+| Issue | Evidence |
+|-------|----------|
+| CT #398 | "Work **alongside** prima-web issue #176" - explicit cross-repo coordination |
+| Web #176 | Keycloak integration requires simultaneous changes to CT, Web, Engine |
+| CT #388 | Pagination anti-pattern shows tight API coupling between frontend and backend |
+| Engine #248 | Tower adapter error handling complexity needs normalization |
+
+**Production Incidents from Architecture:**
+
+| Issue | Impact |
+|-------|--------|
+| Prima #209 | "Prod CT crashing due to large usage data size" - Engine data overwhelmed CT |
+| CT #381 | CORS errors between services in production |
+| CT #383 | Logout redirect issues across service boundaries |
+
+**Contradictory Directions:**
+- Issue #285 proposes MORE extraction: "Separate Engine MCP into Dedicated Container"
+- Issue #397 proposes LESS separation: "Merge engine and tower to one repo"
+
+The team is being pulled in opposite directions, suggesting the architecture's costs and benefits are still being evaluated.
+
 ### What Surprised Us
 
 - **ADR discipline paid off:** Having explicit decisions documented made it easier to explain architecture to security reviewers
