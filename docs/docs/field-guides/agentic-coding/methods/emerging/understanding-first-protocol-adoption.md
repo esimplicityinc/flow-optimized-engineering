@@ -3,7 +3,7 @@ sidebar_position: 1
 title: "Understanding-First Protocol Adoption"
 maturity: observing
 observations:
-  - prima-oss-fork-strategy
+  - internal/prima-oss-fork-strategy
 ---
 
 import MaturityBadge from '@site/src/components/MaturityBadge';
