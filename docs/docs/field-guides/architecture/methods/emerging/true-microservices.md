@@ -1,8 +1,13 @@
 ---
 sidebar_position: 2
 title: "True Microservices"
-maturity: hypothesized
-observations: []
+maturity: observing
+observations:
+  - external/team-topologies-inverse-conway
+  - external/fowler-lewis-microservices-definition
+  - external/ddd-bounded-contexts
+  - external/dora-loosely-coupled-architecture
+  - external/dora-four-key-metrics
 ---
 
 import MaturityBadge from '@site/src/components/MaturityBadge';
@@ -10,13 +15,13 @@ import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # True Microservices
 
-<MaturityBadge maturity="hypothesized" />
+<MaturityBadge maturity="observing" />
 
 Design service architectures that enable independent team deployment—not distributed monoliths wearing microservices clothing.
 
-:::caution Early Stage
-This method is still being validated through observations. Results may vary and 
-the approach may evolve as we learn more.
+:::info Observing
+This method has supporting evidence from external research. We're gathering internal 
+observations to validate it in our specific context.
 :::
 
 ## Overview
@@ -143,4 +148,10 @@ We're particularly interested in:
 
 ## Supporting Evidence
 
-<RelatedObservations observations={[]} />
+<RelatedObservations observations={[
+  { slug: 'external/team-topologies-inverse-conway', title: 'Team Topologies: Inverse Conway Maneuver', status: 'completed' },
+  { slug: 'external/fowler-lewis-microservices-definition', title: 'Microservices Definition (Fowler & Lewis)', status: 'completed' },
+  { slug: 'external/ddd-bounded-contexts', title: 'Domain-Driven Design: Bounded Contexts', status: 'completed' },
+  { slug: 'external/dora-loosely-coupled-architecture', title: 'DORA: Loosely Coupled Architecture Capability', status: 'completed' },
+  { slug: 'external/dora-four-key-metrics', title: 'DORA Four Key Metrics Research', status: 'completed' }
+]} />
