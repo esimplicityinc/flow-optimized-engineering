@@ -3,6 +3,8 @@ sidebar_position: 2
 title: "True Microservices"
 maturity: observing
 observations:
+  - internal/prima-microservices-architecture
+  - internal/prima-presidio-containerization
   - external/team-topologies-inverse-conway
   - external/fowler-lewis-microservices-definition
   - external/ddd-bounded-contexts
@@ -149,6 +151,8 @@ We're particularly interested in:
 ## Supporting Evidence
 
 <RelatedObservations observations={[
+  { slug: 'internal/prima-microservices-architecture', title: 'Prima Platform Microservices Architecture', status: 'completed' },
+  { slug: 'internal/prima-presidio-containerization', title: 'Containerizing Heavy ML Dependencies', status: 'completed' },
   { slug: 'external/team-topologies-inverse-conway', title: 'Team Topologies: Inverse Conway Maneuver', status: 'completed' },
   { slug: 'external/fowler-lewis-microservices-definition', title: 'Microservices Definition (Fowler & Lewis)', status: 'completed' },
   { slug: 'external/ddd-bounded-contexts', title: 'Domain-Driven Design: Bounded Contexts', status: 'completed' },
