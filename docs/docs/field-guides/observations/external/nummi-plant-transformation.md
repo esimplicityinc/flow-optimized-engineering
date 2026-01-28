@@ -8,7 +8,8 @@ source:
   organization: "MIT International Motor Vehicle Program"
   year: 1990
   url: "https://www.lean.org/the-lean-post/articles/nummi-the-plant-that-changed-the-auto-industry/"
-methods: []
+methods:
+  - architecture/methods/emerging/system-over-individuals
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';
