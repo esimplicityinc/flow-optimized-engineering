@@ -114,10 +114,24 @@ Redis/Celery provides decoupled communication between Control Tower and Engine:
 
 | Subsystem | Can deploy without coordination? | Evidence |
 |-----------|----------------------------------|----------|
-| Control Tower | Yes | Separate repo, CI/CD, container |
-| Engine | Yes | Separate repo, CI/CD, container |
-| Web | Yes | Separate repo, CI/CD, containers |
+| Control Tower | Yes | Separate repo, CI/CD, container; no runtime dependency on Engine |
+| Engine | **Partial** | Separate repo, CI/CD, container; BUT readiness check requires Control Tower |
+| Web | **Partial** | Separate repo; needs Control Tower for auth |
 | Frontend (any) | Yes | ADR-004 explicitly enables independent UI releases |
+
+**Critical Finding: Engine Runtime Dependency**
+
+Engine's readiness check explicitly requires Control Tower to be available:
+
+```python
+# From aiox/readiness.py
+async def readiness_report():
+    redis_ok, redis_details = await check_redis_dependencies()
+    tower_ok, tower_details = await check_tower_dependency()
+    healthy = redis_ok and tower_ok  # Engine is NOT healthy if Tower is down!
+```
+
+This means **Engine cannot report healthy if Control Tower is unavailable**, creating a runtime coupling that violates the "deploy without talking to anyone else" litmus test.
 
 **Platform Services via APIs (not shared databases):**
 
@@ -148,6 +162,28 @@ Redis/Celery provides decoupled communication between Control Tower and Engine:
 - **Control/Data plane separation:** Enables different deployment models for different sensitivity levels
 - **Three-tier per subsystem:** Each subsystem can scale tiers independently
 
+### What Didn't Work: Infrastructure Gaps
+
+The architecture has the **shape** of microservices (separate repos, ADRs, containers) but lacks **supporting infrastructure** that true microservices require:
+
+| Missing Infrastructure | Impact | Evidence |
+|----------------------|--------|----------|
+| **Circuit breakers** | Engine fails when Tower is unavailable instead of degrading gracefully | `readiness.py` hard-fails on Tower check |
+| **Graceful degradation** | No cached/offline mode for Engine when Tower is down | No fallback in `control_tower.py` adapter |
+| **API versioning** | API changes require coordinated deployment | No `/v1/`, `/v2/` versioning in Tower APIs |
+| **Shared secret coordination** | `SERVICE_JWT_SECRET` must be identical across services | Commit `a57c46a5` shows manual sync required |
+| **Feature reverts from coupling** | Cross-service features have been reverted due to complexity | Commit `89af615` reverted 408 lines of credential passing |
+
+**The 773-line Control Tower Adapter**
+
+Engine's `control_tower.py` adapter (773 lines) has detailed knowledge of Control Tower's internal API structure:
+- Workspace models
+- Prima models and guardrails
+- Tool providers and credentials
+- Pagination patterns
+
+This is a **distributed monolith signal**: when Service A has intimate knowledge of Service B's internal structure, API changes in B require coordinated changes in A.
+
 ### What Surprised Us
 
 - **ADR discipline paid off:** Having explicit decisions documented made it easier to explain architecture to security reviewers
@@ -176,36 +212,45 @@ Blast radius containment increases confidence to make changes. If a Presidio con
 ## Conclusion
 
 ### Verdict
-**Supported** - The Prima platform architecture demonstrates true microservices principles in practice: independent deployment, shared platform services via APIs (not databases), explicit plane separation, and team ownership alignment. The ADR documentation provides clear rationale for why these decisions were made.
+**Partially Supported** - The Prima platform architecture demonstrates microservices **intent** (separate repos, ADRs, containers, platform services) but reveals a gap between architectural aspiration and supporting infrastructure. The architecture has the right shape but lacks the resilience patterns (circuit breakers, graceful degradation, API versioning) that would make subsystems truly independent at runtime.
+
+**Classification:** Hub-and-spoke with microservices aspirations. Control Tower is the hub; Engine and Web are spokes with runtime dependencies on the hub.
 
 ### Key Learnings
 
-1. **Document decisions early:** ADRs captured architecture rationale before implementation, making it easier to evaluate and explain
-2. **Platform services via APIs:** Kong, Redis, and Auth0 provide shared capabilities without creating coupling
-3. **Control/Data plane separation:** Essential for federal/sensitive environments; enables deployment flexibility
-4. **Three-tier per subsystem:** Enables independent scaling and faster UI iterations
-5. **Independence litmus test passes:** Each subsystem can deploy without coordinating with others
+1. **Architecture shape is necessary but not sufficient:** Separate repos and containers don't guarantee independence; you also need resilience infrastructure
+2. **Runtime dependencies reveal true coupling:** Engine's readiness check requiring Tower exposes the real architecture vs. the intended architecture
+3. **ADRs capture intent, code reveals reality:** The ADRs describe independent subsystems; the code shows tight coupling via the 773-line adapter
+4. **Shared secrets are coordination points:** `SERVICE_JWT_SECRET` synchronization is a deployment coordination requirement
+5. **Heavy adapters signal distributed monolith risk:** When one service has 773 lines of knowledge about another's internal structure, you have coupling
+6. **Control/Data plane separation works:** Despite coupling issues, the security boundary between planes is valuable for ATO
 
 ### Recommendation
 
-**Apply this when:**
+**Apply this architectural approach when:**
 - Multiple teams will work on different aspects of the platform
 - Deployment flexibility across environments is required
 - Security/compliance requires clear system boundaries
 - Different components have different scaling or lifecycle requirements
 
+**Also invest in supporting infrastructure:**
+- **Circuit breakers:** Services should degrade gracefully when dependencies are unavailable
+- **API versioning:** Enable independent API evolution without coordinated deployments
+- **Cached/offline modes:** Critical paths should work with stale data when dependencies are slow
+- **Contract testing:** Detect API breaking changes before deployment, not in production
+
 **Watch out for:**
-- Cross-cutting features still require coordination
-- Operational complexity increases with subsystem count
-- Platform services (Kong, Redis) become critical dependencies
-- Need clear ownership model for shared infrastructure
+- **Heavy adapter code** is a distributed monolith signal—if one service needs 773 lines to talk to another, you have coupling
+- **Readiness checks on dependencies** create runtime coupling—consider health checks that allow degraded operation
+- **Shared secrets** require coordination; consider secret management that doesn't require synchronized deployment
+- **Feature reverts** due to cross-service complexity suggest the coupling is real, not theoretical
 
 ### Future Observations
 
-1. **Measure team velocity:** Quantify deployment frequency per subsystem
-2. **Cross-cutting feature coordination:** Document how auth or telemetry changes are coordinated
-3. **Operational overhead:** Track incident response time across vs. within subsystems
-4. **Scaling behavior:** Observe independent scaling of Engine vs. Control Tower under load
+1. **Measure actual deployment independence:** Track how often Engine and Tower are deployed together vs. separately
+2. **Quantify coordination overhead:** How many PRs touch multiple repos? How long do cross-service features take?
+3. **Implement circuit breakers:** Document the impact of adding graceful degradation to Engine
+4. **API versioning experiment:** Try versioned APIs and measure whether it reduces coordination
 
 ---
 
