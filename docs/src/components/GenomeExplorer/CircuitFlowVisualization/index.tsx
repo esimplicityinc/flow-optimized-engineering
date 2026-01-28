@@ -88,11 +88,15 @@ function spineEffectCurve(spineStrength: number): number {
 /**
  * Risk = chaos manifested
  * High AI + weak spine = high risk
+ * High AI + strong spine = near zero risk
  */
 function computeRisk(aiFactor: number, spineStrength: number): number {
   const chaos = computeChaos(aiFactor, spineStrength);
-  // Logarithmic: risk accelerates as chaos builds
-  const risk = Math.pow(chaos, 0.8) * 100;
+  // Steeper curve: risk drops fast as chaos decreases
+  // At chaos 0.1 (full AI + full FOE): ~3%
+  // At chaos 0.5 (full AI + mid FOE): ~35%
+  // At chaos 0.7 (full AI + low FOE): ~55%
+  const risk = Math.pow(chaos, 1.3) * 120;
   return Math.max(0, Math.min(100, risk));
 }
 
@@ -112,11 +116,12 @@ function computeEvidenceYield(aiFactor: number, spineStrength: number): number {
 /**
  * Permission = evidence - risk (the net outcome)
  * This is what you're actually allowed to ship/deploy
+ * Target: ~100% at full AI + full FOE
  */
 function computePermission(evidence: number, risk: number, spineStrength: number): number {
   // Permission = evidence minus risk penalty, with spine providing baseline
-  const basePermission = spineStrength * 20; // Spine gives some inherent permission
-  const netPermission = basePermission + evidence * 0.7 - risk * 0.5;
+  const basePermission = spineStrength * 15;
+  const netPermission = basePermission + evidence * 0.85 - risk * 0.4;
   return Math.max(0, Math.min(100, netPermission));
 }
 
@@ -174,16 +179,16 @@ function findBottleneck(genes: GeneLevels, aiFactor: number): { name: string; se
 
 function CircuitFlowVisualization({
   interactive = true,
-  initialAiFactor = 0.5,
+  initialAiFactor = 0,
   initialPreset,
   onGeneClick,
   onGeneRightClick,
 }: CircuitFlowVisualizationProps): React.ReactElement {
-  // State
-  const [aiFactor, setAiFactor] = useState(initialAiFactor);
-  const [foeMaturity, setFoeMaturity] = useState(0.5); // 0 = no spine, 1 = strong spine
+  // State - start at low FOE maturity, no AI (the "toil" baseline)
+  const [aiFactor, setAiFactor] = useState(0);
+  const [foeMaturity, setFoeMaturity] = useState(0.15);
   const [geneLevels, setGeneLevels] = useState<GeneLevels>(
-    geneLevelsFromMaturity(0.5)
+    geneLevelsFromMaturity(0.15)
   );
   
   // Computed circuit state using unified chaos model
