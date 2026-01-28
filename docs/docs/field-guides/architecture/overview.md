@@ -11,15 +11,6 @@ adopted_methods:
   - framework: bdd
     method: example-mapping
     foe_maturity: hypothesized
-  - framework: team-topologies
-    method: team-cognitive-load
-    foe_maturity: hypothesized
-  - framework: team-topologies
-    method: inverse-conway-maneuver
-    foe_maturity: hypothesized
-  - framework: team-topologies
-    method: platform-team
-    foe_maturity: hypothesized
 ---
 
 import GuideMaturitySummary from '@site/src/components/GuideMaturitySummary';
@@ -41,7 +32,7 @@ Good architecture isn't about following patterns—it's about making boundaries 
 
 Methods with strong supporting evidence (Validated or Proven):
 
-- [True Microservices](./methods/established/true-microservices) - Design service architectures that enable independent team deployment
+- *Coming soon*
 
 ### Emerging Methods
 
@@ -49,6 +40,7 @@ Methods currently being tested (Hypothesized or Observing):
 
 - [Consumer Contract Testing](./methods/emerging/consumer-contract-testing) - Validate service integration points through consumer-driven contracts
 - [Service Boundary Extraction](./methods/emerging/service-boundary-extraction) - Extract components with natural boundaries to dedicated containers
+- [True Microservices](./methods/emerging/true-microservices) - Design service architectures that enable independent team deployment
 
 ### Adopted Methods
 
@@ -81,30 +73,6 @@ External framework methods adopted for architectural decision-making:
       title: 'Example Mapping',
       description: 'A structured technique using colored cards to map user stories to rules, examples, and questions',
       frameworkTitle: 'BDD',
-    },
-    {
-      framework: 'team-topologies',
-      method: 'team-cognitive-load',
-      foe_maturity: 'hypothesized',
-      title: 'Team Cognitive Load',
-      description: 'Use cognitive load as a constraint for sizing teams and service boundaries',
-      frameworkTitle: 'Team Topologies',
-    },
-    {
-      framework: 'team-topologies',
-      method: 'inverse-conway-maneuver',
-      foe_maturity: 'hypothesized',
-      title: 'Inverse Conway Maneuver',
-      description: 'Deliberately design team structures to produce desired software architecture',
-      frameworkTitle: 'Team Topologies',
-    },
-    {
-      framework: 'team-topologies',
-      method: 'platform-team',
-      foe_maturity: 'hypothesized',
-      title: 'Platform Team',
-      description: 'Teams that provide internal products to accelerate delivery by stream-aligned teams',
-      frameworkTitle: 'Team Topologies',
     },
   ]}
 />
