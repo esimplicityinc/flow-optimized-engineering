@@ -1,0 +1,10 @@
+{
+  "label": "Continuous Delivery",
+  "position": 5,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "doc",
+    "id": "external-frameworks/continuous-delivery/overview"
+  }
+}

@@ -1,0 +1,124 @@
+---
+sidebar_position: 6
+title: Infrastructure as Code
+description: Manage and provision infrastructure through machine-readable configuration files rather than manual processes.
+framework: continuous-delivery
+framework_url: https://continuousdelivery.com
+foe_alignment:
+  primary: Understanding
+  secondary: Confidence
+status: industry-standard
+aliases:
+  - IaC
+  - Programmable Infrastructure
+---
+
+# Infrastructure as Code
+
+**Pillar:** Patterns
+
+Infrastructure as Code (IaC) is the practice of managing and provisioning computing infrastructure through machine-readable configuration files rather than physical hardware configuration or interactive configuration tools. It applies software development practices to infrastructure management.
+
+## Definition
+
+> "Infrastructure as Code is the approach to defining computing and network infrastructure through source code that can then be treated just like any software system."
+>
+> — Kief Morris, Infrastructure as Code
+
+## Why It Matters
+
+Infrastructure as Code transforms infrastructure management:
+
+- **Reproducibility** - Create identical environments on demand
+- **Version control** - Track all infrastructure changes
+- **Code review** - Infrastructure changes are reviewed like application code
+- **Automation** - Eliminate manual provisioning steps
+- **Documentation** - The code IS the documentation
+- **Testing** - Infrastructure can be tested before deployment
+
+## FOE Framing
+
+**Primary: Optimize for Understanding**
+
+Infrastructure as Code makes infrastructure explicit and readable. Instead of tribal knowledge about how servers are configured, the configuration is visible in version control. Anyone can read the code to understand how the system is set up.
+
+**Secondary: Confidence to Act**
+
+IaC provides confidence through reproducibility. If you can destroy and recreate an environment from code, you know you understand it. Infrastructure changes go through the same review and testing process as application code.
+
+## How It Works
+
+### Key Principles
+
+| Principle | Description |
+|-----------|-------------|
+| **Idempotency** | Running the same code twice produces the same result |
+| **Immutability** | Replace infrastructure rather than modify in place |
+| **Declarative** | Describe desired state, not steps to get there |
+| **Version controlled** | All infrastructure code in source control |
+
+### IaC Practices
+
+1. **Everything in code** - No manual configuration
+2. **Code review** - Infrastructure changes reviewed like application code
+3. **Test infrastructure** - Validate before applying to production
+4. **Same code, all environments** - Dev, staging, production from same source
+5. **Modular design** - Reusable infrastructure components
+
+### IaC Patterns
+
+| Pattern | Description |
+|---------|-------------|
+| **Immutable infrastructure** | Replace servers rather than update them |
+| **Environment as code** | Complete environment defined in code |
+| **Configuration drift detection** | Alert when actual state differs from code |
+| **Self-service infrastructure** | Teams provision via code, not tickets |
+
+### Example Workflow
+
+1. **Write** - Define infrastructure in code
+2. **Review** - Pull request for infrastructure changes
+3. **Test** - Validate in test environment
+4. **Apply** - Deploy through pipeline
+5. **Verify** - Confirm actual state matches desired
+
+## Benefits Over Manual Configuration
+
+| Manual | Infrastructure as Code |
+|--------|------------------------|
+| Undocumented | Self-documenting |
+| Unreproducible | Exactly reproducible |
+| Slow to provision | Fast, automated |
+| Error-prone | Consistent |
+| Hard to audit | Full audit trail |
+| Tribal knowledge | Explicit and visible |
+
+## Relationship to DORA Metrics
+
+Infrastructure as Code enables:
+
+- **Lead Time for Changes** - Fast, automated environment provisioning
+- **Time to Restore** - Quickly recreate infrastructure from code
+
+## Relationship to Other Methods
+
+- **Deployment Pipeline** - IaC is part of the pipeline; environments provisioned automatically
+- **Blue-Green Deployment** - IaC ensures blue and green environments are identical
+- **Configuration Management** - IaC is how you implement configuration management
+
+## Related FOE Methods
+
+- **Service Boundary Extraction** - IaC enables containerized services to be provisioned consistently
+
+## Anti-Patterns
+
+- **Click-ops** - Manual configuration through web consoles
+- **Snowflake servers** - Unique configurations that can't be reproduced
+- **Configuration drift** - Actual state diverging from code
+- **Undocumented exceptions** - "We had to change this one thing manually"
+
+## Citations
+
+- Humble, J., & Farley, D. (2010). *Continuous Delivery*. Addison-Wesley.
+- Morris, K. (2016). *Infrastructure as Code*. O'Reilly Media.
+- [Infrastructure as Code](https://martinfowler.com/bliki/InfrastructureAsCode.html) - Martin Fowler

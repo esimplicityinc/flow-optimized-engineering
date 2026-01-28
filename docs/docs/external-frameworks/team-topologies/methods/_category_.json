@@ -1,0 +1,11 @@
+{
+  "label": "Methods",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Team Topologies Methods",
+    "description": "Team types, interaction modes, and core concepts from Team Topologies."
+  }
+}

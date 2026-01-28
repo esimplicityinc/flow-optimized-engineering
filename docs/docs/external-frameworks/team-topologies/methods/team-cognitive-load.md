@@ -1,0 +1,112 @@
+---
+sidebar_position: 8
+title: Team Cognitive Load
+description: The mental effort required for teams to manage their work, which must be actively monitored.
+framework: team-topologies
+framework_url: https://teamtopologies.com/key-concepts
+foe_alignment:
+  primary: Understanding
+  secondary: Confidence
+status: well-established
+---
+
+# Team Cognitive Load
+
+**Pillar:** Core Concepts
+
+Team Cognitive Load is the total amount of mental effort required for a team to understand, build, and operate their systems. Team Topologies treats cognitive load as a hard constraint—when teams are responsible for too much, quality and flow suffer. Actively managing cognitive load is essential for sustainable delivery.
+
+## Definition
+
+> "When cognitive load isn't considered, teams are spread thin trying to cover too much, and their architecture and code suffer."
+>
+> — Skelton & Pais, Team Topologies
+
+Cognitive load in Team Topologies draws from cognitive science research showing humans can hold approximately 4 items in working memory at once. Teams, as collections of humans, have similar limits.
+
+## Why It Matters
+
+Managing team cognitive load matters because:
+
+- **Quality degrades under overload** - Teams that own too much produce lower quality work
+- **Flow slows down** - Overloaded teams context-switch constantly, reducing throughput
+- **Understanding suffers** - Teams can't deeply understand systems they can barely keep track of
+- **Burnout increases** - Sustained cognitive overload leads to team burnout
+- **Provides sizing guidance** - Cognitive load gives objective criteria for team scope
+
+## FOE Framing
+
+**Primary: Optimize for Understanding**
+
+Cognitive load directly measures understanding capacity. When a team's cognitive load is manageable, they can truly understand their systems—the domain, the code, the operations, the users. When overloaded, understanding becomes superficial, leading to poor decisions and accumulated technical debt.
+
+**Secondary: Confidence to Act**
+
+Teams with manageable cognitive load have confidence to make changes because they understand the implications. Overloaded teams hesitate because they can't predict what might break. Reducing cognitive load increases confidence.
+
+## When to Use
+
+- **Team design** - Size team responsibilities to cognitive capacity
+- **Service boundaries** - Scope services to what a team can understand
+- **Splitting teams** - Recognize when a team is overloaded and needs to split
+- **Platform decisions** - Move complexity to platform teams to reduce stream-aligned team load
+- **Technical debt prioritization** - Reduce cognitive load by simplifying systems
+
+## How It Works
+
+### Three Types of Cognitive Load
+
+| Type | Description | Goal |
+|------|-------------|------|
+| **Intrinsic** | Fundamental complexity of the domain/problem | Accept (it's inherent) |
+| **Extraneous** | Unnecessary complexity from poor design, tools, processes | Minimize |
+| **Germane** | Productive learning and skill building | Maximize |
+
+### Signs of Cognitive Overload
+
+- Team constantly context-switching between unrelated areas
+- Shallow understanding of owned systems
+- Frequent "I don't know, ask someone else" responses
+- Increasing bugs and incidents
+- Slow onboarding for new team members
+- Team members feeling overwhelmed
+
+### Strategies to Reduce Cognitive Load
+
+1. **Reduce scope** - Split team or transfer ownership
+2. **Simplify systems** - Pay down technical debt, improve architecture
+3. **Better tooling** - Automate repetitive cognitive tasks
+4. **Platform services** - Move undifferentiated complexity to platform teams
+5. **Documentation** - Externalize knowledge to reduce memory burden
+6. **Clear boundaries** - Reduce ambiguity about ownership
+
+### Measuring Cognitive Load
+
+While precise measurement is difficult, useful proxies include:
+
+- Number of services/components owned
+- Number of different technologies used
+- Breadth of domain knowledge required
+- Frequency of context-switching
+- Time to onboard new team members
+- Team self-assessment surveys
+
+## Relationship to Other Methods
+
+- **Stream-Aligned Team** - Scope should be bounded by cognitive load
+- **Platform Team** - Absorbs complexity to reduce stream-aligned team load
+- **Enabling Team** - Helps teams manage cognitive load during capability building
+- **Bounded Context (DDD)** - Natural unit sized for cognitive load
+- **Thinnest Viable Platform** - Minimizes platform complexity while reducing consumer load
+
+## Related FOE Methods
+
+Team Cognitive Load directly supports:
+
+- **Knowledge Distribution as Reliability** - Cognitive load limits how much any individual can know, requiring distribution
+
+## Citations
+
+- Skelton, M., & Pais, M. (2019). *Team Topologies: Organizing Business and Technology Teams for Fast Flow*. IT Revolution Press.
+- Sweller, J. (1988). "Cognitive Load During Problem Solving: Effects on Learning." *Cognitive Science*.
+- [Team Topologies Key Concepts](https://teamtopologies.com/key-concepts)
