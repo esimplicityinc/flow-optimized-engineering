@@ -39,6 +39,7 @@ Methods with strong supporting evidence (Validated or Proven):
 Methods currently being tested (Hypothesized or Observing):
 
 - [Service Boundary Extraction](./methods/emerging/service-boundary-extraction) - Extract components with natural boundaries to dedicated containers
+- [True Microservices](./methods/emerging/true-microservices) - Design service architectures that enable independent team deployment
 
 ### Adopted Methods
 
