@@ -11,6 +11,18 @@ adopted_methods:
   - framework: bdd
     method: example-mapping
     foe_maturity: hypothesized
+  - framework: double-diamond
+    method: discover-phase
+    foe_maturity: observing
+  - framework: double-diamond
+    method: define-phase
+    foe_maturity: observing
+  - framework: double-diamond
+    method: develop-phase
+    foe_maturity: observing
+  - framework: double-diamond
+    method: deliver-phase
+    foe_maturity: observing
 ---
 
 import GuideMaturitySummary from '@site/src/components/GuideMaturitySummary';
@@ -73,6 +85,38 @@ External framework methods adopted for architectural decision-making:
       title: 'Example Mapping',
       description: 'A structured technique using colored cards to map user stories to rules, examples, and questions',
       frameworkTitle: 'BDD',
+    },
+    {
+      framework: 'double-diamond',
+      method: 'discover-phase',
+      foe_maturity: 'observing',
+      title: 'Discover Phase',
+      description: 'Divergent exploration of the problem space through user research, observation, and empathy exercises',
+      frameworkTitle: 'Double Diamond',
+    },
+    {
+      framework: 'double-diamond',
+      method: 'define-phase',
+      foe_maturity: 'observing',
+      title: 'Define Phase',
+      description: 'Convergent synthesis of insights into a clear, evidence-based problem definition',
+      frameworkTitle: 'Double Diamond',
+    },
+    {
+      framework: 'double-diamond',
+      method: 'develop-phase',
+      foe_maturity: 'observing',
+      title: 'Develop Phase',
+      description: 'Divergent generation of multiple solutions through ideation, prototyping, and co-design',
+      frameworkTitle: 'Double Diamond',
+    },
+    {
+      framework: 'double-diamond',
+      method: 'deliver-phase',
+      foe_maturity: 'observing',
+      title: 'Deliver Phase',
+      description: 'Convergent validation through phased testing before full launch',
+      frameworkTitle: 'Double Diamond',
     },
   ]}
 />
