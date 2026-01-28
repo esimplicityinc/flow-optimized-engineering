@@ -22,6 +22,14 @@ The Prima platform evolved into a true microservices architecture with independe
 - Team: Prima Engineering
 - Timeline: June 2025 - January 2026
 
+**Key Contributors:**
+- **Aaron West** - Control Tower lead, ADR author (ADR-002 Load Balancer), top contributor to CT and platform infrastructure
+- **Matt Wartell** - Engine lead, top contributor to Engine, author of Issue #397 (monorepo consideration)
+- **David Greene** - Cross-service integration, authored revert commit 89af615 (credential passing complexity)
+- **Kevin Song** - Platform/deployment, identified production crash Issue #209
+- **Thomas Mason** - Engine architecture, authored Issue #285 (MCP extraction) and Issue #248 (adapter error handling)
+- **Lada Semicheva** - API development, assigned to Issue #388 (pagination anti-pattern)
+
 **The Problem:**
 Prima needed to serve federal missions requiring data sovereignty, ATO compliance, and multi-environment deployment flexibility. A monolithic approach would have created:
 - Single point of failure for diverse AI capabilities
@@ -188,33 +196,33 @@ This is a **distributed monolith signal**: when Service A has intimate knowledge
 
 Analysis of GitHub issues across prima-* repositories reveals coordination challenges:
 
-**Monorepo Consideration (Issue #397):**
+**Monorepo Consideration (Issue #397, Matt Wartell):**
 > "Prompted by **customer deployment concerns**, we want to move Prima to a **monorepo**."
 
-This is direct evidence that the distributed architecture creates deployment friction.
+This is direct evidence that the distributed architecture creates deployment friction. Matt's perspective as Engine lead—having built the 773-line Tower adapter—gives weight to this assessment.
 
 **Cross-Service Coordination Required:**
 
-| Issue | Evidence |
-|-------|----------|
-| CT #398 | "Work **alongside** prima-web issue #176" - explicit cross-repo coordination |
-| Web #176 | Keycloak integration requires simultaneous changes to CT, Web, Engine |
-| CT #388 | Pagination anti-pattern shows tight API coupling between frontend and backend |
-| Engine #248 | Tower adapter error handling complexity needs normalization |
+| Issue | Author | Evidence |
+|-------|--------|----------|
+| CT #398 | Kevin Song | "Work **alongside** prima-web issue #176" - explicit cross-repo coordination |
+| Web #176 | Kevin Song | Keycloak integration requires simultaneous changes to CT, Web, Engine |
+| CT #388 | Matt Wartell | Pagination anti-pattern shows tight API coupling (assigned to Lada Semicheva) |
+| Engine #248 | Thomas Mason | Tower adapter error handling complexity needs normalization |
 
 **Production Incidents from Architecture:**
 
-| Issue | Impact |
-|-------|--------|
-| Prima #209 | "Prod CT crashing due to large usage data size" - Engine data overwhelmed CT |
-| CT #381 | CORS errors between services in production |
-| CT #383 | Logout redirect issues across service boundaries |
+| Issue | Author | Impact |
+|-------|--------|--------|
+| Prima #209 | Kevin Song | "Prod CT crashing due to large usage data size" - Engine data overwhelmed CT |
+| CT #381 | (team) | CORS errors between services in production |
+| CT #383 | (team) | Logout redirect issues across service boundaries |
 
 **Contradictory Directions:**
-- Issue #285 proposes MORE extraction: "Separate Engine MCP into Dedicated Container"
-- Issue #397 proposes LESS separation: "Merge engine and tower to one repo"
+- Issue #285 (Thomas Mason) proposes MORE extraction: "Separate Engine MCP into Dedicated Container"
+- Issue #397 (Matt Wartell) proposes LESS separation: "Merge engine and tower to one repo"
 
-The team is being pulled in opposite directions, suggesting the architecture's costs and benefits are still being evaluated.
+The team is being pulled in opposite directions, suggesting the architecture's costs and benefits are still being evaluated. Notably, both perspectives come from experienced contributors who understand the tradeoffs firsthand.
 
 ### What Surprised Us
 
