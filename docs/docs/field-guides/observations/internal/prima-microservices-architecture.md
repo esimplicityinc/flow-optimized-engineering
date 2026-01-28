@@ -244,18 +244,20 @@ Blast radius containment increases confidence to make changes. If a Presidio con
 ## Conclusion
 
 ### Verdict
-**Partially Supported** - The Prima platform architecture demonstrates microservices **intent** (separate repos, ADRs, containers, platform services) but reveals a gap between architectural aspiration and supporting infrastructure. The architecture has the right shape but lacks the resilience patterns (circuit breakers, graceful degradation, API versioning) that would make subsystems truly independent at runtime.
+**Supported** - The Prima platform architecture provides strong evidence for the True Microservices method by demonstrating both what works AND what's missing. The architecture has the right **shape** (separate repos, ADRs, containers, platform services) but reveals the **cost** of not investing in supporting infrastructure (circuit breakers, graceful degradation, API versioning).
 
-**Classification:** Hub-and-spoke with microservices aspirations. Control Tower is the hub; Engine and Web are spokes with runtime dependencies on the hub.
+**Key insight:** The gap between Prima's microservices aspiration and its operational reality validates the method's claim that true microservices require more than just service separation—they require investment in resilience infrastructure. Issue #397 ("merge to monorepo prompted by customer deployment concerns") is direct evidence that without this investment, teams will reconsider the architecture.
+
+**Classification:** Hub-and-spoke with microservices shape but distributed monolith characteristics. This makes it valuable evidence for what true microservices need to succeed.
 
 ### Key Learnings
 
-1. **Architecture shape is necessary but not sufficient:** Separate repos and containers don't guarantee independence; you also need resilience infrastructure
-2. **Runtime dependencies reveal true coupling:** Engine's readiness check requiring Tower exposes the real architecture vs. the intended architecture
-3. **ADRs capture intent, code reveals reality:** The ADRs describe independent subsystems; the code shows tight coupling via the 773-line adapter
-4. **Shared secrets are coordination points:** `SERVICE_JWT_SECRET` synchronization is a deployment coordination requirement
-5. **Heavy adapters signal distributed monolith risk:** When one service has 773 lines of knowledge about another's internal structure, you have coupling
-6. **Control/Data plane separation works:** Despite coupling issues, the security boundary between planes is valuable for ATO
+1. **True microservices = shape + supporting infrastructure:** Separate repos and containers are necessary but not sufficient; you also need circuit breakers, graceful degradation, and API versioning
+2. **Customer deployment experience is a litmus test:** Issue #397 shows that without supporting infrastructure, customers experience deployment friction that prompts reconsideration of the architecture
+3. **Runtime dependencies reveal true coupling:** Engine's readiness check requiring Tower exposes the real architecture vs. the intended architecture—this is what the method warns about
+4. **Heavy adapters are a distributed monolith signal:** The 773-line adapter validates the method's claim that intimate API knowledge creates coupling
+5. **"Merge back" discussions validate the method:** When teams consider merging services back together (Issue #397), it's evidence that the microservices investment was incomplete
+6. **Control/Data plane separation provides value even with coupling:** The security boundary works for ATO despite other coupling issues—some microservices benefits are achievable without full independence
 
 ### Recommendation
 
