@@ -46,6 +46,7 @@ A collection of flow-optimized methods for AI-assisted software development.
   methods={[
     { maturity: 'proven' },
     { maturity: 'observing' },
+    { maturity: 'hypothesized' },
   ]} 
 />
 
@@ -75,6 +76,30 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       title: 'Knowledge Distribution as Reliability', 
       maturity: 'observing',
       description: 'Treat concentrated knowledge as a system risk to actively address',
+    },
+    { 
+      slug: 'verification-before-completion', 
+      title: 'Verification Before Completion', 
+      maturity: 'hypothesized',
+      description: 'Never claim work is complete without running verification commands',
+    },
+    { 
+      slug: 'test-driven-agent-development', 
+      title: 'Test-Driven Agent Development', 
+      maturity: 'hypothesized',
+      description: 'Apply red-green-refactor cycle to AI-assisted development',
+    },
+    { 
+      slug: 'persistent-planning-state', 
+      title: 'Persistent Planning State', 
+      maturity: 'hypothesized',
+      description: 'Maintain explicit planning state in markdown files to prevent context drift',
+    },
+    { 
+      slug: 'root-cause-first-debugging', 
+      title: 'Root-Cause-First Debugging', 
+      maturity: 'hypothesized',
+      description: 'Investigate root cause before applying fixes',
     },
   ]}
   adoptedMethods={[

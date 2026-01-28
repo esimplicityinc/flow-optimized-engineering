@@ -375,6 +375,15 @@
   color: white;
 }
 
+/* Ecosystem diagram wrapper */
+.ecosystemDiagramWrapper {
+  margin: 2rem 0;
+  min-height: 500px;
+  border: 1px solid var(--strategy-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 /* Code block style */
 .directoryTree {
   padding: 1.5rem;

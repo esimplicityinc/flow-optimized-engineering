@@ -5,6 +5,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import AccordionSection from '../components/AccordionSection';
 import StrategySidebar from '../components/StrategySidebar';
+import EcosystemDiagram from '../components/EcosystemDiagram';
 import styles from './esimplicity-strategy.module.css';
 
 // ============================================
@@ -12,18 +13,11 @@ import styles from './esimplicity-strategy.module.css';
 // ============================================
 
 const sections = [
-  { id: 'strategic-reframe', number: 1, title: 'Strategic Reframe', owner: 'ric' as const },
-  { id: 'foe-doctrine', number: 2, title: 'FOE as Doctrine', owner: 'shared' as const },
-  { id: 'org-ownership', number: 3, title: 'Organizational Ownership', owner: 'shared' as const },
-  { id: 'people-culture', number: 4, title: 'People & Culture', owner: 'ric' as const },
-  { id: 'ai-trilemma', number: 5, title: 'The AI People Trilemma', owner: 'prima' as const },
-  { id: 'local-first', number: 6, title: 'Local-First Infrastructure', owner: 'prima' as const },
-  { id: 'agent-convention', number: 7, title: 'The .agent/ Convention', owner: 'prima' as const },
-  { id: 'compliance', number: 8, title: 'Compliance Without Theater', owner: 'shared' as const },
-  { id: 'field-guide', number: 9, title: 'Field Guide as Living System', owner: 'shared' as const },
-  { id: 'foe-repos', number: 10, title: 'FOE in Every Repo', owner: 'ric' as const },
-  { id: 'katalyst', number: 11, title: 'The Katalyst Foundation', owner: 'ric' as const },
-  { id: 'macro-goal', number: 12, title: 'The Macro Goal', owner: 'shared' as const },
+  { id: 'the-stakes', number: 1, title: 'The Stakes', owner: 'shared' as const },
+  { id: 'the-doctrine', number: 2, title: 'The Doctrine', owner: 'shared' as const },
+  { id: 'the-ecosystem', number: 3, title: 'The Ecosystem', owner: 'shared' as const },
+  { id: 'the-mechanisms', number: 4, title: 'The Mechanisms', owner: 'shared' as const },
+  { id: 'the-destination', number: 5, title: 'The Destination', owner: 'shared' as const },
 ];
 
 // ============================================
@@ -69,7 +63,7 @@ function HeroSection(): ReactNode {
               <path d="M2 17l10 5 10-5" />
               <path d="M2 12l10 5 10-5" />
             </svg>
-            12 Sections
+            5 Acts
           </span>
         </div>
       </div>
@@ -87,24 +81,25 @@ function HeroSection(): ReactNode {
 // SECTION CONTENT
 // ============================================
 
-function Section1(): ReactNode {
+function Act1(): ReactNode {
   return (
     <AccordionSection
-      id="strategic-reframe"
+      id="the-stakes"
       number={1}
-      title="Strategic Reframe"
-      owner="ric"
+      title="The Stakes"
+      owner="shared"
       executiveSummary={
         <>
           <p>
-            This document establishes the strategic direction for AI-augmented engineering at eSimplicity.
-            Rather than chasing tools or reacting to market pressure, we are choosing a deliberate path.
+            AI is changing the economics of software development. But without a governing framework,
+            faster production just means faster failure. eSimplicity will implement Flow Optimized 
+            Engineering as the doctrine that makes agentic coding safe.
           </p>
           <blockquote>
             <p>
-              eSimplicity will not pursue an "agentic coding strategy" in isolation. Instead, we will
-              implement Flow Optimized Engineering (FOE) as the governing doctrine, with agentic tooling
-              as one powerful capability within that structure.
+              The fundamental challenge of software engineering has never been "writing code is too slow."
+              It has always been "we build the wrong thing, or we build the right thing badly, and we
+              don't know which until it's expensive."
             </p>
           </blockquote>
         </>
@@ -134,6 +129,19 @@ function Section1(): ReactNode {
         </li>
       </ul>
 
+      <h3>The AI People Trilemma</h3>
+      <p>Three trends are colliding to create a dangerous imbalance:</p>
+      <ul>
+        <li><strong>Senior developers are leaving:</strong> Their knowledge walks out the door with them</li>
+        <li><strong>Junior developers can produce without understanding:</strong> AI lets them generate working code without comprehending implications</li>
+        <li><strong>Organizations are unprepared:</strong> They see junior productivity and assume the pipeline is working</li>
+      </ul>
+      <p>
+        AI doesn't just change the quantity of work; it changes the nature of valuable work.
+        The bottleneck shifts to <em>judgment</em>. You cannot hire your way out of a judgment shortage
+        by hiring more people who lack judgment.
+      </p>
+
       <h3>What AI Changes vs. What It Doesn't</h3>
       <table>
         <thead>
@@ -161,41 +169,47 @@ function Section1(): ReactNode {
           </tr>
         </tbody>
       </table>
-      <p>
-        The fundamental challenge of software engineering has never been "writing code is too slow."
-        It has always been "we build the wrong thing, or we build the right thing badly, and we
-        don't know which until it's expensive."
-      </p>
 
-      <h3>FOE as the Structure That Makes Agentic Coding Safe</h3>
-      <p>
-        Flow Optimized Engineering provides the scaffolding that transforms agentic coding from a
-        risk into an advantage:
-      </p>
-      <ul>
-        <li>
-          <strong>Safe:</strong> Every AI-generated change flows through the same validation gates
-          as human-authored code. The system doesn't trust the source; it trusts the evidence.
-        </li>
-        <li>
-          <strong>Legible:</strong> All work, human or machine, produces artifacts that can be
-          reviewed, understood, and audited. Speed without traceability is just faster failure.
-        </li>
-        <li>
-          <strong>Compounding:</strong> Each experiment, each validated pattern, each documented
-          decision becomes organizational knowledge that improves future work.
-        </li>
-      </ul>
+      <h3>The Mentor-Over-Hero Model</h3>
+      <p>The solution isn't to avoid AI—it's to pair AI leverage with human judgment:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Hero Model (Failing)</th>
+            <th>Mentor Model (FOE)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Seniors write the critical code</td>
+            <td>Seniors review and guide; juniors write</td>
+          </tr>
+          <tr>
+            <td>Seniors are the bottleneck</td>
+            <td>Seniors are the multiplier</td>
+          </tr>
+          <tr>
+            <td>Knowledge stays in senior heads</td>
+            <td>Knowledge flows into systems and people</td>
+          </tr>
+        </tbody>
+      </table>
+      <div className={styles.highlightBox}>
+        <p>
+          <strong>The Small Craft Guild:</strong> 1 senior + 2 juniors, equipped with AI tooling and FOE practices.
+          The senior provides judgment; the juniors provide capacity; the tooling provides leverage.
+        </p>
+      </div>
     </AccordionSection>
   );
 }
 
-function Section2(): ReactNode {
+function Act2(): ReactNode {
   return (
     <AccordionSection
-      id="foe-doctrine"
+      id="the-doctrine"
       number={2}
-      title="FOE as Doctrine"
+      title="The Doctrine"
       owner="shared"
       executiveSummary={
         <p>
@@ -245,64 +259,143 @@ function Section2(): ReactNode {
         An F-35 pilot has more information displays than a Cessna pilot, not fewer.
         FOE is the instrumentation that makes high-velocity engineering safe.
       </p>
+
+      <h3>FOE Makes Agentic Coding Safe</h3>
+      <p>
+        Flow Optimized Engineering provides the scaffolding that transforms agentic coding from a
+        risk into an advantage:
+      </p>
+      <ul>
+        <li>
+          <strong>Safe:</strong> Every AI-generated change flows through the same validation gates
+          as human-authored code. The system doesn't trust the source; it trusts the evidence.
+        </li>
+        <li>
+          <strong>Legible:</strong> All work, human or machine, produces artifacts that can be
+          reviewed, understood, and audited. Speed without traceability is just faster failure.
+        </li>
+        <li>
+          <strong>Compounding:</strong> Each experiment, each validated pattern, each documented
+          decision becomes organizational knowledge that improves future work.
+        </li>
+      </ul>
     </AccordionSection>
   );
 }
 
-function Section3(): ReactNode {
+function Act3(): ReactNode {
   return (
     <AccordionSection
-      id="org-ownership"
+      id="the-ecosystem"
       number={3}
-      title="Organizational Ownership"
+      title="The Ecosystem"
       owner="shared"
       executiveSummary={
         <p>
-          Clear ownership enables coordinated action without bottlenecks. RIC serves as the custodian
-          of FOE doctrine: the environment and standards. Prima operates as the agentic enablement
-          team, building tools and running experiments. The distinction: RIC creates the conditions
-          where agentic tooling can thrive; Prima builds the sensory organs that let us see and respond.
+          Everything at eSimplicity connects through a deliberate architecture. KATALYST is the gravitational 
+          center—the platform everything runs on. FOE is the governing ontology that everything aligns to. 
+          PRIMA is the productized surface that government teams interact with.
         </p>
       }
     >
-      <div className={styles.orgDiagram}>
-        <div className={styles.orgBox}>
-          <div className={styles.orgBoxTitle}>RIC</div>
-          <div className={styles.orgBoxSubtitle}>Custodian of FOE</div>
-        </div>
-        <div className={styles.orgConnector}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-          <span className={styles.orgConnectorLabel}>Enables</span>
-        </div>
-        <div className={styles.orgBox}>
-          <div className={styles.orgBoxTitle}>Prima</div>
-          <div className={styles.orgBoxSubtitle}>Agentic Enablement</div>
-        </div>
+      <div className={styles.ecosystemDiagramWrapper}>
+        <EcosystemDiagram />
       </div>
 
-      <h3>RIC: Custodian of FOE Doctrine</h3>
-      <p>
-        RIC treats FOE as <em>infrastructure</em>: foundational systems that other capabilities depend upon:
-      </p>
+      <h3>KATALYST: The Gravitational Center</h3>
+      <p>Everything ultimately runs on or connects to <strong>KATALYST</strong>. It provides:</p>
       <ul>
-        <li><strong>Establishing norms and patterns:</strong> Defining what "good" looks like for AI-augmented engineering</li>
-        <li><strong>Phase-3 maturity focus:</strong> Ensuring methods reach production-grade stability before broad adoption</li>
-        <li><strong>Validation frameworks:</strong> Building the gates through which all code must pass</li>
-        <li><strong>Organizational learning:</strong> Synthesizing experiments into institutional knowledge</li>
+        <li>The infrastructure platform (Kubernetes, ArgoCD, observability)</li>
+        <li>The taxonomy framework (architecture-as-code)</li>
+        <li>The foundation that PRIMA and other systems build upon</li>
       </ul>
 
-      <h3>Prima: Agentic Enablement Team</h3>
-      <p>Prima functions as the internal product team for developer experience:</p>
+      <h3>FOE: The Governing Ontology</h3>
+      <p><strong>Flow Optimized Engineering</strong> provides the conceptual framework everything aligns to:</p>
       <ul>
-        <li><strong>Building agentic tools:</strong> Creating and integrating AI coding assistants within FOE constraints</li>
-        <li><strong>Enabling local-first workflows:</strong> Ensuring engineers can work effectively without centralized dependencies</li>
-        <li><strong>Running experiments:</strong> Testing new approaches and contributing validated learnings</li>
-        <li><strong>Serving as the sensory organ:</strong> Maintaining close contact with engineering teams</li>
+        <li>The <strong>Technical Review Board</strong> ensures alignment to FOE principles</li>
+        <li>The <strong>Maturity Model</strong> assesses organizational capability</li>
+        <li>The <strong>Engineering Field Guides</strong> provide evidence-backed practices</li>
       </ul>
 
-      <h3>The Critical Distinction</h3>
+      <h3>PRIMA: The Productized Surface</h3>
+      <p><strong>PRIMA</strong> is what government delivery teams interact with directly:</p>
+      <ul>
+        <li><strong>Control Tower</strong> — Operational visibility</li>
+        <li><strong>Web</strong> — User interfaces</li>
+        <li><strong>Code</strong> — Application logic</li>
+        <li><strong>Engine</strong> — Processing capabilities</li>
+      </ul>
+      <p>PRIMA runs on KATALYST, inheriting its infrastructure capabilities while providing a focused experience for government programs.</p>
+
+      <h3>Teams Bridge Strategy and Execution</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Team</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Gov Delivery Teams</strong></td>
+            <td>Use PRIMA through Shine, assessed by TRB</td>
+          </tr>
+          <tr>
+            <td><strong>Technical Review Board</strong></td>
+            <td>Ensures alignment to FOE principles</td>
+          </tr>
+          <tr>
+            <td><strong>RIC Team 1 (Prima)</strong></td>
+            <td>Builds and maintains PRIMA</td>
+          </tr>
+          <tr>
+            <td><strong>RIC Team 2 (Katalyst)</strong></td>
+            <td>Develops KATALYST platform</td>
+          </tr>
+          <tr>
+            <td><strong>RIC Team 3 (Aaron)</strong></td>
+            <td>Bridges BD needs with platform reality</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>How This Maps to FOE Principles</h3>
+      <div className={styles.cardGrid}>
+        <div className={styles.card}>
+          <div className={styles.cardTitle}>Optimize for Understanding</div>
+          <p className={styles.cardDescription}>KATALYST Taxonomy provides architecture-as-code. Shine surfaces practices in understandable form.</p>
+        </div>
+        <div className={styles.card}>
+          <div className={styles.cardTitle}>Optimize for Fast Feedback</div>
+          <p className={styles.cardDescription}>KATALYST BDD Test enables multi-layer testing. TRB provides governance feedback loops.</p>
+        </div>
+        <div className={styles.card}>
+          <div className={styles.cardTitle}>Optimize for Confidence</div>
+          <p className={styles.cardDescription}>KATALYST Platform provides GitOps deployment. Maturity Model tracks organizational progress.</p>
+        </div>
+      </div>
+    </AccordionSection>
+  );
+}
+
+function Act4(): ReactNode {
+  return (
+    <AccordionSection
+      id="the-mechanisms"
+      number={4}
+      title="The Mechanisms"
+      owner="shared"
+      executiveSummary={
+        <p>
+          Strategy without execution is wishful thinking. This section covers the specific mechanisms 
+          that make FOE operational: ownership models, technical enablers, compliance approaches, and 
+          the living documentation system that captures organizational learning.
+        </p>
+      }
+    >
+      <h3>Ownership: RIC vs Prima</h3>
+      <p>Clear ownership enables coordinated action without bottlenecks:</p>
       <table>
         <thead>
           <tr>
@@ -311,6 +404,10 @@ function Section3(): ReactNode {
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>Custodian of FOE doctrine</td>
+            <td>Agentic enablement team</td>
+          </tr>
           <tr>
             <td>Creates conditions for success</td>
             <td>Builds tools for execution</td>
@@ -325,47 +422,128 @@ function Section3(): ReactNode {
           </tr>
         </tbody>
       </table>
+
+      <h3>Local-First Agentic Infrastructure</h3>
+      <div className={styles.highlightBox}>
+        <p>"If the agent cannot explain what it did locally, it cannot be trusted globally."</p>
+      </div>
+      <p>Prima will build local-first, offline-capable, audit-friendly foundation for agentic coding:</p>
+      <ul>
+        <li><strong>Local execution:</strong> The agent runs on your machine, with your permissions</li>
+        <li><strong>No SaaS dependency:</strong> Core functionality works without internet</li>
+        <li><strong>Git history preserved:</strong> Every action is a commit; you can diff and revert</li>
+        <li><strong>Tool-agnostic:</strong> Works with any LLM backend</li>
+      </ul>
+
+      <h3>The .agent/ Convention</h3>
+      <p>
+        A tool-agnostic home for agent definitions—markdown files, simple metadata, and human-readable 
+        instructions that work across any AI coding assistant:
+      </p>
+      <div className={styles.directoryTree}>
+        <code>{`.agent/
+├── definitions/     # Core agent personas
+├── skills/          # Reusable capabilities
+├── sub-agents/      # Specialized delegates
+├── instructions/    # Project conventions
+└── constraints/     # Guardrails and policies`}</code>
+      </div>
+      <p>
+        When the next generation of AI tools arrives, eSimplicity's accumulated agent knowledge
+        moves with a git clone, not a migration project.
+      </p>
+
+      <h3>Compliance Without Theater</h3>
+      <p>
+        FOE reframes compliance as an <em>evidence production problem</em> rather than a paperwork problem.
+        Every engineering action automatically generates evidence:
+      </p>
+      <ul>
+        <li><strong>Who:</strong> Identity of the human or agent that initiated the change</li>
+        <li><strong>What:</strong> Precise diff linked to relevant artifacts</li>
+        <li><strong>Why:</strong> Traced back to requirements or decisions</li>
+        <li><strong>When:</strong> Timestamped and cryptographically attested</li>
+      </ul>
+      <p>When auditors ask "show me evidence that X," the answer is a query, not a document hunt.</p>
+
+      <h3>Field Guide as Living System</h3>
+      <p>The Field Guide is not documentation—it's institutional memory expressed as hypotheses with experiments attached:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Maturity Level</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hypothesized</strong></td>
+            <td>We think this might work based on theory</td>
+          </tr>
+          <tr>
+            <td><strong>Experimenting</strong></td>
+            <td>Teams are actively testing this approach</td>
+          </tr>
+          <tr>
+            <td><strong>Validated</strong></td>
+            <td>Evidence suggests this works in our context</td>
+          </tr>
+          <tr>
+            <td><strong>Proven</strong></td>
+            <td>Strong evidence across diverse conditions</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Critically, methods can move backwards. A "Proven" method that starts failing gets downgraded.
+        The system has no ego, only evidence.
+      </p>
+
+      <h3>FOE in Every Repo</h3>
+      <p>
+        FOE is not optional or a sidecar—it is embedded in every repository we touch:
+      </p>
+      <ul>
+        <li><strong>Experiment hooks:</strong> Standardized entry points for capturing hypotheses and outcomes</li>
+        <li><strong>Change → Hypothesis → Evidence mapping:</strong> Every meaningful change links to a testable claim</li>
+        <li><strong>Field Guide integration:</strong> Learnings flow automatically into organizational memory</li>
+      </ul>
+      <div className={styles.highlightBox}>
+        <p>
+          The shift is from "Did we ship?" to "What did we learn, and what evidence do we have?"
+        </p>
+      </div>
     </AccordionSection>
   );
 }
 
-function Section4(): ReactNode {
+function Act5(): ReactNode {
   return (
     <AccordionSection
-      id="people-culture"
-      number={4}
-      title="People & Culture Transformation"
-      owner="ric"
+      id="the-destination"
+      number={5}
+      title="The Destination"
+      owner="shared"
       executiveSummary={
         <p>
-          FOE is fundamentally about people, not tools. The deepest changes happen in how teams communicate,
-          how leaders respond to uncertainty, and how organizations treat the humans who build their systems.
-          Psychological safety becomes operational safety: the freedom to surface problems early without fear
-          determines whether issues are caught in development or discovered in production.
+          This is not an AI strategy. This is not a tooling initiative. This is an attempt to make
+          software development behave like a mature engineering discipline—one where claims require
+          evidence, learning compounds, and truth becomes cheaper than assumption.
         </p>
       }
     >
-      <h3>Psychological Safety as Operational Safety</h3>
+      <h3>The J-Curve of Transformation</h3>
+      <p>Organizations should expect a specific journey:</p>
+      <ol>
+        <li><strong>Initial dip:</strong> Velocity appears to slow as teams invest in legibility</li>
+        <li><strong>The valley:</strong> Hidden problems surface. This phase feels like things are getting worse</li>
+        <li><strong>The climb:</strong> Compounding benefits emerge. Fewer surprises. More accurate planning</li>
+        <li><strong>New normal:</strong> Sustainable pace with predictable delivery</li>
+      </ol>
       <p>
-        We often treat psychological safety as an HR concern. FOE recognizes that psychological safety
-        <em> is</em> operational safety. When engineers fear blame, they hide problems. When they hide
-        problems, systems fail. The freedom to say "I don't know" isn't a nice-to-have; it's the mechanism
-        by which organizations detect risk before it becomes incident.
+        Leadership must protect teams through the valley. The temptation to abandon FOE practices
+        is strongest precisely when they're about to pay off.
       </p>
-
-      <h3>The Heroic Engineering Anti-Pattern</h3>
-      <p>
-        Every organization has them: the engineer who works through the night, the architect who
-        single-handedly saves the release. They're celebrated in all-hands meetings. They're also
-        symptoms of system failure.
-      </p>
-      <p><strong>Why heroism is harmful:</strong></p>
-      <ul>
-        <li>It masks systemic problems that compound over time</li>
-        <li>It burns out your best people while training everyone else to depend on them</li>
-        <li>It makes the organization fragile: success depends on specific individuals</li>
-        <li>It prevents learning: if heroes always save the day, you never discover what's broken</li>
-      </ul>
 
       <h3>What Leaders Must Do</h3>
       <table>
@@ -395,529 +573,34 @@ function Section4(): ReactNode {
         </tbody>
       </table>
 
-      <h3>The J-Curve of Transformation</h3>
-      <p>Organizations should expect:</p>
-      <ol>
-        <li><strong>Initial dip:</strong> Velocity appears to slow as teams invest in legibility</li>
-        <li><strong>The valley:</strong> Hidden problems surface. This phase feels like things are getting worse</li>
-        <li><strong>The climb:</strong> Compounding benefits emerge. Fewer surprises. More accurate planning</li>
-        <li><strong>New normal:</strong> Sustainable pace with predictable delivery</li>
-      </ol>
-      <p>
-        Leadership must protect teams through the valley. The temptation to abandon FOE practices
-        is strongest precisely when they're about to pay off.
-      </p>
-    </AccordionSection>
-  );
-}
-
-function Section5(): ReactNode {
-  return (
-    <AccordionSection
-      id="ai-trilemma"
-      number={5}
-      title="The AI People Trilemma"
-      owner="prima"
-      executiveSummary={
-        <p>
-          AI creates a dangerous paradox: it makes junior developers productive without making them wise,
-          while senior developers, the ones who provide judgment, are retiring faster than they're being replaced.
-          Organizations face a trilemma where AI accelerates output while simultaneously punishing weak
-          foundations and depleting the expertise needed to build strong ones.
-        </p>
-      }
-    >
-      <h3>The Imbalance</h3>
-      <p>Three trends are colliding:</p>
-      <ul>
-        <li><strong>Senior developers are leaving:</strong> Their knowledge walks out the door with them</li>
-        <li><strong>Junior developers can produce without understanding:</strong> AI lets them generate working code without comprehending implications</li>
-        <li><strong>Organizations are unprepared:</strong> They see junior productivity and assume the pipeline is working</li>
-      </ul>
-
-      <h3>Why "Just Hire More" Fails</h3>
-      <p>
-        AI doesn't just change the quantity of work; it changes the nature of valuable work.
-        The bottleneck shifts to judgment. You cannot hire your way out of a judgment shortage
-        by hiring more people who lack judgment.
-      </p>
-
-      <h3>The Mentor-Over-Hero Model</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Hero Model</th>
-            <th>Mentor Model</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Seniors write the critical code</td>
-            <td>Seniors review and guide; juniors write</td>
-          </tr>
-          <tr>
-            <td>Seniors are the bottleneck</td>
-            <td>Seniors are the multiplier</td>
-          </tr>
-          <tr>
-            <td>Knowledge stays in senior heads</td>
-            <td>Knowledge flows into systems and people</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>The Small Craft Guild Approach</h3>
-      <p><strong>The ratio:</strong> 1 senior + 2 juniors, equipped with AI tooling and FOE practices.</p>
-      <ul>
-        <li><strong>The senior provides:</strong> Judgment, risk identification, quality standards, knowledge transfer</li>
-        <li><strong>The juniors provide:</strong> Implementation capacity and opportunity for seniors to teach</li>
-        <li><strong>The tooling provides:</strong> Leverage. AI handles mechanical work, freeing humans for judgment</li>
-      </ul>
-
-      <div className={styles.highlightBox}>
-        <p>
-          "AI gives developers superhuman output but subhuman guardrails. The organizations that
-          thrive will pair AI leverage with human judgment."
-        </p>
-      </div>
-    </AccordionSection>
-  );
-}
-
-function Section6(): ReactNode {
-  return (
-    <AccordionSection
-      id="local-first"
-      number={6}
-      title="Local-First Agentic Infrastructure"
-      owner="prima"
-      executiveSummary={
-        <p>
-          Prima will fork the OpenCode framework to create the Prima Local Agent: a local-first,
-          offline-capable, audit-friendly foundation for agentic coding. This isn't about choosing
-          a vendor; it's about architectural philosophy. If an agent cannot explain what it did locally,
-          it cannot be trusted globally.
-        </p>
-      }
-    >
-      <h3>Why Local-First</h3>
-      <div className={styles.highlightBox}>
-        <p>"If the agent cannot explain what it did locally, it cannot be trusted globally."</p>
-      </div>
-      <p>When the agent runs locally:</p>
-      <ul>
-        <li>You can audit every action without trusting a vendor's logs</li>
-        <li>You can work offline, on airgapped systems, in secure environments</li>
-        <li>You own the data, the history, and the ability to reproduce any state</li>
-        <li>Compliance and security reviews become tractable</li>
-      </ul>
-
-      <h3>Core Characteristics</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Characteristic</th>
-            <th>What It Means</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Local execution</strong></td>
-            <td>The agent runs on your machine, with your permissions</td>
-          </tr>
-          <tr>
-            <td><strong>No SaaS dependency</strong></td>
-            <td>Core functionality works without internet</td>
-          </tr>
-          <tr>
-            <td><strong>Git history preserved</strong></td>
-            <td>Every action is a commit; you can diff and revert</td>
-          </tr>
-          <tr>
-            <td><strong>Tool-agnostic</strong></td>
-            <td>Works with any LLM backend</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Wizard-Style Agents for Non-Technical Users</h3>
-      <ul>
-        <li><strong>Hide complexity without removing capability:</strong> No CLI required, but everything is still versioned</li>
-        <li><strong>Guide users through structured workflows:</strong> Step-by-step processes with guardrails</li>
-        <li><strong>Maintain the audit trail:</strong> Just because the user doesn't see Git doesn't mean it's not there</li>
-      </ul>
-
-      <h3>A Legibility Surface, Not a Productivity Hack</h3>
-      <p>
-        The goal isn't primarily speed or cost savings. It's <em>legibility</em>: the ability to understand,
-        verify, and trust what automated systems are doing on your behalf. This is FOE applied to AI tooling
-        itself: optimize for understanding, fast feedback, and confidence.
-      </p>
-    </AccordionSection>
-  );
-}
-
-function Section7(): ReactNode {
-  return (
-    <AccordionSection
-      id="agent-convention"
-      number={7}
-      title="The .agent/ Convention"
-      owner="prima"
-      executiveSummary={
-        <p>
-          The <code>.agent/</code> directory convention provides a tool-agnostic home for agent
-          definitions: markdown files, simple metadata, and human-readable instructions that work
-          across any AI coding assistant. As the agent ecosystem converges on simple patterns,
-          this convention ensures eSimplicity can adopt new tools without rewriting institutional knowledge.
-        </p>
-      }
-    >
-      <h3>Why Tool Agnosticism is Strategic</h3>
-      <p>
-        The AI agent landscape is consolidating around surprisingly simple patterns: markdown instructions,
-        convention-based discovery, and declarative constraints. By expressing agents in the simplest
-        viable form, eSimplicity can ride tool churn rather than fight it.
-      </p>
-
-      <h3>Directory Structure</h3>
-      <div className={styles.directoryTree}>
-        <code>{`.agent/
-├── definitions/     # Core agent personas
-├── skills/          # Reusable capabilities
-├── sub-agents/      # Specialized delegates
-├── instructions/    # Project conventions
-└── constraints/     # Guardrails and policies`}</code>
-      </div>
-
-      <h3>Markdown as the Universal Format</h3>
-      <ul>
-        <li><strong>Human-readable:</strong> Engineers can review and modify agent behavior without special tooling</li>
-        <li><strong>Version-controlled:</strong> Agent evolution is tracked alongside code changes</li>
-        <li><strong>Diffable:</strong> Changes show up in pull requests for review</li>
-        <li><strong>Tool-portable:</strong> Any framework that reads markdown can consume these definitions</li>
-      </ul>
-
-      <h3>GitHub as Distribution Fabric</h3>
-      <p>
-        Skills can be shared across repositories. Definitions can be forked and customized.
-        When the next generation of AI tools arrives, eSimplicity's accumulated agent knowledge
-        moves with a git clone, not a migration project.
-      </p>
-    </AccordionSection>
-  );
-}
-
-function Section8(): ReactNode {
-  return (
-    <AccordionSection
-      id="compliance"
-      number={8}
-      title="Compliance Without Theater"
-      owner="shared"
-      executiveSummary={
-        <p>
-          FOE reframes compliance as an evidence production problem rather than a paperwork problem.
-          By generating compliance artifacts as automatic byproducts of normal work (configuration
-          managed by agents, changes that produce receipts, deployment modes that fit agency
-          constraints), we collapse ATO friction without pretending regulatory requirements don't exist.
-        </p>
-      }
-    >
-      <h3>The Evidence Production Model</h3>
-      <p>
-        Traditional compliance treats documentation as a separate activity. FOE inverts this:
-        every engineering action automatically generates evidence. Compliance becomes a view into
-        work that's already happening, not additional work.
-      </p>
-
-      <h3>Two Deployment Modes</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Mode</th>
-            <th>Description</th>
-            <th>Use Case</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>eSimplicity-Managed</strong></td>
-            <td>Full Prima Engine in eSimplicity infrastructure</td>
-            <td>Agencies comfortable with contractor-managed AI</td>
-          </tr>
-          <tr>
-            <td><strong>Agency-Hosted Minimal</strong></td>
-            <td>Single container as proxy/execution boundary</td>
-            <td>Agencies requiring on-premise deployment</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Agent-Generated Configuration</h3>
-      <p>
-        Configuration files are not hand-authored. Agents generate them based on declared intent.
-        This eliminates tribal knowledge and ensures configuration is always reproducible and auditable.
-      </p>
-
-      <h3>Automatic Receipt Generation</h3>
-      <p>Every change produces receipts automatically:</p>
-      <ul>
-        <li><strong>Who:</strong> Identity of the human or agent that initiated the change</li>
-        <li><strong>What:</strong> Precise diff linked to relevant artifacts</li>
-        <li><strong>Why:</strong> Traced back to requirements or decisions</li>
-        <li><strong>When:</strong> Timestamped and cryptographically attested</li>
-      </ul>
-      <p>
-        When auditors ask "show me evidence that X," the answer is a query, not a document hunt.
-      </p>
-    </AccordionSection>
-  );
-}
-
-function Section9(): ReactNode {
-  return (
-    <AccordionSection
-      id="field-guide"
-      number={9}
-      title="Field Guide as Living System"
-      owner="shared"
-      executiveSummary={
-        <p>
-          The Field Guide is not documentation; it's institutional memory expressed as hypotheses
-          with experiments attached. Every method starts as a guess, graduates through maturity
-          levels as evidence accumulates, and can be downgraded when new evidence contradicts
-          prior beliefs. Agents help maintain this living system.
-        </p>
-      }
-    >
-      <h3>The Core Pattern</h3>
-      <ol>
-        <li><strong>Guidance:</strong> A method captures current best understanding</li>
-        <li><strong>Experiments:</strong> Teams apply the method and document what happens</li>
-        <li><strong>Evidence:</strong> Results accumulate, revealing patterns and edge cases</li>
-        <li><strong>Updated Guidance:</strong> Methods evolve based on evidence, not opinion</li>
-      </ol>
-
-      <h3>Method Maturity Levels</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Level</th>
-            <th>Meaning</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Hypothesized</strong></td>
-            <td>We think this might work based on theory</td>
-          </tr>
-          <tr>
-            <td><strong>Experimenting</strong></td>
-            <td>Teams are actively testing this approach</td>
-          </tr>
-          <tr>
-            <td><strong>Validated</strong></td>
-            <td>Evidence suggests this works in our context</td>
-          </tr>
-          <tr>
-            <td><strong>Proven</strong></td>
-            <td>Strong evidence across diverse conditions</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
-        Critically, methods can move backwards. A "Proven" method that starts failing gets downgraded.
-        The system has no ego, only evidence.
-      </p>
-
-      <h3>Agent-Assisted Maintenance</h3>
-      <ul>
-        <li><strong>Evidence Linker:</strong> Connects code changes to relevant methods</li>
-        <li><strong>Staleness Detector:</strong> Flags methods that haven't been validated recently</li>
-        <li><strong>Edit Proposer:</strong> Suggests updates based on observed patterns</li>
-      </ul>
-      <p>
-        This is meta-engineering: using agents to reduce the cost of maintaining truth.
-      </p>
-    </AccordionSection>
-  );
-}
-
-function Section10(): ReactNode {
-  return (
-    <AccordionSection
-      id="foe-repos"
-      number={10}
-      title="FOE in Every Repo"
-      owner="ric"
-      executiveSummary={
-        <p>
-          FOE is not optional or a sidecar; it is embedded in every repository we touch. Every change
-          is treated as a claim about reality that must earn its keep through evidence. This scaffolding
-          ensures that learning is captured where work happens, not reconstructed after the fact.
-        </p>
-      }
-    >
-      <h3>What Gets Embedded</h3>
-      <ul>
-        <li><strong>Experiment hooks:</strong> Standardized entry points for capturing hypotheses and outcomes</li>
-        <li><strong>Change → Hypothesis → Evidence mapping:</strong> Every meaningful change links to a testable claim</li>
-        <li><strong>Field Guide integration:</strong> Learnings flow automatically into organizational memory</li>
-      </ul>
-
-      <h3>Why Scaffolding Is Non-Negotiable</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Discipline</th>
-            <th>Without Scaffolding</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Domain-Driven Design</strong></td>
-            <td>Models drift from meaning</td>
-          </tr>
-          <tr>
-            <td><strong>Behavior-Driven Development</strong></td>
-            <td>Specs become stale documentation</td>
-          </tr>
-          <tr>
-            <td><strong>Architecture as Code</strong></td>
-            <td>Architecture exists only in heads</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Agents Enforce Discipline</h3>
-      <p>
-        A critical mental shift: agents are not here to bypass rigor; they enforce it.
-        Agents generate tests before code, link changes to hypotheses, and flag gaps in evidence.
-      </p>
-
-      <h3>The Question That Changes Everything</h3>
-      <div className={styles.highlightBox}>
-        <p>
-          The shift is from "Did we ship?" to "What did we learn, and what evidence do we have?"
-        </p>
-      </div>
-    </AccordionSection>
-  );
-}
-
-function Section11(): ReactNode {
-  return (
-    <AccordionSection
-      id="katalyst"
-      number={11}
-      title="The Katalyst Foundation"
-      owner="ric"
-      executiveSummary={
-        <p>
-          Katalyst is the platform that makes agentic coding survivable. It serves as the DevEx layer,
-          testing substrate, and BDD backbone: the critical Phase 3 enabler. Without this foundation,
-          Phase 4 aspirations collapse into Phase 2 chaos at higher velocity.
-        </p>
-      }
-    >
-      <h3>Why Phase 3 Is the Organizational Bottleneck</h3>
+      <h3>KATALYST: The Phase 3 Enabler</h3>
       <p>
         Most organizations assume Phase 4 (Agentic Coding) is the hard part. They are wrong.
-        Phase 3, establishing disciplined, evidence-based practices, is where organizations stall.
+        Phase 3—establishing disciplined, evidence-based practices—is where organizations stall.
         Phase 4 without Phase 3 is just faster chaos.
       </p>
-
-      <h3>The Discipline Gap</h3>
       <div className={styles.warningBox}>
         <p><strong>Tools don't create disciplines; they enable or amplify existing ones.</strong></p>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Without Katalyst</th>
-            <th>With Katalyst</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>BDD is aspirational documentation</td>
-            <td>BDD is executable specification</td>
-          </tr>
-          <tr>
-            <td>Testing is afterthought</td>
-            <td>Testing is substrate</td>
-          </tr>
-          <tr>
-            <td>Architecture drifts invisibly</td>
-            <td>Architecture is code, enforced</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>What Katalyst Provides</h3>
-      <div className={styles.cardGrid}>
-        <div className={styles.card}>
-          <div className={styles.cardTitle}>Platform as Product</div>
-          <p className={styles.cardDescription}>Internal DevEx treated with same rigor as customer-facing products</p>
-        </div>
-        <div className={styles.card}>
-          <div className={styles.cardTitle}>Testing Substrate</div>
-          <p className={styles.cardDescription}>Infrastructure making comprehensive testing the default</p>
-        </div>
-        <div className={styles.card}>
-          <div className={styles.cardTitle}>Taxonomy Framework</div>
-          <p className={styles.cardDescription}>Shared vocabulary enabling meaningful measurement</p>
-        </div>
-        <div className={styles.card}>
-          <div className={styles.cardTitle}>BDD Backbone</div>
-          <p className={styles.cardDescription}>Tooling making BDD executable and maintainable</p>
-        </div>
-      </div>
-
-      <h3>Key Metrics Katalyst Enables</h3>
       <div className={styles.metricsGrid}>
         <div className={styles.metricCard}>
           <span className={styles.metricValue}>Daily+</span>
           <span className={styles.metricLabel}>Deployment Frequency</span>
-          <span className={styles.metricTarget}>Target: Multiple per day</span>
         </div>
         <div className={styles.metricCard}>
           <span className={styles.metricValue}>&lt;1 day</span>
           <span className={styles.metricLabel}>Lead Time</span>
-          <span className={styles.metricTarget}>Commit to production</span>
         </div>
         <div className={styles.metricCard}>
           <span className={styles.metricValue}>&lt;5%</span>
           <span className={styles.metricLabel}>Change Failure Rate</span>
-          <span className={styles.metricTarget}>Deployments needing rollback</span>
         </div>
         <div className={styles.metricCard}>
           <span className={styles.metricValue}>&lt;1 hr</span>
           <span className={styles.metricLabel}>MTTR</span>
-          <span className={styles.metricTarget}>Incident to resolution</span>
         </div>
       </div>
-    </AccordionSection>
-  );
-}
 
-function Section12(): ReactNode {
-  return (
-    <AccordionSection
-      id="macro-goal"
-      number={12}
-      title="The Macro Goal"
-      owner="shared"
-      executiveSummary={
-        <p>
-          This is not an AI strategy. This is not a tooling initiative. This is an attempt to make
-          software development behave like a mature engineering discipline, one where claims require
-          evidence, learning compounds, and truth becomes cheaper than assumption. The altered economics
-          of AI make this both possible and necessary.
-        </p>
-      }
-    >
       <h3>The Virtuous Cycle</h3>
       <ol>
         <li><strong>More empirical work</strong> → validates what actually works</li>
@@ -942,11 +625,11 @@ function Section12(): ReactNode {
           </div>
           <div className={styles.architectureItem}>
             <span className={styles.architectureItemLabel}>Skeleton</span>
-            <span className={styles.architectureItemValue}>Katalyst</span>
+            <span className={styles.architectureItemValue}>KATALYST</span>
           </div>
           <div className={styles.architectureItem}>
             <span className={styles.architectureItemLabel}>Nervous System</span>
-            <span className={styles.architectureItemValue}>Prima</span>
+            <span className={styles.architectureItemValue}>PRIMA</span>
           </div>
           <div className={styles.architectureItem}>
             <span className={styles.architectureItemLabel}>Memory</span>
@@ -964,22 +647,13 @@ function Section12(): ReactNode {
         <li>Trust builds because verification is built-in</li>
       </ul>
 
-      <h3>The Final Frame</h3>
       <div className={styles.highlightBox}>
         <p>
-          "An attempt to make software development behave like a mature engineering discipline
-          under radically altered economics."
+          Civil engineers don't ship bridges and hope they work. AI changes both sides of the equation:
+          the cost of failure increases (AI amplifies mistakes), and the cost of rigor decreases 
+          (AI makes evidence generation cheap). <strong>The point is not speed. The point is truth at scale.</strong>
         </p>
       </div>
-      <p>
-        Civil engineers don't ship bridges and hope they work. Software has avoided this because
-        the cost of failure was absorbable and the cost of rigor was prohibitive.
-        <strong> AI changes both sides:</strong> the cost of failure increases (AI amplifies mistakes),
-        and the cost of rigor decreases (AI makes evidence generation cheap).
-      </p>
-      <p>
-        <strong>The point is not speed. The point is truth at scale.</strong>
-      </p>
     </AccordionSection>
   );
 }
@@ -1039,18 +713,11 @@ export default function ESimplicityStrategy(): ReactNode {
           <StrategySidebar sections={sections} />
           <div className={styles.mainContent}>
             <div className={styles.sectionsContainer}>
-              <Section1 />
-              <Section2 />
-              <Section3 />
-              <Section4 />
-              <Section5 />
-              <Section6 />
-              <Section7 />
-              <Section8 />
-              <Section9 />
-              <Section10 />
-              <Section11 />
-              <Section12 />
+              <Act1 />
+              <Act2 />
+              <Act3 />
+              <Act4 />
+              <Act5 />
             </div>
           </div>
         </div>
