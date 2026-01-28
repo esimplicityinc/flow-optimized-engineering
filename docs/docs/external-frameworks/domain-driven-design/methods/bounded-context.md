@@ -54,3 +54,7 @@ Look for these signals when identifying context boundaries:
 ## FOE Alignment
 
 Bounded Context strongly supports the FOE principle of **Optimize for Understanding**. By limiting the scope of any single model, it reduces the cognitive load on developers. You don't need to understand the entire system—just your context. This constraint enables faster onboarding, clearer code ownership, and more confident changes within the boundary.
+
+## Related Observations
+
+- [DDD Bounded Contexts Observation](/docs/field-guides/observations/external/ddd-bounded-contexts) - External observation linking Bounded Contexts to the True Microservices method
