@@ -1,7 +1,7 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 title: "Consumer Contract Testing"
-maturity: observing
+maturity: validated
 observations:
   - external/thoughtworks-cdc-testing
   - external/robinson-consumer-driven-contracts
@@ -13,13 +13,9 @@ import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Consumer Contract Testing
 
-<MaturityBadge maturity="observing" />
+<MaturityBadge maturity="validated" />
 
 Validate service integration points through consumer-driven contracts—tests that verify providers honor what consumers actually need, enabling independent deployment without full end-to-end test environments.
-
-:::info Strong External Evidence
-This method has significant external validation from industry research, foundational papers, and enterprise case studies. We're gathering internal observations to validate it in our specific context.
-:::
 
 ## Overview
 
@@ -143,17 +139,17 @@ With contracts in place:
 
 ## Example
 
-### Before CDC: Deployment Fear
+### eBay Enterprise Adoption
 
-A team at eBay described their pre-CDC state:
+eBay adopted consumer-driven contract testing across their large microservices architecture:
+
+**Before CDC:**
 - E2E tests slow and brittle
 - Fear of breaking consumers with API changes
 - Coordinated releases to ensure compatibility
 - Deployment bottlenecks limiting velocity
 
-### After CDC: Independent Deployment
-
-After adopting contract testing:
+**After CDC:**
 - Fast, stable tests in unit test context
 - Confidence to evolve APIs knowing contracts catch issues
 - Independent deployment without coordination
@@ -195,20 +191,16 @@ When extracting services, contracts formalize the new boundary. If the contract 
 **Enables Early Feedback Loop Investment:**
 Contract tests are an early feedback mechanism—catching integration issues at build time, not production.
 
-## How You Can Help
-
-If you're testing this method:
-
-1. Review the external evidence (linked observations)
-2. Try CDC on a real service integration in your context
-3. Document your observation—especially setup challenges, team adoption, and measured outcomes
-4. Share what worked and what didn't
-
-We're particularly interested in:
-- First-time CDC adoption experiences
-- Migrations from heavy E2E to contract-based testing
-- Cases where CDC didn't work as expected
-
 ## Supporting Evidence
+
+This method is validated by strong external evidence:
+
+- **ThoughtWorks Technology Radar (2016):** "Adopt" rating - the highest recommendation level, calling CDC "an essential part of a mature microservice testing portfolio"
+- **Ian Robinson's foundational paper (2006):** Established the theoretical basis for consumer-driven contracts
+- **eBay case study (2023):** Enterprise-scale validation with internal tooling investment (Pact Initializer)
+
+:::note Internal Validation Pending
+This method has strong external evidence but awaits internal observation. Consider documenting your CDC adoption experience to strengthen the evidence base.
+:::
 
 <RelatedObservations />

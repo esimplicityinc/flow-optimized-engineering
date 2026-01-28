@@ -32,15 +32,15 @@ Good architecture isn't about following patterns—it's about making boundaries 
 
 Methods with strong supporting evidence (Validated or Proven):
 
-- *Coming soon*
+- [True Microservices](./methods/established/true-microservices) - Design service architectures that enable independent team deployment
+- [Consumer Contract Testing](./methods/established/consumer-contract-testing) - Validate service integration points through consumer-driven contracts
 
 ### Emerging Methods
 
 Methods currently being tested (Hypothesized or Observing):
 
-- [Consumer Contract Testing](./methods/emerging/consumer-contract-testing) - Validate service integration points through consumer-driven contracts
 - [Service Boundary Extraction](./methods/emerging/service-boundary-extraction) - Extract components with natural boundaries to dedicated containers
-- [True Microservices](./methods/emerging/true-microservices) - Design service architectures that enable independent team deployment
+- [System Over Individuals](./methods/emerging/system-over-individuals) - Optimize the system before blaming the people
 
 ### Adopted Methods
 

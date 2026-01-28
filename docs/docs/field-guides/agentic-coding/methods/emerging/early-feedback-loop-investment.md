@@ -3,7 +3,8 @@ sidebar_position: 2
 title: "Early Feedback Loop Investment"
 maturity: observing
 observations:
-  - prima-oss-fork-strategy
+  - internal/prima-oss-fork-strategy
+  - internal/prima-bdd-api-testing-adoption
 ---
 
 import MaturityBadge from '@site/src/components/MaturityBadge';

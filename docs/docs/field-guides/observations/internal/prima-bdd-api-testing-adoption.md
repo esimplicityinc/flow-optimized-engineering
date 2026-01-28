@@ -8,6 +8,7 @@ methods:
   - external-frameworks/bdd/methods/executable-specifications
   - external-frameworks/bdd/methods/gherkin
   - external-frameworks/bdd/methods/discovery-workshops
+  - agentic-coding/methods/emerging/early-feedback-loop-investment
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

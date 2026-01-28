@@ -3,7 +3,7 @@ sidebar_position: 1
 title: "Service Boundary Extraction"
 maturity: hypothesized
 observations:
-  - prima-presidio-containerization
+  - internal/prima-presidio-containerization
 ---
 
 import MaturityBadge from '@site/src/components/MaturityBadge';

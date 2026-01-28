@@ -1,11 +1,12 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 title: "True Microservices"
-maturity: observing
+maturity: validated
 observations:
   - internal/prima-microservices-architecture
   - internal/prima-presidio-containerization
   - external/team-topologies-inverse-conway
+  - external/team-topologies-bounded-contexts
   - external/fowler-lewis-microservices-definition
   - external/ddd-bounded-contexts
   - external/dora-loosely-coupled-architecture
@@ -17,14 +18,9 @@ import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # True Microservices
 
-<MaturityBadge maturity="observing" />
+<MaturityBadge maturity="validated" />
 
 Design service architectures that enable independent team deployment—not distributed monoliths wearing microservices clothing.
-
-:::info Observing
-This method has supporting evidence from external research. We're gathering internal 
-observations to validate it in our specific context.
-:::
 
 ## Overview
 
@@ -122,6 +118,22 @@ Design for partial failure. When Service B is down, Service A should:
 
 The goal: deploy Service A without worrying about Service B's state.
 
+## Example
+
+The **Prima Platform** architecture demonstrates both the benefits and the gaps of pursuing true microservices:
+
+**What worked:**
+- Control Tower, Engine, and Web as independent subsystems with separate repos and CI/CD
+- Platform services (Kong, Redis, Auth0) accessed via stable APIs
+- ADRs documenting architectural decisions for security reviewers
+
+**What revealed distributed monolith characteristics:**
+- Engine's readiness check requires Control Tower to be healthy
+- 773-line adapter with intimate knowledge of Control Tower's API structure
+- Issue #397 raised "merge to monorepo" due to deployment friction
+
+**Key insight:** True microservices require more than just service separation—they require investment in resilience infrastructure (circuit breakers, graceful degradation, API versioning). Without this investment, teams experience the complexity of distribution without the benefits of independence.
+
 ## Common Pitfalls
 
 1. **Database sharing** — The most common distributed monolith pattern. If services share a database, they share deployment timing. Extract data ownership with each service.
@@ -134,26 +146,27 @@ The goal: deploy Service A without worrying about Service B's state.
 
 5. **Orphaned services** — Services without clear ownership accumulate tech debt and become coordination bottlenecks. Every service needs an owner.
 
-## How You Can Help
-
-If you're testing this method:
-
-1. Review the current approach
-2. Try applying these principles to a new service boundary or evaluating an existing architecture
-3. Document your observation with specific outcomes
-4. Share what worked and what didn't
-
-We're particularly interested in:
-- Migrations from distributed monolith to true microservices
-- Cases where the "independence litmus test" revealed hidden coupling
-- Examples of effective shared platform and capability services
+6. **Missing resilience infrastructure** — Circuit breakers, graceful degradation, and API versioning aren't optional. Without them, distributed systems have distributed complexity but coupled operations.
 
 ## Supporting Evidence
+
+This method is validated by:
+
+**External Research:**
+- DORA research shows loosely coupled architecture correlates with 208x more frequent deployment and 106x faster lead time
+- Fowler & Lewis (2014) established independent deployability as the defining characteristic of microservices
+- Team Topologies demonstrates that team boundaries should align with service boundaries (Inverse Conway Maneuver)
+- Domain-Driven Design's Bounded Contexts provide the theoretical foundation for service boundaries
+
+**Internal Observations:**
+- Prima Platform architecture shows both benefits (independent repos, ADRs, platform services) and gaps (runtime coupling, heavy adapters)
+- Presidio containerization demonstrates service boundary extraction improving dependency management
 
 <RelatedObservations observations={[
   { slug: 'internal/prima-microservices-architecture', title: 'Prima Platform Microservices Architecture', status: 'completed' },
   { slug: 'internal/prima-presidio-containerization', title: 'Containerizing Heavy ML Dependencies', status: 'completed' },
   { slug: 'external/team-topologies-inverse-conway', title: 'Team Topologies: Inverse Conway Maneuver', status: 'completed' },
+  { slug: 'external/team-topologies-bounded-contexts', title: 'Team Topologies: Bounded Contexts and Cognitive Load', status: 'completed' },
   { slug: 'external/fowler-lewis-microservices-definition', title: 'Microservices Definition (Fowler & Lewis)', status: 'completed' },
   { slug: 'external/ddd-bounded-contexts', title: 'Domain-Driven Design: Bounded Contexts', status: 'completed' },
   { slug: 'external/dora-loosely-coupled-architecture', title: 'DORA: Loosely Coupled Architecture Capability', status: 'completed' },
