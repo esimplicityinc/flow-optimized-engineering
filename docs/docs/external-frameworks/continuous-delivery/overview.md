@@ -74,7 +74,14 @@ Continuous Delivery aligns strongly with all three Flow Optimized Engineering pr
 
 ## Methods
 
-See the [Methods section](./methods) for detailed documentation of core Continuous Delivery practices.
+Core Continuous Delivery methods:
+
+- [Deployment Pipeline](./methods/deployment-pipeline) - Automated path from commit to production
+- [Trunk-Based Development](./methods/trunk-based-development) - Collaborate on a single branch
+- [Feature Flags](./methods/feature-flags) - Decouple deployment from release
+- [Blue-Green Deployment](./methods/blue-green-deployment) - Zero-downtime deployments
+- [Canary Release](./methods/canary-release) - Gradual rollout to detect issues
+- [Infrastructure as Code](./methods/infrastructure-as-code) - Treat infrastructure like application code
 
 ## Further Reading
 

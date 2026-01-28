@@ -72,7 +72,23 @@ Team Topologies aligns strongly with all three Flow Optimized Engineering princi
 
 ## Methods
 
-See the [Methods section](./methods) for detailed documentation of each Team Topologies concept.
+**Team Types:**
+- [Stream-Aligned Team](./methods/stream-aligned-team) - End-to-end ownership of a value stream
+- [Platform Team](./methods/platform-team) - Internal products that accelerate delivery
+- [Enabling Team](./methods/enabling-team) - Help others overcome obstacles
+- [Complicated-Subsystem Team](./methods/complicated-subsystem-team) - Deep expertise domains
+
+**Interaction Modes:**
+- [Collaboration Mode](./methods/collaboration-mode) - Working closely together
+- [X-as-a-Service Mode](./methods/x-as-a-service-mode) - Consume via clear API
+- [Facilitating Mode](./methods/facilitating-mode) - Helping and coaching
+
+**Core Concepts:**
+- [Fast Flow](./methods/fast-flow) - Optimize for speed of value delivery
+- [Team Cognitive Load](./methods/team-cognitive-load) - Limit what teams own
+- [Team API](./methods/team-api) - Define how teams interact
+- [Inverse Conway Maneuver](./methods/inverse-conway-maneuver) - Design teams for desired architecture
+- [Thinnest Viable Platform](./methods/thinnest-viable-platform) - Only what's needed
 
 ## Existing FOE Observations
 
