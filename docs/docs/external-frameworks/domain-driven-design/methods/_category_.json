@@ -1,0 +1,11 @@
+{
+  "label": "Methods",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Domain-Driven Design Methods",
+    "description": "Strategic and tactical patterns from Domain-Driven Design."
+  }
+}

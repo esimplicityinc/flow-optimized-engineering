@@ -1,0 +1,10 @@
+{
+  "label": "Domain-Driven Design",
+  "position": 3,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "doc",
+    "id": "external-frameworks/domain-driven-design/overview"
+  }
+}
