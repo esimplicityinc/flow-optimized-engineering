@@ -1,9 +1,9 @@
 ---
 sidebar_position: 4
-title: Using AI Agents
+title: Field Guide Agents
 ---
 
-# Using AI Agents
+# Field Guide Agents
 
 Five OpenCode agents help you contribute to Field Guides:
 

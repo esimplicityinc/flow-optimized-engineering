@@ -86,17 +86,25 @@ function spineEffectCurve(spineStrength: number): number {
 }
 
 /**
- * Risk = chaos manifested
+ * Risk = baseline operational risk + chaos-driven risk
+ * Baseline: 10% (inherent risk of doing anything)
  * High AI + weak spine = high risk
- * High AI + strong spine = near zero risk
+ * High AI + strong spine = drops below baseline (systems reduce risk)
  */
 function computeRisk(aiFactor: number, spineStrength: number): number {
   const chaos = computeChaos(aiFactor, spineStrength);
-  // Steeper curve: risk drops fast as chaos decreases
-  // At chaos 0.1 (full AI + full FOE): ~3%
-  // At chaos 0.5 (full AI + mid FOE): ~35%
-  // At chaos 0.7 (full AI + low FOE): ~55%
-  const risk = Math.pow(chaos, 1.3) * 120;
+  const control = computeControl(aiFactor, spineStrength);
+  
+  // Baseline operational risk
+  const baseRisk = 10;
+  
+  // Chaos adds risk (accelerating)
+  const chaosRisk = Math.pow(chaos, 1.2) * 100;
+  
+  // Control reduces risk (strong spine + AI = safer than no AI)
+  const controlReduction = Math.pow(control, 0.8) * 12;
+  
+  const risk = baseRisk + chaosRisk - controlReduction;
   return Math.max(0, Math.min(100, risk));
 }
 
