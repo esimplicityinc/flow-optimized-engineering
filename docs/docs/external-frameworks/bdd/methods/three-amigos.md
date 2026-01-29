@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 2
 title: Three Amigos
 pillar: discovery

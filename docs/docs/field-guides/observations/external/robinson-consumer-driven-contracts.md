@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 21
 title: "Consumer-Driven Contracts: A Service Evolution Pattern"
 status: completed

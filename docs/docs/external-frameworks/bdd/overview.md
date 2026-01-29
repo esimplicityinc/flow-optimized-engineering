@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 1
 title: Behavior-Driven Development
 status: well-established

@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 2
 title: Platform Team
 description: Teams that provide a compelling internal product to accelerate delivery by stream-aligned teams.

@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 3
 title: "Knowledge Distribution as Reliability"
 maturity: observing

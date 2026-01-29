@@ -1,7 +1,7 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 1
 title: External Frameworks
-displayed_sidebar: fieldGuideSidebar
 ---
 
 # External Frameworks

@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 1
 title: Stream-Aligned Team
 description: The primary team type aligned to a flow of work from a business domain segment.

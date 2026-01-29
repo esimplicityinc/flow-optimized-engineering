@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 5
 title: Canary Release
 description: Reduce risk by slowly rolling out changes to a small subset of users before full deployment.

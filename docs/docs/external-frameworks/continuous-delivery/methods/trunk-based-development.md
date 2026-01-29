@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 2
 title: Trunk-Based Development
 description: A branching model where developers collaborate on code in a single branch, avoiding long-lived feature branches.

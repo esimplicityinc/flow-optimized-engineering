@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 23
 title: "DORA 2023: User-Centricity Research"
 status: completed

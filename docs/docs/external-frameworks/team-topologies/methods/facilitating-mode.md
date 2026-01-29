@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 7
 title: Facilitating Mode
 description: One team helps and mentors another team, removing obstacles.

@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 3
 title: Enabling Team
 description: Teams that help stream-aligned teams overcome obstacles and build capabilities, then move on.

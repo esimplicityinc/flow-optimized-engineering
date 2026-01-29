@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 6
 title: X-as-a-Service Mode
 description: One team provides something "as a Service" with minimal interaction required.

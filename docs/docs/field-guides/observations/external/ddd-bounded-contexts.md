@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 12
 title: "Domain-Driven Design: Bounded Contexts"
 status: completed

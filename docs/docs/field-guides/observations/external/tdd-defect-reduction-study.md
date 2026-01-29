@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 4
 title: "TDD Defect Reduction: Microsoft/IBM Study"
 status: completed

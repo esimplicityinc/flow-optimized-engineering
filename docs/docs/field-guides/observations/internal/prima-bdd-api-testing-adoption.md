@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 5
 title: "Prima: BDD Adoption for API Testing"
 status: completed

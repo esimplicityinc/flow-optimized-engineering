@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 11
 title: Fast Flow
 description: The ability to quickly move work from idea to customer value.

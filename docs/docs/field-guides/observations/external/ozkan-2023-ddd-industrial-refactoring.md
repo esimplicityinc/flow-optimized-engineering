@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 13
 title: "DDD Industrial Refactoring: Automotive Case Study"
 status: completed

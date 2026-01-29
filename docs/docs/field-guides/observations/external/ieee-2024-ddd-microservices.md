@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 14
 title: "Domain-Driven Design for Microservices: An Evidence-Based Investigation"
 status: completed

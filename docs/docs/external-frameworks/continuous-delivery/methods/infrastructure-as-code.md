@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 6
 title: Infrastructure as Code
 description: Manage and provision infrastructure through machine-readable configuration files rather than manual processes.

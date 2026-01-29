@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 4
 title: "Verification Before Completion"
 maturity: hypothesized

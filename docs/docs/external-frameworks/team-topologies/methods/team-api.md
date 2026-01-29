@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 12
 title: Team API
 description: A clear definition of how a team interacts with other teams.

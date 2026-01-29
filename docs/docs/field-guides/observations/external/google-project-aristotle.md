@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 2
 title: "Google Project Aristotle: Psychological Safety"
 status: completed

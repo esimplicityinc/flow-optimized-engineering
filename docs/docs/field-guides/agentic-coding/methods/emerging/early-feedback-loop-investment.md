@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 2
 title: "Early Feedback Loop Investment"
 maturity: observing

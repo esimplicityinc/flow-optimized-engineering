@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 4
 title: Blue-Green Deployment
 description: Maintain two identical production environments, switching traffic between them for zero-downtime deployments.

@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 13
 title: "DORA: Loosely Coupled Architecture Capability"
 status: completed

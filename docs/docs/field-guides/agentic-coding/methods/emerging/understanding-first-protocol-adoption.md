@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 1
 title: "Understanding-First Protocol Adoption"
 maturity: observing

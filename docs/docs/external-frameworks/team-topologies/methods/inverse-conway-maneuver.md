@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 9
 title: Inverse Conway Maneuver
 description: Deliberately designing team structures to produce a desired software architecture.

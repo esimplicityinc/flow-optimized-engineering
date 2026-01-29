@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 3
 title: Feature Flags
 description: Configuration options that allow hiding incomplete features from users while continuing to integrate code.

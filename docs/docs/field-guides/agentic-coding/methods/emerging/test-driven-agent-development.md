@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 5
 title: "Test-Driven Agent Development"
 maturity: hypothesized

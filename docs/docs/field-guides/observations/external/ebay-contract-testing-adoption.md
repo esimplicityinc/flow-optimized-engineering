@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 22
 title: "eBay: Contract Testing Adoption Case Study"
 status: completed

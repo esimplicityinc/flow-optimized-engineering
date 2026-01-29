@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 7
 title: "Root-Cause-First Debugging"
 maturity: hypothesized

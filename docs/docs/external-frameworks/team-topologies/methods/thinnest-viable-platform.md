@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 10
 title: Thinnest Viable Platform
 description: Creating platforms with just enough capability without unnecessary complexity.

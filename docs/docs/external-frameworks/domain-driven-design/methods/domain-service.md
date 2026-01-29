@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 10
 title: Domain Service
 pillar: tactical-design

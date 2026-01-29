@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 8
 title: Domain Event
 pillar: tactical-design

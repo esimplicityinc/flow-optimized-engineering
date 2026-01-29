@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 6
 title: "Persistent Planning State"
 maturity: hypothesized

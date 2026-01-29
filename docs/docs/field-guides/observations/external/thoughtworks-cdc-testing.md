@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 20
 title: "ThoughtWorks: Consumer-Driven Contract Testing"
 status: completed

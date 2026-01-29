@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 3
 title: Develop Phase
 pillar: problem-solving

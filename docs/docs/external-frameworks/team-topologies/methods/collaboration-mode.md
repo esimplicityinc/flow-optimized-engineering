@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 5
 title: Collaboration Mode
 description: Two teams working closely together for a defined period to discover new things.

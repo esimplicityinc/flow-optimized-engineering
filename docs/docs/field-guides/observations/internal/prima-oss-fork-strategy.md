@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 1
 title: "Prima: Enterprise AI Platform via OSS Fork Strategy"
 status: completed

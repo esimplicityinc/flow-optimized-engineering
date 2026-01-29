@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 8
 title: "BDD Specification Maintenance Challenges"
 status: completed

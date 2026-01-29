@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 24
 title: "Why Design Thinking Works (HBR 2018)"
 status: completed

@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 6
 title: "BDD Benefits and Challenges: Industrial Study"
 status: completed

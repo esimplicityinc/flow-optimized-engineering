@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 8
 title: Team Cognitive Load
 description: The mental effort required for teams to manage their work, which must be actively monitored.

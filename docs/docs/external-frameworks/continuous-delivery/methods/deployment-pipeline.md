@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 1
 title: Deployment Pipeline
 description: An automated process that takes changes from version control through build, test, and deployment stages.

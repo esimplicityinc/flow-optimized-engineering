@@ -1,4 +1,5 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 15
 title: "Team Topologies: Bounded Contexts and Cognitive Load"
 status: completed
