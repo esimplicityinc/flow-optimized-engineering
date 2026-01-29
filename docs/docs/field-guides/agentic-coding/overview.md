@@ -1,7 +1,7 @@
 ---
+displayed_sidebar: fieldGuideSidebar
 sidebar_position: 1
 title: Agentic Coding
-displayed_sidebar: fieldGuideSidebar
 adopted_methods:
   - framework: dora
     method: deployment-frequency
@@ -103,7 +103,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       description: 'Investigate root cause before applying fixes',
     },
   ]}
-  adoptedMethods={[
+  externalMethods={[
     {
       framework: 'dora',
       method: 'deployment-frequency',

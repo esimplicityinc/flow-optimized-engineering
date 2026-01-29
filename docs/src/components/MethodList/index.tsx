@@ -13,9 +13,9 @@ interface Method {
 }
 
 /**
- * Extended adopted method with display info
+ * Extended external method with display info
  */
-interface AdoptedMethodDisplay extends AdoptedMethod {
+interface ExternalMethodDisplay extends AdoptedMethod {
   title: string;
   description?: string;
   frameworkTitle?: string;
@@ -27,13 +27,13 @@ interface MethodListProps {
    */
   guideId: string;
   /**
-   * List of native methods to display.
+   * List of internal (FOE-created) methods to display.
    */
   methods?: Method[];
   /**
-   * List of adopted methods from external frameworks.
+   * List of external methods from external frameworks.
    */
-  adoptedMethods?: AdoptedMethodDisplay[];
+  externalMethods?: ExternalMethodDisplay[];
 }
 
 /**
@@ -41,14 +41,14 @@ interface MethodListProps {
  * Established = validated or proven
  * Emerging = hypothesized or experimenting
  * 
- * Includes both native methods and adopted methods from external frameworks.
+ * Includes both internal methods and external methods from frameworks.
  */
 export default function MethodList({
   guideId,
   methods = [],
-  adoptedMethods = [],
+  externalMethods = [],
 }: MethodListProps): React.ReactElement {
-  const hasAnyMethods = methods.length > 0 || adoptedMethods.length > 0;
+  const hasAnyMethods = methods.length > 0 || externalMethods.length > 0;
   
   if (!hasAnyMethods) {
     return (
@@ -58,23 +58,23 @@ export default function MethodList({
     );
   }
 
-  // Separate native methods by maturity
-  const establishedNative = methods.filter(
+  // Separate internal methods by maturity
+  const establishedInternal = methods.filter(
     (m) => m.maturity === 'validated' || m.maturity === 'proven'
   );
-  const emergingNative = methods.filter(
+  const emergingInternal = methods.filter(
     (m) => m.maturity === 'hypothesized' || m.maturity === 'experimenting'
   );
 
-  // Separate adopted methods by FOE maturity
-  const establishedAdopted = adoptedMethods.filter(
+  // Separate external methods by FOE maturity
+  const establishedExternal = externalMethods.filter(
     (m) => m.foe_maturity === 'validated' || m.foe_maturity === 'proven'
   );
-  const emergingAdopted = adoptedMethods.filter(
+  const emergingExternal = externalMethods.filter(
     (m) => m.foe_maturity === 'hypothesized' || m.foe_maturity === 'experimenting'
   );
 
-  const renderNativeMethodCard = (method: Method, section: 'established' | 'emerging') => {
+  const renderInternalMethodCard = (method: Method, section: 'established' | 'emerging') => {
     const config = getMaturityConfig(method.maturity);
     const path = `/docs/field-guides/${guideId}/methods/${section}/${method.slug}`;
 
@@ -102,19 +102,23 @@ export default function MethodList({
     );
   };
 
-  const renderAdoptedMethodCard = (adopted: AdoptedMethodDisplay) => {
-    const config = getMaturityConfig(adopted.foe_maturity);
-    const path = `/docs/external-frameworks/${adopted.framework}/methods/${adopted.method}`;
-    const key = `${adopted.framework}/${adopted.method}`;
+  const renderExternalMethodCard = (external: AdoptedMethodDisplay) => {
+    const config = getMaturityConfig(external.foe_maturity);
+    // External methods now live alongside internal methods, organized by maturity
+    const section = (external.foe_maturity === 'validated' || external.foe_maturity === 'proven') 
+      ? 'established' 
+      : 'emerging';
+    const path = `/docs/field-guides/${guideId}/methods/${section}/${external.method}`;
+    const key = `${external.framework}/${external.method}`;
 
     return (
       <Link key={key} to={path} className={styles.card}>
         <div className={styles.cardHeader}>
-          <span className={styles.cardTitle}>{adopted.title}</span>
+          <span className={styles.cardTitle}>{external.title}</span>
           <div className={styles.badges}>
             <FrameworkBadge 
-              framework={adopted.framework} 
-              frameworkTitle={adopted.frameworkTitle}
+              framework={external.framework} 
+              frameworkTitle={external.frameworkTitle}
               linkToFramework={false}
               size="small"
             />
@@ -126,21 +130,21 @@ export default function MethodList({
             </span>
           </div>
         </div>
-        {adopted.description && (
-          <p className={styles.cardDescription}>{adopted.description}</p>
+        {external.description && (
+          <p className={styles.cardDescription}>{external.description}</p>
         )}
-        {adopted.experiments && adopted.experiments.length > 0 && (
+        {external.observations && external.observations.length > 0 && (
           <div className={styles.cardMeta}>
-            {adopted.experiments.length} experiment
-            {adopted.experiments.length !== 1 ? 's' : ''}
+            {external.observations.length} observation
+            {external.observations.length !== 1 ? 's' : ''}
           </div>
         )}
       </Link>
     );
   };
 
-  const hasEstablished = establishedNative.length > 0 || establishedAdopted.length > 0;
-  const hasEmerging = emergingNative.length > 0 || emergingAdopted.length > 0;
+  const hasEstablished = establishedInternal.length > 0 || establishedExternal.length > 0;
+  const hasEmerging = emergingInternal.length > 0 || emergingExternal.length > 0;
 
   return (
     <div className={styles.container}>
@@ -151,8 +155,8 @@ export default function MethodList({
             Methods with strong supporting evidence (Validated or Proven).
           </p>
           <div className={styles.grid}>
-            {establishedNative.map((m) => renderNativeMethodCard(m, 'established'))}
-            {establishedAdopted.map(renderAdoptedMethodCard)}
+            {establishedInternal.map((m) => renderInternalMethodCard(m, 'established'))}
+            {establishedExternal.map(renderExternalMethodCard)}
           </div>
         </section>
       )}
@@ -164,8 +168,8 @@ export default function MethodList({
             Methods currently being tested (Hypothesized or Experimenting).
           </p>
           <div className={styles.grid}>
-            {emergingNative.map((m) => renderNativeMethodCard(m, 'emerging'))}
-            {emergingAdopted.map(renderAdoptedMethodCard)}
+            {emergingInternal.map((m) => renderInternalMethodCard(m, 'emerging'))}
+            {emergingExternal.map(renderExternalMethodCard)}
           </div>
         </section>
       )}
