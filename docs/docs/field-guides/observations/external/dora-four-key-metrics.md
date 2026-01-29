@@ -13,7 +13,7 @@ methods:
   - external-frameworks/dora/methods/lead-time-for-changes
   - external-frameworks/dora/methods/change-failure-rate
   - external-frameworks/dora/methods/time-to-restore-service
-  - architecture/methods/emerging/true-microservices
+  - architecture/methods/established/true-microservices
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

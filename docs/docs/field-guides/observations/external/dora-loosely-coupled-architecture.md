@@ -9,7 +9,7 @@ source:
   year: 2023
   url: "https://dora.dev/capabilities/loosely-coupled-architecture/"
 methods:
-  - architecture/methods/emerging/true-microservices
+  - architecture/methods/established/true-microservices
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

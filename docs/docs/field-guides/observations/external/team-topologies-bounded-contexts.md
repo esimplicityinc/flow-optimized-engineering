@@ -12,7 +12,7 @@ methods:
   - external-frameworks/domain-driven-design/methods/bounded-context
   - external-frameworks/domain-driven-design/methods/context-mapping
   - external-frameworks/domain-driven-design/methods/subdomains
-  - architecture/methods/emerging/true-microservices
+  - architecture/methods/established/true-microservices
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

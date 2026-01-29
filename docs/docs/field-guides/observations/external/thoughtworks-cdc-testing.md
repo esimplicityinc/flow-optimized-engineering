@@ -9,7 +9,7 @@ source:
   year: 2016
   url: "https://www.thoughtworks.com/en-us/radar/techniques/consumer-driven-contract-testing"
 methods:
-  - architecture/methods/emerging/consumer-contract-testing
+  - architecture/methods/established/consumer-contract-testing
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

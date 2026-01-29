@@ -9,7 +9,7 @@ source:
   year: 2003
   url: "https://www.domainlanguage.com/ddd/"
 methods:
-  - architecture/methods/emerging/true-microservices
+  - architecture/methods/established/true-microservices
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

@@ -68,7 +68,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Observations',
-      collapsed: false,
+      collapsed: true,
       items: [
         {
           type: 'category',
@@ -107,7 +107,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'External Frameworks',
-      collapsed: false,
+      collapsed: true,
       link: {
         type: 'doc',
         id: 'external-frameworks/overview',

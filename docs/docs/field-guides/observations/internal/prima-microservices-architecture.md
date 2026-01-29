@@ -4,7 +4,7 @@ title: "Prima Platform Microservices Architecture"
 status: completed
 source_type: internal
 methods:
-  - architecture/methods/emerging/true-microservices
+  - architecture/methods/established/true-microservices
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

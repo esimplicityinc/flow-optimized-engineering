@@ -9,7 +9,7 @@ source:
   year: 2023
   url: "https://innovation.ebayinc.com/stories/api-evolution-with-confidence-a-case-study-of-contract-testing-adoption-at-ebay/"
 methods:
-  - architecture/methods/emerging/consumer-contract-testing
+  - architecture/methods/established/consumer-contract-testing
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

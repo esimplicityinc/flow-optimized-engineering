@@ -9,7 +9,7 @@ source:
   year: 2014
   url: "https://martinfowler.com/articles/microservices.html"
 methods:
-  - architecture/methods/emerging/true-microservices
+  - architecture/methods/established/true-microservices
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

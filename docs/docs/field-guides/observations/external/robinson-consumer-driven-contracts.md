@@ -9,7 +9,7 @@ source:
   year: 2006
   url: "https://martinfowler.com/articles/consumerDrivenContracts.html"
 methods:
-  - architecture/methods/emerging/consumer-contract-testing
+  - architecture/methods/established/consumer-contract-testing
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

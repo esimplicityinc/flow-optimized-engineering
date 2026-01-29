@@ -454,6 +454,36 @@ h4:hover .hash-link {
   opacity: 1 !important;
 }
 
+/* Field Guides sidebar - Visual hierarchy */
+/* Primary guides (Agentic Coding, Architecture) - prominent styling */
+.menu__link[href*="/agentic-coding/overview"],
+.menu__link[href*="/architecture/overview"] {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+/* Supporting content - de-emphasized */
+.menu__list-item:has(> .menu__list-item-collapsible > .menu__link[href*="observations"]) > .menu__list-item-collapsible > .menu__link,
+.menu__list-item:has(> .menu__list-item-collapsible > .menu__link[href*="external-frameworks"]) > .menu__list-item-collapsible > .menu__link,
+.menu__list-item:has(> .menu__list-item-collapsible > .menu__link[href*="about-field-guides"]) > .menu__list-item-collapsible > .menu__link {
+  opacity: 0.65;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+/* Also match text-based selectors for categories without hrefs */
+.theme-doc-sidebar-menu .menu__list-item-collapsible .menu__link:not([href*="/agentic-coding"]):not([href*="/architecture"]):not([href*="/overview"]) {
+  /* Default subdued style for non-primary categories */
+}
+
+/* Ensure primary guide links stay bold on hover/active */
+.menu__link[href*="/agentic-coding/overview"]:hover,
+.menu__link[href*="/architecture/overview"]:hover,
+.menu__link[href*="/agentic-coding/overview"].menu__link--active,
+.menu__link[href*="/architecture/overview"].menu__link--active {
+  font-weight: 600;
+}
+
 /* Field Guides navbar link with icon */
 .navbar__link--field-guides::before {
   content: '';
