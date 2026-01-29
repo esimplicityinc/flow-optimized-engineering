@@ -17,6 +17,10 @@ import Link from '@docusaurus/Link';
     <strong style={{fontSize: '1.1rem', color: 'var(--ifm-color-primary)'}}>Agentic Coding</strong>
     <p style={{margin: '0.5rem 0 0 0', fontSize: '0.9rem', color: 'var(--ifm-color-emphasis-700)'}}>Flow-optimized practices for AI-assisted development</p>
   </Link>
+  <Link to="./architecture/overview" style={{display: 'block', padding: '1.25rem', border: '2px solid var(--ifm-color-primary)', borderRadius: '0.5rem', textDecoration: 'none', color: 'inherit'}}>
+    <strong style={{fontSize: '1.1rem', color: 'var(--ifm-color-primary)'}}>Architecture</strong>
+    <p style={{margin: '0.5rem 0 0 0', fontSize: '0.9rem', color: 'var(--ifm-color-emphasis-700)'}}>Flow-optimized methods for structural system decisions</p>
+  </Link>
 </div>
 
 ---
