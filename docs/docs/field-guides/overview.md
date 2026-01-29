@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: Field Guides
+displayed_sidebar: fieldGuideSidebar
 ---
 
 # Field Guides

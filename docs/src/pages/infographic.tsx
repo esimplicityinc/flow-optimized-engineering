@@ -1,6 +1,4 @@
 import type { ReactNode } from 'react';
-import { useEffect } from 'react';
-import Head from '@docusaurus/Head';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import styles from './infographic.module.css';
@@ -560,24 +558,11 @@ function CallToAction(): ReactNode {
 // ============================================
 
 export default function Infographic(): ReactNode {
-  useEffect(() => {
-    document.documentElement.classList.add('hide-navbar');
-    return () => {
-      document.documentElement.classList.remove('hide-navbar');
-    };
-  }, []);
-
   return (
     <Layout
       title="FOE Playbook"
       description="The Flow Optimized Engineering Playbook: 8 plays for speed with coherence"
     >
-      <Head>
-        <style>{`
-          .navbar { display: none !important; }
-          .main-wrapper { padding-top: 0 !important; }
-        `}</style>
-      </Head>
       <main className={styles.infographic} id="top">
         <HeroSection />
         <ThesisBanner />

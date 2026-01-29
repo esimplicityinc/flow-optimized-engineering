@@ -55,19 +55,6 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: 'docs',
-          lastVersion: 'current',
-          versions: {
-            current: {
-              label: 'FOE + Katalyst',
-              path: '',
-              banner: 'none',
-            },
-            'foe-core': {
-              label: 'FOE Core',
-              path: 'foe-core',
-              badge: false,
-            },
-          },
         },
         blog: {
           showReadingTime: true,
@@ -112,15 +99,13 @@ const config: Config = {
           label: 'Implementation Plan',
           position: 'left',
         },
+
         {
-          type: 'docsVersionDropdown',
+          type: 'docSidebar',
+          sidebarId: 'fieldGuideSidebar',
           position: 'right',
-          dropdownActiveClassDisabled: true,
-        },
-        {
-          href: 'https://github.com/esimplicityinc/flow-optimized-engineering',
-          label: 'GitHub',
-          position: 'right',
+          label: 'Field Guides',
+          className: 'navbar__link--field-guides',
         },
       ],
     },

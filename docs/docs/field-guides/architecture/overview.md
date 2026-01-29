@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: Architecture
+displayed_sidebar: fieldGuideSidebar
 adopted_methods:
   - framework: bdd
     method: discovery-workshops

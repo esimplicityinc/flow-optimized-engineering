@@ -1,0 +1,887 @@
+/**
+ * eSimplicity FOE Plan Page Styles
+ * Tactical, table-heavy aesthetic
+ */
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+
+.planPage {
+  --plan-bg-hero: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  --plan-accent: #3B82F6;
+  --plan-accent-light: #60A5FA;
+  --plan-success: #10B981;
+  --plan-warning: #F59E0B;
+  --plan-info: #6366F1;
+  --plan-muted: #64748B;
+  --plan-border: #E2E8F0;
+  --plan-bg-section: #F8FAFC;
+  --plan-max-width: 1000px;
+}
+
+[data-theme='dark'] .planPage {
+  --plan-border: #334155;
+  --plan-bg-section: #1E293B;
+  --plan-muted: #94A3B8;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+.planPage {
+  min-height: 100vh;
+}
+
+.lanesContainer {
+  max-width: var(--plan-max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  background: var(--plan-bg-hero);
+  padding: 3rem 2rem 4rem;
+  text-align: center;
+  color: white;
+}
+
+.heroContent {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.backLink svg {
+  width: 16px;
+  height: 16px;
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 0.375rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  border-radius: 9999px;
+  color: #93C5FD;
+  margin-bottom: 1rem;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+  color: white;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 1rem;
+}
+
+.heroDescription {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================
+   ROADMAP VISUALIZATION
+   ============================================ */
+
+.roadmapSection {
+  padding: 2.5rem 1.5rem;
+  background: var(--plan-bg-section);
+  overflow-x: auto;
+}
+
+.roadmapContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-width: 800px;
+}
+
+.roadmapLabels {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 140px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.roadmapLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 80px;
+  padding: 0 1rem;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+}
+
+.labelIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--plan-accent);
+}
+
+.labelIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.labelText {
+  font-size: 0.875rem;
+}
+
+.swimlanes {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 140px;
+}
+
+.swimlane {
+  display: flex;
+  align-items: center;
+  min-height: 80px;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--plan-border);
+  position: relative;
+}
+
+.swimlane:last-child {
+  border-bottom: none;
+}
+
+.swimlane::before {
+  content: '';
+  position: absolute;
+  left: -140px;
+  top: 0;
+  bottom: 0;
+  width: 140px;
+  display: flex;
+  align-items: center;
+}
+
+.swimlane[data-lane="people"] {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
+}
+
+.swimlane[data-lane="process"] {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.05) 0%, transparent 100%);
+}
+
+.swimlane[data-lane="tech"] {
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.05) 0%, transparent 100%);
+}
+
+.swimlaneTrack {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+}
+
+.roadmapItem {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--plan-border);
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.roadmapItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.swimlane[data-lane="people"] .roadmapItem {
+  border-left: 3px solid #3B82F6;
+}
+
+.swimlane[data-lane="process"] .roadmapItem {
+  border-left: 3px solid #10B981;
+}
+
+.swimlane[data-lane="tech"] .roadmapItem {
+  border-left: 3px solid #8B5CF6;
+}
+
+.roadmapItemGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(139, 92, 246, 0.05);
+  border-radius: 10px;
+  border: 1px dashed rgba(139, 92, 246, 0.2);
+}
+
+.trackLabel {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--plan-muted);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  padding: 0.25rem;
+}
+
+.flowIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding-right: 1rem;
+  color: var(--plan-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.flowIndicator svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Wrapper for labels + lanes */
+.roadmapContainer {
+  position: relative;
+}
+
+.roadmapLabels {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.swimlane[data-lane="people"] ~ .roadmapLabels .roadmapLabel:first-child,
+.swimlane[data-lane="process"] ~ .roadmapLabels .roadmapLabel:nth-child(2),
+.swimlane[data-lane="tech"] ~ .roadmapLabels .roadmapLabel:nth-child(3) {
+  background: transparent;
+}
+
+/* ============================================
+   LANE OVERVIEW (legacy, kept for reference)
+   ============================================ */
+
+.laneOverview {
+  padding: 3rem 1.5rem;
+  background: var(--plan-bg-section);
+}
+
+.laneCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: var(--plan-max-width);
+  margin: 0 auto;
+}
+
+.laneCard {
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--plan-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.laneCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.laneIcon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  color: var(--plan-accent);
+}
+
+.laneIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.laneTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.laneTagline {
+  font-size: 0.875rem;
+  color: var(--plan-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ============================================
+   LANE SECTIONS
+   ============================================ */
+
+.laneSection {
+  margin-bottom: 2rem;
+  border: 1px solid var(--plan-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--ifm-card-background-color);
+}
+
+.laneSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.laneSectionHeader:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme='dark'] .laneSectionHeader:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.laneSectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.laneNumber {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--plan-accent);
+  padding: 0.25rem 0.75rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 6px;
+}
+
+.laneSectionTitle h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--ifm-heading-color);
+}
+
+.chevron {
+  width: 24px;
+  height: 24px;
+  color: var(--plan-muted);
+  transition: transform 0.2s ease;
+}
+
+.chevron.expanded {
+  transform: rotate(180deg);
+}
+
+.laneSectionContent {
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid var(--plan-border);
+}
+
+.thesis {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--plan-muted);
+  border-left: 3px solid var(--plan-accent);
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 0 8px 8px 0;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+
+.tableWrapper {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.initiativeTable,
+.techTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.initiativeTable th,
+.initiativeTable td,
+.techTable th,
+.techTable td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--plan-border);
+}
+
+.initiativeTable th,
+.techTable th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--plan-muted);
+  background: var(--plan-bg-section);
+}
+
+.initiativeTable tr:last-child td,
+.techTable tr:last-child td {
+  border-bottom: none;
+}
+
+.initiativeName,
+.componentName {
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+  white-space: nowrap;
+}
+
+.evidence {
+  color: var(--plan-muted);
+  font-size: 0.8125rem;
+}
+
+/* ============================================
+   TECH TRACKS
+   ============================================ */
+
+.techTrack {
+  margin-top: 2rem;
+}
+
+.techTrack:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.trackTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--ifm-heading-color);
+}
+
+.trackDescription {
+  font-size: 0.875rem;
+  color: var(--plan-muted);
+  margin: 0 0 1rem;
+}
+
+/* ============================================
+   STATUS BADGES
+   ============================================ */
+
+.statusBadge {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.statusBadge.active {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.statusBadge.in-progress {
+  background: rgba(245, 158, 11, 0.1);
+  color: #D97706;
+}
+
+.statusBadge.planned {
+  background: rgba(99, 102, 241, 0.1);
+  color: #4F46E5;
+}
+
+.statusBadge.established {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563EB;
+}
+
+[data-theme='dark'] .statusBadge.active {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+}
+
+[data-theme='dark'] .statusBadge.in-progress {
+  background: rgba(245, 158, 11, 0.2);
+  color: #FBBF24;
+}
+
+[data-theme='dark'] .statusBadge.planned {
+  background: rgba(99, 102, 241, 0.2);
+  color: #818CF8;
+}
+
+[data-theme='dark'] .statusBadge.established {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60A5FA;
+}
+
+/* ============================================
+   SUCCESS SIGNALS
+   ============================================ */
+
+.successSignals {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 8px;
+}
+
+.successSignals h4 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #059669;
+  margin: 0 0 0.75rem;
+}
+
+[data-theme='dark'] .successSignals h4 {
+  color: #34D399;
+}
+
+.successSignals ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.successSignals li {
+  font-size: 0.875rem;
+  color: var(--ifm-font-color-base);
+  padding: 0.25rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.successSignals li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.625rem;
+  width: 6px;
+  height: 6px;
+  background: #10B981;
+  border-radius: 50%;
+}
+
+/* ============================================
+   EXECUTION RHYTHM
+   ============================================ */
+
+.rhythmSection {
+  max-width: var(--plan-max-width);
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 0.75rem;
+  color: var(--ifm-heading-color);
+}
+
+.rhythmIntro {
+  text-align: center;
+  color: var(--plan-muted);
+  margin: 0 0 2rem;
+}
+
+.rhythmVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.rhythmPhase {
+  flex: 1;
+  min-width: 180px;
+  max-width: 220px;
+  padding: 1.25rem;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--plan-border);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.phaseWeeks {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--plan-accent);
+  margin-bottom: 0.5rem;
+}
+
+.phaseTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+  margin-bottom: 0.25rem;
+}
+
+.phaseDesc {
+  font-size: 0.8125rem;
+  color: var(--plan-muted);
+}
+
+.rhythmArrow {
+  color: var(--plan-muted);
+  flex-shrink: 0;
+}
+
+.rhythmArrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+.loopBox {
+  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  color: white;
+}
+
+.loopBox h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  color: white;
+}
+
+.loopBox ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: loop-counter;
+}
+
+.loopBox li {
+  counter-increment: loop-counter;
+  padding: 0.5rem 0;
+  padding-left: 2rem;
+  position: relative;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.loopBox li::before {
+  content: counter(loop-counter);
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 20px;
+  height: 20px;
+  background: var(--plan-accent);
+  border-radius: 50%;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.loopBox li strong {
+  color: white;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+
+.cta {
+  padding: 3rem 2rem;
+  background: var(--plan-bg-section);
+  text-align: center;
+}
+
+.ctaContent {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButton {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ctaButtonPrimary {
+  background: var(--plan-accent);
+  color: white;
+}
+
+.ctaButtonPrimary:hover {
+  background: #2563EB;
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: white;
+}
+
+.ctaButtonSecondary {
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  border: 1px solid var(--plan-border);
+}
+
+.ctaButtonSecondary:hover {
+  background: var(--ifm-card-background-color);
+  border-color: var(--plan-accent);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .heroTitle {
+    font-size: 1.75rem;
+  }
+
+  .laneCards {
+    grid-template-columns: 1fr;
+  }
+
+  .laneSectionHeader {
+    padding: 1rem 1.25rem;
+  }
+
+  .laneSectionContent {
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  .initiativeTable th:nth-child(3),
+  .initiativeTable td:nth-child(3) {
+    display: none;
+  }
+
+  .rhythmVisual {
+    flex-direction: column;
+  }
+
+  .rhythmPhase {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .rhythmArrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .laneSectionTitle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .laneNumber {
+    font-size: 0.6875rem;
+  }
+
+  .laneSectionTitle h2 {
+    font-size: 1.125rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .ctaButton {
+    width: 100%;
+    text-align: center;
+  }
+}

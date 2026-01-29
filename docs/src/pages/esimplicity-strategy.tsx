@@ -668,15 +668,14 @@ function CTASection(): ReactNode {
       <div className={styles.ctaContent}>
         <h2 className={styles.ctaTitle}>Ready to implement FOE?</h2>
         <p className={styles.ctaDescription}>
-          Explore the full documentation to understand the principles, practices, and patterns
-          that make this strategy possible.
+          See how we're turning this strategy into action, or explore the full documentation.
         </p>
         <div className={styles.ctaButtons}>
-          <Link to="/docs/intro/what-is-foe" className={`${styles.ctaButton} ${styles.ctaButtonPrimary}`}>
-            Read the Documentation
+          <Link to="/esimplicity-plan" className={`${styles.ctaButton} ${styles.ctaButtonPrimary}`}>
+            View the Plan
           </Link>
-          <Link to="/docs/maturity-model/self-assessment" className={`${styles.ctaButton} ${styles.ctaButtonSecondary}`}>
-            Self-Assessment
+          <Link to="/docs/intro/what-is-foe" className={`${styles.ctaButton} ${styles.ctaButtonSecondary}`}>
+            Read the Docs
           </Link>
         </div>
       </div>

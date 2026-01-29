@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: Agentic Coding
+displayed_sidebar: fieldGuideSidebar
 adopted_methods:
   - framework: dora
     method: deployment-frequency
