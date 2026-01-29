@@ -2,7 +2,7 @@
 name: foe-method-framework
 description: |
   Framework for creating and managing Flow Optimized Engineering methods. Use when creating 
-  new methods, updating method maturity levels, linking observations to methods, adopting
+  new methods, updating method maturity levels, linking observations to methods, adding
   methods from external frameworks, or understanding the method structure. Methods are 
   practices backed by observations within Field Guides.
 ---
@@ -18,18 +18,39 @@ A method is a documented practice or approach that solves a specific engineering
 - **Evidence-backed** - They link to observations that support them
 - **Maturity-tracked** - They have a maturity level indicating how well-tested they are
 
+## Method Dimensions
+
+Methods have two orthogonal dimensions:
+
+| Dimension | Values | Meaning |
+|-----------|--------|---------|
+| **Acceptance** | Emerging / Established | How validated is it within this Field Guide? |
+| **Origin** | Internal / External | Where did it come from? |
+
+### Origin: Internal vs External
+
+- **Internal methods** - Methods created within FOE (no `external_method` in frontmatter)
+- **External methods** - Methods sourced from external frameworks like DORA, BDD, Team Topologies (have `external_method` in frontmatter, show `ExternalMethodHeader`)
+
+### Acceptance: Emerging vs Established
+
+- **Emerging** - Methods being validated (hypothesized or observing maturity)
+- **Established** - Methods with strong evidence (validated or proven maturity)
+
 ## Method Locations
 
-Methods live within their parent Field Guide:
+All methods live together, organized by acceptance level:
 
 ```
 docs/docs/field-guides/
 └── [guide-name]/
     └── methods/
-        ├── established/    # Validated or Proven methods
-        │   └── method-name.md
-        └── emerging/       # Hypothesized or Observing methods
-            └── method-name.md
+        ├── emerging/       # Hypothesized or Observing methods
+        │   ├── internal-method.md      (no external_method)
+        │   └── external-method.md      (has external_method)
+        └── established/    # Validated or Proven methods
+            ├── internal-method.md
+            └── external-method.md
 ```
 
 ## Maturity Levels
@@ -41,34 +62,107 @@ docs/docs/field-guides/
 | Validated | 3 | `established/` | Supporting evidence exists |
 | Proven | 4 | `established/` | Multiple confirming observations |
 
-## File Structure
+## Creating an Internal Method
 
-See `references/method-template.md` for the complete template.
-
-Key sections:
-1. **Frontmatter** - Metadata including maturity and linked observations
-2. **Overview** - What the method is and why it matters
-3. **When to Use / When NOT to Use** - Applicability guidance
-4. **How It Works** - Step-by-step instructions
-5. **Supporting Evidence** - Link to observations
-
-## Creating a New Method
-
-1. Determine the maturity level (usually starts at `observing` with first observation)
+1. Determine the maturity level (usually starts at `hypothesized` or `observing`)
 2. Choose the correct folder (`emerging/` or `established/`)
 3. Create the markdown file with proper frontmatter
 4. Link any supporting observations
 5. Include the `<RelatedObservations />` component
 
+See `references/method-template.md` for the complete template.
+
+## Creating an External Method
+
+External methods have a different creation path - they're sourced from external frameworks and adapted for Field Guide context.
+
+### 1. Create the Method File
+
+Create a file in `field-guides/[guide]/methods/emerging/[method-slug].md`:
+
+```yaml
+---
+sidebar_position: 1
+title: "Deployment Frequency"
+sidebar_label: "Deployment Frequency"
+description: "How deployment frequency applies to this Field Guide's context"
+external_method:
+  framework: dora
+  method: deployment-frequency
+foe_maturity: hypothesized
+observations: []
+---
+
+import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';
+import RelatedObservations from '@site/src/components/RelatedObservations';
+
+# Deployment Frequency
+
+<ExternalMethodHeader />
+
+## Why This Matters for [This Field Guide]
+
+[Explain how this external method specifically applies to the Field Guide's context]
+
+## Adaptations
+
+[Any modifications or considerations for using this method in this context]
+
+## Supporting Evidence
+
+<RelatedObservations />
+```
+
+### 2. Update the Overview's MethodList
+
+Add the external method to the `externalMethods` prop in the guide's overview:
+
+```jsx
+<MethodList 
+  guideId="your-guide"
+  methods={[...]}  // Internal methods
+  externalMethods={[
+    {
+      framework: 'dora',
+      method: 'deployment-frequency',
+      foe_maturity: 'hypothesized',
+      title: 'Deployment Frequency',
+      description: 'How often code is deployed to production',
+      frameworkTitle: 'DORA',
+    },
+  ]}
+/>
+```
+
+The `MethodList` links to the method page. External methods show the `ExternalMethodHeader` which links to the canonical definition.
+
+### 3. Sidebar Auto-Discovery
+
+The sidebar automatically discovers all methods via the `autogenerated` directive - no separate category needed:
+
+```js
+{
+  type: 'category',
+  label: 'Emerging Methods',
+  items: [
+    {
+      type: 'autogenerated',
+      dirName: 'field-guides/[guide]/methods/emerging',
+    },
+  ],
+}
+```
+
 ## Maturity Transitions
 
 ### Emerging → Established
+
 When a method advances from Observing to Validated:
 1. Move the file from `emerging/` to `established/`
-2. Update the `maturity` frontmatter
+2. Update the `foe_maturity` frontmatter
 3. Update the guide overview to reflect the change
 
-### Method Graduation Criteria
+### Graduation Criteria
 
 | Transition | Criteria |
 |------------|----------|
@@ -78,7 +172,7 @@ When a method advances from Observing to Validated:
 
 ## External Frameworks
 
-External Frameworks are established industry methodologies (e.g., DORA, SPACE, Accelerate) that contain well-defined methods. Field Guides can **adopt** methods from these frameworks.
+External Frameworks are established industry methodologies (e.g., DORA, BDD, Team Topologies) that contain well-defined methods.
 
 ### Framework Location
 
@@ -99,43 +193,13 @@ docs/docs/external-frameworks/
 | Well-Established | Widely recognized, significant adoption |
 | Industry Standard | De facto standard in the industry |
 
-### Adopting Framework Methods
-
-To adopt an external method into a field guide:
-
-1. Add to the guide's `overview.md` frontmatter:
-   ```yaml
-   adopted_methods:
-     - framework: dora
-       method: deployment-frequency
-       foe_maturity: hypothesized
-       observations: []
-   ```
-
-2. Update the MethodList component in the guide's overview:
-   ```jsx
-   <MethodList 
-     guideId="your-guide"
-     methods={[...]}
-     adoptedMethods={[
-       {
-         framework: 'dora',
-         method: 'deployment-frequency',
-         foe_maturity: 'hypothesized',
-         title: 'Deployment Frequency',
-         description: 'How often code is deployed to production',
-         frameworkTitle: 'DORA',
-       },
-     ]}
-   />
-   ```
-
 ### Key Principles
 
-- **Reference, don't duplicate** - Canonical method lives in `/external-frameworks/`
+- **External methods provide context** - Explain how the method applies to this specific Field Guide
+- **Canonical method is the source** - The external framework method is the authoritative definition
 - **Independent FOE maturity** - Track your own maturity separate from framework status
-- **Add your evidence** - Link FOE observations to validate in your context
-- **Cherry-pick** - Adopt individual methods, not entire frameworks
+- **Link observations** - Observations validate the method in your specific context
+- **Cherry-pick** - Add individual methods, not entire frameworks
 
 ### Creating a New External Framework
 
@@ -143,10 +207,12 @@ See `references/external-frameworks.md` for the full template.
 
 ## References
 
-- `references/method-template.md` - Full template with examples
+- `references/method-template.md` - Full template for internal methods
+- `references/external-method-template.md` - Template for external methods
 - `references/maturity-levels.md` - Detailed maturity criteria
 - `references/external-frameworks.md` - External framework template
 
 ## Assets
 
-- `assets/method-scaffold.md` - Minimal copy-paste scaffold
+- `assets/method-scaffold.md` - Minimal copy-paste scaffold for internal methods
+- `assets/external-method-scaffold.md` - Minimal scaffold for external methods
