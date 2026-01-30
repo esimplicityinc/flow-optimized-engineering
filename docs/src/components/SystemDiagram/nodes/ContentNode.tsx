@@ -43,7 +43,15 @@ function ContentNode({ data }: NodeProps<DiagramNodeData>) {
       onKeyDown={(e) => e.key === 'Enter' && handleClick()}
       aria-label={`${data.label}: ${data.description}`}
     >
-      <Handle type="target" position={Position.Bottom} className={styles.handle} />
+      {/* Handles on all 4 sides for flexible edge routing - both source and target at each position */}
+      <Handle type="target" position={Position.Top} id="top" className={styles.handle} />
+      <Handle type="source" position={Position.Top} id="top-source" className={styles.handle} />
+      <Handle type="target" position={Position.Bottom} id="bottom" className={styles.handle} />
+      <Handle type="source" position={Position.Bottom} id="bottom-source" className={styles.handle} />
+      <Handle type="target" position={Position.Left} id="left" className={styles.handle} />
+      <Handle type="source" position={Position.Left} id="left-source" className={styles.handle} />
+      <Handle type="target" position={Position.Right} id="right" className={styles.handle} />
+      <Handle type="source" position={Position.Right} id="right-source" className={styles.handle} />
       
       <div className={styles.contentIcon}>
         <IconComponent size={18} />
@@ -57,8 +65,6 @@ function ContentNode({ data }: NodeProps<DiagramNodeData>) {
           <div className={styles.tooltipHint}>Click to learn more</div>
         </div>
       )}
-      
-      <Handle type="source" position={Position.Top} className={styles.handle} />
     </div>
   );
 }
