@@ -160,6 +160,71 @@ const modeContent = {
         },
       },
     },
+    act4: {
+      sectionTitle: 'The Logistics Transformation',
+      multiplier: {
+        input: { value: '1 hr', label: 'Air wing invests in training' },
+        multiplierVal: { value: '500', label: 'pilots across squadrons' },
+        output: { value: '500 hrs', label: 'combat readiness multiplied' },
+      },
+      enablementIntro: 'In air-power thinking, enablement is <em>multiplicative</em>:',
+      leverageText: 'Every hour the Air Force spends developing tactics, training instructors, or creating doctrine is multiplied across every squadron that uses it.',
+      triadItems: [
+        { label: 'People', desc: 'Weapons Schools + Red Flag (skill development and tactics transfer)' },
+        { label: 'Process', desc: 'Test Programs (how aircraft are validated)' },
+        { label: 'Technology', desc: 'Skunk Works + Air Mobility Command (what equipment and logistics exist)' },
+      ],
+    },
+    act5: {
+      integrationTitle: 'The Integration Requirement',
+      integrationIntro: 'Having an excellent air force is necessary but not sufficient. Victory requires:',
+      integrationItems: [
+        { label: 'Ground forces', desc: 'to hold territory' },
+        { label: 'Naval forces', desc: 'for power projection' },
+        { label: 'Intelligence', desc: 'for targeting' },
+        { label: 'Logistics', desc: 'for sustainment' },
+        { label: 'Doctrine', desc: 'for coordination' },
+      ],
+      combinedArmsExplainer: 'This is <strong>combined arms</strong>—the principle that different capabilities multiply each other when properly integrated. No single arm wins alone.',
+      theaters: {
+        mature: {
+          title: 'Mature Theater',
+          characteristics: [
+            'Full runway infrastructure',
+            'Established air superiority',
+            'Integrated logistics chain',
+            'Experienced squadrons',
+          ],
+          engagementModel: 'Air Dominance Model',
+          engagementDesc: 'Full spectrum operations. Strategic bombers, air superiority, close air support.',
+          fleetAssets: 'Strategic Bomber, all assets available',
+        },
+        developing: {
+          title: 'Developing Theater',
+          characteristics: [
+            'Limited runways',
+            'Contested airspace',
+            'Supply lines establishing',
+            'Mixed experience levels',
+          ],
+          engagementModel: 'Carrier Model',
+          engagementDesc: 'Bring your own runway. Establish air cover. Build local capacity.',
+          fleetAssets: 'Carrier Fighter, Forward Air Controller',
+        },
+        austere: {
+          title: 'Austere Theater',
+          characteristics: [
+            'No runways',
+            'Hostile environment',
+            'No supply chain',
+            'First contact operations',
+          ],
+          engagementModel: 'Expeditionary Model',
+          engagementDesc: 'Build infrastructure first. Sea planes until runway exists. Long-term presence.',
+          fleetAssets: 'Sea Plane, Helicopter, FAC scouts first',
+        },
+      },
+    },
   },
   esimplicity: {
     heroTitle: 'Enabling Agentic Delivery',
@@ -293,6 +358,71 @@ const modeContent = {
             'Rapid environment standup',
             'Forward deployment teams',
           ],
+        },
+      },
+    },
+    act4: {
+      sectionTitle: 'The Enablement Transformation',
+      multiplier: {
+        input: { value: '1 hr', label: 'RIC invests in a pattern' },
+        multiplierVal: { value: '50', label: 'delivery team engineers' },
+        output: { value: '50 hrs', label: 'saved across organization' },
+      },
+      enablementIntro: 'In RIC thinking, enablement is <em>multiplicative</em>:',
+      leverageText: 'Every hour the RIC spends developing a validated pattern, documenting a method, or creating a training resource is multiplied across every delivery team that uses it.',
+      triadItems: [
+        { label: 'People', desc: 'Learning Labs + Doctrine & Methods (skill development and knowledge transfer)' },
+        { label: 'Process', desc: 'Validation & Standards (how things are done)' },
+        { label: 'Technology', desc: 'Reference Implementations + Delivery Enablement (what tools and patterns exist)' },
+      ],
+    },
+    act5: {
+      integrationTitle: 'The Integration Requirement',
+      integrationIntro: 'Having an excellent RIC is necessary but not sufficient. Success requires:',
+      integrationItems: [
+        { label: 'Delivery teams', desc: 'to execute contracts' },
+        { label: 'Platforms (KATALYST)', desc: 'for infrastructure' },
+        { label: 'Products (PRIMA)', desc: 'for consistency' },
+        { label: 'Governance (TRB)', desc: 'for quality assurance' },
+        { label: 'Doctrine (FOE)', desc: 'for coordination' },
+      ],
+      combinedArmsExplainer: 'This is <strong>combined enablement</strong>—the principle that different capabilities multiply each other when properly integrated. No single function wins alone.',
+      theaters: {
+        mature: {
+          title: 'Mature Contract',
+          characteristics: [
+            'Full CI/CD pipeline',
+            'Cloud-native infrastructure',
+            'Observability in place',
+            'Team has DevOps culture',
+          ],
+          engagementModel: 'Training Model',
+          engagementDesc: 'Train teams on FOE doctrine. They self-serve from there. Periodic check-ins.',
+          fleetAssets: 'KATALYST platform, full FOE toolkit',
+        },
+        developing: {
+          title: 'Developing Contract',
+          characteristics: [
+            'Basic automation exists',
+            'Some monitoring',
+            'Hybrid infrastructure',
+            'Team learning DevOps',
+          ],
+          engagementModel: 'Deployment Model',
+          engagementDesc: 'RIC brings infrastructure. Deploy with team. Build local capability.',
+          fleetAssets: 'PRIMA products, agent configurations',
+        },
+        austere: {
+          title: 'Legacy Contract',
+          characteristics: [
+            'Manual processes',
+            'Legacy systems',
+            'On-prem / mainframe',
+            'Limited DevOps exposure',
+          ],
+          engagementModel: 'Expeditionary Model',
+          engagementDesc: 'Build infrastructure first. Lightweight tools until platform exists. Long-term presence.',
+          fleetAssets: 'Lightweight FOE toolkit, point solutions',
         },
       },
     },
@@ -682,7 +812,6 @@ function HeroSection(): ReactNode {
         <p className={styles.heroSubtitle}>
           {content.heroDescription}
         </p>
-        <ModeToggle />
         <div className={styles.heroMeta}>
           <span className={styles.heroMetaItem}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1251,11 +1380,14 @@ function Act3(): ReactNode {
 }
 
 function Act4(): ReactNode {
+  const { mode } = useViewMode();
+  const content = modeContent[mode].act4;
+  
   return (
     <AccordionSection
       id="the-logistics-transformation"
       number={4}
-      title="The Logistics Transformation"
+      title={content.sectionTitle}
       owner="shared"
       executiveSummary={
         <p>
@@ -1270,28 +1402,25 @@ function Act4(): ReactNode {
         The instinct is to see support functions as overhead—necessary costs that don't directly 
         produce value. This is ground-army thinking.
       </p>
-      <p>
-        In air-power thinking, enablement is <em>multiplicative</em>:
-      </p>
+      <p dangerouslySetInnerHTML={{ __html: content.enablementIntro }} />
       <div className={styles.multiplierDiagram}>
         <div className={styles.multiplierItem}>
-          <div className={styles.multiplierValue}>1 hr</div>
-          <div className={styles.multiplierLabel}>RIC invests in a pattern</div>
+          <div className={styles.multiplierValue}>{content.multiplier.input.value}</div>
+          <div className={styles.multiplierLabel}>{content.multiplier.input.label}</div>
         </div>
         <div className={styles.multiplierArrow}>×</div>
         <div className={styles.multiplierItem}>
-          <div className={styles.multiplierValue}>50</div>
-          <div className={styles.multiplierLabel}>delivery team engineers</div>
+          <div className={styles.multiplierValue}>{content.multiplier.multiplierVal.value}</div>
+          <div className={styles.multiplierLabel}>{content.multiplier.multiplierVal.label}</div>
         </div>
         <div className={styles.multiplierArrow}>=</div>
         <div className={styles.multiplierItem}>
-          <div className={styles.multiplierValue}>50 hrs</div>
-          <div className={styles.multiplierLabel}>saved across organization</div>
+          <div className={styles.multiplierValue}>{content.multiplier.output.value}</div>
+          <div className={styles.multiplierLabel}>{content.multiplier.output.label}</div>
         </div>
       </div>
       <p>
-        Every hour the RIC spends developing a validated pattern, documenting a method, or 
-        creating a training resource is multiplied across every delivery team that uses it.
+        {content.leverageText}
       </p>
       <p>
         <strong>This is how you get leverage.</strong> This is how a small RIC enables a large 
@@ -1392,15 +1521,18 @@ function Act4(): ReactNode {
         and Technology. The RIC must have mission sets that address all three:
       </p>
       <ul>
-        <li><strong>People:</strong> Learning Labs + Doctrine & Methods (skill development and knowledge transfer)</li>
-        <li><strong>Process:</strong> Validation & Standards (how things are done)</li>
-        <li><strong>Technology:</strong> Reference Implementations + Delivery Enablement (what tools and patterns exist)</li>
+        {content.triadItems.map((item, index) => (
+          <li key={index}><strong>{item.label}:</strong> {item.desc}</li>
+        ))}
       </ul>
     </AccordionSection>
   );
 }
 
 function Act5(): ReactNode {
+  const { mode } = useViewMode();
+  const content = modeContent[mode].act5;
+  
   return (
     <AccordionSection
       id="combined-arms"
@@ -1415,21 +1547,16 @@ function Act5(): ReactNode {
         </p>
       }
     >
-      <h3>The Integration Requirement</h3>
+      <h3>{content.integrationTitle}</h3>
       <p>
-        Having an excellent air force is necessary but not sufficient. Victory requires:
+        {content.integrationIntro}
       </p>
       <ul>
-        <li><strong>Ground forces</strong> to hold territory</li>
-        <li><strong>Naval forces</strong> for power projection</li>
-        <li><strong>Intelligence</strong> for targeting</li>
-        <li><strong>Logistics</strong> for sustainment</li>
-        <li><strong>Doctrine</strong> for coordination</li>
+        {content.integrationItems.map((item, index) => (
+          <li key={index}><strong>{item.label}</strong> {item.desc}</li>
+        ))}
       </ul>
-      <p>
-        This is <strong>combined arms</strong>—the principle that different capabilities multiply 
-        each other when properly integrated. No single arm wins alone.
-      </p>
+      <p dangerouslySetInnerHTML={{ __html: content.combinedArmsExplainer }} />
 
       <h3>How RIC Connects the eSimplicity Ecosystem</h3>
       <div className={styles.ecosystemDiagram}>
@@ -1580,26 +1707,25 @@ function Act5(): ReactNode {
         <div className={styles.projectionColumn}>
           <div className={styles.projectionHeader + ' ' + styles.projectionMature}>
             <Icon name="takeoff" className={styles.projectionIcon} size={24} />
-            <span className={styles.projectionTitle}>Mature Theater</span>
+            <span className={styles.projectionTitle}>{content.theaters.mature.title}</span>
           </div>
           <div className={styles.projectionContent}>
             <div className={styles.projectionCharacteristics}>
               <strong>Characteristics:</strong>
               <ul>
-                <li>Full CI/CD pipeline</li>
-                <li>Cloud-native infrastructure</li>
-                <li>Observability in place</li>
-                <li>Team has DevOps culture</li>
+                {content.theaters.mature.characteristics.map((char, i) => (
+                  <li key={i}>{char}</li>
+                ))}
               </ul>
             </div>
             <div className={styles.projectionModel}>
               <strong>RIC Engagement:</strong>
-              <p><em>Weapons School Model</em></p>
-              <p>Train teams on doctrine. They self-serve from there. Periodic check-ins.</p>
+              <p><em>{content.theaters.mature.engagementModel}</em></p>
+              <p>{content.theaters.mature.engagementDesc}</p>
             </div>
             <div className={styles.projectionFleet}>
               <strong>Fleet Assets:</strong>
-              <p>Strategic Bomber, all assets available</p>
+              <p>{content.theaters.mature.fleetAssets}</p>
             </div>
           </div>
         </div>
@@ -1607,26 +1733,25 @@ function Act5(): ReactNode {
         <div className={styles.projectionColumn}>
           <div className={styles.projectionHeader + ' ' + styles.projectionDeveloping}>
             <Icon name="construction" className={styles.projectionIcon} size={24} />
-            <span className={styles.projectionTitle}>Developing Theater</span>
+            <span className={styles.projectionTitle}>{content.theaters.developing.title}</span>
           </div>
           <div className={styles.projectionContent}>
             <div className={styles.projectionCharacteristics}>
               <strong>Characteristics:</strong>
               <ul>
-                <li>Basic automation exists</li>
-                <li>Some monitoring</li>
-                <li>Hybrid infrastructure</li>
-                <li>Team learning DevOps</li>
+                {content.theaters.developing.characteristics.map((char, i) => (
+                  <li key={i}>{char}</li>
+                ))}
               </ul>
             </div>
             <div className={styles.projectionModel}>
               <strong>RIC Engagement:</strong>
-              <p><em>Carrier Model</em></p>
-              <p>RIC brings infrastructure. Deploy with team. Build local capability.</p>
+              <p><em>{content.theaters.developing.engagementModel}</em></p>
+              <p>{content.theaters.developing.engagementDesc}</p>
             </div>
             <div className={styles.projectionFleet}>
               <strong>Fleet Assets:</strong>
-              <p>Carrier Fighter, Forward Air Controller</p>
+              <p>{content.theaters.developing.fleetAssets}</p>
             </div>
           </div>
         </div>
@@ -1634,26 +1759,25 @@ function Act5(): ReactNode {
         <div className={styles.projectionColumn}>
           <div className={styles.projectionHeader + ' ' + styles.projectionAustere}>
             <Icon name="mountain" className={styles.projectionIcon} size={24} />
-            <span className={styles.projectionTitle}>Austere Theater</span>
+            <span className={styles.projectionTitle}>{content.theaters.austere.title}</span>
           </div>
           <div className={styles.projectionContent}>
             <div className={styles.projectionCharacteristics}>
               <strong>Characteristics:</strong>
               <ul>
-                <li>Manual processes</li>
-                <li>Legacy systems</li>
-                <li>On-prem / mainframe</li>
-                <li>Limited DevOps exposure</li>
+                {content.theaters.austere.characteristics.map((char, i) => (
+                  <li key={i}>{char}</li>
+                ))}
               </ul>
             </div>
             <div className={styles.projectionModel}>
               <strong>RIC Engagement:</strong>
-              <p><em>Expeditionary Model</em></p>
-              <p>Build infrastructure first. Sea planes until runway exists. Long-term presence.</p>
+              <p><em>{content.theaters.austere.engagementModel}</em></p>
+              <p>{content.theaters.austere.engagementDesc}</p>
             </div>
             <div className={styles.projectionFleet}>
               <strong>Fleet Assets:</strong>
-              <p>Sea Plane, Helicopter, FAC scouts first</p>
+              <p>{content.theaters.austere.fleetAssets}</p>
             </div>
           </div>
         </div>
@@ -1944,7 +2068,7 @@ export default function RICAirPower(): ReactNode {
         <main className={styles.strategyPage}>
           <HeroSection />
           <div className={styles.pageWrapper}>
-            <StrategySidebar sections={sections} />
+            <StrategySidebar sections={sections} topContent={<ModeToggle />} />
             <div className={styles.mainContent}>
               <div className={styles.sectionsContainer}>
                 <Act1 />

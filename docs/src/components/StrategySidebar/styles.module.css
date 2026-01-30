@@ -64,6 +64,17 @@
   color: var(--ifm-color-emphasis-600);
 }
 
+/* Top content slot (e.g., mode toggle) */
+.topContent {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .topContent {
+  border-color: #334155;
+}
+
 /* Section list */
 .sectionList {
   list-style: none;
