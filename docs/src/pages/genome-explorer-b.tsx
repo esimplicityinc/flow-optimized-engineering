@@ -128,6 +128,93 @@ function HeroSection(): ReactNode {
 // The "Spine Genes" - Systems domain genes critical for permission
 const SPINE_GENE_IDS = ['constraints', 'verification', 'operability', 'governance'];
 
+// ============================================
+// GENOME OVERVIEW - Simple gene descriptions
+// ============================================
+
+function GenomeOverview({ onGeneSelect }: { onGeneSelect: (gene: Gene) => void }): ReactNode {
+  const [expandedDomain, setExpandedDomain] = useState<Domain | null>(null);
+  
+  const genesByDomain = {
+    product: GENES.filter(g => g.domain === 'product'),
+    education: GENES.filter(g => g.domain === 'education'),
+    systems: GENES.filter(g => g.domain === 'systems'),
+  };
+
+  const domainDescriptions: Record<Domain, string> = {
+    product: 'Finding the right problems and making smart decisions',
+    education: 'Sharing knowledge and helping others succeed',
+    systems: 'Building reliable infrastructure that earns trust',
+  };
+
+  return (
+    <section className={styles.genomeOverview}>
+      <div className={styles.overviewHeader}>
+        <h2>The 12 Capability Genes</h2>
+        <p>The capabilities that convert AI capacity into government permission</p>
+      </div>
+      
+      <div className={styles.domainCards}>
+        {(Object.keys(genesByDomain) as Domain[]).map((domain) => {
+          const isExpanded = expandedDomain === domain;
+          const genes = genesByDomain[domain];
+          const isSpineDomain = domain === 'systems';
+          
+          return (
+            <div 
+              key={domain} 
+              className={`${styles.domainCard} ${isExpanded ? styles.expanded : ''} ${isSpineDomain ? styles.spineDomain : ''}`}
+              style={{ '--domain-color': DOMAINS[domain].color } as React.CSSProperties}
+            >
+              <button 
+                className={styles.domainCardHeader}
+                onClick={() => setExpandedDomain(isExpanded ? null : domain)}
+              >
+                <div className={styles.domainCardTitle}>
+                  <span 
+                    className={styles.domainDot} 
+                    style={{ background: DOMAINS[domain].color }}
+                  />
+                  <h3>{DOMAINS[domain].name}</h3>
+                  {isSpineDomain && <span className={styles.spineTag}>The Spine</span>}
+                </div>
+                <p className={styles.domainDesc}>{domainDescriptions[domain]}</p>
+                <span className={styles.expandIcon}>{isExpanded ? '−' : '+'}</span>
+              </button>
+              
+              <div className={styles.geneList}>
+                {genes.map((gene) => (
+                  <button
+                    key={gene.id}
+                    className={styles.geneCard}
+                    onClick={() => onGeneSelect(gene)}
+                  >
+                    <div className={styles.geneCardHeader}>
+                      <span className={styles.geneName}>{gene.name}</span>
+                      {SPINE_GENE_IDS.includes(gene.id) && (
+                        <span className={styles.spineIndicator} title="Spine Gene">⚡</span>
+                      )}
+                    </div>
+                    <p className={styles.geneDefinition}>{gene.definition}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      
+      <div className={styles.overviewInsight}>
+        <span className={styles.insightIcon}>💡</span>
+        <p>
+          <strong>The Spine:</strong> Systems genes (purple) form the "enablement spine" that converts 
+          AI capacity into auditable evidence. Without a strong spine, more AI creates more chaos, not more permission.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 // Supply side personas (vendors)
 const SUPPLY_PERSONAS = [
   { id: 'mission-hybrid', name: 'Mission Hybrid', icon: '🎯', output: 'Intent' },
@@ -688,6 +775,9 @@ export default function GenomeExplorerB(): ReactNode {
       <main className={styles.genomePage}>
         <HeroSection />
         
+        {/* Genome Overview - Simple descriptions of each gene */}
+        <GenomeOverview onGeneSelect={setSelectedGene} />
+        
         {/* Circuit Flow Visualization - the electrical model */}
         <section className={styles.circuitSection}>
           <CircuitFlowVisualization 
@@ -700,9 +790,6 @@ export default function GenomeExplorerB(): ReactNode {
             }}
           />
         </section>
-        
-        {/* Detailed Hexagon Grid - click to explore individual genes */}
-        <HexagonGrid onGeneSelect={setSelectedGene} />
         
         {/* Permission Ecosystem - GovPersonas */}
         <section className={styles.ecosystemSection}>
