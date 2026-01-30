@@ -3,8 +3,9 @@ methodId: M156
 displayed_sidebar: fieldGuideSidebar
 sidebar_position: 5
 title: "Agent-Mediated Access"
-maturity: hypothesized
-observations: []
+maturity: observing
+observations:
+  - O125
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
@@ -182,7 +183,7 @@ This method supports multiple FOE principles:
 
 ## How You Can Help
 
-This is a **hypothesized** method based on early signals. If you're interested in testing it:
+This is an **observing** method with initial evidence from the Content Portal experiment. If you're interested in adding evidence:
 
 1. Identify a repo where non-developers frequently request simple changes
 2. Document the change patterns and implement guardrails
@@ -190,7 +191,7 @@ This is a **hypothesized** method based on early signals. If you're interested i
 4. Track lead time and error rates before/after
 5. Document your experience as an observation
 
-Your evidence will help validate (or refine) this method.
+Additional observations—especially from different contexts, team sizes, or domains—will help validate the generalizability of this method.
 
 ## Supporting Evidence
 
