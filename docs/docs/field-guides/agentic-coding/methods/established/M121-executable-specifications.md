@@ -9,8 +9,15 @@ external_method:
   framework: bdd
   method: executable-specifications
   id: M121
-foe_maturity: hypothesized
-observations: []
+foe_maturity: proven
+observations:
+  - internal/O100-prima-bdd-api-testing-adoption
+  - external/O104-bdd-adoption-github-study-2020
+  - external/O105-bdd-industrial-study-2018
+  - external/O106-bdd-maintenance-challenges-2018
+  - external/O107-bdd-systematic-review-2023
+  - external/O120-tdd-defect-reduction-study
+  - external/O124-accelerate-test-automation
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';
