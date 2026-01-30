@@ -1,0 +1,103 @@
+/* FOE Book Custom Styles */
+
+/* Improve readability */
+.book-body .page-wrapper .page-inner {
+  max-width: 800px;
+}
+
+/* Style the book header */
+.book-summary {
+  background: #fafafa;
+}
+
+/* Part headers in sidebar */
+.book-summary ul.summary li.header {
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 0.05em;
+  padding: 10px 15px 5px;
+}
+
+/* Chapter links */
+.book-summary ul.summary li a {
+  color: #555;
+}
+
+.book-summary ul.summary li a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.book-summary ul.summary li.active > a {
+  color: #0066cc;
+  font-weight: 600;
+}
+
+/* Code blocks */
+pre {
+  background: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 4px;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5em 0;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+table th {
+  background: #f6f8fa;
+  font-weight: 600;
+}
+
+table tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* Blockquotes for callouts */
+blockquote {
+  border-left: 4px solid #0066cc;
+  background: #f0f7ff;
+  padding: 15px 20px;
+  margin: 1.5em 0;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+h1 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5em;
+}
+
+/* Links */
+a {
+  color: #0066cc;
+}
+
+a:hover {
+  color: #004999;
+}
+
+/* BRIDGE markers - hide them in the rendered book */
+.page-inner p:has(code):contains("BRIDGE") {
+  display: none;
+}

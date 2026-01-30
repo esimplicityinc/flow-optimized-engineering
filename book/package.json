@@ -1,0 +1,16 @@
+{
+  "name": "foe-book",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Go Faster by Knowing More: Flow Optimized Engineering for the Agentic Era",
+  "scripts": {
+    "build": "honkit build",
+    "serve": "honkit serve",
+    "pdf": "honkit pdf"
+  },
+  "devDependencies": {
+    "honkit": "^6.1.6",
+    "gitbook-plugin-expandable-chapters": "^0.2.0",
+    "gitbook-plugin-chapter-fold": "^0.0.4"
+  }
+}

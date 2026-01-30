@@ -26,18 +26,33 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: 'docs/package-lock.json'
 
-      - name: Install dependencies
+      # Build Docusaurus docs
+      - name: Install docs dependencies
         working-directory: ./docs
         run: npm ci
 
-      - name: Build website
+      - name: Build docs website
         working-directory: ./docs
         run: npm run build
         env:
           NODE_ENV: production
+
+      # Build HonKit book
+      - name: Install book dependencies
+        working-directory: ./book
+        run: npm install
+
+      - name: Build book
+        working-directory: ./book
+        run: npx honkit build
+
+      # Combine outputs: docs at root, book at /book
+      - name: Combine sites
+        run: |
+          mkdir -p ./combined
+          cp -r ./docs/build/* ./combined/
+          cp -r ./book/_book ./combined/book
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -45,7 +60,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs/build
+          path: ./combined
 
   deploy:
     environment:
