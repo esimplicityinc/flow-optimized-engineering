@@ -121,6 +121,10 @@ const config: Config = {
               to: '/esimplicity-plan',
             },
             {
+              label: 'RIC Air Power',
+              to: '/ric-air-power',
+            },
+            {
               type: 'html',
               value: '<hr style="margin: 0.5rem 0;">',
             },

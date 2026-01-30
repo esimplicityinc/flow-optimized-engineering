@@ -1,0 +1,1552 @@
+/**
+ * RIC Air Power Strategy Page Styles
+ * Military-inspired executive presentation
+ */
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+
+.strategyPage {
+  --strategy-bg-hero: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  --strategy-bg-section: #F8FAFC;
+  --strategy-bg-section-alt: #FFFFFF;
+  --strategy-accent: #1E40AF;
+  --strategy-accent-light: #3B82F6;
+  --strategy-accent-gold: #F59E0B;
+  --strategy-text-muted: #64748B;
+  --strategy-border: #E2E8F0;
+  --strategy-max-width: 900px;
+  --strategy-sidebar-width: 260px;
+}
+
+[data-theme='dark'] .strategyPage {
+  --strategy-bg-section: #1E293B;
+  --strategy-bg-section-alt: #0F172A;
+  --strategy-border: #334155;
+  --strategy-text-muted: #94A3B8;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+.strategyPage {
+  min-height: 100vh;
+}
+
+.pageWrapper {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  gap: 3rem;
+}
+
+.mainContent {
+  flex: 1;
+  max-width: var(--strategy-max-width);
+  min-width: 0;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--strategy-bg-hero);
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.heroOrb1,
+.heroOrb2,
+.heroOrb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+}
+
+.heroOrb1 {
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+  top: -200px;
+  left: -150px;
+}
+
+.heroOrb2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+  bottom: -100px;
+  right: -50px;
+}
+
+.heroOrb3 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
+  top: 60%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 50px;
+  color: #FBBF24;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  color: white;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+}
+
+.heroTitleAccent {
+  color: #60A5FA;
+}
+
+.heroSubtitle {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  color: #94A3B8;
+  font-weight: 400;
+  margin: 0 0 2rem;
+  line-height: 1.5;
+}
+
+.heroMeta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  color: #64748B;
+  font-size: 0.875rem;
+}
+
+.heroMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.heroMetaItem svg {
+  width: 16px;
+  height: 16px;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748B;
+  font-size: 0.8rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.scrollIndicator svg {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ============================================
+   CONTENT SECTIONS
+   ============================================ */
+
+.sectionsContainer {
+  padding: 4rem 0;
+}
+
+/* ============================================
+   COMPARISON GRID
+   ============================================ */
+
+.comparisonGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.comparisonCard {
+  padding: 1.5rem;
+  background: var(--ifm-card-background-color);
+  border: 2px solid var(--strategy-border);
+  border-radius: 12px;
+}
+
+.comparisonCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--strategy-border);
+}
+
+.comparisonIcon {
+  font-size: 1.5rem;
+}
+
+.comparisonLabel {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.comparisonCard ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.comparisonCard li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   HIGHLIGHT BOXES
+   ============================================ */
+
+.highlightBox {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(30, 64, 175, 0.03) 100%);
+  border-left: 4px solid var(--strategy-accent);
+  border-radius: 0 12px 12px 0;
+  margin: 1.5rem 0;
+}
+
+.highlightBox p {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ifm-heading-color);
+}
+
+.highlightBox p:last-child {
+  margin-bottom: 0;
+}
+
+.highlightSource {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--strategy-text-muted);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.warningBox {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.03) 100%);
+  border-left: 4px solid var(--strategy-accent-gold);
+  border-radius: 0 12px 12px 0;
+  margin: 1.5rem 0;
+}
+
+.warningBox p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.warningBox p + p {
+  margin-top: 0.75rem;
+}
+
+/* ============================================
+   RATIO COMPARISON
+   ============================================ */
+
+.ratioComparison {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  margin: 2rem 0;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 16px;
+  flex-wrap: wrap;
+}
+
+.ratioCard {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--ifm-card-background-color);
+  border-radius: 12px;
+  min-width: 200px;
+  flex: 1;
+  max-width: 280px;
+}
+
+.ratioValue {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--strategy-accent);
+  line-height: 1;
+}
+
+.ratioLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  color: var(--ifm-heading-color);
+}
+
+.ratioDescription {
+  font-size: 0.85rem;
+  color: var(--strategy-text-muted);
+  margin-bottom: 1rem;
+}
+
+.ratioBar {
+  height: 12px;
+  background: var(--strategy-border);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+}
+
+.ratioCombat {
+  background: var(--strategy-accent);
+  height: 100%;
+}
+
+.ratioSupport {
+  background: #94A3B8;
+  height: 100%;
+}
+
+.ratioArrow {
+  font-size: 2rem;
+  color: var(--strategy-text-muted);
+  font-weight: bold;
+}
+
+/* ============================================
+   MISSION SET GRID
+   ============================================ */
+
+.missionSetGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.missionSetCard {
+  padding: 1.5rem;
+  background: var(--ifm-card-background-color);
+  border: 2px solid var(--strategy-border);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.missionSetCard:hover {
+  border-color: var(--strategy-accent-light);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.missionSetHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.missionSetIcon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.missionSetTitles {
+  flex: 1;
+}
+
+.missionSetAirForce {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+}
+
+.missionSetSubtitle {
+  font-size: 0.8rem;
+  color: var(--strategy-text-muted);
+}
+
+.missionSetArrow {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--strategy-accent);
+  margin: 0.5rem 0;
+}
+
+.missionSetRIC {
+  padding: 0.75rem;
+  background: rgba(30, 64, 175, 0.08);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.missionSetMission {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.missionSetOutputs {
+  font-size: 0.85rem;
+  color: var(--strategy-text-muted);
+}
+
+.missionSetOutputs ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.missionSetOutputs li {
+  margin-bottom: 0.25rem;
+}
+
+/* ============================================
+   MULTIPLIER DIAGRAM
+   ============================================ */
+
+.multiplierDiagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+  flex-wrap: wrap;
+}
+
+.multiplierItem {
+  text-align: center;
+  padding: 1rem;
+}
+
+.multiplierValue {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--strategy-accent);
+}
+
+.multiplierLabel {
+  font-size: 0.85rem;
+  color: var(--strategy-text-muted);
+}
+
+.multiplierArrow {
+  font-size: 1.5rem;
+  color: var(--strategy-text-muted);
+  font-weight: bold;
+}
+
+/* ============================================
+   INVESTMENT BOX
+   ============================================ */
+
+.investmentBox {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+
+.investmentHeader {
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.investmentContent {
+  padding: 1.5rem;
+}
+
+.investmentRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.investmentRow:last-child {
+  border-bottom: none;
+  padding-top: 1rem;
+}
+
+.investmentLabel {
+  color: #94A3B8;
+  font-size: 0.9rem;
+}
+
+.investmentValue {
+  color: white;
+  font-weight: 600;
+}
+
+.investmentRow:last-child .investmentValue {
+  color: #60A5FA;
+  font-size: 1.1rem;
+}
+
+/* ============================================
+   TRIAD DIAGRAM
+   ============================================ */
+
+.triadDiagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  margin: 2rem 0;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 16px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.triadNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: var(--ifm-card-background-color);
+  border: 2px solid var(--strategy-border);
+  border-radius: 12px;
+  min-width: 120px;
+}
+
+.triadIcon {
+  font-size: 2rem;
+}
+
+.triadLabel {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.triadCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: var(--strategy-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+/* ============================================
+   ECOSYSTEM DIAGRAM
+   ============================================ */
+
+.ecosystemDiagram {
+  padding: 2rem;
+  margin: 2rem 0;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 16px;
+}
+
+.ecosystemRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ecosystemRow:last-child {
+  margin-bottom: 0;
+}
+
+.ecosystemNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 1.5rem;
+  background: var(--ifm-card-background-color);
+  border: 2px solid var(--strategy-border);
+  border-radius: 12px;
+  min-width: 140px;
+  text-align: center;
+}
+
+.ecosystemNodeRIC {
+  border-color: var(--strategy-accent);
+  background: rgba(30, 64, 175, 0.08);
+}
+
+.ecosystemNodeIcon {
+  font-size: 1.5rem;
+}
+
+.ecosystemNodeName {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.ecosystemNodeRole {
+  font-size: 0.75rem;
+  color: var(--strategy-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ecosystemConnector {
+  font-size: 1.25rem;
+  color: var(--strategy-text-muted);
+  font-weight: bold;
+}
+
+/* ============================================
+   CYCLE DIAGRAM
+   ============================================ */
+
+.cycleDiagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+}
+
+.cycleStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--ifm-card-background-color);
+  border-radius: 8px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.cycleNumber {
+  width: 28px;
+  height: 28px;
+  background: var(--strategy-accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.cycleLabel {
+  font-size: 0.8rem;
+  color: var(--ifm-heading-color);
+}
+
+.cycleArrow {
+  font-size: 1.25rem;
+  color: var(--strategy-text-muted);
+}
+
+/* ============================================
+   TEAM MAPPING
+   ============================================ */
+
+.teamMappingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.teamCard {
+  padding: 1.5rem;
+  background: var(--ifm-card-background-color);
+  border: 2px solid var(--strategy-border);
+  border-radius: 12px;
+}
+
+.teamHeader {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--strategy-accent);
+}
+
+.teamName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+}
+
+.teamMissionSets {
+  margin-bottom: 1rem;
+}
+
+.teamMissionSets ul {
+  margin: 0.5rem 0 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.teamMissionSets li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.teamNote {
+  font-size: 0.85rem;
+  color: var(--strategy-text-muted);
+  font-style: italic;
+  padding-top: 1rem;
+  border-top: 1px solid var(--strategy-border);
+}
+
+/* Coverage indicators */
+.coverageGood {
+  color: #059669;
+  font-weight: 600;
+}
+
+.coveragePartial {
+  color: #D97706;
+  font-weight: 600;
+}
+
+.coverageWeak {
+  color: #DC2626;
+  font-weight: 600;
+}
+
+/* ============================================
+   ACTION LIST
+   ============================================ */
+
+.actionList {
+  margin: 2rem 0;
+}
+
+.actionItem {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--strategy-border);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.actionItem:last-child {
+  margin-bottom: 0;
+}
+
+.actionNumber {
+  width: 40px;
+  height: 40px;
+  background: var(--strategy-accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.actionContent {
+  flex: 1;
+}
+
+.actionContent strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.actionContent p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--strategy-text-muted);
+}
+
+/* ============================================
+   METRICS GRID
+   ============================================ */
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.metricCard {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--strategy-border);
+  border-radius: 12px;
+}
+
+.metricValue {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--strategy-accent);
+  margin-bottom: 0.25rem;
+}
+
+.metricLabel {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+  margin-bottom: 0.25rem;
+}
+
+.metricDescription {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--strategy-text-muted);
+}
+
+/* ============================================
+   CALL TO ACTION
+   ============================================ */
+
+.cta {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  text-align: center;
+  color: white;
+}
+
+.ctaContent {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin: 0 0 1rem;
+  color: white;
+}
+
+.ctaDescription {
+  font-size: 1.125rem;
+  margin: 0 0 2rem;
+  color: #94A3B8;
+  line-height: 1.6;
+}
+
+.ctaQuote {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #60A5FA;
+  font-style: italic;
+  padding: 2rem;
+  border-left: 4px solid #60A5FA;
+  background: rgba(96, 165, 250, 0.1);
+  border-radius: 0 12px 12px 0;
+  text-align: left;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1100px) {
+  .pageWrapper {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 996px) {
+  .pageWrapper {
+    flex-direction: column;
+    padding: 0 1.5rem;
+  }
+
+  .mainContent {
+    max-width: 100%;
+  }
+
+  .hero {
+    min-height: 60vh;
+    padding: 3rem 1.5rem;
+  }
+
+  .comparisonGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ratioComparison {
+    flex-direction: column;
+  }
+
+  .ratioArrow {
+    transform: rotate(90deg);
+  }
+
+  .triadCenter {
+    position: static;
+    transform: none;
+    margin: 1rem 0;
+  }
+
+  .triadDiagram {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .ecosystemRow {
+    flex-direction: column;
+  }
+
+  .ecosystemConnector {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 50vh;
+  }
+
+  .heroMeta {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .missionSetGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .multiplierDiagram {
+    flex-direction: column;
+  }
+
+  .cycleDiagram {
+    flex-direction: column;
+  }
+
+  .teamMappingGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   INSTITUTION CARDS (Act 2)
+   ============================================ */
+
+.institutionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.institutionCard {
+  background: var(--ifm-card-background-color);
+  border: 2px solid var(--strategy-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.institutionCard:hover {
+  border-color: var(--strategy-accent-light);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.institutionHeader {
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  text-align: center;
+}
+
+.institutionIcon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.institutionName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.institutionSubtitle {
+  font-size: 0.8rem;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.institutionBody {
+  padding: 1.25rem;
+}
+
+.institutionBody p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.institutionBody p:last-of-type {
+  margin-bottom: 1rem;
+}
+
+.institutionQuote {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--strategy-accent);
+  padding: 0.75rem 1rem;
+  background: rgba(30, 64, 175, 0.08);
+  border-left: 3px solid var(--strategy-accent);
+  border-radius: 0 8px 8px 0;
+}
+
+/* ============================================
+   THEATER SPECTRUM (Act 1)
+   ============================================ */
+
+.theaterSpectrum {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.theaterCard {
+  padding: 1.25rem;
+  background: var(--ifm-card-background-color);
+  border: 2px solid var(--strategy-border);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.theaterIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.theaterName {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.theaterDesc {
+  font-size: 0.8rem;
+  color: var(--strategy-text-muted);
+  line-height: 1.4;
+}
+
+/* ============================================
+   MISSION SET WIDE CARD (6th Mission)
+   ============================================ */
+
+.missionSetCardWide {
+  grid-column: 1 / -1;
+}
+
+.dualMission {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.dualMissionHalf {
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+}
+
+.dualMissionTitle {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.dualMissionHalf p {
+  font-size: 0.85rem;
+  color: var(--strategy-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.dualMissionHalf ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.85rem;
+}
+
+.dualMissionHalf li {
+  margin-bottom: 0.25rem;
+}
+
+/* ============================================
+   THE FLEET - Aircraft Cards
+   ============================================ */
+
+.fleetGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.aircraftCard {
+  background: var(--ifm-card-background-color);
+  border: 2px solid var(--strategy-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.aircraftCard:hover {
+  border-color: var(--strategy-accent-light);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.aircraftSilhouette {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aircraftSvg {
+  width: 100%;
+  max-width: 180px;
+  height: 50px;
+  color: #60A5FA;
+}
+
+.aircraftInfo {
+  padding: 1.25rem;
+}
+
+.aircraftType {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--strategy-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.aircraftName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+  margin-bottom: 0.75rem;
+}
+
+.aircraftSpecs {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-font-color-base);
+}
+
+.specLabel {
+  font-weight: 600;
+  color: var(--strategy-text-muted);
+}
+
+.aircraftTheater {
+  font-size: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--strategy-border);
+  margin-top: 0.75rem;
+}
+
+.theaterLabel {
+  font-weight: 600;
+  color: var(--strategy-accent);
+}
+
+/* ============================================
+   POWER PROJECTION (Act 5)
+   ============================================ */
+
+.powerProjection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.projectionColumn {
+  background: var(--ifm-card-background-color);
+  border: 2px solid var(--strategy-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.projectionHeader {
+  padding: 1rem;
+  text-align: center;
+  color: white;
+}
+
+.projectionMature {
+  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+}
+
+.projectionDeveloping {
+  background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
+}
+
+.projectionAustere {
+  background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
+}
+
+.projectionIcon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.projectionTitle {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.projectionContent {
+  padding: 1.25rem;
+}
+
+.projectionCharacteristics {
+  margin-bottom: 1rem;
+}
+
+.projectionCharacteristics strong {
+  font-size: 0.85rem;
+  color: var(--strategy-text-muted);
+}
+
+.projectionCharacteristics ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.85rem;
+}
+
+.projectionCharacteristics li {
+  margin-bottom: 0.25rem;
+}
+
+.projectionModel {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+}
+
+.projectionModel strong {
+  font-size: 0.85rem;
+  color: var(--strategy-text-muted);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.projectionModel em {
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+}
+
+.projectionModel p {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+}
+
+.projectionFleet {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--strategy-border);
+}
+
+.projectionFleet strong {
+  font-size: 0.8rem;
+  color: var(--strategy-text-muted);
+}
+
+.projectionFleet p {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--strategy-accent);
+}
+
+/* ============================================
+   TEAM CARD EXPANDED (Act 6)
+   ============================================ */
+
+.teamCardExpanded {
+  border-color: var(--strategy-accent);
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.03) 0%, transparent 100%);
+}
+
+.teamHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--strategy-accent);
+}
+
+.teamBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  background: var(--strategy-accent);
+  color: white;
+  border-radius: 4px;
+}
+
+.expeditionaryRole {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(30, 64, 175, 0.08);
+  border-radius: 8px;
+  border-left: 4px solid var(--strategy-accent);
+}
+
+.expeditionaryRole strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.expeditionaryRole p {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.expeditionaryRole ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.expeditionaryRole li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   RESPONSIVE FOR NEW ELEMENTS
+   ============================================ */
+
+@media (max-width: 996px) {
+  .theaterSpectrum {
+    grid-template-columns: 1fr;
+  }
+
+  .dualMission {
+    grid-template-columns: 1fr;
+  }
+
+  .powerProjection {
+    grid-template-columns: 1fr;
+  }
+
+  .institutionGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .fleetGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .teamHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+[data-theme='dark'] .comparisonCard {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .missionSetCard {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .ratioComparison {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .ratioCard {
+  background: #1E293B;
+}
+
+[data-theme='dark'] .triadDiagram {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .triadNode {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .ecosystemDiagram {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .ecosystemNode {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .cycleDiagram {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .cycleStep {
+  background: #1E293B;
+}
+
+[data-theme='dark'] .teamCard {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .actionItem {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .metricCard {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .multiplierDiagram {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .highlightBox {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%);
+}
+
+[data-theme='dark'] .theaterCard {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .dualMissionHalf {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .aircraftCard {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .projectionColumn {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .projectionModel {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .teamCardExpanded {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.08) 0%, transparent 100%);
+}
+
+[data-theme='dark'] .expeditionaryRole {
+  background: rgba(96, 165, 250, 0.1);
+}
+
+[data-theme='dark'] .institutionCard {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .institutionQuote {
+  background: rgba(96, 165, 250, 0.1);
+}
