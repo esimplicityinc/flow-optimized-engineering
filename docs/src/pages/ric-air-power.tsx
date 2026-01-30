@@ -197,7 +197,7 @@ function HeroSection(): ReactNode {
         <h1 className={styles.heroTitle}>
           From Ground to Air
           <br />
-          <span className={styles.heroTitleAccent}>The RIC Transformation</span>
+          <span className={styles.heroTitleAccent}>The Agentic Delivery Transformation</span>
         </h1>
         <p className={styles.heroSubtitle}>
           Why agentic speed requires air power organization
