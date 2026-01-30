@@ -13,7 +13,6 @@ import {
   type Domain,
 } from '../components/GenomeExplorer/genomeData';
 
-import CircuitVisualization from '../components/GenomeExplorer/CircuitVisualization';
 import CircuitFlowVisualization from '../components/GenomeExplorer/CircuitFlowVisualization';
 import { ThreePillars } from '../components/GenomeExplorer/ThreePillars';
 import { GovPersonas } from '../components/GenomeExplorer/GovPersonas';
@@ -615,11 +614,6 @@ function SpeciesSection(): ReactNode {
             </div>
           );
         })}
-      </div>
-      
-      {/* Mini Circuit Visualization */}
-      <div className={styles.circuitMini}>
-        <CircuitVisualization variant="simplified" interactive={false} />
       </div>
     </section>
   );
