@@ -448,7 +448,7 @@ function Act2(): ReactNode {
 
       <div className={styles.institutionGrid}>
         {/* Edwards AFB / Test Programs */}
-        <div className={styles.institutionCard}>
+        <div className={`${styles.institutionCard} ${styles.institutionEdwards}`}>
           <div className={styles.institutionHeader}>
             <Icon name="microscope" className={styles.institutionIcon} size={32} />
             <div className={styles.institutionName}>Edwards Air Force Base</div>
@@ -477,7 +477,7 @@ function Act2(): ReactNode {
         </div>
 
         {/* Top Gun */}
-        <div className={styles.institutionCard}>
+        <div className={`${styles.institutionCard} ${styles.institutionTopgun}`}>
           <div className={styles.institutionHeader}>
             <Icon name="target" className={styles.institutionIcon} size={32} />
             <div className={styles.institutionName}>TOPGUN / USAF Weapons School</div>
@@ -507,7 +507,7 @@ function Act2(): ReactNode {
         </div>
 
         {/* Thunderbirds */}
-        <div className={styles.institutionCard}>
+        <div className={`${styles.institutionCard} ${styles.institutionThunderbirds}`}>
           <div className={styles.institutionHeader}>
             <Icon name="star" className={styles.institutionIcon} size={32} />
             <div className={styles.institutionName}>Thunderbirds / Blue Angels</div>
@@ -537,7 +537,7 @@ function Act2(): ReactNode {
         </div>
 
         {/* Red Flag */}
-        <div className={styles.institutionCard}>
+        <div className={`${styles.institutionCard} ${styles.institutionRedFlag}`}>
           <div className={styles.institutionHeader}>
             <Icon name="gamepad" className={styles.institutionIcon} size={32} />
             <div className={styles.institutionName}>Red Flag</div>
@@ -568,7 +568,7 @@ function Act2(): ReactNode {
         </div>
 
         {/* Manufacturing / Logistics */}
-        <div className={styles.institutionCard}>
+        <div className={`${styles.institutionCard} ${styles.institutionSkunkWorks}`}>
           <div className={styles.institutionHeader}>
             <Icon name="factory" className={styles.institutionIcon} size={32} />
             <div className={styles.institutionName}>Skunk Works / Air Mobility Command</div>
