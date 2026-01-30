@@ -17,7 +17,8 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '🤖 Agentic Coding',
+      label: 'Agentic Coding',
+      className: 'sidebar-icon-agentic',
       link: {
         type: 'doc',
         id: 'field-guides/agentic-coding/overview',
@@ -47,7 +48,8 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '🏗️ Architecture',
+      label: 'Architecture',
+      className: 'sidebar-icon-architecture',
       link: {
         type: 'doc',
         id: 'field-guides/architecture/overview',
