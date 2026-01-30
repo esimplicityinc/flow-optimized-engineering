@@ -61,42 +61,49 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
   guideId="agentic-coding"
   methods={[
     { 
+      id: 'M154',
       slug: 'understanding-first-protocol-adoption', 
       title: 'Understanding-First Protocol Adoption', 
       maturity: 'observing',
       description: 'Invest in protocol model understanding before making architectural decisions',
     },
     { 
+      id: 'M146',
       slug: 'early-feedback-loop-investment', 
       title: 'Early Feedback Loop Investment', 
       maturity: 'observing',
       description: 'Build test/CI infrastructure as foundation, not overhead',
     },
     { 
+      id: 'M147',
       slug: 'knowledge-distribution-as-reliability', 
       title: 'Knowledge Distribution as Reliability', 
       maturity: 'observing',
       description: 'Treat concentrated knowledge as a system risk to actively address',
     },
     { 
+      id: 'M155',
       slug: 'verification-before-completion', 
       title: 'Verification Before Completion', 
       maturity: 'hypothesized',
       description: 'Never claim work is complete without running verification commands',
     },
     { 
+      id: 'M152',
       slug: 'test-driven-agent-development', 
       title: 'Test-Driven Agent Development', 
       maturity: 'hypothesized',
       description: 'Apply red-green-refactor cycle to AI-assisted development',
     },
     { 
+      id: 'M148',
       slug: 'persistent-planning-state', 
       title: 'Persistent Planning State', 
       maturity: 'hypothesized',
       description: 'Maintain explicit planning state in markdown files to prevent context drift',
     },
     { 
+      id: 'M149',
       slug: 'root-cause-first-debugging', 
       title: 'Root-Cause-First Debugging', 
       maturity: 'hypothesized',
@@ -105,6 +112,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
   ]}
   externalMethods={[
     {
+      id: 'M111',
       framework: 'dora',
       method: 'deployment-frequency',
       foe_maturity: 'hypothesized',
@@ -113,6 +121,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       frameworkTitle: 'DORA',
     },
     {
+      id: 'M130',
       framework: 'dora',
       method: 'lead-time-for-changes',
       foe_maturity: 'hypothesized',
@@ -121,6 +130,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       frameworkTitle: 'DORA',
     },
     {
+      id: 'M127',
       framework: 'bdd',
       method: 'given-when-then',
       foe_maturity: 'hypothesized',
@@ -129,6 +139,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       frameworkTitle: 'BDD',
     },
     {
+      id: 'M121',
       framework: 'bdd',
       method: 'executable-specifications',
       foe_maturity: 'hypothesized',
@@ -137,6 +148,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       frameworkTitle: 'BDD',
     },
     {
+      id: 'M126',
       framework: 'bdd',
       method: 'gherkin',
       foe_maturity: 'hypothesized',
@@ -145,6 +157,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       frameworkTitle: 'BDD',
     },
     {
+      id: 'M124',
       framework: 'team-topologies',
       method: 'fast-flow',
       foe_maturity: 'hypothesized',
@@ -153,6 +166,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       frameworkTitle: 'Team Topologies',
     },
     {
+      id: 'M118',
       framework: 'team-topologies',
       method: 'enabling-team',
       foe_maturity: 'hypothesized',
@@ -161,6 +175,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       frameworkTitle: 'Team Topologies',
     },
     {
+      id: 'M136',
       framework: 'team-topologies',
       method: 'team-cognitive-load',
       foe_maturity: 'hypothesized',
@@ -169,6 +184,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       frameworkTitle: 'Team Topologies',
     },
     {
+      id: 'M112',
       framework: 'continuous-delivery',
       method: 'deployment-pipeline',
       foe_maturity: 'hypothesized',
@@ -177,6 +193,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       frameworkTitle: 'Continuous Delivery',
     },
     {
+      id: 'M140',
       framework: 'continuous-delivery',
       method: 'trunk-based-development',
       foe_maturity: 'hypothesized',

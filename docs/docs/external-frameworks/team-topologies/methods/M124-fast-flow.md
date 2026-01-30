@@ -1,0 +1,122 @@
+---
+methodId: M124
+displayed_sidebar: fieldGuideSidebar
+sidebar_position: 11
+title: Fast Flow
+description: The ability to quickly move work from idea to customer value.
+framework: team-topologies
+framework_url: https://teamtopologies.com/key-concepts
+foe_alignment:
+  primary: Feedback
+  secondary: Confidence
+status: well-established
+---
+
+# Fast Flow
+
+**Pillar:** Core Concepts
+
+Fast Flow is how quickly work moves from idea to customer value without getting stuck in organizational bottlenecks. It's the fundamental goal of Team Topologies—all other concepts (team types, interaction modes, cognitive load) exist to enable fast flow.
+
+## Definition
+
+> "Fast flow requires restricting communication between teams. Team collaboration is important for discovering new innovations, but too much communication between teams is a sign of excess dependencies and misaligned boundaries."
+>
+> — Skelton & Pais, Team Topologies
+
+## Why It Matters
+
+Fast flow is the ultimate measure of organizational effectiveness:
+
+- **Customer value** - Faster flow means customers get value sooner
+- **Feedback** - Faster flow enables faster learning from production
+- **Competitive advantage** - Organizations with faster flow outcompete slower ones
+- **Team satisfaction** - Teams that can deliver feel more effective
+- **Risk reduction** - Smaller, faster changes are safer
+
+## FOE Framing
+
+**Primary: Fast Feedback Loops**
+
+Fast flow is fundamentally about feedback speed. When work moves quickly from idea to production, teams learn quickly what works and what doesn't. Slow flow means delayed feedback, which means delayed learning.
+
+**Secondary: Confidence to Act**
+
+Organizations with fast flow have confidence to make changes because they know they can deliver quickly and respond quickly if something goes wrong. Fast flow enables smaller batch sizes, which reduces risk and increases confidence.
+
+## Relationship to DORA Metrics
+
+Fast flow is measured by DORA's throughput metrics:
+
+| DORA Metric | What It Measures |
+|-------------|-----------------|
+| **Deployment Frequency** | How often code is deployed to production |
+| **Lead Time for Changes** | Time from commit to production |
+
+Teams with fast flow have high deployment frequency and low lead time.
+
+## What Slows Flow
+
+| Blocker | Impact |
+|---------|--------|
+| **Hand-offs** | Work waits while moving between teams |
+| **Dependencies** | Teams wait for other teams |
+| **Large batches** | Changes accumulate, creating release risk |
+| **Manual processes** | Slow, error-prone gates |
+| **Unclear ownership** | No one takes responsibility |
+| **Cognitive overload** | Teams move slowly when overwhelmed |
+
+## How Team Topologies Enables Fast Flow
+
+### Stream-Aligned Teams
+
+End-to-end ownership means no hand-offs within the value stream.
+
+### Clear Team Interactions
+
+Defined interaction modes (Collaboration, X-as-a-Service, Facilitating) reduce ambiguity about how teams work together.
+
+### Cognitive Load Management
+
+Teams that can understand their systems move faster than overloaded teams.
+
+### Platform Teams
+
+Self-service capabilities remove blockers and dependencies.
+
+### Inverse Conway Maneuver
+
+Team boundaries aligned with system boundaries reduce coordination overhead.
+
+## Measuring Fast Flow
+
+Beyond DORA metrics, consider:
+
+- Number of hand-offs in the value stream
+- Wait time between stages
+- Percentage of work that requires cross-team coordination
+- Time to onboard new team members
+- Lead time for typical changes
+
+## Fast Flow Anti-Patterns
+
+- **Optimizing locally** - Making one team faster while creating bottlenecks elsewhere
+- **Ignoring hand-offs** - Focusing on work time, not wait time
+- **Large releases** - Batching creates risk and delays
+- **Mandatory meetings** - Synchronous coordination as flow bottleneck
+- **Approval gates** - Manual approvals that create queues
+
+## Relationship to Other Methods
+
+- **Stream-Aligned Team** - The primary organizational unit for fast flow
+- **X-as-a-Service Mode** - Reduces coordination overhead
+- **Team Cognitive Load** - Overload slows flow
+- **Inverse Conway Maneuver** - Aligns organization with architecture for flow
+- **DORA Metrics** - Measures fast flow quantitatively
+- **Early Feedback Loop Investment (FOE)** - Enables the infrastructure for fast flow
+
+## Citations
+
+- Skelton, M., & Pais, M. (2019). *Team Topologies: Organizing Business and Technology Teams for Fast Flow*. IT Revolution Press.
+- Forsgren, N., Humble, J., & Kim, G. (2018). *Accelerate: The Science of Lean Software and DevOps*. IT Revolution Press.
+- [Team Topologies Key Concepts](https://teamtopologies.com/key-concepts)

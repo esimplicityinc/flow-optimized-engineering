@@ -8,6 +8,7 @@ import styles from './styles.module.css';
 interface ExternalMethodInfo {
   framework: string;
   method: string;
+  id?: string; // Method ID like M111, used for canonical link
 }
 
 // Map framework slugs to display names
@@ -38,9 +39,11 @@ export default function ExternalMethodHeader(): React.ReactElement | null {
     return null;
   }
 
-  const { framework, method } = externalMethod;
+  const { framework, method, id } = externalMethod;
   const frameworkName = frameworkDisplayNames[framework] || framework;
-  const canonicalPath = `/docs/external-frameworks/${framework}/methods/${method}`;
+  // Path includes ID prefix in filename (e.g., M124-fast-flow)
+  const methodSlug = id ? `${id}-${method}` : method;
+  const canonicalPath = `/docs/external-frameworks/${framework}/methods/${methodSlug}`;
 
   return (
     <div className={styles.container}>

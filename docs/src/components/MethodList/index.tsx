@@ -10,6 +10,7 @@ interface Method {
   maturity: MaturityLevel;
   description?: string;
   experimentCount?: number;
+  id?: string; // Method ID like M155, used for path if provided
 }
 
 /**
@@ -19,6 +20,7 @@ interface ExternalMethodDisplay extends AdoptedMethod {
   title: string;
   description?: string;
   frameworkTitle?: string;
+  id?: string; // Method ID like M111, used for path if provided
 }
 
 interface MethodListProps {
@@ -76,7 +78,9 @@ export default function MethodList({
 
   const renderInternalMethodCard = (method: Method, section: 'established' | 'emerging') => {
     const config = getMaturityConfig(method.maturity);
-    const path = `/docs/field-guides/${guideId}/methods/${section}/${method.slug}`;
+    // Use id-slug pattern if id is provided, otherwise fall back to slug only
+    const pathSlug = method.id ? `${method.id}-${method.slug}` : method.slug;
+    const path = `/docs/field-guides/${guideId}/methods/${section}/${pathSlug}`;
 
     return (
       <Link key={method.slug} to={path} className={styles.card}>
@@ -102,13 +106,15 @@ export default function MethodList({
     );
   };
 
-  const renderExternalMethodCard = (external: AdoptedMethodDisplay) => {
+  const renderExternalMethodCard = (external: ExternalMethodDisplay) => {
     const config = getMaturityConfig(external.foe_maturity);
     // External methods now live alongside internal methods, organized by maturity
     const section = (external.foe_maturity === 'validated' || external.foe_maturity === 'proven') 
       ? 'established' 
       : 'emerging';
-    const path = `/docs/field-guides/${guideId}/methods/${section}/${external.method}`;
+    // Use id-method pattern if id is provided, otherwise fall back to method only
+    const pathSlug = external.id ? `${external.id}-${external.method}` : external.method;
+    const path = `/docs/field-guides/${guideId}/methods/${section}/${pathSlug}`;
     const key = `${external.framework}/${external.method}`;
 
     return (

@@ -45,82 +45,22 @@ Good architecture isn't about following patterns—it's about making boundaries 
 
 Methods with strong supporting evidence (Validated or Proven):
 
-- [True Microservices](./methods/established/true-microservices) - Design service architectures that enable independent team deployment
-- [Consumer Contract Testing](./methods/established/consumer-contract-testing) - Validate service integration points through consumer-driven contracts
+- [True Microservices](./methods/established/M153-true-microservices) - Design service architectures that enable independent team deployment
+- [Consumer Contract Testing](./methods/established/M145-consumer-contract-testing) - Validate service integration points through consumer-driven contracts
 
 ### Emerging Methods
 
 Methods currently being tested (Hypothesized or Observing):
 
-- [Service Boundary Extraction](./methods/emerging/service-boundary-extraction) - Extract components with natural boundaries to dedicated containers
-- [System Over Individuals](./methods/emerging/system-over-individuals) - Optimize the system before blaming the people
+- [Service Boundary Extraction](./methods/emerging/M150-service-boundary-extraction) - Extract components with natural boundaries to dedicated containers
+- [System Over Individuals](./methods/emerging/M151-system-over-individuals) - Optimize the system before blaming the people
 
-### Adopted Methods
+### Related External Methods
 
-External framework methods adopted for architectural decision-making:
+This guide draws on methods from external frameworks. See the [External Frameworks](/docs/external-frameworks/overview) section for details:
 
-<MethodList 
-  guideId="architecture"
-  methods={[]}
-  adoptedMethods={[
-    {
-      framework: 'bdd',
-      method: 'discovery-workshops',
-      foe_maturity: 'hypothesized',
-      title: 'Discovery Workshops',
-      description: 'Collaborative conversations to explore and agree on desired system behavior through concrete examples',
-      frameworkTitle: 'BDD',
-    },
-    {
-      framework: 'bdd',
-      method: 'three-amigos',
-      foe_maturity: 'hypothesized',
-      title: 'Three Amigos',
-      description: 'Cross-functional meeting format where business, dev, and test perspectives collaborate on requirements',
-      frameworkTitle: 'BDD',
-    },
-    {
-      framework: 'bdd',
-      method: 'example-mapping',
-      foe_maturity: 'hypothesized',
-      title: 'Example Mapping',
-      description: 'A structured technique using colored cards to map user stories to rules, examples, and questions',
-      frameworkTitle: 'BDD',
-    },
-    {
-      framework: 'double-diamond',
-      method: 'discover-phase',
-      foe_maturity: 'observing',
-      title: 'Discover Phase',
-      description: 'Divergent exploration of the problem space through user research, observation, and empathy exercises',
-      frameworkTitle: 'Double Diamond',
-    },
-    {
-      framework: 'double-diamond',
-      method: 'define-phase',
-      foe_maturity: 'observing',
-      title: 'Define Phase',
-      description: 'Convergent synthesis of insights into a clear, evidence-based problem definition',
-      frameworkTitle: 'Double Diamond',
-    },
-    {
-      framework: 'double-diamond',
-      method: 'develop-phase',
-      foe_maturity: 'observing',
-      title: 'Develop Phase',
-      description: 'Divergent generation of multiple solutions through ideation, prototyping, and co-design',
-      frameworkTitle: 'Double Diamond',
-    },
-    {
-      framework: 'double-diamond',
-      method: 'deliver-phase',
-      foe_maturity: 'observing',
-      title: 'Deliver Phase',
-      description: 'Convergent validation through phased testing before full launch',
-      frameworkTitle: 'Double Diamond',
-    },
-  ]}
-/>
+- **BDD**: [Discovery Workshops](/docs/external-frameworks/bdd/methods/M115-discovery-workshops), [Three Amigos](/docs/external-frameworks/bdd/methods/M138-three-amigos), [Example Mapping](/docs/external-frameworks/bdd/methods/M120-example-mapping)
+- **Double Diamond**: [Discover Phase](/docs/external-frameworks/double-diamond/methods/M114-discover-phase), [Define Phase](/docs/external-frameworks/double-diamond/methods/M109-define-phase), [Develop Phase](/docs/external-frameworks/double-diamond/methods/M113-develop-phase), [Deliver Phase](/docs/external-frameworks/double-diamond/methods/M110-deliver-phase)
 
 ## Getting Started
 

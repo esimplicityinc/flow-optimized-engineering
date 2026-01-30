@@ -74,22 +74,22 @@ Team Topologies aligns strongly with all three Flow Optimized Engineering princi
 ## Methods
 
 **Team Types:**
-- [Stream-Aligned Team](./methods/stream-aligned-team) - End-to-end ownership of a value stream
-- [Platform Team](./methods/platform-team) - Internal products that accelerate delivery
-- [Enabling Team](./methods/enabling-team) - Help others overcome obstacles
-- [Complicated-Subsystem Team](./methods/complicated-subsystem-team) - Deep expertise domains
+- [Stream-Aligned Team](./methods/M133-stream-aligned-team) - End-to-end ownership of a value stream
+- [Platform Team](./methods/M131-platform-team) - Internal products that accelerate delivery
+- [Enabling Team](./methods/M118-enabling-team) - Help others overcome obstacles
+- [Complicated-Subsystem Team](./methods/M107-complicated-subsystem-team) - Deep expertise domains
 
 **Interaction Modes:**
-- [Collaboration Mode](./methods/collaboration-mode) - Working closely together
-- [X-as-a-Service Mode](./methods/x-as-a-service-mode) - Consume via clear API
-- [Facilitating Mode](./methods/facilitating-mode) - Helping and coaching
+- [Collaboration Mode](./methods/M106-collaboration-mode) - Working closely together
+- [X-as-a-Service Mode](./methods/M144-x-as-a-service-mode) - Consume via clear API
+- [Facilitating Mode](./methods/M122-facilitating-mode) - Helping and coaching
 
 **Core Concepts:**
-- [Fast Flow](./methods/fast-flow) - Optimize for speed of value delivery
-- [Team Cognitive Load](./methods/team-cognitive-load) - Limit what teams own
-- [Team API](./methods/team-api) - Define how teams interact
-- [Inverse Conway Maneuver](./methods/inverse-conway-maneuver) - Design teams for desired architecture
-- [Thinnest Viable Platform](./methods/thinnest-viable-platform) - Only what's needed
+- [Fast Flow](./methods/M124-fast-flow) - Optimize for speed of value delivery
+- [Team Cognitive Load](./methods/M136-team-cognitive-load) - Limit what teams own
+- [Team API](./methods/M135-team-api) - Define how teams interact
+- [Inverse Conway Maneuver](./methods/M129-inverse-conway-maneuver) - Design teams for desired architecture
+- [Thinnest Viable Platform](./methods/M137-thinnest-viable-platform) - Only what's needed
 
 ## Existing FOE Observations
 

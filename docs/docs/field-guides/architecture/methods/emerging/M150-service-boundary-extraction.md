@@ -1,0 +1,166 @@
+---
+methodId: M150
+displayed_sidebar: fieldGuideSidebar
+sidebar_position: 1
+title: "Service Boundary Extraction"
+maturity: hypothesized
+observations:
+  - internal/O103-prima-presidio-containerization
+---
+
+import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
+import RelatedObservations from '@site/src/components/RelatedObservations';
+
+# Service Boundary Extraction
+
+<InternalMethodHeader />
+
+Extract components with natural boundaries—different dependency profiles, scaling requirements, or deployment cadences—to dedicated containers, making implicit architectural separation explicit.
+
+
+## Overview
+
+As services grow, they accumulate responsibilities and dependencies that don't belong together. Components with different dependency weights, scaling needs, or deployment cadences get bundled into the same unit. The result: slow builds, coupled deployments, and difficulty reasoning about the system.
+
+When a natural boundary exists—different dependency profiles, different scaling requirements, different team ownership, or different release rhythms—extracting that component to a dedicated container makes the boundary explicit. The separation was already there conceptually; containerization enforces it architecturally.
+
+Containers provide strong isolation with well-defined interfaces. This enables independent builds, independent deployments, and independent scaling. The tradeoff is network latency and operational complexity—so the boundary must justify the cost.
+
+## FOE Framing
+
+This method optimizes for **feedback** (smaller, faster builds) and **confidence** (independent testing and deployment). It requires **understanding** of where natural boundaries exist in your system—if you have to invent an awkward API, the boundary probably isn't natural.
+
+## When to Use
+
+Use this method when:
+
+- **Heavy dependencies dragging down builds** — A component brings large dependencies that slow CI/CD for the whole service
+- **Different scaling requirements** — One part of the system needs to scale independently
+- **Different deployment cadences** — A component changes at a different rhythm than the rest
+- **Clear API boundary already exists** — The component has a natural request/response interface
+- **Team ownership divergence** — Different teams would benefit from independent deployment
+
+## When NOT to Use
+
+Avoid this method when:
+
+- **Latency-critical paths** — Network overhead is unacceptable
+- **Tight coupling by necessity** — Shared memory, frequent calls, complex state
+- **Operational overhead not justified** — Marginal benefit doesn't warrant complexity
+- **No clear boundary exists** — If you have to invent an awkward API, reconsider
+- **Can't measure the impact** — If you won't know whether it helped, reconsider
+
+## How It Works
+
+### Prerequisites
+
+Before starting:
+- A service with identifiable components that could live behind a network boundary
+- Container orchestration infrastructure (Docker Compose, Kubernetes, etc.)
+- Ability to measure before/after (build times, image sizes, startup times)
+
+### Step 1: Identify the Boundary
+
+Map your service's components and dependencies. Ask: What's heavy? What's different? What's separable?
+
+Look for signals:
+- Dependencies that dominate your lock file
+- Components with different scaling characteristics
+- Functionality owned by different teams
+- Features that change at different rates
+
+If the boundary isn't obvious, it may not be natural enough to extract.
+
+### Step 2: Measure the Baseline
+
+Before extracting, capture metrics:
+- Build time (local and CI)
+- Image size
+- Startup time
+- Latency on paths that will cross the new boundary
+
+Without baselines, you can't prove the investment paid off.
+
+### Step 3: Define the Interface
+
+Design the API between your main service and the extracted component:
+- REST or gRPC endpoints
+- Request/response contracts
+- Timeout configuration
+- Error handling for when the container is unavailable
+
+The interface should feel natural. If it's awkward, reconsider whether this boundary should exist.
+
+### Step 4: Extract and Containerize
+
+1. Find or create a container image for the component
+2. Create a client in your main service to communicate with the container
+3. Remove the heavy dependencies from your main service
+4. Add the container to your orchestration (Docker Compose, Kubernetes, etc.)
+5. Update configuration to point to the containerized service
+
+### Step 5: Establish Independent CI/CD
+
+Create a separate pipeline for the extracted component:
+- Independent versioning
+- Independent testing
+- Independent deployment
+
+This enables the component to evolve without forcing main service redeployments.
+
+### Step 6: Validate and Monitor
+
+After extraction:
+- Measure the same metrics from Step 2
+- Compare against baselines
+- Monitor production reliability
+- Track latency across the new boundary
+- Document failure modes and recovery behavior
+
+## Example
+
+From the Prima Presidio observation:
+
+**The Problem:** The main service embedded Presidio PII analyzer, bringing PyTorch, spaCy, and transformers dependencies. Every build pulled these heavy ML libraries, even though PII detection was just one capability.
+
+**The Extraction:**
+1. Identified the boundary: PII detection had a clear request/response interface
+2. Found an existing container: `mcr.microsoft.com/presidio-analyzer:2.2.360`
+3. Created a REST client (`aiox/presidio.py`) with 30-second timeout
+4. Removed 6 heavy packages from the main service
+5. Added Presidio to Docker Compose as `presidio-analyzer:5002`
+6. Created dedicated CI/CD pipeline
+
+**The Result:** ~663 lines removed from the dependency lock file, independent versioning validated when the Presidio container was updated separately from the main service.
+
+**The Gap:** Baseline metrics weren't captured, so the improvement in build time and image size couldn't be quantified. This is a common pitfall—measure before you change.
+
+## Common Pitfalls
+
+1. **Skipping baseline measurements** — You can't prove ROI without before/after data. Capture build time, image size, and startup time before extracting.
+
+2. **Extracting without a natural boundary** — Awkward APIs indicate forced separation. If the interface feels clunky, the boundary probably isn't natural.
+
+3. **Ignoring operational complexity** — More containers means more to monitor, orchestrate, and debug. Ensure the benefit justifies this cost.
+
+4. **Forgetting failure modes** — What happens when the extracted service is unavailable? Design for graceful degradation or clear failure.
+
+## How You Can Help
+
+If you're testing this method:
+
+1. Review the current approach
+2. Try extracting a component in your context—especially for triggers beyond heavy dependencies (scaling, deployment cadence, team ownership)
+3. Document your observation with baseline measurements
+4. Share what worked and what didn't
+
+We're particularly interested in:
+- Extractions motivated by scaling requirements
+- Extractions motivated by team ownership boundaries
+- Cases where extraction was attempted but reversed
+
+## Supporting Evidence
+
+<RelatedObservations observations={[
+  { slug: 'internal/O103-prima-presidio-containerization', title: 'Containerizing Heavy ML Dependencies', status: 'completed' }
+]} />

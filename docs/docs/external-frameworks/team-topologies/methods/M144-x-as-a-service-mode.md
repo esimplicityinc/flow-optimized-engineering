@@ -1,0 +1,103 @@
+---
+methodId: M144
+displayed_sidebar: fieldGuideSidebar
+sidebar_position: 6
+title: X-as-a-Service Mode
+description: One team provides something "as a Service" with minimal interaction required.
+framework: team-topologies
+framework_url: https://teamtopologies.com/key-concepts
+foe_alignment:
+  primary: Feedback
+  secondary: Confidence
+status: well-established
+---
+
+# X-as-a-Service Mode
+
+**Pillar:** Interaction Modes
+
+X-as-a-Service is a team interaction mode where one team provides and one team consumes something "as a Service" with minimal interaction required. The providing team owns the service quality, reliability, and API stability. The consuming team uses self-service capabilities without needing to coordinate.
+
+## Definition
+
+> "X-as-a-Service: one team provides and one team consumes something 'as a Service' (an API, a tool, or an entire platform)."
+>
+> — Skelton & Pais, Team Topologies
+
+## Why It Matters
+
+X-as-a-Service is the primary mode for sustainable team interactions:
+
+- **Low coordination cost** - Teams interact through stable APIs, not meetings
+- **Clear ownership** - One team owns the service, another consumes it
+- **Independence** - Consuming teams don't wait for providing teams
+- **Scale** - One provider can serve many consumers
+- **Predictability** - Stable contracts enable independent planning
+
+## FOE Framing
+
+**Primary: Fast Feedback Loops**
+
+X-as-a-Service enables fast feedback by removing coordination overhead. Consuming teams can iterate independently—they don't need to wait for provider team meetings, approvals, or deployments. Self-service means instant access.
+
+**Secondary: Confidence to Act**
+
+Clear service contracts give consuming teams confidence. They know what to expect from the service. SLOs and documentation provide guarantees. Changes to the service won't surprise them.
+
+## When to Use
+
+- **Platform consumption** - Stream-aligned teams using platform capabilities
+- **Stable APIs** - When the interface is well-understood and unlikely to change
+- **High scale** - One provider serving many consumers
+- **After collaboration** - When discovery phase is complete and boundaries are clear
+- **Internal products** - Treating internal services as products
+
+## How It Works
+
+### Characteristics of Effective X-as-a-Service
+
+1. **Self-service** - Consumers can use the service without waiting
+2. **Clear documentation** - APIs, SLOs, and usage patterns documented
+3. **Stable contracts** - Backward-compatible API evolution
+4. **Minimal coordination** - Most interaction is through the service interface
+5. **Product mindset** - Provider treats service as a product
+
+### What Makes a Good "Service"
+
+| Attribute | Description |
+|-----------|-------------|
+| **Clear API** | Well-documented, versioned interface |
+| **Self-service onboarding** | New consumers can start without provider involvement |
+| **SLOs/SLAs** | Published reliability and performance guarantees |
+| **Support channels** | Clear escalation path for issues |
+| **Roadmap visibility** | Consumers can see what's coming |
+
+### X-as-a-Service Anti-Patterns
+
+- **Unstable contracts** - Frequent breaking changes
+- **Ticket-driven** - Consumers must request changes through tickets
+- **Undocumented APIs** - Tribal knowledge required to use service
+- **No self-service** - Every consumer needs provider team help
+- **Hidden coupling** - Implementation details leak through API
+
+## Relationship to Other Methods
+
+- **Platform Team** - Primary user of X-as-a-Service mode
+- **Stream-Aligned Team** - Primary consumer of services
+- **Collaboration Mode** - Often precedes X-as-a-Service during discovery
+- **Thinnest Viable Platform** - Guides what services to provide
+- **Team API** - Formalizes the service interface
+
+## When NOT to Use
+
+Avoid X-as-a-Service when:
+
+- APIs aren't stable yet (use Collaboration to discover them)
+- Teams are learning new capabilities (use Facilitating)
+- The boundary isn't clear (use Collaboration to find it)
+- Rapid co-evolution is needed (Collaboration is more appropriate)
+
+## Citations
+
+- Skelton, M., & Pais, M. (2019). *Team Topologies: Organizing Business and Technology Teams for Fast Flow*. IT Revolution Press.
+- [Team Topologies Key Concepts](https://teamtopologies.com/key-concepts)
