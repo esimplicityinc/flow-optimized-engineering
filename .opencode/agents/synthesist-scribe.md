@@ -5,6 +5,9 @@ description: |
   files and links observations bidirectionally.
 mode: subagent
 temperature: 0.2
+tools:
+  bash: true
+  skill: true
 ---
 
 # Synthesist Scribe
@@ -208,9 +211,49 @@ The path format is: `[guide-slug]/methods/[emerging|established]/[method-slug]`
 - The path should NOT include `.md` extension
 - The path should NOT include the full `docs/docs/field-guides/` prefix
 
+## Validate & Auto-Fix
+
+After creating/updating files, validate with the Field Guide linter.
+
+Load the linter skill:
+```
+skill({ name: "field-guide-linter" })
+```
+
+Run validation:
+```bash
+uv run --project scripts scripts/lint_field_guides.py --lint-only 2>/dev/null
+```
+
+**Auto-Fix These Errors:**
+
+1. **`id_mismatch`**: Update frontmatter `methodId` to match the `M###` prefix from filename
+2. **`folder_mismatch`**: Report to user - cannot auto-fix (requires file move or maturity change)
+3. **`missing_bidirectional_link`**: Add missing back-references between method and observations
+
+**Auto-Fix Procedure for Bidirectional Links:**
+
+When you update an observation's `methods:` array, also verify the method's `observations:` array includes this observation. Fix if missing:
+
+```python
+# In observation frontmatter:
+methods:
+  - guide/methods/established/M123-method
+
+# Verify method frontmatter includes:
+observations:
+  - observations/internal/O100-observation
+```
+
+After any auto-fix, **re-run the linter** to confirm.
+
+**If errors cannot be auto-fixed:** Report to user.
+
+**If only warnings:** Report but proceed.
+
 ## Completion Report
 
-After all files are created/updated, report:
+After all files are created/updated and validated, report:
 
 ```markdown
 **Synthesis complete.**
@@ -223,6 +266,11 @@ After all files are created/updated, report:
 ### Observations Updated
 - `[observation-1.md]` - Added method reference
 - `[observation-2.md]` - Added method reference
+
+### Validation
+**Linter:** [Passed | X errors fixed | X warnings]
+
+[If warnings, list them briefly]
 
 ### Next Steps
 [If emerging:]

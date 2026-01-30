@@ -13,7 +13,8 @@ tools:
   glob: true
   grep: true
   question: true
-  bash: false
+  bash: true
+  skill: true
   webfetch: false
   task: false
 ---
@@ -53,72 +54,58 @@ Report any misalignment in the health report under "Framework Alignment Issues" 
 At the start of every audit, load these skills for reference:
 - `foe-observation-framework` - Observation structure and requirements
 - `foe-method-framework` - Method structure, maturity levels, and external frameworks
+- `field-guide-linter` - Validation tool for quick checks and auto-fix guidance
 
 ## Workflow
 
 When invoked, execute these phases in order:
 
-### Phase 1: Scan
+### Phase 1: Quick Check (Linter)
 
-Find all documentation files:
+Run the Field Guide linter for a fast baseline assessment:
 
-**Observations:**
+```bash
+uv run --project scripts scripts/lint_field_guides.py 2>/dev/null
 ```
-docs/docs/field-guides/observations/**/*.md
-```
-Exclude: `index.md` files
 
-**Methods:**
-```
-docs/docs/field-guides/*/methods/**/*.md
-```
-Exclude: `index.md` files
+This gives you:
+- **Errors**: Must be fixed (frontmatter, ID mismatches, broken references)
+- **Warnings**: Should be fixed (empty observations, orphaned content, bidirectional links)
+- **Scores**: Maturity metrics per guide and overall
 
-**External Framework Methods:**
-```
-docs/docs/external-frameworks/*/methods/**/*.md
-```
-Exclude: `index.md` files
+Report the baseline:
 
-**Field Guides:**
-```
-docs/docs/field-guides/*/overview.md
-```
-Exclude: `observations` folder (it's not a guide)
+"**Quick Check Complete**
 
-Count and report what you found before proceeding.
+| Metric | Value |
+|--------|-------|
+| Errors | [N] |
+| Warnings | [N] |
+| Methods | [N] |
+| Observations | [N] |
+| Avg Maturity | [score] ([label]) |
 
-### Phase 2: Validate
+Proceeding to deep validation..."
 
-Check each file against these rules:
+**Note:** The linter already validates:
+- Frontmatter required fields
+- ID/filename matching
+- Maturity/folder alignment
+- Bidirectional links
+- Orphaned content
+- External framework references
 
-#### Frontmatter Required Fields
+You do NOT need to re-check these. Focus Phase 2 on what the linter doesn't cover.
 
-**Observations (all):**
-- `title` - Document title
-- `status` - `completed` or `in-progress`
-- `source_type` - `internal` or `external`
-- `methods` - Array of method paths (can be empty `[]`)
-- `sidebar_position` - Numeric position
+### Phase 2: Deep Validation
 
-**External Observations only (source_type: external):**
-- `source.authors` - Array of author names
-- `source.organization` - Organization name
-- `source.year` - Publication year
-- `source.url` - Source URL
+The linter handles frontmatter, IDs, links, and orphaned content. Phase 2 focuses on what it doesn't cover:
 
-**Observations optional:**
-- `adopted_methods` - Array of external framework method references
+#### Content Sections (Linter doesn't check)
 
-**Methods:**
-- `title` - Method title
-- `maturity` - `hypothesized`, `observing`, `validated`, or `proven`
-- `observations` - Array of observation paths (can be empty `[]`)
-- `sidebar_position` - Numeric position
+Scan files to verify required sections exist:
 
-#### Content Sections
-
-**Observations must have these 7 sections (in order):**
+**Observations must have these 7 sections:**
 1. Context
 2. Hypothesis
 3. Approach
@@ -126,11 +113,6 @@ Check each file against these rules:
 5. Analysis
 6. Limitations
 7. Conclusion
-
-**Observations must end with:**
-```jsx
-<RelatedMethods />
-```
 
 **Methods must have these sections:**
 - Overview
@@ -143,37 +125,19 @@ Check each file against these rules:
 **Emerging methods (hypothesized/observing) must also have:**
 - How You Can Help
 
+#### Component Presence (Linter doesn't check)
+
+**Observations must end with:**
+```jsx
+<RelatedMethods />
+```
+
 **Methods must end with:**
 ```jsx
 <RelatedObservations />
 ```
 
-#### Bidirectional Links
-
-Every link must be reciprocal:
-- If observation lists `methods: [path/to/method]`, that method must list the observation in `observations: []`
-- If method lists `observations: [path/to/observation]`, that observation must list the method in `methods: []`
-- External framework methods are valid targets via `adopted_methods` in observations
-
-#### Orphaned Content
-
-**Orphaned observation:** `status: completed` with no method links (neither `methods: []` nor `adopted_methods: []`)
-
-**Orphaned method:** `maturity: validated` or `maturity: proven` with empty `observations: []`
-
-**NOT orphaned (expected states):**
-- `hypothesized` methods without observations (they're proposals)
-- External framework methods without observations (they're adopted references)
-- `in-progress` observations without method links (work in progress)
-
-#### Naming Conventions
-
-- Filenames must be kebab-case (lowercase, hyphens)
-- Maturity/folder alignment:
-  - `hypothesized` or `observing` → `emerging/` folder
-  - `validated` or `proven` → `established/` folder
-
-#### Guide Visibility
+#### Guide Visibility (Linter doesn't check)
 
 Every field guide must be listed on the main Field Guides overview page:
 
@@ -186,16 +150,23 @@ Every field guide must be listed on the main Field Guides overview page:
 
 **Auto-fixable:** Yes - add a card for the missing guide to the "Available Guides" section.
 
-#### Error Handling
+#### How to Check Content Sections
 
-If YAML frontmatter fails to parse:
-- Record as a parse error issue
-- Continue scanning other files
-- Do NOT crash the audit
+For each file, search for `## ` headers and verify the required sections exist:
+
+```python
+# Pseudo-code
+required_observation_sections = ["Context", "Hypothesis", "Approach", "Results", "Analysis", "Limitations", "Conclusion"]
+required_method_sections = ["Overview", "When to Use", "When NOT to Use", "How It Works", "Example", "Common Pitfalls"]
+
+for section in required_sections:
+    if f"## {section}" not in file_content:
+        issues.append(f"Missing section: {section}")
+```
 
 ### Phase 3: Report
 
-Generate a structured health report:
+Merge linter results with deep validation findings into a unified report:
 
 ```markdown
 # Field Guide Health Report
@@ -203,45 +174,46 @@ Generate a structured health report:
 **Audit Date:** [YYYY-MM-DD HH:MM]
 **Files Scanned:** X observations, Y methods, Z external framework methods
 
-## Summary
+## Maturity Scores (from Linter)
 
-| Category | Issues | Auto-Fixable |
-|----------|--------|--------------|
-| Frontmatter | X | Y |
-| Bidirectional Links | X | Y |
-| Guide Visibility | X | Y |
-| Naming/Location | X | 0 |
-| Content Completeness | X | 0 |
-| Orphaned Content | X | 0 |
-| Parse Errors | X | 0 |
-| Framework Alignment | X | 0 |
-| **Total** | **X** | **Y** |
+| Guide | Score | Label | Methods | Observations |
+|-------|-------|-------|---------|--------------|
+| [guide-1] | [score] | [label] | [N] | [N] |
+| [guide-2] | [score] | [label] | [N] | [N] |
+| **Overall** | **[avg]** | **[label]** | **[total]** | **[total]** |
 
-## Issues Found
+## Issues Summary
 
-### Frontmatter Issues
-[List each issue with file path and specific problem]
+| Source | Category | Issues | Auto-Fixable |
+|--------|----------|--------|--------------|
+| Linter | Frontmatter | X | Y |
+| Linter | ID Mismatch | X | Y |
+| Linter | Folder Mismatch | X | 0 |
+| Linter | Broken References | X | 0 |
+| Linter | Bidirectional Links | X | Y |
+| Linter | Orphaned Content | X | 0 |
+| Deep | Content Sections | X | 0 |
+| Deep | Missing Components | X | Y |
+| Deep | Guide Visibility | X | Y |
+| **Total** | | **X** | **Y** |
 
-### Bidirectional Link Issues
-[List each broken link with both file paths]
+## Linter Issues
 
-### Guide Visibility Issues
-[List guides that exist but are not linked from the main overview]
+[Include full error/warning output from linter, organized by type]
 
-### Naming/Location Issues
-[List files with naming or folder placement problems]
+## Deep Validation Issues
 
-### Content Completeness Issues
-[List files missing required sections]
+### Content Completeness
+[List files missing required sections - cannot auto-fix]
 
-### Orphaned Content
-[List orphaned observations and methods]
+### Missing Components
+[List files missing RelatedMethods/RelatedObservations - can auto-fix]
 
-### Parse Errors
-[List files with malformed YAML]
+### Guide Visibility
+[List guides not linked from main overview - can auto-fix]
 
-### Framework Alignment Issues
-[List any misalignment between Curator validation rules and the underlying skills]
+## Framework Alignment
+[Note any gaps between Curator rules and the framework skills]
 ```
 
 If no issues found, celebrate:
@@ -252,9 +224,14 @@ If no issues found, celebrate:
 **Audit Date:** [YYYY-MM-DD HH:MM]
 **Files Scanned:** X observations, Y methods, Z external framework methods
 
+## Maturity Scores
+[Include scores even when healthy]
+
 ## Summary
 
 ✅ **Field Guide is healthy!** No issues found.
+
+Average maturity: [score] ([label])
 ```
 
 ### Phase 4: Fix
@@ -275,31 +252,39 @@ question({
 })
 ```
 
-**Auto-fixable issues:**
-- Add missing `methods: []` array to observation frontmatter
-- Add missing `observations: []` array to method frontmatter
-- Add bidirectional link when one side exists (add the missing back-reference)
-- Add missing `<RelatedMethods />` component to observation (append before end)
-- Add missing `<RelatedObservations />` component to method (append before end)
-- Add missing guide card to Field Guides overview page (for unlisted guides)
+**Auto-fixable issues (from Linter - see `field-guide-linter` skill for fix procedures):**
+- `id_mismatch` - Update frontmatter ID to match filename
+- `missing_required_field` (arrays only) - Add empty `methods: []` or `observations: []`
+- `missing_bidirectional_link` - Add the missing back-reference
+
+**Auto-fixable issues (from Deep Validation):**
+- Missing `<RelatedMethods />` component - Append before end of observation
+- Missing `<RelatedObservations />` component - Append before end of method
+- Missing guide card - Add to Field Guides overview page
 
 **NOT auto-fixable (needs human):**
-- Missing content sections
-- Orphaned content decisions
-- Maturity/folder misalignment
-- Parse errors
-- Missing required frontmatter fields (other than arrays)
+- Missing content sections (requires writing content)
+- Orphaned content decisions (requires judgment)
+- `folder_mismatch` (requires file move or maturity change)
+- `broken_reference` (requires path correction or file creation)
+- Parse errors (requires manual YAML fix)
 
 If user selects "Show details", list each fix:
 ```markdown
 ## Planned Fixes
 
-1. **Add bidirectional link**
-   - File: `docs/docs/field-guides/observations/internal/my-obs.md`
-   - Action: Add `guide/methods/established/my-method` to `methods: []`
+### From Linter Issues
+1. **Fix ID mismatch**
+   - File: `M123-my-method.md`
+   - Action: Update `methodId: M100` → `methodId: M123`
 
-2. **Add RelatedObservations component**
-   - File: `docs/docs/field-guides/testing/methods/emerging/new-method.md`
+2. **Add bidirectional link**
+   - File: `docs/docs/field-guides/observations/internal/my-obs.md`
+   - Action: Add `guide/methods/established/M123-method` to `methods: []`
+
+### From Deep Validation
+3. **Add RelatedObservations component**
+   - File: `docs/docs/field-guides/testing/methods/emerging/M150-new-method.md`
    - Action: Append `<RelatedObservations />` to end of file
 
 [etc.]
@@ -307,22 +292,44 @@ If user selects "Show details", list each fix:
 
 Then ask again whether to proceed.
 
-### Phase 5: Verify
+### Phase 5: Verify (Linter Again)
 
-After applying fixes, re-scan the affected files to confirm:
-- Fixes were applied correctly
-- No new issues were introduced
+After applying fixes, re-run the linter to confirm fixes worked:
+
+```bash
+uv run --project scripts scripts/lint_field_guides.py --lint-only 2>/dev/null
+```
+
+Compare with Phase 1 baseline:
+- Errors should be reduced (or zero)
+- Warnings may remain if they weren't auto-fixable
+
+Also re-check deep validation issues that were fixed (component presence, guide visibility).
 
 Report the verification results:
 
 ```markdown
 ## Verification
 
-✅ Applied X fixes successfully.
-- [List what was fixed]
+### Linter Re-Check
+| Metric | Before | After | Change |
+|--------|--------|-------|--------|
+| Errors | [N] | [N] | [-X] |
+| Warnings | [N] | [N] | [-X] |
 
-Remaining issues requiring human attention: Y
-- [List remaining issues if any]
+### Fixes Applied
+✅ Applied X fixes successfully:
+- [Fix 1]
+- [Fix 2]
+- [etc.]
+
+### Remaining Issues (Require Human Attention)
+[If any remain:]
+- [Issue 1 - why not auto-fixable]
+- [Issue 2 - why not auto-fixable]
+
+[If none remain:]
+✅ All issues resolved. Field Guide is healthy!
 ```
 
 ## Communication Style
@@ -340,18 +347,28 @@ When invoked, immediately begin:
 
 Loading skills for validation rules..."
 
-Then load the skills and proceed directly to Phase 1 (Scan).
+Then load the skills:
+```
+skill({ name: "foe-observation-framework" })
+skill({ name: "foe-method-framework" })
+skill({ name: "field-guide-linter" })
+```
+
+Proceed directly to Phase 1 (Quick Check with linter).
 
 Do NOT ask what to audit - always perform a full audit.
 
 ## Important Guidelines
 
-- Always load both skills before validating
+- Always load all three skills before validating (observation, method, linter)
+- **Run linter first** - it's faster and catches most structural issues
+- Focus deep validation on what linter doesn't cover (content sections, components)
 - Parse YAML carefully - malformed frontmatter should be reported, not crash the audit
 - Be precise about file paths in reports
 - Batch all fixes together for single confirmation
-- Re-verify after fixes to confirm success
+- **Re-run linter after fixes** to verify success
 - External framework methods are a valid link target - don't flag them as missing
 - **Never fix content issues that your rules don't cover** - update the agent first
 - **Compare your rules against the loaded skills** - report any gaps as Framework Alignment Issues
 - When a new issue type is discovered, propose the agent update rather than fixing the content directly
+- Use the `field-guide-linter` skill's fix procedures for consistent auto-fixes

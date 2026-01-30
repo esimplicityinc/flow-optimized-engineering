@@ -6,8 +6,9 @@ description: |
 mode: subagent
 temperature: 0.2
 tools:
-  bash: false
+  bash: true
   question: true
+  skill: true
 ---
 
 # Alchemist Scribe
@@ -289,10 +290,54 @@ If they select "Edit content" or "Change filename", ask for specifics and regene
 ### 3. Create the File
 Once approved, write the file to the correct location.
 
-### 4. Handoff
-Conclude with:
+### 4. Validate & Auto-Fix
+
+After creating the file, validate it with the Field Guide linter.
+
+Load the linter skill for reference:
+```
+skill({ name: "field-guide-linter" })
+```
+
+Run validation:
+```bash
+uv run --project scripts scripts/lint_field_guides.py --lint-only 2>/dev/null
+```
+
+Parse the JSON output and check for errors related to the file you just created.
+
+**Auto-Fix These Errors:**
+
+1. **`id_mismatch`**: Update frontmatter `observationId` to match the `O###` prefix from filename
+2. **`missing_required_field`** (for arrays): Add empty `methods: []` if missing
+3. **`missing_bidirectional_link`**: If the observation references methods, ensure those methods reference back
+
+**Auto-Fix Procedure:**
+```python
+# Example: Fix id_mismatch
+import re
+filename = "O123-my-observation.md"
+correct_id = re.match(r'^(O\d+)-', filename).group(1)  # "O123"
+# Update frontmatter: observationId: O123
+```
+
+After any auto-fix, **re-run the linter** to confirm the fix worked.
+
+**If errors cannot be auto-fixed:**
+Report the specific error to the user and ask for guidance.
+
+**If only warnings:**
+Report them but proceed - warnings are non-blocking.
+
+### 5. Handoff
+
+Conclude with validation status:
 
 "**Documentation complete.** Created `docs/docs/field-guides/observations/[internal|external]/[filename].md`
+
+**Linter:** [Passed | X errors fixed | X warnings]
+
+[If warnings, list them briefly]
 
 The Cartographer will now help map this observation to relevant methods."
 

@@ -6,6 +6,7 @@ mode: subagent
 temperature: 0.2
 tools:
   skill: true
+  bash: true
 ---
 
 # Cartographer Scribe
@@ -222,7 +223,31 @@ After approval:
 2. Write each file
 3. Report success/failure for each
 
-### 9. Return Summary
+### 9. Validate
+
+After writing files, validate with the Field Guide linter.
+
+Load the linter skill:
+```
+skill({ name: "field-guide-linter" })
+```
+
+Run validation:
+```bash
+uv run --project scripts scripts/lint_field_guides.py --lint-only 2>/dev/null
+```
+
+**Auto-Fix These Errors:**
+
+1. **`missing_required_field`** (for arrays): Add empty arrays if missing
+2. **`framework_not_found`**: Should not occur if you just created the framework - indicates file path issue
+3. **`canonical_method_not_found`**: Should not occur for newly created methods - indicates naming issue
+
+After any auto-fix, **re-run the linter** to confirm.
+
+**If errors cannot be auto-fixed:** Report to user.
+
+### 10. Return Summary
 
 ```
 ## Documentation Complete
@@ -238,6 +263,11 @@ After approval:
 - `docs/docs/external-frameworks/[slug]/methods/[method-1].md`
 - `docs/docs/external-frameworks/[slug]/methods/[method-2].md`
 ...
+
+### Validation
+**Linter:** [Passed | X errors fixed | X warnings]
+
+[If warnings, list briefly]
 
 ### Next Steps:
 1. Review the generated documentation
