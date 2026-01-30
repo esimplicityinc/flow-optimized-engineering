@@ -110,15 +110,27 @@ function computeRisk(aiFactor: number, spineStrength: number): number {
 
 /**
  * Evidence = what the spine produces from AI capacity
- * No spine = evidence doesn't scale with AI
+ * No spine = evidence collapses at high AI (can't document chaos)
  * Strong spine = evidence multiplies with AI
+ * 
+ * Key insight: At high AI + weak spine, you're moving too fast to capture evidence.
+ * The system becomes illegible. At AI=1 with weak spine, evidence → near zero.
  */
 function computeEvidenceYield(aiFactor: number, spineStrength: number): number {
+  // Base evidence from spine (exists even without AI)
+  const baseEvidence = spineStrength * 30;
+  
+  // AI-boosted evidence when spine can harness it
   const control = computeControl(aiFactor, spineStrength);
-  // Base evidence from spine + AI-boosted evidence
-  const baseEvidence = spineStrength * 30; // Some evidence even without AI
-  const aiEvidence = control * 80; // AI multiplies spine effectiveness
-  return Math.max(0, Math.min(100, baseEvidence + aiEvidence));
+  const aiEvidence = control * 80;
+  
+  // Chaos penalty: high AI + weak spine = evidence collapses
+  // At AI=1 with spineStrength=0.15, this should drive evidence near zero
+  const chaos = aiFactor * (1 - spineStrength);
+  const chaosPenalty = Math.pow(chaos, 1.3) * 120; // Aggressive penalty
+  
+  const total = baseEvidence + aiEvidence - chaosPenalty;
+  return Math.max(0, Math.min(100, total));
 }
 
 /**
@@ -148,12 +160,45 @@ function computeOutcomes(permission: number, genes: GeneLevels, aiFactor: number
 /**
  * Throughput = raw capacity (how fast you CAN move)
  * This is velocity - good or bad depending on control
+ * 
+ * Key insight: Past AI=0.3 without spine, throughput degrades.
+ * You're "moving fast" but actually stuck in rework loops, 
+ * context switching, and firefighting. Effective throughput drops.
  */
 function computeThroughput(aiFactor: number, genes: GeneLevels): number {
   const educationAvg = (genes.mentalModels + genes.communication + genes.enablement + genes.cognitiveErgonomics) / 4;
-  // AI dramatically boosts throughput, education genes help harness it
-  const throughput = (1 + aiFactor * 3) * educationAvg * 50;
-  return Math.max(0, Math.min(100, throughput));
+  const spineStrength = (genes.constraints + genes.verification + genes.operability + genes.governance) / 4;
+  
+  // Base throughput from education genes
+  const baseThroughput = educationAvg * 50;
+  
+  if (aiFactor <= 0.3) {
+    // Up to 0.3 AI: linear boost regardless of spine
+    const aiBoost = aiFactor * 3 * educationAvg * 50;
+    return Math.max(0, Math.min(100, baseThroughput + aiBoost));
+  } else {
+    // Past 0.3 AI: throughput depends on spine
+    // Weak spine = throughput drops (chaos, rework, firefighting)
+    // Strong spine = throughput continues to grow
+    
+    // Calculate throughput at the 0.3 threshold
+    const throughputAt03 = (1 + 0.3 * 3) * educationAvg * 50;
+    
+    // Excess AI beyond the threshold
+    const excessAI = aiFactor - 0.3;
+    
+    // Spine effect: below 0.5 = negative, above 0.5 = positive
+    // At spineStrength=0.15, this is strongly negative
+    // At spineStrength=0.8, this is positive
+    const spineEffect = (spineStrength - 0.5) * 2; // Range: -1 to +1
+    
+    // Change in throughput based on spine
+    // At weak spine (0.15): spineEffect = -0.7, so throughput drops
+    // At strong spine (0.8): spineEffect = +0.6, so throughput grows
+    const change = excessAI * spineEffect * 100;
+    
+    return Math.max(0, Math.min(100, throughputAt03 + change));
+  }
 }
 
 function findBottleneck(genes: GeneLevels, aiFactor: number): { name: string; severity: number } {
