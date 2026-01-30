@@ -680,30 +680,17 @@ function EpilogueSection(): ReactNode {
 }
 
 // ============================================
-// MAIN COMPONENT
+// PAGE COMPONENT
 // ============================================
 
 export default function GenomeExplorerB(): ReactNode {
   const [selectedGene, setSelectedGene] = useState<Gene | null>(null);
 
-  useEffect(() => {
-    document.documentElement.classList.add('hide-navbar');
-    return () => {
-      document.documentElement.classList.remove('hide-navbar');
-    };
-  }, []);
-
   return (
     <Layout
-      title="Engineering Genome Explorer"
-      description="Discover the 12 capability genes that define modern engineering in the AI era"
+      title="Engineering Genome - Honeycomb"
+      description="Explore the AI-Era Engineering Genome with a honeycomb layout"
     >
-      <Head>
-        <style>{`
-          .navbar { display: none !important; }
-          .main-wrapper { padding-top: 0 !important; }
-        `}</style>
-      </Head>
       <main className={styles.genomePage}>
         <HeroSection />
         

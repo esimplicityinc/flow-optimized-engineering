@@ -411,14 +411,14 @@ function CTASection(): ReactNode {
 }
 
 // ============================================
-// MAIN PAGE
+// PAGE COMPONENT
 // ============================================
 
 export default function ESimplicityPlan(): ReactNode {
   return (
     <Layout
-      title="eSimplicity FOE Plan"
-      description="Implementation plan for Flow Optimized Engineering at eSimplicity"
+      title="FOE Implementation Plan"
+      description="Flow Optimized Engineering Implementation Plan for eSimplicity"
     >
       <main className={styles.planPage}>
         <HeroSection />

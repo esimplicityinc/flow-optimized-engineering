@@ -967,26 +967,17 @@ function RevealItem({ children, delay = 0 }: RevealItemProps): ReactNode {
 }
 
 // ============================================
-// MAIN COMPONENT
+// PAGE COMPONENT
 // ============================================
 
 export default function GenomeExplorerD(): ReactNode {
-  useEffect(() => {
-    document.documentElement.classList.add('hide-navbar');
-    return () => {
-      document.documentElement.classList.remove('hide-navbar');
-    };
-  }, []);
-
   return (
     <Layout
-      title="AI-Era Engineering Genome"
-      description="Explore the evolutionary pressures reshaping engineering roles in the age of AI"
+      title="Engineering Genome - Narrative"
+      description="A narrative exploration of the AI-Era Engineering Genome"
     >
       <Head>
         <style>{`
-          .navbar { display: none !important; }
-          .main-wrapper { padding-top: 0 !important; }
           html { scroll-behavior: smooth; }
         `}</style>
       </Head>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from '@docusaurus/Head';
+import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
 /**
@@ -17,27 +18,26 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
  * - Esc: Exit overview/fullscreen
  * - ?: Show help
  */
+
+// ============================================
+// PAGE COMPONENT
+// ============================================
+
 export default function FOEOverviewPresentation() {
   return (
-    <>
+    <Layout
+      title="FOE Presentation"
+      description="A comprehensive presentation explaining Flow Optimized Engineering"
+    >
       <Head>
-        <title>Flow Optimized Engineering | Presentation</title>
-        <meta name="description" content="A comprehensive presentation explaining Flow Optimized Engineering at progressively deeper levels." />
         <meta name="robots" content="noindex" />
-        {/* Hide Docusaurus navbar/footer for fullscreen presentation */}
         <style>{`
-          .navbar, .footer, .theme-doc-sidebar-container, .pagination-nav {
+          .footer, .theme-doc-sidebar-container, .pagination-nav {
             display: none !important;
           }
           .main-wrapper {
             padding: 0 !important;
             margin: 0 !important;
-          }
-          body {
-            overflow: hidden;
-          }
-          #__docusaurus {
-            min-height: 100vh;
           }
         `}</style>
       </Head>
@@ -47,6 +47,6 @@ export default function FOEOverviewPresentation() {
           return <Presentation />;
         }}
       </BrowserOnly>
-    </>
+    </Layout>
   );
 }

@@ -785,14 +785,14 @@ function WinningPlaySection(): ReactNode {
 }
 
 // ============================================
-// MAIN PAGE COMPONENT
+// PAGE COMPONENT
 // ============================================
 
 export default function DemandShiftPage(): ReactNode {
   return (
     <Layout
       title="The Demand Shift"
-      description="What government will need in the AI era - a visual guide to the capabilities that become critical when AI transforms software delivery."
+      description="Understanding the shift from code abundance to permission scarcity"
     >
       <main className={styles.main}>
         <HeroSection />

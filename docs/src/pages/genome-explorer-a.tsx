@@ -583,7 +583,7 @@ function CTASection(): ReactNode {
 }
 
 // ============================================
-// MAIN PAGE COMPONENT
+// PAGE COMPONENT
 // ============================================
 
 export default function GenomeExplorerA(): ReactNode {
@@ -617,8 +617,8 @@ export default function GenomeExplorerA(): ReactNode {
 
   return (
     <Layout
-      title="AI-Era Engineering Genome Explorer"
-      description="Explore the 12 capability genes that determine engineering fitness in the AI era"
+      title="Engineering Genome - Classic Grid"
+      description="Explore the AI-Era Engineering Genome with a classic grid layout"
     >
       <main className={styles.genomePage}>
         <HeroSection />

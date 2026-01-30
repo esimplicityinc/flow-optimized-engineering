@@ -546,7 +546,7 @@ function SpeciesScorecard({ speciesId }: SpeciesScorecardProps) {
 }
 
 // ============================================
-// MAIN DASHBOARD COMPONENT
+// PAGE COMPONENT
 // ============================================
 
 export default function GenomeExplorerDashboard(): JSX.Element {
@@ -595,11 +595,11 @@ export default function GenomeExplorerDashboard(): JSX.Element {
   const handleGeneSelect = (geneId: string) => {
     setSelectedGeneId(geneId);
   };
-  
+
   return (
     <Layout
-      title="Engineering Genome Dashboard"
-      description="Interactive dashboard for exploring the AI-Era Engineering Genome"
+      title="Engineering Genome - Dashboard"
+      description="AI-Era Capability Analysis Dashboard"
     >
       {/* Header Bar */}
       <header className={styles.headerBar}>

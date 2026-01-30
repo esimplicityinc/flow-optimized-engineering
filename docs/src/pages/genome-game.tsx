@@ -5,7 +5,6 @@
 
 import React from 'react';
 import Layout from '@theme/Layout';
-import Head from '@docusaurus/Head';
 import { useGameEngine } from '../components/GenomeGame/engine/gameEngine';
 import { PRESETS } from '../components/GenomeGame/data/presets';
 import styles from './genome-game.module.css';
@@ -626,18 +625,16 @@ function PermissionGame() {
   );
 }
 
+// ============================================
+// PAGE COMPONENT
+// ============================================
+
 export default function GenomeGamePage() {
   return (
     <Layout
-      title="The Permission Game"
-      description="An interactive simulation for understanding the engineering genome in government context"
+      title="Genome Game"
+      description="Interactive game exploring the Engineering Genome"
     >
-      <Head>
-        <style>{`
-          .navbar { display: none !important; }
-          .main-wrapper { padding-top: 0 !important; }
-        `}</style>
-      </Head>
       <PermissionGame />
     </Layout>
   );

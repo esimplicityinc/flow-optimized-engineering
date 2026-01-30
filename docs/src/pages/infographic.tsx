@@ -554,14 +554,14 @@ function CallToAction(): ReactNode {
 }
 
 // ============================================
-// MAIN COMPONENT
+// PAGE COMPONENT
 // ============================================
 
 export default function Infographic(): ReactNode {
   return (
     <Layout
-      title="FOE Playbook"
-      description="The Flow Optimized Engineering Playbook: 8 plays for speed with coherence"
+      title="FOE Infographic"
+      description="Visual guide to Flow Optimized Engineering"
     >
       <main className={styles.infographic} id="top">
         <HeroSection />

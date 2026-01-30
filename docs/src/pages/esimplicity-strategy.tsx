@@ -1,6 +1,4 @@
 import type { ReactNode } from 'react';
-import { useEffect } from 'react';
-import Head from '@docusaurus/Head';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import AccordionSection from '../components/AccordionSection';
@@ -684,28 +682,15 @@ function CTASection(): ReactNode {
 }
 
 // ============================================
-// MAIN PAGE
+// PAGE COMPONENT
 // ============================================
 
 export default function ESimplicityStrategy(): ReactNode {
-  useEffect(() => {
-    document.documentElement.classList.add('hide-navbar');
-    return () => {
-      document.documentElement.classList.remove('hide-navbar');
-    };
-  }, []);
-
   return (
     <Layout
-      title="eSimplicity FOE Strategy"
-      description="Flow Optimized Engineering implementation strategy for safe agentic software at eSimplicity"
+      title="FOE at eSimplicity"
+      description="Flow Optimized Engineering Implementation Strategy"
     >
-      <Head>
-        <style>{`
-          .navbar { display: none !important; }
-          .main-wrapper { padding-top: 0 !important; }
-        `}</style>
-      </Head>
       <main className={styles.strategyPage}>
         <HeroSection />
         <div className={styles.pageWrapper}>

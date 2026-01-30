@@ -107,6 +107,61 @@ const config: Config = {
           label: 'Field Guides',
           className: 'navbar__link--field-guides',
         },
+        {
+          type: 'dropdown',
+          label: 'eSim Strategy',
+          position: 'right',
+          items: [
+            {
+              label: 'Strategy',
+              to: '/esimplicity-strategy',
+            },
+            {
+              label: 'Implementation Plan',
+              to: '/esimplicity-plan',
+            },
+            {
+              type: 'html',
+              value: '<hr style="margin: 0.5rem 0;">',
+            },
+            {
+              label: 'Genome: Classic Grid',
+              to: '/genome-explorer-a',
+            },
+            {
+              label: 'Genome: Honeycomb',
+              to: '/genome-explorer-b',
+            },
+            {
+              label: 'Genome: Dashboard',
+              to: '/genome-explorer-c',
+            },
+            {
+              label: 'Genome: Narrative',
+              to: '/genome-explorer-d',
+            },
+            {
+              label: 'Genome: Game',
+              to: '/genome-game',
+            },
+            {
+              type: 'html',
+              value: '<hr style="margin: 0.5rem 0;">',
+            },
+            {
+              label: 'Demand Shift',
+              to: '/demand-shift',
+            },
+            {
+              label: 'FOE Infographic',
+              to: '/infographic',
+            },
+            {
+              label: 'FOE Presentation',
+              to: '/presentation/foe-overview',
+            },
+          ],
+        },
       ],
     },
     footer: {
