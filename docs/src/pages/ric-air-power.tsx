@@ -5,6 +5,169 @@ import StrategySidebar from '../components/StrategySidebar';
 import styles from './ric-air-power.module.css';
 
 // ============================================
+// SVG ICONS
+// ============================================
+
+type IconName = 
+  | 'microscope' | 'target' | 'star' | 'takeoff' | 'gamepad' | 'factory'
+  | 'wrench' | 'tools' | 'walking' | 'aircraft' | 'construction' | 'mountain'
+  | 'users' | 'gear' | 'laptop' | 'chart' | 'rocket' | 'book' | 'scales';
+
+interface IconProps {
+  name: IconName;
+  className?: string;
+  size?: number;
+}
+
+function Icon({ name, className = '', size = 24 }: IconProps): ReactNode {
+  const icons: Record<IconName, ReactNode> = {
+    microscope: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 18h8" />
+        <path d="M3 22h18" />
+        <path d="M14 22a7 7 0 1 0 0-14h-1" />
+        <path d="M9 14h2" />
+        <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" />
+        <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
+      </svg>
+    ),
+    target: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="12" r="6" />
+        <circle cx="12" cy="12" r="2" />
+      </svg>
+    ),
+    star: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      </svg>
+    ),
+    takeoff: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 22h20" />
+        <path d="M6.36 17.4 4 17l-2-4 1.1-.55a2 2 0 0 1 1.8 0l.17.1a2 2 0 0 0 1.8 0L8 12 5 6l.9-.45a2 2 0 0 1 2.09.2l4.02 3a2 2 0 0 0 2.1.2L22 4l-5 14h-5.5a2 2 0 0 1-1.74-1L9 15.5l-1.88.94a2 2 0 0 1-1.76 0l-.24-.13a1 1 0 0 0-1.12.12l-.24.21Z" />
+      </svg>
+    ),
+    gamepad: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="6" y1="12" x2="10" y2="12" />
+        <line x1="8" y1="10" x2="8" y2="14" />
+        <line x1="15" y1="13" x2="15.01" y2="13" />
+        <line x1="18" y1="11" x2="18.01" y2="11" />
+        <rect x="2" y="6" width="20" height="12" rx="2" />
+      </svg>
+    ),
+    factory: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+        <path d="M17 18h1" />
+        <path d="M12 18h1" />
+        <path d="M7 18h1" />
+      </svg>
+    ),
+    wrench: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z" />
+      </svg>
+    ),
+    tools: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 21h18" />
+        <path d="M19 21v-4" />
+        <path d="M19 17a2 2 0 0 0 2-2v-2a2 2 0 1 0-4 0v2a2 2 0 0 0 2 2Z" />
+        <path d="M5 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6" />
+        <path d="M8 13V7" />
+        <path d="M5 10h6" />
+      </svg>
+    ),
+    walking: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="5" r="2" />
+        <path d="M9 21V13l-2-2 2-5 3 2h4" />
+        <path d="M15 21v-6l-3-3" />
+      </svg>
+    ),
+    aircraft: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2Z" />
+      </svg>
+    ),
+    construction: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="6" width="20" height="8" rx="1" />
+        <path d="M17 14v7" />
+        <path d="M7 14v7" />
+        <path d="M17 3v3" />
+        <path d="M7 3v3" />
+        <path d="M10 14 2.3 6.3" />
+        <path d="m14 6 7.7 7.7" />
+        <path d="m8 6 8 8" />
+      </svg>
+    ),
+    mountain: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m8 3 4 8 5-5 5 15H2L8 3Z" />
+        <path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19" />
+      </svg>
+    ),
+    users: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
+    gear: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+    ),
+    laptop: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16" />
+      </svg>
+    ),
+    chart: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 3v18h18" />
+        <path d="m19 9-5 5-4-4-3 3" />
+      </svg>
+    ),
+    rocket: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z" />
+        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z" />
+        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+      </svg>
+    ),
+    book: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+      </svg>
+    ),
+    scales: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+        <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+        <path d="M7 21h10" />
+        <path d="M12 3v18" />
+        <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+      </svg>
+    ),
+  };
+
+  return (
+    <span className={`${styles.icon} ${className}`} style={{ width: size, height: size }}>
+      {icons[name]}
+    </span>
+  );
+}
+
+// ============================================
 // SECTION DATA
 // ============================================
 
@@ -123,7 +286,7 @@ function Act1(): ReactNode {
       <div className={styles.comparisonGrid}>
         <div className={styles.comparisonCard}>
           <div className={styles.comparisonCardHeader}>
-            <span className={styles.comparisonIcon}>🚶</span>
+            <Icon name="walking" className={styles.comparisonIcon} size={28} />
             <span className={styles.comparisonLabel}>Ground Army Model</span>
           </div>
           <ul>
@@ -137,7 +300,7 @@ function Act1(): ReactNode {
         </div>
         <div className={styles.comparisonCard}>
           <div className={styles.comparisonCardHeader}>
-            <span className={styles.comparisonIcon}>✈️</span>
+            <Icon name="aircraft" className={styles.comparisonIcon} size={28} />
             <span className={styles.comparisonLabel}>Air Power Model</span>
           </div>
           <ul>
@@ -208,17 +371,17 @@ function Act1(): ReactNode {
       </p>
       <div className={styles.theaterSpectrum}>
         <div className={styles.theaterCard}>
-          <div className={styles.theaterIcon}>🛫</div>
+          <Icon name="takeoff" className={styles.theaterIcon} size={32} />
           <div className={styles.theaterName}>Mature Theaters</div>
           <div className={styles.theaterDesc}>Full runway — CI/CD, automation, observability. Ready for air operations.</div>
         </div>
         <div className={styles.theaterCard}>
-          <div className={styles.theaterIcon}>🚧</div>
+          <Icon name="construction" className={styles.theaterIcon} size={32} />
           <div className={styles.theaterName}>Developing Theaters</div>
           <div className={styles.theaterDesc}>Basic infrastructure — needs improvement before high-tempo ops.</div>
         </div>
         <div className={styles.theaterCard}>
-          <div className={styles.theaterIcon}>🏔️</div>
+          <Icon name="mountain" className={styles.theaterIcon} size={32} />
           <div className={styles.theaterName}>Austere Theaters</div>
           <div className={styles.theaterDesc}>No runway — legacy systems, manual processes, hostile terrain.</div>
         </div>
@@ -287,7 +450,7 @@ function Act2(): ReactNode {
         {/* Edwards AFB / Test Programs */}
         <div className={styles.institutionCard}>
           <div className={styles.institutionHeader}>
-            <div className={styles.institutionIcon}>🔬</div>
+            <Icon name="microscope" className={styles.institutionIcon} size={32} />
             <div className={styles.institutionName}>Edwards Air Force Base</div>
             <div className={styles.institutionSubtitle}>Air Force Test Center</div>
           </div>
@@ -316,7 +479,7 @@ function Act2(): ReactNode {
         {/* Top Gun */}
         <div className={styles.institutionCard}>
           <div className={styles.institutionHeader}>
-            <div className={styles.institutionIcon}>🎯</div>
+            <Icon name="target" className={styles.institutionIcon} size={32} />
             <div className={styles.institutionName}>TOPGUN / USAF Weapons School</div>
             <div className={styles.institutionSubtitle}>Fighter Weapons Schools</div>
           </div>
@@ -346,7 +509,7 @@ function Act2(): ReactNode {
         {/* Thunderbirds */}
         <div className={styles.institutionCard}>
           <div className={styles.institutionHeader}>
-            <div className={styles.institutionIcon}>⭐</div>
+            <Icon name="star" className={styles.institutionIcon} size={32} />
             <div className={styles.institutionName}>Thunderbirds / Blue Angels</div>
             <div className={styles.institutionSubtitle}>Demonstration Teams</div>
           </div>
@@ -376,7 +539,7 @@ function Act2(): ReactNode {
         {/* Red Flag */}
         <div className={styles.institutionCard}>
           <div className={styles.institutionHeader}>
-            <div className={styles.institutionIcon}>🎮</div>
+            <Icon name="gamepad" className={styles.institutionIcon} size={32} />
             <div className={styles.institutionName}>Red Flag</div>
             <div className={styles.institutionSubtitle}>Embedded Training Exercises</div>
           </div>
@@ -407,7 +570,7 @@ function Act2(): ReactNode {
         {/* Manufacturing / Logistics */}
         <div className={styles.institutionCard}>
           <div className={styles.institutionHeader}>
-            <div className={styles.institutionIcon}>🏭</div>
+            <Icon name="factory" className={styles.institutionIcon} size={32} />
             <div className={styles.institutionName}>Skunk Works / Air Mobility Command</div>
             <div className={styles.institutionSubtitle}>Manufacturing & Logistics</div>
           </div>
@@ -551,7 +714,7 @@ function Act3(): ReactNode {
         {/* Test Programs */}
         <div className={styles.missionSetCard}>
           <div className={styles.missionSetHeader}>
-            <div className={styles.missionSetIcon}>🔬</div>
+            <Icon name="microscope" className={styles.missionSetIcon} size={36} />
             <div className={styles.missionSetTitles}>
               <div className={styles.missionSetAirForce}>Test Programs</div>
               <div className={styles.missionSetSubtitle}>Edwards AFB, Pax River</div>
@@ -579,7 +742,7 @@ function Act3(): ReactNode {
         {/* Fighter Weapons School */}
         <div className={styles.missionSetCard}>
           <div className={styles.missionSetHeader}>
-            <div className={styles.missionSetIcon}>🎯</div>
+            <Icon name="target" className={styles.missionSetIcon} size={36} />
             <div className={styles.missionSetTitles}>
               <div className={styles.missionSetAirForce}>Fighter Weapons School</div>
               <div className={styles.missionSetSubtitle}>Top Gun, USAF Weapons School</div>
@@ -607,7 +770,7 @@ function Act3(): ReactNode {
         {/* Thunderbirds */}
         <div className={styles.missionSetCard}>
           <div className={styles.missionSetHeader}>
-            <div className={styles.missionSetIcon}>⭐</div>
+            <Icon name="star" className={styles.missionSetIcon} size={36} />
             <div className={styles.missionSetTitles}>
               <div className={styles.missionSetAirForce}>Demonstration Teams</div>
               <div className={styles.missionSetSubtitle}>Thunderbirds, Blue Angels</div>
@@ -635,7 +798,7 @@ function Act3(): ReactNode {
         {/* Deployed Squadrons */}
         <div className={styles.missionSetCard}>
           <div className={styles.missionSetHeader}>
-            <div className={styles.missionSetIcon}>🛫</div>
+            <Icon name="takeoff" className={styles.missionSetIcon} size={36} />
             <div className={styles.missionSetTitles}>
               <div className={styles.missionSetAirForce}>Deployed Squadrons</div>
               <div className={styles.missionSetSubtitle}>Operational Units</div>
@@ -663,7 +826,7 @@ function Act3(): ReactNode {
         {/* Embedded Training */}
         <div className={styles.missionSetCard}>
           <div className={styles.missionSetHeader}>
-            <div className={styles.missionSetIcon}>🎮</div>
+            <Icon name="gamepad" className={styles.missionSetIcon} size={36} />
             <div className={styles.missionSetTitles}>
               <div className={styles.missionSetAirForce}>Embedded Training</div>
               <div className={styles.missionSetSubtitle}>Red Flag, Top Gun Exercises</div>
@@ -691,7 +854,7 @@ function Act3(): ReactNode {
         {/* Manufacturing & Expeditionary */}
         <div className={styles.missionSetCard + ' ' + styles.missionSetCardWide}>
           <div className={styles.missionSetHeader}>
-            <div className={styles.missionSetIcon}>🏭</div>
+            <Icon name="factory" className={styles.missionSetIcon} size={36} />
             <div className={styles.missionSetTitles}>
               <div className={styles.missionSetAirForce}>Manufacturing & Expeditionary</div>
               <div className={styles.missionSetSubtitle}>Lockheed + Air Mobility Command + Seabees</div>
@@ -706,7 +869,7 @@ function Act3(): ReactNode {
           </div>
           <div className={styles.dualMission}>
             <div className={styles.dualMissionHalf}>
-              <div className={styles.dualMissionTitle}>🔧 The Rocket Shop</div>
+              <div className={styles.dualMissionTitle}><Icon name="wrench" size={18} /> The Rocket Shop</div>
               <p>Build the actual tools, platforms, and weapons systems that the fleet uses.</p>
               <ul>
                 <li>KATALYST platform development</li>
@@ -716,7 +879,7 @@ function Act3(): ReactNode {
               </ul>
             </div>
             <div className={styles.dualMissionHalf}>
-              <div className={styles.dualMissionTitle}>🛠️ Infrastructure Enablement</div>
+              <div className={styles.dualMissionTitle}><Icon name="tools" size={18} /> Infrastructure Enablement</div>
               <p>Easy-button landing strips, radar, ground control — raise the ceiling for every theater.</p>
               <ul>
                 <li>Infrastructure-as-code packages</li>
@@ -1041,15 +1204,15 @@ function Act4(): ReactNode {
       <h3>The FOE Triad: All Three Must Move Together</h3>
       <div className={styles.triadDiagram}>
         <div className={styles.triadNode}>
-          <span className={styles.triadIcon}>👥</span>
+          <Icon name="users" className={styles.triadIcon} size={28} />
           <span className={styles.triadLabel}>People</span>
         </div>
         <div className={styles.triadNode}>
-          <span className={styles.triadIcon}>⚙️</span>
+          <Icon name="gear" className={styles.triadIcon} size={28} />
           <span className={styles.triadLabel}>Process</span>
         </div>
         <div className={styles.triadNode}>
-          <span className={styles.triadIcon}>💻</span>
+          <Icon name="laptop" className={styles.triadIcon} size={28} />
           <span className={styles.triadLabel}>Technology</span>
         </div>
         <div className={styles.triadCenter}>
@@ -1104,19 +1267,19 @@ function Act5(): ReactNode {
       <div className={styles.ecosystemDiagram}>
         <div className={styles.ecosystemRow}>
           <div className={styles.ecosystemNode}>
-            <span className={styles.ecosystemNodeIcon}>📊</span>
+            <Icon name="chart" className={styles.ecosystemNodeIcon} size={24} />
             <span className={styles.ecosystemNodeName}>KATALYST</span>
             <span className={styles.ecosystemNodeRole}>Platform</span>
           </div>
           <div className={styles.ecosystemConnector}>↔</div>
           <div className={styles.ecosystemNode + ' ' + styles.ecosystemNodeRIC}>
-            <span className={styles.ecosystemNodeIcon}>🚀</span>
+            <Icon name="rocket" className={styles.ecosystemNodeIcon} size={24} />
             <span className={styles.ecosystemNodeName}>RIC</span>
             <span className={styles.ecosystemNodeRole}>Enablement</span>
           </div>
           <div className={styles.ecosystemConnector}>↔</div>
           <div className={styles.ecosystemNode}>
-            <span className={styles.ecosystemNodeIcon}>🎯</span>
+            <Icon name="target" className={styles.ecosystemNodeIcon} size={24} />
             <span className={styles.ecosystemNodeName}>PRIMA</span>
             <span className={styles.ecosystemNodeRole}>Products</span>
           </div>
@@ -1128,19 +1291,19 @@ function Act5(): ReactNode {
         </div>
         <div className={styles.ecosystemRow}>
           <div className={styles.ecosystemNode}>
-            <span className={styles.ecosystemNodeIcon}>📚</span>
+            <Icon name="book" className={styles.ecosystemNodeIcon} size={24} />
             <span className={styles.ecosystemNodeName}>FOE</span>
             <span className={styles.ecosystemNodeRole}>Doctrine</span>
           </div>
           <div className={styles.ecosystemConnector}>↔</div>
           <div className={styles.ecosystemNode}>
-            <span className={styles.ecosystemNodeIcon}>⚖️</span>
+            <Icon name="scales" className={styles.ecosystemNodeIcon} size={24} />
             <span className={styles.ecosystemNodeName}>TRB</span>
             <span className={styles.ecosystemNodeRole}>Governance</span>
           </div>
           <div className={styles.ecosystemConnector}>↔</div>
           <div className={styles.ecosystemNode}>
-            <span className={styles.ecosystemNodeIcon}>👥</span>
+            <Icon name="users" className={styles.ecosystemNodeIcon} size={24} />
             <span className={styles.ecosystemNodeName}>Delivery Teams</span>
             <span className={styles.ecosystemNodeRole}>Execution</span>
           </div>
@@ -1248,7 +1411,7 @@ function Act5(): ReactNode {
       <div className={styles.powerProjection}>
         <div className={styles.projectionColumn}>
           <div className={styles.projectionHeader + ' ' + styles.projectionMature}>
-            <span className={styles.projectionIcon}>🛫</span>
+            <Icon name="takeoff" className={styles.projectionIcon} size={24} />
             <span className={styles.projectionTitle}>Mature Theater</span>
           </div>
           <div className={styles.projectionContent}>
@@ -1275,7 +1438,7 @@ function Act5(): ReactNode {
 
         <div className={styles.projectionColumn}>
           <div className={styles.projectionHeader + ' ' + styles.projectionDeveloping}>
-            <span className={styles.projectionIcon}>🚧</span>
+            <Icon name="construction" className={styles.projectionIcon} size={24} />
             <span className={styles.projectionTitle}>Developing Theater</span>
           </div>
           <div className={styles.projectionContent}>
@@ -1302,7 +1465,7 @@ function Act5(): ReactNode {
 
         <div className={styles.projectionColumn}>
           <div className={styles.projectionHeader + ' ' + styles.projectionAustere}>
-            <span className={styles.projectionIcon}>🏔️</span>
+            <Icon name="mountain" className={styles.projectionIcon} size={24} />
             <span className={styles.projectionTitle}>Austere Theater</span>
           </div>
           <div className={styles.projectionContent}>
@@ -1372,8 +1535,8 @@ function Act6(): ReactNode {
           <div className={styles.teamMissionSets}>
             <strong>Primary Mission Sets:</strong>
             <ul>
-              <li>🛫 <strong>Delivery Enablement</strong> — Supporting teams using PRIMA</li>
-              <li>⭐ <strong>Reference Implementation</strong> — PRIMA itself as a showcase</li>
+              <li><Icon name="takeoff" size={16} /> <strong>Delivery Enablement</strong> — Supporting teams using PRIMA</li>
+              <li><Icon name="star" size={16} /> <strong>Reference Implementation</strong> — PRIMA itself as a showcase</li>
             </ul>
           </div>
           <div className={styles.teamNote}>
@@ -1389,8 +1552,8 @@ function Act6(): ReactNode {
           <div className={styles.teamMissionSets}>
             <strong>Primary Mission Sets:</strong>
             <ul>
-              <li>🔬 <strong>Validation & Standards</strong> — Platform standards and testing</li>
-              <li>🛫 <strong>Delivery Enablement</strong> — Platform support for delivery teams</li>
+              <li><Icon name="microscope" size={16} /> <strong>Validation & Standards</strong> — Platform standards and testing</li>
+              <li><Icon name="takeoff" size={16} /> <strong>Delivery Enablement</strong> — Platform support for delivery teams</li>
             </ul>
           </div>
           <div className={styles.teamNote}>
@@ -1407,10 +1570,10 @@ function Act6(): ReactNode {
           <div className={styles.teamMissionSets}>
             <strong>Primary Mission Sets:</strong>
             <ul>
-              <li>🎯 <strong>Doctrine & Methods</strong> — FOE Field Guides, agentic patterns</li>
-              <li>⭐ <strong>Reference Implementation</strong> — FOE docs site as showcase</li>
-              <li>🎮 <strong>Learning Labs</strong> — Experimentation and skill development</li>
-              <li>🏭 <strong>Manufacturing & Expeditionary</strong> — Building tools AND deploying capability</li>
+              <li><Icon name="target" size={16} /> <strong>Doctrine & Methods</strong> — FOE Field Guides, agentic patterns</li>
+              <li><Icon name="star" size={16} /> <strong>Reference Implementation</strong> — FOE docs site as showcase</li>
+              <li><Icon name="gamepad" size={16} /> <strong>Learning Labs</strong> — Experimentation and skill development</li>
+              <li><Icon name="factory" size={16} /> <strong>Manufacturing & Expeditionary</strong> — Building tools AND deploying capability</li>
             </ul>
           </div>
           <div className={styles.expeditionaryRole}>
@@ -1448,32 +1611,32 @@ function Act6(): ReactNode {
         </thead>
         <tbody>
           <tr>
-            <td>🔬 Validation & Standards</td>
+            <td><Icon name="microscope" size={16} /> Validation & Standards</td>
             <td className={styles.coveragePartial}>Partial (Team 2)</td>
             <td>Need explicit agent/tool validation process</td>
           </tr>
           <tr>
-            <td>🎯 Doctrine & Methods</td>
+            <td><Icon name="target" size={16} /> Doctrine & Methods</td>
             <td className={styles.coverageGood}>Good (Team 3)</td>
             <td>Scale through train-the-trainer</td>
           </tr>
           <tr>
-            <td>⭐ Reference Implementation</td>
+            <td><Icon name="star" size={16} /> Reference Implementation</td>
             <td className={styles.coverageGood}>Good (Teams 1 & 3)</td>
             <td>Make reference status explicit</td>
           </tr>
           <tr>
-            <td>🛫 Delivery Enablement</td>
+            <td><Icon name="takeoff" size={16} /> Delivery Enablement</td>
             <td className={styles.coveragePartial}>Partial (Teams 1 & 2)</td>
             <td>Need structured onboarding program</td>
           </tr>
           <tr>
-            <td>🎮 Learning Labs</td>
+            <td><Icon name="gamepad" size={16} /> Learning Labs</td>
             <td className={styles.coverageWeak}>Weak</td>
             <td>Need protected experimentation environments</td>
           </tr>
           <tr>
-            <td>🏭 Manufacturing & Expeditionary</td>
+            <td><Icon name="factory" size={16} /> Manufacturing & Expeditionary</td>
             <td className={styles.coveragePartial}>Emerging (Team 3)</td>
             <td>Formalize expeditionary function; scale rocket shop</td>
           </tr>
