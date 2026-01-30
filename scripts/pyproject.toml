@@ -1,0 +1,16 @@
+[project]
+name = "foe-field-guide-tools"
+version = "0.1.0"
+description = "Linting and scoring tools for FOE Field Guides"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "python-frontmatter>=1.1.0",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+lint-field-guides = "lint_field_guides:main"
+
+[tool.uv]
+dev-dependencies = []
