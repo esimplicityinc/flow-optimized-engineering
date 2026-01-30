@@ -121,6 +121,10 @@ const config: Config = {
               to: '/esimplicity-plan',
             },
             {
+              label: 'Marketing',
+              to: '/esimplicity-strategy/brand-strategy',
+            },
+            {
               type: 'html',
               value: '<hr style="margin: 0.5rem 0;">',
             },
