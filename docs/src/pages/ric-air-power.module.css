@@ -218,6 +218,58 @@
 }
 
 /* ============================================
+   MODE TOGGLE
+   ============================================ */
+
+.modeToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  margin: 1.5rem 0;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.25) 100%);
+  border: 2px solid rgba(245, 158, 11, 0.5);
+  border-radius: 50px;
+  color: #FBBF24;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modeToggle:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.35) 100%);
+  border-color: rgba(245, 158, 11, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
+}
+
+.modeToggleActive {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.25) 100%);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #60A5FA;
+}
+
+.modeToggleActive:hover {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0.35) 100%);
+  border-color: rgba(59, 130, 246, 0.8);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+}
+
+.modeToggleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.modeToggleIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================
    CONTENT SECTIONS
    ============================================ */
 

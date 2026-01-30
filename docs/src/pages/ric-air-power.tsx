@@ -1,8 +1,303 @@
 import type { ReactNode } from 'react';
+import { useState, createContext, useContext } from 'react';
 import Layout from '@theme/Layout';
 import AccordionSection from '../components/AccordionSection';
 import StrategySidebar from '../components/StrategySidebar';
 import styles from './ric-air-power.module.css';
+
+// ============================================
+// VIEW MODE CONTEXT
+// ============================================
+
+type ViewMode = 'airforce' | 'esimplicity';
+
+const ViewModeContext = createContext<{
+  mode: ViewMode;
+  setMode: (mode: ViewMode) => void;
+}>({
+  mode: 'airforce',
+  setMode: () => {},
+});
+
+function useViewMode() {
+  return useContext(ViewModeContext);
+}
+
+// Content mappings for both modes
+const modeContent = {
+  airforce: {
+    heroTitle: 'From Ground to Air',
+    heroSubtitle: 'The Agentic Delivery Transformation',
+    heroDescription: 'Why agentic speed requires air power organization',
+    toggleLabel: 'Apply to eSimplicity →',
+    institutions: {
+      testPrograms: {
+        name: 'Edwards Air Force Base',
+        subtitle: 'Air Force Test Center',
+        whatItIs: "The Air Force's primary flight test center, where every new aircraft, weapons system, and major modification is tested before operational deployment.",
+        whatItDoes: 'Test pilots and engineers push aircraft to their limits in controlled conditions. They find the failures <em>before</em> combat pilots do. They write the flight manuals, define the operating envelopes, and certify that systems are safe and effective.',
+        whyItMatters: 'No aircraft reaches operational squadrons without passing through test. This is where "it works on my machine" meets physics. Chuck Yeager broke the sound barrier here. The F-22, F-35, B-2 — all proven here first.',
+        quote: '"No one flies an aircraft that hasn\'t been through test."',
+      },
+      weaponsSchool: {
+        name: 'TOPGUN / USAF Weapons School',
+        subtitle: 'Fighter Weapons Schools',
+        whatItIs: 'Graduate-level schools for the best fighter pilots, where doctrine is developed, tactics are refined, and instructors are created.',
+        whatItDoes: 'Takes experienced pilots and makes them experts in air combat tactics. Graduates return to their squadrons as "patch wearers" — recognized experts who train others. TOPGUN doesn\'t just teach flying; it <em>develops the curriculum</em> that everyone else uses.',
+        whyItMatters: 'After Vietnam, Navy kill ratios were embarrassingly low. TOPGUN was created to fix this. Within years, kill ratios went from 2:1 to 12:1. The school doesn\'t fly combat missions — it <em>multiplies capability</em> across the entire fleet by creating instructors and doctrine.',
+        quote: '"You can\'t train fighter pilots in combat. You need a separated institution."',
+      },
+      demoTeams: {
+        name: 'Thunderbirds / Blue Angels',
+        subtitle: 'Demonstration Teams',
+        whatItIs: 'Elite demonstration squadrons that perform precision aerial maneuvers at airshows and public events worldwide.',
+        whatItDoes: 'Flies in formations with aircraft separated by as little as 18 inches at speeds exceeding 400 mph. Every maneuver is choreographed, practiced thousands of times, and executed with zero margin for error.',
+        whyItMatters: 'The Thunderbirds aren\'t just showmanship — they\'re <strong>proof that disciplined excellence is possible</strong>. They demonstrate the ceiling of what coordinated, practiced teams can achieve. When skeptics say "that level of precision isn\'t realistic," the Thunderbirds are the counter-argument.',
+        quote: '"This is what disciplined excellence looks like. It\'s not theoretical."',
+      },
+      redFlag: {
+        name: 'Red Flag',
+        subtitle: 'Embedded Training Exercises',
+        whatItIs: 'Large-scale aerial combat training exercises held at Nellis AFB, simulating realistic combat conditions against skilled adversaries.',
+        whatItDoes: 'Pits operational squadrons against "aggressor" squadrons that simulate enemy tactics. Missions are fully instrumented. Every engagement is recorded and debriefed in excruciating detail.',
+        whyItMatters: 'Studies showed pilots who survived their first 10 combat missions had dramatically higher survival rates thereafter. Red Flag gives pilots those "first 10 missions" in a controlled environment. Failure here is learning, not death.',
+        quote: '"You cannot learn air combat in combat. Failure must be survivable."',
+      },
+      manufacturing: {
+        name: 'Skunk Works / Air Mobility Command',
+        subtitle: 'Manufacturing & Logistics',
+        whatItIs: 'The industrial base that builds the aircraft, and the logistics command that sustains operations anywhere in the world.',
+        whatItDoes: 'Lockheed\'s Skunk Works developed the U-2, SR-71, F-117, and F-22 — pushing the boundaries of what\'s possible. Air Mobility Command can deploy entire air wings to bare bases anywhere on Earth.',
+        whyItMatters: 'You can\'t fight an air war without aircraft, and you can\'t sustain operations without logistics. The U.S. has the <strong>manufacturing capacity to build the best aircraft</strong> and the <strong>expeditionary capability to operate them anywhere</strong>.',
+        quote: '"Amateurs talk tactics. Professionals talk logistics."',
+      },
+    },
+    missionSets: {
+      testPrograms: {
+        airForceTitle: 'Test Programs',
+        airForceSubtitle: 'Edwards AFB, Pax River',
+        ricEquivalent: 'Validation & Standards',
+        mission: 'Validate tools, patterns, and agent configurations before mission teams use them. "No one flies an aircraft that hasn\'t been through test."',
+        outputs: [
+          'Approved agent configurations',
+          'Validated patterns and templates',
+          'CI/testing standards',
+          'Security clearances for tools',
+        ],
+      },
+      weaponsSchool: {
+        airForceTitle: 'Fighter Weapons School',
+        airForceSubtitle: 'Top Gun, USAF Weapons School',
+        ricEquivalent: 'Doctrine & Methods',
+        mission: 'Develop tactics, train instructors, create methods that deployed teams use. "You can\'t train fighter pilots in combat."',
+        outputs: [
+          'FOE Field Guide methods',
+          'Agentic coding patterns',
+          'Train-the-trainer programs',
+          'Best practice documentation',
+        ],
+      },
+      demoTeams: {
+        airForceTitle: 'Demonstration Teams',
+        airForceSubtitle: 'Thunderbirds, Blue Angels',
+        ricEquivalent: 'Reference Implementations',
+        mission: 'Demonstrate the ceiling of what\'s possible with full discipline. Show skeptics that high-speed disciplined delivery is real.',
+        outputs: [
+          'FOE docs site (this project)',
+          'KATALYST reference deployments',
+          'Internal showcase projects',
+          'Proof points for proposals',
+        ],
+      },
+      deployedSquadrons: {
+        airForceTitle: 'Deployed Squadrons',
+        airForceSubtitle: 'Operational Units',
+        ricEquivalent: 'Delivery Enablement',
+        mission: 'Support contract delivery teams. They execute missions; RIC provides the validated equipment and doctrine that makes success possible.',
+        outputs: [
+          'Onboarding for delivery teams',
+          'Tool provisioning and support',
+          'Pattern application guidance',
+          'Escalation support',
+        ],
+      },
+      embeddedTraining: {
+        airForceTitle: 'Embedded Training',
+        airForceSubtitle: 'Red Flag, Top Gun Exercises',
+        ricEquivalent: 'Learning Labs',
+        mission: 'Create protected environments where teams can fail safely and learn. "You cannot learn air combat in combat."',
+        outputs: [
+          'Sandbox environments',
+          'Skill development programs',
+          'Blameless postmortem facilitation',
+          'Innovation experiments',
+        ],
+      },
+      manufacturing: {
+        airForceTitle: 'Manufacturing & Expeditionary',
+        airForceSubtitle: 'Lockheed + Air Mobility Command + Seabees',
+        ricEquivalent: 'Tooling & Theater Deployment',
+        mission: 'Two complementary roles that other mission sets depend on:',
+        rocketShop: {
+          title: 'The Rocket Shop',
+          description: 'Build the actual tools, platforms, and weapons systems that the fleet uses.',
+          items: [
+            'KATALYST platform development',
+            'PRIMA products',
+            'Agent configurations',
+            'Prompt libraries',
+          ],
+        },
+        infrastructure: {
+          title: 'Infrastructure Enablement',
+          description: 'Easy-button landing strips, radar, ground control — raise the ceiling for every theater.',
+          items: [
+            'Infrastructure-as-code packages',
+            'Theater assessment playbooks',
+            'Rapid environment standup',
+            'Forward deployment capability',
+          ],
+        },
+      },
+    },
+  },
+  esimplicity: {
+    heroTitle: 'Enabling Agentic Delivery',
+    heroSubtitle: 'The eSimplicity Transformation',
+    heroDescription: 'How the RIC builds the institutions for air-speed operations',
+    toggleLabel: '← View Air Force Model',
+    institutions: {
+      testPrograms: {
+        name: 'Validation & Standards',
+        subtitle: 'RIC Test Programs',
+        whatItIs: "The RIC's validation function, where every agent configuration, prompt library, and pattern is tested before delivery teams use them.",
+        whatItDoes: 'RIC engineers validate tools in controlled conditions. They find the failures <em>before</em> delivery teams do. They write the documentation, define the usage patterns, and certify that configurations are safe and effective.',
+        whyItMatters: 'No agent configuration reaches delivery teams without passing through validation. This is where "it works on my machine" meets production reality. Every tool, every pattern — proven here first.',
+        quote: '"No one deploys an agent that hasn\'t been through test."',
+      },
+      weaponsSchool: {
+        name: 'Doctrine & Methods',
+        subtitle: 'RIC Weapons School',
+        whatItIs: 'The FOE Field Guides and training programs where methods are developed, patterns are refined, and instructors are created.',
+        whatItDoes: 'Takes experienced engineers and makes them experts in agentic delivery tactics. Graduates return to their delivery teams as recognized experts who train others. The RIC doesn\'t just teach tools; it <em>develops the curriculum</em> that everyone else uses.',
+        whyItMatters: 'Before FOE, delivery quality was inconsistent. The Doctrine & Methods function was created to fix this. The RIC doesn\'t execute delivery — it <em>multiplies capability</em> across all delivery teams by creating instructors and methods.',
+        quote: '"You can\'t train engineers in production. You need a separated institution."',
+      },
+      demoTeams: {
+        name: 'Reference Implementations',
+        subtitle: 'RIC Demonstration Teams',
+        whatItIs: 'Showcase projects like the FOE docs site and KATALYST reference deployments that demonstrate what disciplined agentic delivery looks like.',
+        whatItDoes: 'Delivers projects with full FOE compliance, comprehensive testing, and zero shortcuts. Every pattern is followed, every method applied, and documented for others to learn from.',
+        whyItMatters: 'Reference implementations aren\'t just showcases — they\'re <strong>proof that disciplined excellence is possible</strong>. They demonstrate the ceiling of what FOE-compliant teams can achieve. When skeptics say "that level of quality isn\'t realistic," these projects are the counter-argument.',
+        quote: '"This is what disciplined excellence looks like. It\'s not theoretical."',
+      },
+      redFlag: {
+        name: 'Learning Labs',
+        subtitle: 'RIC Training Exercises',
+        whatItIs: 'Sandbox environments and protected experimentation spaces where teams can try new patterns without production consequences.',
+        whatItDoes: 'Creates safe spaces for delivery teams to experiment with new agent configurations, try emerging patterns, and learn through failure. Every experiment is documented and debriefed.',
+        whyItMatters: 'Engineers who have failed safely in Learning Labs are dramatically more effective in production. Learning Labs give teams those "first 10 experiments" in a controlled environment. Failure here is learning, not outage.',
+        quote: '"You cannot learn agentic delivery in production. Failure must be survivable."',
+      },
+      manufacturing: {
+        name: 'Tooling & Expeditionary',
+        subtitle: 'RIC Manufacturing & Deployment',
+        whatItIs: 'The "rocket shop" that builds KATALYST, PRIMA, and agent configurations, plus the expeditionary capability to deploy them anywhere.',
+        whatItDoes: 'The RIC builds the actual tools — platforms, products, agent configs, prompt libraries. It also deploys capability into contract theaters, bringing infrastructure where none exists.',
+        whyItMatters: 'You can\'t enable agentic delivery without tools, and you can\'t scale without expeditionary capability. The RIC has the <strong>manufacturing capacity to build the best tools</strong> and the <strong>expeditionary capability to deploy them anywhere</strong>.',
+        quote: '"Amateurs talk features. Professionals talk enablement."',
+      },
+    },
+    missionSets: {
+      testPrograms: {
+        airForceTitle: 'Validation & Standards',
+        airForceSubtitle: 'RIC Test Programs',
+        ricEquivalent: 'Agent & Pattern Certification',
+        mission: 'Certify agent configurations, prompt libraries, and patterns before delivery teams deploy them. "No one deploys an agent that hasn\'t been through test."',
+        outputs: [
+          'Certified agent configurations',
+          'Approved prompt libraries',
+          'Validated FOE patterns',
+          'Security-cleared tools',
+        ],
+      },
+      weaponsSchool: {
+        airForceTitle: 'Doctrine & Methods',
+        airForceSubtitle: 'RIC Weapons School',
+        ricEquivalent: 'FOE Field Guide Development',
+        mission: 'Develop methods, train instructors, create the curriculum that delivery teams use. "You can\'t train engineers in production."',
+        outputs: [
+          'FOE Field Guide methods',
+          'Agentic delivery patterns',
+          'Train-the-trainer certification',
+          'Best practice playbooks',
+        ],
+      },
+      demoTeams: {
+        airForceTitle: 'Reference Implementations',
+        airForceSubtitle: 'RIC Demonstration Teams',
+        ricEquivalent: 'Showcase Projects',
+        mission: 'Demonstrate the ceiling of what\'s possible with full FOE compliance. Show skeptics that disciplined agentic delivery is real.',
+        outputs: [
+          'FOE docs site (this project)',
+          'KATALYST reference deployments',
+          'PRIMA showcase implementations',
+          'Proof points for proposals',
+        ],
+      },
+      deployedSquadrons: {
+        airForceTitle: 'Delivery Enablement',
+        airForceSubtitle: 'RIC Support Teams',
+        ricEquivalent: 'Contract Team Support',
+        mission: 'Support contract delivery teams with the validated tools and doctrine they need. RIC enables; delivery teams execute.',
+        outputs: [
+          'Team onboarding programs',
+          'Tool provisioning & support',
+          'Pattern application guidance',
+          'Escalation & troubleshooting',
+        ],
+      },
+      embeddedTraining: {
+        airForceTitle: 'Learning Labs',
+        airForceSubtitle: 'RIC Training Exercises',
+        ricEquivalent: 'Safe Experimentation Spaces',
+        mission: 'Create protected environments where teams can fail safely and learn. "You cannot learn agentic delivery in production."',
+        outputs: [
+          'Sandbox environments',
+          'Skill development tracks',
+          'Blameless postmortem facilitation',
+          'Innovation experiments',
+        ],
+      },
+      manufacturing: {
+        airForceTitle: 'Tooling & Expeditionary',
+        airForceSubtitle: 'RIC Manufacturing & Deployment',
+        ricEquivalent: 'Tool Building & Theater Projection',
+        mission: 'Two complementary roles that other mission sets depend on:',
+        rocketShop: {
+          title: 'The Rocket Shop',
+          description: 'Build the actual tools, platforms, and agent configurations that delivery teams use.',
+          items: [
+            'KATALYST platform features',
+            'PRIMA product development',
+            'Agent configurations & prompts',
+            'Automation libraries',
+          ],
+        },
+        infrastructure: {
+          title: 'Expeditionary Capability',
+          description: 'Project RIC capability into contract theaters — build runways where none exist.',
+          items: [
+            'Theater assessment playbooks',
+            'Infrastructure-as-code packages',
+            'Rapid environment standup',
+            'Forward deployment teams',
+          ],
+        },
+      },
+    },
+  },
+};
 
 // ============================================
 // SVG ICONS
@@ -173,7 +468,7 @@ function Icon({ name, className = '', size = 24 }: IconProps): ReactNode {
 
 const sections = [
   { id: 'the-problem', number: 1, title: 'The Problem', owner: 'shared' as const },
-  { id: 'the-air-force-model', number: 2, title: 'The Air Force Model', owner: 'shared' as const },
+  { id: 'the-institutions', number: 2, title: 'The Institutions', owner: 'shared' as const },
   { id: 'the-five-mission-sets', number: 3, title: 'The Five Mission Sets', owner: 'shared' as const },
   { id: 'the-logistics-transformation', number: 4, title: 'The Logistics Transformation', owner: 'shared' as const },
   { id: 'combined-arms', number: 5, title: 'Combined Arms', owner: 'shared' as const },
@@ -181,10 +476,195 @@ const sections = [
 ];
 
 // ============================================
+// MODE TOGGLE COMPONENT
+// ============================================
+
+function ModeToggle(): ReactNode {
+  const { mode, setMode } = useViewMode();
+  const content = modeContent[mode];
+  
+  const handleToggle = () => {
+    setMode(mode === 'airforce' ? 'esimplicity' : 'airforce');
+  };
+
+  return (
+    <button 
+      className={`${styles.modeToggle} ${mode === 'esimplicity' ? styles.modeToggleActive : ''}`}
+      onClick={handleToggle}
+    >
+      <span className={styles.modeToggleIcon}>
+        {mode === 'airforce' ? (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2Z" />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
+          </svg>
+        )}
+      </span>
+      {content.toggleLabel}
+    </button>
+  );
+}
+
+// ============================================
+// INSTITUTION CARD COMPONENT
+// ============================================
+
+type InstitutionKey = 'testPrograms' | 'weaponsSchool' | 'demoTeams' | 'redFlag' | 'manufacturing';
+
+const institutionIcons: Record<InstitutionKey, IconName> = {
+  testPrograms: 'microscope',
+  weaponsSchool: 'target',
+  demoTeams: 'star',
+  redFlag: 'gamepad',
+  manufacturing: 'factory',
+};
+
+const institutionStyles: Record<InstitutionKey, string> = {
+  testPrograms: 'institutionEdwards',
+  weaponsSchool: 'institutionTopgun',
+  demoTeams: 'institutionThunderbirds',
+  redFlag: 'institutionRedFlag',
+  manufacturing: 'institutionSkunkWorks',
+};
+
+function InstitutionCard({ institutionKey }: { institutionKey: InstitutionKey }): ReactNode {
+  const { mode } = useViewMode();
+  const institution = modeContent[mode].institutions[institutionKey];
+  const iconName = institutionIcons[institutionKey];
+  const styleClass = institutionStyles[institutionKey];
+
+  return (
+    <div className={`${styles.institutionCard} ${styles[styleClass]}`}>
+      <div className={styles.institutionHeader}>
+        <Icon name={iconName} className={styles.institutionIcon} size={32} />
+        <div className={styles.institutionName}>{institution.name}</div>
+        <div className={styles.institutionSubtitle}>{institution.subtitle}</div>
+      </div>
+      <div className={styles.institutionBody}>
+        <p>
+          <strong>What it is:</strong> {institution.whatItIs}
+        </p>
+        <p dangerouslySetInnerHTML={{ 
+          __html: `<strong>What it does:</strong> ${institution.whatItDoes}` 
+        }} />
+        <p dangerouslySetInnerHTML={{ 
+          __html: `<strong>Why it matters:</strong> ${institution.whyItMatters}` 
+        }} />
+        <div className={styles.institutionQuote}>
+          {institution.quote}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================
+// MISSION SET CARD COMPONENT
+// ============================================
+
+type MissionSetKey = 'testPrograms' | 'weaponsSchool' | 'demoTeams' | 'deployedSquadrons' | 'embeddedTraining' | 'manufacturing';
+type StandardMissionSetKey = Exclude<MissionSetKey, 'manufacturing'>;
+
+const missionSetIcons: Record<MissionSetKey, IconName> = {
+  testPrograms: 'microscope',
+  weaponsSchool: 'target',
+  demoTeams: 'star',
+  deployedSquadrons: 'takeoff',
+  embeddedTraining: 'gamepad',
+  manufacturing: 'factory',
+};
+
+function MissionSetCard({ missionSetKey }: { missionSetKey: StandardMissionSetKey }): ReactNode {
+  const { mode } = useViewMode();
+  const missionSet = modeContent[mode].missionSets[missionSetKey];
+  const iconName = missionSetIcons[missionSetKey];
+
+  return (
+    <div className={styles.missionSetCard}>
+      <div className={styles.missionSetHeader}>
+        <Icon name={iconName} className={styles.missionSetIcon} size={36} />
+        <div className={styles.missionSetTitles}>
+          <div className={styles.missionSetAirForce}>{missionSet.airForceTitle}</div>
+          <div className={styles.missionSetSubtitle}>{missionSet.airForceSubtitle}</div>
+        </div>
+      </div>
+      <div className={styles.missionSetArrow}>↓</div>
+      <div className={styles.missionSetRIC}>
+        <strong>RIC Equivalent:</strong> {missionSet.ricEquivalent}
+      </div>
+      <div className={styles.missionSetMission}>
+        <strong>Mission:</strong> {missionSet.mission}
+      </div>
+      <div className={styles.missionSetOutputs}>
+        <strong>Outputs:</strong>
+        <ul>
+          {missionSet.outputs.map((output: string, index: number) => (
+            <li key={index}>{output}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function MissionSetCardWide({ missionSetKey }: { missionSetKey: 'manufacturing' }): ReactNode {
+  const { mode } = useViewMode();
+  const missionSet = modeContent[mode].missionSets[missionSetKey];
+  const iconName = missionSetIcons[missionSetKey];
+
+  return (
+    <div className={styles.missionSetCard + ' ' + styles.missionSetCardWide}>
+      <div className={styles.missionSetHeader}>
+        <Icon name={iconName} className={styles.missionSetIcon} size={36} />
+        <div className={styles.missionSetTitles}>
+          <div className={styles.missionSetAirForce}>{missionSet.airForceTitle}</div>
+          <div className={styles.missionSetSubtitle}>{missionSet.airForceSubtitle}</div>
+        </div>
+      </div>
+      <div className={styles.missionSetArrow}>↓</div>
+      <div className={styles.missionSetRIC}>
+        <strong>RIC Equivalent:</strong> {missionSet.ricEquivalent}
+      </div>
+      <div className={styles.missionSetMission}>
+        <strong>Mission:</strong> {missionSet.mission}
+      </div>
+      <div className={styles.dualMission}>
+        <div className={styles.dualMissionHalf}>
+          <div className={styles.dualMissionTitle}><Icon name="wrench" size={18} /> {missionSet.rocketShop.title}</div>
+          <p>{missionSet.rocketShop.description}</p>
+          <ul>
+            {missionSet.rocketShop.items.map((item: string, index: number) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div className={styles.dualMissionHalf}>
+          <div className={styles.dualMissionTitle}><Icon name="tools" size={18} /> {missionSet.infrastructure.title}</div>
+          <p>{missionSet.infrastructure.description}</p>
+          <ul>
+            {missionSet.infrastructure.items.map((item: string, index: number) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================
 // HERO SECTION
 // ============================================
 
 function HeroSection(): ReactNode {
+  const { mode } = useViewMode();
+  const content = modeContent[mode];
+
   return (
     <section className={styles.hero}>
       <div className={styles.heroBackground}>
@@ -195,13 +675,14 @@ function HeroSection(): ReactNode {
       <div className={styles.heroContent}>
         <span className={styles.heroBadge}>Internal Strategy | RIC Restructuring</span>
         <h1 className={styles.heroTitle}>
-          From Ground to Air
+          {content.heroTitle}
           <br />
-          <span className={styles.heroTitleAccent}>The Agentic Delivery Transformation</span>
+          <span className={styles.heroTitleAccent}>{content.heroSubtitle}</span>
         </h1>
         <p className={styles.heroSubtitle}>
-          Why agentic speed requires air power organization
+          {content.heroDescription}
         </p>
+        <ModeToggle />
         <div className={styles.heroMeta}>
           <span className={styles.heroMetaItem}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -405,15 +886,15 @@ function Act1(): ReactNode {
 function Act2(): ReactNode {
   return (
     <AccordionSection
-      id="the-air-force-model"
+      id="the-institutions"
       number={2}
-      title="The Air Force Model"
+      title="The Institutions"
       owner="shared"
       executiveSummary={
         <p>
           When warfare moved from ground to air, it didn't just need new weapons—it needed 
-          entirely new types of organizations. These structures weren't bureaucracy; they were 
-          survival requirements. The RIC faces the same transformation.
+          entirely new types of organizations. eSimplicity needs equivalent institutions to 
+          operate at agentic speed. The RIC is the vehicle to build and deliver them.
         </p>
       }
     >
@@ -447,156 +928,11 @@ function Act2(): ReactNode {
       </p>
 
       <div className={styles.institutionGrid}>
-        {/* Edwards AFB / Test Programs */}
-        <div className={`${styles.institutionCard} ${styles.institutionEdwards}`}>
-          <div className={styles.institutionHeader}>
-            <Icon name="microscope" className={styles.institutionIcon} size={32} />
-            <div className={styles.institutionName}>Edwards Air Force Base</div>
-            <div className={styles.institutionSubtitle}>Air Force Test Center</div>
-          </div>
-          <div className={styles.institutionBody}>
-            <p>
-              <strong>What it is:</strong> The Air Force's primary flight test center, where every 
-              new aircraft, weapons system, and major modification is tested before operational deployment.
-            </p>
-            <p>
-              <strong>What it does:</strong> Test pilots and engineers push aircraft to their limits 
-              in controlled conditions. They find the failures <em>before</em> combat pilots do. 
-              They write the flight manuals, define the operating envelopes, and certify that 
-              systems are safe and effective.
-            </p>
-            <p>
-              <strong>Why it matters:</strong> No aircraft reaches operational squadrons without 
-              passing through test. This is where "it works on my machine" meets physics. Chuck 
-              Yeager broke the sound barrier here. The F-22, F-35, B-2 — all proven here first.
-            </p>
-            <div className={styles.institutionQuote}>
-              "No one flies an aircraft that hasn't been through test."
-            </div>
-          </div>
-        </div>
-
-        {/* Top Gun */}
-        <div className={`${styles.institutionCard} ${styles.institutionTopgun}`}>
-          <div className={styles.institutionHeader}>
-            <Icon name="target" className={styles.institutionIcon} size={32} />
-            <div className={styles.institutionName}>TOPGUN / USAF Weapons School</div>
-            <div className={styles.institutionSubtitle}>Fighter Weapons Schools</div>
-          </div>
-          <div className={styles.institutionBody}>
-            <p>
-              <strong>What it is:</strong> Graduate-level schools for the best fighter pilots, 
-              where doctrine is developed, tactics are refined, and instructors are created.
-            </p>
-            <p>
-              <strong>What it does:</strong> Takes experienced pilots and makes them experts in 
-              air combat tactics. Graduates return to their squadrons as "patch wearers" — 
-              recognized experts who train others. TOPGUN doesn't just teach flying; it 
-              <em>develops the curriculum</em> that everyone else uses.
-            </p>
-            <p>
-              <strong>Why it matters:</strong> After Vietnam, Navy kill ratios were embarrassingly 
-              low. TOPGUN was created to fix this. Within years, kill ratios went from 2:1 to 12:1. 
-              The school doesn't fly combat missions — it <em>multiplies capability</em> across 
-              the entire fleet by creating instructors and doctrine.
-            </p>
-            <div className={styles.institutionQuote}>
-              "You can't train fighter pilots in combat. You need a separated institution."
-            </div>
-          </div>
-        </div>
-
-        {/* Thunderbirds */}
-        <div className={`${styles.institutionCard} ${styles.institutionThunderbirds}`}>
-          <div className={styles.institutionHeader}>
-            <Icon name="star" className={styles.institutionIcon} size={32} />
-            <div className={styles.institutionName}>Thunderbirds / Blue Angels</div>
-            <div className={styles.institutionSubtitle}>Demonstration Teams</div>
-          </div>
-          <div className={styles.institutionBody}>
-            <p>
-              <strong>What it is:</strong> Elite demonstration squadrons that perform precision 
-              aerial maneuvers at airshows and public events worldwide.
-            </p>
-            <p>
-              <strong>What it does:</strong> Flies in formations with aircraft separated by as 
-              little as 18 inches at speeds exceeding 400 mph. Every maneuver is choreographed, 
-              practiced thousands of times, and executed with zero margin for error.
-            </p>
-            <p>
-              <strong>Why it matters:</strong> The Thunderbirds aren't just showmanship — they're 
-              <strong>proof that disciplined excellence is possible</strong>. They demonstrate the 
-              ceiling of what coordinated, practiced teams can achieve. When skeptics say "that 
-              level of precision isn't realistic," the Thunderbirds are the counter-argument. 
-              They recruit, they inspire, and they prove the model works.
-            </p>
-            <div className={styles.institutionQuote}>
-              "This is what disciplined excellence looks like. It's not theoretical."
-            </div>
-          </div>
-        </div>
-
-        {/* Red Flag */}
-        <div className={`${styles.institutionCard} ${styles.institutionRedFlag}`}>
-          <div className={styles.institutionHeader}>
-            <Icon name="gamepad" className={styles.institutionIcon} size={32} />
-            <div className={styles.institutionName}>Red Flag</div>
-            <div className={styles.institutionSubtitle}>Embedded Training Exercises</div>
-          </div>
-          <div className={styles.institutionBody}>
-            <p>
-              <strong>What it is:</strong> Large-scale aerial combat training exercises held at 
-              Nellis AFB, simulating realistic combat conditions against skilled adversaries.
-            </p>
-            <p>
-              <strong>What it does:</strong> Pits operational squadrons against "aggressor" 
-              squadrons that simulate enemy tactics. Missions are fully instrumented. Every 
-              engagement is recorded and debriefed in excruciating detail. Pilots experience 
-              the chaos and pressure of combat without the consequences of actual combat.
-            </p>
-            <p>
-              <strong>Why it matters:</strong> Studies showed pilots who survived their first 
-              10 combat missions had dramatically higher survival rates thereafter. Red Flag 
-              gives pilots those "first 10 missions" in a controlled environment. Failure here 
-              is learning, not death. The debrief culture — honest, blameless, focused on 
-              improvement — is as important as the flying.
-            </p>
-            <div className={styles.institutionQuote}>
-              "You cannot learn air combat in combat. Failure must be survivable."
-            </div>
-          </div>
-        </div>
-
-        {/* Manufacturing / Logistics */}
-        <div className={`${styles.institutionCard} ${styles.institutionSkunkWorks}`}>
-          <div className={styles.institutionHeader}>
-            <Icon name="factory" className={styles.institutionIcon} size={32} />
-            <div className={styles.institutionName}>Skunk Works / Air Mobility Command</div>
-            <div className={styles.institutionSubtitle}>Manufacturing & Logistics</div>
-          </div>
-          <div className={styles.institutionBody}>
-            <p>
-              <strong>What it is:</strong> The industrial base that builds the aircraft, and the 
-              logistics command that sustains operations anywhere in the world.
-            </p>
-            <p>
-              <strong>What it does:</strong> Lockheed's Skunk Works developed the U-2, SR-71, 
-              F-117, and F-22 — pushing the boundaries of what's possible. Air Mobility Command 
-              can deploy entire air wings to bare bases anywhere on Earth, bringing fuel, parts, 
-              munitions, and personnel to establish operations from nothing.
-            </p>
-            <p>
-              <strong>Why it matters:</strong> You can't fight an air war without aircraft, and 
-              you can't sustain operations without logistics. The U.S. doesn't just have good 
-              pilots — it has the <strong>manufacturing capacity to build the best aircraft</strong> 
-              and the <strong>expeditionary capability to operate them anywhere</strong>. This is 
-              the foundation everything else depends on.
-            </p>
-            <div className={styles.institutionQuote}>
-              "Amateurs talk tactics. Professionals talk logistics."
-            </div>
-          </div>
-        </div>
+        <InstitutionCard institutionKey="testPrograms" />
+        <InstitutionCard institutionKey="weaponsSchool" />
+        <InstitutionCard institutionKey="demoTeams" />
+        <InstitutionCard institutionKey="redFlag" />
+        <InstitutionCard institutionKey="manufacturing" />
       </div>
 
       <p>
@@ -608,9 +944,14 @@ function Act2(): ReactNode {
 
       <div className={styles.highlightBox}>
         <p>
-          <strong>The RIC needs equivalents of each of these institutions.</strong> Not because 
-          it's theoretically nice, but because operating at air-speed without them will produce 
+          <strong>eSimplicity needs equivalents of each of these institutions.</strong> Not because 
+          it's theoretically nice, but because operating at agentic speed without them will produce 
           the same failures the Air Force experienced before it built them.
+        </p>
+        <p>
+          <strong>The RIC is the vehicle to build and deliver these institutions</strong> — 
+          establishing the organizational infrastructure that makes air-speed operations possible 
+          across all of eSimplicity's delivery teams.
         </p>
       </div>
 
@@ -705,191 +1046,18 @@ function Act3(): ReactNode {
       executiveSummary={
         <p>
           Air forces have distinct organizational structures with specific purposes. 
-          The RIC needs equivalents of each. These aren't optional nice-to-haves—they're 
-          the organizational infrastructure that makes air-speed operations possible.
+          eSimplicity needs equivalents of each to operate at agentic speed—and the RIC 
+          is how we build and deliver them.
         </p>
       }
     >
       <div className={styles.missionSetGrid}>
-        {/* Test Programs */}
-        <div className={styles.missionSetCard}>
-          <div className={styles.missionSetHeader}>
-            <Icon name="microscope" className={styles.missionSetIcon} size={36} />
-            <div className={styles.missionSetTitles}>
-              <div className={styles.missionSetAirForce}>Test Programs</div>
-              <div className={styles.missionSetSubtitle}>Edwards AFB, Pax River</div>
-            </div>
-          </div>
-          <div className={styles.missionSetArrow}>↓</div>
-          <div className={styles.missionSetRIC}>
-            <strong>RIC Equivalent:</strong> Validation & Standards
-          </div>
-          <div className={styles.missionSetMission}>
-            <strong>Mission:</strong> Validate tools, patterns, and agent configurations 
-            before mission teams use them. "No one flies an aircraft that hasn't been through test."
-          </div>
-          <div className={styles.missionSetOutputs}>
-            <strong>Outputs:</strong>
-            <ul>
-              <li>Approved agent configurations</li>
-              <li>Validated patterns and templates</li>
-              <li>CI/testing standards</li>
-              <li>Security clearances for tools</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Fighter Weapons School */}
-        <div className={styles.missionSetCard}>
-          <div className={styles.missionSetHeader}>
-            <Icon name="target" className={styles.missionSetIcon} size={36} />
-            <div className={styles.missionSetTitles}>
-              <div className={styles.missionSetAirForce}>Fighter Weapons School</div>
-              <div className={styles.missionSetSubtitle}>Top Gun, USAF Weapons School</div>
-            </div>
-          </div>
-          <div className={styles.missionSetArrow}>↓</div>
-          <div className={styles.missionSetRIC}>
-            <strong>RIC Equivalent:</strong> Doctrine & Methods
-          </div>
-          <div className={styles.missionSetMission}>
-            <strong>Mission:</strong> Develop tactics, train instructors, create methods that 
-            deployed teams use. "You can't train fighter pilots in combat."
-          </div>
-          <div className={styles.missionSetOutputs}>
-            <strong>Outputs:</strong>
-            <ul>
-              <li>FOE Field Guide methods</li>
-              <li>Agentic coding patterns</li>
-              <li>Train-the-trainer programs</li>
-              <li>Best practice documentation</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Thunderbirds */}
-        <div className={styles.missionSetCard}>
-          <div className={styles.missionSetHeader}>
-            <Icon name="star" className={styles.missionSetIcon} size={36} />
-            <div className={styles.missionSetTitles}>
-              <div className={styles.missionSetAirForce}>Demonstration Teams</div>
-              <div className={styles.missionSetSubtitle}>Thunderbirds, Blue Angels</div>
-            </div>
-          </div>
-          <div className={styles.missionSetArrow}>↓</div>
-          <div className={styles.missionSetRIC}>
-            <strong>RIC Equivalent:</strong> Reference Implementations
-          </div>
-          <div className={styles.missionSetMission}>
-            <strong>Mission:</strong> Demonstrate the ceiling of what's possible with full 
-            discipline. Show skeptics that high-speed disciplined delivery is real.
-          </div>
-          <div className={styles.missionSetOutputs}>
-            <strong>Outputs:</strong>
-            <ul>
-              <li>FOE docs site (this project)</li>
-              <li>KATALYST reference deployments</li>
-              <li>Internal showcase projects</li>
-              <li>Proof points for proposals</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Deployed Squadrons */}
-        <div className={styles.missionSetCard}>
-          <div className={styles.missionSetHeader}>
-            <Icon name="takeoff" className={styles.missionSetIcon} size={36} />
-            <div className={styles.missionSetTitles}>
-              <div className={styles.missionSetAirForce}>Deployed Squadrons</div>
-              <div className={styles.missionSetSubtitle}>Operational Units</div>
-            </div>
-          </div>
-          <div className={styles.missionSetArrow}>↓</div>
-          <div className={styles.missionSetRIC}>
-            <strong>RIC Equivalent:</strong> Delivery Enablement
-          </div>
-          <div className={styles.missionSetMission}>
-            <strong>Mission:</strong> Support contract delivery teams. They execute missions; 
-            RIC provides the validated equipment and doctrine that makes success possible.
-          </div>
-          <div className={styles.missionSetOutputs}>
-            <strong>Outputs:</strong>
-            <ul>
-              <li>Onboarding for delivery teams</li>
-              <li>Tool provisioning and support</li>
-              <li>Pattern application guidance</li>
-              <li>Escalation support</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Embedded Training */}
-        <div className={styles.missionSetCard}>
-          <div className={styles.missionSetHeader}>
-            <Icon name="gamepad" className={styles.missionSetIcon} size={36} />
-            <div className={styles.missionSetTitles}>
-              <div className={styles.missionSetAirForce}>Embedded Training</div>
-              <div className={styles.missionSetSubtitle}>Red Flag, Top Gun Exercises</div>
-            </div>
-          </div>
-          <div className={styles.missionSetArrow}>↓</div>
-          <div className={styles.missionSetRIC}>
-            <strong>RIC Equivalent:</strong> Learning Labs
-          </div>
-          <div className={styles.missionSetMission}>
-            <strong>Mission:</strong> Create protected environments where teams can fail safely 
-            and learn. "You cannot learn air combat in combat."
-          </div>
-          <div className={styles.missionSetOutputs}>
-            <strong>Outputs:</strong>
-            <ul>
-              <li>Sandbox environments</li>
-              <li>Skill development programs</li>
-              <li>Blameless postmortem facilitation</li>
-              <li>Innovation experiments</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Manufacturing & Expeditionary */}
-        <div className={styles.missionSetCard + ' ' + styles.missionSetCardWide}>
-          <div className={styles.missionSetHeader}>
-            <Icon name="factory" className={styles.missionSetIcon} size={36} />
-            <div className={styles.missionSetTitles}>
-              <div className={styles.missionSetAirForce}>Manufacturing & Expeditionary</div>
-              <div className={styles.missionSetSubtitle}>Lockheed + Air Mobility Command + Seabees</div>
-            </div>
-          </div>
-          <div className={styles.missionSetArrow}>↓</div>
-          <div className={styles.missionSetRIC}>
-            <strong>RIC Equivalent:</strong> Tooling & Theater Deployment
-          </div>
-          <div className={styles.missionSetMission}>
-            <strong>Mission:</strong> Two complementary roles that other mission sets depend on:
-          </div>
-          <div className={styles.dualMission}>
-            <div className={styles.dualMissionHalf}>
-              <div className={styles.dualMissionTitle}><Icon name="wrench" size={18} /> The Rocket Shop</div>
-              <p>Build the actual tools, platforms, and weapons systems that the fleet uses.</p>
-              <ul>
-                <li>KATALYST platform development</li>
-                <li>PRIMA products</li>
-                <li>Agent configurations</li>
-                <li>Prompt libraries</li>
-              </ul>
-            </div>
-            <div className={styles.dualMissionHalf}>
-              <div className={styles.dualMissionTitle}><Icon name="tools" size={18} /> Infrastructure Enablement</div>
-              <p>Easy-button landing strips, radar, ground control — raise the ceiling for every theater.</p>
-              <ul>
-                <li>Infrastructure-as-code packages</li>
-                <li>Theater assessment playbooks</li>
-                <li>Rapid environment standup</li>
-                <li>Forward deployment capability</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <MissionSetCard missionSetKey="testPrograms" />
+        <MissionSetCard missionSetKey="weaponsSchool" />
+        <MissionSetCard missionSetKey="demoTeams" />
+        <MissionSetCard missionSetKey="deployedSquadrons" />
+        <MissionSetCard missionSetKey="embeddedTraining" />
+        <MissionSetCardWide missionSetKey="manufacturing" />
       </div>
 
       {/* THE FLEET */}
@@ -1765,28 +1933,32 @@ function CTASection(): ReactNode {
 // ============================================
 
 export default function RICAirPower(): ReactNode {
+  const [mode, setMode] = useState<ViewMode>('airforce');
+
   return (
-    <Layout
-      title="RIC Air Power Strategy"
-      description="Why agentic speed requires air power organization"
-    >
-      <main className={styles.strategyPage}>
-        <HeroSection />
-        <div className={styles.pageWrapper}>
-          <StrategySidebar sections={sections} />
-          <div className={styles.mainContent}>
-            <div className={styles.sectionsContainer}>
-              <Act1 />
-              <Act2 />
-              <Act3 />
-              <Act4 />
-              <Act5 />
-              <Act6 />
+    <ViewModeContext.Provider value={{ mode, setMode }}>
+      <Layout
+        title="RIC Air Power Strategy"
+        description="Why agentic speed requires air power organization"
+      >
+        <main className={styles.strategyPage}>
+          <HeroSection />
+          <div className={styles.pageWrapper}>
+            <StrategySidebar sections={sections} />
+            <div className={styles.mainContent}>
+              <div className={styles.sectionsContainer}>
+                <Act1 />
+                <Act2 />
+                <Act3 />
+                <Act4 />
+                <Act5 />
+                <Act6 />
+              </div>
             </div>
           </div>
-        </div>
-        <CTASection />
-      </main>
-    </Layout>
+          <CTASection />
+        </main>
+      </Layout>
+    </ViewModeContext.Provider>
   );
 }
