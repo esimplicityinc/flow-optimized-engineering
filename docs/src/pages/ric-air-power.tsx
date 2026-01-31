@@ -27,8 +27,9 @@ function useViewMode() {
 const modeContent = {
   airforce: {
     heroTitle: 'From Ground to Air',
-    heroSubtitle: 'The Agentic Delivery Transformation',
-    heroDescription: 'Why agentic speed requires air power organization',
+    heroSubtitle: 'The Air Power Revolution',
+    heroDescription: 'How militaries transformed to operate at aircraft speed',
+    heroBadge: 'Military History | Air Power Organization',
     toggleLabel: 'Apply to eSimplicity →',
     institutions: {
       testPrograms: {
@@ -162,6 +163,7 @@ const modeContent = {
     },
     act4: {
       sectionTitle: 'The Logistics Transformation',
+      executiveSummary: 'Ground infantry can operate with ~1:3 combat-to-support ratios. Modern air wings need ~1:15 or higher. This isn\'t bloat—it\'s what enables the speed. The support infrastructure is what makes high-tempo operations possible.',
       multiplier: {
         input: { value: '1 hr', label: 'Air wing invests in training' },
         multiplierVal: { value: '500', label: 'pilots across squadrons' },
@@ -169,13 +171,41 @@ const modeContent = {
       },
       enablementIntro: 'In air-power thinking, enablement is <em>multiplicative</em>:',
       leverageText: 'Every hour the Air Force spends developing tactics, training instructors, or creating doctrine is multiplied across every squadron that uses it.',
+      leverageConclusion: '<strong>This is how you get leverage.</strong> This is how a small support structure enables a large operational force to fly at high tempo.',
+      platformSection: {
+        title: 'Platform as Infrastructure, Not Platform as Team',
+        intro: 'Air forces distinguish between having logistics teams and having logistics infrastructure:',
+        comparison: [
+          { left: 'Ad-hoc logistics', right: 'Logistics infrastructure' },
+          { left: 'Reacts to requests', right: 'Anticipates requirements' },
+          { left: 'Success = tasks completed', right: 'Success = operational tempo sustained' },
+          { left: 'Planning = what needs doing', right: 'Planning = what operations need' },
+          { left: 'Exists because someone asked', right: 'Exists because operations require it' },
+        ],
+        conclusion: 'The support structure must operate as <strong>infrastructure</strong>—its purpose is defined by what operational units need to succeed.',
+      },
+      investmentSection: {
+        title: 'The Investment Thesis',
+        header: 'Air Force Investment Logic',
+        rows: [
+          { label: 'Input', value: 'N hours developing tactics or training' },
+          { label: 'Multiplier', value: '× M squadrons using those tactics' },
+          { label: 'Amplifier', value: '× K missions per squadron per year' },
+          { label: 'Output', value: '= N × M × K hours of operational leverage' },
+        ],
+        example: 'A single doctrine update used by 20 squadrons, 100 missions per squadron, per year is <strong>2,000x leverage</strong> on the original investment.',
+        rationale: 'This is why the tip-to-tail ratio shifts so dramatically. At ground speed, the math doesn\'t work—by the time you\'ve built the infrastructure, the battle is over. At air speed, the infrastructure is what makes sustained operations possible.',
+      },
       triadItems: [
         { label: 'People', desc: 'Weapons Schools + Red Flag (skill development and tactics transfer)' },
         { label: 'Process', desc: 'Test Programs (how aircraft are validated)' },
         { label: 'Technology', desc: 'Skunk Works + Air Mobility Command (what equipment and logistics exist)' },
       ],
+      triadIntro: 'Air power requires coordinated development across People, Process, and Technology. The support structure must address all three:',
     },
     act5: {
+      sectionTitle: 'Combined Arms',
+      executiveSummary: 'Air power alone doesn\'t win wars. It requires integrated ground forces, naval power, intelligence, logistics, and doctrine. Combined arms is the principle that different capabilities multiply each other when properly integrated.',
       integrationTitle: 'The Integration Requirement',
       integrationIntro: 'Having an excellent air force is necessary but not sufficient. Victory requires:',
       integrationItems: [
@@ -186,6 +216,64 @@ const modeContent = {
         { label: 'Doctrine', desc: 'for coordination' },
       ],
       combinedArmsExplainer: 'This is <strong>combined arms</strong>—the principle that different capabilities multiply each other when properly integrated. No single arm wins alone.',
+      ecosystemSection: {
+        title: 'How the Support Structure Connects the Force',
+        centerLabel: 'Support',
+        nodes: [
+          { icon: 'chart', name: 'Logistics', role: 'Sustainment' },
+          { icon: 'rocket', name: 'Support HQ', role: 'Coordination' },
+          { icon: 'target', name: 'Intelligence', role: 'Targeting' },
+          { icon: 'book', name: 'Doctrine', role: 'Standards' },
+          { icon: 'scales', name: 'Command', role: 'Direction' },
+          { icon: 'users', name: 'Combat Units', role: 'Execution' },
+        ],
+        connectsIntro: 'The support structure sits at the center, connecting:',
+        connectsItems: [
+          '<strong>Logistics</strong> (sustainment) with units that need supplies',
+          '<strong>Intelligence</strong> (targeting) with pilots who need information',
+          '<strong>Doctrine</strong> (standards) with practical implementation',
+          '<strong>Command</strong> (direction) with operational execution',
+          '<strong>Combat Units</strong> with the support they need',
+        ],
+      },
+      atcSection: {
+        title: 'Command as Air Traffic Control',
+        intro: 'Command functions like air traffic control: ensuring that different units operating at high speed don\'t collide. It:',
+        items: [
+          'Validates that units are aligned to doctrine',
+          'Ensures tactical decisions support the campaign',
+          'Provides feedback loops before problems compound',
+        ],
+        conclusion: 'But air traffic control only works if pilots follow procedures and aircraft have functioning transponders. The support structure provides the training (pilots know procedures) and the infrastructure (aircraft have transponders) that makes command effective.',
+      },
+      isolationSection: {
+        title: 'Why Isolated Excellence Fails',
+        tableRows: [
+          { pattern: 'Excellent aircraft + undisciplined pilots', failure: 'Pilots misuse aircraft, create accidents, capability wasted' },
+          { pattern: 'Strong doctrine + no training', failure: 'Pilots don\'t know how to apply doctrine; it becomes paperwork' },
+          { pattern: 'Superior logistics + inconsistent operations', failure: 'Supplies delivered differently to each unit; support becomes chaotic' },
+          { pattern: 'Active command + no support', failure: 'Command gives orders but units can\'t execute; leadership becomes disconnected' },
+        ],
+        conclusion: '<strong>Combined arms means all components working together.</strong> The support structure is the integration function that makes the whole greater than the sum of parts.',
+      },
+      virtuousCycleSection: {
+        title: 'The Virtuous Cycle',
+        steps: [
+          'Support develops capability',
+          'Combat units adopt',
+          'Experience accumulates',
+          'Doctrine matures',
+          'New needs emerge',
+        ],
+        conclusion: 'Each cycle through the loop raises the floor. What was advanced tactics becomes standard. What was standard becomes instinct. The force continuously improves.',
+      },
+      powerProjectionIntro: 'Combined arms isn\'t just about having all the pieces—it\'s about <strong>projecting capability where it\'s needed</strong>. Different theaters require different engagement models:',
+      engagementLabel: 'Engagement Model:',
+      fleetLabel: 'Fleet Assets:',
+      highlightBox: {
+        mainPoint: '<strong>The support structure doesn\'t just enable combat units—it projects capability into theaters where that capability doesn\'t yet exist.</strong>',
+        explanation: 'This is the expeditionary function. It\'s not enough to have excellent internal capability. You must be able to deploy it, adapt it to local conditions, and build local capacity to sustain it.',
+      },
       theaters: {
         mature: {
           title: 'Mature Theater',
@@ -225,11 +313,168 @@ const modeContent = {
         },
       },
     },
+    act1: {
+      title: 'The Problem',
+      executiveSummary: 'In 1914, aircraft were curiosities assigned to cavalry units. By 1945, air power was decisive. The nations that built institutions for air-speed operations dominated. Those that didn\'t were destroyed.',
+      executiveQuote: '"You cannot fight an air war with a ground army\'s organization."',
+      sections: {
+        industryShift: {
+          title: 'The Historical Shift',
+          paragraphs: [
+            'In the early 20th century, military aircraft were fragile novelties. Generals assigned them to existing cavalry and infantry units for reconnaissance. Pilots reported to ground commanders who didn\'t understand flight. Mechanics who had serviced horses now serviced biplanes.',
+            'This organizational structure made sense on paper—aircraft were just another tool. But aircraft operate at speeds, altitudes, and tempos that ground organizations cannot support. The generals who recognized this earliest gained decisive advantage.',
+            '<strong>By 1945, the transformation was complete.</strong> Air power didn\'t just supplement ground forces—it often decided outcomes before ground troops engaged. The nations that built dedicated air organizations dominated. Those that tried to run air operations with ground-army structures were outpaced and defeated.',
+          ],
+        },
+        comparison: {
+          groundLabel: 'Ground Army Model',
+          groundItems: [
+            'Heroes carry the mission',
+            'Knowledge lives in heads',
+            'Speed limited by human tempo',
+            '~1:3 combat-to-support ratio',
+            'Decisions at human speed',
+            'Training happens on the job',
+          ],
+          airLabel: 'Air Power Model',
+          airItems: [
+            'Systems enable the mission',
+            'Knowledge lives in doctrine',
+            'Speed limited by instrumentation',
+            '~1:15+ combat-to-support ratio',
+            'Decisions at machine speed',
+            'Training requires dedicated institutions',
+          ],
+        },
+        bottleneck: {
+          title: 'The Organizational Bottleneck',
+          paragraphs: [
+            'Early air forces discovered that having aircraft wasn\'t enough. You needed organizations designed specifically for air operations—test facilities, training schools, maintenance depots, intelligence systems, and doctrine development.',
+          ],
+          highlightQuote: '"The gap wasn\'t technology. Every nation had aircraft. The gap was organizational discipline—the institutions to develop, train, and sustain air power."',
+          highlightSource: '— Military Aviation History',
+          conclusion: 'Nations that tried to run air operations through existing ground army structures consistently failed. The aircraft were capable; the organizations weren\'t.',
+        },
+        symptoms: {
+          title: 'Symptoms of Ground-Speed Organization',
+          items: [
+            { symptom: 'Unclear mission boundaries between units', cause: 'No defined organizational topology for air operations' },
+            { symptom: 'Knowledge concentrated in ace pilots', cause: 'No doctrine institution to capture and spread knowledge' },
+            { symptom: 'New pilots unprepared for combat', cause: 'No dedicated training schools' },
+            { symptom: 'No standard for "combat ready"', cause: 'No test establishment defining readiness' },
+            { symptom: 'Tactics developed ad-hoc in combat', cause: 'No weapons school refining doctrine' },
+          ],
+        },
+        expeditionary: {
+          title: 'The Expeditionary Requirement',
+          intro: 'Air forces couldn\'t just build capability at home bases. Wars required projecting air power to distant theaters—each with different conditions:',
+          theaters: [
+            { name: 'Established Theaters', desc: 'Full airfields, hangars, fuel depots. Ready for sustained operations.' },
+            { name: 'Forward Theaters', desc: 'Basic strips, limited infrastructure. Needs rapid buildup.' },
+            { name: 'Austere Theaters', desc: 'No runways, hostile terrain. Must build from nothing.' },
+          ],
+          conclusion: 'This required <strong>expeditionary capability</strong>—the ability to deploy and establish infrastructure in new theaters, sometimes building the airstrip before the planes could land.',
+          highlightItems: [
+            '<strong>A fleet suited to different conditions</strong> — not every mission needs a heavy bomber',
+            '<strong>Expeditionary capability</strong> — the ability to deploy and establish infrastructure in new theaters',
+          ],
+        },
+      },
+    },
+    act2: {
+      title: 'The Institutions',
+      executiveSummary: 'When warfare moved from ground to air, it didn\'t just need new weapons—it needed entirely new types of organizations. These institutions took decades to develop and emerged through hard lessons.',
+      historicalTransformation: {
+        title: 'The Historical Transformation',
+        paragraphs: [
+          'In the early 20th century, armies tried to integrate aircraft using existing organizational structures. Planes were assigned to infantry divisions. Pilots reported to ground commanders. Maintenance was handled by cavalry mechanics.',
+          '<strong>It didn\'t work.</strong>',
+          'Aircraft operate at speeds, altitudes, and tempos that ground organizations cannot support. The solution wasn\'t better aircraft—it was entirely new organizational structures designed from the ground up for air operations:',
+        ],
+        institutionList: [
+          '<strong>Dedicated test establishments</strong> (Edwards AFB, Pax River) to validate aircraft before operational use',
+          '<strong>Fighter Weapons Schools</strong> (Top Gun, USAF Weapons School) to develop and teach doctrine',
+          '<strong>Demonstration teams</strong> (Thunderbirds, Blue Angels) to prove what disciplined excellence looks like',
+          '<strong>Deployed squadrons</strong> with standardized equipment and procedures',
+          '<strong>Embedded training exercises</strong> (Red Flag) for realistic practice without combat consequences',
+        ],
+      },
+      institutionsIntro: {
+        title: 'The Institutions That Make Air Power Work',
+        paragraph: 'These aren\'t just organizational units — they\'re <strong>institutions</strong> with specific purposes that took decades to develop. Understanding what each one does is essential to understanding air power.',
+      },
+      institutionsClosing: {
+        paragraph: 'These institutions took <strong>decades to develop</strong>. The Air Force didn\'t have them in 1947 when it was founded. They emerged through hard lessons — lost aircraft, failed missions, embarrassing kill ratios. Each institution exists because the absence of that institution caused failures that couldn\'t be tolerated.',
+        highlightParagraphs: [
+          '<strong>These institutions are what made air power effective.</strong> Not because they\'re theoretically nice, but because operating at aircraft speed without them produced failures that couldn\'t be tolerated.',
+          'The nations that built these institutions dominated the skies. Those that tried to operate with ground-army structures were outpaced.',
+        ],
+      },
+      heroesSection: {
+        title: 'Why Heroes Don\'t Scale at Aircraft Speed',
+        highlightQuote: '"Heroes don\'t scale. Individual excellence cannot compensate for systemic gaps at the tempo of air operations."',
+        highlightSource: '— Military Aviation Doctrine',
+        intro: 'A heroic infantry sergeant can carry a squad through a difficult engagement. Their experience, intuition, and personal presence can compensate for systemic gaps.',
+        cantCompensate: 'A heroic pilot cannot compensate for:',
+        cantCompensateItems: [
+          'Maintenance failures (the aircraft doesn\'t care how brave you are)',
+          'Intelligence gaps (you can\'t see the threat you don\'t know about)',
+          'Fuel shortages (physics wins)',
+          'Coordination breakdowns (at 600 mph, miscommunication is fatal)',
+        ],
+        conclusion: '<strong>The system must work. Individual heroics don\'t scale to the tempo of air operations.</strong>',
+        applicationParagraph: 'This principle applies to any high-tempo operation: you cannot rely on heroes when the system is moving faster than human reaction time. You need systems, institutions, and discipline.',
+      },
+      ratioSection: {
+        title: 'The Tip-to-Tail Ratio Shift',
+        leftLabel: 'WWII Infantry',
+        leftValue: '1:3',
+        leftDescription: 'For every 1 soldier in combat, ~3 in support',
+        rightLabel: 'Modern Air Wing',
+        rightValue: '1:15+',
+        rightDescription: 'For every 1 pilot flying, ~15+ in support',
+        explanation: 'This isn\'t bloat. This is what enables the speed. For every pilot in the air, there are:',
+        supportRoles: [
+          'Crew chiefs maintaining the aircraft',
+          'Weapons loaders arming it',
+          'Fuel specialists sustaining it',
+          'Avionics technicians keeping systems operational',
+          'Intelligence analysts providing targeting',
+          'Mission planners preparing sorties',
+          'Air traffic controllers deconflicting airspace',
+          'Instructors training the next generation',
+        ],
+      },
+      warningBox: {
+        title: '<strong>The support structure IS the capability.</strong>',
+        paragraph: 'You cannot run an air force with infantry logistics. The organizations that understood this dominated. Those that didn\'t were destroyed.',
+      },
+    },
+    act3: {
+      title: 'The Five Mission Sets',
+      executiveSummary: 'Air forces developed distinct organizational structures with specific purposes—test establishments, weapons schools, demonstration teams, deployed squadrons, and embedded training. Each serves a unique function that cannot be absorbed by the others.',
+      fleetIntro: 'Not every mission needs a strategic bomber. Different theaters require different aircraft. A sea plane beats an F-35 when operating from water.',
+      fleetWarning: '<strong>The fleet must include aircraft for every condition—and the wisdom to deploy the right one.</strong> Mature theaters get strategic bombers. Legacy theaters get sea planes. Unknown theaters get forward air controllers first to assess conditions.',
+      dependencyIntro: 'These mission sets are interdependent. Remove any one and the system degrades:',
+      dependencies: [
+        { removed: 'Test Programs', consequence: 'Untested aircraft reach combat squadrons; failures happen in combat' },
+        { removed: 'Weapons School', consequence: 'No tactics evolve; pilots reinvent approaches; knowledge doesn\'t spread' },
+        { removed: 'Demonstration Teams', consequence: 'No proof that precision is possible; skeptics prevail; standards slip' },
+        { removed: 'Deployed Squadrons', consequence: 'No combat capability; institutions exist but don\'t fight' },
+        { removed: 'Embedded Training', consequence: 'Skills stagnate; first combat is first failure; pilots stop pushing limits' },
+      ],
+    },
+    cta: {
+      title: 'The transition was not optional.',
+      description: 'Every military that moved from ground to air had to restructure. Those that didn\'t were outpaced and defeated. The same principle applies to any organization facing a fundamental speed change.',
+      quote: '"You cannot fly at 600 mph with a ground-speed organization."',
+    },
   },
   esimplicity: {
     heroTitle: 'Enabling Agentic Delivery',
     heroSubtitle: 'The eSimplicity Transformation',
     heroDescription: 'How the RIC builds the institutions for air-speed operations',
+    heroBadge: 'Internal Strategy | RIC Restructuring',
     toggleLabel: '← View Air Force Model',
     institutions: {
       testPrograms: {
@@ -242,7 +487,7 @@ const modeContent = {
       },
       weaponsSchool: {
         name: 'Doctrine & Methods',
-        subtitle: 'RIC Weapons School',
+        subtitle: 'RIC Agent School',
         whatItIs: 'The FOE Field Guides and training programs where methods are developed, patterns are refined, and instructors are created.',
         whatItDoes: 'Takes experienced engineers and makes them experts in agentic delivery tactics. Graduates return to their delivery teams as recognized experts who train others. The RIC doesn\'t just teach tools; it <em>develops the curriculum</em> that everyone else uses.',
         whyItMatters: 'Before FOE, delivery quality was inconsistent. The Doctrine & Methods function was created to fix this. The RIC doesn\'t execute delivery — it <em>multiplies capability</em> across all delivery teams by creating instructors and methods.',
@@ -288,7 +533,7 @@ const modeContent = {
       },
       weaponsSchool: {
         airForceTitle: 'Doctrine & Methods',
-        airForceSubtitle: 'RIC Weapons School',
+        airForceSubtitle: 'RIC Agent School',
         ricEquivalent: 'FOE Field Guide Development',
         mission: 'Develop methods, train instructors, create the curriculum that delivery teams use. "You can\'t train engineers in production."',
         outputs: [
@@ -363,6 +608,7 @@ const modeContent = {
     },
     act4: {
       sectionTitle: 'The Enablement Transformation',
+      executiveSummary: 'Traditional teams can operate with ~1:3 delivery-to-support ratios. Agentic-speed teams need ~1:15 or higher. This isn\'t overhead—it\'s what enables the speed. The RIC is the enablement infrastructure that makes delivery teams fly.',
       multiplier: {
         input: { value: '1 hr', label: 'RIC invests in a pattern' },
         multiplierVal: { value: '50', label: 'delivery team engineers' },
@@ -370,13 +616,41 @@ const modeContent = {
       },
       enablementIntro: 'In RIC thinking, enablement is <em>multiplicative</em>:',
       leverageText: 'Every hour the RIC spends developing a validated pattern, documenting a method, or creating a training resource is multiplied across every delivery team that uses it.',
+      leverageConclusion: '<strong>This is how you get leverage.</strong> This is how a small RIC enables a large delivery organization to operate at agentic speed.',
+      platformSection: {
+        title: 'Platform as Product, Not Platform as Team',
+        intro: 'FOE distinguishes between having a "platform team" and having "platform as product":',
+        comparison: [
+          { left: 'Builds infrastructure', right: 'Serves internal customers' },
+          { left: 'Delivers when done', right: 'Has SLOs and feedback loops' },
+          { left: 'Success = features shipped', right: 'Success = adoption and satisfaction' },
+          { left: 'Roadmap = what we want to build', right: 'Roadmap = what customers need' },
+          { left: 'Exists because org chart says so', right: 'Exists because mission teams need it' },
+        ],
+        conclusion: 'The RIC must operate as <strong>platform as product</strong>. Its customers are the delivery teams. Its success is measured by their success.',
+      },
+      investmentSection: {
+        title: 'The Investment Thesis',
+        header: 'RIC Investment Logic',
+        rows: [
+          { label: 'Input', value: 'N hours of RIC capability building' },
+          { label: 'Multiplier', value: '× M delivery teams using that capability' },
+          { label: 'Amplifier', value: '× K times each team uses it per project' },
+          { label: 'Output', value: '= N × M × K hours of leverage' },
+        ],
+        example: 'A single validated agent configuration used by 10 teams, 5 times per project, across 20 projects is <strong>1,000x leverage</strong> on the original investment.',
+        rationale: 'This is why the tip-to-tail ratio shifts so dramatically. At ground speed, the math doesn\'t work—by the time you\'ve built the enablement, the battle is over. At air speed, the enablement is what makes sustained operations possible.',
+      },
       triadItems: [
         { label: 'People', desc: 'Learning Labs + Doctrine & Methods (skill development and knowledge transfer)' },
         { label: 'Process', desc: 'Validation & Standards (how things are done)' },
         { label: 'Technology', desc: 'Reference Implementations + Delivery Enablement (what tools and patterns exist)' },
       ],
+      triadIntro: 'FOE is clear that transformation requires coordinated change across People, Process, and Technology. The RIC must have mission sets that address all three:',
     },
     act5: {
+      sectionTitle: 'Combined Arms',
+      executiveSummary: 'Air power alone doesn\'t win wars. It requires integrated ground forces, intelligence, logistics, and doctrine. FOE is combined arms for software delivery—the RIC must be the connective tissue that integrates our capabilities.',
       integrationTitle: 'The Integration Requirement',
       integrationIntro: 'Having an excellent RIC is necessary but not sufficient. Success requires:',
       integrationItems: [
@@ -387,6 +661,64 @@ const modeContent = {
         { label: 'Doctrine (FOE)', desc: 'for coordination' },
       ],
       combinedArmsExplainer: 'This is <strong>combined enablement</strong>—the principle that different capabilities multiply each other when properly integrated. No single function wins alone.',
+      ecosystemSection: {
+        title: 'How RIC Connects the eSimplicity Ecosystem',
+        centerLabel: 'RIC',
+        nodes: [
+          { icon: 'chart', name: 'KATALYST', role: 'Platform' },
+          { icon: 'rocket', name: 'RIC', role: 'Enablement' },
+          { icon: 'target', name: 'PRIMA', role: 'Products' },
+          { icon: 'book', name: 'FOE', role: 'Doctrine' },
+          { icon: 'scales', name: 'TRB', role: 'Governance' },
+          { icon: 'users', name: 'Delivery Teams', role: 'Execution' },
+        ],
+        connectsIntro: 'The RIC sits at the center, connecting:',
+        connectsItems: [
+          '<strong>KATALYST</strong> (infrastructure) with teams that need to deploy on it',
+          '<strong>PRIMA</strong> (products) with the patterns that make them consistent',
+          '<strong>FOE</strong> (doctrine) with practical implementation',
+          '<strong>TRB</strong> (governance) with day-to-day compliance',
+          '<strong>Delivery Teams</strong> with the enablement they need',
+        ],
+      },
+      atcSection: {
+        title: 'The TRB as Air Traffic Control',
+        intro: 'The Technical Review Board functions like air traffic control: ensuring that different actors operating at high speed don\'t collide. It:',
+        items: [
+          'Validates that delivery teams are aligned to FOE principles',
+          'Ensures architectural decisions support the ecosystem',
+          'Provides feedback loops before problems compound',
+        ],
+        conclusion: 'But air traffic control only works if pilots follow procedures and aircraft have functioning transponders. The RIC provides the training (pilots know procedures) and the infrastructure (aircraft have transponders) that makes TRB effective.',
+      },
+      isolationSection: {
+        title: 'Why Isolated Excellence Fails',
+        tableRows: [
+          { pattern: 'Great KATALYST platform + undisciplined teams', failure: 'Teams misuse platform, create snowflakes, drift accumulates' },
+          { pattern: 'Strong FOE doctrine + no training', failure: 'Teams don\'t know how to apply doctrine; it becomes shelfware' },
+          { pattern: 'Excellent PRIMA products + inconsistent delivery', failure: 'Products deployed differently on each contract; support becomes impossible' },
+          { pattern: 'Active TRB + no enablement', failure: 'TRB finds problems but teams can\'t fix them; governance becomes adversarial' },
+        ],
+        conclusion: '<strong>Combined arms means all components working together.</strong> The RIC is the integration function that makes the whole greater than the sum of parts.',
+      },
+      virtuousCycleSection: {
+        title: 'The Virtuous Cycle',
+        steps: [
+          'RIC develops capability',
+          'Delivery teams adopt',
+          'Evidence accumulates',
+          'Methods mature',
+          'New needs emerge',
+        ],
+        conclusion: 'Each cycle through the loop raises the floor. What was advanced practice becomes standard. What was standard becomes automated. The organization continuously improves.',
+      },
+      powerProjectionIntro: 'Combined arms isn\'t just about having all the pieces—it\'s about <strong>projecting capability where it\'s needed</strong>. Different contract theaters require different engagement models:',
+      engagementLabel: 'RIC Engagement:',
+      fleetLabel: 'Fleet Assets:',
+      highlightBox: {
+        mainPoint: '<strong>The RIC doesn\'t just support delivery teams—it projects capability into theaters where that capability doesn\'t yet exist.</strong>',
+        explanation: 'This is the expeditionary function. It\'s not enough to have excellent internal capability. You must be able to deploy it, adapt it to local conditions, and build local capacity to sustain it.',
+      },
       theaters: {
         mature: {
           title: 'Mature Contract',
@@ -426,8 +758,166 @@ const modeContent = {
         },
       },
     },
+    act1: {
+      title: 'The Problem',
+      executiveSummary: 'The software industry is undergoing a transformation. AI agents and agentic delivery are capable of speeds previously impossible—but most organizations are still structured for human-tempo operations. The RIC exists to solve this problem for eSimplicity.',
+      executiveQuote: '"You cannot operate at agentic speed with a human-tempo organization."',
+      sections: {
+        industryShift: {
+          title: 'The Industry Shift',
+          paragraphs: [
+            'Software delivery is accelerating beyond what traditional organizations can support. AI agents, agentic coding, and automated pipelines are capable of speeds that were previously impossible.',
+            'But most organizations—including most of eSimplicity\'s delivery teams and clients—are still structured for human-tempo operations. They have talented people doing important work, but the organizational structure wasn\'t designed for agentic-speed delivery.',
+            '<strong>This is the problem the RIC exists to solve.</strong> Not just to adopt new tools, but to build the organizational infrastructure that makes agentic-speed delivery possible—and then project that capability across eSimplicity and into client environments.',
+          ],
+        },
+        comparison: {
+          groundLabel: 'Human-Tempo Model',
+          groundItems: [
+            'Heroes carry the mission',
+            'Knowledge lives in heads',
+            'Speed limited by human tempo',
+            '~1:3 delivery-to-support ratio',
+            'Decisions at human speed',
+            'Training happens on the job',
+          ],
+          airLabel: 'Agentic-Speed Model',
+          airItems: [
+            'Systems enable the mission',
+            'Knowledge lives in methods',
+            'Speed limited by instrumentation',
+            '~1:15+ delivery-to-support ratio',
+            'Decisions at machine speed',
+            'Training requires dedicated institutions',
+          ],
+        },
+        bottleneck: {
+          title: 'The Phase 3 Bottleneck Isn\'t About Tools',
+          paragraphs: [
+            'FOE identifies that most organizations stall at Phase 3 not because they lack modern tools, but because they lack the <em>institutional discipline</em> to use those tools as intended.',
+          ],
+          highlightQuote: '"The gap isn\'t technology. Every organization stuck at Phase 2 has modern tools. The gap is the institutional discipline to use those tools as intended."',
+          highlightSource: '— FOE Transformation Model',
+          conclusion: 'We\'re asking the RIC to be the answer to this gap. But an organization designed for human-tempo operations cannot provide agentic-speed discipline. <strong>We need to restructure the RIC itself before it can restructure how eSimplicity operates.</strong>',
+        },
+        symptoms: {
+          title: 'The Symptoms We\'re Seeing',
+          items: [
+            { symptom: 'Unclear mission boundaries between teams', cause: 'No defined organizational topology for agentic-speed operations' },
+            { symptom: 'Knowledge concentrated in individuals', cause: 'No doctrine/methods institution to capture and spread knowledge' },
+            { symptom: 'Delivery teams unsure how to use FOE/agentic tools', cause: 'No training institution to teach them' },
+            { symptom: 'No reference implementation of "what good looks like"', cause: 'No demonstration team proving disciplined excellence' },
+            { symptom: 'Skills development happening ad-hoc', cause: 'No embedded training institution for safe practice' },
+          ],
+        },
+        expeditionary: {
+          title: 'The Expeditionary Challenge',
+          intro: 'Unlike a product company that controls its own infrastructure, eSimplicity deploys teams to contract environments we don\'t own. Each theater is different:',
+          theaters: [
+            { name: 'Mature Contracts', desc: 'Full CI/CD, automation, observability. Ready for high-tempo operations.' },
+            { name: 'Developing Contracts', desc: 'Basic infrastructure—needs improvement before high-tempo ops.' },
+            { name: 'Legacy Contracts', desc: 'No modern infrastructure—manual processes, legacy systems.' },
+          ],
+          conclusion: 'The RIC can\'t just build capability and wait for teams to come get it. It must be able to <strong>project capability into diverse theaters</strong>—and sometimes build the runway before the planes can land.',
+          highlightItems: [
+            '<strong>A toolkit suited to different conditions</strong> — not every contract needs full KATALYST',
+            '<strong>Expeditionary capability</strong> — the ability to deploy and establish infrastructure in new theaters',
+          ],
+        },
+      },
+    },
+    act2: {
+      title: 'The Institutions',
+      executiveSummary: 'To operate at agentic speed, eSimplicity needs dedicated institutions—not just tools. The RIC is the vehicle to build and deliver these institutions across all delivery teams.',
+      historicalTransformation: {
+        title: 'The Institutional Requirement',
+        paragraphs: [
+          'Most organizations try to enable agentic delivery by adding tools to existing structures. Engineers get AI assistants. Teams get new platforms. But the organizational structure remains unchanged.',
+          '<strong>This doesn\'t work.</strong>',
+          'Agentic-speed delivery operates at tempos that traditional organizations cannot support. The solution isn\'t better tools—it\'s building dedicated institutions designed from the ground up for agentic operations:',
+        ],
+        institutionList: [
+          '<strong>Validation & Standards</strong> to certify agent configurations before delivery teams use them',
+          '<strong>Doctrine & Methods</strong> to develop and teach FOE patterns and agentic delivery tactics',
+          '<strong>Reference Implementations</strong> to demonstrate what disciplined agentic delivery looks like',
+          '<strong>Delivery Enablement</strong> with standardized tools and support',
+          '<strong>Learning Labs</strong> for safe experimentation without production consequences',
+        ],
+      },
+      institutionsIntro: {
+        title: 'The RIC Institutions',
+        paragraph: 'These aren\'t just teams—they\'re <strong>institutions</strong> with specific missions that require deliberate construction. Understanding what each one does is essential to understanding how the RIC enables agentic delivery.',
+      },
+      institutionsClosing: {
+        paragraph: 'Building these institutions takes time and investment. They won\'t emerge organically. Each institution exists because the absence of that institution causes failures that can\'t be tolerated at agentic speed.',
+        highlightParagraphs: [
+          '<strong>eSimplicity needs each of these institutions.</strong> Not because it\'s theoretically nice, but because operating at agentic speed without them will produce failures we can\'t afford.',
+          '<strong>The RIC is the vehicle to build and deliver these institutions</strong>—establishing the organizational infrastructure that makes agentic-speed operations possible across all delivery teams.',
+        ],
+      },
+      heroesSection: {
+        title: 'Why Heroes Don\'t Scale at Agentic Speed',
+        highlightQuote: '"Heroes don\'t scale. You cannot hire heroes fast enough. The gap between system complexity and hero capacity always widens."',
+        highlightSource: '— FOE Transformation Model',
+        intro: 'A heroic senior engineer can carry a team through a difficult delivery. Their experience, intuition, and personal intervention can compensate for systemic gaps.',
+        cantCompensate: 'A heroic engineer cannot compensate for:',
+        cantCompensateItems: [
+          'Untested agent configurations (bugs don\'t care how smart you are)',
+          'Missing documentation (tribal knowledge doesn\'t scale)',
+          'Inconsistent patterns (technical debt compounds)',
+          'Ad-hoc processes (at agentic speed, improvisation is dangerous)',
+        ],
+        conclusion: '<strong>The system must work. Individual heroics don\'t scale to the tempo of agentic operations.</strong>',
+        applicationParagraph: 'This is exactly what FOE says about software at agentic speed: you cannot rely on heroic engineers to maintain quality when AI agents are producing code at scale. You need systems, institutions, and discipline.',
+      },
+      ratioSection: {
+        title: 'The Enablement Ratio Shift',
+        leftLabel: 'Traditional Team',
+        leftValue: '1:3',
+        leftDescription: 'For every 1 developer delivering, ~3 in support',
+        rightLabel: 'Agentic-Speed Team',
+        rightValue: '1:15+',
+        rightDescription: 'For every 1 engineer delivering, ~15+ in enablement',
+        explanation: 'This isn\'t overhead. This is what enables the speed. For every engineer in delivery, the RIC provides:',
+        supportRoles: [
+          'Validated agent configurations',
+          'Certified prompt libraries',
+          'Documented methods and patterns',
+          'Training and onboarding resources',
+          'Reference implementations to learn from',
+          'Sandbox environments for safe experimentation',
+          'Escalation support when things go wrong',
+          'Continuous improvement of the toolkit',
+        ],
+      },
+      warningBox: {
+        title: '<strong>The enablement structure IS the capability.</strong>',
+        paragraph: 'You cannot enable agentic delivery with traditional software organization. The RIC exists to be that enablement structure.',
+      },
+    },
+    act3: {
+      title: 'The Five Mission Sets',
+      executiveSummary: 'The RIC needs distinct institutional functions with specific purposes—validation, doctrine, reference implementations, delivery enablement, and learning labs. Each serves a unique function that cannot be absorbed by the others.',
+      fleetIntro: 'Not every contract needs full KATALYST. Different theater maturity levels require different tooling. A lightweight toolkit beats a full platform when the infrastructure doesn\'t exist yet.',
+      fleetWarning: '<strong>The RIC fleet must include tools for every condition—and the wisdom to deploy the right one.</strong> Mature contracts get the full platform. Legacy contracts get lightweight toolkits. Unknown contracts get assessments first.',
+      dependencyIntro: 'These mission sets are interdependent. Remove any one and the system degrades:',
+      dependencies: [
+        { removed: 'Validation & Standards', consequence: 'Untested agent configs reach delivery teams; failures happen in production' },
+        { removed: 'Doctrine & Methods', consequence: 'No patterns evolve; teams reinvent approaches; knowledge doesn\'t spread' },
+        { removed: 'Reference Implementations', consequence: 'No proof that discipline works; skeptics prevail; adoption stalls' },
+        { removed: 'Delivery Enablement', consequence: 'Teams left on their own; RIC becomes ivory tower' },
+        { removed: 'Learning Labs', consequence: 'Skills stagnate; first production is first failure; engineers stop experimenting' },
+      ],
+    },
+    cta: {
+      title: 'The transition is not optional.',
+      description: 'Every organization that moved from ground to air had to restructure. Those that didn\'t were outpaced. The same is true for agentic delivery.',
+      quote: '"You cannot fly at 600 mph with a ground-speed organization."',
+    },
   },
 };
+
+
 
 // ============================================
 // SVG ICONS
@@ -714,18 +1204,18 @@ function MissionSetCard({ missionSetKey }: { missionSetKey: StandardMissionSetKe
   const missionSet = modeContent[mode].missionSets[missionSetKey];
   const iconName = missionSetIcons[missionSetKey];
 
+  // In Air Force mode, show AF terminology; in eSimplicity mode, show RIC terminology
+  const title = mode === 'airforce' ? missionSet.airForceTitle : missionSet.ricEquivalent;
+  const subtitle = missionSet.airForceSubtitle;
+
   return (
     <div className={styles.missionSetCard}>
       <div className={styles.missionSetHeader}>
         <Icon name={iconName} className={styles.missionSetIcon} size={36} />
         <div className={styles.missionSetTitles}>
-          <div className={styles.missionSetAirForce}>{missionSet.airForceTitle}</div>
-          <div className={styles.missionSetSubtitle}>{missionSet.airForceSubtitle}</div>
+          <div className={styles.missionSetAirForce}>{title}</div>
+          <div className={styles.missionSetSubtitle}>{subtitle}</div>
         </div>
-      </div>
-      <div className={styles.missionSetArrow}>↓</div>
-      <div className={styles.missionSetRIC}>
-        <strong>RIC Equivalent:</strong> {missionSet.ricEquivalent}
       </div>
       <div className={styles.missionSetMission}>
         <strong>Mission:</strong> {missionSet.mission}
@@ -747,18 +1237,18 @@ function MissionSetCardWide({ missionSetKey }: { missionSetKey: 'manufacturing' 
   const missionSet = modeContent[mode].missionSets[missionSetKey];
   const iconName = missionSetIcons[missionSetKey];
 
+  // In Air Force mode, show AF terminology; in eSimplicity mode, show RIC terminology
+  const title = mode === 'airforce' ? missionSet.airForceTitle : missionSet.ricEquivalent;
+  const subtitle = missionSet.airForceSubtitle;
+
   return (
     <div className={styles.missionSetCard + ' ' + styles.missionSetCardWide}>
       <div className={styles.missionSetHeader}>
         <Icon name={iconName} className={styles.missionSetIcon} size={36} />
         <div className={styles.missionSetTitles}>
-          <div className={styles.missionSetAirForce}>{missionSet.airForceTitle}</div>
-          <div className={styles.missionSetSubtitle}>{missionSet.airForceSubtitle}</div>
+          <div className={styles.missionSetAirForce}>{title}</div>
+          <div className={styles.missionSetSubtitle}>{subtitle}</div>
         </div>
-      </div>
-      <div className={styles.missionSetArrow}>↓</div>
-      <div className={styles.missionSetRIC}>
-        <strong>RIC Equivalent:</strong> {missionSet.ricEquivalent}
       </div>
       <div className={styles.missionSetMission}>
         <strong>Mission:</strong> {missionSet.mission}
@@ -803,7 +1293,7 @@ function HeroSection(): ReactNode {
         <div className={styles.heroOrb3} />
       </div>
       <div className={styles.heroContent}>
-        <span className={styles.heroBadge}>Internal Strategy | RIC Restructuring</span>
+        <span className={styles.heroBadge}>{content.heroBadge}</span>
         <h1 className={styles.heroTitle}>
           {content.heroTitle}
           <br />
@@ -854,95 +1344,67 @@ function HeroSection(): ReactNode {
 // ============================================
 
 function Act1(): ReactNode {
+  const { mode } = useViewMode();
+  const content = modeContent[mode].act1;
+  const s = content.sections;
+
   return (
     <AccordionSection
       id="the-problem"
       number={1}
-      title="The Problem"
+      title={content.title}
       owner="shared"
       executiveSummary={
         <>
-          <p>
-            The software industry is undergoing an air power revolution. AI agents and agentic 
-            delivery are the jet engines — but most organizations are still structured like 
-            ground armies. The RIC exists to solve this problem for eSimplicity.
-          </p>
+          <p>{content.executiveSummary}</p>
           <blockquote>
-            <p>
-              "You cannot fly at 600 mph with a ground-speed organization."
-            </p>
+            <p>{content.executiveQuote}</p>
           </blockquote>
         </>
       }
     >
-      <h3>The Industry Shift</h3>
-      <p>
-        Software delivery is transitioning from ground warfare to air warfare. AI agents, 
-        agentic coding, and automated pipelines are the jet engines of this new era — capable 
-        of speeds that were previously impossible.
-      </p>
-      <p>
-        But most organizations — including most of eSimplicity's delivery teams and clients — 
-        are still structured like ground armies. They have talented people doing important work, 
-        but the organizational structure wasn't designed for air-speed operations.
-      </p>
-      <p>
-        <strong>This is the problem the RIC exists to solve.</strong> Not just to adopt new 
-        tools, but to build the organizational infrastructure that makes air-speed delivery 
-        possible — and then project that capability across eSimplicity and into client environments.
-      </p>
+      <h3>{s.industryShift.title}</h3>
+      {s.industryShift.paragraphs.map((p, i) => (
+        <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+      ))}
 
       <h3>What Happens When You Try to Fly with Ground Logistics</h3>
       <div className={styles.comparisonGrid}>
         <div className={styles.comparisonCard}>
           <div className={styles.comparisonCardHeader}>
             <Icon name="walking" className={styles.comparisonIcon} size={28} />
-            <span className={styles.comparisonLabel}>Ground Army Model</span>
+            <span className={styles.comparisonLabel}>{s.comparison.groundLabel}</span>
           </div>
           <ul>
-            <li>Heroes carry the mission</li>
-            <li>Knowledge lives in heads</li>
-            <li>Speed limited by human tempo</li>
-            <li>~1:3 combat-to-support ratio</li>
-            <li>Decisions at human speed</li>
-            <li>Training happens on the job</li>
+            {s.comparison.groundItems.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
           </ul>
         </div>
         <div className={styles.comparisonCard}>
           <div className={styles.comparisonCardHeader}>
             <Icon name="aircraft" className={styles.comparisonIcon} size={28} />
-            <span className={styles.comparisonLabel}>Air Power Model</span>
+            <span className={styles.comparisonLabel}>{s.comparison.airLabel}</span>
           </div>
           <ul>
-            <li>Systems enable the mission</li>
-            <li>Knowledge lives in doctrine</li>
-            <li>Speed limited by instrumentation</li>
-            <li>~1:15+ combat-to-support ratio</li>
-            <li>Decisions at machine speed</li>
-            <li>Training requires dedicated institutions</li>
+            {s.comparison.airItems.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
           </ul>
         </div>
       </div>
 
-      <h3>The Phase 3 Bottleneck Isn't About Tools</h3>
-      <p>
-        FOE identifies that most organizations stall at Phase 3 not because they lack modern tools, 
-        but because they lack the <em>institutional discipline</em> to use those tools as intended.
-      </p>
+      <h3>{s.bottleneck.title}</h3>
+      {s.bottleneck.paragraphs.map((p, i) => (
+        <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+      ))}
       <div className={styles.highlightBox}>
-        <p>
-          "The gap isn't technology. Every organization stuck at Phase 2 has modern tools. 
-          The gap is the institutional discipline to use those tools as intended."
-        </p>
-        <span className={styles.highlightSource}>— FOE Transformation Model</span>
+        <p>{s.bottleneck.highlightQuote}</p>
+        <span className={styles.highlightSource}>{s.bottleneck.highlightSource}</span>
       </div>
-      <p>
-        We're asking the RIC to be the answer to this gap. But an organization designed for 
-        ground-speed operations cannot provide air-speed discipline. <strong>We need to restructure 
-        the RIC itself before it can restructure how eSimplicity operates.</strong>
-      </p>
+      <p dangerouslySetInnerHTML={{ __html: s.bottleneck.conclusion }} />
 
-      <h3>The Symptoms We're Seeing</h3>
+      <h3>{s.symptoms.title}</h3>
       <table>
         <thead>
           <tr>
@@ -951,61 +1413,33 @@ function Act1(): ReactNode {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Unclear mission boundaries between teams</td>
-            <td>No defined organizational topology for air-speed operations</td>
-          </tr>
-          <tr>
-            <td>Knowledge concentrated in individuals</td>
-            <td>No doctrine/methods institution to capture and spread knowledge</td>
-          </tr>
-          <tr>
-            <td>Delivery teams unsure how to use FOE/agentic tools</td>
-            <td>No weapons school equivalent to train them</td>
-          </tr>
-          <tr>
-            <td>No reference implementation of "what good looks like"</td>
-            <td>No demonstration team proving disciplined excellence</td>
-          </tr>
-          <tr>
-            <td>Skills development happening ad-hoc</td>
-            <td>No embedded training institution for safe practice</td>
-          </tr>
+          {s.symptoms.items.map((item, i) => (
+            <tr key={i}>
+              <td>{item.symptom}</td>
+              <td>{item.cause}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
 
-      <h3>The Expeditionary Challenge</h3>
-      <p>
-        Unlike a product company that controls its own infrastructure, eSimplicity deploys 
-        teams to contract environments we don't own. Each theater is different:
-      </p>
+      <h3>{s.expeditionary.title}</h3>
+      <p>{s.expeditionary.intro}</p>
       <div className={styles.theaterSpectrum}>
-        <div className={styles.theaterCard}>
-          <Icon name="takeoff" className={styles.theaterIcon} size={32} />
-          <div className={styles.theaterName}>Mature Theaters</div>
-          <div className={styles.theaterDesc}>Full runway — CI/CD, automation, observability. Ready for air operations.</div>
-        </div>
-        <div className={styles.theaterCard}>
-          <Icon name="construction" className={styles.theaterIcon} size={32} />
-          <div className={styles.theaterName}>Developing Theaters</div>
-          <div className={styles.theaterDesc}>Basic infrastructure — needs improvement before high-tempo ops.</div>
-        </div>
-        <div className={styles.theaterCard}>
-          <Icon name="mountain" className={styles.theaterIcon} size={32} />
-          <div className={styles.theaterName}>Austere Theaters</div>
-          <div className={styles.theaterDesc}>No runway — legacy systems, manual processes, hostile terrain.</div>
-        </div>
+        {s.expeditionary.theaters.map((theater, i) => (
+          <div key={i} className={styles.theaterCard}>
+            <Icon name={i === 0 ? 'takeoff' : i === 1 ? 'construction' : 'mountain'} className={styles.theaterIcon} size={32} />
+            <div className={styles.theaterName}>{theater.name}</div>
+            <div className={styles.theaterDesc}>{theater.desc}</div>
+          </div>
+        ))}
       </div>
-      <p>
-        The RIC can't just build capability and wait for teams to come get it. It must be able 
-        to <strong>project capability into diverse theaters</strong> — and sometimes build the 
-        airstrip before the planes can land.
-      </p>
+      <p dangerouslySetInnerHTML={{ __html: s.expeditionary.conclusion }} />
       <div className={styles.highlightBox}>
-        <p>This requires two things traditional software organizations don't have:</p>
+        <p>This requires two things traditional organizations don't have:</p>
         <ol>
-          <li><strong>A fleet of aircraft suited to different conditions</strong> — not every mission needs an F-35</li>
-          <li><strong>Expeditionary capability</strong> — the ability to deploy and establish infrastructure in new theaters</li>
+          {s.expeditionary.highlightItems.map((item, i) => (
+            <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+          ))}
         </ol>
       </div>
     </AccordionSection>
@@ -1013,48 +1447,29 @@ function Act1(): ReactNode {
 }
 
 function Act2(): ReactNode {
+  const { mode } = useViewMode();
+  const content = modeContent[mode].act2;
+
   return (
     <AccordionSection
       id="the-institutions"
       number={2}
-      title="The Institutions"
+      title={content.title}
       owner="shared"
-      executiveSummary={
-        <p>
-          When warfare moved from ground to air, it didn't just need new weapons—it needed 
-          entirely new types of organizations. eSimplicity needs equivalent institutions to 
-          operate at agentic speed. The RIC is the vehicle to build and deliver them.
-        </p>
-      }
+      executiveSummary={<p>{content.executiveSummary}</p>}
     >
-      <h3>The Historical Transformation</h3>
-      <p>
-        In the early 20th century, armies tried to integrate aircraft using existing organizational 
-        structures. Planes were assigned to infantry divisions. Pilots reported to ground commanders. 
-        Maintenance was handled by cavalry mechanics.
-      </p>
-      <p>
-        <strong>It didn't work.</strong>
-      </p>
-      <p>
-        Aircraft operate at speeds, altitudes, and tempos that ground organizations cannot support. 
-        The solution wasn't better aircraft—it was entirely new organizational structures designed 
-        from the ground up for air operations:
-      </p>
+      <h3>{content.historicalTransformation.title}</h3>
+      {content.historicalTransformation.paragraphs.map((p, i) => (
+        <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+      ))}
       <ul>
-            <li><strong>Dedicated test establishments</strong> (Edwards AFB, Pax River) to validate aircraft before operational use</li>
-            <li><strong>Fighter Weapons Schools</strong> (Top Gun, USAF Weapons School) to develop and teach doctrine</li>
-            <li><strong>Demonstration teams</strong> (Thunderbirds, Blue Angels) to prove what disciplined excellence looks like</li>
-            <li><strong>Deployed squadrons</strong> with standardized equipment and procedures</li>
-            <li><strong>Embedded training exercises</strong> (Red Flag) for realistic practice without combat consequences</li>
-          </ul>
+        {content.historicalTransformation.institutionList.map((item, i) => (
+          <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+        ))}
+      </ul>
 
-      <h3>The Institutions That Make Air Power Work</h3>
-      <p>
-        These aren't just organizational units — they're <strong>institutions</strong> with specific 
-        purposes that took decades to develop. Understanding what each one does is essential to 
-        understanding why we need their equivalents.
-      </p>
+      <h3>{content.institutionsIntro.title}</h3>
+      <p dangerouslySetInnerHTML={{ __html: content.institutionsIntro.paragraph }} />
 
       <div className={styles.institutionGrid}>
         <InstitutionCard institutionKey="testPrograms" />
@@ -1064,64 +1479,35 @@ function Act2(): ReactNode {
         <InstitutionCard institutionKey="manufacturing" />
       </div>
 
-      <p>
-        These institutions took <strong>decades to develop</strong>. The Air Force didn't have 
-        them in 1947 when it was founded. They emerged through hard lessons — lost aircraft, 
-        failed missions, embarrassing kill ratios. Each institution exists because the absence 
-        of that institution caused failures that couldn't be tolerated.
-      </p>
+      <p dangerouslySetInnerHTML={{ __html: content.institutionsClosing.paragraph }} />
 
       <div className={styles.highlightBox}>
-        <p>
-          <strong>eSimplicity needs equivalents of each of these institutions.</strong> Not because 
-          it's theoretically nice, but because operating at agentic speed without them will produce 
-          the same failures the Air Force experienced before it built them.
-        </p>
-        <p>
-          <strong>The RIC is the vehicle to build and deliver these institutions</strong> — 
-          establishing the organizational infrastructure that makes air-speed operations possible 
-          across all of eSimplicity's delivery teams.
-        </p>
+        {content.institutionsClosing.highlightParagraphs.map((p, i) => (
+          <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+        ))}
       </div>
 
-      <h3>Why Heroes Don't Scale at Aircraft Speed</h3>
+      <h3>{content.heroesSection.title}</h3>
       <div className={styles.highlightBox}>
-        <p>
-          "Heroes don't scale. You cannot hire heroes fast enough. The gap between system 
-          complexity and hero capacity always widens."
-        </p>
-        <span className={styles.highlightSource}>— FOE Transformation Model</span>
+        <p>{content.heroesSection.highlightQuote}</p>
+        <span className={styles.highlightSource}>{content.heroesSection.highlightSource}</span>
       </div>
-      <p>
-        A heroic infantry sergeant can carry a squad through a difficult engagement. Their 
-        experience, intuition, and personal presence can compensate for systemic gaps.
-      </p>
-      <p>
-        A heroic pilot cannot compensate for:
-      </p>
+      <p>{content.heroesSection.intro}</p>
+      <p>{content.heroesSection.cantCompensate}</p>
       <ul>
-        <li>Maintenance failures (the aircraft doesn't care how brave you are)</li>
-        <li>Intelligence gaps (you can't see the threat you don't know about)</li>
-        <li>Fuel shortages (physics wins)</li>
-        <li>Coordination breakdowns (at 600 mph, miscommunication is fatal)</li>
+        {content.heroesSection.cantCompensateItems.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
       </ul>
-      <p>
-        <strong>The system must work. Individual heroics don't scale to the tempo of air operations.</strong>
-      </p>
-      <p>
-        This is exactly what FOE says about software at agentic speed: you cannot rely on 
-        heroic engineers to maintain quality when AI agents are producing code at scale. 
-        You need systems, institutions, and discipline.
-      </p>
+      <p dangerouslySetInnerHTML={{ __html: content.heroesSection.conclusion }} />
+      <p>{content.heroesSection.applicationParagraph}</p>
 
-      <h3>The Tip-to-Tail Ratio Shift</h3>
+      <h3>{content.ratioSection.title}</h3>
       <div className={styles.ratioComparison}>
         <div className={styles.ratioCard}>
-          <div className={styles.ratioValue}>1:3</div>
-          <div className={styles.ratioLabel}>WWII Infantry</div>
-          <div className={styles.ratioDescription}>
-            For every 1 soldier in combat, ~3 in support
-          </div>
+          <div className={styles.ratioValue}>{content.ratioSection.leftValue}</div>
+          <div className={styles.ratioLabel}>{content.ratioSection.leftLabel}</div>
+          <div className={styles.ratioDescription}>{content.ratioSection.leftDescription}</div>
           <div className={styles.ratioBar}>
             <div className={styles.ratioCombat} style={{ width: '25%' }} />
             <div className={styles.ratioSupport} style={{ width: '75%' }} />
@@ -1129,56 +1515,41 @@ function Act2(): ReactNode {
         </div>
         <div className={styles.ratioArrow}>→</div>
         <div className={styles.ratioCard}>
-          <div className={styles.ratioValue}>1:15+</div>
-          <div className={styles.ratioLabel}>Modern Air Wing</div>
-          <div className={styles.ratioDescription}>
-            For every 1 pilot flying, ~15+ in support
-          </div>
+          <div className={styles.ratioValue}>{content.ratioSection.rightValue}</div>
+          <div className={styles.ratioLabel}>{content.ratioSection.rightLabel}</div>
+          <div className={styles.ratioDescription}>{content.ratioSection.rightDescription}</div>
           <div className={styles.ratioBar}>
             <div className={styles.ratioCombat} style={{ width: '6%' }} />
             <div className={styles.ratioSupport} style={{ width: '94%' }} />
           </div>
         </div>
       </div>
-      <p>
-        This isn't bloat. This is what enables the speed. For every pilot in the air, there are:
-      </p>
+      <p>{content.ratioSection.explanation}</p>
       <ul>
-        <li>Crew chiefs maintaining the aircraft</li>
-        <li>Weapons loaders arming it</li>
-        <li>Fuel specialists sustaining it</li>
-        <li>Avionics technicians keeping systems operational</li>
-        <li>Intelligence analysts providing targeting</li>
-        <li>Mission planners preparing sorties</li>
-        <li>Air traffic controllers deconflicting airspace</li>
-        <li>Instructors training the next generation</li>
+        {content.ratioSection.supportRoles.map((role, i) => (
+          <li key={i}>{role}</li>
+        ))}
       </ul>
 
       <div className={styles.warningBox}>
-        <p><strong>The support structure IS the capability.</strong></p>
-        <p>
-          You cannot run an air force with infantry logistics. The RIC cannot enable agentic 
-          delivery with traditional software organization.
-        </p>
+        <p dangerouslySetInnerHTML={{ __html: content.warningBox.title }} />
+        <p>{content.warningBox.paragraph}</p>
       </div>
     </AccordionSection>
   );
 }
 
 function Act3(): ReactNode {
+  const { mode } = useViewMode();
+  const content = modeContent[mode].act3;
+  
   return (
     <AccordionSection
       id="the-five-mission-sets"
       number={3}
-      title="The Five Mission Sets"
+      title={content.title}
       owner="shared"
-      executiveSummary={
-        <p>
-          Air forces have distinct organizational structures with specific purposes. 
-          eSimplicity needs equivalents of each to operate at agentic speed—and the RIC 
-          is how we build and deliver them.
-        </p>
-      }
+      executiveSummary={<p>{content.executiveSummary}</p>}
     >
       <div className={styles.missionSetGrid}>
         <MissionSetCard missionSetKey="testPrograms" />
@@ -1191,12 +1562,7 @@ function Act3(): ReactNode {
 
       {/* THE FLEET */}
       <h3>The Fleet: Aircraft for Every Theater</h3>
-      <p>
-        Not every mission needs an F-35. The temptation is to build the most capable tools possible. 
-        But if your tools require infrastructure the theater doesn't have, they're useless. 
-        <strong> A sea plane that can land on water beats an F-35 that needs a 10,000-foot runway 
-        when you're operating in a swamp.</strong>
-      </p>
+      <p>{content.fleetIntro}</p>
 
       <div className={styles.fleetGrid}>
         {/* Strategic Bomber */}
@@ -1337,14 +1703,11 @@ function Act3(): ReactNode {
       </div>
 
       <div className={styles.warningBox}>
-        <p><strong>The RIC fleet must include aircraft for every condition — and the wisdom to deploy the right one.</strong></p>
-        <p>A mature contract gets the Strategic Bomber. A legacy system gets the Sea Plane. An unknown theater gets the Forward Air Controller first to assess conditions. This isn't compromise — it's operational art.</p>
+        <p dangerouslySetInnerHTML={{ __html: content.fleetWarning }} />
       </div>
 
       <h3>Why All Five Are Required</h3>
-      <p>
-        These mission sets are interdependent. Remove any one and the system degrades:
-      </p>
+      <p>{content.dependencyIntro}</p>
       <table>
         <thead>
           <tr>
@@ -1353,26 +1716,12 @@ function Act3(): ReactNode {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><strong>Test Programs</strong></td>
-            <td>Untested tools reach mission teams; failures happen in production</td>
-          </tr>
-          <tr>
-            <td><strong>Weapons School</strong></td>
-            <td>No doctrine evolves; teams reinvent wheels; knowledge doesn't spread</td>
-          </tr>
-          <tr>
-            <td><strong>Demonstration Teams</strong></td>
-            <td>No proof that discipline works; skeptics prevail; adoption stalls</td>
-          </tr>
-          <tr>
-            <td><strong>Delivery Enablement</strong></td>
-            <td>Mission teams left on their own; RIC becomes ivory tower</td>
-          </tr>
-          <tr>
-            <td><strong>Learning Labs</strong></td>
-            <td>Skills stagnate; failure becomes catastrophic; people stop trying new things</td>
-          </tr>
+          {content.dependencies.map((dep, i) => (
+            <tr key={i}>
+              <td><strong>{dep.removed}</strong></td>
+              <td>{dep.consequence}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </AccordionSection>
@@ -1389,13 +1738,7 @@ function Act4(): ReactNode {
       number={4}
       title={content.sectionTitle}
       owner="shared"
-      executiveSummary={
-        <p>
-          Ground infantry can operate with ~1:3 combat-to-support ratios. Modern air wings need 
-          ~1:15 or higher. This isn't bloat—it's what enables the speed. The RIC is the 
-          enablement infrastructure that makes mission teams fly.
-        </p>
-      }
+      executiveSummary={<p>{content.executiveSummary}</p>}
     >
       <h3>Enablement Multiplies, It Doesn't Overhead</h3>
       <p>
@@ -1419,86 +1762,45 @@ function Act4(): ReactNode {
           <div className={styles.multiplierLabel}>{content.multiplier.output.label}</div>
         </div>
       </div>
-      <p>
-        {content.leverageText}
-      </p>
-      <p>
-        <strong>This is how you get leverage.</strong> This is how a small RIC enables a large 
-        delivery organization to operate at agentic speed.
-      </p>
+      <p>{content.leverageText}</p>
+      <p dangerouslySetInnerHTML={{ __html: content.leverageConclusion }} />
 
-      <h3>Platform as Product, Not Platform as Team</h3>
-      <p>
-        FOE distinguishes between having a "platform team" and having "platform as product":
-      </p>
+      <h3>{content.platformSection.title}</h3>
+      <p>{content.platformSection.intro}</p>
       <table>
         <thead>
           <tr>
-            <th>Platform Team</th>
-            <th>Platform as Product</th>
+            <th>{mode === 'airforce' ? 'Ad-hoc Logistics' : 'Platform Team'}</th>
+            <th>{mode === 'airforce' ? 'Logistics Infrastructure' : 'Platform as Product'}</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Builds infrastructure</td>
-            <td>Serves internal customers</td>
-          </tr>
-          <tr>
-            <td>Delivers when done</td>
-            <td>Has SLOs and feedback loops</td>
-          </tr>
-          <tr>
-            <td>Success = features shipped</td>
-            <td>Success = adoption and satisfaction</td>
-          </tr>
-          <tr>
-            <td>Roadmap = what we want to build</td>
-            <td>Roadmap = what customers need</td>
-          </tr>
-          <tr>
-            <td>Exists because org chart says so</td>
-            <td>Exists because mission teams need it</td>
-          </tr>
+          {content.platformSection.comparison.map((row, i) => (
+            <tr key={i}>
+              <td>{row.left}</td>
+              <td>{row.right}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
-      <p>
-        The RIC must operate as <strong>platform as product</strong>. Its customers are the 
-        delivery teams. Its success is measured by their success.
-      </p>
+      <p dangerouslySetInnerHTML={{ __html: content.platformSection.conclusion }} />
 
-      <h3>The Investment Thesis</h3>
+      <h3>{content.investmentSection.title}</h3>
       <div className={styles.investmentBox}>
-        <div className={styles.investmentHeader}>RIC Investment Logic</div>
+        <div className={styles.investmentHeader}>{content.investmentSection.header}</div>
         <div className={styles.investmentContent}>
-          <div className={styles.investmentRow}>
-            <span className={styles.investmentLabel}>Input</span>
-            <span className={styles.investmentValue}>N hours of RIC capability building</span>
-          </div>
-          <div className={styles.investmentRow}>
-            <span className={styles.investmentLabel}>Multiplier</span>
-            <span className={styles.investmentValue}>× M delivery teams using that capability</span>
-          </div>
-          <div className={styles.investmentRow}>
-            <span className={styles.investmentLabel}>Amplifier</span>
-            <span className={styles.investmentValue}>× K times each team uses it per project</span>
-          </div>
-          <div className={styles.investmentRow}>
-            <span className={styles.investmentLabel}>Output</span>
-            <span className={styles.investmentValue}>= N × M × K hours of leverage</span>
-          </div>
+          {content.investmentSection.rows.map((row, i) => (
+            <div key={i} className={styles.investmentRow}>
+              <span className={styles.investmentLabel}>{row.label}</span>
+              <span className={styles.investmentValue}>{row.value}</span>
+            </div>
+          ))}
         </div>
       </div>
-      <p>
-        A single validated agent configuration used by 10 teams, 5 times per project, across 
-        20 projects is <strong>1,000x leverage</strong> on the original investment.
-      </p>
-      <p>
-        This is why the tip-to-tail ratio shifts so dramatically. At ground speed, the math 
-        doesn't work—by the time you've built the enablement, the battle is over. At air speed, 
-        the enablement is what makes sustained operations possible.
-      </p>
+      <p dangerouslySetInnerHTML={{ __html: content.investmentSection.example }} />
+      <p>{content.investmentSection.rationale}</p>
 
-      <h3>The FOE Triad: All Three Must Move Together</h3>
+      <h3>The Triad: All Three Must Move Together</h3>
       <div className={styles.triadDiagram}>
         <div className={styles.triadNode}>
           <Icon name="users" className={styles.triadIcon} size={28} />
@@ -1513,13 +1815,10 @@ function Act4(): ReactNode {
           <span className={styles.triadLabel}>Technology</span>
         </div>
         <div className={styles.triadCenter}>
-          <span>RIC</span>
+          <span>{mode === 'airforce' ? 'Support' : 'RIC'}</span>
         </div>
       </div>
-      <p>
-        FOE is clear that transformation requires coordinated change across People, Process, 
-        and Technology. The RIC must have mission sets that address all three:
-      </p>
+      <p>{content.triadIntro}</p>
       <ul>
         {content.triadItems.map((item, index) => (
           <li key={index}><strong>{item.label}:</strong> {item.desc}</li>
@@ -1533,24 +1832,43 @@ function Act5(): ReactNode {
   const { mode } = useViewMode();
   const content = modeContent[mode].act5;
   
+  // Define ecosystem nodes based on mode
+  const ecosystemNodes = mode === 'airforce' 
+    ? {
+        topRow: [
+          { icon: 'chart' as IconName, name: 'Logistics', role: 'Sustainment' },
+          { icon: 'rocket' as IconName, name: 'Support HQ', role: 'Coordination', isCenter: true },
+          { icon: 'target' as IconName, name: 'Intelligence', role: 'Targeting' },
+        ],
+        bottomRow: [
+          { icon: 'book' as IconName, name: 'Doctrine', role: 'Standards' },
+          { icon: 'scales' as IconName, name: 'Command', role: 'Direction' },
+          { icon: 'users' as IconName, name: 'Combat Units', role: 'Execution' },
+        ],
+      }
+    : {
+        topRow: [
+          { icon: 'chart' as IconName, name: 'KATALYST', role: 'Platform' },
+          { icon: 'rocket' as IconName, name: 'RIC', role: 'Enablement', isCenter: true },
+          { icon: 'target' as IconName, name: 'PRIMA', role: 'Products' },
+        ],
+        bottomRow: [
+          { icon: 'book' as IconName, name: 'FOE', role: 'Doctrine' },
+          { icon: 'scales' as IconName, name: 'TRB', role: 'Governance' },
+          { icon: 'users' as IconName, name: 'Delivery Teams', role: 'Execution' },
+        ],
+      };
+  
   return (
     <AccordionSection
       id="combined-arms"
       number={5}
-      title="Combined Arms"
+      title={content.sectionTitle}
       owner="shared"
-      executiveSummary={
-        <p>
-          Air power alone doesn't win wars. It requires integrated ground forces, intelligence, 
-          logistics, and doctrine. FOE is combined arms for software delivery—the RIC must be 
-          the connective tissue that integrates our capabilities.
-        </p>
-      }
+      executiveSummary={<p>{content.executiveSummary}</p>}
     >
       <h3>{content.integrationTitle}</h3>
-      <p>
-        {content.integrationIntro}
-      </p>
+      <p>{content.integrationIntro}</p>
       <ul>
         {content.integrationItems.map((item, index) => (
           <li key={index}><strong>{item.label}</strong> {item.desc}</li>
@@ -1558,26 +1876,19 @@ function Act5(): ReactNode {
       </ul>
       <p dangerouslySetInnerHTML={{ __html: content.combinedArmsExplainer }} />
 
-      <h3>How RIC Connects the eSimplicity Ecosystem</h3>
+      <h3>{content.ecosystemSection.title}</h3>
       <div className={styles.ecosystemDiagram}>
         <div className={styles.ecosystemRow}>
-          <div className={styles.ecosystemNode}>
-            <Icon name="chart" className={styles.ecosystemNodeIcon} size={24} />
-            <span className={styles.ecosystemNodeName}>KATALYST</span>
-            <span className={styles.ecosystemNodeRole}>Platform</span>
-          </div>
-          <div className={styles.ecosystemConnector}>↔</div>
-          <div className={styles.ecosystemNode + ' ' + styles.ecosystemNodeRIC}>
-            <Icon name="rocket" className={styles.ecosystemNodeIcon} size={24} />
-            <span className={styles.ecosystemNodeName}>RIC</span>
-            <span className={styles.ecosystemNodeRole}>Enablement</span>
-          </div>
-          <div className={styles.ecosystemConnector}>↔</div>
-          <div className={styles.ecosystemNode}>
-            <Icon name="target" className={styles.ecosystemNodeIcon} size={24} />
-            <span className={styles.ecosystemNodeName}>PRIMA</span>
-            <span className={styles.ecosystemNodeRole}>Products</span>
-          </div>
+          {ecosystemNodes.topRow.map((node, i) => (
+            <>
+              {i > 0 && <div className={styles.ecosystemConnector}>↔</div>}
+              <div className={`${styles.ecosystemNode} ${node.isCenter ? styles.ecosystemNodeRIC : ''}`} key={i}>
+                <Icon name={node.icon} className={styles.ecosystemNodeIcon} size={24} />
+                <span className={styles.ecosystemNodeName}>{node.name}</span>
+                <span className={styles.ecosystemNodeRole}>{node.role}</span>
+              </div>
+            </>
+          ))}
         </div>
         <div className={styles.ecosystemRow}>
           <div className={styles.ecosystemConnector}>↕</div>
@@ -1585,53 +1896,35 @@ function Act5(): ReactNode {
           <div className={styles.ecosystemConnector}>↕</div>
         </div>
         <div className={styles.ecosystemRow}>
-          <div className={styles.ecosystemNode}>
-            <Icon name="book" className={styles.ecosystemNodeIcon} size={24} />
-            <span className={styles.ecosystemNodeName}>FOE</span>
-            <span className={styles.ecosystemNodeRole}>Doctrine</span>
-          </div>
-          <div className={styles.ecosystemConnector}>↔</div>
-          <div className={styles.ecosystemNode}>
-            <Icon name="scales" className={styles.ecosystemNodeIcon} size={24} />
-            <span className={styles.ecosystemNodeName}>TRB</span>
-            <span className={styles.ecosystemNodeRole}>Governance</span>
-          </div>
-          <div className={styles.ecosystemConnector}>↔</div>
-          <div className={styles.ecosystemNode}>
-            <Icon name="users" className={styles.ecosystemNodeIcon} size={24} />
-            <span className={styles.ecosystemNodeName}>Delivery Teams</span>
-            <span className={styles.ecosystemNodeRole}>Execution</span>
-          </div>
+          {ecosystemNodes.bottomRow.map((node, i) => (
+            <>
+              {i > 0 && <div className={styles.ecosystemConnector}>↔</div>}
+              <div className={styles.ecosystemNode} key={i}>
+                <Icon name={node.icon} className={styles.ecosystemNodeIcon} size={24} />
+                <span className={styles.ecosystemNodeName}>{node.name}</span>
+                <span className={styles.ecosystemNodeRole}>{node.role}</span>
+              </div>
+            </>
+          ))}
         </div>
       </div>
-      <p>
-        The RIC sits at the center, connecting:
-      </p>
+      <p>{content.ecosystemSection.connectsIntro}</p>
       <ul>
-        <li><strong>KATALYST</strong> (infrastructure) with teams that need to deploy on it</li>
-        <li><strong>PRIMA</strong> (products) with the patterns that make them consistent</li>
-        <li><strong>FOE</strong> (doctrine) with practical implementation</li>
-        <li><strong>TRB</strong> (governance) with day-to-day compliance</li>
-        <li><strong>Delivery Teams</strong> with the enablement they need</li>
+        {content.ecosystemSection.connectsItems.map((item, i) => (
+          <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+        ))}
       </ul>
 
-      <h3>The TRB as Air Traffic Control</h3>
-      <p>
-        The Technical Review Board functions like air traffic control: ensuring that different 
-        actors operating at high speed don't collide. It:
-      </p>
+      <h3>{content.atcSection.title}</h3>
+      <p>{content.atcSection.intro}</p>
       <ul>
-        <li>Validates that delivery teams are aligned to FOE principles</li>
-        <li>Ensures architectural decisions support the ecosystem</li>
-        <li>Provides feedback loops before problems compound</li>
+        {content.atcSection.items.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
       </ul>
-      <p>
-        But air traffic control only works if pilots follow procedures and aircraft have 
-        functioning transponders. The RIC provides the training (pilots know procedures) and 
-        the infrastructure (aircraft have transponders) that makes TRB effective.
-      </p>
+      <p>{content.atcSection.conclusion}</p>
 
-      <h3>Why Isolated Excellence Fails</h3>
+      <h3>{content.isolationSection.title}</h3>
       <table>
         <thead>
           <tr>
@@ -1640,68 +1933,33 @@ function Act5(): ReactNode {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Great KATALYST platform + undisciplined teams</td>
-            <td>Teams misuse platform, create snowflakes, drift accumulates</td>
-          </tr>
-          <tr>
-            <td>Strong FOE doctrine + no training</td>
-            <td>Teams don't know how to apply doctrine; it becomes shelfware</td>
-          </tr>
-          <tr>
-            <td>Excellent PRIMA products + inconsistent delivery</td>
-            <td>Products deployed differently on each contract; support becomes impossible</td>
-          </tr>
-          <tr>
-            <td>Active TRB + no enablement</td>
-            <td>TRB finds problems but teams can't fix them; governance becomes adversarial</td>
-          </tr>
+          {content.isolationSection.tableRows.map((row, i) => (
+            <tr key={i}>
+              <td>{row.pattern}</td>
+              <td>{row.failure}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
-      <p>
-        <strong>Combined arms means all components working together.</strong> The RIC is the 
-        integration function that makes the whole greater than the sum of parts.
-      </p>
+      <p dangerouslySetInnerHTML={{ __html: content.isolationSection.conclusion }} />
 
-      <h3>The Virtuous Cycle</h3>
+      <h3>{content.virtuousCycleSection.title}</h3>
       <div className={styles.cycleDiagram}>
-        <div className={styles.cycleStep}>
-          <span className={styles.cycleNumber}>1</span>
-          <span className={styles.cycleLabel}>RIC develops capability</span>
-        </div>
-        <div className={styles.cycleArrow}>→</div>
-        <div className={styles.cycleStep}>
-          <span className={styles.cycleNumber}>2</span>
-          <span className={styles.cycleLabel}>Delivery teams adopt</span>
-        </div>
-        <div className={styles.cycleArrow}>→</div>
-        <div className={styles.cycleStep}>
-          <span className={styles.cycleNumber}>3</span>
-          <span className={styles.cycleLabel}>Evidence accumulates</span>
-        </div>
-        <div className={styles.cycleArrow}>→</div>
-        <div className={styles.cycleStep}>
-          <span className={styles.cycleNumber}>4</span>
-          <span className={styles.cycleLabel}>Methods mature</span>
-        </div>
-        <div className={styles.cycleArrow}>→</div>
-        <div className={styles.cycleStep}>
-          <span className={styles.cycleNumber}>5</span>
-          <span className={styles.cycleLabel}>New needs emerge</span>
-        </div>
-        <div className={styles.cycleArrow}>↩</div>
+        {content.virtuousCycleSection.steps.map((step, i) => (
+          <>
+            {i > 0 && <div className={styles.cycleArrow}>{i < content.virtuousCycleSection.steps.length - 1 ? '→' : ''}</div>}
+            <div className={styles.cycleStep} key={i}>
+              <span className={styles.cycleNumber}>{i + 1}</span>
+              <span className={styles.cycleLabel}>{step}</span>
+            </div>
+            {i === content.virtuousCycleSection.steps.length - 1 && <div className={styles.cycleArrow}>↩</div>}
+          </>
+        ))}
       </div>
-      <p>
-        Each cycle through the loop raises the floor. What was advanced practice becomes 
-        standard. What was standard becomes automated. The organization continuously improves.
-      </p>
+      <p>{content.virtuousCycleSection.conclusion}</p>
 
       <h3>Power Projection: Deploying to Different Theaters</h3>
-      <p>
-        Combined arms isn't just about having all the pieces — it's about <strong>projecting 
-        capability where it's needed</strong>. Different contract theaters require different 
-        engagement models:
-      </p>
+      <p dangerouslySetInnerHTML={{ __html: content.powerProjectionIntro }} />
 
       <div className={styles.powerProjection}>
         <div className={styles.projectionColumn}>
@@ -1719,12 +1977,12 @@ function Act5(): ReactNode {
               </ul>
             </div>
             <div className={styles.projectionModel}>
-              <strong>RIC Engagement:</strong>
+              <strong>{content.engagementLabel}</strong>
               <p><em>{content.theaters.mature.engagementModel}</em></p>
               <p>{content.theaters.mature.engagementDesc}</p>
             </div>
             <div className={styles.projectionFleet}>
-              <strong>Fleet Assets:</strong>
+              <strong>{content.fleetLabel}</strong>
               <p>{content.theaters.mature.fleetAssets}</p>
             </div>
           </div>
@@ -1745,12 +2003,12 @@ function Act5(): ReactNode {
               </ul>
             </div>
             <div className={styles.projectionModel}>
-              <strong>RIC Engagement:</strong>
+              <strong>{content.engagementLabel}</strong>
               <p><em>{content.theaters.developing.engagementModel}</em></p>
               <p>{content.theaters.developing.engagementDesc}</p>
             </div>
             <div className={styles.projectionFleet}>
-              <strong>Fleet Assets:</strong>
+              <strong>{content.fleetLabel}</strong>
               <p>{content.theaters.developing.fleetAssets}</p>
             </div>
           </div>
@@ -1771,12 +2029,12 @@ function Act5(): ReactNode {
               </ul>
             </div>
             <div className={styles.projectionModel}>
-              <strong>RIC Engagement:</strong>
+              <strong>{content.engagementLabel}</strong>
               <p><em>{content.theaters.austere.engagementModel}</em></p>
               <p>{content.theaters.austere.engagementDesc}</p>
             </div>
             <div className={styles.projectionFleet}>
-              <strong>Fleet Assets:</strong>
+              <strong>{content.fleetLabel}</strong>
               <p>{content.theaters.austere.fleetAssets}</p>
             </div>
           </div>
@@ -1784,21 +2042,22 @@ function Act5(): ReactNode {
       </div>
 
       <div className={styles.highlightBox}>
-        <p>
-          <strong>The RIC doesn't just support delivery teams — it projects capability into 
-          theaters where that capability doesn't yet exist.</strong>
-        </p>
-        <p>
-          This is the expeditionary function. It's not enough to have excellent internal 
-          capability. You must be able to deploy it, adapt it to local conditions, and 
-          build local capacity to sustain it.
-        </p>
+        <p dangerouslySetInnerHTML={{ __html: content.highlightBox.mainPoint }} />
+        <p>{content.highlightBox.explanation}</p>
       </div>
     </AccordionSection>
   );
 }
 
 function Act6(): ReactNode {
+  const { mode } = useViewMode();
+  
+  // Act 6 is eSimplicity-specific (team mappings, gap analysis, recommended actions)
+  // It doesn't have a meaningful Air Force equivalent
+  if (mode === 'airforce') {
+    return null;
+  }
+  
   return (
     <AccordionSection
       id="the-path-forward"
@@ -2036,17 +2295,15 @@ function Act6(): ReactNode {
 // ============================================
 
 function CTASection(): ReactNode {
+  const { mode } = useViewMode();
+  const content = modeContent[mode].cta;
+  
   return (
     <section className={styles.cta}>
       <div className={styles.ctaContent}>
-        <h2 className={styles.ctaTitle}>The transition is not optional.</h2>
-        <p className={styles.ctaDescription}>
-          Every organization that moved from ground to air had to restructure. 
-          Those that didn't were outpaced. The same is true for agentic delivery.
-        </p>
-        <div className={styles.ctaQuote}>
-          "You cannot fly at 600 mph with a ground-speed organization."
-        </div>
+        <h2 className={styles.ctaTitle}>{content.title}</h2>
+        <p className={styles.ctaDescription}>{content.description}</p>
+        <div className={styles.ctaQuote}>{content.quote}</div>
       </div>
     </section>
   );
