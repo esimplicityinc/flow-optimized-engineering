@@ -38,9 +38,9 @@ Fast feedback accelerates model refinement. Every prediction that gets validated
 
 You can only confidently change what you understand. Unknown systems inspire fear. The fear is rational.
 
-One team understands their rollback procedure, failure modes, and blast radius. They know what will happen if the deployment goes wrong. They know how they'll detect problems. They know how they'll recover. They deploy with appropriate confidence—not certainty, but calibrated belief that action is safe.
+One team understands their rollback procedure, failure modes, and blast radius. They know what will happen if the deployment goes wrong. They know how they'll detect problems. They know how they'll recover. They deploy with appropriate confidence, not certainty, but calibrated belief that action is safe.
 
-An adjacent team has an opaque system. Nobody really knows how it works. Documentation is outdated. The people who built it have left. This team delays deployment for weeks, waiting for approval, waiting for "the right time," waiting for someone to take responsibility. The delay isn't laziness—it's rational caution in the face of unknown risk.
+An adjacent team has an opaque system. Nobody really knows how it works. Documentation is outdated. The people who built it have left. This team delays deployment for weeks, waiting for approval, waiting for "the right time," waiting for someone to take responsibility. The delay isn't laziness, it's rational caution in the face of unknown risk.
 
 ### Confidence Enables Understanding
 
@@ -102,7 +102,7 @@ Understanding → Action → Feedback → Calibration → Confidence → More Ac
 
 When any principle collapses, it degrades the others. The degradation compounds.
 
-**Lost understanding** means you can't interpret feedback. Data arrives, but you don't know what it means. Without interpretation, you draw wrong conclusions. Wrong conclusions reduce confidence—you act and things go badly, so you trust your judgment less.
+**Lost understanding** means you can't interpret feedback. Data arrives, but you don't know what it means. Without interpretation, you draw wrong conclusions. Wrong conclusions reduce confidence, you act and things go badly, so you trust your judgment less.
 
 **Lost feedback** means understanding stagnates. Your mental models don't get corrected. Over time they drift from reality. You become confident in things that aren't true. Your confidence is unsupported by evidence. Actions based on false confidence produce poor outcomes.
 
@@ -114,7 +114,7 @@ This is the vicious cycle. Each degradation enables the next. The rate of degrad
 Lost Understanding → Misinterpreted Feedback → Wrong Conclusions → Lost Confidence → Inaction → No Feedback → Stale Understanding → ...
 ```
 
-The direction of the cycle—virtuous or vicious—is determined by deliberate investment. Left alone, systems drift toward dysfunction. Entropy wins. FOE is the continuous effort to keep all three optimizations healthy.
+The direction of the cycle, virtuous or vicious, is determined by deliberate investment. Left alone, systems drift toward dysfunction. Entropy wins. FOE is the continuous effort to keep all three optimizations healthy.
 
 ## Pathological Imbalances
 
@@ -203,7 +203,7 @@ The diagnosis process:
 
 4. **Invest appropriately.** Strengthen the weak corner, don't over-invest in strengths.
 
-The common mistake is treating symptoms without diagnosing causes. A team with low confidence doesn't need more process—process additions usually further degrade confidence. They need safety infrastructure that makes action survivable. A team with poor understanding doesn't need more meetings—meetings rarely improve mental models. They need architecture that's tractable and documentation that's accurate.
+The common mistake is treating symptoms without diagnosing causes. A team with low confidence doesn't need more process, process additions usually further degrade confidence. They need safety infrastructure that makes action survivable. A team with poor understanding doesn't need more meetings, meetings rarely improve mental models. They need architecture that's tractable and documentation that's accurate.
 
 ## The Balance Mechanism
 
@@ -230,7 +230,7 @@ Confidence checks understanding by enabling exploration. Analysis paralysis gets
 
 Confidence checks feedback by enabling measurement. Avoidance gets overcome.
 
-The principles balance each other. Over-investment in one gets corrected by the others—unless you've also degraded the others, in which case the imbalance persists.
+The principles balance each other. Over-investment in one gets corrected by the others, unless you've also degraded the others, in which case the imbalance persists.
 
 ## Assessment Questions
 
@@ -292,7 +292,7 @@ The cognitive triangle is a support system for human judgment. Understanding pro
 
 When all three function, humans can operate effectively in complex, fast-moving environments. The systems are still complex. The pace is still fast. But the cognitive infrastructure makes human judgment possible despite the complexity and speed.
 
-This is the cockpit principle at full expression. The pilot can fly at high speed because the instruments offload cognitive work. The engineer can operate at high speed because the three principles offload cognitive work. The instruments don't replace judgment—they make judgment possible.
+This is the cockpit principle at full expression. The pilot can fly at high speed because the instruments offload cognitive work. The engineer can operate at high speed because the three principles offload cognitive work. The instruments don't replace judgment, they make judgment possible.
 
 <!-- BRIDGE -->
 The doctrine is clear. Understanding, fast feedback, and confidence form a closed cognitive system. They enable each other, check each other, and degrade together when balance breaks. Teams that maintain all three enter virtuous cycles of compounding improvement. Teams that lose any one enter vicious cycles of compounding degradation.

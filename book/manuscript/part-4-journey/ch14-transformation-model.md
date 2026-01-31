@@ -12,7 +12,7 @@ Part III established that transformation requires coordinated change across peop
 
 But how do you know where you are? How do you know where you're going? And how do you avoid the illusion of progress while actually standing still?
 
-Part IV provides orientation. This chapter introduces the transformation model—a map of the journey from manual operations to sustainable high-speed delivery. The following chapters examine the critical bottleneck at Phase 3, the maturity levels within each phase, and the predictable challenges of the transformation journey itself.
+Part IV provides orientation. This chapter introduces the transformation model, a map of the journey from manual operations to sustainable high-speed delivery. The following chapters examine the critical bottleneck at Phase 3, the maturity levels within each phase, and the predictable challenges of the transformation journey itself.
 
 ## The Six Phases
 
@@ -31,7 +31,7 @@ These phases describe a progression from manual, artisanal operations toward aut
 
 ### Phase 0: On-Prem
 
-Phase 0 is traditional on-premises operations. Infrastructure is physical hardware or manually provisioned virtual machines. Provisioning happens through tickets and manual configuration. Knowledge lives in people's heads—the engineers who "know how this system works."
+Phase 0 is traditional on-premises operations. Infrastructure is physical hardware or manually provisioned virtual machines. Provisioning happens through tickets and manual configuration. Knowledge lives in people's heads, the engineers who "know how this system works."
 
 Systems are pets, not cattle. Each server has a name, a history, a personality. When something breaks, you diagnose and repair that specific server. You don't replace it; you can't replace it. Too much undocumented state would be lost.
 
@@ -39,7 +39,7 @@ Phase 0 organizations can function, sometimes for decades. But they can't scale.
 
 ### Phase 1: Lift & Shift
 
-Phase 1 is cloud adoption without cloud-native practices. The organization moves workloads to cloud infrastructure—AWS, Azure, GCP—but operates them the same way they operated on-premises. Virtual machines replace physical servers, but they're still pets. Manual provisioning moves to a different console.
+Phase 1 is cloud adoption without cloud-native practices. The organization moves workloads to cloud infrastructure, AWS, Azure, GCP, but operates them the same way they operated on-premises. Virtual machines replace physical servers, but they're still pets. Manual provisioning moves to a different console.
 
 Lift and shift captures some benefits: reduced data center costs, elastic capacity, pay-per-use economics. But it captures none of the operational benefits. Deployments are still manual. Knowledge is still tribal. Changes are still scary.
 
@@ -47,7 +47,7 @@ Many organizations declare victory at Phase 1. "We're in the cloud." But being i
 
 ### Phase 2: Awkward Middle
 
-Phase 2 is where most organizations get stuck. They've adopted modern tools—Terraform, Kubernetes, CI/CD pipelines—but haven't adopted the disciplines those tools require. The tools changed. The operating model didn't.
+Phase 2 is where most organizations get stuck. They've adopted modern tools, Terraform, Kubernetes, CI/CD pipelines, but haven't adopted the disciplines those tools require. The tools changed. The operating model didn't.
 
 This is the awkward middle because organizations have the complexity of modern tooling without the benefits of modern operations. They run Kubernetes but deploy manually. They have Terraform files but don't treat infrastructure as code. They have CI pipelines but still rely on heroes for critical changes.
 
@@ -57,7 +57,7 @@ The tell for Phase 2 is the gap between what the tools enable and what the organ
 
 ### Phase 3: Cloud Native Infrastructure
 
-Phase 3 is true cloud-native operations. Not cloud-native tools—cloud-native disciplines. Infrastructure as code is the source of truth, continuously reconciled. Deployments happen through automation, not human intervention. Systems are cattle, not pets. When something breaks, you replace it; you don't repair it.
+Phase 3 is true cloud-native operations. Not cloud-native tools, cloud-native disciplines. Infrastructure as code is the source of truth, continuously reconciled. Deployments happen through automation, not human intervention. Systems are cattle, not pets. When something breaks, you replace it; you don't repair it.
 
 Phase 3 requires four properties:
 
@@ -67,7 +67,7 @@ Phase 3 requires four properties:
 
 **Repeatable.** Any operation can be executed by anyone at any time. No tribal knowledge. No "person who knows that system." Runbooks are executable automation, not human instructions.
 
-**Measurable.** Outcomes are quantified and drive decisions. Metrics don't just describe—they prescribe. Automated systems respond to metrics in real time.
+**Measurable.** Outcomes are quantified and drive decisions. Metrics don't just describe, they prescribe. Automated systems respond to metrics in real time.
 
 Phase 3 is the foundation for everything that follows. Without these disciplines, nothing else works at scale.
 
@@ -75,7 +75,7 @@ Phase 3 is the foundation for everything that follows. Without these disciplines
 
 Phase 4 introduces AI agents that can generate, modify, and deploy code. This changes the economics of software production. What was scarce (developer time to write code) becomes abundant. What was abundant (things to work on) becomes the bottleneck.
 
-Phase 4 doesn't replace Phase 3—it depends on it. AI agents without standardized patterns generate inconsistent code. AI agents without automated enforcement create drift faster than humans can. AI agents without measurable outcomes produce changes that can't be evaluated.
+Phase 4 doesn't replace Phase 3, it depends on it. AI agents without standardized patterns generate inconsistent code. AI agents without automated enforcement create drift faster than humans can. AI agents without measurable outcomes produce changes that can't be evaluated.
 
 Organizations that skip to Phase 4 without Phase 3 disciplines create systems that accumulate technical debt faster than ever, drift in ways no one understands, fail in ways that can't be diagnosed.
 
@@ -99,14 +99,14 @@ The first evolution moves from manual, artisanal operations to standardized, dec
 - **Phase 2:** Modern tools without modern disciplines
 - **Phase 3:** True cloud-native patterns, declarative operations, automation as primary
 
-This evolution is well-documented. The patterns are known. The tools are mature. Yet most organizations stall at Phase 2 because the hard part isn't technology—it's discipline.
+This evolution is well-documented. The patterns are known. The tools are mature. Yet most organizations stall at Phase 2 because the hard part isn't technology, it's discipline.
 
 ### Code Evolution (Phases 4-5)
 
 The second evolution applies the same shift to code itself. AI agents change the economics of code production, requiring the same discipline evolution that infrastructure underwent.
 
 - **Phase 4:** AI agents produce code abundance, creating new scarcity around alignment and verification
-- **Phase 5:** Code becomes standardized, composable, policy-governed—cattle, not pets
+- **Phase 5:** Code becomes standardized, composable, policy-governed, cattle, not pets
 
 This evolution is newer. The patterns are emerging. The tools are immature. But the trajectory is clear: the same disciplines that made infrastructure manageable will make AI-generated code manageable.
 
@@ -126,7 +126,7 @@ Organizations that attempt Phase 4-5 without Phase 3 create systems that look mo
 
 ## Why Phases Can't Be Skipped
 
-Each phase builds on the disciplines of the previous. Attempting to skip phases doesn't accelerate transformation—it creates brittleness that eventually forces regression.
+Each phase builds on the disciplines of the previous. Attempting to skip phases doesn't accelerate transformation, it creates brittleness that eventually forces regression.
 
 ### The Discipline Dependency
 
@@ -184,13 +184,13 @@ Honest assessment is prerequisite for progress. Most organizations overestimate 
 
 Answer these honestly:
 
-**Do you ever kubectl directly in production?** If yes, you're not operating GitOps—you have GitOps tools but operate imperatively.
+**Do you ever kubectl directly in production?** If yes, you're not operating GitOps, you have GitOps tools but operate imperatively.
 
-**Can teams deploy without platform team involvement?** If no, you don't have a platform—you have a gatekeeper with modern tools.
+**Can teams deploy without platform team involvement?** If no, you don't have a platform, you have a gatekeeper with modern tools.
 
-**Is infrastructure state continuously reconciled to code?** If no, you don't have IaC as source of truth—you have IaC as initial provisioning.
+**Is infrastructure state continuously reconciled to code?** If no, you don't have IaC as source of truth, you have IaC as initial provisioning.
 
-**Do violations get prevented or just reported?** If reported, you don't have enforcement—you have monitoring with hopeful compliance.
+**Do violations get prevented or just reported?** If reported, you don't have enforcement, you have monitoring with hopeful compliance.
 
 **What percentage of systems have exceptions to the standard?** If more than zero, you're in Phase 2 regardless of what your tools suggest.
 
@@ -200,7 +200,7 @@ The transformation model is a diagnostic tool, not a certification. Its value is
 
 ### For Planning
 
-Use the model to set realistic expectations. Phase transitions take time—typically 12-24 months for significant progress. Organizations that claim faster timelines are usually phase-skipping, which creates future regression.
+Use the model to set realistic expectations. Phase transitions take time, typically 12-24 months for significant progress. Organizations that claim faster timelines are usually phase-skipping, which creates future regression.
 
 Plan for the disciplines, not just the tools. A plan to "adopt Kubernetes" isn't a Phase 3 plan. A plan to "establish declarative operations with continuous reconciliation, self-service deployment, and measured outcomes" is a Phase 3 plan.
 
@@ -212,7 +212,7 @@ The honest assessment enables honest planning. Organizations that claim Phase 3 
 
 ### For Communication
 
-Use the model to communicate with stakeholders. Executives can understand "we're in Phase 2, with Phase 2-3 transition as our 18-month goal." Engineers can understand "we have Phase 3 tools but Phase 2 disciplines—here's what needs to change."
+Use the model to communicate with stakeholders. Executives can understand "we're in Phase 2, with Phase 2-3 transition as our 18-month goal." Engineers can understand "we have Phase 3 tools but Phase 2 disciplines, here's what needs to change."
 
 The shared vocabulary enables alignment. Instead of debating whether you're "cloud-native" or "DevOps," you can assess specific indicators and discuss specific gaps.
 
@@ -220,11 +220,11 @@ The shared vocabulary enables alignment. Instead of debating whether you're "clo
 
 The transformation model provides the map. The following chapters explore the territory in detail.
 
-Chapter 15 examines why Phase 3 is the bottleneck—not a technology gap, but an institutional one. Understanding this distinction is critical for any organization serious about modernization.
+Chapter 15 examines why Phase 3 is the bottleneck, not a technology gap, but an institutional one. Understanding this distinction is critical for any organization serious about modernization.
 
-Chapter 16 introduces the maturity model—levels within phases that describe how well you're operating, not just what tools you have. Maturity is about predictability, not sophistication.
+Chapter 16 introduces the maturity model, levels within phases that describe how well you're operating, not just what tools you have. Maturity is about predictability, not sophistication.
 
-Chapter 17 examines the J-curve of transformation—the predictable dip in performance that occurs during any significant change. Understanding this pattern helps organizations persist through the difficult middle.
+Chapter 17 examines the J-curve of transformation, the predictable dip in performance that occurs during any significant change. Understanding this pattern helps organizations persist through the difficult middle.
 
 <!-- BRIDGE -->
 We've mapped the six phases and understood that progression requires disciplines, not just tools. We've seen that Phase 3 is where most organizations stall.

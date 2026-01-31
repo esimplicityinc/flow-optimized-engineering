@@ -14,7 +14,7 @@ A pilot can know exactly what to do in an emergency, but if the controls are mis
 
 Developer experience is the environment in which engineering work happens. It's the operating system that determines whether FOE principles are aspirations teams strive toward or defaults they naturally fall into. Get DevX right, and the playbook executes itself. Get it wrong, and every principle requires constant effort to maintain.
 
-This is why DevX is not a luxury. It's not something you invest in after the "real work" is done. DevX is infrastructure—as fundamental to delivery as the network or the database.
+This is why DevX is not a luxury. It's not something you invest in after the "real work" is done. DevX is infrastructure, as fundamental to delivery as the network or the database.
 
 ## DevX as Requirement
 
@@ -40,7 +40,7 @@ DevX is the substrate on which the three principles either flourish or wither.
 
 ## DevX for Understanding
 
-Understanding requires legibility—the ability to form accurate mental models without archaeological expeditions through code, wikis, and Slack history. DevX either creates legibility or destroys it.
+Understanding requires legibility, the ability to form accurate mental models without archaeological expeditions through code, wikis, and Slack history. DevX either creates legibility or destroys it.
 
 The cockpit metaphor from earlier chapters applies directly. A pilot's cockpit is designed to surface exactly the information needed for safe flight: altitude, airspeed, heading, fuel, engine status. The instruments are standardized across aircraft types. Labels are consistent. Critical warnings are unmistakable. The environment enables understanding.
 
@@ -54,11 +54,11 @@ Every developer has limited cognitive capacity. Complex systems consume that cap
 
 | Load Type | Source | DevX Response |
 |-----------|--------|---------------|
-| Intrinsic | Genuine problem complexity | Cannot be eliminated—this is the actual work |
+| Intrinsic | Genuine problem complexity | Cannot be eliminated, this is the actual work |
 | Extraneous | Poor tooling, inconsistent conventions, missing docs | DevX eliminates this entirely |
 | Germane | Learning and building mental models | DevX accelerates this |
 
-Most organizations force developers to spend cognitive capacity on extraneous load—figuring out *how to do things*—instead of germane load—understanding *what to do*. DevX for Understanding attacks extraneous load relentlessly.
+Most organizations force developers to spend cognitive capacity on extraneous load, figuring out *how to do things*, instead of germane load, understanding *what to do*. DevX for Understanding attacks extraneous load relentlessly.
 
 ### Predictable Conventions
 
@@ -74,7 +74,7 @@ Good conventions cover:
 
 When every service looks the same, developers know where to look without thinking. The mental energy saved compounds across every interaction with every service.
 
-But conventions only work if they're universal. A convention followed 80% of the time is worse than no convention—it creates false expectations. Enforcement mechanisms are required:
+But conventions only work if they're universal. A convention followed 80% of the time is worse than no convention, it creates false expectations. Enforcement mechanisms are required:
 
 - Linters that fail builds on violations
 - Scaffolding tools that generate compliant projects
@@ -135,7 +135,7 @@ What must be codified:
 | Operational knowledge | How to diagnose common issues | Runbooks |
 | Business rules | Why the code does what it does | Code comments and domain docs |
 
-Architecture Decision Records (ADRs) are particularly valuable. They capture not just what was decided, but why. When a future developer asks "why is it built this way?", the ADR provides the answer without requiring a person to remember and explain.
+Architecture Decision Records (ADRs) are particularly valuable. They capture not just what was decided, but why. When a future developer asks "why is it built this way?" the ADR provides the answer without requiring a person to remember and explain.
 
 Runbooks codify operational knowledge. When an alert fires, the runbook tells the responder what to check, what the common causes are, and how to fix them. This knowledge exists whether or not the person who originally understood the problem is available.
 
@@ -257,7 +257,7 @@ Observability includes:
 - **Distributed tracing** that follows requests across services
 - **Alerting** that surfaces problems with context and suggested actions
 
-The goal: when something goes wrong in production, the system tells you what's wrong, when it started, and what likely caused it. This isn't magic—it's the result of deliberate instrumentation.
+The goal: when something goes wrong in production, the system tells you what's wrong, when it started, and what likely caused it. This isn't magic, it's the result of deliberate instrumentation.
 
 The contrast between opaque and observable systems is stark:
 
@@ -303,7 +303,7 @@ Examples of guardrails:
 
 **Type systems** catch entire categories of errors before runtime. A well-designed type system makes invalid states unrepresentable. The compiler becomes a safety net that catches mistakes before they reach production.
 
-**Linting rules** enforce team standards automatically. They're not manual review—they're automated verification that runs continuously.
+**Linting rules** enforce team standards automatically. They're not manual review, they're automated verification that runs continuously.
 
 **Pre-commit hooks** prevent bad commits. They catch secrets, formatting issues, and obvious errors before code enters the repository.
 
@@ -343,7 +343,7 @@ When quality requires discipline, it's optional. When quality is the default, it
 
 **Observability baked in**: Every service should include logging, metrics, and tracing by construction. There's no way to deploy a service that can't be observed.
 
-**Tests required**: Test coverage thresholds are enforced in CI. Under-tested code cannot be merged. This isn't a policy to be followed—it's a gate that cannot be bypassed.
+**Tests required**: Test coverage thresholds are enforced in CI. Under-tested code cannot be merged. This isn't a policy to be followed, it's a gate that cannot be bypassed.
 
 The cheapest option principle: quality becomes universal when it's easier than the alternative.
 
@@ -359,7 +359,7 @@ When the right thing is the easy thing, teams do the right thing.
 
 ### Policy as Code
 
-Beyond individual guardrails, organizations benefit from encoding policies in code—rules that are automatically enforced across the entire delivery system.
+Beyond individual guardrails, organizations benefit from encoding policies in code, rules that are automatically enforced across the entire delivery system.
 
 Examples of policy as code:
 
@@ -380,7 +380,7 @@ But well-designed guardrails increase freedom, not reduce it.
 
 Without guardrails, developers operate in an environment of unbounded risk. Any action might break production. Deployments are scary. Refactoring is avoided. Innovation happens slowly because the cost of mistakes is high and unpredictable.
 
-With guardrails, developers operate in an environment of bounded risk. The guardrails define the operating envelope—the space within which action is safe. Inside that envelope, developers can move fast and experiment freely. They know the guardrails will catch catastrophic mistakes. They trust the system.
+With guardrails, developers operate in an environment of bounded risk. The guardrails define the operating envelope, the space within which action is safe. Inside that envelope, developers can move fast and experiment freely. They know the guardrails will catch catastrophic mistakes. They trust the system.
 
 The paradox: adding constraints expands the space of confident action. Guardrails don't slow teams down. They speed teams up by making speed safe.
 
@@ -444,7 +444,7 @@ The minimal version: allocate 15-20% of engineering capacity to DevX improvement
 
 The full version: a dedicated platform team that treats internal developers as customers, conducts user research, prioritizes investments based on impact, and measures success by developer productivity metrics.
 
-Either approach beats discovery. The bar isn't perfection—it's intentionality.
+Either approach beats discovery. The bar isn't perfection, it's intentionality.
 
 ### The Signs of Discovered vs. Designed
 
@@ -547,7 +547,7 @@ In environments where talent is scarce and timelines are aggressive, DevX is a f
 
 **Risk tolerance**: Teams with safety nets take the risks necessary to improve. They refactor. They experiment. They clean up technical debt. Teams without safety nets leave well enough alone.
 
-**Retention**: Engineers stay where they can do their best work. Poor DevX is a slow drain of talent toward organizations with better environments. The engineers who leave first are the ones with the most options—typically the best ones.
+**Retention**: Engineers stay where they can do their best work. Poor DevX is a slow drain of talent toward organizations with better environments. The engineers who leave first are the ones with the most options, typically the best ones.
 
 Organizations that neglect DevX pay a hidden tax on every feature, every hire, every deadline. The tax isn't visible in any single sprint. It compounds over years until the organization is significantly slower than competitors who invested earlier.
 
@@ -563,7 +563,7 @@ DevX is where the three principles become tangible.
 
 The principles describe what to optimize for. DevX is how you optimize.
 
-Without DevX, the principles remain aspirations—things teams know they should do but struggle to achieve. With DevX, the principles become defaults—the natural result of working in an environment designed to produce them.
+Without DevX, the principles remain aspirations, things teams know they should do but struggle to achieve. With DevX, the principles become defaults, the natural result of working in an environment designed to produce them.
 
 This is why DevX is the operating system. It runs underneath everything else. It determines what's possible. It shapes what's easy and what's hard. Get it right, and FOE follows. Get it wrong, and FOE fights uphill forever.
 

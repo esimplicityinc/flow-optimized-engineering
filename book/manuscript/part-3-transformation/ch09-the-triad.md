@@ -14,7 +14,7 @@ Knowing the doctrine isn't the same as living it.
 
 Adopting FOE requires changing how people work, how processes operate, and what technology enables. These aren't independent initiatives that can be sequenced or prioritized separately. They're facets of a single transformation that must move together. Pull one dimension without the others and you create tension that eventually snaps back.
 
-This chapter introduces the triad—people, process, and technology—and explains why coordinated change across all three is the only path to sustainable transformation.
+This chapter introduces the triad, people, process, and technology, and explains why coordinated change across all three is the only path to sustainable transformation.
 
 ## The Three Dimensions
 
@@ -34,17 +34,17 @@ The most common transformation failure mode is believing you can change one dime
 
 ### Technology Without Process Change
 
-Organizations purchase modern tooling—Kubernetes clusters, CI/CD platforms, observability suites—and expect transformation to follow. The tools get installed. Then nothing changes.
+Organizations purchase modern tooling, Kubernetes clusters, CI/CD platforms, observability suites, and expect transformation to follow. The tools get installed. Then nothing changes.
 
 Teams deploy to Kubernetes manually, treating it as a fancy VM host. CI pipelines build artifacts that sit in registries because deployment remains a scheduled, manual activity. Observability dashboards get built but nobody watches them because the processes that would trigger action don't exist.
 
 The technology is present but inert. It's expensive shelfware.
 
-This happens because technology doesn't change behavior by itself. Technology creates possibility. Process determines whether that possibility is realized. Without process change, teams work around new technology to maintain familiar patterns. The path of least resistance isn't the path the technology designers intended—it's the path people already know.
+This happens because technology doesn't change behavior by itself. Technology creates possibility. Process determines whether that possibility is realized. Without process change, teams work around new technology to maintain familiar patterns. The path of least resistance isn't the path the technology designers intended, it's the path people already know.
 
 ### Process Without People Change
 
-Organizations mandate new processes—code review requirements, deployment checklists, security scanning—and expect compliance to produce outcomes. The procedures exist. Then nothing changes.
+Organizations mandate new processes, code review requirements, deployment checklists, security scanning, and expect compliance to produce outcomes. The procedures exist. Then nothing changes.
 
 Code reviews happen, but reviewers don't understand the code or feel ownership, so reviews become rubber stamps. Deployment checklists get checked without verification. Security scans run but findings pile up unaddressed because nobody has time or skills to remediate.
 
@@ -109,7 +109,7 @@ The pattern unfolds predictably:
 
 5. **Disappointment.** Leadership wonders why the expensive investment isn't paying off.
 
-6. **Blame.** Someone gets blamed—the tools, the team, the vendor—without recognizing the structural failure.
+6. **Blame.** Someone gets blamed, the tools, the team, the vendor, without recognizing the structural failure.
 
 The root cause isn't bad tools or bad people. It's the assumption that technology drives transformation. Technology enables transformation. It doesn't cause it.
 
@@ -161,7 +161,7 @@ The fix isn't hiring more people. It's technology and process investment that le
 
 ## Building Triad Coherence
 
-Effective transformation moves all three dimensions together. Not sequentially—together.
+Effective transformation moves all three dimensions together. Not sequentially, together.
 
 ### Start with a Specific Flow Problem
 
@@ -263,7 +263,7 @@ The triad applies at multiple organizational scales.
 
 At larger scales, platform teams emerge. Their job is to provide technology and process foundations that application teams can build on. The platform team changes the technology and process dimensions so application teams can focus on the people dimension within their scope.
 
-Good platforms reduce the coordination burden of triad coherence. They provide "paved paths"—pre-integrated technology and pre-designed processes—that teams can adopt without designing from scratch.
+Good platforms reduce the coordination burden of triad coherence. They provide "paved paths" pre-integrated technology and pre-designed processes, that teams can adopt without designing from scratch.
 
 ## The Investment Required
 
@@ -283,7 +283,7 @@ Transformation isn't free. Triad coherence requires investment in all three dime
 
 **People investment** includes:
 - Training and skill development
-- Time for learning (not in addition to work—during work)
+- Time for learning (not in addition to work, during work)
 - Hiring or role changes
 - Cultural change activities
 

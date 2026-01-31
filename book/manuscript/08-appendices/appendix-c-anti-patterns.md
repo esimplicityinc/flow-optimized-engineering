@@ -7,7 +7,7 @@ word_count: 2752
 
 # Appendix C: Anti-Patterns (Via Negativa)
 
-Sometimes the clearest path to understanding what something is comes from understanding what it isn't. The ancient philosophical tradition of *via negativa*—the negative way—defines things by what they exclude rather than what they include. This appendix applies that approach to FOE.
+Sometimes the clearest path to understanding what something is comes from understanding what it isn't. The ancient philosophical tradition of *via negativa*, the negative way, defines things by what they exclude rather than what they include. This appendix applies that approach to FOE.
 
 These anti-patterns aren't hypothetical. They emerge repeatedly across organizations attempting to modernize their delivery systems. Recognizing them early prevents wasted effort. Recognizing them late at least provides a path to recovery.
 
@@ -19,13 +19,13 @@ Each anti-pattern includes what it looks like in practice, why it fails, and wha
 
 **What It Looks Like:**
 
-The organization purchases modern tools—CI/CD platforms, Kubernetes clusters, observability suites, security scanners—and believes capability follows automatically. Dashboards show green. Executives point to the investment as evidence of transformation. Meanwhile, teams operate the tools with the same behaviors they had before: manual interventions, tribal knowledge, heroic individuals.
+The organization purchases modern tools, CI/CD platforms, Kubernetes clusters, observability suites, security scanners, and believes capability follows automatically. Dashboards show green. Executives point to the investment as evidence of transformation. Meanwhile, teams operate the tools with the same behaviors they had before: manual interventions, tribal knowledge, heroic individuals.
 
 The symptoms: advanced features go unused, workarounds proliferate, the tool documentation describes a different workflow than the one actually practiced.
 
 **Why It Fails:**
 
-Tools encode assumptions about how work should happen. They enable disciplines—they don't create them. Having Kubernetes doesn't mean operating cloud-native. Having Terraform doesn't mean treating infrastructure as code. Having CI/CD doesn't mean continuous delivery.
+Tools encode assumptions about how work should happen. They enable disciplines, they don't create them. Having Kubernetes doesn't mean operating cloud-native. Having Terraform doesn't mean treating infrastructure as code. Having CI/CD doesn't mean continuous delivery.
 
 The discipline gap between tool capability and actual practice produces the worst outcome: complexity of modern tooling without benefits of modern operations. Organizations end up with expensive, complicated systems that require just as much manual intervention as the legacy systems they replaced.
 
@@ -39,7 +39,7 @@ Invest in disciplines, not just tools. Ask: "What changed in how we work when we
 
 **What It Looks Like:**
 
-The organization attempts to leap directly to advanced capabilities—AI coding agents, cloud-native code patterns, automated governance—without establishing the foundational disciplines those capabilities require. They've read about Phase 5 and want to skip directly there from Phase 2.
+The organization attempts to leap directly to advanced capabilities, AI coding agents, cloud-native code patterns, automated governance, without establishing the foundational disciplines those capabilities require. They've read about Phase 5 and want to skip directly there from Phase 2.
 
 The symptoms: AI-generated code that no one can review because there are no standards to review against, automated systems that drift because there's no continuous reconciliation, governance that exists on paper but can't be enforced because the infrastructure doesn't support enforcement.
 
@@ -47,7 +47,7 @@ The symptoms: AI-generated code that no one can review because there are no stan
 
 Each phase builds on the disciplines of the previous. Phase 5 (cloud-native code) requires Phase 3 (cloud-native infrastructure) disciplines. AI agents without standardized patterns generate inconsistent code. Automated enforcement without continuous reconciliation creates drift faster than humans can track.
 
-Phase-skipping creates brittle systems that eventually force regression. The organization invests in advanced tools, builds systems that depend on them, then faces incidents that force retreat to manual operations—operating advanced tools in primitive ways.
+Phase-skipping creates brittle systems that eventually force regression. The organization invests in advanced tools, builds systems that depend on them, then faces incidents that force retreat to manual operations, operating advanced tools in primitive ways.
 
 **What FOE Says Instead:**
 
@@ -65,7 +65,7 @@ The symptoms: knowledge concentrated in individuals, decisions that wait for spe
 
 **Why It Fails:**
 
-Heroes don't scale. A hero can handle one system, maybe two. Organizations grow; heroes don't multiply. Heroes create dependency—knowledge concentrates, decisions bottleneck. Heroes resist standardization because their value comes from knowing things others don't.
+Heroes don't scale. A hero can handle one system, maybe two. Organizations grow; heroes don't multiply. Heroes create dependency, knowledge concentrates, decisions bottleneck. Heroes resist standardization because their value comes from knowing things others don't.
 
 Most critically: heroes are symptoms of missing discipline. Nobody wants to be on-call at 3am. Heroes emerge because systems require heroics. Celebrating heroes masks the system problem instead of fixing it.
 
@@ -79,19 +79,19 @@ Build institutions, not hero dependencies. The test: can someone new do this tas
 
 **What It Looks Like:**
 
-The organization generates impressive activity metrics—tickets closed, story points completed, deployments executed, commits merged—without corresponding improvement in outcomes. The dashboards show velocity. The customers see no difference. Lead time, incident rates, and developer satisfaction remain unchanged or worsen.
+The organization generates impressive activity metrics, tickets closed, story points completed, deployments executed, commits merged, without corresponding improvement in outcomes. The dashboards show velocity. The customers see no difference. Lead time, incident rates, and developer satisfaction remain unchanged or worsen.
 
 The symptoms: velocity numbers that inflate over time without changes in actual throughput, tickets split into smaller pieces to increase count, code review approvals that happen faster without actual review quality.
 
 **Why It Fails:**
 
-Activity metrics invite gaming. When a measure becomes a target, it ceases to be a good measure. Story points inflate because higher velocity looks better. Tickets multiply because more tickets closed looks more productive. These aren't malicious behaviors—they're rational responses to the incentive structure.
+Activity metrics invite gaming. When a measure becomes a target, it ceases to be a good measure. Story points inflate because higher velocity looks better. Tickets multiply because more tickets closed looks more productive. These aren't malicious behaviors, they're rational responses to the incentive structure.
 
 Activity is not progress. A team can close 50 tickets and produce no value. A repository can accumulate thousands of commits while the codebase deteriorates.
 
 **What FOE Says Instead:**
 
-Measure outcomes, not activity. DORA metrics—deployment frequency, lead time for changes, change failure rate, mean time to recovery—measure what the system actually produces. The question isn't "how much are we doing?" It's "how much value are we delivering, and how safely?"
+Measure outcomes, not activity. DORA metrics, deployment frequency, lead time for changes, change failure rate, mean time to recovery, measure what the system actually produces. The question isn't "how much are we doing?" It's "how much value are we delivering, and how safely?"
 
 ---
 
@@ -105,13 +105,13 @@ The symptoms: "just this once" becoming "we did it before," exceptions that stop
 
 **Why It Fails:**
 
-Standards work when they're enforced. Each exception erodes enforcement. When standards are enforced inconsistently, they become worthless. The developer can't trust that code in main has been tested—maybe it was an exception. The operator can't trust that changes went through proper channels—maybe someone bypassed them.
+Standards work when they're enforced. Each exception erodes enforcement. When standards are enforced inconsistently, they become worthless. The developer can't trust that code in main has been tested, maybe it was an exception. The operator can't trust that changes went through proper channels, maybe someone bypassed them.
 
 Exception erosion also creates tragedy of the commons. When everyone follows the standard, everyone benefits from the quality it produces. When some people bypass, they get the speed benefit while everyone bears the quality cost. This incentivizes more bypassing until the standard collapses.
 
 **What FOE Says Instead:**
 
-Prefer technical enforcement over social enforcement. Don't ask people to follow standards; make following standards the only path available. A CI gate doesn't care about deadlines or executive pressure. It simply blocks until the standard is met. Where technical enforcement isn't possible, make social enforcement as structural as possible—written checklists, explicit sign-offs, visible tracking.
+Prefer technical enforcement over social enforcement. Don't ask people to follow standards; make following standards the only path available. A CI gate doesn't care about deadlines or executive pressure. It simply blocks until the standard is met. Where technical enforcement isn't possible, make social enforcement as structural as possible, written checklists, explicit sign-offs, visible tracking.
 
 ---
 
@@ -125,7 +125,7 @@ The symptoms: the same bugs repeatedly, debug-by-printf-archaeology, production 
 
 **Why It Fails:**
 
-The time "saved" by skipping verification is borrowed against the future at usurious interest rates. Early velocity creates technical debt. Debt accumulates interest. Interest compounds. Eventually the debt service—time spent wrestling with past shortcuts—exceeds capacity for new work.
+The time "saved" by skipping verification is borrowed against the future at usurious interest rates. Early velocity creates technical debt. Debt accumulates interest. Interest compounds. Eventually the debt service, time spent wrestling with past shortcuts, exceeds capacity for new work.
 
 Vibe coding works until it doesn't. When it stops working, it stops catastrophically. The team that moved fast early slows to a crawl. The team that invested in verification pulls steadily ahead.
 
@@ -147,7 +147,7 @@ The symptoms: transformation governance disbanded, investment in improvement sto
 
 Surface indicators are easy to spot: tools deployed, processes documented, terminology adopted. Deep change is harder to detect: behavior changed under pressure, practices maintained without enforcement, quality improved sustainably. If behavior reverts under pressure, the change is surface only.
 
-Premature victory declarations create lasting damage. They inoculate the organization against future change. "We tried that, it didn't work." The next attempt faces this objection. The organization carries the scar of the failed attempt even though the approach was never actually tried—only claimed.
+Premature victory declarations create lasting damage. They inoculate the organization against future change. "We tried that, it didn't work." The next attempt faces this objection. The organization carries the scar of the failed attempt even though the approach was never actually tried, only claimed.
 
 **What FOE Says Instead:**
 
@@ -171,7 +171,7 @@ The budget runs out before capability matures. The J-curve shows improvement sta
 
 **What FOE Says Instead:**
 
-Budget for continuous capability investment, not one-time transformation. Staff for ongoing improvement, not temporary project teams. Measure for long-term trends, not project milestones. FOE adoption isn't a project—it's a change in how the organization operates.
+Budget for continuous capability investment, not one-time transformation. Staff for ongoing improvement, not temporary project teams. Measure for long-term trends, not project milestones. FOE adoption isn't a project, it's a change in how the organization operates.
 
 ---
 
@@ -179,7 +179,7 @@ Budget for continuous capability investment, not one-time transformation. Staff 
 
 **What It Looks Like:**
 
-Public recognition, bonuses, and promotions go to the engineer who worked all weekend to fix the production outage. Meanwhile, the engineer who prevented outages through better automation gets no recognition—no one knows what didn't happen.
+Public recognition, bonuses, and promotions go to the engineer who worked all weekend to fix the production outage. Meanwhile, the engineer who prevented outages through better automation gets no recognition, no one knows what didn't happen.
 
 The symptoms: war stories about late-night saves, on-call heroes as cultural icons, prevention work that's invisible in performance reviews.
 
@@ -199,7 +199,7 @@ Reward prevention over heroics. Celebrate the deployment that went smoothly beca
 
 **What It Looks Like:**
 
-The organization copies practices from successful companies without understanding why those practices work. Daily standups, sprint ceremonies, deployment pipelines—the forms are replicated while the functions are misunderstood. "Netflix does this" becomes sufficient justification.
+The organization copies practices from successful companies without understanding why those practices work. Daily standups, sprint ceremonies, deployment pipelines, the forms are replicated while the functions are misunderstood. "Netflix does this" becomes sufficient justification.
 
 The symptoms: rituals that feel mandatory but produce no value, processes copied wholesale without adaptation to context, confusion about why practices exist.
 
@@ -227,7 +227,7 @@ The symptoms: decision backlogs measured in months, requirements documents that 
 
 Certainty is impossible in complex systems. Waiting for complete information means waiting forever. Meanwhile, competitors who acted with incomplete information have learned from results you never generated.
 
-Analysis paralysis often disguises fear of failure. If you never decide, you never fail. But indecision has costs—opportunity costs, morale costs, market costs. Not deciding is a decision to accept those costs.
+Analysis paralysis often disguises fear of failure. If you never decide, you never fail. But indecision has costs, opportunity costs, morale costs, market costs. Not deciding is a decision to accept those costs.
 
 **What FOE Says Instead:**
 
@@ -245,7 +245,7 @@ The symptoms: action item backlogs that grow indefinitely, the same issues appea
 
 **Why It Fails:**
 
-Improvement requires changing something. Theater changes nothing. The retrospective that produces action items nobody acts on is worse than no retrospective—it creates learned helplessness. Teams learn that their input doesn't matter, so they stop providing it.
+Improvement requires changing something. Theater changes nothing. The retrospective that produces action items nobody acts on is worse than no retrospective, it creates learned helplessness. Teams learn that their input doesn't matter, so they stop providing it.
 
 Improvement theater often emerges when organizations want the appearance of improvement without the cost. Real improvement requires investment: time, money, attention. Theater requires only meetings.
 
@@ -265,13 +265,13 @@ The symptoms: "we don't have time for training," "we need results this quarter,"
 
 **Why It Fails:**
 
-The J-curve is real. Transformation creates temporary degradation before improvement. New processes are slower because they're unfamiliar. New tools require learning curves. Technical debt surfaces. Organizations that under-invest can't absorb the dip—they abandon transformation at the worst moment.
+The J-curve is real. Transformation creates temporary degradation before improvement. New processes are slower because they're unfamiliar. New tools require learning curves. Technical debt surfaces. Organizations that under-invest can't absorb the dip, they abandon transformation at the worst moment.
 
-Parallel systems cost money. Training costs money. Productivity dips cost money. Pretending otherwise doesn't eliminate the costs; it just ensures they're paid in worse ways—failed transformations, burned-out teams, regression to old behaviors.
+Parallel systems cost money. Training costs money. Productivity dips cost money. Pretending otherwise doesn't eliminate the costs; it just ensures they're paid in worse ways, failed transformations, burned-out teams, regression to old behaviors.
 
 **What FOE Says Instead:**
 
-Build the dip into plans and budgets. Reduce commitments during transition. Create protected space for the transformation to mature. Expect 12-18 months before unambiguous improvement. Resist the pressure to show immediate results—the results come after the dip, not during it.
+Build the dip into plans and budgets. Reduce commitments during transition. Create protected space for the transformation to mature. Expect 12-18 months before unambiguous improvement. Resist the pressure to show immediate results, the results come after the dip, not during it.
 
 ---
 

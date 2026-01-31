@@ -8,7 +8,7 @@ word_count: 5724
 
 # Building Institutions
 
-Part IV mapped the journey—phases of capability evolution, the Phase 3 bottleneck, maturity levels within phases, and the J-curve of transformation. You now know where you are and where you're going.
+Part IV mapped the journey, phases of capability evolution, the Phase 3 bottleneck, maturity levels within phases, and the J-curve of transformation. You now know where you are and where you're going.
 
 Part V provides the practical guidance for getting there. This chapter addresses the most fundamental question of implementation: how do you make good practices stick?
 
@@ -101,7 +101,7 @@ Measurement enables improvement. Without measurement, you can't know if the inst
 
 ## Core FOE Institutions
 
-These five institutions form the foundation of FOE practice. Each one is lightweight—minimum viable mechanism—but real.
+These five institutions form the foundation of FOE practice. Each one is lightweight, minimum viable mechanism, but real.
 
 ### 1. The CI Gate
 
@@ -189,7 +189,7 @@ These five institutions form the foundation of FOE practice. Each one is lightwe
 
 **Mechanism:** Regular sessions where the team examines what's working, what isn't, and what to change. Actions are identified, assigned, and tracked.
 
-**Trigger:** Regular cadence—weekly or bi-weekly.
+**Trigger:** Regular cadence, weekly or bi-weekly.
 
 **Enforcement:** Social, backed by management participation.
 
@@ -372,7 +372,7 @@ If any box is unchecked, the institution is incomplete. Complete it before expec
 
 ## The Compound Returns of Institutions
 
-Institutions are how FOE practices become sustainable. Without them, good practices depend on vigilance and heroics—and both run out eventually. With them, good practices become the default, and the team's energy goes toward improvement rather than maintenance.
+Institutions are how FOE practices become sustainable. Without them, good practices depend on vigilance and heroics, and both run out eventually. With them, good practices become the default, and the team's energy goes toward improvement rather than maintenance.
 
 Each working institution reduces the effort required to maintain quality. That freed capacity can go toward the next improvement. This is how teams build momentum.
 
@@ -381,7 +381,7 @@ The alternative is exhausting. Without institutions, every good practice require
 Institutions are the infrastructure of sustainable excellence. Build them deliberately. Maintain them carefully. And watch as good practices stop being aspirations and start being facts.
 
 <!-- BRIDGE -->
-We've established how to build institutions—the lightweight but real mechanisms that make good practices automatic. Institutions provide the structure within which teams operate.
+We've established how to build institutions, the lightweight but real mechanisms that make good practices automatic. Institutions provide the structure within which teams operate.
 
 But teams also need guidance for situations that institutions don't cover. What happens when the playbook doesn't have an answer? What principles guide daily decisions? That's the playbook.
 <!-- /BRIDGE -->

@@ -28,7 +28,7 @@ Consider the difference between a developer who understands a codebase and one w
 
 The first developer is predicting. They're running the system forward in their head, simulating what will need to change. The second developer can't predict because they don't have a model to simulate with. The exploration they need is the process of building that model.
 
-**Diagnose problems by tracing causal chains backward.** When something breaks, you can reason from symptom to cause. The error message says A, which means B must have happened, which implies C was the source. Diagnosis without understanding is archaeology—digging through logs hoping to find something recognizable. Diagnosis with understanding is deduction—following logical chains to their source.
+**Diagnose problems by tracing causal chains backward.** When something breaks, you can reason from symptom to cause. The error message says A, which means B must have happened, which implies C was the source. Diagnosis without understanding is archaeology, digging through logs hoping to find something recognizable. Diagnosis with understanding is deduction, following logical chains to their source.
 
 Effective debugging is mostly reasoning, not searching. The expert doesn't find bugs faster because they type faster or know more commands. They find bugs faster because they can reason about causes. "This error only happens when the cache is empty, which means it's probably a null check issue in the cache miss path." That sentence contains a prediction (the cache miss path is the problem) derived from reasoning about how the system works. Without that reasoning ability, debugging becomes a random walk through the code, hoping to stumble onto the issue.
 
@@ -48,7 +48,7 @@ When understanding is present, these activities flow naturally. When understandi
 
 ## When Understanding Breaks Down
 
-Phase 2 systems—those characterized by coupling, opacity, and scale—break understanding in specific, predictable ways.
+Phase 2 systems, those characterized by coupling, opacity, and scale, break understanding in specific, predictable ways.
 
 ### Working Memory Overload
 
@@ -56,13 +56,13 @@ Humans can hold roughly four to seven items in working memory simultaneously. Th
 
 When a system has dozens of interacting components, hidden states, and non-obvious dependencies, you simply cannot hold the full causal picture in your head. You're forced to reason about fragments, losing sight of interactions. You focus on the piece in front of you and miss the cascade effects rippling through the system.
 
-This is why small codebases feel manageable and large codebases feel overwhelming. It's not that large systems are inherently harder—often the individual pieces are straightforward. It's that the number of pieces exceeds what any human can simultaneously track.
+This is why small codebases feel manageable and large codebases feel overwhelming. It's not that large systems are inherently harder, often the individual pieces are straightforward. It's that the number of pieces exceeds what any human can simultaneously track.
 
 Think about what happens when you try to understand a complex function. You read line 1, which references variable A. You read line 2, which modifies B based on A. You read line 3, which calls a function that modifies C. By line 10, you've lost track of what A was. You need to scroll back up. You re-read lines 1 through 5. By the time you're back to line 10, you've forgotten what happened at line 7.
 
 This isn't a focus problem. Your brain is working as designed. It just wasn't designed to hold more items than it can hold. The function exceeded your working memory capacity. No amount of concentration changes this.
 
-Now multiply that function by a thousand. That's a codebase. Every function you don't understand is a potential source of confusion. Every interaction between functions is something that could overflow your mental stack. The system's complexity isn't just the sum of its parts—it's the product of their interactions.
+Now multiply that function by a thousand. That's a codebase. Every function you don't understand is a potential source of confusion. Every interaction between functions is something that could overflow your mental stack. The system's complexity isn't just the sum of its parts, it's the product of their interactions.
 
 ### Causal Chain Fragmentation
 
@@ -84,7 +84,7 @@ But the system's behavior emerges from interactions that cross these boundaries.
 
 When problems span silos, no one has the complete picture. Teams point fingers. Debugging becomes negotiation. Everyone understands their piece but nobody understands the whole.
 
-The symptom is familiar: an incident requires three teams on a call, each explaining their component, each asserting their component is working correctly. The problem exists in the spaces between—in the interactions that no team owns. Hours pass before anyone can construct a unified picture of what's happening.
+The symptom is familiar: an incident requires three teams on a call, each explaining their component, each asserting their component is working correctly. The problem exists in the spaces between, in the interactions that no team owns. Hours pass before anyone can construct a unified picture of what's happening.
 
 This isn't a collaboration failure. It's a structural failure. The system has been decomposed along lines that don't match how problems manifest. Understanding has been distributed in a way that makes problems undiagnosable by any single person.
 
@@ -96,9 +96,9 @@ Your mental model still reflects the old system. You make predictions based on t
 
 This drift happens invisibly. You don't know your model is outdated until your predictions start failing. By then, the gap between belief and reality might be enormous.
 
-Model drift is insidious because confidence doesn't decay with accuracy. You feel just as confident about your predictions as you did when your model was accurate. The subjective experience of understanding hasn't changed—only the actual correspondence between model and reality.
+Model drift is insidious because confidence doesn't decay with accuracy. You feel just as confident about your predictions as you did when your model was accurate. The subjective experience of understanding hasn't changed, only the actual correspondence between model and reality.
 
-This creates a dangerous situation: engineers who are confident but wrong. They make decisions based on models that no longer apply. They design features that won't work as expected. They estimate timelines that won't hold. The confidence feels valid because it's based on real understanding—it's just understanding of a system that no longer exists.
+This creates a dangerous situation: engineers who are confident but wrong. They make decisions based on models that no longer apply. They design features that won't work as expected. They estimate timelines that won't hold. The confidence feels valid because it's based on real understanding, it's just understanding of a system that no longer exists.
 
 ## What Happens to People
 
@@ -118,7 +118,7 @@ These aren't character failures. They're predictable responses to cognitive envi
 
 **Cargo-culting** replaces analysis when understanding the "why" is impossible. You copy the ritual without knowing what it does. The team before you added this configuration flag, so you add it too. Nobody knows what it does, but everyone's afraid to remove it.
 
-**Hoping** replaces engineering when design becomes intractable. You make a change, deploy it, and watch. If nothing obviously breaks, you call it success. This isn't a plan—it's a prayer.
+**Hoping** replaces engineering when design becomes intractable. You make a change, deploy it, and watch. If nothing obviously breaks, you call it success. This isn't a plan, it's a prayer.
 
 **Deferring** replaces deciding when risk feels unbounded. If you can't predict consequences, any decision feels dangerous. So you escalate. You gather more opinions. You schedule more meetings. You avoid committing until someone else takes responsibility.
 
@@ -146,9 +146,9 @@ This reframe is uncomfortable because it implies the system must change. Changin
 
 Organizations that invest heavily in training while ignoring system complexity end up with long onboarding times, high knowledge decay, expertise bottlenecks, and constant relearning. The training works until someone forgets, then they need to retrain. The system never gets more comprehensible. The training never ends.
 
-There's a simple diagnostic for this trap. Ask: "If we had perfect training—unlimited time, unlimited resources, the best instructors—would our system become comprehensible?" If the answer is no, you don't have a training problem. You have a system problem.
+There's a simple diagnostic for this trap. Ask: "If we had perfect training, unlimited time, unlimited resources, the best instructors, would our system become comprehensible?" If the answer is no, you don't have a training problem. You have a system problem.
 
-The honest answer for most Phase 2 systems is no. The system has exceeded human cognitive limits. No training changes that. The only solution is to change the system itself—to decompose it, to simplify it, to make it legible by design rather than by heroic memorization.
+The honest answer for most Phase 2 systems is no. The system has exceeded human cognitive limits. No training changes that. The only solution is to change the system itself, to decompose it, to simplify it, to make it legible by design rather than by heroic memorization.
 
 ## The Cockpit Principle
 
@@ -174,7 +174,7 @@ The best systems don't require you to remember. They remember for you.
 
 When cognitive offloading works, engineers can forget safely. They don't need to hold the entire system in their heads because the system holds itself. Dashboards show current state. Tests verify invariants. Architecture constrains interactions. The engineer focuses on the current problem, trusting that the infrastructure handles everything else.
 
-This frees mental capacity for actual problem-solving—the creative work that humans do better than systems.
+This frees mental capacity for actual problem-solving, the creative work that humans do better than systems.
 
 The cockpit analogy extends further. Pilots don't fly by instruments because they're lazy. They fly by instruments because instruments enable capabilities that unaided humans don't have. Night flying. Cloud flying. Flying in conditions where human perception fails.
 
@@ -198,7 +198,7 @@ This means:
 
 The test is simple: can a competent engineer understand this component in one sitting? If not, it's too big. Split it.
 
-Bounding scope feels limiting. "But this component needs to do all these things!" Maybe. Or maybe that's accidental complexity that could be decomposed. The question isn't whether the component is complex—the domain might require complexity. The question is whether the complexity is essential or whether it's entanglement that could be untangled.
+Bounding scope feels limiting. "But this component needs to do all these things!" Maybe. Or maybe that's accidental complexity that could be decomposed. The question isn't whether the component is complex, the domain might require complexity. The question is whether the complexity is essential or whether it's entanglement that could be untangled.
 
 A useful heuristic: if a component's description requires the word "and" more than twice, it's probably too big. "This service handles user authentication and session management and password reset and two-factor authentication and audit logging." That's five responsibilities. Five things to understand simultaneously. Five potential interaction points. The service has grown beyond what a human can easily comprehend.
 
@@ -216,11 +216,11 @@ Explicit interfaces feel tedious. "Do I really need to document every dependency
 
 The best interfaces are self-documenting through structure. Types that encode invariants. Function signatures that reveal expectations. Module boundaries that enforce isolation. When the interface is encoded in the system itself, documentation can't drift out of sync.
 
-Consider the difference between a function that takes `data: any` and one that takes `user: AuthenticatedUser`. The first hides its requirements. The second reveals them. A developer encountering the second function immediately knows something about what it needs—without reading documentation, without asking anyone, without trial and error.
+Consider the difference between a function that takes `data: any` and one that takes `user: AuthenticatedUser`. The first hides its requirements. The second reveals them. A developer encountering the second function immediately knows something about what it needs, without reading documentation, without asking anyone, without trial and error.
 
 ### Observable State
 
-The system continuously externalizes its internal state in human-readable forms. You don't have to imagine what's happening—you can see it.
+The system continuously externalizes its internal state in human-readable forms. You don't have to imagine what's happening, you can see it.
 
 Observable state includes:
 - Current values of important variables
@@ -247,7 +247,7 @@ When causation is traceable, debugging follows a path. The error occurred at tim
 
 When causation is opaque, debugging is guessing. Something broke. Could be anything. Let's start bisecting and hope we get lucky.
 
-Traceability has a cost—instrumentation isn't free. But the cost is predictable and bounded. The cost of not tracing is unpredictable and potentially enormous. One incident where traceability would have reduced debugging time from days to hours pays for years of instrumentation investment.
+Traceability has a cost, instrumentation isn't free. But the cost is predictable and bounded. The cost of not tracing is unpredictable and potentially enormous. One incident where traceability would have reduced debugging time from days to hours pays for years of instrumentation investment.
 
 ### Progressive Disclosure
 
@@ -276,11 +276,11 @@ Good progressive disclosure has at least three levels:
 
 When AI generates code, understanding becomes even more critical.
 
-You can't review what you can't comprehend. If an AI assistant generates a hundred lines of code and you don't understand what they do, you're not reviewing—you're rubber-stamping. The AI becomes an oracle whose pronouncements you accept on faith.
+You can't review what you can't comprehend. If an AI assistant generates a hundred lines of code and you don't understand what they do, you're not reviewing, you're rubber-stamping. The AI becomes an oracle whose pronouncements you accept on faith.
 
 This is dangerous. AI systems hallucinate. They produce plausible-looking code that doesn't work. They optimize for the wrong things. They miss edge cases that would be obvious to a domain expert.
 
-AI-generated complexity that exceeds human understanding is dangerous complexity. It's not that AI-generated code is inherently worse than human-generated code. It's that code you can't understand—regardless of source—is code you can't safely maintain.
+AI-generated complexity that exceeds human understanding is dangerous complexity. It's not that AI-generated code is inherently worse than human-generated code. It's that code you can't understand, regardless of source, is code you can't safely maintain.
 
 The response isn't to avoid AI assistance. It's to ensure that AI-generated code meets the same understandability standards as human-generated code. Can you explain what it does? Can you predict how it will behave? Can you diagnose problems when they occur?
 
@@ -340,7 +340,7 @@ Effective tests:
 
 Tests aren't bureaucratic overhead. They're externalized memory. Every test is something you don't have to remember to check manually.
 
-Consider what happens without tests. Every time you make a change, you need to mentally enumerate the invariants that might be affected. Did I break authentication? Did I break data validation? Did I break the API contract? Each enumeration is a cognitive task. Each task consumes working memory. And humans are bad at complete enumeration—we forget things, especially under pressure.
+Consider what happens without tests. Every time you make a change, you need to mentally enumerate the invariants that might be affected. Did I break authentication? Did I break data validation? Did I break the API contract? Each enumeration is a cognitive task. Each task consumes working memory. And humans are bad at complete enumeration, we forget things, especially under pressure.
 
 Tests transform this enumeration into automation. The computer enumerates the invariants. The computer checks each one. The human only needs to pay attention when something fails. The cognitive load of verification drops dramatically.
 
@@ -359,7 +359,7 @@ Effective architecture:
 
 Architecture decisions are cognitive decisions. "Should we use microservices or a monolith?" is really asking "What granularity of understanding do we need?" Neither answer is universally correct. The question is which supports understanding for your team and your system.
 
-Microservices can reduce cognitive load by creating boundaries—you only need to understand the service you're working in. But they can also increase cognitive load by distributing state—you need to understand how services interact. The right choice depends on your specific context.
+Microservices can reduce cognitive load by creating boundaries, you only need to understand the service you're working in. But they can also increase cognitive load by distributing state, you need to understand how services interact. The right choice depends on your specific context.
 
 What's universally true is that architecture should be intentional about cognition. Every architectural decision is a decision about what engineers will need to understand. Make those decisions explicitly, with cognitive load as a first-class consideration.
 
@@ -371,7 +371,7 @@ Teams that optimize for understanding experience:
 
 **Safer refactoring.** Engineers change code with confidence. They understand what they're changing and can predict the effects. Refactoring becomes routine maintenance, not heroic undertaking.
 
-**Distributed ownership.** No single person is the bottleneck. Knowledge is in the system—in tests, documentation, architecture—not just in heads. People can take vacations. People can leave. The system continues.
+**Distributed ownership.** No single person is the bottleneck. Knowledge is in the system, in tests, documentation, architecture, not just in heads. People can take vacations. People can leave. The system continues.
 
 **Accurate estimation.** You can predict how long things will take because you understand what's involved. Surprises decrease. Estimates improve. Planning becomes possible.
 
@@ -405,9 +405,9 @@ You're losing understanding when:
 
 If these sound familiar, adding more documentation or training won't help. The system architecture itself needs to change to fit within human cognitive limits.
 
-The warning signs form a pattern. Each one is a symptom of the same underlying disease: the system has exceeded the cognitive capacity of the humans who work with it. The disease has many manifestations, but one cause. Address the cause—make the system comprehensible—and the symptoms resolve.
+The warning signs form a pattern. Each one is a symptom of the same underlying disease: the system has exceeded the cognitive capacity of the humans who work with it. The disease has many manifestations, but one cause. Address the cause, make the system comprehensible, and the symptoms resolve.
 
-Ignoring the warning signs is tempting. Each one, in isolation, can be explained away. "Onboarding takes long because the domain is complex." "We have tribal knowledge because our system is unique." "Documentation doesn't match reality because things change fast." These explanations are comforting because they make the problem seem inevitable. But the problem isn't inevitable. It's the result of choices—choices that can be made differently.
+Ignoring the warning signs is tempting. Each one, in isolation, can be explained away. "Onboarding takes long because the domain is complex." "We have tribal knowledge because our system is unique." "Documentation doesn't match reality because things change fast." These explanations are comforting because they make the problem seem inevitable. But the problem isn't inevitable. It's the result of choices, choices that can be made differently.
 
 ## The Foundation
 
@@ -432,5 +432,5 @@ Build it first. Build it deliberately. Maintain it continuously.
 <!-- BRIDGE -->
 Understanding gives you a map. You can see the terrain, predict the obstacles, plan your route. But a map is static, and systems are dynamic. The terrain shifts. New obstacles appear. Old paths close.
 
-You need to know when the map no longer matches the territory. You need signals that arrive fast enough to correct course before you've gone too far astray. That's fast feedback—the subject of Chapter 6.
+You need to know when the map no longer matches the territory. You need signals that arrive fast enough to correct course before you've gone too far astray. That's fast feedback, the subject of Chapter 6.
 <!-- /BRIDGE -->

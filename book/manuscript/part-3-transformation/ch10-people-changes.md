@@ -29,7 +29,7 @@ This manual guardianship model doesn't scale:
 - Consistency depends on attention and memory
 - People become bottlenecks and burn out
 
-FOE operations requires automated stewardship—protecting systems by building and maintaining automation. The ops engineer who codifies production requirements into policy. The release manager who builds deployment pipelines with automated checks. The security reviewer who implements policy-as-code.
+FOE operations requires automated stewardship, protecting systems by building and maintaining automation. The ops engineer who codifies production requirements into policy. The release manager who builds deployment pipelines with automated checks. The security reviewer who implements policy-as-code.
 
 | Aspect | Manual Guardianship | Automated Stewardship |
 |--------|--------------------|-----------------------|
@@ -64,7 +64,7 @@ Traditional security posture:
 - Security as the department of "no"
 - Penetration testing as the primary control mechanism
 
-This model made sense when deployment cycles were long. If you ship once a quarter, a security review at the end adds a week—manageable. If you ship daily, a security review at the end adds a week per day—impossible.
+This model made sense when deployment cycles were long. If you ship once a quarter, a security review at the end adds a week, manageable. If you ship daily, a security review at the end adds a week per day, impossible.
 
 FOE security posture:
 
@@ -149,7 +149,7 @@ Leaders at different levels have different specific changes:
 
 **Executives** shift from "decision bottleneck" to "context provider." They set direction and constraints, let teams figure out how. They demand visibility through metrics, not status meetings. They fund capability building, not just delivery. They model the behaviors they want to see.
 
-The leadership shift is perhaps the most difficult because it requires giving up visible control. A leader who approves every deployment feels in control. A leader who trusts the deployment pipeline feels exposed. But the approving leader controls nothing at scale—they create a bottleneck that slows everything while catching almost nothing. The trusting leader with good observability actually knows more about what's happening, faster, with less effort.
+The leadership shift is perhaps the most difficult because it requires giving up visible control. A leader who approves every deployment feels in control. A leader who trusts the deployment pipeline feels exposed. But the approving leader controls nothing at scale, they create a bottleneck that slows everything while catching almost nothing. The trusting leader with good observability actually knows more about what's happening, faster, with less effort.
 
 ## The DevOps Misconception
 
@@ -157,7 +157,7 @@ Before discussing mindset shifts, we must address a common confusion.
 
 DevOps is not a team. DevOps is not a job title. DevOps is not a department that sits between Development and Operations.
 
-DevOps is a way of operating—development and operations working toward shared goals with shared ownership of the entire software lifecycle. It's an operating alignment, not an organizational structure.
+DevOps is a way of operating, development and operations working toward shared goals with shared ownership of the entire software lifecycle. It's an operating alignment, not an organizational structure.
 
 Creating a "DevOps team" often makes things worse. It creates a third silo (Dev | DevOps | Ops) and lets Dev and Ops avoid the hard work of actual collaboration. The DevOps team becomes a translation layer that prevents the feedback loops that DevOps was supposed to create.
 
@@ -195,7 +195,7 @@ Enabling flow treats other teams as partners to be equipped:
 | "Submit a request" | "The capability is available" |
 | "I need to review" | "The policy validates automatically" |
 
-The gatekeeping mindset is seductive because it makes the gatekeeper important. Every request that flows through you is evidence of your value. The enabling mindset requires finding value elsewhere—in building systems that work without you.
+The gatekeeping mindset is seductive because it makes the gatekeeper important. Every request that flows through you is evidence of your value. The enabling mindset requires finding value elsewhere, in building systems that work without you.
 
 Gatekeeping also creates adversarial dynamics that compound. When developers must wait for operations to deploy, they batch changes into larger deployments. Larger deployments are riskier. Riskier deployments justify more scrutiny. More scrutiny creates more waiting. The gatekeeping creates the conditions that justify the gatekeeping.
 
@@ -205,7 +205,7 @@ Enabling flow breaks this cycle. When developers can deploy safely through autom
 
 Heroes are the engineers who save the day. They know where the bodies are buried. They can fix anything. When production goes down at 3am, they're the ones you call.
 
-Heroes feel essential. They feel good about being essential. Organizations reward them—explicitly with bonuses and promotions, implicitly with respect and deference.
+Heroes feel essential. They feel good about being essential. Organizations reward them, explicitly with bonuses and promotions, implicitly with respect and deference.
 
 Heroes are the problem, not the solution.
 
@@ -213,13 +213,13 @@ Heroes are the problem, not the solution.
 
 **Heroes create dependency.** Knowledge concentrates in the hero. Decisions wait for the hero. The hero becomes a bottleneck that the organization routes around by creating more heroes, which creates more bottlenecks.
 
-**Heroes resist standardization.** This isn't moral failure—it's rational self-interest. A hero's value comes from knowing things others don't. Standardization spreads that knowledge. Automation encodes it. Both reduce the hero's relative value. Of course heroes resist.
+**Heroes resist standardization.** This isn't moral failure, it's rational self-interest. A hero's value comes from knowing things others don't. Standardization spreads that knowledge. Automation encodes it. Both reduce the hero's relative value. Of course heroes resist.
 
 **Heroes are symptoms of missing discipline.** Nobody wants to be on-call at 3am. Heroes emerge because systems require heroics. If you need heroes, you have a system problem. Celebrating heroes masks the system problem instead of fixing it.
 
 Institutions are mechanisms that make desired behavior the default. They work without heroes. A CI gate that prevents broken builds is an institution. An automated deployment pipeline is an institution. A policy-as-code system that enforces security requirements is an institution.
 
-The shift from heroics to institutions means building systems that don't need heroes to function. It means recognizing heroics as failure—of the system, not of the hero—and investing in removing the conditions that required heroics in the first place.
+The shift from heroics to institutions means building systems that don't need heroes to function. It means recognizing heroics as failure, of the system, not of the hero, and investing in removing the conditions that required heroics in the first place.
 
 The practical test: can someone new do this task tomorrow? If the answer is "no, only Sarah knows how," you have a hero, not a system. If the answer is "yes, it's documented and automated," you have an institution.
 
@@ -241,19 +241,19 @@ Observability means knowing what's happening because you can see it. Automated d
 | Prevents through gatekeeping | Detects through monitoring |
 | Creates bottlenecks | Enables flow |
 
-The shift feels like losing control. It's actually gaining control—of more things, more reliably, with less effort. You can't personally review every deployment. You can see every deployment in the logs. You can't personally approve every change. You can see every change that violated policy.
+The shift feels like losing control. It's actually gaining control, of more things, more reliably, with less effort. You can't personally review every deployment. You can see every deployment in the logs. You can't personally approve every change. You can see every change that violated policy.
 
 The key psychological barrier is trust. Trusting automation feels risky. What if the automated check misses something? What if the dashboard has a bug? What if the alert doesn't fire?
 
-The answer is: those are real risks, and they're smaller than the risks of human control at scale. Human reviewers miss things—they get tired, distracted, rushed. Human oversight has gaps—vacations, sick days, competing priorities. Human attention degrades—the thousandth review is less careful than the first.
+The answer is: those are real risks, and they're smaller than the risks of human control at scale. Human reviewers miss things, they get tired, distracted, rushed. Human oversight has gaps, vacations, sick days, competing priorities. Human attention degrades, the thousandth review is less careful than the first.
 
-Automation doesn't get tired. Automation doesn't take vacation. Automation reviews the thousandth change exactly as carefully as the first. The question isn't whether automation is perfect—it isn't. The question is whether automation plus observability is better than human control at scale. It is.
+Automation doesn't get tired. Automation doesn't take vacation. Automation reviews the thousandth change exactly as carefully as the first. The question isn't whether automation is perfect, it isn't. The question is whether automation plus observability is better than human control at scale. It is.
 
 ### From Certainty to Experimentation
 
 Traditional engineering seeks certainty before acting. Plan thoroughly. Document completely. Anticipate every edge case. Then implement.
 
-This works when the problem is well-understood and the solution space is known. It fails when either is uncertain—which is most of the time in software.
+This works when the problem is well-understood and the solution space is known. It fails when either is uncertain, which is most of the time in software.
 
 FOE favors experimentation over certainty. Try something small. Measure the result. Adjust based on evidence. Repeat.
 
@@ -267,11 +267,11 @@ Experimentation doesn't mean recklessness. It means bounded experiments with fas
 | Avoids mistakes | Learns from mistakes |
 | Slow to start, fast to fail | Fast to start, fast to learn |
 
-The certainty mindset feels responsible. The experimentation mindset feels risky. But the certainty mindset produces confident wrongness—plans that seemed perfect but fail on contact with reality. The experimentation mindset produces calibrated learning—adjustments based on what actually happens.
+The certainty mindset feels responsible. The experimentation mindset feels risky. But the certainty mindset produces confident wrongness, plans that seemed perfect but fail on contact with reality. The experimentation mindset produces calibrated learning, adjustments based on what actually happens.
 
 Organizations often struggle with this shift because certainty is socially safer. Saying "I have a complete plan" sounds competent. Saying "let's try something and learn" sounds uncertain. But the complete plan that fails is worse than the experiment that teaches, even though the experiment looked less impressive at the start.
 
-The experimentation mindset requires psychological safety—the team version of individual confidence. Teams where failure is punished don't experiment. Teams where failure is learning do. Creating that safety is a leadership responsibility, not an individual choice. No one can decide to be safe in a punishing environment.
+The experimentation mindset requires psychological safety, the team version of individual confidence. Teams where failure is punished don't experiment. Teams where failure is learning do. Creating that safety is a leadership responsibility, not an individual choice. No one can decide to be safe in a punishing environment.
 
 ## Why Adding People Doesn't Help
 
@@ -279,17 +279,17 @@ When systems become incomprehensible, the natural response is adding people. Mor
 
 This fails for a structural reason: incomprehensibility isn't solved by more interpreters.
 
-When the system itself is incomprehensible, adding people doesn't distribute the cognitive load—it multiplies the coordination cost. Each new person must build their own mental model (which takes time), keep it synchronized with others (which requires communication overhead), and navigate disagreements about system behavior (which creates conflict).
+When the system itself is incomprehensible, adding people doesn't distribute the cognitive load, it multiplies the coordination cost. Each new person must build their own mental model (which takes time), keep it synchronized with others (which requires communication overhead), and navigate disagreements about system behavior (which creates conflict).
 
 Ten people who don't understand the system aren't more effective than one person who doesn't understand it. They're often less effective, because now they also don't understand each other's misunderstandings.
 
 The system must become legible before adding interpreters helps. More people can productively work on a comprehensible system. More people cannot productively work on an incomprehensible one.
 
-This is why people changes can't happen in isolation from technology changes. You can't ask people to understand systems that exceed human cognitive capacity. You must first make the systems understandable—through better architecture, better instrumentation, better documentation, better tooling. Then people can understand them.
+This is why people changes can't happen in isolation from technology changes. You can't ask people to understand systems that exceed human cognitive capacity. You must first make the systems understandable, through better architecture, better instrumentation, better documentation, better tooling. Then people can understand them.
 
 This insight also explains why organizations often respond to delivery failures by adding oversight personnel. More reviewers. More approvers. More eyes on the problem.
 
-This makes sense if the problem is insufficient attention. But if the problem is system incomprehensibility, additional oversight simply creates more people generating different wrong conclusions from the same opaque data. The solution isn't more interpreters—it's making the system legible so interpreters can actually interpret it.
+This makes sense if the problem is insufficient attention. But if the problem is system incomprehensibility, additional oversight simply creates more people generating different wrong conclusions from the same opaque data. The solution isn't more interpreters, it's making the system legible so interpreters can actually interpret it.
 
 The cognitive triangle from Chapter 8 applies here. People need understanding (legible systems), fast feedback (to calibrate their beliefs), and confidence (to take action). No amount of additional staffing provides these if the underlying system doesn't support them.
 
@@ -322,13 +322,13 @@ The message is: you're not becoming less valuable, you're becoming valuable in a
 
 Some people will embrace this eagerly. Some will resist until they see peers succeed. Some will never accept it. Plan for all three.
 
-The timeline for identity shifts varies enormously. Some engineers redefine themselves in weeks. Others take years. The variation isn't about intelligence or skill—it's about how deeply the old identity is entrenched.
+The timeline for identity shifts varies enormously. Some engineers redefine themselves in weeks. Others take years. The variation isn't about intelligence or skill, it's about how deeply the old identity is entrenched.
 
-Engineers who've spent a decade building their reputation as the infrastructure expert face a deeper identity shift than engineers two years into their career. The expert has more to lose—or feels like they do. They need more patience, more support, more demonstration of what the new identity looks like in practice.
+Engineers who've spent a decade building their reputation as the infrastructure expert face a deeper identity shift than engineers two years into their career. The expert has more to lose, or feels like they do. They need more patience, more support, more demonstration of what the new identity looks like in practice.
 
 This is why transformation often moves faster with newer engineers. Not because they're smarter or better, but because they have less identity investment in the old way. They haven't yet built careers on being indispensable. They're still forming their professional identity and can form it around the new model.
 
-This doesn't mean you abandon experienced engineers—their knowledge is valuable. It means you expect different change curves for different tenure levels, and you plan support accordingly.
+This doesn't mean you abandon experienced engineers, their knowledge is valuable. It means you expect different change curves for different tenure levels, and you plan support accordingly.
 
 ## Incentive Alignment
 
@@ -338,7 +338,7 @@ What gets rewarded gets repeated. Transformation requires aligning incentives wi
 
 When heroics get celebrated, you get more heroics. The all-night fix. The weekend save. The single engineer who held it together.
 
-Celebrating heroics rewards the symptoms of failure. It creates incentives for situations that require heroics. It makes heroes—consciously or not—less interested in preventing the crises that make them look good.
+Celebrating heroics rewards the symptoms of failure. It creates incentives for situations that require heroics. It makes heroes, consciously or not, less interested in preventing the crises that make them look good.
 
 Reward automation instead:
 
@@ -378,7 +378,7 @@ The engineer who fixes a deployment pipeline problem helps every team. The engin
 
 System improvement requires a longer time horizon than individual performance. The deployment pipeline fix might take a sprint to implement and save hundreds of hours over years. If performance reviews only look at the current quarter, the engineer who does the fix looks less productive than the one who closed twenty tickets.
 
-This is why leadership commitment matters. Leaders must protect engineers who invest in systemic improvement from the short-term metrics that punish them. Leaders must create review processes that recognize leverage—the multiplier effect of improving shared systems.
+This is why leadership commitment matters. Leaders must protect engineers who invest in systemic improvement from the short-term metrics that punish them. Leaders must create review processes that recognize leverage, the multiplier effect of improving shared systems.
 
 The paradox of transformation incentives: the changes you want require rewarding behaviors that current metrics don't capture. You must change the metrics before you can change the behaviors. This is uncomfortable. It requires trusting that better metrics exist before you've proven they work. That's the leap of faith transformation demands.
 
@@ -424,7 +424,7 @@ People don't change because you tell them to. They change when:
 
 **The path is visible.** People need to see where transformation leads. What does success look like? Who has already made the transition? What's their experience? Role models matter. Stories matter. The engineer who successfully transitioned from guardian to steward can explain the path better than any management presentation.
 
-**Support exists.** Transition is difficult. People need training, mentorship, time to experiment, permission to fail. Organizations that expect transformation without investment in support are expecting people to change on their own time with their own resources. That's not transformation—it's abandonment disguised as aspiration.
+**Support exists.** Transition is difficult. People need training, mentorship, time to experiment, permission to fail. Organizations that expect transformation without investment in support are expecting people to change on their own time with their own resources. That's not transformation, it's abandonment disguised as aspiration.
 
 ## The Hard Truth
 
@@ -446,19 +446,19 @@ Organizations fail at people change in predictable ways.
 
 ### "We hired DevOps engineers"
 
-Hiring doesn't change existing people. The new hires become a silo, or frustrated, or both. You can't hire your way to transformation—you must transform the people you have.
+Hiring doesn't change existing people. The new hires become a silo, or frustrated, or both. You can't hire your way to transformation, you must transform the people you have.
 
 New hires can help. They bring skills, fresh perspective, energy. But they can't carry transformation alone. If the existing team doesn't change, the new hires either assimilate into the existing culture (changing nothing) or leave for environments that actually practice what you hired them to do.
 
 ### "We sent everyone to training"
 
-Training without practice doesn't stick. The retention curve for classroom learning is brutal—within weeks, most of what was taught is forgotten. Only skills that get used immediately and repeatedly become permanent.
+Training without practice doesn't stick. The retention curve for classroom learning is brutal, within weeks, most of what was taught is forgotten. Only skills that get used immediately and repeatedly become permanent.
 
 Training matters, but it's insufficient. Build application into work immediately. Pair training with projects that require the trained skills. Create opportunities to use new knowledge before it fades.
 
 ### "We'll change the culture"
 
-Culture is an outcome, not a lever. You can't directly change culture any more than you can directly change your reputation. You can change behaviors, systems, and incentives—culture follows.
+Culture is an outcome, not a lever. You can't directly change culture any more than you can directly change your reputation. You can change behaviors, systems, and incentives, culture follows.
 
 Organizations that try to change culture through slogans, posters, and town halls waste energy. Culture changes when daily behaviors change. Daily behaviors change when incentives and systems change. Start there.
 
@@ -468,13 +468,13 @@ When information asymmetries exist, more communication seems like the answer. Mo
 
 This rarely helps because communication isn't free. Every meeting has a cost. Every sync point creates a dependency. More communication between ten people who don't understand the system just distributes confusion faster.
 
-The solution isn't more communication—it's less need for communication. Systems that are observable don't require someone to explain what's happening. Processes that are documented don't require someone to convey the tribal knowledge. Automation that works doesn't require someone to confirm it worked.
+The solution isn't more communication, it's less need for communication. Systems that are observable don't require someone to explain what's happening. Processes that are documented don't require someone to convey the tribal knowledge. Automation that works doesn't require someone to confirm it worked.
 
 ### "Some people just won't change"
 
 True, but often used as excuse rather than diagnosis. Before concluding someone won't change, ask: have they had time to learn? Have they seen benefit clearly? Has failure been safe? Has success been recognized?
 
-If the answer to any of these is "no," you haven't tested whether they'll change—you've tested whether they'll change without support. That's a different question.
+If the answer to any of these is "no," you haven't tested whether they'll change, you've tested whether they'll change without support. That's a different question.
 
 Some people genuinely won't change, even with support. Handle them humanely but firmly. But don't use their existence to avoid the harder work of creating conditions where most people can change.
 

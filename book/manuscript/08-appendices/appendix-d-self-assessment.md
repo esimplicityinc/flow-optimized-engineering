@@ -11,9 +11,9 @@ Honest assessment is the prerequisite for progress. Organizations routinely over
 
 It isn't failure. It's diagnosis.
 
-A doctor doesn't judge a patient for having symptoms. The symptoms are information. Accurate diagnosis enables effective treatment. Inaccurate diagnosis—pretending the symptoms don't exist or misidentifying them—leads to interventions that don't help and may harm.
+A doctor doesn't judge a patient for having symptoms. The symptoms are information. Accurate diagnosis enables effective treatment. Inaccurate diagnosis, pretending the symptoms don't exist or misidentifying them, leads to interventions that don't help and may harm.
 
-The same logic applies to organizational transformation. You cannot improve what you cannot see. You cannot plan a journey without knowing your starting point. These assessment tools exist to create that visibility—honestly, without judgment, for the purpose of progress.
+The same logic applies to organizational transformation. You cannot improve what you cannot see. You cannot plan a journey without knowing your starting point. These assessment tools exist to create that visibility, honestly, without judgment, for the purpose of progress.
 
 Three tools follow:
 
@@ -42,7 +42,7 @@ Most organizations claiming Phase 3 are actually in Phase 2. The gap between hav
 
 ### Instructions
 
-For each indicator below, identify which column best describes your organization's *actual behavior*—not your aspirations, not your tools, not your plans. What actually happens when someone needs to provision infrastructure, deploy a change, or respond to a failure?
+For each indicator below, identify which column best describes your organization's *actual behavior*, not your aspirations, not your tools, not your plans. What actually happens when someone needs to provision infrastructure, deploy a change, or respond to a failure?
 
 Be specific. Think of recent examples. If the answer varies across teams or systems, assess the median case, not the best case.
 
@@ -54,7 +54,7 @@ Be specific. Think of recent examples. If the answer varies across teams or syst
 | **Environment consistency** | Each environment is a unique snowflake. Production differs from staging in undocumented ways. "Works in dev, fails in prod" is common. | Templated but drifts over time. Environments start similar but diverge. Periodic "refresh" projects to re-synchronize. | Identical and ephemeral. Environments are created from the same source. Drift is impossible because state is continuously reconciled. |
 | **Change process** | Heroic individuals who know the system. Specific people must be involved for specific changes. Knowledge is in heads, not systems. | Tools plus heroes. Pipelines exist but require interpretation. "The pipeline passed, but let's have Alex review it anyway." | Automated pipelines, trusted. Changes flow through automation without human intervention for routine work. Exceptions are rare and documented. |
 | **Failure response** | "Who can fix this?" Incident response requires finding the person who understands this system. Recovery depends on individual expertise. | "Check the runbook, then call someone." Documentation exists but may be incomplete. Escalation is common. | "System will reconcile" or "Automation will handle it." Self-healing mechanisms exist. Human intervention is for novel situations only. |
-| **Knowledge location** | Tribal, in heads. Critical information isn't written down. When key people leave, capability leaves with them. | Documented but stale. Documentation exists but may not reflect current state. "Don't trust the wiki—ask Sarah." | Encoded in automation. The system is the documentation. Runbooks are executable code, not prose instructions. |
+| **Knowledge location** | Tribal, in heads. Critical information isn't written down. When key people leave, capability leaves with them. | Documented but stale. Documentation exists but may not reflect current state. "Don't trust the wiki, ask Sarah." | Encoded in automation. The system is the documentation. Runbooks are executable code, not prose instructions. |
 | **Exception handling** | Exceptions are common and accepted. "Legacy systems" work differently. Special cases are normal. | Exceptions reduced but present. Standards exist but have known violations. "We'll fix that eventually." | No exceptions. If something needs to be different, the standard changes. One system of record, universally applied. |
 | **Metrics and decisions** | Descriptive or absent. Metrics describe what happened, if they exist at all. Decisions are based on intuition or experience. | Dashboards exist but don't drive decisions. "We track deployment frequency, but we don't act on it." | Metrics drive automated decisions. Alerts trigger automated responses. Dashboards are for insight, not for decision-making. |
 
@@ -63,7 +63,7 @@ Be specific. Think of recent examples. If the answer varies across teams or syst
 Count how many indicators fall into each column:
 
 - **Predominantly Phase 0-1**: Your organization operates with traditional, manual approaches. Cloud may be present but cloud-native disciplines are not.
-- **Predominantly Phase 2**: Your organization has adopted modern tools but not modern disciplines. This is the most common state and the most dangerous—you have the complexity of new tools without the benefits of new practices.
+- **Predominantly Phase 2**: Your organization has adopted modern tools but not modern disciplines. This is the most common state and the most dangerous, you have the complexity of new tools without the benefits of new practices.
 - **Predominantly Phase 3+**: Your organization has achieved true cloud-native operations. Disciplines match tools. Automation is trusted. Self-healing is real.
 
 **Mixed results** (roughly even across columns) indicate inconsistent adoption. Different teams or systems are at different phases. This creates friction at boundaries and prevents the organization from realizing the benefits of any particular phase.
@@ -74,7 +74,7 @@ Answer these yes or no:
 
 | Question | What "Yes" Indicates |
 |----------|---------------------|
-| Do you ever kubectl directly against production? | Not operating GitOps—tools exist but practices don't |
+| Do you ever kubectl directly against production? | Not operating GitOps, tools exist but practices don't |
 | Can teams deploy without platform team involvement? | If no, you have gatekeepers, not a platform |
 | Is infrastructure state continuously reconciled to code? | If no, IaC is for provisioning, not source of truth |
 | Do policy violations get prevented or just reported? | If reported, enforcement isn't real |
@@ -101,17 +101,17 @@ The Maturity Level Assessment determines how well you're operating at your curre
 
 The five levels represent a progression from reactive chaos toward proactive stability:
 
-- **Level 0: Fragile** — "We find out late"
-- **Level 1: Visible** — "We can see what's happening"
-- **Level 2: Repeatable** — "We can change things safely"
-- **Level 3: Flowing** — "The system teaches us as we use it"
-- **Level 4: Adaptive** — "We can absorb change without destabilizing"
+- **Level 0: Fragile**, "We find out late"
+- **Level 1: Visible**, "We can see what's happening"
+- **Level 2: Repeatable**, "We can change things safely"
+- **Level 3: Flowing**, "The system teaches us as we use it"
+- **Level 4: Adaptive**, "We can absorb change without destabilizing"
 
-An organization can be Phase 3 with Level 1 maturity—cloud-native tools operating chaotically. It can be Phase 1 with Level 3 maturity—simple architecture operating smoothly. Level matters independently of phase.
+An organization can be Phase 3 with Level 1 maturity, cloud-native tools operating chaotically. It can be Phase 1 with Level 3 maturity, simple architecture operating smoothly. Level matters independently of phase.
 
 ### Instructions
 
-Assess your organization across the three FOE optimizations: Understanding, Fast Feedback, and Confidence. For each optimization, identify the level that best describes your *actual behavior*—not aspirations, not on good days, but typical operations.
+Assess your organization across the three FOE optimizations: Understanding, Fast Feedback, and Confidence. For each optimization, identify the level that best describes your *actual behavior*, not aspirations, not on good days, but typical operations.
 
 Different optimizations may be at different levels. That's useful information about where investment would have the most impact.
 
@@ -166,7 +166,7 @@ Different optimizations may be at different levels. That's useful information ab
 | Understanding lower than others | Knowledge isn't captured | Documentation, knowledge management, onboarding |
 | Fast Feedback lower than others | Problems discovered late | Observability, testing, CI/CD improvement |
 | Confidence lower than others | Teams won't act | Rollback capability, blast radius limits, deployment safety |
-| All low (0-1) | Foundation gaps | Start with visibility—you can't improve what you can't see |
+| All low (0-1) | Foundation gaps | Start with visibility, you can't improve what you can't see |
 | Mixed (varies by team) | Uneven adoption | Standardization, platform investment, best practice sharing |
 
 **Important**: The goal is not Level 4. Level 4 is appropriate for organizations facing high volatility and change. Many organizations operate successfully at Level 2 or Level 3 for years. The goal is the level appropriate for your context, operated honestly.
@@ -177,7 +177,7 @@ Different optimizations may be at different levels. That's useful information ab
 
 ### Purpose
 
-The Transformation Readiness Assessment determines whether your organization is prepared to advance—to move to a higher phase or level. Transformation requires more than desire. It requires leadership commitment, institutional capability, investment, and cultural readiness.
+The Transformation Readiness Assessment determines whether your organization is prepared to advance, to move to a higher phase or level. Transformation requires more than desire. It requires leadership commitment, institutional capability, investment, and cultural readiness.
 
 Many transformation efforts fail not because the destination was wrong but because the organization wasn't ready to travel. This assessment identifies readiness gaps before you begin.
 
@@ -196,11 +196,11 @@ Be honest. Aspirations don't count. Rate what exists today.
 
 | Indicator | Description | Score (0-3) |
 |-----------|-------------|-------------|
-| **Executive sponsorship** | A named executive owns the transformation with authority over budget, staffing, and organizational decisions. Not just "support"—actual ownership. | ___ |
+| **Executive sponsorship** | A named executive owns the transformation with authority over budget, staffing, and organizational decisions. Not just "support" actual ownership. | ___ |
 | **Sustained attention** | Leadership commits to the transformation for 18+ months, not just the next quarter. Transformation is discussed regularly at executive level. | ___ |
 | **Resource protection** | Transformation investment is protected from reallocation when short-term pressures arise. "We need those people for the deadline" doesn't drain the effort. | ___ |
 | **Visible modeling** | Leaders demonstrate the new behaviors themselves. They use the dashboards, follow the processes, cite the metrics. | ___ |
-| **Tolerance for the dip** | Leadership understands and accepts the J-curve—performance may temporarily decrease before it improves. They won't panic and reverse course. | ___ |
+| **Tolerance for the dip** | Leadership understands and accepts the J-curve, performance may temporarily decrease before it improves. They won't panic and reverse course. | ___ |
 | **Enforcement willingness** | Leaders enforce standards even when exceptions would be easier. They say no to shortcuts that undermine the transformation. | ___ |
 
 **Category total: ___ / 18**
@@ -209,7 +209,7 @@ Be honest. Aspirations don't count. Rate what exists today.
 
 | Indicator | Description | Score (0-3) |
 |-----------|-------------|-------------|
-| **Platform team existence** | A dedicated team (or capacity) exists to build internal developer experience. Not just operations—product thinking about internal tools. | ___ |
+| **Platform team existence** | A dedicated team (or capacity) exists to build internal developer experience. Not just operations, product thinking about internal tools. | ___ |
 | **Standards authority** | Someone has authority to set and enforce standards across teams. Standards aren't suggestions that teams can ignore. | ___ |
 | **Learning mechanisms** | Structured ways to capture and share lessons learned exist and are used. Post-mortems happen, and insights flow back into practice. | ___ |
 | **Measurement infrastructure** | Ability to measure what matters (DORA metrics, flow metrics) exists. Data is collected, accessible, and trusted. | ___ |
@@ -222,7 +222,7 @@ Be honest. Aspirations don't count. Rate what exists today.
 
 | Indicator | Description | Score (0-3) |
 |-----------|-------------|-------------|
-| **Budget allocated** | Specific budget exists for transformation activities—training, tooling, dedicated staff, external expertise if needed. | ___ |
+| **Budget allocated** | Specific budget exists for transformation activities, training, tooling, dedicated staff, external expertise if needed. | ___ |
 | **Time allocated** | People have time carved out for transformation work. It's not "in addition to your regular job." | ___ |
 | **Parallel systems accepted** | Organization accepts that old and new will run in parallel during transition, with associated costs. | ___ |
 | **Productivity dip accepted** | Investment in transformation means accepting temporary productivity decrease. This is budgeted, not resented. | ___ |
@@ -286,9 +286,9 @@ The three assessments provide a complete picture:
 
 **Recommended sequence:**
 
-1. Complete Phase Assessment first—establish your current location
-2. Complete Maturity Assessment—understand how well you're operating
-3. Complete Readiness Assessment—determine if you're prepared to advance
+1. Complete Phase Assessment first, establish your current location
+2. Complete Maturity Assessment, understand how well you're operating
+3. Complete Readiness Assessment, determine if you're prepared to advance
 
 **Common patterns and implications:**
 
@@ -315,13 +315,13 @@ These assessments work best when conducted with the right people in the right wa
 
 **Phase Assessment**: Include people who actually provision infrastructure, deploy code, and respond to incidents. Technical leads and platform engineers are essential. Managers who don't touch the systems directly should listen but not dominate.
 
-**Maturity Assessment**: Include representatives from across the three optimizations—people who document and share knowledge (understanding), people who build and run feedback systems (fast feedback), and people who make deployment decisions (confidence). Different perspectives reveal different realities.
+**Maturity Assessment**: Include representatives from across the three optimizations, people who document and share knowledge (understanding), people who build and run feedback systems (fast feedback), and people who make deployment decisions (confidence). Different perspectives reveal different realities.
 
 **Readiness Assessment**: Include leadership (for commitment indicators), platform/infrastructure leads (for capability indicators), finance or program management (for investment indicators), and team leads (for cultural indicators). This assessment requires cross-functional participation.
 
 ### How to Facilitate
 
-1. **Establish psychological safety first.** Emphasize that honest assessment is the goal. There are no wrong answers—only accurate and inaccurate ones.
+1. **Establish psychological safety first.** Emphasize that honest assessment is the goal. There are no wrong answers, only accurate and inaccurate ones.
 
 2. **Use specific examples.** When someone claims Phase 3, ask: "Can you give me an example from the last month?" Specificity reveals reality.
 
@@ -345,8 +345,8 @@ These assessments work best when conducted with the right people in the right wa
 
 These tools are most valuable when used regularly and honestly. A single assessment is a snapshot. Repeated assessments reveal trajectory.
 
-Track your scores over time. Celebrate genuine movement—even from Level 0 to Level 1. That movement represents real progress. A genuine Level 1 is more valuable than a claimed Level 3.
+Track your scores over time. Celebrate genuine movement, even from Level 0 to Level 1. That movement represents real progress. A genuine Level 1 is more valuable than a claimed Level 3.
 
 The goal is never to maximize scores. The goal is to understand reality clearly enough to act effectively. Honest assessment enables honest planning. Honest planning enables successful transformation.
 
-Go faster by knowing more—starting with knowing where you actually are.
+Go faster by knowing more, starting with knowing where you actually are.

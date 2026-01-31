@@ -10,11 +10,11 @@ word_count: 5978
 
 The prologue showed you what happens when agentic coding meets unprepared organizations. Meridian Software experienced initial euphoria, mounting chaos, and eventual crisis. But the prologue told you *what* happened, not *why* it happened.
 
-This chapter examines the underlying economics. The four failure patterns—uninstrumented speed, review collapse, knowledge fragmentation, and architecture decay—share a common cause. Understanding that cause is the first step toward avoiding those failures.
+This chapter examines the underlying economics. The four failure patterns, uninstrumented speed, review collapse, knowledge fragmentation, and architecture decay, share a common cause. Understanding that cause is the first step toward avoiding those failures.
 
 The cause is not AI. AI accelerates the failures, but organizations have been experiencing these patterns for decades. The cause is a fundamental misunderstanding about the relationship between speed and information.
 
-This misunderstanding has consequences. Organizations pursue speed through effort—working harder, working longer, working faster—instead of through insight. They treat verification as friction rather than fuel. They optimize for the appearance of progress rather than the reality of delivery. And then they're surprised when the wheels come off.
+This misunderstanding has consequences. Organizations pursue speed through effort, working harder, working longer, working faster, instead of through insight. They treat verification as friction rather than fuel. They optimize for the appearance of progress rather than the reality of delivery. And then they're surprised when the wheels come off.
 
 ## The Economic Premise
 
@@ -26,7 +26,7 @@ This assumption is backwards.
 
 **The faster you go, the more you need to know.**
 
-Consider a car traveling at 25 miles per hour through a residential neighborhood. The driver relies on human reaction time. They see a child entering the street, recognize the danger, move their foot to the brake, apply pressure. At 25 mph, this sequence—perception, recognition, decision, action—completes before impact. Human cognition is fast enough.
+Consider a car traveling at 25 miles per hour through a residential neighborhood. The driver relies on human reaction time. They see a child entering the street, recognize the danger, move their foot to the brake, apply pressure. At 25 mph, this sequence, perception, recognition, decision, action, completes before impact. Human cognition is fast enough.
 
 Now consider a car at 150 miles per hour on a race track. At this speed, human reaction time is insufficient. By the time the driver perceives a problem, recognizes it, decides to act, and physically responds, the car has traveled hundreds of feet. The margins have disappeared. Human cognition alone cannot keep up.
 
@@ -50,9 +50,9 @@ You sit in the cockpit. The engine rumbles. The track stretches ahead. You can f
 
 You have two choices: slow down out of fear, or push forward and crash.
 
-Most drivers choose fear. They reduce speed until human observation is sufficient—looking out the window for smoke, feeling the steering for vibration, listening to the engine for strain. This works, but it limits them to a fraction of the car's capability. The car can go 200 mph. The driver without gauges maxes out at 60.
+Most drivers choose fear. They reduce speed until human observation is sufficient, looking out the window for smoke, feeling the steering for vibration, listening to the engine for strain. This works, but it limits them to a fraction of the car's capability. The car can go 200 mph. The driver without gauges maxes out at 60.
 
-Now imagine the same car with a full instrument panel. Speed, RPM, engine temperature, oil pressure, tire wear, fuel level, brake temperature—all visible at a glance. Warning lights alert you before conditions become critical. Telemetry records everything for later analysis.
+Now imagine the same car with a full instrument panel. Speed, RPM, engine temperature, oil pressure, tire wear, fuel level, brake temperature, all visible at a glance. Warning lights alert you before conditions become critical. Telemetry records everything for later analysis.
 
 With instrumentation, you can push harder. Not because you're more reckless, but because you see the consequences of your decisions in real time. You know how much margin you have. You know which limits you're approaching. You can operate at 90% of maximum capability because you can see where 100% is.
 
@@ -92,7 +92,7 @@ A deployment that takes 30 minutes has 30 minutes of accumulated risk.
 
 The dependencies haven't changed. The requirements haven't drifted. The context is fresh. The blast radius is bounded. When something goes wrong, there's only 30 minutes of changes to examine.
 
-This is why small batches reduce risk. Not because they contain less code—though they usually do—but because they contain less accumulated uncertainty.
+This is why small batches reduce risk. Not because they contain less code, though they usually do, but because they contain less accumulated uncertainty.
 
 But small batches only work if you can verify them quickly.
 
@@ -108,15 +108,15 @@ Small batches require:
 
 4. **Rollback that executes in seconds.** If reverting a bad deployment requires a change advisory board meeting and a multi-day process, you cannot deploy frequently. The risk of being stuck with a bad deployment is too high.
 
-Traditional approaches treat these capabilities as "nice to have"—improvements you make when you have time, luxuries you invest in after the product is successful.
+Traditional approaches treat these capabilities as "nice to have" improvements you make when you have time, luxuries you invest in after the product is successful.
 
 FOE treats them as prerequisites for speed. You cannot go fast without them. Not "should not." Cannot. The mathematics don't work.
 
-The non-linearity of consequences explains why organizations that appear to be cutting corners often appear to be moving fast—at first. They skip the test. They bypass the review. They deploy without monitoring. Nothing bad happens immediately. The corner-cutting looks like efficiency.
+The non-linearity of consequences explains why organizations that appear to be cutting corners often appear to be moving fast, at first. They skip the test. They bypass the review. They deploy without monitoring. Nothing bad happens immediately. The corner-cutting looks like efficiency.
 
-But the consequences accumulate invisibly. Each skipped test is a future bug waiting to manifest. Each bypassed review is context that wasn't shared. Each unmonitored deployment is a problem that won't be detected until customers complain. The debt builds silently until something triggers the collapse—a major incident, a departure of key engineers, a market shift that requires rapid change.
+But the consequences accumulate invisibly. Each skipped test is a future bug waiting to manifest. Each bypassed review is context that wasn't shared. Each unmonitored deployment is a problem that won't be detected until customers complain. The debt builds silently until something triggers the collapse, a major incident, a departure of key engineers, a market shift that requires rapid change.
 
-The organizations that appear to be moving slowly—writing tests, doing reviews, building monitoring—are actually investing in sustainable speed. Their velocity in month one is lower. Their velocity in month twelve is higher. Their velocity in month sixty is dramatically higher, while the corner-cutters are mired in technical debt and operational chaos.
+The organizations that appear to be moving slowly, writing tests, doing reviews, building monitoring, are actually investing in sustainable speed. Their velocity in month one is lower. Their velocity in month twelve is higher. Their velocity in month sixty is dramatically higher, while the corner-cutters are mired in technical debt and operational chaos.
 
 ## Why Small-Team Approaches Fail at Scale
 
@@ -126,7 +126,7 @@ Then they scale, and it stops working. The practices that enabled speed at 5 peo
 
 ### Manual Review Hits Cognitive Limits
 
-One skilled reviewer can carefully evaluate 100 lines of code. They read each line, understand the logic, consider edge cases, identify potential bugs, verify the implementation matches the requirements. This takes time—perhaps 15-30 minutes for careful review—but it produces genuine understanding. The reviewer can catch subtle errors because they comprehend what the code does.
+One skilled reviewer can carefully evaluate 100 lines of code. They read each line, understand the logic, consider edge cases, identify potential bugs, verify the implementation matches the requirements. This takes time, perhaps 15-30 minutes for careful review, but it produces genuine understanding. The reviewer can catch subtle errors because they comprehend what the code does.
 
 The same reviewer cannot carefully evaluate 10,000 lines. No human can. The cognitive load exceeds working memory. Instead of comprehending, the reviewer scans. Instead of analyzing, they pattern-match. Instead of verifying correctness, they look for obvious mistakes.
 
@@ -136,7 +136,7 @@ At scale, manual review degrades through predictable stages:
 - **Scanning becomes rubber-stamping.** Overwhelmed reviewers click "approve" to clear the queue. The review becomes a ritual rather than a verification. The ceremony continues, but the purpose is lost.
 - **Rubber-stamping becomes a bottleneck.** The reviewers who take review seriously create backlog. Other engineers pressure them to approve faster. The culture penalizes thoroughness.
 
-This happened at Meridian. Marcus didn't review the agent-generated code. He approved it. He couldn't review it—there was too much, too fast. But because the ritual of review continued, the organization believed verification was happening. The dashboard showed reviews completed. The metrics looked good. The reality was different.
+This happened at Meridian. Marcus didn't review the agent-generated code. He approved it. He couldn't review it, there was too much, too fast. But because the ritual of review continued, the organization believed verification was happening. The dashboard showed reviews completed. The metrics looked good. The reality was different.
 
 Manual review works for small teams because the volume stays within cognitive limits. It fails at scale because human cognition doesn't scale.
 
@@ -150,13 +150,13 @@ The "somewhere, probably" is sufficient because Sarah can ask Tom. The knowledge
 
 This doesn't transfer.
 
-When the team grows from 5 to 50, the original members are outnumbered. Each knows pieces of the system, but no one knows all of it. New members don't know any of it. They ask questions, but the answers are partial. "I think Tom knows that part." "That predates my time here." "Check the wiki—wait, that's outdated."
+When the team grows from 5 to 50, the original members are outnumbered. Each knows pieces of the system, but no one knows all of it. New members don't know any of it. They ask questions, but the answers are partial. "I think Tom knows that part." "That predates my time here." "Check the wiki, wait, that's outdated."
 
-Knowledge fragmentation accelerates because growth rate exceeds knowledge transfer rate. If the team doubles every year and knowledge transfer happens through pairing and conversation, the new members never catch up. They're productive—they can write code, fix bugs, ship features—but they don't understand the system. They're operating without context.
+Knowledge fragmentation accelerates because growth rate exceeds knowledge transfer rate. If the team doubles every year and knowledge transfer happens through pairing and conversation, the new members never catch up. They're productive, they can write code, fix bugs, ship features, but they don't understand the system. They're operating without context.
 
 This compounds over time. First-generation knowledge (why the original decisions were made) is held by founders. Second-generation knowledge (why the subsequent decisions were made) is distributed among early employees. Third-generation knowledge (what the current code does) is held by no one, because the people who wrote it didn't understand the context and the people who understood the context didn't write it.
 
-At Meridian, the undocumented retry assumption lived in the heads of two engineers. One left. The other never thought to document it. The agent violated the assumption not maliciously but ignorantly—it had no way to know. The tribal knowledge that protected the system from that particular failure didn't transfer to the tool that was generating code.
+At Meridian, the undocumented retry assumption lived in the heads of two engineers. One left. The other never thought to document it. The agent violated the assumption not maliciously but ignorantly, it had no way to know. The tribal knowledge that protected the system from that particular failure didn't transfer to the tool that was generating code.
 
 The mathematics of knowledge transfer are unforgiving. Assume each engineer needs 100 hours of context transfer to become productive. A 5-person team needs 500 person-hours of context to function. A 50-person team needs 5,000. But context transfer requires someone who already has the context to do the transferring. If your 5 original engineers are the only ones who can transfer context, and they each have 2,000 working hours per year, context transfer alone consumes half their capacity at 50 people. Add normal work, meetings, vacation, and the math breaks. The original team cannot transfer context fast enough to keep up with hiring.
 
@@ -166,7 +166,7 @@ The result is a system that functions but that no one fully understands. Code wo
 
 ### Heroic Capacity Doesn't Multiply
 
-Every organization has heroes—engineers who hold the system in their heads, who can debug anything, who understand how all the pieces connect. In small teams, heroes are sufficient. One person with comprehensive system knowledge can answer questions, guide decisions, and prevent mistakes.
+Every organization has heroes, engineers who hold the system in their heads, who can debug anything, who understand how all the pieces connect. In small teams, heroes are sufficient. One person with comprehensive system knowledge can answer questions, guide decisions, and prevent mistakes.
 
 The temptation is to scale by adding more heroes. If one hero supports a 5-person team, ten heroes should support a 50-person team.
 
@@ -174,7 +174,7 @@ This doesn't work.
 
 First, heroes are rare. The combination of broad knowledge, deep expertise, and the dedication to maintain comprehensive understanding is unusual. You cannot hire ten heroes. The market doesn't have them.
 
-Second, coordination cost grows faster than capacity. One hero has no coordination overhead. Two heroes must synchronize their mental models. Ten heroes spend more time coordinating than doing—meetings to align understanding, documents to record decisions, debates about whose model is correct.
+Second, coordination cost grows faster than capacity. One hero has no coordination overhead. Two heroes must synchronize their mental models. Ten heroes spend more time coordinating than doing, meetings to align understanding, documents to record decisions, debates about whose model is correct.
 
 Third, heroic knowledge is fragile. It exists in human memory, which is fallible and impermanent. Heroes get sick, take vacation, find new jobs, burn out. When a hero leaves, their knowledge leaves with them. Rebuilding takes years, if it's possible at all.
 
@@ -190,7 +190,7 @@ On a team of 50 engineers, there are 1,225 possible communication pairs. No one 
 
 On a team of 500 engineers, there are 124,750 possible communication pairs. The number exceeds human capacity by several orders of magnitude. Communication becomes institutional rather than personal. Most people don't know what most other people are doing.
 
-This quadratic growth (n * (n-1) / 2 pairs for n people) explains why organizations don't scale linearly. Adding 10% more engineers doesn't produce 10% more output. Much of the additional capacity goes to coordination—figuring out who knows what, who needs to know what, and how to transfer knowledge between them.
+This quadratic growth (n * (n-1) / 2 pairs for n people) explains why organizations don't scale linearly. Adding 10% more engineers doesn't produce 10% more output. Much of the additional capacity goes to coordination, figuring out who knows what, who needs to know what, and how to transfer knowledge between them.
 
 Small teams don't feel this constraint because the number of pairs is manageable. Large teams feel it acutely. But the constraint was always there, latent, waiting for scale to make it visible.
 
@@ -227,7 +227,7 @@ The difference is not whether you have checks but **how fast they execute** and 
 
 FOE does not eliminate verification. It makes verification fast enough to happen continuously.
 
-Consider the transformation in concrete terms. A monthly security review means changes wait an average of two weeks for security feedback. That's two weeks of uncertainty—did I introduce a vulnerability? The engineer either waits (slow) or moves on to other work (context loss). When feedback arrives, the original context is gone.
+Consider the transformation in concrete terms. A monthly security review means changes wait an average of two weeks for security feedback. That's two weeks of uncertainty, did I introduce a vulnerability? The engineer either waits (slow) or moves on to other work (context loss). When feedback arrives, the original context is gone.
 
 Automated security scanning on every commit means changes get security feedback in minutes. The engineer is still in context. They can fix issues immediately. There's no waiting, no context switching, no batching up changes to amortize the review cost.
 
@@ -235,9 +235,9 @@ Both approaches verify security. One enables high-speed delivery. The other prev
 
 The transformation from bureaucratic check to fast feedback requires rethinking what verification means. Traditional verification asks: "Did someone review this?" Fast verification asks: "Does this meet our standards?" The first question is about process compliance. The second is about outcomes.
 
-A change advisory board meeting verifies that a meeting happened. It doesn't verify that the change is safe. Participants may not understand the change. They may not have time to investigate. They may approve based on social pressure or authority rather than analysis. The meeting happened—the checkbox is checked—but the verification is hollow.
+A change advisory board meeting verifies that a meeting happened. It doesn't verify that the change is safe. Participants may not understand the change. They may not have time to investigate. They may approve based on social pressure or authority rather than analysis. The meeting happened, the checkbox is checked, but the verification is hollow.
 
-An automated change impact analysis verifies what the change actually does. It identifies affected systems, quantifies risk, flags potential issues, and produces evidence of what was checked. The verification happens in seconds. The evidence is machine-readable and auditable. The outcome—knowing whether the change is safe—is achieved, not just the process.
+An automated change impact analysis verifies what the change actually does. It identifies affected systems, quantifies risk, flags potential issues, and produces evidence of what was checked. The verification happens in seconds. The evidence is machine-readable and auditable. The outcome, knowing whether the change is safe, is achieved, not just the process.
 
 Organizations that mistake process compliance for outcome verification never achieve fast feedback. They add more meetings, more sign-offs, more checkboxes, believing that rigor comes from ceremony. But ceremony without substance is empty. True rigor comes from actual verification, and actual verification must be fast enough to be practical.
 
@@ -263,9 +263,9 @@ This evidence trail has value beyond compliance:
 
 Organizations that deploy quarterly have four data points per year. Organizations that deploy daily have 365. The latter can detect patterns, test hypotheses, and improve systematically. The former relies on intuition and memory.
 
-The evidence trail also changes the nature of institutional memory. Traditional organizations rely on human memory for continuity—the senior engineers who remember why decisions were made, the tribal knowledge of what works and what doesn't. This memory is lossy, biased, and impermanent. People misremember. People leave. People tell stories that have drifted from reality over years of retelling.
+The evidence trail also changes the nature of institutional memory. Traditional organizations rely on human memory for continuity, the senior engineers who remember why decisions were made, the tribal knowledge of what works and what doesn't. This memory is lossy, biased, and impermanent. People misremember. People leave. People tell stories that have drifted from reality over years of retelling.
 
-An evidence trail is a different kind of memory. It doesn't forget. It doesn't bias toward recent events. It doesn't tell stories—it records facts. When someone asks "why does the system work this way?", the answer exists in the commit history, the deployment logs, the test results. Not always easy to find, but findable. Not always easy to interpret, but interpretable.
+An evidence trail is a different kind of memory. It doesn't forget. It doesn't bias toward recent events. It doesn't tell stories, it records facts. When someone asks "why does the system work this way?" the answer exists in the commit history, the deployment logs, the test results. Not always easy to find, but findable. Not always easy to interpret, but interpretable.
 
 This institutional memory enables a form of organizational learning that human memory cannot support. You can ask questions that span years of history. You can identify patterns that no individual would notice. You can settle debates with data instead of authority. The organization becomes capable of learning from its past in ways that would be impossible without the evidence trail.
 
@@ -295,7 +295,7 @@ The agentic era forces a reckoning. Organizations can no longer hide behind huma
 
 This is, paradoxically, a gift. Slow decay is hard to address because it never feels urgent. Rapid failure creates urgency. Organizations that learn their weaknesses now, while AI adoption is still early, have time to fix them. Organizations that learn through catastrophic failure do not.
 
-The window for learning is narrow. AI adoption is accelerating. Organizations that have already adopted agentic coding are experiencing these failures now. Organizations that will adopt it in the next year have perhaps months to prepare. The infrastructure that should exist before agents write code cannot be built after agents are writing code—not because it's technically impossible, but because you'll be too busy managing the chaos to build properly.
+The window for learning is narrow. AI adoption is accelerating. Organizations that have already adopted agentic coding are experiencing these failures now. Organizations that will adopt it in the next year have perhaps months to prepare. The infrastructure that should exist before agents write code cannot be built after agents are writing code, not because it's technically impossible, but because you'll be too busy managing the chaos to build properly.
 
 Think of it like building a fire department. The time to build firehouses, train firefighters, and maintain equipment is before the fire. Once the city is burning, you cannot pause to establish an institution. You fight the fire with whatever you have. Organizations that build verification infrastructure now will face the agentic transition with proper equipment. Organizations that wait will face it with buckets and hope.
 
@@ -305,7 +305,7 @@ Some readers will object. Building this verification infrastructure sounds expen
 
 The objection misunderstands the tradeoff. The question is not whether to pay the cost of instrumentation. The question is when to pay and what form payment takes.
 
-Organizations that reject instrumentation don't achieve speed. They achieve the *appearance* of speed—impressive sprint velocities, rapid feature announcements, aggressive roadmaps—followed by consequences:
+Organizations that reject instrumentation don't achieve speed. They achieve the *appearance* of speed, impressive sprint velocities, rapid feature announcements, aggressive roadmaps, followed by consequences:
 
 **Production incidents consume weeks of engineering time.** Without monitoring, incidents are discovered late. Without proper debugging infrastructure, diagnosis is slow. Without rollback capability, recovery requires heroic effort. Engineers spend more time firefighting than building.
 
@@ -317,7 +317,7 @@ Organizations that reject instrumentation don't achieve speed. They achieve the 
 
 The organizations that appear to be saving money by skipping instrumentation are borrowing against the future. The debt compounds. Eventually, it comes due. The payment, when it arrives, is larger than prevention would have been.
 
-FOE exists because uninstrumented speed is not actually fast. It is expensive, exhausting, and unsustainable. The organizations that sustain high velocity over years—not sprints, years—are the ones that invested in instrumentation. They are not fast because they take shortcuts. They are fast because they don't have to slow down.
+FOE exists because uninstrumented speed is not actually fast. It is expensive, exhausting, and unsustainable. The organizations that sustain high velocity over years, not sprints, years, are the ones that invested in instrumentation. They are not fast because they take shortcuts. They are fast because they don't have to slow down.
 
 ## The Compounding Effect
 
@@ -331,9 +331,9 @@ Consider how these factors interact:
 
 **Incidents create more incidents.** Each incident consumes engineering time. That time doesn't go to prevention. Without prevention, more incidents occur. Each incident also creates technical debt (quick fixes, workarounds, emergency patches). That debt creates future incidents. The incident rate accelerates.
 
-**Good engineers leave.** Working on a codebase you don't understand, for a team that can't keep production stable, during an on-call rotation that ruins your weekends—this is not attractive. The best engineers have options. They exercise them. Their departure accelerates all the other dynamics.
+**Good engineers leave.** Working on a codebase you don't understand, for a team that can't keep production stable, during an on-call rotation that ruins your weekends, this is not attractive. The best engineers have options. They exercise them. Their departure accelerates all the other dynamics.
 
-These feedback loops create the "death spiral" that many engineering organizations experience. A small problem becomes a medium problem becomes a large problem becomes an existential crisis. The crisis didn't emerge suddenly—it was building for years—but by the time it's visible, recovery is expensive and painful.
+These feedback loops create the "death spiral" that many engineering organizations experience. A small problem becomes a medium problem becomes a large problem becomes an existential crisis. The crisis didn't emerge suddenly, it was building for years, but by the time it's visible, recovery is expensive and painful.
 
 Instrumentation breaks these feedback loops. Automated tests prevent the technical debt that comes from unverified changes. Monitoring catches problems before they become incidents. Evidence trails preserve knowledge despite turnover. Fast feedback keeps engineers in flow states that make the work satisfying. Each benefit reinforces the others.
 
@@ -355,9 +355,9 @@ Consider two teams shipping the same feature.
 
 **Team A** has strong verification. Development takes 5 days. Testing takes 1 day (automated, runs during development). Deployment takes 1 hour (automated, verified). They ship in 6 days. Incidents are rare. Rework is minimal.
 
-**Team B** has weak verification. Development takes 4 days (fewer tests to write). Testing takes 0 days (manual QA will catch problems, hopefully). Deployment takes 1 hour. They ship in 4 days—faster than Team A!
+**Team B** has weak verification. Development takes 4 days (fewer tests to write). Testing takes 0 days (manual QA will catch problems, hopefully). Deployment takes 1 hour. They ship in 4 days, faster than Team A!
 
-But the story continues. Team B's deployment has a bug. Diagnosis takes 1 day (no monitoring, limited logs). Fix development takes 1 day. Fix deployment takes 1 hour. They've now spent 6 days—same as Team A.
+But the story continues. Team B's deployment has a bug. Diagnosis takes 1 day (no monitoring, limited logs). Fix development takes 1 day. Fix deployment takes 1 hour. They've now spent 6 days, same as Team A.
 
 But the story still continues. The bug caused an outage. Customer support spent 2 days handling complaints. Engineering leadership spent half a day on incident review. The team will spend 1 day on post-mortem and remediation.
 
@@ -371,7 +371,7 @@ This is the economic argument for instrumentation. It's not about being careful.
 
 Now scale this comparison. Across a year, Team A ships 200 features with 10 incidents. Team B ships 150 features with 50 incidents. Team A's customers experience reliable software. Team B's customers experience frustration. Team A's engineers experience sustainable work. Team B's engineers experience burnout.
 
-The velocity difference—33% more features shipped—understates the actual advantage. Team A's features ship cleanly. Team B's features ship with bugs that require patches, workarounds, and apologies. Team A builds customer trust. Team B erodes it. The gap compounds over time as Team A's foundation becomes stronger and Team B's becomes weaker.
+The velocity difference, 33% more features shipped, understates the actual advantage. Team A's features ship cleanly. Team B's features ship with bugs that require patches, workarounds, and apologies. Team A builds customer trust. Team B erodes it. The gap compounds over time as Team A's foundation becomes stronger and Team B's becomes weaker.
 
 Three years later, Team A dominates the market. Team B is in crisis mode, attempting a rewrite that will take longer than expected and deliver less than promised. The seeds of this outcome were planted in year one, in the decision about whether to invest in instrumentation.
 
@@ -380,11 +380,11 @@ Three years later, Team A dominates the market. Team B is in crisis mode, attemp
 <!-- BRIDGE -->
 The economic argument is clear: speed requires evidence, and evidence requires instrumentation. But there's a deeper constraint underlying everything we've discussed.
 
-We've talked about cognitive limits—reviewers who can't comprehend 10,000 lines, heroes who can't coordinate at scale, tribal knowledge that can't transfer. These aren't organizational failures. They're facts about human cognition. Our brains have fixed capacity. Working memory holds limited items. Attention can only focus on one thing at a time.
+We've talked about cognitive limits, reviewers who can't comprehend 10,000 lines, heroes who can't coordinate at scale, tribal knowledge that can't transfer. These aren't organizational failures. They're facts about human cognition. Our brains have fixed capacity. Working memory holds limited items. Attention can only focus on one thing at a time.
 
 Every delivery system must work within these constraints. Every practice must account for how humans actually think. Every tool must fit within the bounds of human cognition.
 
 Understanding these cognitive constraints is not psychology for its own sake. It's engineering. The same way a bridge must account for gravity and load limits, a delivery system must account for working memory and attention limits. Ignoring either leads to collapse.
 
-Let's examine why our brains are the ultimate bottleneck—and what that means for how we design delivery systems.
+Let's examine why our brains are the ultimate bottleneck, and what that means for how we design delivery systems.
 <!-- /BRIDGE -->

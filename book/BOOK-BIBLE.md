@@ -13,11 +13,11 @@
 
 ### 1.1 Central Thesis (One Sentence)
 
-Speed and safety are not tradeoffs—they're the same capability, and AI makes this truth undeniable.
+Speed and safety are not tradeoffs, they're the same capability, and AI makes this truth undeniable.
 
 ### 1.2 Expanded Thesis (One Paragraph)
 
-Organizations have always needed delivery systems that could absorb change safely, but human-speed development let them get away with heroics, tribal knowledge, and manual verification. Agentic coding removes that margin for error. The doctrine in this book—optimize for understanding, fast feedback, and confidence—was always the right way to build software. AI just makes it mandatory. Organizations that adopt this doctrine will thrive in the agentic era; those that don't will drown in machine-generated chaos.
+Organizations have always needed delivery systems that could absorb change safely, but human-speed development let them get away with heroics, tribal knowledge, and manual verification. Agentic coding removes that margin for error. The doctrine in this book, optimize for understanding, fast feedback, and confidence, was always the right way to build software. AI just makes it mandatory. Organizations that adopt this doctrine will thrive in the agentic era; those that don't will drown in machine-generated chaos.
 
 ### 1.3 Target Audience
 
@@ -59,7 +59,7 @@ Organizations have always needed delivery systems that could absorb change safel
 ### 2.1 The Reader's Journey
 
 ```
-PROLOGUE: "Something is happening—and it's an opportunity"
+PROLOGUE: "Something is happening, and it's an opportunity"
     ↓
 PART I: "The problems AI will amplify were already there"
     ↓
@@ -127,7 +127,7 @@ This manifests differently in each part:
 **Length:** ~15 pages (4,000-5,000 words)
 
 **Narrative Purpose:**
-Create urgency and frame the entire book. Establish that this isn't abstract theory—it's immediately relevant because AI is changing the game now. But also establish that the solution is universal and timeless.
+Create urgency and frame the entire book. Establish that this isn't abstract theory, it's immediately relevant because AI is changing the game now. But also establish that the solution is universal and timeless.
 
 ### Core Content Requirements
 
@@ -135,10 +135,10 @@ Create urgency and frame the entire book. Establish that this isn't abstract the
 - Present tense, happening now at real companies
 - Vivid, specific details that readers recognize
 - Shows the arc: excitement → early wins → emerging cracks → systemic failure
-- NOT a cautionary tale alone—also shows what success looks like (contrast company)
+- NOT a cautionary tale alone, also shows what success looks like (contrast company)
 
 **Paragraph 1-2: The Scenario**
-A specific morning at Meridian Software. The engineering team has just been given access to agentic coding tools—not copilots that suggest lines, but agents that can autonomously implement features, write tests, create pull requests, and respond to code review feedback. The CEO is excited: "We're going to 10x our output." The CTO is cautiously optimistic. The senior engineers are quietly terrified.
+A specific morning at Meridian Software. The engineering team has just been given access to agentic coding tools, not copilots that suggest lines, but agents that can autonomously implement features, write tests, create pull requests, and respond to code review feedback. The CEO is excited: "We're going to 10x our output." The CTO is cautiously optimistic. The senior engineers are quietly terrified.
 
 **Paragraph 3-4: The First Week**
 The initial results seem miraculous. Features that took sprints appear in hours. The backlog shrinks visibly. Junior developers feel empowered; seniors feel... displaced? Management starts talking about "doing more with less." The metrics dashboards show hockey-stick productivity curves.
@@ -147,37 +147,37 @@ The initial results seem miraculous. Features that took sprints appear in hours.
 The cracks appear. A production incident traces back to AI-generated code that passed all existing tests but violated an undocumented assumption. Three services now have subtly incompatible implementations of the same business logic. The architecture, once comprehensible, has become a maze. When asked to explain a bug, the senior engineer who "wrote" the code admits: "I approved it, but I don't actually understand what it does."
 
 **Paragraph 7-8: The Diagnosis**
-The company didn't fail because AI is bad. They failed because their delivery system was designed for human-speed development: manual reviews that catch errors through comprehension, tribal knowledge that kept systems coherent, heroic engineers who held the architecture in their heads. At machine speed, none of this scales. The AI didn't create new problems—it revealed the problems that were always there, just moving too slowly to notice.
+The company didn't fail because AI is bad. They failed because their delivery system was designed for human-speed development: manual reviews that catch errors through comprehension, tribal knowledge that kept systems coherent, heroic engineers who held the architecture in their heads. At machine speed, none of this scales. The AI didn't create new problems, it revealed the problems that were always there, just moving too slowly to notice.
 
 #### What Agentic Coding Actually Means
 
 **Paragraph 9-10: Defining the Shift**
-Agentic coding is not autocomplete. Current AI coding assistants suggest; agentic systems *act*. They read requirements, propose implementations, write code, create tests, respond to feedback, and iterate—all without human keystrokes. The human role shifts from writing code to directing, reviewing, and approving code. This is not incremental improvement; it's a phase change in how software gets built.
+Agentic coding is not autocomplete. Current AI coding assistants suggest; agentic systems *act*. They read requirements, propose implementations, write code, create tests, respond to feedback, and iterate, all without human keystrokes. The human role shifts from writing code to directing, reviewing, and approving code. This is not incremental improvement; it's a phase change in how software gets built.
 
 **Paragraph 11-12: The Economics**
 When generating code costs nearly nothing, code becomes abundant. What was scarce (developer time to implement) becomes plentiful. But new scarcities emerge: *alignment* (does this code do what we actually need?), *verification* (how do we know it works?), *coherence* (does this fit with everything else?), and *comprehension* (can anyone understand what we now have?). Organizations optimized for the old scarcity are unprepared for the new one.
 
 **Paragraph 13-14: The Speed Multiplier**
-Human developers might produce 100-500 meaningful lines of code per day. Agentic systems can produce thousands. But production isn't the bottleneck—absorption is. A system that can generate 10x the changes requires a delivery system that can verify, deploy, and monitor 10x the changes. Most organizations can barely handle human-speed change safely. Machine-speed change will overwhelm them.
+Human developers might produce 100-500 meaningful lines of code per day. Agentic systems can produce thousands. But production isn't the bottleneck, absorption is. A system that can generate 10x the changes requires a delivery system that can verify, deploy, and monitor 10x the changes. Most organizations can barely handle human-speed change safely. Machine-speed change will overwhelm them.
 
 **Paragraph 15-16: The Amplification Problem**
-AI doesn't fix broken systems; it accelerates them. If your testing is inadequate, AI-generated code ships bugs faster. If your architecture is incomprehensible, AI makes it worse faster. If your deployment process is fragile, AI triggers incidents faster. Every weakness in your delivery system becomes a vulnerability that AI exploits—not maliciously, just relentlessly.
+AI doesn't fix broken systems; it accelerates them. If your testing is inadequate, AI-generated code ships bugs faster. If your architecture is incomprehensible, AI makes it worse faster. If your deployment process is fragile, AI triggers incidents faster. Every weakness in your delivery system becomes a vulnerability that AI exploits, not maliciously, just relentlessly.
 
 #### The Opportunity (Diagnostic + Opportunistic Framing)
 
 **Paragraph 17-18: The Diagnostic Gift**
-Here's the unexpected opportunity: agentic coding is a stress test for your delivery system. It will reveal—quickly and unambiguously—whether your organization can actually handle change at scale. This is valuable intelligence. Organizations that discover their weaknesses through AI adoption can fix them. Organizations that discover them through catastrophic failure cannot.
+Here's the unexpected opportunity: agentic coding is a stress test for your delivery system. It will reveal, quickly and unambiguously, whether your organization can actually handle change at scale. This is valuable intelligence. Organizations that discover their weaknesses through AI adoption can fix them. Organizations that discover them through catastrophic failure cannot.
 
 **Paragraph 19-20: The Competitive Window**
-There is a window—perhaps 2-3 years—where organizations that build proper delivery systems will pull decisively ahead. They'll absorb AI-generated change safely while competitors drown in technical debt and production incidents. The advantage compounds: better systems enable faster learning, which enables better systems. Those who get this right early won't just be faster; they'll be *accelerating* faster.
+There is a window, perhaps 2-3 years, where organizations that build proper delivery systems will pull decisively ahead. They'll absorb AI-generated change safely while competitors drown in technical debt and production incidents. The advantage compounds: better systems enable faster learning, which enables better systems. Those who get this right early won't just be faster; they'll be *accelerating* faster.
 
 **Paragraph 21-22: The Universal Solution**
-The doctrine in this book was not invented for AI. It emerged from decades of hard-won lessons about how to move fast without breaking things. But it turns out that the same principles that enable sustainable human-speed delivery are *prerequisites* for machine-speed delivery. The practices that seemed optional—instrumentation, automation, verification, coherence—become mandatory when machines write code.
+The doctrine in this book was not invented for AI. It emerged from decades of hard-won lessons about how to move fast without breaking things. But it turns out that the same principles that enable sustainable human-speed delivery are *prerequisites* for machine-speed delivery. The practices that seemed optional, instrumentation, automation, verification, coherence, become mandatory when machines write code.
 
 #### The Revelation: This Was Always True
 
 **Paragraph 23-24: The Pre-AI Truth**
-Organizations that adopted these principles before AI arrived discovered something: they were already faster, safer, and more sustainable than their competitors. The doctrine works at any speed. It works for teams of 5 and teams of 500. It works for startups and enterprises. AI didn't create the need for disciplined delivery—it made the need undeniable.
+Organizations that adopted these principles before AI arrived discovered something: they were already faster, safer, and more sustainable than their competitors. The doctrine works at any speed. It works for teams of 5 and teams of 500. It works for startups and enterprises. AI didn't create the need for disciplined delivery, it made the need undeniable.
 
 **Paragraph 25-26: The Timeless Principles**
 What you'll find in this book:
@@ -190,7 +190,7 @@ These principles are universal. They would have been true in 1995. They'll be tr
 **Paragraph 27-28: The Choice**
 You can read this book as preparation for agentic coding, or as a guide to better delivery regardless of AI. Both readings are valid. The doctrine is the same. The only difference is urgency.
 
-If AI is coming to your organization—and it is—the time to build these capabilities is now, while you can still move at human speed. Building a delivery system during an AI transition is like trying to build an airplane while falling.
+If AI is coming to your organization, and it is, the time to build these capabilities is now, while you can still move at human speed. Building a delivery system during an AI transition is like trying to build an airplane while falling.
 
 #### Closing: What Comes Next
 
@@ -244,7 +244,7 @@ Establish that the speed/safety tension is universal and pre-dates AI. Build rec
 **What NOT to Include:**
 - Deep dive into any single failure pattern (just enough to recognize)
 - Company-specific examples (keep universal)
-- Solutions (not yet—just problem statement)
+- Solutions (not yet, just problem statement)
 - AI/agentic content (this is pre-AI problem)
 
 **Ties to Grand Narrative:**
@@ -266,7 +266,7 @@ This chapter establishes that organizations have been trying to solve speed/safe
   - Non-linear consequences (30-day deployment has 30 days of accumulated risk)
 - The gauges metaphor (introduced and developed here)
   - Race car with taped dashboard
-  - Instruments don't slow you down—they show how fast you can safely go
+  - Instruments don't slow you down, they show how fast you can safely go
   - Instrumentation as acceleration
 - Why approaches that work for small teams fail at scale
   - Manual review hits cognitive limits
@@ -327,7 +327,7 @@ Establishes the economic logic that underlies FOE. Speed requires evidence. Inst
 - Organizational psychology (save for Part III)
 
 **Agentic Callback:**
-"AI doesn't remove humans from the loop—it makes the loop faster than humans can think without help. The cognitive bottleneck becomes acute."
+"AI doesn't remove humans from the loop, it makes the loop faster than humans can think without help. The cognitive bottleneck becomes acute."
 
 **Ties to Grand Narrative:**
 This is the deepest "why" of FOE. The three principles are cognitive supports. Understanding = mental model formation. Fast Feedback = belief calibration. Confidence = risk assessment capacity. This chapter sets up Part II.
@@ -380,7 +380,7 @@ Present the core principles clearly and memorably. This is the "what" of FOE. Re
 - Specific practices yet (just principles)
 
 **Ties to Grand Narrative:**
-This is the "aha" chapter. The central insight clicks. Speed and safety aren't tradeoffs—they're the same capability viewed differently. Everything else flows from this.
+This is the "aha" chapter. The central insight clicks. Speed and safety aren't tradeoffs, they're the same capability viewed differently. Everything else flows from this.
 
 **Bridge to Chapter 5:**
 "Let's examine each principle in depth, starting with the foundation: understanding. You cannot optimize what you cannot comprehend."
@@ -485,7 +485,7 @@ When code is generated at machine speed, verification must also happen at machin
 Fast feedback enables learning. Without it, you're navigating with a stale map. With it, you're constantly updating your understanding. It connects back to Chapter 5 (keeps understanding current) and forward to Chapter 7 (enables confidence).
 
 **Bridge to Chapter 7:**
-"Fast feedback tells you what's true. But knowing isn't the same as acting. To act decisively, you need confidence—not arrogance, but calibrated belief that actions won't cause unbounded harm. That's the third principle."
+"Fast feedback tells you what's true. But knowing isn't the same as acting. To act decisively, you need confidence, not arrogance, but calibrated belief that actions won't cause unbounded harm. That's the third principle."
 
 ---
 
@@ -500,12 +500,12 @@ Fast feedback enables learning. Without it, you're navigating with a stale map. 
   - Knowing the boundaries of safe action
 - Why confidence matters for action
   - Unbounded risk triggers freeze response
-  - Not cowardice—legitimate threat response
+  - Not cowardice, legitimate threat response
   - When risk feels infinite, rational actors don't act
 - The operating envelope metaphor (fully developed)
   - Aviation: defined boundaries of safe flight
   - Exceed envelope → unstable/uncontrollable
-  - Envelope isn't constraint—it's definition of safe operation
+  - Envelope isn't constraint, it's definition of safe operation
   - Knowing limits lets you operate AT limits confidently
 - How FOE builds confidence
   - Guardrails not handcuffs (constrain without blocking)
@@ -529,13 +529,13 @@ Fast feedback enables learning. Without it, you're navigating with a stale map. 
 - Change management processes (Part III)
 
 **"In the Agentic Context" Callout:**
-AI-generated changes need bounded blast radius. If any AI action could cause unbounded harm, responsible deployment is impossible. Confidence infrastructure—guardrails, rollback, containment—becomes mandatory.
+AI-generated changes need bounded blast radius. If any AI action could cause unbounded harm, responsible deployment is impossible. Confidence infrastructure, guardrails, rollback, containment, becomes mandatory.
 
 **Ties to Grand Narrative:**
 Confidence is what allows action. Understanding gives you a map, fast feedback updates the map, but confidence is what lets you actually move. Without it, organizations freeze despite knowing what to do.
 
 **Bridge to Chapter 8:**
-"We've examined each principle individually. But they don't operate in isolation—they form a system. Let's see how they work together."
+"We've examined each principle individually. But they don't operate in isolation, they form a system. Let's see how they work together."
 
 ---
 
@@ -572,10 +572,10 @@ Confidence is what allows action. Understanding gives you a map, fast feedback u
 - Detailed assessment frameworks (Appendix)
 
 **Ties to Grand Narrative:**
-This chapter unifies Part II. The three principles aren't a list—they're a system. This becomes the lens through which we view transformation (Part III) and maturity (Part IV).
+This chapter unifies Part II. The three principles aren't a list, they're a system. This becomes the lens through which we view transformation (Part III) and maturity (Part IV).
 
 **Bridge to Part III:**
-"The doctrine is clear. But adopting it isn't a matter of intellectual agreement—it requires changing how people work, how processes operate, and what technology enables. Everything must move together. That's the transformation challenge."
+"The doctrine is clear. But adopting it isn't a matter of intellectual agreement, it requires changing how people work, how processes operate, and what technology enables. Everything must move together. That's the transformation challenge."
 
 ---
 
@@ -667,7 +667,7 @@ This chapter sets up the structure for the next three chapters and establishes t
 - Training curriculum details
 
 **Ties to Grand Narrative:**
-People changes are the hardest part. This chapter acknowledges the human difficulty of transformation while showing why it's necessary. It connects to the cognitive themes from Part I (people aren't failing—systems exceed human capacity).
+People changes are the hardest part. This chapter acknowledges the human difficulty of transformation while showing why it's necessary. It connects to the cognitive themes from Part I (people aren't failing, systems exceed human capacity).
 
 **Bridge to Chapter 11:**
 "People can only change if processes support the new behaviors. Let's examine how processes must evolve."
@@ -795,7 +795,7 @@ Technology is necessary but not sufficient. This chapter deliberately undersells
 Transformation fails when stakeholders lose coherence. This chapter ensures the doctrine translates across levels without losing its essence.
 
 **Bridge to Part IV:**
-"The triad gives us the dimensions of change. But how do we know where we are and where we're going? That's the transformation journey—a path through predictable phases toward increasing capability."
+"The triad gives us the dimensions of change. But how do we know where we are and where we're going? That's the transformation journey, a path through predictable phases toward increasing capability."
 
 ---
 
@@ -930,7 +930,7 @@ This is the central argument of the transformation model. It connects the prolog
 The maturity model provides the diagnostic framework that complements the phase model. Together they give complete orientation: where am I (phase), how well am I doing there (level), and what does progress look like.
 
 **Bridge to Chapter 17:**
-"Maps show where you are. But transformation is a journey through time. Let's examine what the path actually looks like—including the hard parts."
+"Maps show where you are. But transformation is a journey through time. Let's examine what the path actually looks like, including the hard parts."
 
 ---
 
@@ -1051,7 +1051,7 @@ Institutions are how principles become practice. This chapter makes the abstract
 - How Work Moves Through the System
   - Traceable changes
   - Intent → Change → Evidence → Outcome
-  - When someone asks "why", there's an answer
+  - When someone asks "why" there's an answer
 - How We Manage Risk
   - Risk visibility over risk avoidance
   - Bounded blast radius
@@ -1204,10 +1204,10 @@ Metrics make the doctrine observable. Without them, you can't know if you're imp
 - Exhaustive failure catalog
 
 **Ties to Grand Narrative:**
-This chapter is the "via negativa"—defining FOE by what to avoid. It helps readers recognize when they're going off track.
+This chapter is the "via negativa" defining FOE by what to avoid. It helps readers recognize when they're going off track.
 
 **Bridge to Part VI:**
-"We've covered what to do and what to avoid. The doctrine is complete. But where does it lead? Part VI returns to the agentic future—not as speculation, but as the natural destination of disciplined delivery."
+"We've covered what to do and what to avoid. The doctrine is complete. But where does it lead? Part VI returns to the agentic future, not as speculation, but as the natural destination of disciplined delivery."
 
 ---
 

@@ -30,13 +30,13 @@ The tests passed because no one had written tests for that assumption. No one ha
 
 The incident report reveals something worse. As Ana investigates, she discovers that three services now have subtly incompatible implementations of the same business logic for calculating promotional discounts. Each implementation is correct in isolation. Each passes its tests. Each produces reasonable outputs for the test cases it was given. But together, they create edge cases that none of the original human designers would have allowed.
 
-A human designer, solving this problem, would have asked: "Does this logic already exist somewhere?" They would have searched the codebase, asked colleagues, checked the wiki. They would have noticed they were solving a problem that had already been solved and reused the existing solution. But the agents didn't notice. They solved what they were asked to solve, each in a slightly different way, because they were given requirements in isolation and had no mechanism for recognizing repeated patterns across a codebase. The resulting inconsistencies only manifest when a customer qualifies for promotions across multiple product lines—a scenario that happens hundreds of times per day in production but never appeared in the test data.
+A human designer, solving this problem, would have asked: "Does this logic already exist somewhere?" They would have searched the codebase, asked colleagues, checked the wiki. They would have noticed they were solving a problem that had already been solved and reused the existing solution. But the agents didn't notice. They solved what they were asked to solve, each in a slightly different way, because they were given requirements in isolation and had no mechanism for recognizing repeated patterns across a codebase. The resulting inconsistencies only manifest when a customer qualifies for promotions across multiple product lines, a scenario that happens hundreds of times per day in production but never appeared in the test data.
 
-The architecture, once comprehensible to senior engineers who had watched it evolve, has become a maze. New patterns appear that match nothing in the design documents—not violations of architecture, exactly, but variations that the architecture never anticipated. Dependencies form that weren't planned. Service boundaries that were carefully designed to contain complexity now leak abstractions in both directions. The API contracts that Marcus spent weeks designing are technically honored but spiritually violated by implementations that pass the contract tests while missing the intent entirely.
+The architecture, once comprehensible to senior engineers who had watched it evolve, has become a maze. New patterns appear that match nothing in the design documents, not violations of architecture, exactly, but variations that the architecture never anticipated. Dependencies form that weren't planned. Service boundaries that were carefully designed to contain complexity now leak abstractions in both directions. The API contracts that Marcus spent weeks designing are technically honored but spiritually violated by implementations that pass the contract tests while missing the intent entirely.
 
 When a junior engineer asks Marcus to explain the data flow through the order management system, he opens the codebase and stares at it for ten minutes. The code is clean. The function names are descriptive. Comments explain what each section does. But the why is missing, and without the why, the what doesn't make sense. "I approved it," he admits. "But I don't actually understand what it does."
 
-This is the moment Marcus realizes what has happened. He didn't review that code. Not really. He approved it. He scanned it for obvious problems, checked that tests existed, verified that CI passed, and clicked the merge button. He did what reviewers do when they trust the author—but the author wasn't a colleague he'd worked with for years. The author was an agent that produced plausible code without any understanding of context.
+This is the moment Marcus realizes what has happened. He didn't review that code. Not really. He approved it. He scanned it for obvious problems, checked that tests existed, verified that CI passed, and clicked the merge button. He did what reviewers do when they trust the author, but the author wasn't a colleague he'd worked with for years. The author was an agent that produced plausible code without any understanding of context.
 
 The diagnosis takes another month. Meridian didn't fail because AI is bad. Their agents produced working code. The tests passed. The deployments succeeded. The features functioned. They failed because their delivery system was designed for human-speed development: manual reviews that catch errors through comprehension, tribal knowledge that keeps systems coherent, heroic engineers who hold the architecture in their heads.
 
@@ -58,7 +58,7 @@ To understand what's changing, we need to be precise about what agentic coding a
 
 Agentic systems act. They read requirements, propose implementations, write code, create tests, respond to feedback, and iterate. They don't wait for human keystrokes. They work. The human role shifts from writing code to directing, reviewing, and approving it. This is not an incremental improvement. It's a phase change in how software gets built.
 
-The economics shift accordingly. When generating code costs nearly nothing, code becomes abundant. What was scarce—developer time to implement—becomes plentiful. But new scarcities emerge.
+The economics shift accordingly. When generating code costs nearly nothing, code becomes abundant. What was scarce, developer time to implement, becomes plentiful. But new scarcities emerge.
 
 *Alignment* becomes scarce: Does this code do what we actually need? Agents produce plausible implementations that may not address root causes. Subtle misunderstandings compound across generated components. Intent must be communicated precisely, which remains hard.
 
@@ -68,13 +68,13 @@ The economics shift accordingly. When generating code costs nearly nothing, code
 
 *Comprehension* becomes scarce: Can anyone understand what we now have? Code generation often lacks the context that humans would naturally preserve. Documentation may be generated but not accurate. Future modifications require understanding original intent. AI-generated code may be harder to debug than human-written code because no human designed it.
 
-Organizations optimized for the old scarcity—developer time—are unprepared for the new ones. Their entire delivery system was built around a different bottleneck. Their review processes assume reviewers have time to comprehend. Their knowledge management assumes humans write the code and therefore know what it does. Their architecture governance assumes decisions are made slowly enough that architects can participate. Their testing strategies assume that humans write edge cases based on their understanding of the problem domain.
+Organizations optimized for the old scarcity, developer time, are unprepared for the new ones. Their entire delivery system was built around a different bottleneck. Their review processes assume reviewers have time to comprehend. Their knowledge management assumes humans write the code and therefore know what it does. Their architecture governance assumes decisions are made slowly enough that architects can participate. Their testing strategies assume that humans write edge cases based on their understanding of the problem domain.
 
 When code generation accelerates by an order of magnitude, every one of these assumptions breaks.
 
 Consider the speed differential. Human developers might produce 100 to 500 meaningful lines of code per day. Agentic systems can produce thousands. But production isn't the bottleneck anymore. Absorption is. A system that can generate 10x the changes requires a delivery system that can verify, deploy, and monitor 10x the changes. Most organizations can barely handle human-speed change safely. Machine-speed change will overwhelm them.
 
-This leads to the amplification problem, the pattern that destroyed Meridian's coherence. AI doesn't fix broken systems. It accelerates them. If your testing is inadequate, AI-generated code ships bugs faster. If your architecture is incomprehensible, AI makes it worse faster. If your deployment process is fragile, AI triggers incidents faster. Every weakness in your delivery system becomes a vulnerability that AI exploits—not maliciously, just relentlessly.
+This leads to the amplification problem, the pattern that destroyed Meridian's coherence. AI doesn't fix broken systems. It accelerates them. If your testing is inadequate, AI-generated code ships bugs faster. If your architecture is incomprehensible, AI makes it worse faster. If your deployment process is fragile, AI triggers incidents faster. Every weakness in your delivery system becomes a vulnerability that AI exploits, not maliciously, just relentlessly.
 
 New entropy dynamics emerge. Configuration drift accelerates as agents make changes across systems: changes accumulate that no one fully understands, system state diverges from documented state, interactions between changes create emergent behavior. "It was working before the agent touched it" becomes a common refrain with no clear solution.
 
@@ -82,19 +82,19 @@ Architecture drift accelerates as generated code departs from intended patterns:
 
 Knowledge drift accelerates as understanding of systems degrades: code was generated, not designed, so no one fully understands it; documentation describes what was intended, not what exists; tribal knowledge can't form around code nobody wrote. New engineers join and find that no one can answer their questions. The codebase contains code but not understanding.
 
-These are not hypothetical risks. They are already happening at companies that adopted agentic coding without understanding what it would expose. The patterns are consistent: initial productivity euphoria, followed by mounting incidents, followed by the gradual realization that no one knows how the system works anymore. The timeline varies—sometimes weeks, sometimes months—but the destination is the same.
+These are not hypothetical risks. They are already happening at companies that adopted agentic coding without understanding what it would expose. The patterns are consistent: initial productivity euphoria, followed by mounting incidents, followed by the gradual realization that no one knows how the system works anymore. The timeline varies, sometimes weeks, sometimes months, but the destination is the same.
 
 ---
 
 Here's the unexpected opportunity: agentic coding is a stress test for your delivery system.
 
-It will reveal—quickly and unambiguously—whether your organization can actually handle change at scale. This is valuable intelligence. Organizations that discover their weaknesses through AI adoption can fix them. Organizations that discover them through catastrophic failure cannot.
+It will reveal, quickly and unambiguously, whether your organization can actually handle change at scale. This is valuable intelligence. Organizations that discover their weaknesses through AI adoption can fix them. Organizations that discover them through catastrophic failure cannot.
 
 The diagnostic gift is clarity. Before AI, weak delivery systems could hide behind the pace of human development. Problems accumulated slowly enough that they seemed manageable. Technical debt grew gradually. Architecture degraded incrementally. Knowledge dissipated over years, not weeks. The failure mode was slow decay, not sudden collapse. Slow decay is survivable but hard to address because it never feels urgent enough.
 
 AI changes the tempo. The same weaknesses that caused slow decay now cause rapid failure. And rapid failure creates the urgency that slow decay never could. Organizations that face their weaknesses now, while the lessons are fresh and the stakes are visible, have an opportunity that won't last.
 
-There's a competitive window—perhaps 2-3 years—where organizations that build proper delivery systems will pull decisively ahead. They'll absorb AI-generated change safely while competitors drown in technical debt and production incidents. The advantage compounds: better systems enable faster learning, which enables better systems. Those who get this right early won't just be faster; they'll be accelerating faster.
+There's a competitive window, perhaps 2-3 years, where organizations that build proper delivery systems will pull decisively ahead. They'll absorb AI-generated change safely while competitors drown in technical debt and production incidents. The advantage compounds: better systems enable faster learning, which enables better systems. Those who get this right early won't just be faster; they'll be accelerating faster.
 
 Consider what this means in practice. Organization A has proper delivery infrastructure: automated verification, standardized patterns, observable systems, bounded deployments. They adopt agentic coding and their verification systems catch the problems that Meridian missed. Their agents follow established patterns because those patterns are encoded and enforced. Their deployments are bounded, so the failures that slip through affect small portions of traffic and trigger automatic rollback. Their observability lets them see what's happening and respond before customers notice.
 
@@ -106,7 +106,7 @@ The winners won't be the organizations with the best AI models or the cleverest 
 
 Here's what makes this opportunity universal: the doctrine in this book was not invented for AI. It emerged from decades of hard-won lessons about how to move fast without breaking things. The organizations that adopted these principles before AI arrived discovered something: they were already faster, safer, and more sustainable than their competitors. AI didn't create the need. It made the need undeniable.
 
-The same principles that enable sustainable human-speed delivery are prerequisites for machine-speed delivery. The practices that seemed optional—instrumentation, automation, verification, coherence—become mandatory when machines write code. What was best practice becomes survival requirement.
+The same principles that enable sustainable human-speed delivery are prerequisites for machine-speed delivery. The practices that seemed optional, instrumentation, automation, verification, coherence, become mandatory when machines write code. What was best practice becomes survival requirement.
 
 ---
 
@@ -114,21 +114,21 @@ The doctrine rests on three principles. These aren't arbitrary best practices. T
 
 **Optimize for Understanding.** You cannot move fast through territory you don't understand. Understanding means the ability to simulate: "If X, then Y, which causes Z." It means predicting outcomes before committing resources, diagnosing problems by tracing causal chains backward, designing changes that achieve intended effects, communicating using shared mental models.
 
-When systems exceed human comprehension, a predictable cascade begins. Reasoning degrades to pattern-matching—engineers stop thinking about why and start copying what worked before. Analysis degrades to cargo-culting—rituals persist without understanding, and no one can tell which parts matter. Engineering degrades to hoping—changes are made with crossed fingers because no one can predict their effects. Deciding degrades to deferring—decisions pile up because each one feels too risky without understanding the context. Acting degrades to freezing—teams stop changing things at all because any change might cause an incident.
+When systems exceed human comprehension, a predictable cascade begins. Reasoning degrades to pattern-matching, engineers stop thinking about why and start copying what worked before. Analysis degrades to cargo-culting, rituals persist without understanding, and no one can tell which parts matter. Engineering degrades to hoping, changes are made with crossed fingers because no one can predict their effects. Deciding degrades to deferring, decisions pile up because each one feels too risky without understanding the context. Acting degrades to freezing, teams stop changing things at all because any change might cause an incident.
 
 FOE restores understanding through bounded scope that fits in working memory, explicit interfaces that make interactions visible, observable state that can be inspected externally, traceable causation through visible channels, and progressive disclosure that provides multiple levels of abstraction. Systems must fit in human heads, or humans cannot guide them.
 
-When AI generates code, understanding becomes even more important. You cannot review what you cannot comprehend. AI-generated complexity that exceeds human understanding is dangerous complexity—it may work today, but no one will be able to maintain it tomorrow.
+When AI generates code, understanding becomes even more important. You cannot review what you cannot comprehend. AI-generated complexity that exceeds human understanding is dangerous complexity, it may work today, but no one will be able to maintain it tomorrow.
 
-**Optimize for Fast Feedback.** The faster you learn whether a change worked, the faster you can make the next change. Without rapid feedback, beliefs ossify. Teams become confident without becoming accurate. Debates replace experiments because no one can run the experiment fast enough to settle the argument. Feedback must be faster than the context window of human attention—minutes, not hours or days—within the flow of work, not after.
+**Optimize for Fast Feedback.** The faster you learn whether a change worked, the faster you can make the next change. Without rapid feedback, beliefs ossify. Teams become confident without becoming accurate. Debates replace experiments because no one can run the experiment fast enough to settle the argument. Feedback must be faster than the context window of human attention, minutes, not hours or days, within the flow of work, not after.
 
 Every developer needs four questions answered quickly: Did it work? Did it break anything? What needs fixing? Is the system safe? Manual steps create latency. Latency creates friction. Friction kills feedback loops. When feedback takes hours, engineers context-switch to other work. When they return, they've lost the mental model of what they were doing and why. The feedback arrives into a mind that has moved on.
 
-Automated tests, deployment pipelines, and observability systems are not overhead. They are how fast teams actually stay fast. They are not bureaucracy, but belief calibration—the mechanism by which teams learn whether their assumptions are correct before those assumptions cause production incidents.
+Automated tests, deployment pipelines, and observability systems are not overhead. They are how fast teams actually stay fast. They are not bureaucracy, but belief calibration, the mechanism by which teams learn whether their assumptions are correct before those assumptions cause production incidents.
 
 When code is generated at machine speed, verification must also happen at machine speed. Human review becomes the bottleneck. Feedback systems that rely on human attention cannot scale. The organizations that thrive will be the ones whose automated verification systems can keep pace with automated generation.
 
-**Optimize for Confidence.** Confidence is not arrogance. It's calibrated belief based on evidence—knowing the boundaries of safe action. Think of it like an aircraft's flight envelope: the defined boundaries where the aircraft can fly safely. Pilots don't experience the envelope as constraint. They experience it as the definition of where they can operate confidently. Knowing the limits lets them fly at the limits.
+**Optimize for Confidence.** Confidence is not arrogance. It's calibrated belief based on evidence, knowing the boundaries of safe action. Think of it like an aircraft's flight envelope: the defined boundaries where the aircraft can fly safely. Pilots don't experience the envelope as constraint. They experience it as the definition of where they can operate confidently. Knowing the limits lets them fly at the limits.
 
 Unbounded risk triggers a freeze response. This is not cowardice; it's a legitimate threat response. When risk feels infinite, when any action might cause unbounded harm, rational actors stop acting. Teams that don't trust their deployment process don't deploy. Teams that don't trust their rollback capability don't take risks. Teams that don't trust their monitoring don't know whether they should be worried.
 
@@ -136,7 +136,7 @@ FOE builds confidence through guardrails that constrain without blocking, reprod
 
 When AI generates code, confidence infrastructure becomes mandatory. AI-generated changes need bounded blast radius. If any AI action could cause unbounded harm, responsible deployment becomes impossible. Guardrails, rollback capability, and containment are not optional features. They are what makes the agentic era survivable.
 
-These three principles form a closed system. Remove any one and the others collapse. Understanding without feedback produces arrogance—you think you know, but you can't verify. Feedback without understanding produces noise—data arrives but you can't interpret it. Understanding and feedback without confidence produce paralysis—you know what to do but won't act. Confidence without understanding produces recklessness. Confidence without feedback produces delusion.
+These three principles form a closed system. Remove any one and the others collapse. Understanding without feedback produces arrogance, you think you know, but you can't verify. Feedback without understanding produces noise, data arrives but you can't interpret it. Understanding and feedback without confidence produce paralysis, you know what to do but won't act. Confidence without understanding produces recklessness. Confidence without feedback produces delusion.
 
 These principles would have been true in 1995. They'll be true in 2035. AI raises the stakes, but it didn't create them.
 
@@ -146,11 +146,11 @@ The revelation is this: organizations that adopted these principles before AI ar
 
 They shipped faster because they spent less time debugging production incidents. They onboarded engineers faster because their systems were comprehensible. They took on ambitious projects because they had confidence in their ability to course-correct. They accumulated less technical debt because they caught problems early. They retained more engineers because the work was sustainable. They slept better at night because they trusted their monitoring to wake them only when something actually required attention.
 
-These advantages had nothing to do with AI. They came from operating as if speed and safety were the same thing—because they are. Fast feedback loops make systems safer. Safer systems can move faster. This is not a paradox. It's how every high-performance system operates, from Formula 1 racing teams to aircraft carriers.
+These advantages had nothing to do with AI. They came from operating as if speed and safety were the same thing, because they are. Fast feedback loops make systems safer. Safer systems can move faster. This is not a paradox. It's how every high-performance system operates, from Formula 1 racing teams to aircraft carriers.
 
 The doctrine in this book works at any speed. It works for teams of 5 and teams of 500. It works for startups building their first product and enterprises managing decades of accumulated complexity. It works for organizations with no AI plans and organizations deeply embedded in the agentic future. The principles are universal because they're grounded in human cognition, and humans remain in the loop regardless of what tools they use. The tools change. The humans don't.
 
-AI didn't create the need for disciplined delivery. Decades of software engineering history created that need. AI made the need undeniable by removing the margin for error that human-speed development provided. The organizations that were already disciplined are now positioned to thrive. The organizations that weren't are facing their weaknesses for the first time—at the worst possible moment.
+AI didn't create the need for disciplined delivery. Decades of software engineering history created that need. AI made the need undeniable by removing the margin for error that human-speed development provided. The organizations that were already disciplined are now positioned to thrive. The organizations that weren't are facing their weaknesses for the first time, at the worst possible moment.
 
 ---
 
@@ -162,11 +162,11 @@ Or you can read it as a guide to better delivery regardless of AI. The principle
 
 Both readings are valid. The doctrine is the same. The only difference is urgency.
 
-If AI is coming to your organization—and it is—the time to build these capabilities is now, while you can still move at human speed. Building a delivery system during an AI transition is like trying to build an airplane while falling. The principles don't get easier to adopt under pressure. The practices don't get simpler when the pace has already accelerated past your ability to absorb change safely.
+If AI is coming to your organization, and it is, the time to build these capabilities is now, while you can still move at human speed. Building a delivery system during an AI transition is like trying to build an airplane while falling. The principles don't get easier to adopt under pressure. The practices don't get simpler when the pace has already accelerated past your ability to absorb change safely.
 
 The organizations that start now will have functioning delivery systems before they need them. The organizations that wait will discover their weaknesses through failure, at the moment when failure is most costly.
 
-Marcus, back at Meridian, wishes they had started earlier. The productivity gains are real—they just came with costs no one anticipated. Now they're rebuilding their review processes while under pressure to maintain the velocity that AI enabled. They're documenting assumptions that should have been documented years ago. They're adding automated verification that should have existed before the first agent touched their codebase.
+Marcus, back at Meridian, wishes they had started earlier. The productivity gains are real, they just came with costs no one anticipated. Now they're rebuilding their review processes while under pressure to maintain the velocity that AI enabled. They're documenting assumptions that should have been documented years ago. They're adding automated verification that should have existed before the first agent touched their codebase.
 
 They'll recover. The best organizations do. But the recovery costs more than preparation would have, and it happens under pressure that preparation would have avoided. Every organization will face this moment. The only question is whether they face it prepared or surprised.
 

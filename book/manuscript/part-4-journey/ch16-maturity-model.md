@@ -10,7 +10,7 @@ word_count: 4523
 
 Phases describe what capabilities you have. Maturity describes how well you use them.
 
-An organization can be Phase 3 on paper—cloud-native infrastructure, declarative operations, policy as code—while operating like Phase 1 in practice. The tools exist. The dashboards exist. The automation exists. And yet every deployment feels like a gamble. Every change requires the one engineer who "knows how this works." Every incident triggers a scramble to figure out what actually happened.
+An organization can be Phase 3 on paper, cloud-native infrastructure, declarative operations, policy as code, while operating like Phase 1 in practice. The tools exist. The dashboards exist. The automation exists. And yet every deployment feels like a gamble. Every change requires the one engineer who "knows how this works." Every incident triggers a scramble to figure out what actually happened.
 
 This is the gap between having capabilities and operating with discipline. The maturity model addresses this gap. It provides a shared language for describing not what tools you have, but how predictably you deliver.
 
@@ -49,7 +49,7 @@ The defining experience: you find out late. The project is "on track" until sudd
 - Late surprises are common at delivery reviews
 - Questions about system behavior require research to answer
 
-The key smell: "Don't touch that—only Alex knows how it works." When knowledge is locked inside individuals, every change becomes a negotiation with the knowledge holder. The system can't teach you anything because the system isn't the source of truth. People are.
+The key smell: "Don't touch that, only Alex knows how it works." When knowledge is locked inside individuals, every change becomes a negotiation with the knowledge holder. The system can't teach you anything because the system isn't the source of truth. People are.
 
 ### Level 1: Visible
 
@@ -130,11 +130,11 @@ At Level 3, the three optimizations create a reinforcing loop:
 2. **Fast Feedback** builds justified confidence
 3. **Confidence** allows deeper understanding through safe exploration
 
-This isn't a destination. It's an operating mode that requires maintenance. Level 3 represents Flow Optimized Engineering fully realized—but it doesn't maintain itself. Drift toward lower levels is always possible if the practices that created flow are abandoned.
+This isn't a destination. It's an operating mode that requires maintenance. Level 3 represents Flow Optimized Engineering fully realized, but it doesn't maintain itself. Drift toward lower levels is always possible if the practices that created flow are abandoned.
 
 ### Level 4: Adaptive
 
-At Level 4, the organization can handle significant change—new tools, new requirements, new scale—without losing the benefits of previous levels. The system actively resists drift and maintains its properties under stress.
+At Level 4, the organization can handle significant change, new tools, new requirements, new scale, without losing the benefits of previous levels. The system actively resists drift and maintains its properties under stress.
 
 The defining experience: you can absorb change without destabilizing. Strategic pivots don't break delivery. New team members don't create fragility. Scale increases don't compromise visibility.
 
@@ -259,7 +259,7 @@ The transformation model describes six phases of capability evolution. The matur
 
 **Level = capability depth.** How well do you do it? How predictably do outcomes match expectations?
 
-You can be Phase 3 at Level 1—new to cloud-native, with the right patterns but not yet executing them reliably. You can be Phase 1 at Level 3—classic lift-and-shift architecture but operating it with high predictability and strong feedback loops.
+You can be Phase 3 at Level 1, new to cloud-native, with the right patterns but not yet executing them reliably. You can be Phase 1 at Level 3, classic lift-and-shift architecture but operating it with high predictability and strong feedback loops.
 
 | Example | Phase | Level | Description |
 |---------|-------|-------|-------------|
@@ -275,7 +275,7 @@ This is why maturity matters independently of phase. The goal isn't to be Phase 
 
 ### The Interaction
 
-Phase and level do interact. Higher phases create more leverage for higher levels—cloud-native patterns make it easier to achieve continuous feedback, for instance. But they also create more ways to fail—more tools, more complexity, more opportunity for inconsistency.
+Phase and level do interact. Higher phases create more leverage for higher levels, cloud-native patterns make it easier to achieve continuous feedback, for instance. But they also create more ways to fail, more tools, more complexity, more opportunity for inconsistency.
 
 The safest path: reach Level 2 at your current phase before advancing to the next phase. Level 2 means repeatable, predictable operations. Without that foundation, advancing to a more complex phase multiplies risk rather than capability.
 
@@ -289,7 +289,7 @@ Consider two organizations adopting Kubernetes.
 
 They're Phase 3 on paper. They're Level 0 in practice. The gap creates constant friction.
 
-**Organization B** takes a different path. They start with simpler infrastructure—maybe just VMs with good automation. They invest in documentation, monitoring, and incident response practices. Everyone on the team can explain how deployments work. Problems surface early through alerts and dashboards. Deployments happen routinely without drama.
+**Organization B** takes a different path. They start with simpler infrastructure, maybe just VMs with good automation. They invest in documentation, monitoring, and incident response practices. Everyone on the team can explain how deployments work. Problems surface early through alerts and dashboards. Deployments happen routinely without drama.
 
 They're Phase 1 or Phase 2 on paper. They're Level 2 or Level 3 in practice. When they eventually adopt Kubernetes, they'll bring their operational discipline with them. The transition will be smoother because the foundations are solid.
 
@@ -303,7 +303,7 @@ The maturity model is valuable only when used honestly. The moment levels become
 
 The model describes what is, not what should be. Level 1 isn't "bad." Level 4 isn't "good." They're descriptions of how delivery actually behaves.
 
-Some contexts warrant Level 2 as the right operating point. A stable system with low change frequency doesn't need Level 4 adaptability. A small team with tight communication doesn't need Level 3 self-documenting systems—they can just talk to each other.
+Some contexts warrant Level 2 as the right operating point. A stable system with low change frequency doesn't need Level 4 adaptability. A small team with tight communication doesn't need Level 3 self-documenting systems, they can just talk to each other.
 
 The question isn't "how do we get to Level 4?" The question is "what level does our context require, and are we operating there?"
 
@@ -347,7 +347,7 @@ That's the maturity that matters.
 
 ## Questions That Reveal Actual State
 
-Instead of asking "what level are we?"—which turns the model into a scorecard—ask questions that reveal actual behavior:
+Instead of asking "what level are we?" which turns the model into a scorecard, ask questions that reveal actual behavior:
 
 | Instead of... | Ask... |
 |--------------|--------|
@@ -364,7 +364,7 @@ These questions surface real information.
 
 **For Confidence:** "What changes would the team refuse to make on a Friday afternoon?"
 
-The answers reveal where you actually are. The Friday question is particularly diagnostic. A team at Level 3 deploys on Friday without concern—the feedback loops are fast enough, the rollback is automatic enough, the blast radius is bounded enough. A team at Level 1 avoids Friday deployments because they expect problems and don't trust recovery. Their behavior reveals their actual maturity, regardless of what their tools suggest.
+The answers reveal where you actually are. The Friday question is particularly diagnostic. A team at Level 3 deploys on Friday without concern, the feedback loops are fast enough, the rollback is automatic enough, the blast radius is bounded enough. A team at Level 1 avoids Friday deployments because they expect problems and don't trust recovery. Their behavior reveals their actual maturity, regardless of what their tools suggest.
 
 ## Movement Over Position
 
@@ -418,7 +418,7 @@ Understanding what each level doesn't provide helps calibrate expectations.
 
 **Level 3's limits:** Flow is powerful, but it's not automatic adaptation. Major changes still require intentional effort. New tools still require integration work. The system reveals its state but doesn't automatically respond to everything. Moving to Level 4 requires building genuine absorption capacity.
 
-**Level 4's limits:** Even Level 4 isn't infinite. Every system has breaking points. Level 4 means you can absorb more change before breaking—not that you can't break. Massive disruptions, fundamental pivots, or complete technology shifts will still require explicit transformation effort.
+**Level 4's limits:** Even Level 4 isn't infinite. Every system has breaking points. Level 4 means you can absorb more change before breaking, not that you can't break. Massive disruptions, fundamental pivots, or complete technology shifts will still require explicit transformation effort.
 
 The model describes operational maturity, not invincibility. Each level is a meaningful improvement over the previous, but none is a guarantee against all problems.
 
@@ -482,9 +482,9 @@ The most valuable use of the maturity model is enabling honest conversation abou
 
 "This initiative would move us from discovering risk at milestones to continuous visibility."
 
-"That incident took three days to debug—that's Level 0 feedback speed."
+"That incident took three days to debug, that's Level 0 feedback speed."
 
-"We caught that regression in CI—our feedback loops are working at Level 2."
+"We caught that regression in CI, our feedback loops are working at Level 2."
 
 "We're explicitly not claiming Level 4; our goal is sustainable Level 3 operation."
 
@@ -495,7 +495,7 @@ The goal is never to "reach Level 4." The goal is to operate honestly at your cu
 <!-- BRIDGE -->
 Maps show where you are. The phase model locates your capabilities. The maturity model describes how well you're using them. Together, they provide orientation.
 
-But transformation is a journey through time. It doesn't happen instantly. It follows patterns—predictable patterns that repeat across organizations, across industries, across decades of modernization efforts. Understanding these patterns helps organizations persist through the difficult middle rather than giving up when progress feels slow.
+But transformation is a journey through time. It doesn't happen instantly. It follows patterns, predictable patterns that repeat across organizations, across industries, across decades of modernization efforts. Understanding these patterns helps organizations persist through the difficult middle rather than giving up when progress feels slow.
 
-Let's examine what the path actually looks like—including the hard parts.
+Let's examine what the path actually looks like, including the hard parts.
 <!-- /BRIDGE -->

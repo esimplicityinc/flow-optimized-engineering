@@ -16,7 +16,7 @@ Then nothing changes.
 
 Operations still depend on heroes. Standards still have exceptions. Automation still requires supervision. The tools are Phase 3. The organization is Phase 2. The gap between them explains why Phase 3 is the bottleneck.
 
-This chapter examines that gap. Not the technology gap—that's been closed for years. The discipline gap. The institutional gap. The gap between having modern tools and practicing modern operations. Understanding this gap is prerequisite for crossing it.
+This chapter examines that gap. Not the technology gap, that's been closed for years. The discipline gap. The institutional gap. The gap between having modern tools and practicing modern operations. Understanding this gap is prerequisite for crossing it.
 
 ## The Discipline Gap
 
@@ -65,7 +65,7 @@ The exceptions problem compounds over time. Each exception requires its own main
 
 ### Enforced
 
-Standards aren't guidelines. Standards aren't best practices. Standards aren't things you train people on and hope they follow. Standards are enforced automatically, and violations are prevented—not detected and discussed.
+Standards aren't guidelines. Standards aren't best practices. Standards aren't things you train people on and hope they follow. Standards are enforced automatically, and violations are prevented, not detected and discussed.
 
 Phase 2 enforcement models fail predictably:
 
@@ -81,7 +81,7 @@ Phase 3 enforcement is different. Policy as code evaluates every change automati
 
 This level of enforcement feels uncomfortable to Phase 2 organizations. What if the standard is wrong? What if there's a legitimate need for an exception? What if we need to move fast?
 
-The answers reveal the discipline gap. If the standard is wrong, you fix the standard—that's a code change like any other. If there's a legitimate need, you evolve the standard to accommodate it—for everyone, not just for this case. If you need to move fast, you move fast within the constraints—because operating outside the constraints creates the heroics and exceptions that slow you down tomorrow.
+The answers reveal the discipline gap. If the standard is wrong, you fix the standard, that's a code change like any other. If there's a legitimate need, you evolve the standard to accommodate it, for everyone, not just for this case. If you need to move fast, you move fast within the constraints, because operating outside the constraints creates the heroics and exceptions that slow you down tomorrow.
 
 ### Repeatable
 
@@ -116,7 +116,7 @@ The test for measurability: Do your metrics trigger automated actions, or do the
 
 ### The Four Requirements Together
 
-These four requirements reinforce each other. Consistency enables enforcement—you can't enforce a standard that has exceptions. Enforcement enables repeatability—automated processes don't vary based on who runs them. Repeatability enables measurement—consistent processes produce comparable metrics. Measurement enables consistency—you can verify that every instance follows the pattern.
+These four requirements reinforce each other. Consistency enables enforcement, you can't enforce a standard that has exceptions. Enforcement enables repeatability, automated processes don't vary based on who runs them. Repeatability enables measurement, consistent processes produce comparable metrics. Measurement enables consistency, you can verify that every instance follows the pattern.
 
 Remove any requirement and the others degrade. Allow exceptions and enforcement becomes selective. Make enforcement optional and processes diverge. Allow divergent processes and measurement becomes meaningless. Stop measuring and consistency erodes.
 
@@ -136,7 +136,7 @@ You cannot hire heroes fast enough. Heroes have deep, specialized knowledge acqu
 
 Organizations try to compensate. They hire more heroes. They train aggressively. They document everything. None of it works at scale.
 
-Hiring more heroes creates coordination overhead that consumes the capacity you added. Training aggressively produces competent engineers, not heroes—heroic knowledge comes from experience that can't be compressed. Documentation becomes stale the moment systems change, and systems always change.
+Hiring more heroes creates coordination overhead that consumes the capacity you added. Training aggressively produces competent engineers, not heroes, heroic knowledge comes from experience that can't be compressed. Documentation becomes stale the moment systems change, and systems always change.
 
 The math is simple and unforgiving. Systems grow faster than hero capacity. Every organization that depends on heroes eventually runs out of them.
 
@@ -156,7 +156,7 @@ Consider what happens when a hero solves an incident. The immediate problem is r
 
 Heroes are symptoms of missing discipline. They exist because the system requires human intervention to function. Their presence indicates gaps that automation should fill. Their continued necessity indicates those gaps aren't being closed.
 
-The hero-dependency cycle perpetuates itself. Organizations that depend on heroes invest in heroes—recruiting them, retaining them, promoting them. This investment seems rational. The heroes deliver results. But every investment in heroes is an investment away from automation. The organization becomes better at finding heroes, not better at eliminating the need for them.
+The hero-dependency cycle perpetuates itself. Organizations that depend on heroes invest in heroes, recruiting them, retaining them, promoting them. This investment seems rational. The heroes deliver results. But every investment in heroes is an investment away from automation. The organization becomes better at finding heroes, not better at eliminating the need for them.
 
 Breaking this cycle requires deliberate counter-investment. For every hero-dependent process, invest in automation that eliminates the dependency. For every individual who holds critical knowledge, invest in capturing and distributing that knowledge. The goal isn't to devalue heroes. The goal is to build systems where heroic effort isn't required for normal operations.
 
@@ -190,7 +190,7 @@ The heroic model creates a trap:
 5. Organization can't standardize because heroes control the knowledge
 6. Organization continues rewarding heroes for solving problems
 
-Breaking this cycle requires leadership intervention. It requires changing what gets rewarded. It requires making standardization and automation the path to advancement. It requires accepting short-term pain—problems not solved as quickly—for long-term capability.
+Breaking this cycle requires leadership intervention. It requires changing what gets rewarded. It requires making standardization and automation the path to advancement. It requires accepting short-term pain, problems not solved as quickly, for long-term capability.
 
 Most organizations won't make this change. Most organizations get stuck at Phase 2. The connection isn't coincidental.
 
@@ -206,7 +206,7 @@ The best heroes understand this. They become force multipliers, building the pla
 
 ## The Institutions Required
 
-Crossing Phase 3 requires building institutions—not just deploying technology. An institution is a persistent capability that operates independently of individuals. It survives personnel changes. It scales with growth. It improves through feedback loops.
+Crossing Phase 3 requires building institutions, not just deploying technology. An institution is a persistent capability that operates independently of individuals. It survives personnel changes. It scales with growth. It improves through feedback loops.
 
 Four institutions are essential.
 
@@ -230,9 +230,9 @@ Building platform as product requires product thinking. Who are the customers? W
 
 The platform product has SLOs. If deployment takes longer than X minutes, that's a platform bug. If developers need to file tickets for standard operations, that's a missing capability. If teams route around the platform, that's a product failure to understand customer needs.
 
-Platform teams resist this framing. Product thinking feels foreign to infrastructure engineers. Customer satisfaction feels soft compared to technical metrics. But platform as product is how organizations achieve self-service operations. Without it, the platform team—however skilled—remains a bottleneck that limits organizational scale.
+Platform teams resist this framing. Product thinking feels foreign to infrastructure engineers. Customer satisfaction feels soft compared to technical metrics. But platform as product is how organizations achieve self-service operations. Without it, the platform team, however skilled, remains a bottleneck that limits organizational scale.
 
-The transition from platform team to platform product often requires outside intervention. Platform engineers naturally focus on technical excellence—making the platform more capable, more secure, more efficient. Product management requires different skills: understanding user needs, prioritizing based on adoption impact, measuring success through outcomes rather than outputs.
+The transition from platform team to platform product often requires outside intervention. Platform engineers naturally focus on technical excellence, making the platform more capable, more secure, more efficient. Product management requires different skills: understanding user needs, prioritizing based on adoption impact, measuring success through outcomes rather than outputs.
 
 Some organizations add product managers to platform teams. Others train platform engineers in product thinking. Either approach can work. What doesn't work is expecting platform engineers to spontaneously develop product discipline. The skills are different. The incentives must change to support the new skills.
 
@@ -263,21 +263,21 @@ But the indirection adds value. Every change is tracked. Every modification can 
 
 Not policy documentation. Policy as executable code.
 
-Policies are defined in code—OPA, Gatekeeper, Kyverno, or similar tools. They're version-controlled like any other code. They're tested like any other code. They're deployed through the same mechanisms as any other code.
+Policies are defined in code, OPA, Gatekeeper, Kyverno, or similar tools. They're version-controlled like any other code. They're tested like any other code. They're deployed through the same mechanisms as any other code.
 
 Policies are evaluated automatically on every change. When a developer submits a deployment, policies evaluate it. When a configuration change flows through GitOps, policies evaluate it. Evaluation happens without human involvement.
 
 Violations are prevented, not reported. A non-compliant deployment doesn't generate an alert for someone to review. It fails to deploy. Period. The system cannot be manipulated into a non-compliant state because the policies prevent it.
 
-This level of enforcement requires trust in the policies. If policies are wrong or incomplete, they'll prevent legitimate work. Organizations new to policy as code often implement policies in "audit" mode—detecting violations but not preventing them. This is reasonable during policy development. But audit mode isn't Phase 3. Prevention is Phase 3.
+This level of enforcement requires trust in the policies. If policies are wrong or incomplete, they'll prevent legitimate work. Organizations new to policy as code often implement policies in "audit" mode, detecting violations but not preventing them. This is reasonable during policy development. But audit mode isn't Phase 3. Prevention is Phase 3.
 
-The discipline of policy as code also includes policy evolution. When a policy prevents legitimate work, the response isn't an exception. The response is a policy change—reviewed, tested, deployed through the same process as any other code change. Policies become part of the system's definition, not external constraints imposed upon it.
+The discipline of policy as code also includes policy evolution. When a policy prevents legitimate work, the response isn't an exception. The response is a policy change, reviewed, tested, deployed through the same process as any other code change. Policies become part of the system's definition, not external constraints imposed upon it.
 
 ### SRE as Discipline
 
 Not an SRE team. SRE practices.
 
-Error budgets gate deployment. Each service has a reliability target expressed as an SLO. The difference between perfect reliability and the target is the error budget. If the error budget is exhausted—if the service has had more downtime than the target allows—deployments stop. No negotiation. No exceptions. The automation enforces the gate.
+Error budgets gate deployment. Each service has a reliability target expressed as an SLO. The difference between perfect reliability and the target is the error budget. If the error budget is exhausted, if the service has had more downtime than the target allows, deployments stop. No negotiation. No exceptions. The automation enforces the gate.
 
 SLOs drive prioritization. When choosing between new features and reliability work, the SLO provides the answer. If you're meeting your SLO comfortably, prioritize features. If you're at risk of missing your SLO, prioritize reliability. The decision isn't subjective or political. It's mathematical.
 
@@ -296,7 +296,7 @@ If organizations haven't halted deployments for error budget exhaustion, they do
 
 The difference between SRE teams and SRE discipline is accountability. An SRE team can exist without changing how the organization operates. They're a specialized group with specialized tools. SRE discipline changes decisions across the organization. Product managers adjust roadmaps based on error budgets. Engineering managers prioritize reliability work. Executives accept that deployment halts are healthy, not emergencies.
 
-Without this organizational buy-in, the SRE team becomes a quality assurance function—observing problems but unable to prevent them. Real SRE practice requires authority: the authority to halt deployments, to demand reliability investment, to reject changes that threaten SLOs. That authority comes from leadership commitment, not from team structure.
+Without this organizational buy-in, the SRE team becomes a quality assurance function, observing problems but unable to prevent them. Real SRE practice requires authority: the authority to halt deployments, to demand reliability investment, to reject changes that threaten SLOs. That authority comes from leadership commitment, not from team structure.
 
 ### The Common Pattern
 
@@ -307,7 +307,7 @@ Notice what these institutions share. Each requires enforcement:
 - Policy as code requires blocking non-compliant changes
 - SRE requires halting deployments when budgets exhaust
 
-Enforcement is uncomfortable. It creates friction. It slows things down—at least initially. It requires telling people no.
+Enforcement is uncomfortable. It creates friction. It slows things down, at least initially. It requires telling people no.
 
 Organizations that can't tell people no don't cross Phase 3. They can't. The institutions require it.
 
@@ -319,7 +319,7 @@ You can install Kubernetes in a day. Building a platform product takes a year. Y
 
 The time difference frustrates organizations accustomed to technology-paced progress. They deploy Phase 3 tools and expect Phase 3 outcomes. When outcomes don't follow, they assume the tools failed. They try different tools. They hire consultants. They reorganize teams.
 
-None of this addresses the actual problem. The tools work. The institutions don't exist. Building them requires sustained effort over months and years—the kind of effort that doesn't show up in sprint demos or quarterly reviews.
+None of this addresses the actual problem. The tools work. The institutions don't exist. Building them requires sustained effort over months and years, the kind of effort that doesn't show up in sprint demos or quarterly reviews.
 
 Organizations that understand this invest appropriately. They budget for institutional development, not just tool deployment. They measure discipline adoption, not just technical implementation. They set timelines that reflect how institutions actually form.
 
@@ -327,7 +327,7 @@ Organizations that don't understand this churn through tools and vendors, never 
 
 ## Why Skipping Creates AI Brittleness
 
-The Phase 3 bottleneck matters beyond Phase 3. Organizations that skip Phase 3—or claim Phase 3 while operating at Phase 2—face severe consequences when they adopt AI-powered development.
+The Phase 3 bottleneck matters beyond Phase 3. Organizations that skip Phase 3, or claim Phase 3 while operating at Phase 2, face severe consequences when they adopt AI-powered development.
 
 AI doesn't solve Phase 2 problems. It amplifies them.
 
@@ -360,7 +360,7 @@ The same disciplines that enable Phase 3 enable responsible AI adoption:
 
 **Reconciliation-based operations** handle drift. If AI introduces configuration drift, the reconciliation loop detects and corrects it. The system converges to desired state regardless of what created the deviation. AI-introduced chaos is corrected as automatically as human-introduced chaos.
 
-**Measurable outcomes** evaluate AI impact. When deployments are gated by SLOs, AI-generated changes face the same bar as human-generated changes. If AI-generated code causes incidents, error budgets deplete and deployments halt. The system self-corrects. No special AI governance framework required—the same framework that governs all changes governs AI-generated changes.
+**Measurable outcomes** evaluate AI impact. When deployments are gated by SLOs, AI-generated changes face the same bar as human-generated changes. If AI-generated code causes incidents, error budgets deplete and deployments halt. The system self-corrects. No special AI governance framework required, the same framework that governs all changes governs AI-generated changes.
 
 ### The Cost of Skipping
 
@@ -373,7 +373,7 @@ Organizations that skip Phase 3 and adopt AI at scale create systems that:
 
 The tragedy is that these organizations often see initial success. AI acceleration is real. Velocity increases. Features ship faster. The organization congratulates itself on AI adoption.
 
-Then the maintenance burden arrives. Then the incidents multiply. Then the heroes burn out. Then the organization discovers that AI didn't solve their Phase 2 problems—it accelerated them into a crisis.
+Then the maintenance burden arrives. Then the incidents multiply. Then the heroes burn out. Then the organization discovers that AI didn't solve their Phase 2 problems, it accelerated them into a crisis.
 
 ### AI as Phase 3 Test
 
@@ -488,7 +488,7 @@ These characteristics aren't natural. They must be cultivated. Most organization
 That's why Phase 3 is the bottleneck. That's what separates modernization theater from actual transformation.
 
 <!-- BRIDGE -->
-Phases describe capability evolution—the progression from manual operations through automation to AI-assisted development. But within any phase, organizations exhibit varying levels of maturity. An organization firmly in Phase 3 might execute those capabilities inconsistently, lacking the predictability that distinguishes mature operations from immature ones. Phase tells you what capabilities you have. Maturity tells you how well you execute them.
+Phases describe capability evolution, the progression from manual operations through automation to AI-assisted development. But within any phase, organizations exhibit varying levels of maturity. An organization firmly in Phase 3 might execute those capabilities inconsistently, lacking the predictability that distinguishes mature operations from immature ones. Phase tells you what capabilities you have. Maturity tells you how well you execute them.
 
-Understanding this distinction—and assessing maturity honestly—is the subject of Chapter 16.
+Understanding this distinction, and assessing maturity honestly, is the subject of Chapter 16.
 <!-- /BRIDGE -->

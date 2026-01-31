@@ -4,7 +4,7 @@ Code abundance changes what governance means. When humans wrote every line, gove
 
 That throttle is gone.
 
-AI coding agents generate code faster than any team of reviewers can assess. The same disciplines that made traditional software delivery successful—review everything, understand everything, approve everything—become impossible at machine speed. Organizations face a choice: abandon governance and accept chaos, or transform governance itself.
+AI coding agents generate code faster than any team of reviewers can assess. The same disciplines that made traditional software delivery successful, review everything, understand everything, approve everything, become impossible at machine speed. Organizations face a choice: abandon governance and accept chaos, or transform governance itself.
 
 This chapter examines how to govern when code flows faster than human cognition can evaluate. The answer is not to slow down the machines. The answer is to build systems that govern at machine speed.
 
@@ -20,13 +20,13 @@ Without automated enforcement, every piece of generated code requires human revi
 
 Without reconciliation-based operations, changes accumulate that no one fully tracks. The agent modifies configuration. Another agent modifies different configuration. A human makes emergency changes. The declared state and the actual state diverge. No one knows what the system actually looks like anymore.
 
-Without measurable outcomes, organizations cannot tell whether the AI-generated code is helping or hurting. Velocity metrics look great—more code is being produced than ever. But the metrics don't capture whether that code works, whether it maintains system quality, whether it creates maintenance burden that will consume future velocity.
+Without measurable outcomes, organizations cannot tell whether the AI-generated code is helping or hurting. Velocity metrics look great, more code is being produced than ever. But the metrics don't capture whether that code works, whether it maintains system quality, whether it creates maintenance burden that will consume future velocity.
 
 Phase 3 disciplines transform from "nice to have" process improvements to "required for survival" infrastructure.
 
 ### Standardization Enables AI Constraints
 
-AI agents operate within boundaries. Without explicit boundaries, they create implicit ones—usually reflecting whatever patterns dominate their training data rather than what your organization actually needs.
+AI agents operate within boundaries. Without explicit boundaries, they create implicit ones, usually reflecting whatever patterns dominate their training data rather than what your organization actually needs.
 
 Standardization provides those explicit boundaries. When patterns are documented, versioned, and enforced, agents can be configured to follow them. When architectural decisions are captured in executable rules, agents produce code that fits the architecture. When security requirements are encoded as policies, agents generate secure code by default.
 
@@ -62,7 +62,7 @@ This lack of memory creates a specific form of entropy. Traditional technical de
 
 The distinction matters for remediation. Technical debt requires deliberate investment to pay down. Agent-introduced drift requires reconciliation systems that detect and correct inconsistencies automatically.
 
-Reconciliation detects this drift. Systems that continuously compare actual state to intended state catch divergences regardless of how they were introduced—by humans, by agents, by configuration management gone wrong.
+Reconciliation detects this drift. Systems that continuously compare actual state to intended state catch divergences regardless of how they were introduced, by humans, by agents, by configuration management gone wrong.
 
 The reconciliation loop that keeps infrastructure aligned becomes the reconciliation loop that keeps code aligned. Declared architecture patterns are compared to actual code structures. Declared dependency constraints are compared to actual dependency graphs. Declared quality standards are compared to actual quality metrics.
 
@@ -74,7 +74,7 @@ Organizations that skip reconciliation infrastructure find drift accumulating fa
 
 "AI agents make us faster" is not an outcome. It's a claim that requires evidence.
 
-Organizations adopting agentic coding need to measure what actually changes. Not just velocity metrics—those will almost certainly improve. But the outcomes that matter: Does the code work? Does it integrate cleanly? Does it maintain quality standards? Does it create maintenance burden?
+Organizations adopting agentic coding need to measure what actually changes. Not just velocity metrics, those will almost certainly improve. But the outcomes that matter: Does the code work? Does it integrate cleanly? Does it maintain quality standards? Does it create maintenance burden?
 
 Without measurable outcomes, organizations cannot distinguish between AI that genuinely improves their capabilities and AI that creates the illusion of progress while building technical debt faster than ever.
 
@@ -86,7 +86,7 @@ If AI adoption improves velocity but degrades other metrics, the organization is
 
 ## How Institutions Scale to AI-Generated Code
 
-The institutions described in Part V—standards bodies, review boards, quality gates, documentation systems—were designed for human-speed delivery. They work for AI-generated code, but they require adaptation.
+The institutions described in Part V, standards bodies, review boards, quality gates, documentation systems, were designed for human-speed delivery. They work for AI-generated code, but they require adaptation.
 
 ### CI Gates Still Work (But Must Be Fast)
 
@@ -110,9 +110,9 @@ This review model doesn't scale to AI-generated code volume. But more fundamenta
 
 For AI-generated code, the right questions shift toward intent alignment: Does this code solve the right problem? Did the agent understand what was being requested? Does the solution approach match what a human would have chosen?
 
-Implementation details matter less when automated tools can verify them. Syntax, formatting, pattern compliance, security vulnerabilities, test coverage—these can all be checked by machines. Human reviewers add value on questions machines cannot answer: Is this the right solution? Does it fit with the broader system design? Will future developers understand why this approach was chosen?
+Implementation details matter less when automated tools can verify them. Syntax, formatting, pattern compliance, security vulnerabilities, test coverage, these can all be checked by machines. Human reviewers add value on questions machines cannot answer: Is this the right solution? Does it fit with the broader system design? Will future developers understand why this approach was chosen?
 
-This shift elevates code review from quality control to architectural guidance. Reviewers become less like inspectors checking widgets on an assembly line and more like editors working with authors—ensuring the intent comes through clearly, the structure serves the purpose, and the work fits within the larger context.
+This shift elevates code review from quality control to architectural guidance. Reviewers become less like inspectors checking widgets on an assembly line and more like editors working with authors, ensuring the intent comes through clearly, the structure serves the purpose, and the work fits within the larger context.
 
 The practical implication: review processes that require detailed line-by-line human inspection of AI-generated code will fail. Either they become bottlenecks that negate AI productivity gains, or they become rubber-stamp approvals that provide no actual value. Neither outcome serves the organization.
 
@@ -134,7 +134,7 @@ AI-generated code doesn't follow this pattern. Large portions of the codebase mi
 
 Test suites for agentic coding emphasize behavior specification over regression verification. The tests describe what the code should do, not how it should differ from a previous version. They verify outcomes against requirements rather than comparing current behavior to historical behavior.
 
-This shift requires investment in test design practices. Tests must be written at the right level of abstraction—specific enough to catch real problems, general enough to accommodate implementation changes. Teams develop skills in behavior-driven testing, contract testing, and property-based testing alongside traditional unit and integration tests.
+This shift requires investment in test design practices. Tests must be written at the right level of abstraction, specific enough to catch real problems, general enough to accommodate implementation changes. Teams develop skills in behavior-driven testing, contract testing, and property-based testing alongside traditional unit and integration tests.
 
 Organizations adopting agentic coding invest in test infrastructure at least proportionally to their investment in code generation. Often more. The test suite becomes the specification against which generated code is verified.
 
@@ -142,7 +142,7 @@ This creates an interesting dynamic: AI agents can write tests too. They can gen
 
 ### Observability at Machine Speed
 
-When things go wrong with AI-generated code in production, diagnosis must happen quickly. The code may be unfamiliar to everyone—no human wrote it, so no human has intuition about how it works or where it might fail.
+When things go wrong with AI-generated code in production, diagnosis must happen quickly. The code may be unfamiliar to everyone, no human wrote it, so no human has intuition about how it works or where it might fail.
 
 Observability becomes the path to understanding. Logs, metrics, traces, and events tell the story of what the code actually did, regardless of what anyone intended it to do.
 
@@ -176,7 +176,7 @@ Human security reviewers shift their focus. They configure and maintain the auto
 
 ### Policies Must Execute Automatically
 
-Policy as code means encoding governance requirements in executable form. Not documentation that describes what should happen—code that enforces what must happen.
+Policy as code means encoding governance requirements in executable form. Not documentation that describes what should happen, code that enforces what must happen.
 
 Security policies become security scans. Architectural policies become architectural fitness functions. Quality policies become quality gates. Compliance policies become compliance checks.
 
@@ -196,7 +196,7 @@ An agent generates code. The commit triggers the CI pipeline. Policy checks exec
 
 The agent can use that feedback. Modern AI coding agents can interpret CI results, understand what failed, and attempt corrections. The loop repeats: generate, check, learn, regenerate. Eventually, the code meets all policy requirements.
 
-Human intervention becomes necessary only when the agent cannot satisfy the policies—when the requirements themselves might be wrong, when exceptions are genuinely warranted, when novel situations require judgment that automated systems cannot provide.
+Human intervention becomes necessary only when the agent cannot satisfy the policies, when the requirements themselves might be wrong, when exceptions are genuinely warranted, when novel situations require judgment that automated systems cannot provide.
 
 This model treats AI agents as untrusted contributors. Not malicious, but not inherently reliable either. The same skepticism that organizations apply to code from new team members applies to code from AI agents. Trust is earned through demonstration, verified by automated checks.
 
@@ -206,7 +206,7 @@ AI agents can generate code. AI agents can write tests. This combination creates
 
 ### The Circular Verification Problem
 
-Traditional testing assumes independent creation. A developer writes code. Another developer—or the same developer with a different mindset—writes tests. The tests verify that the code does what it should because the tests represent an independent specification of correct behavior.
+Traditional testing assumes independent creation. A developer writes code. Another developer, or the same developer with a different mindset, writes tests. The tests verify that the code does what it should because the tests represent an independent specification of correct behavior.
 
 AI-generated tests for AI-generated code lack this independence. The same model that produced the code produces the tests. The same misunderstandings that might exist in the code might exist in the tests. The tests might verify that the code does what the agent thought it should do, which might not be what anyone actually wanted.
 
@@ -230,7 +230,7 @@ Property-based tests are harder to game because they don't encode specific examp
 
 But property specification itself requires understanding what properties matter. AI agents can generate properties, but they might generate properties that the code happens to satisfy rather than properties that capture intended behavior.
 
-**Formal verification.** Mathematical proof that code satisfies specification. No test suite, no examples—logical certainty that the code is correct.
+**Formal verification.** Mathematical proof that code satisfies specification. No test suite, no examples, logical certainty that the code is correct.
 
 Formal verification is powerful but expensive. It requires specifications precise enough to prove against. It requires verification tools that scale to realistic code. It applies well to critical components but is impractical as a general approach.
 
@@ -252,7 +252,7 @@ Intent verification is a different skill than implementation verification. It re
 
 Organizations adopting agentic coding develop this skill deliberately. They train reviewers to focus on intent alignment rather than implementation details. They create processes that surface intent misunderstandings early. They invest in requirement specification as a core competency rather than a preliminary step before "real" development begins.
 
-The organizations that succeed at intent verification share a common trait: they treat requirements as first-class artifacts deserving the same rigor as code. Requirements are versioned. Requirements are tested—not the code that implements them, but the requirements themselves, verified against stakeholder needs. Requirements are reviewed for completeness and consistency before agents ever see them.
+The organizations that succeed at intent verification share a common trait: they treat requirements as first-class artifacts deserving the same rigor as code. Requirements are versioned. Requirements are tested, not the code that implements them, but the requirements themselves, verified against stakeholder needs. Requirements are reviewed for completeness and consistency before agents ever see them.
 
 This front-loading of effort feels inefficient to teams accustomed to diving into implementation. But the effort pays dividends when agents can execute against clear specifications rather than stumbling through ambiguous requirements.
 
@@ -266,25 +266,25 @@ The policies, tools, and processes that govern AI-generated code must evolve as 
 
 This requires treating governance as a living system rather than a fixed framework. Regular assessment of whether current policies are catching actual problems. Continuous updating of automated tools as new vulnerability patterns emerge. Ongoing training as team members encounter new challenges.
 
-The pace of evolution matters. Traditional governance frameworks evolve slowly—annual reviews, quarterly updates, occasional revisions when problems surface. This pace is inadequate for governing AI systems that improve continuously.
+The pace of evolution matters. Traditional governance frameworks evolve slowly, annual reviews, quarterly updates, occasional revisions when problems surface. This pace is inadequate for governing AI systems that improve continuously.
 
 Governance for agentic coding requires a tighter feedback loop. What problems surfaced this week? What patterns did the automated tools miss? What friction did the governance create that wasn't justified by risk reduction? These questions inform continuous adjustments rather than periodic overhauls.
 
 Some organizations establish dedicated teams for governance evolution. These teams monitor governance effectiveness, prototype new policies, and iterate rapidly on enforcement mechanisms. The investment seems expensive until compared to the cost of governance that fails to keep pace with AI capabilities.
 
-The alternative—static governance—creates growing gaps between what the governance system addresses and what the AI systems produce. Those gaps are where problems hide.
+The alternative, static governance, creates growing gaps between what the governance system addresses and what the AI systems produce. Those gaps are where problems hide.
 
 ### Investing in Governance Engineering
 
-Policy as code requires policy engineers—people who can translate governance requirements into executable rules. This is a specialized skill combining understanding of governance intent with technical implementation ability.
+Policy as code requires policy engineers, people who can translate governance requirements into executable rules. This is a specialized skill combining understanding of governance intent with technical implementation ability.
 
-Organizations that underinvest in governance engineering find their policies becoming stale, their tools becoming outdated, their enforcement becoming inconsistent. The systems that are supposed to provide safety become theater—present but not effective.
+Organizations that underinvest in governance engineering find their policies becoming stale, their tools becoming outdated, their enforcement becoming inconsistent. The systems that are supposed to provide safety become theater, present but not effective.
 
 Governance engineering is not a one-time project but an ongoing function. Someone must maintain the security scanners, update the architectural fitness functions, evolve the quality gates. That someone needs to understand both why the governance exists and how to implement it.
 
 ### Balancing Speed and Safety
 
-Governance creates friction. Policies reject code. Checks take time. Standards constrain options. This friction is intentional—it prevents bad outcomes—but it competes with the speed that AI adoption is supposed to provide.
+Governance creates friction. Policies reject code. Checks take time. Standards constrain options. This friction is intentional, it prevents bad outcomes, but it competes with the speed that AI adoption is supposed to provide.
 
 The balance requires constant calibration. Too much friction and AI adoption fails to deliver value. Too little friction and AI adoption delivers chaos faster than value. The right amount of friction catches genuine problems without blocking legitimate work.
 
@@ -298,7 +298,7 @@ Throughout this discussion of automated governance, machine-speed verification, 
 
 Humans design the governance systems. Humans decide what policies to encode. Humans interpret edge cases that automated systems cannot handle. Humans maintain the governance infrastructure over time.
 
-The role changes, but it doesn't disappear. Traditional governance relied on humans reviewing every change. Agentic governance relies on humans designing systems that review changes automatically. The leverage is different—one human designing good policies affects thousands of automated decisions—but the human judgment remains essential.
+The role changes, but it doesn't disappear. Traditional governance relied on humans reviewing every change. Agentic governance relies on humans designing systems that review changes automatically. The leverage is different, one human designing good policies affects thousands of automated decisions, but the human judgment remains essential.
 
 This creates a new bottleneck: governance design capacity. Organizations can scale AI code generation infinitely, but they cannot scale the humans who design governance systems. The quality of governance depends on the skills and judgment of a relatively small number of people who understand both the governance objectives and the technical implementation.
 
@@ -309,7 +309,7 @@ The organizations that govern machine-speed delivery successfully are not the on
 ---
 
 <!-- BRIDGE -->
-Governing machine-speed delivery is possible. Organizations that built Phase 3 foundations have the infrastructure—standardized patterns, automated enforcement, continuous reconciliation, measurable outcomes. They can extend that infrastructure to govern AI-generated code at the scale and pace that AI produces it.
+Governing machine-speed delivery is possible. Organizations that built Phase 3 foundations have the infrastructure, standardized patterns, automated enforcement, continuous reconciliation, measurable outcomes. They can extend that infrastructure to govern AI-generated code at the scale and pace that AI produces it.
 
 But where does it lead? The same pattern that transformed infrastructure must now transform code itself.
 <!-- /BRIDGE -->

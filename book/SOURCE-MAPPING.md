@@ -110,7 +110,7 @@ Each chapter entry contains:
 **Metaphors:**
 - **INTRODUCES: Cockpit** - Pilots need instruments because human perception can't directly sense everything
 
-**Agentic Callback:** Yes - "AI doesn't remove humans from the loop—it makes the loop faster than humans can think without help."
+**Agentic Callback:** Yes - "AI doesn't remove humans from the loop, it makes the loop faster than humans can think without help."
 
 **Bridge Out:** "We've diagnosed the problem... What would a doctrine look like that actually optimizes for how humans think?"
 

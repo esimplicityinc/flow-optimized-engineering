@@ -6,7 +6,7 @@
 
 **The central thesis is simple: go faster by knowing more, not by caring less.**
 
-This book presents Flow Optimized Engineering (FOE)—a doctrine for delivering software at sustainable high speed while maintaining safety, coherence, and human agency.
+This book presents Flow Optimized Engineering (FOE), a doctrine for delivering software at sustainable high speed while maintaining safety, coherence, and human agency.
 
 ---
 

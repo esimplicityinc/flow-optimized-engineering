@@ -53,7 +53,7 @@ The gap between CI and CD isn't technical. The technology exists. The gap is tru
 
 **Automated deployment pipelines** eliminate manual steps between merge and production. Every human intervention is a delay. Every delay is an opportunity for work to accumulate into risky batches. The pipeline must be complete: from commit to production with no human in the loop for standard changes.
 
-**Environment parity** ensures that dev, staging, and production behave the same way. "Works in staging" must predict "works in production." Without parity, staging is theater—you're testing something different from what you're deploying.
+**Environment parity** ensures that dev, staging, and production behave the same way. "Works in staging" must predict "works in production." Without parity, staging is theater, you're testing something different from what you're deploying.
 
 **Feature flags** decouple deployment from release. Code can reach production without being visible to users. This eliminates the pressure to batch changes until a "release" and enables deployment at any time without business coordination.
 
@@ -95,7 +95,7 @@ Left-shift security moves security activities earlier in development, integratin
 | **Deploy** | Policy enforcement gates, admission control |
 | **Runtime** | Behavioral monitoring, anomaly detection |
 
-The shift isn't just temporal—it's philosophical. Security becomes a property of the development process rather than a judgment on its output. Developers see security feedback continuously, not as a late-stage surprise.
+The shift isn't just temporal, it's philosophical. Security becomes a property of the development process rather than a judgment on its output. Developers see security feedback continuously, not as a late-stage surprise.
 
 **Design stage security** means threat modeling happens when architecture decisions are still fluid. The security architect participates in design discussions, not just reviews. Decisions incorporate security considerations from the start.
 
@@ -119,7 +119,7 @@ The institution requires:
 
 - **Feedback that's fast enough to act on.** Security scans that take hours don't get attention. Security scans that run in seconds become part of the normal development rhythm.
 
-- **Ownership that's clear.** Developers own the security of their code. Security teams provide tools, training, and consultation—not approval.
+- **Ownership that's clear.** Developers own the security of their code. Security teams provide tools, training, and consultation, not approval.
 
 ## From Heavy Governance to Lightweight Institutions
 
@@ -143,7 +143,7 @@ Heavy governance creates the illusion of safety while imposing real costs. Leade
 
 ### Lightweight Institutions
 
-Lightweight institutions accomplish the same goals as heavy governance with a fraction of the friction. The difference isn't whether checks exist—it's how they're implemented.
+Lightweight institutions accomplish the same goals as heavy governance with a fraction of the friction. The difference isn't whether checks exist, it's how they're implemented.
 
 | Aspect | Heavy Governance | Lightweight Institution |
 |--------|------------------|------------------------|
@@ -160,9 +160,9 @@ Consider change management:
 
 **Heavy governance approach:** All changes require CAB (Change Advisory Board) review. Engineers submit change requests with documentation. CAB meets weekly. Changes queue until reviewed. Emergency changes bypass the process, creating a separate uncontrolled path.
 
-**Lightweight institution approach:** Standard changes deploy automatically through the pipeline. The pipeline validates the change against policies. It runs tests. It monitors for problems. It rolls back automatically if thresholds are breached. Only non-standard changes—changes that can't be validated automatically—require human review. Emergency changes go through the same pipeline with expedited monitoring, not around it.
+**Lightweight institution approach:** Standard changes deploy automatically through the pipeline. The pipeline validates the change against policies. It runs tests. It monitors for problems. It rolls back automatically if thresholds are breached. Only non-standard changes, changes that can't be validated automatically, require human review. Emergency changes go through the same pipeline with expedited monitoring, not around it.
 
-The lightweight approach handles more changes more safely with less human effort. The vast majority of changes are standard. They follow patterns. They can be validated automatically. Concentrating human attention on the exceptions—the changes that genuinely require judgment—produces better outcomes than spreading human attention across everything.
+The lightweight approach handles more changes more safely with less human effort. The vast majority of changes are standard. They follow patterns. They can be validated automatically. Concentrating human attention on the exceptions, the changes that genuinely require judgment, produces better outcomes than spreading human attention across everything.
 
 ### The Key Insight
 
@@ -180,7 +180,7 @@ Bureaucratic checks happen on a schedule disconnected from work. They accumulate
 
 A monthly security scan is bureaucratic. The scan runs. Findings accumulate during the month. The report drops. Someone must review hundreds of findings, determine which are real, prioritize them, create tickets, and track remediation. By the time this happens, the developers who wrote the vulnerable code have moved on. Context is lost. Fixing requires re-learning.
 
-The check happens. The outcome suffers. The cost—in both time and effectiveness—is high.
+The check happens. The outcome suffers. The cost, in both time and effectiveness, is high.
 
 ### Fast Feedback Checks
 
@@ -188,7 +188,7 @@ Fast feedback checks happen during work. They surface issues immediately. They r
 
 A security scan on every commit is fast feedback. The scan runs in seconds. If there's a finding, it blocks merge. The developer who wrote the code sees the issue while the code is still in their head. Fixing is cheap because context is present. The finding never accumulates into a report because it's addressed immediately.
 
-The check happens. The outcome improves. The cost—in both time and effectiveness—is low.
+The check happens. The outcome improves. The cost, in both time and effectiveness, is low.
 
 ### Same Activity, Different Design
 
@@ -249,7 +249,7 @@ Individual decisions accumulate into patterns. When the same decision gets made 
 
 "Should we scan this container for vulnerabilities?" is a decision. "All containers are scanned for vulnerabilities" is a policy.
 
-Decisions require context and judgment. Policies require only triggering conditions. Converting decisions to policies reduces cognitive load. Developers don't need to decide whether to scan containers—they're scanned automatically. The decision was made once, encoded into the pipeline, and now applies consistently.
+Decisions require context and judgment. Policies require only triggering conditions. Converting decisions to policies reduces cognitive load. Developers don't need to decide whether to scan containers, they're scanned automatically. The decision was made once, encoded into the pipeline, and now applies consistently.
 
 Policy as code makes this encoding explicit and enforceable. Open Policy Agent, Sentinel, and similar tools let policies execute automatically, rejecting work that violates them without human intervention.
 
@@ -261,7 +261,7 @@ The loop has distinct stages:
 
 **Detection.** Something went wrong. An incident occurred, a bug escaped, a deployment failed. The detection must be fast enough that the context is still available.
 
-**Analysis.** What happened? Why did it happen? What allowed it to happen? The analysis must be blameless—focused on systems, not individuals—to get honest answers.
+**Analysis.** What happened? Why did it happen? What allowed it to happen? The analysis must be blameless, focused on systems, not individuals, to get honest answers.
 
 **Learning.** What should change? Is this a one-time anomaly or a pattern? If it's a pattern, what process or automation would prevent recurrence?
 
@@ -319,7 +319,7 @@ No moment exists when the system isn't being verified. The verification is conti
 
 Integration is the key. Verification that runs separately from development creates overhead. Verification that's integrated into development is invisible.
 
-When tests run automatically on commit, testing is integrated. The developer doesn't "run tests"—tests run as part of committing. When security scans run automatically in CI, security is integrated. The developer doesn't "do security"—security happens as part of building.
+When tests run automatically on commit, testing is integrated. The developer doesn't "run tests" tests run as part of committing. When security scans run automatically in CI, security is integrated. The developer doesn't "do security" security happens as part of building.
 
 Integrated verification is faster because it's parallel to work rather than sequential. The developer makes a change, pushes it, and continues working. Verification happens in the background. Results appear when relevant.
 
@@ -345,13 +345,13 @@ Speed requires investment. Fast builds require build optimization. Fast tests re
 
 Continuous verification creates a paradox: more automated verification can lead to less human attention.
 
-When tests run automatically and always pass, humans stop looking at them. When security scans run automatically and rarely find issues, humans stop reading the reports. The automation becomes invisible—and so do the results.
+When tests run automatically and always pass, humans stop looking at them. When security scans run automatically and rarely find issues, humans stop reading the reports. The automation becomes invisible, and so do the results.
 
 This isn't a problem if the automation is effective. But automation degrades. Tests become stale. Scanners miss new vulnerability classes. The automation continues running and reporting success while effectiveness declines.
 
 The resolution: monitor the automation itself. Track not just whether tests pass but what they cover. Track not just whether scans run but what they find. Verify that verification is verifying.
 
-Periodic human review of automated results catches this degradation. Not reviewing every result—that defeats the purpose—but sampling results to ensure the automation remains effective. Trust but verify applies to verification itself.
+Periodic human review of automated results catches this degradation. Not reviewing every result, that defeats the purpose, but sampling results to ensure the automation remains effective. Trust but verify applies to verification itself.
 
 ## Measuring Process Health
 
@@ -379,11 +379,11 @@ Escape rate measures verification effectiveness. If issues that could be caught 
 
 Metrics enable targeted improvement. Instead of guessing where process problems exist, metrics show them.
 
-High lead time with low deployment frequency suggests batching—changes accumulate because deployment is risky or difficult. The improvement target is deployment automation and confidence.
+High lead time with low deployment frequency suggests batching, changes accumulate because deployment is risky or difficult. The improvement target is deployment automation and confidence.
 
 High change failure rate with low time to restore suggests both inadequate pre-deployment verification and inadequate post-deployment detection. The improvement targets are stronger gates and better observability.
 
-Low lead time with high change failure rate suggests moving fast without adequate verification. The improvement target is adding checks without adding delay—faster, better automated verification.
+Low lead time with high change failure rate suggests moving fast without adequate verification. The improvement target is adding checks without adding delay, faster, better automated verification.
 
 High manual step count with low process time ratio suggests that manual steps, while numerous, are fast. Automation would help consistency but isn't the urgent need. High manual step count with high process time ratio suggests manual steps are the bottleneck.
 
@@ -439,7 +439,7 @@ Signs:
 - Compliance overhead that exceeds development effort
 - Process designed for worst-case applied to average case
 
-Right-size process to risk. Standard changes—the vast majority—need minimal process. Reserve heavyweight process for genuinely risky work. Match the overhead to the stakes.
+Right-size process to risk. Standard changes, the vast majority, need minimal process. Reserve heavyweight process for genuinely risky work. Match the overhead to the stakes.
 
 ### Approval Chain Pathology
 
@@ -449,11 +449,11 @@ The pattern: management wants oversight. Oversight becomes approval. Approval re
 
 The result: approvals become rubber stamps. Approvers don't have time to evaluate every request. They don't have context to evaluate most requests. They sign because the form is complete, not because they've verified the content. The approval chain creates delay without adding insight.
 
-Worse, approval chains concentrate risk at the wrong moment. All approvers see the request at once. If they're going to add value, they need to add it at different stages—design, implementation, deployment—not all at the end.
+Worse, approval chains concentrate risk at the wrong moment. All approvers see the request at once. If they're going to add value, they need to add it at different stages, design, implementation, deployment, not all at the end.
 
 The fix: replace approval chains with automated gates at each stage. Design review happens during design, with architecture fitness functions that verify automatically. Implementation review happens during development, with tests and scans that run continuously. Deployment review happens through observability, with metrics that trigger rollback automatically.
 
-Human judgment is still involved—but it's involved continuously through design decisions and policy definitions, not discretely through approval stamps.
+Human judgment is still involved, but it's involved continuously through design decisions and policy definitions, not discretely through approval stamps.
 
 ## The Process Transformation Path
 
@@ -463,7 +463,7 @@ Process change doesn't happen overnight. Organizations move through stages.
 
 Before changing process, understand current process. Map where work actually flows, not where documentation says it flows. Time the stages. Identify the bottlenecks.
 
-Often this mapping reveals surprises. The "standard" process takes a week. The actual process, with workarounds and shortcuts, takes two days—but creates risks nobody tracks. The formal and informal processes diverge.
+Often this mapping reveals surprises. The "standard" process takes a week. The actual process, with workarounds and shortcuts, takes two days, but creates risks nobody tracks. The formal and informal processes diverge.
 
 Visibility enables diagnosis. Without it, you're changing what you think happens rather than what actually happens.
 
@@ -487,7 +487,7 @@ Redesign often eliminates steps rather than automating them. Steps that made sen
 
 Working processes become institutions. The redesigned process gets encoded into pipelines, policies, and platforms. It becomes the default path that everyone follows.
 
-Institutionalization means the process survives personnel changes. New team members follow the process automatically because the tools guide them. The process isn't in someone's head—it's in the system.
+Institutionalization means the process survives personnel changes. New team members follow the process automatically because the tools guide them. The process isn't in someone's head, it's in the system.
 
 ### Stage 5: Iterate
 

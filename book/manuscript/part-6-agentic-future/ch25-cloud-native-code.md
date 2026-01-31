@@ -130,7 +130,7 @@ AI code generation works the same way. The patterns, interfaces, and policies be
 
 AI can detect and correct inconsistency. Given a codebase with established patterns, AI identifies deviations. Given architectural constraints, AI flags violations. Given a style standard, AI normalizes to it.
 
-This capability already exists in static analysis tools. AI extends it to patterns that can't be captured in simple rules. Architectural fitness, design consistency, conceptual coherence—these require the kind of judgment that AI can approximate.
+This capability already exists in static analysis tools. AI extends it to patterns that can't be captured in simple rules. Architectural fitness, design consistency, conceptual coherence, these require the kind of judgment that AI can approximate.
 
 When AI enforces consistency, the result is a codebase that becomes more uniform over time rather than less. Every change reinforces patterns rather than eroding them. The natural entropy of software development gets reversed.
 
@@ -154,7 +154,7 @@ Code as infrastructure inverts this: application code becomes managed with the s
 
 What does this mean in practice? It means code repositories become declarations of system capability. It means code changes flow through the same reconciliation model as infrastructure changes. It means code state is continuously reconciled to declared intent, just as infrastructure state is.
 
-This convergence is already visible in some practices. GitOps treats code changes the same as infrastructure changes—declared in Git, reconciled by automation. Platform engineering provides code capabilities the same way it provides infrastructure capabilities—self-service, policy-governed, automatically provisioned.
+This convergence is already visible in some practices. GitOps treats code changes the same as infrastructure changes, declared in Git, reconciled by automation. Platform engineering provides code capabilities the same way it provides infrastructure capabilities, self-service, policy-governed, automatically provisioned.
 
 The convergence will continue until the distinction between "infrastructure" and "code" becomes meaningless. Both are declared intent. Both are governed by policy. Both are managed by automation. The management model is the same because the underlying reality is the same: artifacts that describe what systems should do.
 
@@ -164,13 +164,13 @@ The management model for cloud-native infrastructure has specific characteristic
 
 The same management model applies to cloud-native code. Code is version-controlled (already true). Code becomes declarative (intent separated from implementation). Code becomes policy-governed (constraints enforced automatically). Code becomes continuously reconciled (state maintained by automation).
 
-This doesn't mean humans disappear from code management. It means human attention focuses on what matters: defining intent, setting policy, making judgment calls that automation can't make. The routine work of maintaining code—keeping it consistent, keeping it current, keeping it compliant—becomes automated.
+This doesn't mean humans disappear from code management. It means human attention focuses on what matters: defining intent, setting policy, making judgment calls that automation can't make. The routine work of maintaining code, keeping it consistent, keeping it current, keeping it compliant, becomes automated.
 
 ### Same Governance Model
 
-Governance of cloud-native infrastructure works through encoded policy. Security requirements, compliance constraints, architectural standards—all expressed as code, all enforced automatically. Human governance sets the policies. Automated governance enforces them.
+Governance of cloud-native infrastructure works through encoded policy. Security requirements, compliance constraints, architectural standards, all expressed as code, all enforced automatically. Human governance sets the policies. Automated governance enforces them.
 
-Code governance follows the same model. What code can do, how code must behave, what patterns code must follow—all encoded as policy, all enforced automatically. Human governance sets the policies. Automated governance enforces them.
+Code governance follows the same model. What code can do, how code must behave, what patterns code must follow, all encoded as policy, all enforced automatically. Human governance sets the policies. Automated governance enforces them.
 
 This is the only governance model that scales to machine-speed development. Human review of every change cannot scale. Policy review of every change can. The governance model that emerged for infrastructure applies unchanged to code.
 
@@ -178,7 +178,7 @@ This is the only governance model that scales to machine-speed development. Huma
 
 Operations for cloud-native infrastructure focus on the platform, not the instances. Platform teams maintain the capability. Application teams consume it. The platform handles the complexity so that consumers don't have to.
 
-Code operations follow the same model. Platform teams maintain code capabilities—generation, verification, deployment. Application teams consume them. The platform handles the complexity of making code cloud-native so that developers can focus on intent.
+Code operations follow the same model. Platform teams maintain code capabilities, generation, verification, deployment. Application teams consume them. The platform handles the complexity of making code cloud-native so that developers can focus on intent.
 
 This shifts what it means to be a developer. In the artisanal model, developers write code, review code, test code, deploy code. In the cloud-native model, developers declare intent, define policy, verify fitness, and monitor outcomes. The work changes because the operational model changes.
 

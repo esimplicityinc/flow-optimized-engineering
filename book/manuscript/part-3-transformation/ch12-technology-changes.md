@@ -34,7 +34,7 @@ Certain technologies have become standard enablers of FOE disciplines. Understan
 
 ### Container Orchestration
 
-Container orchestration platforms—Kubernetes being the dominant example—automate deployment, scaling, and management of containerized workloads.
+Container orchestration platforms, Kubernetes being the dominant example, automate deployment, scaling, and management of containerized workloads.
 
 What matters for FOE isn't the technology itself but what it enables:
 
@@ -50,7 +50,7 @@ These capabilities enable the deployment frequency and resilience that FOE requi
 
 Container orchestration is complex. This complexity is warranted only when you need its benefits. For simple workloads that don't require scaling, self-healing, or frequent deployment, simpler approaches may serve better. The question isn't "should we use Kubernetes" but "do we need what Kubernetes provides."
 
-The shift container orchestration enables is conceptual as much as technical. Servers stop being individuals you care for and start being interchangeable resources you consume. When a container fails, you don't diagnose and repair it—you replace it. When demand increases, you don't optimize the existing capacity—you add more. This cattle-not-pets mentality is what makes orchestration valuable. Without the mental shift, Kubernetes is just a complicated way to run the same workloads you ran before.
+The shift container orchestration enables is conceptual as much as technical. Servers stop being individuals you care for and start being interchangeable resources you consume. When a container fails, you don't diagnose and repair it, you replace it. When demand increases, you don't optimize the existing capacity, you add more. This cattle-not-pets mentality is what makes orchestration valuable. Without the mental shift, Kubernetes is just a complicated way to run the same workloads you ran before.
 
 ### GitOps
 
@@ -60,7 +60,7 @@ What matters for FOE:
 
 **Audit trail.** Every change to the system is a commit. Git history shows who changed what, when, and why. The audit trail exists as a byproduct of operation, not as an additional activity.
 
-**Drift detection.** When actual state diverges from declared state—whether through manual changes, failures, or automation bugs—the system detects it and can either alert or automatically correct.
+**Drift detection.** When actual state diverges from declared state, whether through manual changes, failures, or automation bugs, the system detects it and can either alert or automatically correct.
 
 **Rollback.** Reverting the system means reverting the Git commit. The same mechanism that deploys changes also undeploys them.
 
@@ -88,7 +88,7 @@ Observability is the ability to understand system behavior from external outputs
 
 OpenTelemetry provides a vendor-neutral standard for collecting this telemetry. Using it means instrumentation choices don't lock you into specific observability platforms.
 
-Observability enables the fast feedback that FOE requires. You can't know if a deployment succeeded without metrics. You can't diagnose failures without logs. You can't find bottlenecks without traces. Instrumentation isn't overhead—it's the gauges that tell you how fast you can safely go.
+Observability enables the fast feedback that FOE requires. You can't know if a deployment succeeded without metrics. You can't diagnose failures without logs. You can't find bottlenecks without traces. Instrumentation isn't overhead, it's the gauges that tell you how fast you can safely go.
 
 ### Service Mesh
 
@@ -114,7 +114,7 @@ What matters for FOE:
 
 **Automated enforcement.** Policies don't rely on reviewers remembering rules. They execute on every change, every deployment, every resource creation.
 
-**Consistent application.** The same policy applies everywhere—development, staging, production. No environment is special.
+**Consistent application.** The same policy applies everywhere, development, staging, production. No environment is special.
 
 **Versioned governance.** Policies are code. They go through review. They have history. They can be tested before deployment.
 
@@ -139,7 +139,7 @@ Teams have Terraform when the tool is installed and someone knows how to use it.
 
 **Having Kubernetes does not equal practicing cloud-native operations.**
 
-Teams have Kubernetes when clusters exist and workloads run. Teams practice cloud-native operations when workloads are designed for the environment—stateless, health-checked, ready to scale and fail. When deployment is continuous and rollback is routine. When the cluster is managed declaratively and configuration is versioned.
+Teams have Kubernetes when clusters exist and workloads run. Teams practice cloud-native operations when workloads are designed for the environment, stateless, health-checked, ready to scale and fail. When deployment is continuous and rollback is routine. When the cluster is managed declaratively and configuration is versioned.
 
 **Having CI/CD does not equal practicing continuous delivery.**
 
@@ -147,7 +147,7 @@ Teams have CI/CD when pipelines exist. Teams practice continuous delivery when e
 
 The gap between having and practicing is where transformation fails. Organizations acquire tools, check the box, and declare victory. The tools exist but the disciplines don't. The capability is theoretical.
 
-This gap explains why technology investment often disappoints. The investment buys having. Only practice—supported by process and people changes—creates practicing.
+This gap explains why technology investment often disappoints. The investment buys having. Only practice, supported by process and people changes, creates practicing.
 
 **Having observability tools does not equal practicing observability.**
 
@@ -207,7 +207,7 @@ Technology should automate toil:
 
 The test for automation: if a human does it the same way every time, a machine should do it instead.
 
-Automation has costs—building, maintaining, and debugging automated systems. But these costs are fixed while toil scales. As systems grow, the case for automation strengthens.
+Automation has costs, building, maintaining, and debugging automated systems. But these costs are fixed while toil scales. As systems grow, the case for automation strengthens.
 
 ### Observe to Enable Understanding
 
@@ -221,7 +221,7 @@ Every technology choice should include observability:
 
 If the answers involve manual checking, log diving, or asking around, the observability is insufficient. Observability should be automatic, continuous, and actionable.
 
-This principle applies to the technology stack itself, not just the applications running on it. The CI/CD pipeline should be observable—how long do builds take, how often do they fail, where are the bottlenecks? The deployment system should be observable—how often does deployment happen, how often does it fail, how long does rollback take? The policy engine should be observable—how many violations occur, what types, and are they trending up or down?
+This principle applies to the technology stack itself, not just the applications running on it. The CI/CD pipeline should be observable, how long do builds take, how often do they fail, where are the bottlenecks? The deployment system should be observable, how often does deployment happen, how often does it fail, how long does rollback take? The policy engine should be observable, how many violations occur, what types, and are they trending up or down?
 
 Technology that operates invisibly can't be improved. You might be satisfied with your deployment automation until you realize deployments average forty-five minutes because nobody measured them.
 
@@ -233,7 +233,7 @@ Of the three triad dimensions, technology is the easiest to change.
 
 **Technology has documentation.** Vendors want you to succeed with their products. They provide guides, tutorials, and reference implementations. Community resources fill the gaps.
 
-**Technology has vendors who want to help.** Sales engineers, professional services, support teams—all motivated to make your adoption succeed. Their success depends on your success.
+**Technology has vendors who want to help.** Sales engineers, professional services, support teams, all motivated to make your adoption succeed. Their success depends on your success.
 
 **Technology produces visible change.** You can see a new dashboard. You can point to a new cluster. Progress is demonstrable.
 
@@ -276,7 +276,7 @@ Acquisition is often the smallest part. Operation and expertise dominate the tot
 
 Technology debt compounds like financial debt. Each addition increases the burden of future additions. Organizations that accumulate technology without retiring technology eventually drown in complexity.
 
-A useful discipline: for every new technology added, identify one to retire. This isn't always possible, but the question forces examination of whether the addition is truly necessary. Often the new technology's capabilities overlap with existing tools. Consolidating on fewer technologies—even if each is less optimal for its specific use case—reduces total complexity.
+A useful discipline: for every new technology added, identify one to retire. This isn't always possible, but the question forces examination of whether the addition is truly necessary. Often the new technology's capabilities overlap with existing tools. Consolidating on fewer technologies, even if each is less optimal for its specific use case, reduces total complexity.
 
 ## Resisting Resume-Driven Development
 
@@ -292,7 +292,7 @@ Counter it by:
 
 **Making technology decisions as team decisions.** Individual engineers shouldn't unilaterally introduce new technologies. Teams that must live with technology should choose it.
 
-**Acknowledging the dynamic.** Don't pretend resume-driven development doesn't exist. Name it. Discuss it. Create space for engineers to satisfy learning goals through appropriate channels—study groups, side projects, hackathons—rather than production systems.
+**Acknowledging the dynamic.** Don't pretend resume-driven development doesn't exist. Name it. Discuss it. Create space for engineers to satisfy learning goals through appropriate channels, study groups, side projects, hackathons, rather than production systems.
 
 The goal isn't to suppress curiosity or ambition. Engineers who want to learn new technology are valuable. The goal is channeling that energy appropriately. Production systems serve the organization. Learning projects serve individuals. Keeping these separate prevents production complexity from growing unchecked while still supporting professional development.
 
@@ -326,9 +326,9 @@ Before acquiring new technology, inventory what exists:
 - What's partially adopted?
 - What's available but not enabled?
 
-Often the gap isn't technology—it's the process and people changes needed to use technology as intended. A thorough inventory of existing capabilities frequently reveals that the next step isn't purchasing something new but actually using what's already there.
+Often the gap isn't technology, it's the process and people changes needed to use technology as intended. A thorough inventory of existing capabilities frequently reveals that the next step isn't purchasing something new but actually using what's already there.
 
-This inventory also reveals technology that should be retired. Unused technology isn't free—it consumes maintenance effort, creates security surface, and adds cognitive load. Removing technology can improve flow as much as adding it.
+This inventory also reveals technology that should be retired. Unused technology isn't free, it consumes maintenance effort, creates security surface, and adds cognitive load. Removing technology can improve flow as much as adding it.
 
 ## The Technology Selection Checklist
 
@@ -351,5 +351,5 @@ Before adopting new technology, honest answers to these questions prevent regret
 No technology passes all questions perfectly. The value is in explicit tradeoffs rather than implicit assumptions.
 
 <!-- BRIDGE -->
-The triad must change together, but different stakeholders see the change differently. Executives care about risk and outcomes. Engineering leaders care about team effectiveness and delivery metrics. Engineers care about tooling, autonomy, and clear expectations. Maintaining coherence across these levels—ensuring everyone is moving toward the same transformation with the same understanding—is its own challenge.
+The triad must change together, but different stakeholders see the change differently. Executives care about risk and outcomes. Engineering leaders care about team effectiveness and delivery metrics. Engineers care about tooling, autonomy, and clear expectations. Maintaining coherence across these levels, ensuring everyone is moving toward the same transformation with the same understanding, is its own challenge.
 <!-- /BRIDGE -->

@@ -14,17 +14,17 @@ But here's what the prologue didn't tell you: Meridian was already failing. The 
 
 Before the AI adoption, Meridian could ship features at a reasonable pace. Their review process, though informal, caught most serious problems. Their tribal knowledge, though concentrated in a few senior engineers, kept the architecture coherent enough. Their testing, though incomplete, covered the critical paths. The system worked because the pace of change was slow enough for human-scale verification to keep up.
 
-When AI accelerated production by an order of magnitude, every weakness became a crisis. Reviews became rubber stamps because reviewers couldn't keep up. Tribal knowledge couldn't spread faster than AI could generate code. Tests couldn't be written fast enough to verify what was being shipped. The same system that worked at human speed failed at machine speed—not because AI broke it, but because AI revealed how fragile it had always been.
+When AI accelerated production by an order of magnitude, every weakness became a crisis. Reviews became rubber stamps because reviewers couldn't keep up. Tribal knowledge couldn't spread faster than AI could generate code. Tests couldn't be written fast enough to verify what was being shipped. The same system that worked at human speed failed at machine speed, not because AI broke it, but because AI revealed how fragile it had always been.
 
-The tension Meridian faced—how do we go faster without breaking things?—is not new. It didn't arrive with agentic coding. It didn't arrive with DevOps or Agile or microservices or the cloud. It has been the central challenge of software delivery since the first team tried to ship faster than their systems could handle.
+The tension Meridian faced, how do we go faster without breaking things?, is not new. It didn't arrive with agentic coding. It didn't arrive with DevOps or Agile or microservices or the cloud. It has been the central challenge of software delivery since the first team tried to ship faster than their systems could handle.
 
 Every organization wants faster delivery. Every organization fears what happens when they try. This fear isn't irrational. It comes from experience. They've seen what happens when speed means recklessness. They've cleaned up the aftermath. They've attended the post-mortems. They've watched talented engineers burn out trying to hold together systems that were moving faster than anyone could comprehend.
 
 The speed/safety tension existed long before AI. Organizations have been trying to solve it for decades. They've tried many approaches. Most of those approaches fail. Not because the people implementing them are incompetent, but because the approaches themselves are built on flawed assumptions about how software delivery actually works.
 
-This chapter examines those flawed assumptions. We'll look at four common patterns that organizations adopt in their attempt to go fast without breaking things. Each pattern makes sense from a certain angle. Each produces real results in the short term. And each ultimately fails, often in ways that convince organizations to try one of the other patterns—which also fails, creating a cycle of dysfunction that many organizations never escape.
+This chapter examines those flawed assumptions. We'll look at four common patterns that organizations adopt in their attempt to go fast without breaking things. Each pattern makes sense from a certain angle. Each produces real results in the short term. And each ultimately fails, often in ways that convince organizations to try one of the other patterns, which also fails, creating a cycle of dysfunction that many organizations never escape.
 
-Before we can understand what works, we need to understand what doesn't—and why.
+Before we can understand what works, we need to understand what doesn't, and why.
 
 ## The Universal Tension
 
@@ -40,7 +40,7 @@ Until the pressure builds again. Until competitors pull ahead. Until the board a
 
 The rhythm becomes predictable. A new VP of Engineering arrives and cuts process. Six months later, a major incident. Three months after that, new process. A year later, a new VP arrives and notes that the organization has become slow and bureaucratic. The cycle starts again. Different people, same pattern.
 
-This oscillation—between dangerous speed and stifling caution—is so common that most organizations accept it as inevitable. They assume the only question is where to position themselves on the spectrum. Move fast and break things, or move carefully and fall behind. Pick your poison.
+This oscillation, between dangerous speed and stifling caution, is so common that most organizations accept it as inevitable. They assume the only question is where to position themselves on the spectrum. Move fast and break things, or move carefully and fall behind. Pick your poison.
 
 This framing is wrong. The organizations that have escaped this cycle didn't find a better position on the spectrum. They discovered the spectrum itself was an illusion. Speed and safety are not opposing forces to be balanced. They are the same capability viewed from different angles.
 
@@ -48,7 +48,7 @@ But that discovery requires first understanding why the common approaches fail.
 
 ## The Four Failure Patterns
 
-Organizations facing the speed/safety tension tend to adopt one of four approaches. Each emerges from reasonable assumptions. Each produces short-term results. Each ultimately fails. And when they fail, organizations typically don't recognize the pattern—they assume they just didn't execute well enough, and they try the same approach harder. Or they swing to a different pattern, which fails in different ways.
+Organizations facing the speed/safety tension tend to adopt one of four approaches. Each emerges from reasonable assumptions. Each produces short-term results. Each ultimately fails. And when they fail, organizations typically don't recognize the pattern, they assume they just didn't execute well enough, and they try the same approach harder. Or they swing to a different pattern, which fails in different ways.
 
 Understanding these patterns is the first step toward escaping them.
 
@@ -56,7 +56,7 @@ Understanding these patterns is the first step toward escaping them.
 
 **The Philosophy:** Remove all friction. Ship as fast as possible. Measure success by output volume.
 
-You recognize this approach immediately. Story points and velocity as primary metrics. "Move fast and break things" as cultural mantra. Tests, documentation, and review treated as optional overhead—nice to have when there's time, but never blocking progress. Success measured by features shipped, not outcomes achieved. Pull requests approved in minutes because the backlog is long and the sprint is short.
+You recognize this approach immediately. Story points and velocity as primary metrics. "Move fast and break things" as cultural mantra. Tests, documentation, and review treated as optional overhead, nice to have when there's time, but never blocking progress. Success measured by features shipped, not outcomes achieved. Pull requests approved in minutes because the backlog is long and the sprint is short.
 
 The appeal is obvious. Friction is visible and annoying. Removing friction feels productive. When you eliminate a review step, you can measure the time saved. When you skip writing tests, you ship the feature today instead of tomorrow. The velocity charts go up. Management is pleased. The approach appears to work.
 
@@ -68,7 +68,7 @@ Eventually, "fast" teams spend most of their time fighting fires instead of buil
 
 The velocity charts that went up start going down. But by then, the damage is done. The technical debt has accumulated. The system is fragile. Recovery will take longer than the shortcuts saved.
 
-**The Paradox:** The team that spends 20% of their time on testing and automation will outpace the team that spends 0%—eventually, decisively. The team that "wastes time" on code review will ship more reliable features than the team that merges everything immediately. The investment in verification isn't overhead. It's what makes sustained velocity possible.
+**The Paradox:** The team that spends 20% of their time on testing and automation will outpace the team that spends 0%, eventually, decisively. The team that "wastes time" on code review will ship more reliable features than the team that merges everything immediately. The investment in verification isn't overhead. It's what makes sustained velocity possible.
 
 This paradox is invisible in the short term, which is why raw velocity optimization persists. The costs are delayed. The benefits of skipping verification are immediate and measurable. The costs are diffuse and emerge over months. By the time the pattern fails, the people who chose it have often moved on to other projects or other companies, and the pattern gets blamed on execution rather than strategy.
 
@@ -98,11 +98,11 @@ The deeper failure is about feedback loops. Process adds latency. Every approval
 
 **The Paradox:** More process often means less safety, because process adds latency to feedback loops. The organization with a monthly change advisory board has less insight into their production systems than the organization with continuous deployment and comprehensive monitoring. The appearance of control is not control.
 
-Organizations trapped in ceremonial compliance often experience a peculiar kind of stagnation. Nothing moves quickly, but incidents still happen. The process catches some problems but creates others: changes that should take hours take weeks, so engineers batch changes together, which increases the risk of each deployment. The pressure to ship builds until someone finds a workaround—an emergency process, an exception mechanism—and soon the workarounds are where the real work happens while the official process becomes theater.
+Organizations trapped in ceremonial compliance often experience a peculiar kind of stagnation. Nothing moves quickly, but incidents still happen. The process catches some problems but creates others: changes that should take hours take weeks, so engineers batch changes together, which increases the risk of each deployment. The pressure to ship builds until someone finds a workaround, an emergency process, an exception mechanism, and soon the workarounds are where the real work happens while the official process becomes theater.
 
-You can recognize ceremonial compliance by the questions people ask. "Did you fill out the form?" takes priority over "Did you solve the problem?" "Did the board approve it?" matters more than "Will it work?" Compliance with process becomes the goal, and the original purpose of the process—safety, quality, coordination—gets lost. Engineers game the system, finding ways to satisfy the letter of the requirements without the spirit. The most valuable skill becomes navigating bureaucracy, not building software.
+You can recognize ceremonial compliance by the questions people ask. "Did you fill out the form?" takes priority over "Did you solve the problem?" "Did the board approve it?" matters more than "Will it work?" Compliance with process becomes the goal, and the original purpose of the process, safety, quality, coordination, gets lost. Engineers game the system, finding ways to satisfy the letter of the requirements without the spirit. The most valuable skill becomes navigating bureaucracy, not building software.
 
-The organizations that escape ceremonial compliance don't abandon verification—they automate it. They replace sign-off meetings with automated checks. They replace documentation requirements with living documentation generated from code. They replace approval gates with automated guardrails that prevent obviously bad changes while allowing good changes to flow. The verification that matters happens continuously, in the flow of work, rather than in batch at arbitrary milestones.
+The organizations that escape ceremonial compliance don't abandon verification, they automate it. They replace sign-off meetings with automated checks. They replace documentation requirements with living documentation generated from code. They replace approval gates with automated guardrails that prevent obviously bad changes while allowing good changes to flow. The verification that matters happens continuously, in the flow of work, rather than in batch at arbitrary milestones.
 
 ### Heroic Engineering
 
@@ -110,7 +110,7 @@ The organizations that escape ceremonial compliance don't abandon verification�
 
 This approach has a seductive logic. The best engineers produce dramatically more value than average engineers. A single exceptional engineer can architect a system, build it, document it, deploy it, and maintain it. If you hire enough exceptional engineers and give them autonomy, they'll solve whatever problems arise.
 
-You see this pattern in organizations that pride themselves on their hiring bar. Senior engineers who "just know" how the system works because they've been there since the beginning. Tribal knowledge that lives in people's heads rather than documentation. Individual heroics to meet deadlines—the engineer who works through the weekend to ship the critical feature, the architect who personally reviews every major change, the SRE who gets paged at 3 AM and fixes the incident that no one else could diagnose.
+You see this pattern in organizations that pride themselves on their hiring bar. Senior engineers who "just know" how the system works because they've been there since the beginning. Tribal knowledge that lives in people's heads rather than documentation. Individual heroics to meet deadlines, the engineer who works through the weekend to ship the critical feature, the architect who personally reviews every major change, the SRE who gets paged at 3 AM and fixes the incident that no one else could diagnose.
 
 The success stories are real. Great engineers do solve hard problems. A talented architect can design systems that scale elegantly. A skilled debugger can find problems that would stump a team of juniors. The approach works, up to a point.
 
@@ -128,7 +128,7 @@ Systems dependent on individual heroics cannot scale beyond hero capacity. There
 
 This paradox creates a particular kind of organizational blindness. Success reinforces the pattern. When the hero solves the crisis, the organization celebrates the hero rather than asking why the crisis required heroism. When the architect prevents a bad design decision, the organization credits the architect rather than asking why the design process requires individual intervention. The pattern feels like it's working right up until the hero is unavailable and the organization discovers it has no backup plan.
 
-You can recognize heroic engineering by who gets paged. If the same names appear on every escalation, if certain engineers are "the only ones who can" handle certain systems, if vacation schedules require negotiation because someone essential might be needed—you're looking at heroic engineering. The heroes themselves often don't see the pattern. They're proud of their expertise, and they should be. But their expertise has become the organization's dependency.
+You can recognize heroic engineering by who gets paged. If the same names appear on every escalation, if certain engineers are "the only ones who can" handle certain systems, if vacation schedules require negotiation because someone essential might be needed, you're looking at heroic engineering. The heroes themselves often don't see the pattern. They're proud of their expertise, and they should be. But their expertise has become the organization's dependency.
 
 The organizations that escape heroic engineering don't fire their heroes or diminish their value. They multiply them. They invest in systems that make average engineers more effective: clear interfaces that don't require deep knowledge to use correctly, comprehensive tests that catch errors before heroes need to diagnose them, observability that makes system behavior visible to anyone, not just those who built it. The heroes become force multipliers rather than bottlenecks. Their expertise gets encoded into systems rather than hoarded in memory.
 
@@ -156,11 +156,11 @@ Big releases carry big risk, and they often arrive too late to matter. The produ
 
 **The Paradox:** The more you plan, the more you commit to assumptions that will prove wrong. Certainty theater produces the appearance of control while actually reducing the ability to respond to reality. The most detailed plan is often the most dangerous plan, because it locks the organization into decisions made with the least information.
 
-This paradox is counterintuitive, which is why waterfall thinking persists despite decades of evidence against it. The feeling of certainty is compelling. The plan on paper is tangible. The risks of iterative development—that you might build the wrong thing, that scope might change, that estimates might be wrong—are visible and frightening. The risks of waterfall development—that your assumptions are wrong, that you'll build the right thing too late, that your certainty is an illusion—are invisible until delivery.
+This paradox is counterintuitive, which is why waterfall thinking persists despite decades of evidence against it. The feeling of certainty is compelling. The plan on paper is tangible. The risks of iterative development, that you might build the wrong thing, that scope might change, that estimates might be wrong, are visible and frightening. The risks of waterfall development, that your assumptions are wrong, that you'll build the right thing too late, that your certainty is an illusion, are invisible until delivery.
 
-You can recognize waterfall certainty theater by how people react to change. If scope changes are treated as failures rather than learning, if estimates are treated as commitments rather than hypotheses, if "staying on plan" matters more than "achieving outcomes"—you're looking at certainty theater. The plan becomes the reality, and actual reality becomes an inconvenience.
+You can recognize waterfall certainty theater by how people react to change. If scope changes are treated as failures rather than learning, if estimates are treated as commitments rather than hypotheses, if "staying on plan" matters more than "achieving outcomes" you're looking at certainty theater. The plan becomes the reality, and actual reality becomes an inconvenience.
 
-The organizations that escape waterfall thinking don't abandon planning—they change what planning means. They plan to learn rather than plan to predict. They create plans that are hypotheses to be tested, not commitments to be honored. They build in feedback loops so that learning from early phases informs later phases. They measure progress by outcomes achieved, not milestones passed. And they accept that the plan will change, because the plan changing is how they know they're learning.
+The organizations that escape waterfall thinking don't abandon planning, they change what planning means. They plan to learn rather than plan to predict. They create plans that are hypotheses to be tested, not commitments to be honored. They build in feedback loops so that learning from early phases informs later phases. They measure progress by outcomes achieved, not milestones passed. And they accept that the plan will change, because the plan changing is how they know they're learning.
 
 ## Why These Patterns Persist
 
@@ -176,11 +176,11 @@ If these patterns fail, why do organizations keep adopting them? The answer reve
 
 **Organizations oscillate between patterns rather than escaping them.** After velocity optimization fails, organizations adopt ceremonial compliance. After ceremonial compliance stifles delivery, organizations empower heroes to cut through bureaucracy. After heroes burn out, organizations try to plan their way to certainty. After certainty proves illusory, organizations strip away process and return to velocity optimization. The cycle continues, each swing justified by the failure of the previous approach, each swing creating the conditions for the next swing.
 
-This oscillation feels like learning but isn't. The organization is changing approaches, but it's not changing the underlying assumptions that make all the approaches fail. It's like a driver who keeps getting lost, alternating between driving faster, stopping to ask for directions, hiring a better driver, and buying more detailed maps—without ever questioning whether they have the right destination.
+This oscillation feels like learning but isn't. The organization is changing approaches, but it's not changing the underlying assumptions that make all the approaches fail. It's like a driver who keeps getting lost, alternating between driving faster, stopping to ask for directions, hiring a better driver, and buying more detailed maps, without ever questioning whether they have the right destination.
 
 The underlying assumption that all four patterns share is that speed and safety are tradeoffs. Raw velocity optimization chooses speed over safety. Ceremonial compliance chooses safety over speed. Heroic engineering tries to have both by concentrating the burden on exceptional individuals. Waterfall planning tries to eliminate the tradeoff through prediction. But they all accept the tradeoff as real. They differ only in how they navigate it.
 
-This assumption is wrong. Speed and safety are not tradeoffs. But escaping the patterns requires understanding why the assumption feels true—why every organization that has tried to go faster has experienced the pain that makes them retreat to safety. That understanding requires looking at how organizations actually work in practice, not in theory.
+This assumption is wrong. Speed and safety are not tradeoffs. But escaping the patterns requires understanding why the assumption feels true, why every organization that has tried to go faster has experienced the pain that makes them retreat to safety. That understanding requires looking at how organizations actually work in practice, not in theory.
 
 ## The Shape of Real Organizations
 
@@ -196,27 +196,27 @@ The most common failure mode is not any single pattern but the confusion that co
 
 This confusion is where organizations get stuck. They've tried multiple approaches. Nothing has worked sustainably. They conclude that the speed/safety tension is just inherent to software development, something to be managed rather than solved. They stop looking for answers.
 
-But there's another way to read the evidence. If every pattern fails, and if different patterns fail in different ways, the problem isn't the patterns. The problem is something deeper—something the patterns all share. The patterns are symptoms. The disease is elsewhere.
+But there's another way to read the evidence. If every pattern fails, and if different patterns fail in different ways, the problem isn't the patterns. The problem is something deeper, something the patterns all share. The patterns are symptoms. The disease is elsewhere.
 
 ## The Missing Variable
 
 All four failure patterns share a common blind spot: they focus on visible inputs and outputs while ignoring the invisible substrate that determines whether those inputs produce useful outputs.
 
-Velocity optimization focuses on shipping speed—features out the door—while ignoring whether anyone knows what those features do or whether they actually work.
+Velocity optimization focuses on shipping speed, features out the door, while ignoring whether anyone knows what those features do or whether they actually work.
 
-Ceremonial compliance focuses on process adherence—checkboxes ticked—while ignoring whether the process produces actual understanding or just documentation.
+Ceremonial compliance focuses on process adherence, checkboxes ticked, while ignoring whether the process produces actual understanding or just documentation.
 
-Heroic engineering focuses on talent—exceptional individuals—while ignoring whether that talent produces transferable knowledge or just personal capability.
+Heroic engineering focuses on talent, exceptional individuals, while ignoring whether that talent produces transferable knowledge or just personal capability.
 
-Waterfall planning focuses on upfront analysis—requirements and designs—while ignoring whether that analysis reflects reality or just assumptions.
+Waterfall planning focuses on upfront analysis, requirements and designs, while ignoring whether that analysis reflects reality or just assumptions.
 
-The missing variable is knowledge—specifically, the organization's ability to know whether its systems work, why they work, and what will happen when they change.
+The missing variable is knowledge, specifically, the organization's ability to know whether its systems work, why they work, and what will happen when they change.
 
 Consider the four patterns through this lens:
 
 Velocity optimization sacrifices knowledge for speed. Tests unwritten are knowledge ungained. Reviews skipped are misunderstandings uncaught. Documentation omitted is context lost. The team ships faster by knowing less. When they stop being able to go fast, it's because they've stopped being able to know what their systems do.
 
-Ceremonial compliance mistakes paperwork for knowledge. Documents exist, but they describe intentions rather than reality. Approvals happen, but approvers don't understand what they're approving. The organization has the appearance of knowledge—comprehensive documentation, formal reviews—without the substance.
+Ceremonial compliance mistakes paperwork for knowledge. Documents exist, but they describe intentions rather than reality. Approvals happen, but approvers don't understand what they're approving. The organization has the appearance of knowledge, comprehensive documentation, formal reviews, without the substance.
 
 Heroic engineering concentrates knowledge in individuals. The hero knows how the system works, but that knowledge isn't transferable. It exists in one person's head, accumulated through years of experience, and it leaves when that person leaves. The organization has knowledge, but it's not organizational knowledge.
 
@@ -228,11 +228,11 @@ It would look like an organization that ships fast because it can verify fast. T
 
 In such an organization, speed and safety would not feel like tradeoffs because they would not be tradeoffs. The investment in knowing more would be the investment in going faster. The mechanisms that make the system safe would be the same mechanisms that make the system fast.
 
-This is not a theoretical ideal. Such organizations exist. They deploy thousands of times per day with fewer incidents than organizations that deploy monthly. They ship faster than their competitors while maintaining higher reliability. They don't have a secret. They have infrastructure—specifically, infrastructure for generating and distributing knowledge.
+This is not a theoretical ideal. Such organizations exist. They deploy thousands of times per day with fewer incidents than organizations that deploy monthly. They ship faster than their competitors while maintaining higher reliability. They don't have a secret. They have infrastructure, specifically, infrastructure for generating and distributing knowledge.
 
 ## The Counterintuitive Thesis
 
-Here is the central insight that the rest of this book will develop: speed and safety are not tradeoffs. They are the same capability, viewed from different angles. The fastest organizations are also the safest. The safest organizations are also the fastest. This is not paradox—it is how high-performance systems work.
+Here is the central insight that the rest of this book will develop: speed and safety are not tradeoffs. They are the same capability, viewed from different angles. The fastest organizations are also the safest. The safest organizations are also the fastest. This is not paradox, it is how high-performance systems work.
 
 The fastest race car teams run more simulations, collect more telemetry, and analyze more data than slower teams. That investment in knowledge doesn't slow them down. It's how they go fast. They know exactly where the limits are, so they can push right to the edge of those limits. A driver without instruments can only go as fast as their instincts allow. A driver with precise feedback on tire temperature, brake wear, and engine performance can push to the limits of physics.
 
@@ -242,34 +242,34 @@ The most reliable software organizations deploy more frequently than less reliab
 
 Consider what frequent deployment requires. You need automated testing comprehensive enough that you trust it to catch problems. You need deployment automation reliable enough that you trust it to work every time. You need monitoring sensitive enough that you trust it to alert you if something goes wrong. You need rollback capability fast enough that you trust it to limit blast radius. Each of these requirements forces investment in knowledge infrastructure. The organization that can deploy frequently has built the apparatus to know whether deployments work.
 
-The organization that deploys monthly has not built that apparatus. They can't afford to—without the apparatus, frequent deployment would be reckless. So they batch changes together, which increases the size of each deployment, which increases the risk of each deployment, which reinforces the need for caution. The lack of knowledge infrastructure becomes self-perpetuating.
+The organization that deploys monthly has not built that apparatus. They can't afford to, without the apparatus, frequent deployment would be reckless. So they batch changes together, which increases the size of each deployment, which increases the risk of each deployment, which reinforces the need for caution. The lack of knowledge infrastructure becomes self-perpetuating.
 
-The organizations that have escaped the speed/safety oscillation didn't find a clever balance between competing priorities. They discovered that the priorities weren't actually competing. They built systems that produced knowledge as a byproduct of work—systems where shipping code also verified code, where deployment also generated telemetry, where production operation also accumulated understanding.
+The organizations that have escaped the speed/safety oscillation didn't find a clever balance between competing priorities. They discovered that the priorities weren't actually competing. They built systems that produced knowledge as a byproduct of work, systems where shipping code also verified code, where deployment also generated telemetry, where production operation also accumulated understanding.
 
 In these organizations, going fast doesn't mean caring less. It means knowing more. The velocity comes from certainty, not from recklessness. The safety comes from feedback, not from ceremony.
 
-This insight has been rediscovered many times in many forms. The Toyota Production System understood that quality and efficiency weren't tradeoffs—that building quality in was faster than inspecting quality out. The DevOps movement understood that development and operations weren't adversaries—that shared responsibility produced better outcomes than siloed handoffs. The continuous delivery pioneers understood that more frequent releases were less risky than infrequent releases—that small batches were easier to verify and easier to roll back.
+This insight has been rediscovered many times in many forms. The Toyota Production System understood that quality and efficiency weren't tradeoffs, that building quality in was faster than inspecting quality out. The DevOps movement understood that development and operations weren't adversaries, that shared responsibility produced better outcomes than siloed handoffs. The continuous delivery pioneers understood that more frequent releases were less risky than infrequent releases, that small batches were easier to verify and easier to roll back.
 
 Each rediscovery has been partial, focused on a particular domain or a particular set of practices. What's needed is a unifying framework that explains why these approaches work and provides guidance for organizations trying to adopt them.
 
-That framework starts with understanding what actually breaks when organizations try to go fast. It's not the code. It's not the process. It's something more fundamental—something about how humans process information and make decisions under uncertainty.
+That framework starts with understanding what actually breaks when organizations try to go fast. It's not the code. It's not the process. It's something more fundamental, something about how humans process information and make decisions under uncertainty.
 
-The framework we'll develop in this book rests on three principles: optimize for understanding, optimize for fast feedback, and optimize for confidence. These principles are not arbitrary best practices. They emerge from fundamental constraints on human cognition—constraints that every software delivery system must respect if it wants to achieve sustainable high performance.
+The framework we'll develop in this book rests on three principles: optimize for understanding, optimize for fast feedback, and optimize for confidence. These principles are not arbitrary best practices. They emerge from fundamental constraints on human cognition, constraints that every software delivery system must respect if it wants to achieve sustainable high performance.
 
 But before we can develop those principles, we need to understand the problem they solve. The next chapter digs into the mechanics of what happens when organizations try to scale their delivery systems. The answers are not what you might expect.
 
 ## What Comes Next
 
-This chapter has shown you what doesn't work and gestured at what might. The four failure patterns are traps that organizations fall into repeatedly, each time convinced they're doing something new. The oscillation between patterns creates churn without progress. The missing variable—knowledge—points toward a different approach.
+This chapter has shown you what doesn't work and gestured at what might. The four failure patterns are traps that organizations fall into repeatedly, each time convinced they're doing something new. The oscillation between patterns creates churn without progress. The missing variable, knowledge, points toward a different approach.
 
 But understanding why these patterns fail isn't the same as understanding what to do instead. For that, we need to dig deeper into the actual dynamics of software delivery at scale.
 
-The next chapter examines why speed breaks. What happens when organizations try to go faster? Where are the actual bottlenecks? Why do the obvious interventions—removing process, adding automation, hiring more engineers—so often fail to produce the expected results?
+The next chapter examines why speed breaks. What happens when organizations try to go faster? Where are the actual bottlenecks? Why do the obvious interventions, removing process, adding automation, hiring more engineers, so often fail to produce the expected results?
 
 The answer involves fundamental constraints that most organizations don't see because they're looking at the wrong level. They're optimizing code when they should be optimizing information flow. They're accelerating production when they should be accelerating verification. They're measuring output when they should be measuring understanding.
 
 These constraints exist at every organization, at every scale. They existed before AI and they'll exist after. But AI raises the stakes because AI removes the buffers that used to hide these constraints. At human speed, you can get away with systems that don't quite scale. At machine speed, you cannot.
 
 <!-- BRIDGE -->
-These four patterns fail because they misunderstand the economics of software delivery. They assume that the bottleneck is production—writing code, building features, shipping releases. But production has been getting cheaper for decades. What's expensive, what's actually scarce, is verification. The ability to know whether what you built works, whether it fits with everything else, whether it will continue to work tomorrow. The next chapter examines why speed actually breaks at scale, and why the answer lies in understanding what happens when verification can't keep up with production.
+These four patterns fail because they misunderstand the economics of software delivery. They assume that the bottleneck is production, writing code, building features, shipping releases. But production has been getting cheaper for decades. What's expensive, what's actually scarce, is verification. The ability to know whether what you built works, whether it fits with everything else, whether it will continue to work tomorrow. The next chapter examines why speed actually breaks at scale, and why the answer lies in understanding what happens when verification can't keep up with production.
 <!-- /BRIDGE -->

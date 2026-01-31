@@ -16,17 +16,17 @@ Let's conclude with what we've learned, why the doctrine lives rather than freez
 
 The book makes a single argument in six parts.
 
-**Part I: The Speed Problem.** Speed and safety appear to conflict, but the appearance is illusion. Organizations fail not because they must choose between speed and safety, but because they misunderstand the relationship between them. Human cognition is the bottleneck—not human laziness or lack of discipline, but the actual limits of working memory, mental model formation, and causal chain tracking.
+**Part I: The Speed Problem.** Speed and safety appear to conflict, but the appearance is illusion. Organizations fail not because they must choose between speed and safety, but because they misunderstand the relationship between them. Human cognition is the bottleneck, not human laziness or lack of discipline, but the actual limits of working memory, mental model formation, and causal chain tracking.
 
 **Part II: The Doctrine.** The central thesis resolves the apparent conflict: go faster by knowing more, not by caring less. Three principles operationalize this thesis: optimize for understanding (so you can predict and diagnose), optimize for fast feedback (so you can learn and calibrate), optimize for confidence (so you can act despite uncertainty). These principles form a closed cognitive system that enables sustainable high-speed operation.
 
-**Part III: The Transformation.** Adopting the doctrine requires coordinated change across people, process, and technology. These dimensions can't be changed independently—pull one without the others and the transformation snaps back. Different stakeholders need the doctrine translated into their language while maintaining coherence across levels.
+**Part III: The Transformation.** Adopting the doctrine requires coordinated change across people, process, and technology. These dimensions can't be changed independently, pull one without the others and the transformation snaps back. Different stakeholders need the doctrine translated into their language while maintaining coherence across levels.
 
-**Part IV: The Journey.** Organizations evolve through six phases from manual operations to cloud-native code. Phase 3 is the bottleneck—not a technology gap but an institutional one. Within each phase, organizations exhibit varying levels of maturity, measured by predictability rather than sophistication. The transformation follows a J-curve: performance dips before it improves.
+**Part IV: The Journey.** Organizations evolve through six phases from manual operations to cloud-native code. Phase 3 is the bottleneck, not a technology gap but an institutional one. Within each phase, organizations exhibit varying levels of maturity, measured by predictability rather than sophistication. The transformation follows a J-curve: performance dips before it improves.
 
 **Part V: The Implementation.** Practical guidance for building institutions, establishing practices, creating developer experience as an operating system, measuring what matters, and avoiding common pitfalls. The doctrine becomes real through daily operation, not through declarations.
 
-**Part VI: The Agentic Future.** AI changes the economics of code production, creating new scarcities around alignment, verification, and comprehension. Phase 3 disciplines enable governing machine-speed delivery. Code must evolve the same way infrastructure did—toward standardization, composability, and automated governance. Through all of this, humans remain in the loop: not as bottlenecks to be eliminated, but as stewards providing judgment, ethics, accountability, and intent.
+**Part VI: The Agentic Future.** AI changes the economics of code production, creating new scarcities around alignment, verification, and comprehension. Phase 3 disciplines enable governing machine-speed delivery. Code must evolve the same way infrastructure did, toward standardization, composability, and automated governance. Through all of this, humans remain in the loop: not as bottlenecks to be eliminated, but as stewards providing judgment, ethics, accountability, and intent.
 
 That's the complete argument. Everything else is elaboration.
 
@@ -38,11 +38,11 @@ FOE is not a fixed methodology to be implemented once and preserved forever. It'
 
 The specific practices in this book reflect current understanding. They'll change. New tools emerge. New patterns prove themselves. Old assumptions get challenged. What works today may be superseded tomorrow.
 
-This isn't a weakness—it's a feature. A static doctrine can't adapt to changing circumstances. The agentic era we're entering will require practice evolution that we can't fully anticipate. The principles will endure. The implementations will change.
+This isn't a weakness, it's a feature. A static doctrine can't adapt to changing circumstances. The agentic era we're entering will require practice evolution that we can't fully anticipate. The principles will endure. The implementations will change.
 
 ### New Methods Emerge
 
-As organizations apply the doctrine, they discover things. Some discoveries are local—what works for this team, this context, this problem. Some discoveries generalize—patterns that work across contexts, practices that improve outcomes wherever they're applied.
+As organizations apply the doctrine, they discover things. Some discoveries are local, what works for this team, this context, this problem. Some discoveries generalize, patterns that work across contexts, practices that improve outcomes wherever they're applied.
 
 The generalizable discoveries become methods: documented practices backed by evidence from multiple contexts. Methods aren't invented by experts and handed down. They're discovered by practitioners and distilled from experience.
 
@@ -50,7 +50,7 @@ The generalizable discoveries become methods: documented practices backed by evi
 
 Some practices that seemed essential become obsolete. Technology changes make them unnecessary. Better alternatives emerge. Contexts shift in ways that invalidate their assumptions.
 
-A living doctrine retires methods that no longer serve. This requires humility—admitting that what we advocated yesterday isn't what we advocate today. It also requires rigor—retiring methods based on evidence, not fashion.
+A living doctrine retires methods that no longer serve. This requires humility, admitting that what we advocated yesterday isn't what we advocate today. It also requires rigor, retiring methods based on evidence, not fashion.
 
 ## How Professional Knowledge Accumulates
 
@@ -82,7 +82,7 @@ Methods can regress. An established method that encounters contradicting evidenc
 
 ### The Doctrine as Living System
 
-The doctrine is the collection of methods organized around principles. Principles are stable—they derive from how human cognition works, which doesn't change quickly. Methods evolve as evidence accumulates. Practices—the specific implementations of methods—change frequently.
+The doctrine is the collection of methods organized around principles. Principles are stable, they derive from how human cognition works, which doesn't change quickly. Methods evolve as evidence accumulates. Practices, the specific implementations of methods, change frequently.
 
 ```
 Principles (stable)
@@ -106,13 +106,13 @@ This book is an invitation, not a prescription.
 
 ### Apply the Doctrine
 
-Take what's useful. Adapt it to your context. Test it against your reality. The principles should work universally—they're grounded in how human cognition functions. The methods should work broadly—they're backed by evidence across contexts. The specific practices may need modification for your situation.
+Take what's useful. Adapt it to your context. Test it against your reality. The principles should work universally, they're grounded in how human cognition functions. The methods should work broadly, they're backed by evidence across contexts. The specific practices may need modification for your situation.
 
 Apply doesn't mean comply. It means engage thoughtfully. Try things. Observe results. Learn from what works and what doesn't.
 
 ### Contribute Observations
 
-If you apply the doctrine and learn something, document it. Your observation—what you tried, in what context, with what results—adds to the collective knowledge. Even negative results (we tried X and it didn't work because Y) are valuable. They save others from repeating failures and sharpen understanding of method boundaries.
+If you apply the doctrine and learn something, document it. Your observation, what you tried, in what context, with what results, adds to the collective knowledge. Even negative results (we tried X and it didn't work because Y) are valuable. They save others from repeating failures and sharpen understanding of method boundaries.
 
 The doctrine improves through practitioner contribution. Not through expert pronouncement, but through accumulated evidence from people doing the work.
 
@@ -128,7 +128,7 @@ Some aspects of FOE are likely to endure:
 
 **Human cognition as the bottleneck.** This isn't going to change. Working memory will still be limited. Mental model formation will still take time. Causal chains will still exceed human tracking capacity. Any doctrine that ignores cognitive limits will fail.
 
-**The three principles.** Understanding, fast feedback, and confidence address fundamental cognitive needs. They'll remain relevant as long as humans are involved in software delivery—which, despite AI advances, will be a long time.
+**The three principles.** Understanding, fast feedback, and confidence address fundamental cognitive needs. They'll remain relevant as long as humans are involved in software delivery, which, despite AI advances, will be a long time.
 
 **Discipline over tools.** Tools will change. The principle that tools without discipline create problems rather than solving them will remain. Every technology transition in history has confirmed this pattern.
 
@@ -138,11 +138,11 @@ Some aspects of FOE are likely to endure:
 
 Some aspects of FOE will likely need revision:
 
-**Specific timeline assumptions.** The 12-18 month transformation timeline is based on current evidence. As AI accelerates both creation and change, timelines may compress—or extend, as complexity increases.
+**Specific timeline assumptions.** The 12-18 month transformation timeline is based on current evidence. As AI accelerates both creation and change, timelines may compress, or extend, as complexity increases.
 
 **Phase boundaries.** The six-phase model describes current evolution. As new paradigms emerge, the phases may need redefinition. Phase 5 (cloud-native code) is particularly speculative.
 
-**Method implementations.** Specific methods—GitOps, SRE practices, policy-as-code patterns—will evolve as tools and contexts change. The underlying principles will endure; the implementations won't.
+**Method implementations.** Specific methods, GitOps, SRE practices, policy-as-code patterns, will evolve as tools and contexts change. The underlying principles will endure; the implementations won't.
 
 **What we haven't considered.** The hardest errors to anticipate are the things we haven't thought about. Unknown unknowns will emerge. The doctrine must be humble enough to incorporate surprises.
 
@@ -154,11 +154,11 @@ Through all the chapters, principles, methods, and practices, the central messag
 
 This was always true. For decades, organizations that invested in understanding, feedback, and confidence outperformed those that sacrificed them for apparent speed. The evidence has been consistent. The research has been clear.
 
-Now it's urgent. The agentic era creates code at machine speed. Organizations without the doctrine will drown in complexity they don't understand, can't verify, and can't control. Organizations with the doctrine will thrive—not despite AI, but because AI amplifies whatever capability (or incapability) already exists.
+Now it's urgent. The agentic era creates code at machine speed. Organizations without the doctrine will drown in complexity they don't understand, can't verify, and can't control. Organizations with the doctrine will thrive, not despite AI, but because AI amplifies whatever capability (or incapability) already exists.
 
 The doctrine doesn't fight technology. It enables humans to remain meaningfully involved as technology accelerates. It preserves human agency, judgment, and accountability in systems increasingly dominated by machine intelligence.
 
-That's why we wrote this book. Not to resist change, but to channel it. Not to slow down, but to go faster—with the knowledge that makes speed sustainable.
+That's why we wrote this book. Not to resist change, but to channel it. Not to slow down, but to go faster, with the knowledge that makes speed sustainable.
 
 ## The Beginning
 

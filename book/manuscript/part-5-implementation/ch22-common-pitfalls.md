@@ -10,7 +10,7 @@ word_count: 3728
 
 Metrics tell you where you are. Pitfalls tell you where not to go.
 
-Every organization attempting FOE transformation encounters obstacles. Some are unique to context—legacy systems, regulatory constraints, organizational politics. But many are predictable patterns that appear across industries, company sizes, and technology stacks. These pitfalls aren't failures of effort or intelligence. They emerge from reasonable assumptions that turn out to be wrong.
+Every organization attempting FOE transformation encounters obstacles. Some are unique to context, legacy systems, regulatory constraints, organizational politics. But many are predictable patterns that appear across industries, company sizes, and technology stacks. These pitfalls aren't failures of effort or intelligence. They emerge from reasonable assumptions that turn out to be wrong.
 
 This chapter examines the most common pitfalls. Recognizing them early prevents wasted effort and organizational damage. Recognizing them late at least provides a path to recovery.
 
@@ -32,7 +32,7 @@ Consider Kubernetes. The technology enables declarative infrastructure, automate
 - Monitoring and alerting configured before workloads deploy
 - Runbooks written for common failure scenarios
 
-Without these disciplines, Kubernetes is just an expensive, complicated way to run containers. Organizations that skip the disciplines end up with the complexity of Kubernetes and none of the benefits. They operate their clusters like pets—manually nurtured, individually configured, impossible to reproduce.
+Without these disciplines, Kubernetes is just an expensive, complicated way to run containers. Organizations that skip the disciplines end up with the complexity of Kubernetes and none of the benefits. They operate their clusters like pets, manually nurtured, individually configured, impossible to reproduce.
 
 The same pattern applies everywhere:
 
@@ -53,13 +53,13 @@ Disciplines have no such moment. They develop over time. They exist in behavior,
 
 Tools are also purchasable. Budget exists for software licenses and professional services. Budget rarely exists for "practice changing behavior until it becomes automatic." Organizations follow the money, and the money flows toward tools.
 
-Vendors reinforce this pattern. They have products to sell. Their marketing promises transformation: "Deploy our platform and achieve DevOps maturity." The promise is technically true—the platform enables maturity—but it omits the years of discipline development required to achieve that maturity.
+Vendors reinforce this pattern. They have products to sell. Their marketing promises transformation: "Deploy our platform and achieve DevOps maturity." The promise is technically true, the platform enables maturity, but it omits the years of discipline development required to achieve that maturity.
 
 ### How to Recognize It
 
 Ask this question about any capability: "What changed in how we work when we adopted this tool?"
 
-If the answer describes only the tool itself—"we now have a Kubernetes cluster," "we now have Terraform files"—the discipline hasn't been adopted. The answer should describe behavior: "we no longer make manual changes to infrastructure," "all code changes go through the pipeline," "we respond to alerts within 15 minutes."
+If the answer describes only the tool itself, "we now have a Kubernetes cluster," "we now have Terraform files" the discipline hasn't been adopted. The answer should describe behavior: "we no longer make manual changes to infrastructure," "all code changes go through the pipeline," "we respond to alerts within 15 minutes."
 
 Another diagnostic: check tool utilization. Most tools offer far more capability than organizations use. If you're using 20% of a tool's features, you probably have 20% of the discipline. Advanced features exist for advanced practices. If those practices don't exist, the features collect dust.
 
@@ -91,7 +91,7 @@ Enforcement isn't about punishment. It's about predictability.
 
 When standards are enforced consistently, teams can rely on them. A developer knows that code merging to main has passed the test suite because the test suite cannot be bypassed. An operator knows that production changes went through the change management process because no other path to production exists.
 
-When standards are enforced inconsistently, they become worthless. The developer can't trust that code in main has been tested—maybe it was an exception. The operator can't trust that changes went through proper channels—maybe someone bypassed them.
+When standards are enforced inconsistently, they become worthless. The developer can't trust that code in main has been tested, maybe it was an exception. The operator can't trust that changes went through proper channels, maybe someone bypassed them.
 
 Consistent enforcement also prevents the tragedy of the commons. When everyone follows the standard, everyone benefits from the quality it produces. When some people bypass the standard, they get the speed benefit while everyone bears the quality cost. This incentivizes more bypassing until the standard collapses.
 
@@ -121,7 +121,7 @@ The message is wrong.
 
 Celebrating heroics creates incentives that undermine system improvement.
 
-If heroes are rewarded for fixing problems, there's no incentive to prevent problems. The engineer who spends a weekend preventing an outage gets no recognition—no one knows the outage was avoided. The engineer who spends a weekend fixing an outage gets celebrated.
+If heroes are rewarded for fixing problems, there's no incentive to prevent problems. The engineer who spends a weekend preventing an outage gets no recognition, no one knows the outage was avoided. The engineer who spends a weekend fixing an outage gets celebrated.
 
 If heroes are rewarded for being indispensable, there's no incentive to share knowledge. The engineer who documents everything and trains others becomes replaceable. The engineer who keeps knowledge in their head becomes essential.
 
@@ -185,7 +185,7 @@ Measure what matters to the people you serve:
 
 **For engineers:** Lead time from commit to production (how quickly work completes), cognitive load indicators (how sustainable the work is), learning opportunity (how skills are developing).
 
-The DORA metrics provide a solid foundation: deployment frequency, lead time for changes, change failure rate, and mean time to recovery. These measure outcomes—what the system actually produces—not activities—what people appear to be doing.
+The DORA metrics provide a solid foundation: deployment frequency, lead time for changes, change failure rate, and mean time to recovery. These measure outcomes, what the system actually produces, not activities, what people appear to be doing.
 
 ## Treating Transformation as a Project
 
@@ -209,7 +209,7 @@ Organizations that treat transformation as a project fall into predictable patte
 
 ### Capability Building Is Ongoing
 
-FOE adoption is not a project—it's a change in how the organization operates. The change requires ongoing investment:
+FOE adoption is not a project, it's a change in how the organization operates. The change requires ongoing investment:
 
 **Continuous improvement.** The system that was good enough last year isn't good enough this year. Technology evolves. Practices evolve. The organization must evolve with them.
 
@@ -274,7 +274,7 @@ If the primary indicator improved but the secondary indicators didn't, something
 
 Premature victory declarations create lasting damage beyond the immediate failure. They inoculate the organization against future change.
 
-When a transformation is declared successful but doesn't produce real results, people learn a dangerous lesson: "we tried that, it didn't work." The next attempt to improve delivery practices faces this objection. The organization carries the scar of the failed attempt even though the approach was never actually tried—only claimed.
+When a transformation is declared successful but doesn't produce real results, people learn a dangerous lesson: "we tried that, it didn't work." The next attempt to improve delivery practices faces this objection. The organization carries the scar of the failed attempt even though the approach was never actually tried, only claimed.
 
 This inoculation makes future improvement harder. The cynicism is earned. The organization did invest resources. It did claim transformation. It didn't get results. The rational conclusion is that transformation doesn't work.
 
@@ -284,7 +284,7 @@ Avoid the inoculation effect by being honest about progress. It's better to say 
 
 ## Under-Investing in the Transition
 
-Transformation costs money. Not just tool licenses—the transition itself consumes resources.
+Transformation costs money. Not just tool licenses, the transition itself consumes resources.
 
 ### Parallel Systems Cost
 
@@ -322,7 +322,7 @@ This productivity dip is normal. It's not a sign the transformation is failing. 
 
 But the dip requires investment. The organization needs capacity to absorb the temporary degradation. If there's no slack in the system, the dip creates crisis, and crisis forces regression to old behaviors.
 
-Build the dip into plans and budgets. Reduce commitments during the transition. Create protected space for the transformation to mature. Resist the pressure to show immediate results—the results come after the dip, not during it.
+Build the dip into plans and budgets. Reduce commitments during the transition. Create protected space for the transformation to mature. Resist the pressure to show immediate results, the results come after the dip, not during it.
 
 ## Recognizing Patterns Early
 
@@ -353,7 +353,7 @@ Consider adding a pitfall check to regular retrospectives. Once a month, ask:
 - Are our tools producing the outcomes they're supposed to enable?
 - Have any standards been bypassed? Why? Is the pattern starting?
 - Who worked extraordinary hours this month? What systemic fix would prevent that need?
-- What outcomes improved? Not what activities occurred—what outcomes?
+- What outcomes improved? Not what activities occurred, what outcomes?
 - Are we building ongoing capability or completing a project?
 - Is the transformation as deep as we claim?
 - Are we investing adequately in the transition, or cutting corners?
@@ -366,12 +366,12 @@ These pitfalls don't occur in isolation. They reinforce each other.
 
 Tool worship leads to under-investment in training (the tool should just work). Under-investment in training leads to heroics (someone has to make it work). Heroics lead to celebrating heroics (at least it's working). Celebrating heroics leads to hero dependency. Hero dependency leads to premature victory declarations (the hero says it's working). Premature victory leads to treating transformation as complete. Complete transformation leads to under-investment. Under-investment leads to erosion. Erosion leads to exceptions. Exceptions lead to standard collapse.
 
-The cycle continues until the organization is worse off than before the transformation started—with the added cynicism of "we tried DevOps and it didn't work."
+The cycle continues until the organization is worse off than before the transformation started, with the added cynicism of "we tried DevOps and it didn't work."
 
 Breaking the cycle requires addressing root causes, not symptoms. Install disciplines before tools. Enforce standards technically. Reward prevention over heroics. Measure outcomes over activity. Budget for ongoing capability building. Verify deep change before declaring victory.
 
 The pitfalls are predictable. That makes them preventable.
 
 <!-- BRIDGE -->
-We've covered what to do and what to avoid. The doctrine is complete. But where does it lead? Part VI returns to the agentic future—not as speculation, but as the natural destination of disciplined delivery.
+We've covered what to do and what to avoid. The doctrine is complete. But where does it lead? Part VI returns to the agentic future, not as speculation, but as the natural destination of disciplined delivery.
 <!-- /BRIDGE -->
