@@ -116,10 +116,8 @@ import MaturityBadge from '@site/src/components/MaturityBadge';
 Renders linked observations from the current method's frontmatter.
 
 ```tsx
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 // In a method doc - reads `observations` from frontmatter
-<RelatedObservations />
 ```
 
 ### RelatedMethods
@@ -127,10 +125,8 @@ import RelatedObservations from '@site/src/components/RelatedObservations';
 Renders linked methods from the current observation's frontmatter.
 
 ```tsx
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 // In an observation doc - reads `methods` from frontmatter
-<RelatedMethods />
 ```
 
 ### GuideMaturitySummary

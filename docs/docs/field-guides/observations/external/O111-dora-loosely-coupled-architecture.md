@@ -14,7 +14,6 @@ methods:
   - M153
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # DORA: Loosely Coupled Architecture Capability
 
@@ -190,4 +189,3 @@ DORA's research directly validates the True Microservices method:
 
 ---
 
-<RelatedMethods />

@@ -14,7 +14,6 @@ observations: []
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Fast Flow
 
@@ -93,4 +92,3 @@ Platform teams can multiply AI benefits:
 
 ## Supporting Evidence
 
-<RelatedObservations />

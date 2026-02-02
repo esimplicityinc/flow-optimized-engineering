@@ -808,7 +808,7 @@ Both agents maintain the relationship between methods and observations:
 
 - **Method frontmatter** lists its supporting observations
 - **Observation frontmatter** lists the methods it supports
-- The `<RelatedObservations />` and `<RelatedMethods />` components render these links automatically
+- **Supporting Evidence** and **Methods This Supports** sections are automatically rendered at the end of each page based on frontmatter
 
 This creates a web of evidence where readers can trace any method back to the observations that support it, and any observation forward to the methods it informs.
 

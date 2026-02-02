@@ -14,7 +14,6 @@ methods:
   - M151
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # NUMMI: Same Workers, Different System
 
@@ -228,4 +227,3 @@ The lesson for software: stop asking "do we have the right people?" and start as
 
 ---
 
-<RelatedMethods />

@@ -5,6 +5,8 @@ sidebar_position: 4
 title: Deliver Phase
 pillar: problem-solving
 description: The second convergent phase where solutions are validated through testing before launch.
+observations:
+  - O116
 ---
 
 # Deliver Phase

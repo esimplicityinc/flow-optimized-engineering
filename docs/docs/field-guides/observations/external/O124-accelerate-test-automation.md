@@ -14,7 +14,6 @@ methods:
   - M121
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Accelerate: Test Automation and Delivery Performance
 
@@ -238,4 +237,3 @@ The research provides quantitative evidence that the feedback loop executable sp
 
 ---
 
-<RelatedMethods />

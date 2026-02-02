@@ -1,0 +1,14 @@
+{
+  "name": "flow-optimized",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Flow Optimized: Going Fast in the Agentic Era",
+  "scripts": {
+    "build": "honkit build",
+    "serve": "honkit serve",
+    "pdf": "honkit pdf . book.pdf"
+  },
+  "devDependencies": {
+    "honkit": "^6.1.6"
+  }
+}

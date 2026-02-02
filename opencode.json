@@ -85,6 +85,17 @@
       "type": "local",
       "command": ["npx", "@playwright/mcp@latest"],
       "enabled": true
+    },
+    "neo4j": {
+      "type": "local",
+      "command": [
+        "npx", "-y", "@johnymontana/neo4j-mcp",
+        "--uri", "bolt://localhost:7687",
+        "--username", "neo4j",
+        "--password", "foepassword",
+        "--database", "neo4j"
+      ],
+      "enabled": true
     }
   }
 }

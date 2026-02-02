@@ -16,7 +16,6 @@ methods:
   - M138
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # BDD Systematic Literature Review
 
@@ -155,4 +154,3 @@ The systematic nature of this review provides confidence in BDD's benefits. Rath
 
 ---
 
-<RelatedMethods />

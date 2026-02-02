@@ -9,7 +9,6 @@ observations:
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Service Boundary Extraction
 
@@ -160,7 +159,3 @@ We're particularly interested in:
 - Cases where extraction was attempted but reversed
 
 ## Supporting Evidence
-
-<RelatedObservations observations={[
-  { slug: 'internal/O103-prima-presidio-containerization', title: 'Containerizing Heavy ML Dependencies', status: 'completed' }
-]} />

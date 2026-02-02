@@ -14,7 +14,6 @@ observations: []
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Team Cognitive Load
 
@@ -104,4 +103,3 @@ Over time, AI interaction becomes less cognitively demanding:
 
 ## Supporting Evidence
 
-<RelatedObservations />

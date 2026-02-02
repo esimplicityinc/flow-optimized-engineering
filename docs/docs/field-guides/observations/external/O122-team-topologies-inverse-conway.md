@@ -14,7 +14,6 @@ methods:
   - M153
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Team Topologies: Inverse Conway Maneuver
 
@@ -173,4 +172,3 @@ Team Topologies directly supports the True Microservices method by providing:
 
 ---
 
-<RelatedMethods />

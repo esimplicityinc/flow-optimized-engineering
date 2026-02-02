@@ -15,7 +15,6 @@ methods:
   - M127
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # BDD Specification Maintenance Challenges
 
@@ -192,4 +191,3 @@ This research informs how we should frame BDD methods:
 
 ---
 
-<RelatedMethods />

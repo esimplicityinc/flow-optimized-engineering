@@ -48,6 +48,10 @@ const config: Config = {
     locales: ['en'],
   },
 
+  plugins: [
+    './plugins/field-guide-metadata',
+  ],
+
   presets: [
     [
       'classic',
@@ -123,6 +127,10 @@ const config: Config = {
             {
               label: 'Marketing',
               to: '/esimplicity-strategy/brand-strategy',
+            },
+            {
+              label: 'RIC Air Power',
+              to: '/ric-air-power',
             },
             {
               type: 'html',

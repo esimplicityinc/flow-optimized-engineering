@@ -5,6 +5,9 @@ sidebar_position: 1
 title: Bounded Context
 pillar: strategic-design
 description: A boundary within which a particular domain model is defined and applicable.
+observations:
+  - O115
+  - O121
 ---
 
 # Bounded Context

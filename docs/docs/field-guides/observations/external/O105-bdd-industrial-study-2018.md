@@ -16,7 +16,6 @@ methods:
   - M138
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # BDD Benefits and Challenges: Industrial Study
 
@@ -164,4 +163,3 @@ The study provides balanced confidence in BDD: expect genuine benefits, but also
 
 ---
 
-<RelatedMethods />

@@ -10,7 +10,6 @@ methods:
   - M153
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Containerizing Heavy ML Dependencies
 
@@ -172,4 +171,3 @@ Dedicated containers can be versioned, tested, and deployed independently. If a 
 
 ---
 
-<RelatedMethods />

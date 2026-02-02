@@ -16,7 +16,6 @@ observations:
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # True Microservices
 
@@ -163,14 +162,3 @@ This method is validated by:
 **Internal Observations:**
 - Prima Platform architecture shows both benefits (independent repos, ADRs, platform services) and gaps (runtime coupling, heavy adapters)
 - Presidio containerization demonstrates service boundary extraction improving dependency management
-
-<RelatedObservations observations={[
-  { slug: 'internal/O101-prima-microservices-architecture', title: 'Prima Platform Microservices Architecture', status: 'completed' },
-  { slug: 'internal/O103-prima-presidio-containerization', title: 'Containerizing Heavy ML Dependencies', status: 'completed' },
-  { slug: 'external/O122-team-topologies-inverse-conway', title: 'Team Topologies: Inverse Conway Maneuver', status: 'completed' },
-  { slug: 'external/O121-team-topologies-bounded-contexts', title: 'Team Topologies: Bounded Contexts and Cognitive Load', status: 'completed' },
-  { slug: 'external/O113-fowler-lewis-microservices-definition', title: 'Microservices Definition (Fowler & Lewis)', status: 'completed' },
-  { slug: 'external/O108-ddd-bounded-contexts', title: 'Domain-Driven Design: Bounded Contexts', status: 'completed' },
-  { slug: 'external/O111-dora-loosely-coupled-architecture', title: 'DORA: Loosely Coupled Architecture Capability', status: 'completed' },
-  { slug: 'external/O110-dora-four-key-metrics', title: 'DORA Four Key Metrics Research', status: 'completed' }
-]} />

@@ -5,6 +5,9 @@ sidebar_position: 4
 title: Subdomains
 pillar: strategic-design
 description: Categorizing domain areas by strategic importance to focus modeling effort.
+observations:
+  - O115
+  - O121
 ---
 
 # Subdomains

@@ -18,7 +18,6 @@ methods:
   - M153
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # DORA Four Key Metrics Research
 
@@ -213,4 +212,3 @@ The DORA research directly supports FOE's core thesis that optimizing for flow (
 
 ---
 
-<RelatedMethods />

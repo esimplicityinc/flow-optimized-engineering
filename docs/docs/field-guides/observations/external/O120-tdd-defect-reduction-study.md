@@ -14,7 +14,6 @@ methods:
   - M121
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # TDD Defect Reduction: Microsoft/IBM Study
 
@@ -237,4 +236,3 @@ The 40-90% defect reduction is the quantified payoff of tighter feedback loops.
 
 ---
 
-<RelatedMethods />

@@ -10,11 +10,12 @@ external_method:
   method: deployment-frequency
   id: M111
 foe_maturity: hypothesized
-observations: []
+observations:
+  - O109
+  - O110
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Deployment Frequency
 
@@ -65,4 +66,3 @@ When AI generates code quickly, the temptation is to batch up changes. Resist th
 
 ## Supporting Evidence
 
-<RelatedObservations />

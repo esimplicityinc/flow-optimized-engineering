@@ -15,7 +15,6 @@ methods:
   - M111
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # DORA 2023: User-Centricity Research
 
@@ -170,4 +169,3 @@ The DORA user-centricity research directly supports the Double Diamond's Discove
 
 ---
 
-<RelatedMethods />

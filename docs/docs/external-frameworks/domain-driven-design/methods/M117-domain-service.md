@@ -5,6 +5,8 @@ sidebar_position: 10
 title: Domain Service
 pillar: tactical-design
 description: Stateless operations that represent domain concepts not belonging to entities or value objects.
+observations:
+  - O118
 ---
 
 # Domain Service

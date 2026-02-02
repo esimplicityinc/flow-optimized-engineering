@@ -14,7 +14,6 @@ observations: []
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Deployment Pipeline
 
@@ -105,4 +104,3 @@ This requires:
 
 ## Supporting Evidence
 
-<RelatedObservations />

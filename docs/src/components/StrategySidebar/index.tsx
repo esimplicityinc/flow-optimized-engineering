@@ -12,6 +12,7 @@ interface Section {
 
 interface StrategySidebarProps {
   sections: Section[];
+  topContent?: ReactNode;
 }
 
 const ownerIcons: Record<Owner, ReactNode> = {
@@ -32,7 +33,7 @@ const ownerIcons: Record<Owner, ReactNode> = {
   ),
 };
 
-export default function StrategySidebar({ sections }: StrategySidebarProps): ReactNode {
+export default function StrategySidebar({ sections, topContent }: StrategySidebarProps): ReactNode {
   const [activeSection, setActiveSection] = useState<string>(sections[0]?.id || '');
   const [isOpen, setIsOpen] = useState(false);
 
@@ -104,6 +105,11 @@ export default function StrategySidebar({ sections }: StrategySidebarProps): Rea
         <div className={styles.sidebarHeader}>
           <span className={styles.sidebarTitle}>Strategy Sections</span>
         </div>
+        {topContent && (
+          <div className={styles.topContent}>
+            {topContent}
+          </div>
+        )}
         <ul className={styles.sectionList}>
           {sections.map((section) => (
             <li key={section.id}>

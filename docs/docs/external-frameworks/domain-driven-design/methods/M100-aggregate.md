@@ -5,6 +5,8 @@ sidebar_position: 5
 title: Aggregate
 pillar: tactical-design
 description: A cluster of domain objects treated as a single unit for data changes.
+observations:
+  - O118
 ---
 
 # Aggregate

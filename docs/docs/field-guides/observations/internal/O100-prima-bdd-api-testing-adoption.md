@@ -13,7 +13,6 @@ methods:
   - M146
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Prima: BDD Adoption for API Testing
 
@@ -278,4 +277,3 @@ Teams replicating this observation should track:
 
 ---
 
-<RelatedMethods />

@@ -12,7 +12,10 @@ interface Observation {
 interface RelatedObservationsProps {
   /**
    * List of observations to display. If not provided, shows a placeholder message.
-   * In the future, this could be auto-populated from frontmatter.
+   * 
+   * @deprecated This component is deprecated. Method pages now use the SupportingEvidence
+   * component with automatic injection based on frontmatter. This component is kept for
+   * backward compatibility but will be removed in a future version.
    */
   observations?: Observation[];
 }
@@ -20,6 +23,10 @@ interface RelatedObservationsProps {
 /**
  * Displays a list of observations that support a method.
  * Used on method pages to show supporting evidence.
+ * 
+ * @deprecated This component is deprecated. Method pages now use the SupportingEvidence
+ * component with automatic injection based on frontmatter. This component is kept for
+ * backward compatibility but will be removed in a future version.
  */
 export default function RelatedObservations({
   observations,

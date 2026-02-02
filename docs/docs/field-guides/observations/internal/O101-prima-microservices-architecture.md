@@ -9,7 +9,6 @@ methods:
   - M153
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Prima Platform Microservices Architecture
 
@@ -298,4 +297,3 @@ Blast radius containment increases confidence to make changes. If a Presidio con
 
 ---
 
-<RelatedMethods />

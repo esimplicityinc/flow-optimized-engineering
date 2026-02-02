@@ -5,6 +5,9 @@ sidebar_position: 3
 title: Context Mapping
 pillar: strategic-design
 description: Documenting and managing relationships between bounded contexts.
+observations:
+  - O115
+  - O121
 ---
 
 # Context Mapping

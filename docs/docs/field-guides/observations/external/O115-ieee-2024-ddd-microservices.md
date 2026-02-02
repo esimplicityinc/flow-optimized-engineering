@@ -16,7 +16,6 @@ methods:
   - M134
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Domain-Driven Design for Microservices: An Evidence-Based Investigation
 
@@ -167,4 +166,3 @@ This research strengthens the evidence base for DDD methods in the FOE framework
 
 ---
 
-<RelatedMethods />

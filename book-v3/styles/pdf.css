@@ -1,0 +1,85 @@
+/* Flow Optimized - PDF Styles */
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 12pt;
+  line-height: 1.6;
+}
+
+h1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24pt;
+  font-weight: 700;
+  page-break-before: always;
+  margin-top: 2em;
+}
+
+h2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16pt;
+  font-weight: 600;
+  margin-top: 1.5em;
+}
+
+h3 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13pt;
+  font-weight: 600;
+}
+
+/* Pull quotes - larger and bold */
+blockquote {
+  font-size: 14pt;
+  font-style: italic;
+  margin: 1.5em 2em;
+  padding: 0.5em 1em;
+  border-left: 3px solid #333;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+  font-size: 10pt;
+}
+
+th, td {
+  border: 1px solid #666;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #eee;
+  font-weight: 600;
+}
+
+/* Code blocks */
+pre {
+  background: #f4f4f4;
+  padding: 0.75em;
+  font-size: 9pt;
+  border: 1px solid #ddd;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 9pt;
+}
+
+/* Chapter starts on right page */
+h1 {
+  page-break-before: right;
+}
+
+/* Keep headings with content */
+h2, h3 {
+  page-break-after: avoid;
+}
+
+/* Avoid orphans and widows */
+p {
+  orphans: 3;
+  widows: 3;
+}

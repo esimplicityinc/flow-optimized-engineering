@@ -1,0 +1,14 @@
+# Planning and documentation files (not part of the book)
+BOOK-BIBLE.md
+SOURCE-MAPPING.md
+TABLE-OF-CONTENTS.md
+WRITING-TODOS.md
+
+# Build output
+_book/
+
+# Dependencies
+node_modules/
+
+# Package files
+package-lock.json

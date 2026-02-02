@@ -2,28 +2,6 @@
 displayed_sidebar: fieldGuideSidebar
 sidebar_position: 1
 title: Architecture
-adopted_methods:
-  - framework: bdd
-    method: discovery-workshops
-    foe_maturity: hypothesized
-  - framework: bdd
-    method: three-amigos
-    foe_maturity: hypothesized
-  - framework: bdd
-    method: example-mapping
-    foe_maturity: hypothesized
-  - framework: double-diamond
-    method: discover-phase
-    foe_maturity: observing
-  - framework: double-diamond
-    method: define-phase
-    foe_maturity: observing
-  - framework: double-diamond
-    method: develop-phase
-    foe_maturity: observing
-  - framework: double-diamond
-    method: deliver-phase
-    foe_maturity: observing
 ---
 
 import GuideMaturitySummary from '@site/src/components/GuideMaturitySummary';

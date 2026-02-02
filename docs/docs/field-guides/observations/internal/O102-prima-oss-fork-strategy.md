@@ -11,7 +11,6 @@ methods:
   - M147
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Prima: Enterprise AI Platform via OSS Fork Strategy
 
@@ -233,4 +232,3 @@ To strengthen this evidence, future observations could:
 
 ---
 
-<RelatedMethods />

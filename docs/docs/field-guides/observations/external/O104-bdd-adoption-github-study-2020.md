@@ -15,7 +15,6 @@ methods:
   - M121
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # BDD Adoption in Open Source Projects
 
@@ -178,4 +177,3 @@ Most teams operate at Level 1. Full BDD benefits require Level 3.
 
 ---
 
-<RelatedMethods />

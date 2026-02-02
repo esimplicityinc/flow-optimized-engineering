@@ -5,6 +5,8 @@ sidebar_position: 3
 title: Change Failure Rate
 pillar: stability
 description: Percentage of deployments causing failures requiring remediation.
+observations:
+  - O110
 ---
 
 # Change Failure Rate

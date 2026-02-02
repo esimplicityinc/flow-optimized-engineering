@@ -5,6 +5,8 @@ sidebar_position: 4
 title: Time to Restore Service
 pillar: stability
 description: How long it takes to recover from a failure in production.
+observations:
+  - O110
 ---
 
 # Time to Restore Service

@@ -3,12 +3,12 @@ methodId: M152
 displayed_sidebar: fieldGuideSidebar
 sidebar_position: 5
 title: "Test-Driven Agent Development"
-maturity: hypothesized
-observations: []
+maturity: observing
+observations:
+  - O126
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Test-Driven Agent Development
 
@@ -216,4 +216,3 @@ If you're testing this method:
 
 ## Supporting Evidence
 
-<RelatedObservations />
