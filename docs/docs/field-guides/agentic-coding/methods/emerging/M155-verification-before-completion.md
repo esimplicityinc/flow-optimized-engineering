@@ -8,7 +8,6 @@ observations: []
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Verification Before Completion
 
@@ -169,4 +168,3 @@ If you're testing this method:
 
 ## Supporting Evidence
 
-<RelatedObservations />

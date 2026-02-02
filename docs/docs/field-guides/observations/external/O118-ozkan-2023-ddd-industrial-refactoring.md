@@ -20,7 +20,6 @@ methods:
   - M117
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # DDD Industrial Refactoring: Automotive Case Study
 
@@ -219,4 +218,3 @@ The 84/100 acceptance score and ISO/IEC 25010 improvements demonstrate that DDD 
 
 ---
 
-<RelatedMethods />

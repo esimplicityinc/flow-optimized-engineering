@@ -9,7 +9,6 @@ observations:
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Understanding-First Protocol Adoption
 
@@ -114,4 +113,3 @@ If you're testing this method:
 
 ## Supporting Evidence
 
-<RelatedObservations />

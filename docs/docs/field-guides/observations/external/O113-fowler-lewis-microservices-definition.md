@@ -14,7 +14,6 @@ methods:
   - M153
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Microservices Definition (Fowler & Lewis)
 
@@ -190,4 +189,3 @@ This foundational article directly supports the True Microservices method:
 
 ---
 
-<RelatedMethods />

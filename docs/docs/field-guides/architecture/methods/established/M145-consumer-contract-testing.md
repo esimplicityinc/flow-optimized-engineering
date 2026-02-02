@@ -11,7 +11,6 @@ observations:
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Consumer Contract Testing
 
@@ -205,4 +204,3 @@ This method is validated by strong external evidence:
 This method has strong external evidence but awaits internal observation. Consider documenting your CDC adoption experience to strengthen the evidence base.
 :::
 
-<RelatedObservations />

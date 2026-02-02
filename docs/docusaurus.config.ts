@@ -48,6 +48,10 @@ const config: Config = {
     locales: ['en'],
   },
 
+  plugins: [
+    './plugins/field-guide-metadata',
+  ],
+
   presets: [
     [
       'classic',

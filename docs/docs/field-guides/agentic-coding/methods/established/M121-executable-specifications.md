@@ -21,7 +21,6 @@ observations:
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Executable Specifications
 
@@ -95,4 +94,3 @@ This loop runs continuously, catching AI errors immediately.
 
 ## Supporting Evidence
 
-<RelatedObservations />

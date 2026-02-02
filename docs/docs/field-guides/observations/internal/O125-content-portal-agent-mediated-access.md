@@ -9,7 +9,6 @@ methods:
   - M156
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Content Portal: Product Owner Makes 42 Commits in 7 Days via Agent-Mediated Access
 
@@ -207,4 +206,3 @@ Confidence comes from the scaffolding, not from trusting the agent. The permissi
 
 ---
 
-<RelatedMethods />

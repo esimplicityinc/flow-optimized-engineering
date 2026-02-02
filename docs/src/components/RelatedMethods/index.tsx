@@ -12,7 +12,10 @@ interface Method {
 interface RelatedMethodsProps {
   /**
    * List of methods this experiment supports. If not provided, shows a placeholder message.
-   * In the future, this could be auto-populated from frontmatter.
+   * 
+   * @deprecated This component is deprecated. Observation pages now use the SupportedMethods
+   * component with automatic injection based on frontmatter. This component is kept for
+   * backward compatibility but will be removed in a future version.
    */
   methods?: Method[];
 }
@@ -20,6 +23,10 @@ interface RelatedMethodsProps {
 /**
  * Displays a list of methods that an experiment supports.
  * Used on experiment pages to show which methods this evidence applies to.
+ * 
+ * @deprecated This component is deprecated. Observation pages now use the SupportedMethods
+ * component with automatic injection based on frontmatter. This component is kept for
+ * backward compatibility but will be removed in a future version.
  */
 export default function RelatedMethods({
   methods,

@@ -14,7 +14,6 @@ methods:
   - M153
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Domain-Driven Design: Bounded Contexts
 
@@ -201,4 +200,3 @@ DDD's bounded context concept provides the theoretical justification for True Mi
 
 ---
 
-<RelatedMethods />

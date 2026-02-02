@@ -9,7 +9,6 @@ observations:
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Persistent Planning State
 
@@ -234,4 +233,3 @@ If you're testing this method:
 
 ## Supporting Evidence
 
-<RelatedObservations />

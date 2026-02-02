@@ -17,7 +17,6 @@ methods:
   - M153
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Team Topologies: Bounded Contexts and Cognitive Load
 
@@ -191,4 +190,3 @@ Team Topologies strengthens DDD methods by providing:
 
 ---
 
-<RelatedMethods />

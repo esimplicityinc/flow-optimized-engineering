@@ -15,7 +15,6 @@ methods:
   - M115
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Google Project Aristotle: Psychological Safety
 
@@ -217,4 +216,3 @@ Without psychological safety, teams optimize for appearing competent rather than
 
 ---
 
-<RelatedMethods />

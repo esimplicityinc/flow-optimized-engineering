@@ -14,7 +14,6 @@ observations: []
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Enabling Team
 
@@ -94,4 +93,3 @@ Help with AI tool setup:
 
 ## Supporting Evidence
 
-<RelatedObservations />

@@ -11,7 +11,6 @@ methods:
   - M156
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Data Link Pilot: Solo Developer Ships Full Application in 22 Days via Agent-Orchestrated TDD
 
@@ -278,4 +277,3 @@ Confidence comes from layered verification, not agent trust:
 
 ---
 
-<RelatedMethods />

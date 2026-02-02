@@ -14,7 +14,6 @@ observations: []
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Trunk-Based Development
 
@@ -117,4 +116,3 @@ This flow maximizes feedback frequency and minimizes integration risk.
 
 ## Supporting Evidence
 
-<RelatedObservations />

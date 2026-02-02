@@ -15,7 +15,6 @@ observations:
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Lead Time for Changes
 
@@ -71,4 +70,3 @@ AI can generate more code than humans can review:
 
 ## Supporting Evidence
 
-<RelatedObservations />

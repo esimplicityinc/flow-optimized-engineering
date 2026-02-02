@@ -9,7 +9,6 @@ observations:
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # System Over Individuals
 
@@ -156,4 +155,3 @@ Document your observation and link it to this method.
 
 ## Supporting Evidence
 
-<RelatedObservations />

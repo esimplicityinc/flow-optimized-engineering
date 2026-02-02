@@ -14,7 +14,6 @@ methods:
   - M145
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # ThoughtWorks: Consumer-Driven Contract Testing
 
@@ -163,4 +162,3 @@ The Radar notes that CDC "requires buy-in from both sides" and works best when b
 
 ---
 
-<RelatedMethods />

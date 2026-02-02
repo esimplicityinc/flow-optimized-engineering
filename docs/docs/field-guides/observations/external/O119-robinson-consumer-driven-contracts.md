@@ -14,7 +14,6 @@ methods:
   - M145
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Consumer-Driven Contracts: A Service Evolution Pattern
 
@@ -209,4 +208,3 @@ This paper's enduring relevance—20 years later, it remains the conceptual foun
 
 ---
 
-<RelatedMethods />

@@ -10,7 +10,6 @@ observations:
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Agent-Mediated Access
 
@@ -196,4 +195,3 @@ Additional observations—especially from different contexts, team sizes, or dom
 
 ## Supporting Evidence
 
-<RelatedObservations />

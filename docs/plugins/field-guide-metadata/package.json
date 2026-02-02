@@ -1,0 +1,6 @@
+{
+  "name": "field-guide-metadata-plugin",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.ts"
+}

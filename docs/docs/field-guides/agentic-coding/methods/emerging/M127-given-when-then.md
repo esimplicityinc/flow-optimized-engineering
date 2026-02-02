@@ -19,7 +19,6 @@ observations:
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';
-import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # Given-When-Then
 
@@ -87,4 +86,3 @@ After AI generates code, use scenarios as a manual checklist:
 
 ## Supporting Evidence
 
-<RelatedObservations />

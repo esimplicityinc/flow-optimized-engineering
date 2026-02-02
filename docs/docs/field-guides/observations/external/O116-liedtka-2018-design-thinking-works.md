@@ -17,7 +17,6 @@ methods:
   - M110
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # Why Design Thinking Works
 
@@ -196,4 +195,3 @@ The research transforms design thinking from "trust us, it works" to "here's why
 
 ---
 
-<RelatedMethods />

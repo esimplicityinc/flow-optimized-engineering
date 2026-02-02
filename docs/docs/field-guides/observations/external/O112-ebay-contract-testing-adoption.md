@@ -14,7 +14,6 @@ methods:
   - M145
 ---
 
-import RelatedMethods from '@site/src/components/RelatedMethods';
 
 # eBay: Contract Testing Adoption Case Study
 
@@ -222,4 +221,3 @@ eBay's scale and complexity make this case study particularly relevant for organ
 
 ---
 
-<RelatedMethods />

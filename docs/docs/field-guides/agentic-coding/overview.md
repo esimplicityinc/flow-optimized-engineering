@@ -142,7 +142,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       id: 'M121',
       framework: 'bdd',
       method: 'executable-specifications',
-      foe_maturity: 'hypothesized',
+      foe_maturity: 'proven',
       title: 'Executable Specifications',
       description: 'Automated tests that serve as living documentation',
       frameworkTitle: 'BDD',
