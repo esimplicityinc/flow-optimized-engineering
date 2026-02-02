@@ -5,6 +5,8 @@ sidebar_position: 7
 title: Value Object
 pillar: tactical-design
 description: Objects defined by their attributes, with no conceptual identity.
+observations:
+  - O118
 ---
 
 # Value Object

@@ -10,7 +10,8 @@ external_method:
   method: gherkin
   id: M126
 foe_maturity: hypothesized
-observations: []
+observations:
+  - O100
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';

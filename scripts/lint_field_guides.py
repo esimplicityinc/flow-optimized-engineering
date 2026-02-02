@@ -242,7 +242,7 @@ def load_methods(docs_path: Path) -> dict[str, Method]:
                     title=fm.get("title", ""),
                     maturity="proven",  # Canonical methods are considered proven
                     maturity_score=4,
-                    observations=[],
+                    observations=fm.get("observations", []),
                     is_external=True,
                     guide_id=None,
                     raw_frontmatter=fm,

@@ -10,7 +10,12 @@ external_method:
   method: given-when-then
   id: M127
 foe_maturity: hypothesized
-observations: []
+observations:
+  - O100
+  - O104
+  - O105
+  - O106
+  - O107
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';

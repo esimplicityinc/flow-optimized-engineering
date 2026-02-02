@@ -5,6 +5,9 @@ sidebar_position: 1
 title: Discovery Workshops
 pillar: discovery
 description: Collaborative conversations to explore, discover, and agree on the desired behavior for a user story through concrete examples.
+observations:
+  - O100
+  - O114
 ---
 
 # Discovery Workshops

@@ -5,6 +5,8 @@ sidebar_position: 2
 title: Define Phase
 pillar: problem-finding
 description: The first convergent phase where insights are synthesized into a clear problem definition.
+observations:
+  - O116
 ---
 
 # Define Phase

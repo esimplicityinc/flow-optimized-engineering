@@ -5,6 +5,8 @@ sidebar_position: 3
 title: Develop Phase
 pillar: problem-solving
 description: The second divergent phase where teams generate multiple potential solutions through ideation and prototyping.
+observations:
+  - O116
 ---
 
 # Develop Phase

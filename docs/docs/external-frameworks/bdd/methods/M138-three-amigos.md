@@ -5,6 +5,10 @@ sidebar_position: 2
 title: Three Amigos
 pillar: discovery
 description: A meeting format where three key perspectives (business, development, testing) collaborate to turn user stories into clear scenarios.
+observations:
+  - O105
+  - O107
+  - O114
 ---
 
 # Three Amigos

@@ -10,7 +10,9 @@ external_method:
   method: deployment-frequency
   id: M111
 foe_maturity: hypothesized
-observations: []
+observations:
+  - O109
+  - O110
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';

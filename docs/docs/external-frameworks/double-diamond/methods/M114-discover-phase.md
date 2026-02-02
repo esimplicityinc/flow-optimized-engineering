@@ -5,6 +5,9 @@ sidebar_position: 1
 title: Discover Phase
 pillar: problem-finding
 description: The first divergent phase where teams explore the problem space broadly through user research and empathy.
+observations:
+  - O109
+  - O116
 ---
 
 # Discover Phase

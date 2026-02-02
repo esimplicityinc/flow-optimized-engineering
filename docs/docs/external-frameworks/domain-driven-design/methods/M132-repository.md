@@ -5,6 +5,8 @@ sidebar_position: 9
 title: Repository
 pillar: tactical-design
 description: A collection-like interface for accessing and persisting aggregates.
+observations:
+  - O118
 ---
 
 # Repository

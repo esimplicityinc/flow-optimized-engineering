@@ -10,7 +10,8 @@ external_method:
   method: lead-time-for-changes
   id: M130
 foe_maturity: hypothesized
-observations: []
+observations:
+  - O110
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';
