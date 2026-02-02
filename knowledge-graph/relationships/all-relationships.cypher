@@ -480,3 +480,107 @@ CREATE (f)-[:SUPPORTS {mechanism: 'Cognitive load management reduces understandi
 
 MATCH (f:Framework {id: 'team-topologies'}), (p:Principle {id: 'fast-feedback'})
 CREATE (f)-[:SUPPORTS {mechanism: 'Stream-aligned teams enable fast flow'}]->(p);
+
+// ============================================================================
+// HISTORICAL ANECDOTES RELATIONSHIPS
+// Real-world stories that illustrate FOE principles
+// ============================================================================
+
+// Apollo 13 Mailbox
+MATCH (m:Metaphor {id: 'apollo-13-mailbox'}), (p:Principle {id: 'fast-feedback'})
+CREATE (m)-[:ILLUSTRATES {mapping: 'Simulations provided fast feedback on improvised solutions before real-world test'}]->(p);
+
+MATCH (m:Metaphor {id: 'apollo-13-mailbox'}), (p:Principle {id: 'confidence'})
+CREATE (m)-[:ILLUSTRATES {mapping: 'Bounded constraints and trusted simulations enabled confident improvisation'}]->(p);
+
+// Knight Capital 45 Minutes
+MATCH (m:Metaphor {id: 'knight-capital-45-minutes'}), (p:Principle {id: 'confidence'})
+CREATE (m)-[:ILLUSTRATES {mapping: 'Without rollback capability, confidence becomes recklessness'}]->(p);
+
+MATCH (m:Metaphor {id: 'knight-capital-45-minutes'}), (c:Concept {id: 'bounded-downside'})
+CREATE (m)-[:ILLUSTRATES {mapping: 'Unbounded downside - no circuit breaker meant the blast radius was everything'}]->(c);
+
+MATCH (m:Metaphor {id: 'knight-capital-45-minutes'}), (c:Concept {id: 'rollback-capability'})
+CREATE (m)-[:ILLUSTRATES {mapping: 'Lack of rollback turned a bug into an existential crisis'}]->(c);
+
+// Challenger Ignored Engineers
+MATCH (m:Metaphor {id: 'challenger-ignored-engineers'}), (p:Principle {id: 'fast-feedback'})
+CREATE (m)-[:ILLUSTRATES {mapping: 'Ignoring feedback from those closest to the problem has fatal consequences'}]->(p);
+
+MATCH (m:Metaphor {id: 'challenger-ignored-engineers'}), (c:Concept {id: 'authority-bias'})
+CREATE (m)-[:ILLUSTRATES {mapping: 'Authority overrode evidence with catastrophic results'}]->(c);
+
+// Gawande Surgical Checklist
+MATCH (m:Metaphor {id: 'gawande-surgical-checklist'}), (p:Principle {id: 'understanding'})
+CREATE (m)-[:ILLUSTRATES {mapping: 'Checklists externalize knowledge so the system remembers what humans forget'}]->(p);
+
+MATCH (m:Metaphor {id: 'gawande-surgical-checklist'}), (c:Concept {id: 'cognitive-load'})
+CREATE (m)-[:ILLUSTRATES {mapping: 'Checklists reduce cognitive load by offloading memory to the environment'}]->(c);
+
+MATCH (m:Metaphor {id: 'gawande-surgical-checklist'}), (a:AntiPattern {id: 'heroic-engineering'})
+CREATE (m)-[:CONTRASTS {nature: 'System discipline over individual heroics'}]->(a);
+
+// Three Mile Island 100 Alarms
+MATCH (m:Metaphor {id: 'three-mile-island-alarms'}), (p:Principle {id: 'understanding'})
+CREATE (m)-[:ILLUSTRATES {mapping: 'Information overload destroys understanding - operators could not form mental models'}]->(p);
+
+// Toyota Andon Cord
+MATCH (m:Metaphor {id: 'toyota-andon-cord'}), (p:Principle {id: 'confidence'})
+CREATE (m)-[:ILLUSTRATES {mapping: 'Empowering anyone to stop the line creates confidence to act on problems'}]->(p);
+
+MATCH (m:Metaphor {id: 'toyota-andon-cord'}), (c:Concept {id: 'psychological-safety-for-decision-making'})
+CREATE (m)-[:ILLUSTRATES {mapping: 'Workers are thanked for stopping the line - safety to surface problems'}]->(c);
+
+MATCH (m:Metaphor {id: 'toyota-andon-cord'}), (a:AntiPattern {id: 'heroic-engineering'})
+CREATE (m)-[:CONTRASTS {nature: 'System empowerment over individual burden'}]->(a);
+
+// ============================================================================
+// BEHAVIORAL ECONOMICS RELATIONSHIPS
+// Cognitive biases that explain why FOE patterns work (or fail)
+// ============================================================================
+
+// Loss Aversion
+MATCH (c:Concept {id: 'loss-aversion'}), (s:Concept {id: 'status-quo-bias'})
+CREATE (c)-[:RELATES_TO {mechanism: 'Loss aversion amplifies status quo bias - change means risking loss'}]->(s);
+
+MATCH (c:Concept {id: 'loss-aversion'}), (a:AntiPattern {id: 'modernization-theater'})
+CREATE (c)-[:CAUSES {mechanism: 'Teams resist real change because losing familiar tools feels worse than gaining new capabilities'}]->(a);
+
+// Status Quo Bias
+MATCH (c:Concept {id: 'status-quo-bias'}), (a:AntiPattern {id: 'modernization-theater'})
+CREATE (c)-[:CAUSES {mechanism: 'Preference for current state leads to adopting tools without changing practices'}]->(a);
+
+// Hyperbolic Discounting
+MATCH (c:Concept {id: 'hyperbolic-discounting'}), (a:AntiPattern {id: 'vibe-coding'})
+CREATE (c)-[:CAUSES {mechanism: 'Shortcuts now feel worth the future pain - tests feel like overhead in the moment'}]->(a);
+
+MATCH (c:Concept {id: 'hyperbolic-discounting'}), (d:Concept {id: 'process-debt'})
+CREATE (c)-[:CAUSES {mechanism: 'Overvaluing now vs later leads to accumulated process shortcuts'}]->(d);
+
+// Planning Fallacy
+MATCH (c:Concept {id: 'planning-fallacy'}), (a:AntiPattern {id: 'certainty-theater'})
+CREATE (c)-[:CAUSES {mechanism: 'Optimism bias leads to false precision in estimates that inevitably fail'}]->(a);
+
+MATCH (c:Concept {id: 'planning-fallacy'}), (p:Principle {id: 'fast-feedback'})
+CREATE (c)-[:EXPLAINS {mechanism: 'Because we cannot predict accurately, we must learn through fast feedback instead'}]->(p);
+
+// Default Effect
+MATCH (c:Concept {id: 'default-effect'}), (g:Concept {id: 'golden-paths'})
+CREATE (c)-[:EXPLAINS {mechanism: 'People stick with defaults - making the right thing the default makes it happen'}]->(g);
+
+MATCH (c:Concept {id: 'default-effect'}), (s:Concept {id: 'secure-defaults'})
+CREATE (c)-[:EXPLAINS {mechanism: 'Security enabled by default works because people dont change defaults'}]->(s);
+
+// Omission Bias
+MATCH (c:Concept {id: 'omission-bias'}), (p:Principle {id: 'confidence'})
+CREATE (c)-[:DEGRADES {mechanism: 'Inaction feels safer than action, creating paralysis even when acting would reduce risk'}]->(p);
+
+MATCH (c:Concept {id: 'omission-bias'}), (l:Concept {id: 'learned-helplessness'})
+CREATE (c)-[:RELATES_TO {mechanism: 'Both lead to knowing but not doing - omission bias makes inaction feel safer'}]->(l);
+
+// Learned Helplessness
+MATCH (c:Concept {id: 'learned-helplessness'}), (p:Principle {id: 'confidence'})
+CREATE (c)-[:DEGRADES {mechanism: 'Past failures create belief that change is impossible, destroying confidence to try'}]->(p);
+
+MATCH (c:Concept {id: 'learned-helplessness'}), (a:AntiPattern {id: 'modernization-theater'})
+CREATE (c)-[:ENABLES {mechanism: 'Teams that dont believe real change is possible settle for surface changes'}]->(a);

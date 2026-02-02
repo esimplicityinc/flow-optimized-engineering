@@ -63,14 +63,23 @@ CREATE (:Model {id: 'three-pillars-observability', name: 'Three Pillars of Obser
 CREATE (:Model {id: 'feedback-tiers', name: 'Feedback Tiers', description: 'Instant (<1s), Fast (<1m), Pipeline (<10m).', visualType: 'hierarchy', components: ['instant-feedback', 'fast-feedback-tier', 'pipeline-feedback']});
 
 // ============================================================================
-// METAPHORS (5)
+// METAPHORS (11)
 // ============================================================================
 
+// Original FOE Metaphors
 CREATE (:Metaphor {id: 'gauges-and-instrumentation', name: 'Gauges & Instrumentation', sourceDomain: 'aviation/motorsport', keyInsight: 'You cannot go fast without instruments.', whenToUse: 'observability, monitoring, metrics'});
 CREATE (:Metaphor {id: 'the-cockpit', name: 'The Cockpit', sourceDomain: 'aviation', keyInsight: 'Operators need visibility and control, not implementation details.', whenToUse: 'developer experience, platform design'});
 CREATE (:Metaphor {id: 'pets-vs-cattle', name: 'Pets vs. Cattle', sourceDomain: 'agriculture/infrastructure', keyInsight: 'Pets dont scale.', whenToUse: 'infrastructure, scaling, disaster recovery'});
 CREATE (:Metaphor {id: 'operating-envelope', name: 'Operating Envelope', sourceDomain: 'aviation', keyInsight: 'The envelope enables speed.', whenToUse: 'guardrails, policy, risk management'});
 CREATE (:Metaphor {id: 'receipts', name: 'Receipts', sourceDomain: 'finance/legal', keyInsight: 'Good systems generate receipts automatically.', whenToUse: 'audit, compliance, debugging'});
+
+// Historical Anecdotes
+CREATE (:Metaphor {id: 'apollo-13-mailbox', name: 'Apollo 13 Mailbox', sourceDomain: 'space exploration', keyInsight: 'Constraints enable creativity when you trust your simulations.', description: 'When CO2 levels rose dangerously, engineers improvised a scrubber from duct tape, cardboard, and plastic bags - working the problem with available materials. They trusted thousands of hours of simulation to validate the fix before astronauts built it.', whenToUse: 'bounded constraints, improvisation, simulation as feedback'});
+CREATE (:Metaphor {id: 'knight-capital-45-minutes', name: 'Knight Capital 45 Minutes', sourceDomain: 'finance', keyInsight: 'Without a kill switch, a bad deployment becomes an existential event.', description: 'In 2012, Knight Capital deployed code that accidentally activated dead test code. In 45 minutes they lost $440 million. There was no rollback, no kill switch, no circuit breaker. The blast radius was the entire company.', whenToUse: 'rollback capability, blast radius, deployment confidence, reversible decisions'});
+CREATE (:Metaphor {id: 'challenger-ignored-engineers', name: 'Challenger Ignored Engineers', sourceDomain: 'space exploration', keyInsight: 'When hierarchy overrides evidence, people die.', description: 'The night before Challenger launched, Thiokol engineers warned that O-rings would fail in cold weather. Management overrode them - schedule pressure and authority bias won. The engineers were right. Seven astronauts died.', whenToUse: 'authority bias, epistemic control, cost of ignoring feedback, psychological safety'});
+CREATE (:Metaphor {id: 'gawande-surgical-checklist', name: 'Gawande Surgical Checklist', sourceDomain: 'medicine', keyInsight: 'Simple cognitive offloading saves lives.', description: 'Atul Gawande introduced a 19-item surgical checklist to WHO hospitals. Deaths dropped 47%. Not because surgeons learned new skills - because the system remembered what humans forget under pressure.', whenToUse: 'cognitive offloading, the system remembers, discipline over heroics'});
+CREATE (:Metaphor {id: 'three-mile-island-alarms', name: 'Three Mile Island 100 Alarms', sourceDomain: 'nuclear', keyInsight: 'Too much information is the same as no information.', description: 'During the Three Mile Island accident, operators faced 100+ simultaneous alarms. They could not form an accurate mental model. Overwhelmed by data, they made decisions that worsened the crisis. The instrumentation failed them.', whenToUse: 'cognitive overload, understanding failure, instrumentation quality, signal vs noise'});
+CREATE (:Metaphor {id: 'toyota-andon-cord', name: 'Toyota Andon Cord', sourceDomain: 'manufacturing', keyInsight: 'Anyone can stop the line. Thats not chaos - thats quality.', description: 'At Toyota, any worker can pull the andon cord to stop the entire production line if they see a defect. Management thanks them. This inversion of hierarchy - empowering the person closest to the problem - is why Toyota quality became legendary.', whenToUse: 'psychological safety, confidence to act, system over individuals, empowerment'});
 
 // ============================================================================
 // ANTI-PATTERNS (6)
@@ -332,6 +341,15 @@ CREATE (:Concept {id: 'sensemaking', name: 'Sensemaking', description: 'Process 
 CREATE (:Concept {id: 'narrative-lock-in', name: 'Narrative Lock-in', description: 'Committed to a story so contradicting evidence gets explained away', category: 'psychological'});
 CREATE (:Concept {id: 'sunk-cost-bias', name: 'Sunk Cost Bias', description: 'Invested too much to change course leading to poor decisions', category: 'psychological'});
 CREATE (:Concept {id: 'authority-bias', name: 'Authority Bias', description: 'Senior person said it so it must be true regardless of evidence', category: 'psychological'});
+
+// Behavioral Economics Concepts
+CREATE (:Concept {id: 'loss-aversion', name: 'Loss Aversion', description: 'Losses hurt roughly twice as much as equivalent gains feel good. A team will fight harder to avoid losing what they have than to gain something new of equal value.', category: 'behavioral-economics'});
+CREATE (:Concept {id: 'status-quo-bias', name: 'Status Quo Bias', description: 'People prefer the current state of affairs even when change would benefit them. The familiar feels safe; the new feels risky. This is why "we have always done it this way" persists.', category: 'behavioral-economics'});
+CREATE (:Concept {id: 'hyperbolic-discounting', name: 'Hyperbolic Discounting', description: 'We massively overvalue immediate rewards compared to future ones. A shortcut that saves an hour today feels worth it even if it costs a week next month. This is why technical debt accumulates.', category: 'behavioral-economics'});
+CREATE (:Concept {id: 'planning-fallacy', name: 'Planning Fallacy', description: 'We systematically underestimate how long things will take and how much they will cost, even when we have direct experience with similar past failures. Optimism beats evidence.', category: 'behavioral-economics'});
+CREATE (:Concept {id: 'default-effect', name: 'Default Effect', description: 'People tend to stick with whatever option is pre-selected, even for important decisions. This is why golden paths work - make the right thing the default and most people will do the right thing.', category: 'behavioral-economics'});
+CREATE (:Concept {id: 'omission-bias', name: 'Omission Bias', description: 'Harm caused by inaction feels less bad than equivalent harm caused by action. This makes "do nothing" feel safer even when acting would reduce risk. It explains "knowing but not doing."', category: 'behavioral-economics'});
+CREATE (:Concept {id: 'learned-helplessness', name: 'Learned Helplessness', description: 'When repeated failures make people stop trying even when circumstances change. Teams that have been burned by past transformations stop believing change is possible.', category: 'behavioral-economics'});
 
 // Hidden Dimensions
 CREATE (:Concept {id: 'epistemic-control', name: 'Epistemic Control', description: 'Who decides what is true about the system - evidence or hierarchy', category: 'psychological'});
