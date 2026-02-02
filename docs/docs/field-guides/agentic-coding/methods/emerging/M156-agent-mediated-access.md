@@ -6,6 +6,7 @@ title: "Agent-Mediated Access"
 maturity: observing
 observations:
   - O125
+  - O126
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
