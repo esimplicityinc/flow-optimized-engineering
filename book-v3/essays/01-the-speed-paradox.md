@@ -12,6 +12,8 @@ A year later, a new VP arrives and notes the organization has become bureaucrati
 
 I see this pattern everywhere. Different companies, different people, same rhythm. Organizations oscillate between reckless speed and paralyzing caution, never finding sustainable ground. They assume the only question is where to position themselves on the spectrum: move fast and break things, or move carefully and fall behind.
 
+The pendulum swings because pain is asymmetric. The sting of an incident—the 3 AM pages, the customer calls, the postmortem—burns hotter than the slow ache of falling behind. After a crash, "moving fast" feels dangerous. After stagnation, "being careful" feels cowardly. Each swing makes sense in the moment. Neither produces lasting change because both are reactions to pain, not responses to understanding.
+
 This framing is wrong.
 
 The organizations that escaped this cycle didn't find a better position on the spectrum. They discovered the spectrum itself was an illusion.
@@ -20,7 +22,7 @@ The organizations that escaped this cycle didn't find a better position on the s
 
 Organizations facing the speed-safety tension adopt predictable patterns. Each makes sense from a certain angle. Each fails.
 
-**Raw Velocity Optimization.** Remove all friction. Ship as fast as possible. Tests are overhead. Reviews are bottlenecks. Documentation is waste. This works until the technical debt compounds and the team spends more time firefighting than building.
+**Raw Velocity Optimization.** Remove all friction. Ship as fast as possible. Tests are overhead. Reviews are bottlenecks. Documentation is waste. This works until the technical debt compounds and the team spends more time firefighting than building. Knight Capital learned the endpoint of this trap in 45 minutes. In 2012, they deployed code that accidentally reactivated dead test logic. No rollback. No kill switch. No circuit breaker. By the time anyone understood what was happening, $440 million was gone and so was the company. They weren't cowboys. They just had no gauges to tell them the car was on fire.
 
 **Ceremonial Compliance.** Follow the process. Document everything. Get sign-off at every stage. This works until the process becomes the point, and approvals happen without understanding, meetings occur without decisions, and documentation exists without readers.
 

@@ -30,7 +30,7 @@ Complex systems break human thinking in predictable ways.
 
 **Working Memory Overload.** When a system has more interacting components than working memory can hold, something gives. Usually what gives is interaction awareness. You focus on the piece you're working on and lose track of everything it connects to. Changes work perfectly in isolation but fail in context.
 
-**Causal Chain Fragmentation.** Simple systems have short, linear causal chains. Push button, light turns on. Modern systems have long, branching chains with hidden state and asynchronous behavior. The chain from "user clicks submit" to "order confirmation appears" might pass through twenty services. When chains get long enough, the trail goes cold.
+**Causal Chain Fragmentation.** Simple systems have short, linear causal chains. Push button, light turns on. Modern systems have long, branching chains with hidden state and asynchronous behavior. The chain from "user clicks submit" to "order confirmation appears" might pass through twenty services. When chains get long enough, the trail goes cold. Three Mile Island operators faced this in 1979. During the partial meltdown, over 100 alarms blared simultaneously. Each alarm was correct—something was wrong with each system it monitored. But operators couldn't form a coherent picture from the cacophony. They were drowning in accurate data while starving for meaning. Overwhelmed, they made decisions that worsened the crisis. The instrumentation didn't fail by being absent. It failed by exceeding human capacity to interpret it.
 
 **Model Drift.** Mental models decay without reinforcement. You understood the system when you built it. Six months later, after other teams modified it, does your model still match reality? Usually not. The gap between belief and system widens invisibly until something breaks.
 
@@ -62,7 +62,7 @@ Software systems need the same kind of cockpits.
 
 Dashboards show system state without requiring manual inspection. Alerts surface problems without requiring constant vigilance. Automated tests remember invariants humans would forget. Architecture limits what you need to hold in your head.
 
-These aren't conveniences. They're cognitive necessities. Without them, you're the pilot flying without instruments, limited to what direct perception can handle.
+These aren't conveniences. They're cognitive necessities. Without them, you're the pilot flying without instruments, limited to what direct perception can handle. Atul Gawande proved this in operating rooms. A 19-item surgical checklist reduced deaths by 47%—not because surgeons learned new skills, but because the system remembered what humans forget under pressure.
 
 ## Why Adding People Fails
 

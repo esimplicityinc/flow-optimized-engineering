@@ -51,6 +51,8 @@ Consider a team deploying a new feature:
 
 Each step enables the next. Missing any step breaks the chain.
 
+Apollo 13 shows the cycle under extreme pressure. Engineers understood exactly how CO2 would kill the astronauts and what could scrub it. Simulations gave immediate feedback on improvised solutions. Bounded constraints enabled action under time pressure. Each element enabled the others: understanding made feedback interpretable, feedback calibrated confidence, confidence enabled action. Remove any one and the astronauts die in space.
+
 ## The Vicious Cycle
 
 When any principle is weak, the others weaken.

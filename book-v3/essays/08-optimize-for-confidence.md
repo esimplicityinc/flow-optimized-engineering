@@ -46,9 +46,11 @@ With these properties, acting becomes rational. You know what can go wrong. You 
 
 **Recovery is improvised.** When incidents happen, teams scramble. No one has done this before. Runbooks don't exist or don't work. Recovery takes hours of heroic effort.
 
+Knight Capital operated here without knowing it. Changes were permanent once deployed. Blast radius was everything—the trading system had no isolation. Failures weren't detected until millions were gone. Recovery was improvised in real-time as the company bled out. Any confidence in that environment was overconfidence. They needed circuit breakers. They had hope.
+
 In this environment, caution is rational. You don't know what can go wrong. You might not detect it. You might not be able to recover. The risk is genuinely unbounded.
 
-Teams that freeze in this environment aren't failing. They're responding appropriately to their circumstances.
+Teams that freeze in this environment aren't failing. They're responding appropriately to their circumstances. Inaction feels safer than action when any action might cause unbounded damage—even when inaction guarantees slow degradation. The frozen team knows something the "just ship it" team doesn't: they're in danger and they can't see where.
 
 ## Building Confidence Infrastructure
 
@@ -63,6 +65,8 @@ Teams that freeze in this environment aren't failing. They're responding appropr
 **Chaos engineering.** Failures are injected deliberately. Teams practice recovery when stakes are low. Skills and systems are proven before they're needed.
 
 Each piece of infrastructure converts unbounded risk into bounded risk. The deployment that might break anything becomes the deployment that might affect 1% of users for five minutes before automatic rollback.
+
+Toyota's andon cord is confidence infrastructure in physical form. Any worker can pull it to stop the entire production line. Management thanks them when they do. This sounds like it would slow production. Instead, workers move faster—they don't hesitate or second-guess because they know problems can be caught and fixed. The cord is a feature flag for manufacturing: it makes "stop everything" a safe, reversible decision.
 
 ## The Confidence Calibration
 

@@ -75,7 +75,7 @@ If leading indicators improve while lagging indicators decline, you're in the no
 - First deployment without manual intervention
 - First incident resolved through automation
 
-**Protect transformation from short-term pressure.** "We need to hit this deadline, can we skip the new process just this once?" Each concession erodes the transformation. Exceptions become precedents. Pauses become permanent.
+**Protect transformation from short-term pressure.** "We need to hit this deadline, can we skip the new process just this once?" The question sounds reasonable. The old process is right there, comfortable and fast. But "just this once" becomes precedent because the familiar has gravity. The team that makes one exception finds the second easier, the third automatic. The transformation doesn't fail from one decision. It fails from a thousand tiny retreats to what used to work.
 
 ## Why Organizations Fail
 
@@ -86,6 +86,8 @@ If leading indicators improve while lagging indicators decline, you're in the no
 **Declare victory too early.** Tools get adopted. Processes get documented. Leadership moves on. But disciplines haven't formed. Teams still operate the old way with new terminology.
 
 **Underfund the transition.** "We'll transform while delivering." Transformation loses every competition with delivery pressure. The dip extends indefinitely.
+
+Some teams stop trying before they stop showing up. They've seen three "agile transformations" that changed nothing. A fourth attempt feels pointless. They go through motions without believing. This isn't cynicism—it's a rational response to repeated failure. Breaking through requires early visible proof that this time is different: not promises of eventual payoff, but tangible evidence that the new way works better right now, even in small ways.
 
 ## The Perpetual Dip
 

@@ -18,6 +18,8 @@ With instrumentation, you can push harder. Not because you're more reckless, but
 
 The gauges don't slow you down. They tell you how fast you can safely go.
 
+Apollo 13 shows what's possible when instrumentation is trusted. When CO2 levels rose dangerously, engineers improvised a scrubber from duct tape, cardboard, and plastic bags. They could improvise confidently because thousands of hours of simulation had validated their mental models. They knew exactly where the constraints were. The astronauts built a device they'd never seen before because ground control could see whether it would work before they tried it. The simulations were their gauges.
+
 ## The Metaphor for Software
 
 Every organization faces a choice about how to interpret verification.
@@ -37,7 +39,7 @@ Organizations that treat verification as instrumentation achieve sustained high 
 | Post-incident forensics | Real-time anomaly detection |
 | Hope-based deployment | Evidence-based deployment |
 
-This is the fundamental insight: instrumentation is acceleration, not drag.
+This is the fundamental insight: instrumentation is acceleration, not drag. Contrast this with Three Mile Island: operators had gauges—too many. When 100+ alarms screamed at once, instrumentation became noise. The problem wasn't missing data. It was data that couldn't be interpreted when interpretation mattered most.
 
 ## What Good Instrumentation Looks Like
 

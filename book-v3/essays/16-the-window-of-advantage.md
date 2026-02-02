@@ -20,6 +20,8 @@ By year three, A is accelerating. B is rebuilding. The gap compounds.
 
 This isn't theoretical. I've watched it happen. The organizations that invested in delivery infrastructure before AI arrived are now absorbing machine-speed change. The organizations that didn't are in crisis mode.
 
+Knight Capital didn't see their window until it closed. They operated at speeds their verification couldn't match. When things went wrong, they had no ability to detect, diagnose, or reverse. Forty-five minutes. The organizations unprepared for machine-speed code will face similar windows—not as dramatically, but just as decisively.
+
 ## Why Now
 
 Several forces converge to make this moment critical:

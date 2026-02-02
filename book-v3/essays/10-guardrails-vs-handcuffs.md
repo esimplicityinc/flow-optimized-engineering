@@ -47,6 +47,8 @@ Each check exists for a reason. But the checks are automated. They don't require
 
 Guardrails scale with evidence. Changes that pass more checks deploy with less friction. Changes that fail checks are blocked automatically. The governance adapts to what the system actually knows about the change.
 
+Toyota's andon cord is a physical guardrail. Any worker can pull it to stop the entire production line—that sounds like chaos. Instead, it produces quality. Workers don't slow down out of fear because they know defects get caught. The line stops briefly so it doesn't stop catastrophically.
+
 ## The Economics
 
 Handcuffs are expensive at low volume and catastrophic at high volume.
