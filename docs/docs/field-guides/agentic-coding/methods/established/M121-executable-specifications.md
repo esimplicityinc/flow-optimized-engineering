@@ -12,6 +12,7 @@ external_method:
 foe_maturity: proven
 observations:
   - internal/O100-prima-bdd-api-testing-adoption
+  - internal/O157-agentx-deterministic-frameworks
   - external/O104-bdd-adoption-github-study-2020
   - external/O105-bdd-industrial-study-2018
   - external/O106-bdd-maintenance-challenges-2018
