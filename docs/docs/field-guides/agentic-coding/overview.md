@@ -109,6 +109,13 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       maturity: 'hypothesized',
       description: 'Investigate root cause before applying fixes',
     },
+    { 
+      id: 'M159',
+      slug: 'use-governed-ai-coding-agents', 
+      title: 'Use Governed AI Coding Agents', 
+      maturity: 'observing',
+      description: 'Deploy AI coding tools through governed architectures with centralized policy, audit, and access controls',
+    },
   ]}
   externalMethods={[
     {
