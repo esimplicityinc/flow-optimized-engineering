@@ -3,8 +3,9 @@ methodId: M162
 displayed_sidebar: fieldGuideSidebar
 sidebar_position: 5
 title: "Worktree-Based Agent Isolation"
-maturity: hypothesized
-observations: []
+maturity: observing
+observations:
+  - O162
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
