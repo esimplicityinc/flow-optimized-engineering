@@ -116,6 +116,13 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       maturity: 'observing',
       description: 'Deploy AI coding tools through governed architectures with centralized policy, audit, and access controls',
     },
+    { 
+      id: 'M160',
+      slug: 'plan-mode-first', 
+      title: 'Plan Mode First', 
+      maturity: 'observing',
+      description: 'Use dedicated planning mode with a stronger reasoning model before implementation',
+    },
   ]}
   externalMethods={[
     {
