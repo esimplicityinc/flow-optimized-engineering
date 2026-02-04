@@ -127,7 +127,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       id: 'M161',
       slug: 'explicit-mcp-version-control', 
       title: 'Explicit MCP Version Control', 
-      maturity: 'hypothesized',
+      maturity: 'observing',
       description: 'Pin MCP server versions explicitly to prevent unknown changes to agent behavior',
     },
   ]}

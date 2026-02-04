@@ -3,8 +3,12 @@ methodId: M161
 displayed_sidebar: fieldGuideSidebar
 sidebar_position: 6
 title: "Explicit MCP Version Control"
-maturity: hypothesized
-observations: []
+maturity: observing
+observations:
+  - O163
+  - O164
+  - O165
+  - O166
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
@@ -15,8 +19,8 @@ import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
 
 Pin MCP server versions explicitly to prevent unknown changes to agent behavior. If an agent starts behaving differently, you want to know it was *your* change, not a silent upstream update.
 
-:::caution Early Stage
-This method is proposed as a best practice but has not yet been validated through internal observations. It draws on established dependency management principles applied to the agentic coding context.
+:::info Observing
+This method is supported by external evidence from foundational software engineering sources (Twelve-Factor App, Continuous Delivery, Google Cloud, Docker community). Internal observations from MCP-specific implementations would strengthen the evidence.
 :::
 
 ## Overview
@@ -166,14 +170,14 @@ This method supports multiple FOE principles:
 
 ## How You Can Help
 
-This is a **hypothesized** method based on established dependency management principles. If you're interested in adding evidence:
+This is an **observing** method backed by strong external evidence from established software engineering practices. To advance it to **validated**, we need internal observations:
 
 1. Implement version pinning in your MCP configurations
 2. Track incidents where unpinned versions caused issues (before) or where pinning prevented confusion (after)
-3. Document your experience as an observation
+3. Document your experience as an internal observation
 4. Note any edge cases or situations where pinning created problems
 
-Observations from different team sizes, MCP server types, and workflow complexity will help validate this method.
+Internal observations from MCP-specific implementations across different team sizes, server types, and workflow complexity will help validate this method in the agentic coding context.
 
 ## Supporting Evidence
 
