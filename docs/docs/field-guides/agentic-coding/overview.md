@@ -123,6 +123,13 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       maturity: 'observing',
       description: 'Use dedicated planning mode with a stronger reasoning model before implementation',
     },
+    { 
+      id: 'M161',
+      slug: 'explicit-mcp-version-control', 
+      title: 'Explicit MCP Version Control', 
+      maturity: 'hypothesized',
+      description: 'Pin MCP server versions explicitly to prevent unknown changes to agent behavior',
+    },
   ]}
   externalMethods={[
     {
