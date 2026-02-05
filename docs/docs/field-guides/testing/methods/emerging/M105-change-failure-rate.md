@@ -10,7 +10,8 @@ external_method:
   method: change-failure-rate
   id: M105
 foe_maturity: hypothesized
-observations: []
+observations:
+  - O110
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';

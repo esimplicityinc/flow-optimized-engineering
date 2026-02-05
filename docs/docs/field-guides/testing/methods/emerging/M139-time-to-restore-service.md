@@ -10,7 +10,8 @@ external_method:
   method: time-to-restore-service
   id: M139
 foe_maturity: hypothesized
-observations: []
+observations:
+  - O110
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';

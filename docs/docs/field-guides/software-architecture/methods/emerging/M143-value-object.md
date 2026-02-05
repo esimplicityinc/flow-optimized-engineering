@@ -10,7 +10,8 @@ external_method:
   method: value-object
   id: M143
 foe_maturity: hypothesized
-observations: []
+observations:
+  - O118
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';

@@ -10,7 +10,8 @@ external_method:
   method: aggregate
   id: M100
 foe_maturity: hypothesized
-observations: []
+observations:
+  - O118
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';

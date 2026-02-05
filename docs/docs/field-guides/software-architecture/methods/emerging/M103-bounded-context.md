@@ -10,7 +10,9 @@ external_method:
   method: bounded-context
   id: M103
 foe_maturity: hypothesized
-observations: []
+observations:
+  - O115
+  - O121
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';
