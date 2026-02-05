@@ -11,7 +11,7 @@ source:
   year: 2021
   url: "https://cloud.google.com/blog/topics/developers-practitioners/best-practices-dependency-management"
 methods:
-  - agentic-coding/methods/emerging/M161-explicit-mcp-version-control
+  - M161
 ---
 
 # Google Cloud: Best Practices for Dependency Management

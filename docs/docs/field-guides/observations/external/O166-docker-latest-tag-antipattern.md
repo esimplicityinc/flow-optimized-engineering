@@ -11,7 +11,7 @@ source:
   year: 2019
   url: "https://codefresh.io/blog/docker-anti-patterns/"
 methods:
-  - agentic-coding/methods/emerging/M161-explicit-mcp-version-control
+  - M161
 ---
 
 # Docker Anti-Pattern: The :latest Tag in Production

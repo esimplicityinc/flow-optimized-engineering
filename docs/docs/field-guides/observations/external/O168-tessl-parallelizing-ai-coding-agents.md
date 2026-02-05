@@ -1,5 +1,5 @@
 ---
-observationId: O164
+observationId: O168
 displayed_sidebar: fieldGuideSidebar
 sidebar_position: 35
 title: "Tessl Analysis: Parallelizing AI Coding Agents with Git Worktrees"

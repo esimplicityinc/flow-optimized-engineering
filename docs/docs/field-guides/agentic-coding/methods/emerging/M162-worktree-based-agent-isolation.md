@@ -6,8 +6,8 @@ title: "Worktree-Based Agent Isolation"
 maturity: observing
 observations:
   - O162
-  - O163
-  - O164
+  - O167
+  - O168
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';

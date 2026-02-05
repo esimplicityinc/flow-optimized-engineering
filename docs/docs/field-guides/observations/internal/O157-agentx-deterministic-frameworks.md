@@ -6,10 +6,10 @@ title: "AgentX: Deterministic Frameworks Enable Safe Agent Autonomy"
 status: in-progress
 source_type: internal
 methods:
-  - agentic-coding/methods/emerging/M156-agent-mediated-access
-  - agentic-coding/methods/established/M121-executable-specifications
-  - agentic-coding/methods/emerging/M152-test-driven-agent-development
-  - agentic-coding/methods/emerging/M146-early-feedback-loop-investment
+  - M156
+  - M121
+  - M152
+  - M146
   - M158
 ---
 

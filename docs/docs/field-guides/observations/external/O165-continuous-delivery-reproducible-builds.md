@@ -11,7 +11,7 @@ source:
   year: 2010
   url: "https://continuousdelivery.com"
 methods:
-  - agentic-coding/methods/emerging/M161-explicit-mcp-version-control
+  - M161
 ---
 
 # Continuous Delivery: Reproducible Builds as Deployment Foundation

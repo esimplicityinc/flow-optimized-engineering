@@ -11,7 +11,7 @@ source:
   year: 2012
   url: "https://12factor.net/dependencies"
 methods:
-  - agentic-coding/methods/emerging/M161-explicit-mcp-version-control
+  - M161
 ---
 
 # Twelve-Factor App: Explicitly Declare and Isolate Dependencies

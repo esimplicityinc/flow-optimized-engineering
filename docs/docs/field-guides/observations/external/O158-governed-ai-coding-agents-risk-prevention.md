@@ -11,7 +11,7 @@ source:
   year: 2021
   url: "https://arxiv.org/abs/2108.09293"
 methods:
-  - agentic-coding/methods/emerging/M159-use-governed-ai-coding-agents
+  - M159
 ---
 
 

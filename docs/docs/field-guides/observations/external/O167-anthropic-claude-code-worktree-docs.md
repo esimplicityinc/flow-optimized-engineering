@@ -1,5 +1,5 @@
 ---
-observationId: O163
+observationId: O167
 displayed_sidebar: fieldGuideSidebar
 sidebar_position: 34
 title: "Anthropic Claude Code Documentation: Git Worktrees for Parallel Sessions"
