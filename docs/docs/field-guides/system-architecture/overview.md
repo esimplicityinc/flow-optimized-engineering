@@ -1,21 +1,21 @@
 ---
 displayed_sidebar: fieldGuideSidebar
 sidebar_position: 1
-title: Architecture
+title: System Architecture
 ---
 
 import GuideMaturitySummary from '@site/src/components/GuideMaturitySummary';
 import MethodList from '@site/src/components/MethodList';
 
-# Architecture
+# System Architecture
 
-A collection of flow-optimized methods for making structural decisions about how systems are organized.
+A collection of flow-optimized methods for making structural decisions about distributed systems and service organization.
 
 ## What This Guide Covers
 
-Architecture decisions shape how systems evolve. Service boundaries, dependency management, deployment topology, and component organization all determine how easily a system can be understood, changed, and operated. This guide collects methods for making these structural decisions in ways that optimize for flow.
+System architecture decisions shape how distributed systems evolve. Service boundaries, inter-service communication, deployment topology, and team ownership all determine how easily a system can be understood, changed, and operated independently. This guide collects methods for making these structural decisions in ways that optimize for flow.
 
-Good architecture isn't about following patterns—it's about making boundaries explicit where they naturally exist, keeping feedback loops fast, and maintaining confidence through independent testability and deployment.
+Good system architecture isn't about following patterns—it's about making service boundaries explicit where they naturally exist, enabling independent deployment, and maintaining confidence through contract testing and graceful degradation.
 
 ## Methods
 

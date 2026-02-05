@@ -1,10 +1,10 @@
 {
-  "label": "Architecture",
+  "label": "System Architecture",
   "position": 3,
   "collapsible": true,
   "collapsed": false,
   "link": {
     "type": "doc",
-    "id": "field-guides/architecture/overview"
+    "id": "field-guides/system-architecture/overview"
   }
 }

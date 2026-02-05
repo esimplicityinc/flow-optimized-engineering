@@ -1,0 +1,11 @@
+{
+  "label": "Established Methods",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Established Methods",
+    "description": "Methods with strong supporting evidence (Validated or Proven)."
+  }
+}

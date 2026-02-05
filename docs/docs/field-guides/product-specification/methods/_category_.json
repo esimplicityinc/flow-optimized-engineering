@@ -1,0 +1,11 @@
+{
+  "label": "Methods",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Product Specification Methods",
+    "description": "Flow-optimized methods for requirements, specifications, and product-engineering collaboration."
+  }
+}

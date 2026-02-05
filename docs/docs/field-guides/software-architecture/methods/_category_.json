@@ -1,0 +1,11 @@
+{
+  "label": "Methods",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Software Architecture Methods",
+    "description": "Flow-optimized methods for internal code design and architecture decisions."
+  }
+}

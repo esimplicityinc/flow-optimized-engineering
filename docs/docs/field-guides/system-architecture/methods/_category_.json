@@ -1,0 +1,11 @@
+{
+  "label": "Methods",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "System Architecture Methods",
+    "description": "Flow-optimized methods for distributed systems and service organization."
+  }
+}

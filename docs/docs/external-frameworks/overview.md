@@ -46,6 +46,41 @@ import FrameworkList from '@site/src/components/FrameworkList';
     status: 'industry-standard',
     methodCount: 4,
   },
+  {
+    slug: 'bdd',
+    title: 'Behavior-Driven Development',
+    description: 'A collaborative approach bridging business and technical teams through concrete examples and executable specifications.',
+    status: 'well-established',
+    methodCount: 7,
+  },
+  {
+    slug: 'tdd',
+    title: 'Test-Driven Development',
+    description: 'A development technique that guides software development by writing tests first, following a red-green-refactor cycle.',
+    status: 'industry-standard',
+    methodCount: 3,
+  },
+  {
+    slug: 'continuous-delivery',
+    title: 'Continuous Delivery',
+    description: 'Technical practices enabling rapid, reliable, low-risk software delivery through automation.',
+    status: 'industry-standard',
+    methodCount: 6,
+  },
+  {
+    slug: 'domain-driven-design',
+    title: 'Domain-Driven Design',
+    description: 'An approach to software development that centers the design on the core domain and domain logic.',
+    status: 'well-established',
+    methodCount: 12,
+  },
+  {
+    slug: 'team-topologies',
+    title: 'Team Topologies',
+    description: 'A model for organizing teams for fast flow, defining team types and interaction modes.',
+    status: 'well-established',
+    methodCount: 10,
+  },
 ]} />
 
 ---

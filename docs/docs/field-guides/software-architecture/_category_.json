@@ -1,0 +1,10 @@
+{
+  "label": "Software Architecture",
+  "position": 4,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "doc",
+    "id": "field-guides/software-architecture/overview"
+  }
+}
