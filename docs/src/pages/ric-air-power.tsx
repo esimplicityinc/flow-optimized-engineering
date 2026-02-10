@@ -114,7 +114,7 @@ const modeContent = {
         airForceTitle: 'Deployed Squadrons',
         airForceSubtitle: 'Operational Units',
         ricEquivalent: 'Delivery Enablement',
-        mission: 'Support contract delivery teams. They execute missions; RIC provides the validated equipment and doctrine that makes success possible.',
+        mission: 'Support contract delivery teams. They execute missions; the internal enablement function provides the validated equipment and doctrine that makes success possible.',
         outputs: [
           'Onboarding for delivery teams',
           'Tool provisioning and support',
@@ -473,29 +473,29 @@ const modeContent = {
   esimplicity: {
     heroTitle: 'Enabling Agentic Delivery',
     heroSubtitle: 'The eSimplicity Transformation',
-    heroDescription: 'How the RIC builds the institutions for air-speed operations',
-    heroBadge: 'Internal Strategy | RIC Restructuring',
+    heroDescription: 'How an internal enablement function builds the institutions for air-speed operations',
+    heroBadge: 'Internal Strategy | Enablement Restructuring',
     toggleLabel: '← View Air Force Model',
     institutions: {
       testPrograms: {
         name: 'Validation & Standards',
-        subtitle: 'RIC Test Programs',
-        whatItIs: "The RIC's validation function, where every agent configuration, prompt library, and pattern is tested before delivery teams use them.",
-        whatItDoes: 'RIC engineers validate tools in controlled conditions. They find the failures <em>before</em> delivery teams do. They write the documentation, define the usage patterns, and certify that configurations are safe and effective.',
+        subtitle: 'Enablement Test Programs',
+        whatItIs: "The enablement function's validation arm, where every agent configuration, prompt library, and pattern is tested before delivery teams use them.",
+        whatItDoes: 'Enablement engineers validate tools in controlled conditions. They find the failures <em>before</em> delivery teams do. They write the documentation, define the usage patterns, and certify that configurations are safe and effective.',
         whyItMatters: 'No agent configuration reaches delivery teams without passing through validation. This is where "it works on my machine" meets production reality. Every tool, every pattern — proven here first.',
         quote: '"No one deploys an agent that hasn\'t been through test."',
       },
       weaponsSchool: {
         name: 'Doctrine & Methods',
-        subtitle: 'RIC Agent School',
+        subtitle: 'Enablement Agent School',
         whatItIs: 'The FOE Field Guides and training programs where methods are developed, patterns are refined, and instructors are created.',
-        whatItDoes: 'Takes experienced engineers and makes them experts in agentic delivery tactics. Graduates return to their delivery teams as recognized experts who train others. The RIC doesn\'t just teach tools; it <em>develops the curriculum</em> that everyone else uses.',
-        whyItMatters: 'Before FOE, delivery quality was inconsistent. The Doctrine & Methods function was created to fix this. The RIC doesn\'t execute delivery — it <em>multiplies capability</em> across all delivery teams by creating instructors and methods.',
+        whatItDoes: 'Takes experienced engineers and makes them experts in agentic delivery tactics. Graduates return to their delivery teams as recognized experts who train others. The enablement function doesn\'t just teach tools; it <em>develops the curriculum</em> that everyone else uses.',
+        whyItMatters: 'Before FOE, delivery quality was inconsistent. The Doctrine & Methods function was created to fix this. The enablement function doesn\'t execute delivery — it <em>multiplies capability</em> across all delivery teams by creating instructors and methods.',
         quote: '"You can\'t train engineers in production. You need a separated institution."',
       },
       demoTeams: {
         name: 'Reference Implementations',
-        subtitle: 'RIC Demonstration Teams',
+        subtitle: 'Enablement Demonstration Teams',
         whatItIs: 'Showcase projects like the FOE docs site and KATALYST reference deployments that demonstrate what disciplined agentic delivery looks like.',
         whatItDoes: 'Delivers projects with full FOE compliance, comprehensive testing, and zero shortcuts. Every pattern is followed, every method applied, and documented for others to learn from.',
         whyItMatters: 'Reference implementations aren\'t just showcases — they\'re <strong>proof that disciplined excellence is possible</strong>. They demonstrate the ceiling of what FOE-compliant teams can achieve. When skeptics say "that level of quality isn\'t realistic," these projects are the counter-argument.',
@@ -503,7 +503,7 @@ const modeContent = {
       },
       redFlag: {
         name: 'Learning Labs',
-        subtitle: 'RIC Training Exercises',
+        subtitle: 'Enablement Training Exercises',
         whatItIs: 'Sandbox environments and protected experimentation spaces where teams can try new patterns without production consequences.',
         whatItDoes: 'Creates safe spaces for delivery teams to experiment with new agent configurations, try emerging patterns, and learn through failure. Every experiment is documented and debriefed.',
         whyItMatters: 'Engineers who have failed safely in Learning Labs are dramatically more effective in production. Learning Labs give teams those "first 10 experiments" in a controlled environment. Failure here is learning, not outage.',
@@ -511,17 +511,17 @@ const modeContent = {
       },
       manufacturing: {
         name: 'Tooling & Expeditionary',
-        subtitle: 'RIC Manufacturing & Deployment',
+        subtitle: 'Enablement Manufacturing & Deployment',
         whatItIs: 'The "rocket shop" that builds KATALYST, PRIMA, and agent configurations, plus the expeditionary capability to deploy them anywhere.',
-        whatItDoes: 'The RIC builds the actual tools — platforms, products, agent configs, prompt libraries. It also deploys capability into contract theaters, bringing infrastructure where none exists.',
-        whyItMatters: 'You can\'t enable agentic delivery without tools, and you can\'t scale without expeditionary capability. The RIC has the <strong>manufacturing capacity to build the best tools</strong> and the <strong>expeditionary capability to deploy them anywhere</strong>.',
+        whatItDoes: 'The enablement function builds the actual tools — platforms, products, agent configs, prompt libraries. It also deploys capability into contract theaters, bringing infrastructure where none exists.',
+        whyItMatters: 'You can\'t enable agentic delivery without tools, and you can\'t scale without expeditionary capability. The enablement function has the <strong>manufacturing capacity to build the best tools</strong> and the <strong>expeditionary capability to deploy them anywhere</strong>.',
         quote: '"Amateurs talk features. Professionals talk enablement."',
       },
     },
     missionSets: {
       testPrograms: {
         airForceTitle: 'Validation & Standards',
-        airForceSubtitle: 'RIC Test Programs',
+        airForceSubtitle: 'Enablement Test Programs',
         ricEquivalent: 'Agent & Pattern Certification',
         mission: 'Certify agent configurations, prompt libraries, and patterns before delivery teams deploy them. "No one deploys an agent that hasn\'t been through test."',
         outputs: [
@@ -533,7 +533,7 @@ const modeContent = {
       },
       weaponsSchool: {
         airForceTitle: 'Doctrine & Methods',
-        airForceSubtitle: 'RIC Agent School',
+        airForceSubtitle: 'Enablement Agent School',
         ricEquivalent: 'FOE Field Guide Development',
         mission: 'Develop methods, train instructors, create the curriculum that delivery teams use. "You can\'t train engineers in production."',
         outputs: [
@@ -545,7 +545,7 @@ const modeContent = {
       },
       demoTeams: {
         airForceTitle: 'Reference Implementations',
-        airForceSubtitle: 'RIC Demonstration Teams',
+        airForceSubtitle: 'Enablement Demonstration Teams',
         ricEquivalent: 'Showcase Projects',
         mission: 'Demonstrate the ceiling of what\'s possible with full FOE compliance. Show skeptics that disciplined agentic delivery is real.',
         outputs: [
@@ -557,9 +557,9 @@ const modeContent = {
       },
       deployedSquadrons: {
         airForceTitle: 'Delivery Enablement',
-        airForceSubtitle: 'RIC Support Teams',
+        airForceSubtitle: 'Enablement Support Teams',
         ricEquivalent: 'Contract Team Support',
-        mission: 'Support contract delivery teams with the validated tools and doctrine they need. RIC enables; delivery teams execute.',
+        mission: 'Support contract delivery teams with the validated tools and doctrine they need. The enablement function enables; delivery teams execute.',
         outputs: [
           'Team onboarding programs',
           'Tool provisioning & support',
@@ -569,7 +569,7 @@ const modeContent = {
       },
       embeddedTraining: {
         airForceTitle: 'Learning Labs',
-        airForceSubtitle: 'RIC Training Exercises',
+        airForceSubtitle: 'Enablement Training Exercises',
         ricEquivalent: 'Safe Experimentation Spaces',
         mission: 'Create protected environments where teams can fail safely and learn. "You cannot learn agentic delivery in production."',
         outputs: [
@@ -581,7 +581,7 @@ const modeContent = {
       },
       manufacturing: {
         airForceTitle: 'Tooling & Expeditionary',
-        airForceSubtitle: 'RIC Manufacturing & Deployment',
+        airForceSubtitle: 'Enablement Manufacturing & Deployment',
         ricEquivalent: 'Tool Building & Theater Projection',
         mission: 'Two complementary roles that other mission sets depend on:',
         rocketShop: {
@@ -596,7 +596,7 @@ const modeContent = {
         },
         infrastructure: {
           title: 'Expeditionary Capability',
-          description: 'Project RIC capability into contract theaters — build runways where none exist.',
+          description: 'Project enablement capability into contract theaters — build runways where none exist.',
           items: [
             'Theater assessment playbooks',
             'Infrastructure-as-code packages',
@@ -608,15 +608,15 @@ const modeContent = {
     },
     act4: {
       sectionTitle: 'The Enablement Transformation',
-      executiveSummary: 'Traditional teams can operate with ~1:3 delivery-to-support ratios. Agentic-speed teams need ~1:15 or higher. This isn\'t overhead—it\'s what enables the speed. The RIC is the enablement infrastructure that makes delivery teams fly.',
+      executiveSummary: 'Traditional teams can operate with ~1:3 delivery-to-support ratios. Agentic-speed teams need ~1:15 or higher. This isn\'t overhead—it\'s what enables the speed. Internal enablement capabilities are the infrastructure that makes delivery teams fly.',
       multiplier: {
-        input: { value: '1 hr', label: 'RIC invests in a pattern' },
+        input: { value: '1 hr', label: 'Enablement invests in a pattern' },
         multiplierVal: { value: '50', label: 'delivery team engineers' },
         output: { value: '50 hrs', label: 'saved across organization' },
       },
-      enablementIntro: 'In RIC thinking, enablement is <em>multiplicative</em>:',
-      leverageText: 'Every hour the RIC spends developing a validated pattern, documenting a method, or creating a training resource is multiplied across every delivery team that uses it.',
-      leverageConclusion: '<strong>This is how you get leverage.</strong> This is how a small RIC enables a large delivery organization to operate at agentic speed.',
+      enablementIntro: 'In enablement thinking, the investment is <em>multiplicative</em>:',
+      leverageText: 'Every hour the enablement function spends developing a validated pattern, documenting a method, or creating a training resource is multiplied across every delivery team that uses it.',
+      leverageConclusion: '<strong>This is how you get leverage.</strong> This is how a small enablement function enables a large delivery organization to operate at agentic speed.',
       platformSection: {
         title: 'Platform as Product, Not Platform as Team',
         intro: 'FOE distinguishes between having a "platform team" and having "platform as product":',
@@ -627,13 +627,13 @@ const modeContent = {
           { left: 'Roadmap = what we want to build', right: 'Roadmap = what customers need' },
           { left: 'Exists because org chart says so', right: 'Exists because mission teams need it' },
         ],
-        conclusion: 'The RIC must operate as <strong>platform as product</strong>. Its customers are the delivery teams. Its success is measured by their success.',
+        conclusion: 'The enablement function must operate as <strong>platform as product</strong>. Its customers are the delivery teams. Its success is measured by their success.',
       },
       investmentSection: {
         title: 'The Investment Thesis',
-        header: 'RIC Investment Logic',
+        header: 'Enablement Investment Logic',
         rows: [
-          { label: 'Input', value: 'N hours of RIC capability building' },
+          { label: 'Input', value: 'N hours of enablement capability building' },
           { label: 'Multiplier', value: '× M delivery teams using that capability' },
           { label: 'Amplifier', value: '× K times each team uses it per project' },
           { label: 'Output', value: '= N × M × K hours of leverage' },
@@ -646,13 +646,13 @@ const modeContent = {
         { label: 'Process', desc: 'Validation & Standards (how things are done)' },
         { label: 'Technology', desc: 'Reference Implementations + Delivery Enablement (what tools and patterns exist)' },
       ],
-      triadIntro: 'FOE is clear that transformation requires coordinated change across People, Process, and Technology. The RIC must have mission sets that address all three:',
+      triadIntro: 'FOE is clear that transformation requires coordinated change across People, Process, and Technology. The enablement function must have mission sets that address all three:',
     },
     act5: {
       sectionTitle: 'Combined Arms',
-      executiveSummary: 'Air power alone doesn\'t win wars. It requires integrated ground forces, intelligence, logistics, and doctrine. FOE is combined arms for software delivery—the RIC must be the connective tissue that integrates our capabilities.',
+      executiveSummary: 'Air power alone doesn\'t win wars. It requires integrated ground forces, intelligence, logistics, and doctrine. FOE is combined arms for software delivery—the enablement function must be the connective tissue that integrates our capabilities.',
       integrationTitle: 'The Integration Requirement',
-      integrationIntro: 'Having an excellent RIC is necessary but not sufficient. Success requires:',
+      integrationIntro: 'Having excellent internal enablement capabilities is necessary but not sufficient. Success requires:',
       integrationItems: [
         { label: 'Delivery teams', desc: 'to execute contracts' },
         { label: 'Platforms (KATALYST)', desc: 'for infrastructure' },
@@ -662,17 +662,17 @@ const modeContent = {
       ],
       combinedArmsExplainer: 'This is <strong>combined enablement</strong>—the principle that different capabilities multiply each other when properly integrated. No single function wins alone.',
       ecosystemSection: {
-        title: 'How RIC Connects the eSimplicity Ecosystem',
-        centerLabel: 'RIC',
+        title: 'How Internal Enablement Connects the Ecosystem',
+        centerLabel: 'Enablement',
         nodes: [
           { icon: 'chart', name: 'KATALYST', role: 'Platform' },
-          { icon: 'rocket', name: 'RIC', role: 'Enablement' },
+          { icon: 'rocket', name: 'Enablement', role: 'Integration' },
           { icon: 'target', name: 'PRIMA', role: 'Products' },
           { icon: 'book', name: 'FOE', role: 'Doctrine' },
           { icon: 'scales', name: 'TRB', role: 'Governance' },
           { icon: 'users', name: 'Delivery Teams', role: 'Execution' },
         ],
-        connectsIntro: 'The RIC sits at the center, connecting:',
+        connectsIntro: 'The enablement function sits at the center, connecting:',
         connectsItems: [
           '<strong>KATALYST</strong> (infrastructure) with teams that need to deploy on it',
           '<strong>PRIMA</strong> (products) with the patterns that make them consistent',
@@ -689,7 +689,7 @@ const modeContent = {
           'Ensures architectural decisions support the ecosystem',
           'Provides feedback loops before problems compound',
         ],
-        conclusion: 'But air traffic control only works if pilots follow procedures and aircraft have functioning transponders. The RIC provides the training (pilots know procedures) and the infrastructure (aircraft have transponders) that makes TRB effective.',
+        conclusion: 'But air traffic control only works if pilots follow procedures and aircraft have functioning transponders. The enablement function provides the training (pilots know procedures) and the infrastructure (aircraft have transponders) that makes TRB effective.',
       },
       isolationSection: {
         title: 'Why Isolated Excellence Fails',
@@ -699,12 +699,12 @@ const modeContent = {
           { pattern: 'Excellent PRIMA products + inconsistent delivery', failure: 'Products deployed differently on each contract; support becomes impossible' },
           { pattern: 'Active TRB + no enablement', failure: 'TRB finds problems but teams can\'t fix them; governance becomes adversarial' },
         ],
-        conclusion: '<strong>Combined arms means all components working together.</strong> The RIC is the integration function that makes the whole greater than the sum of parts.',
+        conclusion: '<strong>Combined arms means all components working together.</strong> The enablement function is the integration layer that makes the whole greater than the sum of parts.',
       },
       virtuousCycleSection: {
         title: 'The Virtuous Cycle',
         steps: [
-          'RIC develops capability',
+          'Enablement develops capability',
           'Delivery teams adopt',
           'Evidence accumulates',
           'Methods mature',
@@ -713,10 +713,10 @@ const modeContent = {
         conclusion: 'Each cycle through the loop raises the floor. What was advanced practice becomes standard. What was standard becomes automated. The organization continuously improves.',
       },
       powerProjectionIntro: 'Combined arms isn\'t just about having all the pieces—it\'s about <strong>projecting capability where it\'s needed</strong>. Different contract theaters require different engagement models:',
-      engagementLabel: 'RIC Engagement:',
+      engagementLabel: 'Enablement Engagement:',
       fleetLabel: 'Fleet Assets:',
       highlightBox: {
-        mainPoint: '<strong>The RIC doesn\'t just support delivery teams—it projects capability into theaters where that capability doesn\'t yet exist.</strong>',
+        mainPoint: '<strong>The enablement function doesn\'t just support delivery teams—it projects capability into theaters where that capability doesn\'t yet exist.</strong>',
         explanation: 'This is the expeditionary function. It\'s not enough to have excellent internal capability. You must be able to deploy it, adapt it to local conditions, and build local capacity to sustain it.',
       },
       theaters: {
@@ -741,7 +741,7 @@ const modeContent = {
             'Team learning DevOps',
           ],
           engagementModel: 'Deployment Model',
-          engagementDesc: 'RIC brings infrastructure. Deploy with team. Build local capability.',
+          engagementDesc: 'Enablement brings infrastructure. Deploy with team. Build local capability.',
           fleetAssets: 'PRIMA products, agent configurations',
         },
         austere: {
@@ -760,7 +760,7 @@ const modeContent = {
     },
     act1: {
       title: 'The Problem',
-      executiveSummary: 'The software industry is undergoing a transformation. AI agents and agentic delivery are capable of speeds previously impossible—but most organizations are still structured for human-tempo operations. The RIC exists to solve this problem for eSimplicity.',
+      executiveSummary: 'The software industry is undergoing a transformation. AI agents and agentic delivery are capable of speeds previously impossible—but most organizations are still structured for human-tempo operations. Internal enablement capabilities exist to solve this problem.',
       executiveQuote: '"You cannot operate at agentic speed with a human-tempo organization."',
       sections: {
         industryShift: {
@@ -768,7 +768,7 @@ const modeContent = {
           paragraphs: [
             'Software delivery is accelerating beyond what traditional organizations can support. AI agents, agentic coding, and automated pipelines are capable of speeds that were previously impossible.',
             'But most organizations—including most of eSimplicity\'s delivery teams and clients—are still structured for human-tempo operations. They have talented people doing important work, but the organizational structure wasn\'t designed for agentic-speed delivery.',
-            '<strong>This is the problem the RIC exists to solve.</strong> Not just to adopt new tools, but to build the organizational infrastructure that makes agentic-speed delivery possible—and then project that capability across eSimplicity and into client environments.',
+            '<strong>This is the problem internal enablement capabilities exist to solve.</strong> Not just to adopt new tools, but to build the organizational infrastructure that makes agentic-speed delivery possible—and then project that capability across the organization and into client environments.',
           ],
         },
         comparison: {
@@ -798,7 +798,7 @@ const modeContent = {
           ],
           highlightQuote: '"The gap isn\'t technology. Every organization stuck at Phase 2 has modern tools. The gap is the institutional discipline to use those tools as intended."',
           highlightSource: '— FOE Transformation Model',
-          conclusion: 'We\'re asking the RIC to be the answer to this gap. But an organization designed for human-tempo operations cannot provide agentic-speed discipline. <strong>We need to restructure the RIC itself before it can restructure how eSimplicity operates.</strong>',
+          conclusion: 'We\'re asking the enablement function to be the answer to this gap. But an organization designed for human-tempo operations cannot provide agentic-speed discipline. <strong>We need to restructure internal enablement itself before it can restructure how the organization operates.</strong>',
         },
         symptoms: {
           title: 'The Symptoms We\'re Seeing',
@@ -818,7 +818,7 @@ const modeContent = {
             { name: 'Developing Contracts', desc: 'Basic infrastructure—needs improvement before high-tempo ops.' },
             { name: 'Legacy Contracts', desc: 'No modern infrastructure—manual processes, legacy systems.' },
           ],
-          conclusion: 'The RIC can\'t just build capability and wait for teams to come get it. It must be able to <strong>project capability into diverse theaters</strong>—and sometimes build the runway before the planes can land.',
+          conclusion: 'The enablement function can\'t just build capability and wait for teams to come get it. It must be able to <strong>project capability into diverse theaters</strong>—and sometimes build the runway before the planes can land.',
           highlightItems: [
             '<strong>A toolkit suited to different conditions</strong> — not every contract needs full KATALYST',
             '<strong>Expeditionary capability</strong> — the ability to deploy and establish infrastructure in new theaters',
@@ -828,7 +828,7 @@ const modeContent = {
     },
     act2: {
       title: 'The Institutions',
-      executiveSummary: 'To operate at agentic speed, eSimplicity needs dedicated institutions—not just tools. The RIC is the vehicle to build and deliver these institutions across all delivery teams.',
+      executiveSummary: 'To operate at agentic speed, organizations need dedicated institutions—not just tools. The internal enablement function is the vehicle to build and deliver these institutions across all delivery teams.',
       historicalTransformation: {
         title: 'The Institutional Requirement',
         paragraphs: [
@@ -845,14 +845,14 @@ const modeContent = {
         ],
       },
       institutionsIntro: {
-        title: 'The RIC Institutions',
-        paragraph: 'These aren\'t just teams—they\'re <strong>institutions</strong> with specific missions that require deliberate construction. Understanding what each one does is essential to understanding how the RIC enables agentic delivery.',
+        title: 'The Enablement Institutions',
+        paragraph: 'These aren\'t just teams—they\'re <strong>institutions</strong> with specific missions that require deliberate construction. Understanding what each one does is essential to understanding how internal enablement capabilities enable agentic delivery.',
       },
       institutionsClosing: {
         paragraph: 'Building these institutions takes time and investment. They won\'t emerge organically. Each institution exists because the absence of that institution causes failures that can\'t be tolerated at agentic speed.',
         highlightParagraphs: [
-          '<strong>eSimplicity needs each of these institutions.</strong> Not because it\'s theoretically nice, but because operating at agentic speed without them will produce failures we can\'t afford.',
-          '<strong>The RIC is the vehicle to build and deliver these institutions</strong>—establishing the organizational infrastructure that makes agentic-speed operations possible across all delivery teams.',
+          '<strong>Organizations need each of these institutions.</strong> Not because it\'s theoretically nice, but because operating at agentic speed without them will produce failures we can\'t afford.',
+          '<strong>The internal enablement function is the vehicle to build and deliver these institutions</strong>—establishing the organizational infrastructure that makes agentic-speed operations possible across all delivery teams.',
         ],
       },
       heroesSection: {
@@ -878,7 +878,7 @@ const modeContent = {
         rightLabel: 'Agentic-Speed Team',
         rightValue: '1:15+',
         rightDescription: 'For every 1 engineer delivering, ~15+ in enablement',
-        explanation: 'This isn\'t overhead. This is what enables the speed. For every engineer in delivery, the RIC provides:',
+        explanation: 'This isn\'t overhead. This is what enables the speed. For every engineer in delivery, the enablement function provides:',
         supportRoles: [
           'Validated agent configurations',
           'Certified prompt libraries',
@@ -892,20 +892,20 @@ const modeContent = {
       },
       warningBox: {
         title: '<strong>The enablement structure IS the capability.</strong>',
-        paragraph: 'You cannot enable agentic delivery with traditional software organization. The RIC exists to be that enablement structure.',
+        paragraph: 'You cannot enable agentic delivery with traditional software organization. Internal enablement capabilities exist to be that structure.',
       },
     },
     act3: {
       title: 'The Five Mission Sets',
-      executiveSummary: 'The RIC needs distinct institutional functions with specific purposes—validation, doctrine, reference implementations, delivery enablement, and learning labs. Each serves a unique function that cannot be absorbed by the others.',
+      executiveSummary: 'The enablement function needs distinct institutional capabilities with specific purposes—validation, doctrine, reference implementations, delivery enablement, and learning labs. Each serves a unique function that cannot be absorbed by the others.',
       fleetIntro: 'Not every contract needs full KATALYST. Different theater maturity levels require different tooling. A lightweight toolkit beats a full platform when the infrastructure doesn\'t exist yet.',
-      fleetWarning: '<strong>The RIC fleet must include tools for every condition—and the wisdom to deploy the right one.</strong> Mature contracts get the full platform. Legacy contracts get lightweight toolkits. Unknown contracts get assessments first.',
+      fleetWarning: '<strong>The enablement fleet must include tools for every condition—and the wisdom to deploy the right one.</strong> Mature contracts get the full platform. Legacy contracts get lightweight toolkits. Unknown contracts get assessments first.',
       dependencyIntro: 'These mission sets are interdependent. Remove any one and the system degrades:',
       dependencies: [
         { removed: 'Validation & Standards', consequence: 'Untested agent configs reach delivery teams; failures happen in production' },
         { removed: 'Doctrine & Methods', consequence: 'No patterns evolve; teams reinvent approaches; knowledge doesn\'t spread' },
         { removed: 'Reference Implementations', consequence: 'No proof that discipline works; skeptics prevail; adoption stalls' },
-        { removed: 'Delivery Enablement', consequence: 'Teams left on their own; RIC becomes ivory tower' },
+        { removed: 'Delivery Enablement', consequence: 'Teams left on their own; enablement becomes ivory tower' },
         { removed: 'Learning Labs', consequence: 'Skills stagnate; first production is first failure; engineers stop experimenting' },
       ],
     },
@@ -1204,7 +1204,7 @@ function MissionSetCard({ missionSetKey }: { missionSetKey: StandardMissionSetKe
   const missionSet = modeContent[mode].missionSets[missionSetKey];
   const iconName = missionSetIcons[missionSetKey];
 
-  // In Air Force mode, show AF terminology; in eSimplicity mode, show RIC terminology
+  // In Air Force mode, show AF terminology; in eSimplicity mode, show enablement terminology
   const title = mode === 'airforce' ? missionSet.airForceTitle : missionSet.ricEquivalent;
   const subtitle = missionSet.airForceSubtitle;
 
@@ -1237,7 +1237,7 @@ function MissionSetCardWide({ missionSetKey }: { missionSetKey: 'manufacturing' 
   const missionSet = modeContent[mode].missionSets[missionSetKey];
   const iconName = missionSetIcons[missionSetKey];
 
-  // In Air Force mode, show AF terminology; in eSimplicity mode, show RIC terminology
+  // In Air Force mode, show AF terminology; in eSimplicity mode, show enablement terminology
   const title = mode === 'airforce' ? missionSet.airForceTitle : missionSet.ricEquivalent;
   const subtitle = missionSet.airForceSubtitle;
 
@@ -1608,7 +1608,7 @@ function Act3(): ReactNode {
             <div className={styles.aircraftType}>CARRIER FIGHTER</div>
             <div className={styles.aircraftName}>PRIMA Products</div>
             <div className={styles.aircraftSpecs}>
-              <span className={styles.specLabel}>Requires:</span> Aircraft carrier (RIC brings infra)
+              <span className={styles.specLabel}>Requires:</span> Aircraft carrier (enablement team brings infra)
             </div>
             <div className={styles.aircraftSpecs}>
               <span className={styles.specLabel}>Capability:</span> Full capability, deployable
@@ -1815,7 +1815,7 @@ function Act4(): ReactNode {
           <span className={styles.triadLabel}>Technology</span>
         </div>
         <div className={styles.triadCenter}>
-          <span>{mode === 'airforce' ? 'Support' : 'RIC'}</span>
+          <span>{mode === 'airforce' ? 'Support' : 'Enablement'}</span>
         </div>
       </div>
       <p>{content.triadIntro}</p>
@@ -1849,7 +1849,7 @@ function Act5(): ReactNode {
     : {
         topRow: [
           { icon: 'chart' as IconName, name: 'KATALYST', role: 'Platform' },
-          { icon: 'rocket' as IconName, name: 'RIC', role: 'Enablement', isCenter: true },
+          { icon: 'rocket' as IconName, name: 'Enablement', role: 'Integration', isCenter: true },
           { icon: 'target' as IconName, name: 'PRIMA', role: 'Products' },
         ],
         bottomRow: [
@@ -2066,7 +2066,7 @@ function Act6(): ReactNode {
       owner="shared"
       executiveSummary={
         <p>
-          Restructuring the RIC isn't about adding headcount or buying new tools. It's about 
+          Restructuring the enablement function isn't about adding headcount or buying new tools. It's about 
           clearly defining mission sets and organizing existing resources to fill them. 
           Here's how the current teams map to the air power model.
         </p>
@@ -2074,7 +2074,7 @@ function Act6(): ReactNode {
     >
       <h3>Current Team Mapping</h3>
       <p>
-        The existing RIC teams have natural affinities to different mission sets. The goal is 
+        The existing enablement teams have natural affinities to different mission sets. The goal is 
         to clarify these mappings and ensure all five mission sets are covered:
       </p>
 
@@ -2254,7 +2254,7 @@ function Act6(): ReactNode {
         <div className={styles.metricCard}>
           <span className={styles.metricValue}>↑</span>
           <span className={styles.metricLabel}>Delivery Team Velocity</span>
-          <span className={styles.metricDescription}>Teams using RIC enablement ship faster</span>
+          <span className={styles.metricDescription}>Teams using internal enablement ship faster</span>
         </div>
         <div className={styles.metricCard}>
           <span className={styles.metricValue}>↓</span>
@@ -2269,7 +2269,7 @@ function Act6(): ReactNode {
         <div className={styles.metricCard}>
           <span className={styles.metricValue}>↓</span>
           <span className={styles.metricLabel}>Escalation Rate</span>
-          <span className={styles.metricDescription}>Teams self-serve using RIC enablement</span>
+          <span className={styles.metricDescription}>Teams self-serve using enablement resources</span>
         </div>
       </div>
 
@@ -2283,7 +2283,7 @@ function Act6(): ReactNode {
           But none of it matters without the organizational structure to fly.
         </p>
         <p>
-          <strong>The RIC must become that structure.</strong>
+          <strong>The internal enablement function must become that structure.</strong>
         </p>
       </div>
     </AccordionSection>
@@ -2319,7 +2319,7 @@ export default function RICAirPower(): ReactNode {
   return (
     <ViewModeContext.Provider value={{ mode, setMode }}>
       <Layout
-        title="RIC Air Power Strategy"
+        title="Air Power Strategy"
         description="Why agentic speed requires air power organization"
       >
         <main className={styles.strategyPage}>

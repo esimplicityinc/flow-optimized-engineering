@@ -129,7 +129,7 @@ const config: Config = {
               to: '/esimplicity-strategy/brand-strategy',
             },
             {
-              label: 'RIC Air Power',
+              label: 'Air Power Strategy',
               to: '/ric-air-power',
             },
             {

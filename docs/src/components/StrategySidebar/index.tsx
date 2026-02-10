@@ -139,7 +139,7 @@ export default function StrategySidebar({ sections, topContent }: StrategySideba
           <div className={styles.legendItems}>
             <span className={styles.legendItem}>
               {ownerIcons.ric}
-              <span>RIC</span>
+              <span>Enablement</span>
             </span>
             <span className={styles.legendItem}>
               {ownerIcons.prima}

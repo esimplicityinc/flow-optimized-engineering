@@ -392,13 +392,13 @@ function Act4(): ReactNode {
         </p>
       }
     >
-      <h3>Ownership: RIC vs Prima</h3>
+      <h3>Ownership: Enablement vs Product</h3>
       <p>Clear ownership enables coordinated action without bottlenecks:</p>
       <table>
         <thead>
           <tr>
-            <th>RIC (Environment)</th>
-            <th>Prima (Enablement)</th>
+            <th>Enablement (Environment)</th>
+            <th>Product (Execution)</th>
           </tr>
         </thead>
         <tbody>
