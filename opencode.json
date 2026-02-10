@@ -66,6 +66,30 @@
     "prospector-web": {
       "description": "Searches web for academic and practitioner evidence with quality tagging",
       "mode": "subagent"
+    },
+    "foe-scanner": {
+      "description": "Scans repositories for FOE principles alignment, produces scored health reports",
+      "mode": "primary"
+    },
+    "foe-scanner-ci": {
+      "description": "Analyzes CI/CD configuration and practices for FOE Feedback principle",
+      "mode": "subagent"
+    },
+    "foe-scanner-tests": {
+      "description": "Analyzes test practices and coverage for FOE Feedback and Confidence principles",
+      "mode": "subagent"
+    },
+    "foe-scanner-arch": {
+      "description": "Analyzes software architecture for FOE Understanding principle",
+      "mode": "subagent"
+    },
+    "foe-scanner-domain": {
+      "description": "Analyzes domain modeling practices for FOE Understanding principle",
+      "mode": "subagent"
+    },
+    "foe-scanner-docs": {
+      "description": "Analyzes documentation practices for FOE Understanding principle",
+      "mode": "subagent"
     }
   },
 

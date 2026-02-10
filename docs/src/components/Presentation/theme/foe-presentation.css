@@ -1,205 +1,257 @@
 /**
  * FOE Presentation Theme for reveal.js
- * Based on eSimplicity brand colors
+ * 
+ * Design System: Swiss Modernism 2.0 + Trust & Authority
+ * - Clean grid, mathematical spacing, high contrast
+ * - Professional, government-ready aesthetic
+ * - WCAG AAA accessibility
  */
 
 /* Import reveal.js base styles */
 @import 'reveal.js/dist/reveal.css';
 
-/* Import Google Fonts - eSimplicity brand fonts */
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+/* Typography: Plus Jakarta Sans - modern, friendly, professional
+   Excellent x-height for presentations, geometric but warm */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* CSS Variables - eSimplicity Brand Colors
-   
-   Color Palette (harmonious cool tones):
-   - Primary Purple: #3223BD (eSimplicity brand)
-   - Understanding (Teal): #3EC5BB (eSimplicity accent)
-   - Feedback (Light Purple): #CC8BFA (eSimplicity accent)
-   - Confidence (Blue): #3B82F6 (complementary blue)
-   
-   This creates a cohesive triad: Teal → Blue → Purple
-*/
+/* ==========================================================================
+   CSS Variables - Design Tokens
+   ========================================================================== */
 :root {
-  --foe-primary: #3223BD;
-  --foe-primary-dark: #281c96;
-  --foe-primary-light: #4a3dd4;
-  --foe-understanding: #3EC5BB;
-  --foe-feedback: #CC8BFA;
-  --foe-confidence: #3B82F6;
-  --foe-warning: #F59E0B;
-  --foe-danger: #EF4444;
-  --foe-text: #1C1C1C;
-  --foe-text-light: #565656;
-  --foe-bg: #ffffff;
-  --foe-bg-dark: #1C1C1C;
-  --foe-bg-light: #F3F3F3;
-  --foe-bg-accent: #D9DCF8;
-  --foe-gradient-start: #3223BD;
-  --foe-gradient-end: #1a1237;
+  /* Brand Colors - Authority + Innovation */
+  --foe-navy: #0F172A;           /* Primary - deep authority */
+  --foe-navy-light: #1E293B;     /* Secondary navy */
+  --foe-slate: #334155;          /* Text secondary */
+  --foe-slate-light: #64748B;    /* Muted text */
   
-  /* Typography - eSimplicity brand */
-  --foe-font-display: 'Nunito Sans', system-ui, -apple-system, sans-serif;
-  --foe-font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+  /* Principle Colors - Harmonious triad */
+  --foe-understanding: #14B8A6;  /* Teal - slightly more vibrant */
+  --foe-feedback: #A78BFA;       /* Violet - modern purple */
+  --foe-confidence: #3B82F6;     /* Blue - trustworthy */
+  
+  /* Semantic Colors */
+  --foe-success: #10B981;        /* Emerald */
+  --foe-warning: #F59E0B;        /* Amber */
+  --foe-danger: #EF4444;         /* Red */
+  
+  /* Backgrounds */
+  --foe-bg: #FFFFFF;
+  --foe-bg-subtle: #F8FAFC;      /* Slate 50 */
+  --foe-bg-muted: #F1F5F9;       /* Slate 100 */
+  
+  /* Text */
+  --foe-text: #0F172A;           /* Slate 900 */
+  --foe-text-secondary: #475569; /* Slate 600 */
+  --foe-text-muted: #64748B;     /* Slate 500 */
+  
+  /* Typography */
+  --foe-font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --foe-font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+  
+  /* Spacing - 4px base unit, mathematical */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  
+  /* Border radius - subtle, professional */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  
+  /* Shadows - soft, modern */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.12);
 }
 
-/* Base presentation styles */
-.reveal-viewport {
-  background: var(--foe-bg);
+/* ==========================================================================
+   Base Presentation Styles
+   ========================================================================== */
+/* Force white viewport regardless of Docusaurus dark/light theme */
+.reveal-viewport,
+[data-theme='dark'] .reveal-viewport,
+html[data-theme='dark'] .reveal-viewport {
+  background: #FFFFFF !important;
+  color-scheme: light;
 }
 
-.reveal {
-  font-family: var(--foe-font-display);
-  font-size: 42px;
-  font-weight: normal;
-  color: var(--foe-text);
+.reveal,
+[data-theme='dark'] .reveal {
+  font-family: var(--foe-font-sans);
+  font-size: 38px;
+  font-weight: 400;
+  color: var(--foe-text) !important;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
 }
 
-/* Headings */
+/* ==========================================================================
+   Typography - Clean hierarchy
+   ========================================================================== */
 .reveal h1,
 .reveal h2,
 .reveal h3,
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-  margin: 0 0 20px 0;
+  margin: 0 0 var(--space-4) 0;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   text-transform: none;
   text-shadow: none;
-  word-wrap: break-word;
+  color: var(--foe-navy);
 }
 
 .reveal h1 {
-  font-size: 2.5em;
-  color: var(--foe-primary);
+  font-size: 2.4em;
+  font-weight: 800;
 }
 
 .reveal h2 {
-  font-size: 1.8em;
-  color: var(--foe-primary);
+  font-size: 1.6em;
+  font-weight: 700;
 }
 
 .reveal h3 {
-  font-size: 1.4em;
-  color: var(--foe-text);
+  font-size: 1.15em;
+  font-weight: 600;
 }
 
 .reveal h4 {
-  font-size: 1.2em;
-  color: var(--foe-text-light);
+  font-size: 0.95em;
+  font-weight: 600;
+  color: var(--foe-text-secondary);
 }
 
-/* Paragraphs */
 .reveal p {
-  margin: 20px 0;
+  margin: 0 0 var(--space-4) 0;
   line-height: 1.5;
+  color: var(--foe-text-secondary);
 }
 
-/* Links */
+.reveal strong {
+  font-weight: 600;
+  color: var(--foe-text);
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
 .reveal a {
-  color: var(--foe-primary);
+  color: var(--foe-understanding);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 150ms ease;
 }
 
 .reveal a:hover {
-  color: var(--foe-primary-light);
-  text-shadow: none;
-  border: none;
+  color: var(--foe-confidence);
 }
 
-/* Lists */
+/* ==========================================================================
+   Lists - Clean, compact
+   ========================================================================== */
 .reveal ul,
 .reveal ol {
-  display: inline-block;
+  display: block;
   text-align: left;
-  margin: 0 0 0 1em;
+  margin: 0 0 var(--space-4) 0;
+  padding-left: 1.25em;
 }
 
 .reveal li {
-  margin: 0.5em 0;
+  margin: var(--space-2) 0;
   line-height: 1.4;
+  color: var(--foe-text-secondary);
 }
 
-/* Blockquotes */
-.reveal blockquote {
-  display: block;
-  position: relative;
-  width: 90%;
-  margin: 20px auto;
-  padding: 1.5em 2em;
-  background: linear-gradient(135deg, rgba(50, 35, 189, 0.08) 0%, rgba(50, 35, 189, 0.03) 100%);
-  border-left: 6px solid var(--foe-primary);
-  border-radius: 0 12px 12px 0;
-  font-style: italic;
-  font-size: 1.1em;
+.reveal li strong {
+  color: var(--foe-text);
 }
 
-.reveal blockquote p:first-child,
-.reveal blockquote p:last-child {
-  display: inline-block;
-}
-
-/* Code */
+/* ==========================================================================
+   Code
+   ========================================================================== */
 .reveal pre {
   display: block;
-  position: relative;
   width: 90%;
-  margin: 20px auto;
+  margin: var(--space-4) auto;
+  padding: var(--space-4);
   text-align: left;
-  font-size: 0.55em;
+  font-size: 0.5em;
   font-family: var(--foe-font-mono);
-  line-height: 1.4;
-  word-wrap: break-word;
-  background: #1e293b;
-  border-radius: 12px;
-  padding: 1em;
-  overflow: auto;
+  line-height: 1.5;
+  background: var(--foe-navy);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
 }
 
 .reveal code {
   font-family: var(--foe-font-mono);
-  text-transform: none;
+  font-size: 0.9em;
+  padding: 0.1em 0.4em;
+  background: var(--foe-bg-muted);
+  border-radius: 4px;
 }
 
-/* Tables */
+.reveal pre code {
+  padding: 0;
+  background: transparent;
+  font-size: 1em;
+}
+
+/* ==========================================================================
+   Blockquotes - Elegant
+   ========================================================================== */
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 85%;
+  margin: var(--space-6) auto;
+  padding: var(--space-6);
+  background: var(--foe-bg-subtle);
+  border-left: 4px solid var(--foe-understanding);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic;
+  font-size: 1.05em;
+  color: var(--foe-text-secondary);
+}
+
+/* ==========================================================================
+   Tables - Modern, clean
+   ========================================================================== */
 .reveal table {
-  margin: auto;
+  margin: var(--space-4) auto;
   border-collapse: collapse;
-  border-spacing: 0;
   width: 100%;
 }
 
 .reveal table th {
-  font-weight: 700;
-  background: var(--foe-primary);
+  font-weight: 600;
+  background: var(--foe-navy);
   color: white;
-  padding: 0.6em 1em;
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
 }
 
 .reveal table td {
-  padding: 0.5em 1em;
-  border-bottom: 1px solid rgba(50, 35, 189, 0.1);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--foe-bg-muted);
+  color: var(--foe-text-secondary);
 }
 
 .reveal table tr:nth-child(even) {
-  background: rgba(50, 35, 189, 0.05);
+  background: var(--foe-bg-subtle);
 }
 
-/* Images */
-.reveal section img {
-  margin: 15px 0;
-  border: none;
-  box-shadow: none;
-}
-
-/* Slide Backgrounds */
-.reveal .slides section[data-background-color="gradient"] {
-  background: linear-gradient(135deg, var(--foe-gradient-start) 0%, var(--foe-gradient-end) 100%);
-}
-
-/* Dark background text */
+/* ==========================================================================
+   Dark Background Slides
+   ========================================================================== */
 .reveal .dark-bg,
 .reveal section.dark-bg {
   color: white;
@@ -207,54 +259,69 @@
 
 .reveal .dark-bg h1,
 .reveal .dark-bg h2,
+.reveal .dark-bg h3,
 .reveal section.dark-bg h1,
-.reveal section.dark-bg h2 {
+.reveal section.dark-bg h2,
+.reveal section.dark-bg h3 {
   color: white;
 }
 
-/* Principle-specific styling */
+.reveal .dark-bg p,
+.reveal section.dark-bg p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ==========================================================================
+   Principle Accent Borders
+   ========================================================================== */
 .reveal .understanding {
-  border-left: 8px solid var(--foe-understanding);
-  padding-left: 1em;
+  border-left: 4px solid var(--foe-understanding);
+  padding-left: var(--space-4);
 }
 
 .reveal .feedback {
-  border-left: 8px solid var(--foe-feedback);
-  padding-left: 1em;
+  border-left: 4px solid var(--foe-feedback);
+  padding-left: var(--space-4);
 }
 
 .reveal .confidence {
-  border-left: 8px solid var(--foe-confidence);
-  padding-left: 1em;
+  border-left: 4px solid var(--foe-confidence);
+  padding-left: var(--space-4);
 }
 
-/* Stat blocks */
+/* ==========================================================================
+   Stat Blocks - Bold numbers
+   ========================================================================== */
 .reveal .stat-block {
   text-align: center;
-  padding: 1em;
+  padding: var(--space-4);
 }
 
 .reveal .stat-value {
-  font-size: 4em;
+  font-size: 3.5em;
   font-weight: 800;
-  color: var(--foe-primary);
+  color: var(--foe-understanding);
   line-height: 1;
-  margin-bottom: 0.1em;
+  letter-spacing: -0.03em;
 }
 
 .reveal .stat-label {
-  font-size: 0.5em;
-  color: var(--foe-text-light);
+  font-size: 0.55em;
+  font-weight: 500;
+  color: var(--foe-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
+  margin-top: var(--space-2);
 }
 
-/* Card grid */
+/* ==========================================================================
+   Card Grid - Modern cards
+   ========================================================================== */
 .reveal .card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5em;
-  margin: 1em 0;
+  gap: var(--space-4);
+  margin: var(--space-4) 0;
 }
 
 .reveal .card-grid.cols-3 {
@@ -267,179 +334,208 @@
 
 .reveal .card {
   background: white;
-  border-radius: 16px;
-  padding: 1.5em;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
   text-align: left;
-  border: 1px solid rgba(50, 35, 189, 0.1);
+  border: 1px solid var(--foe-bg-muted);
+  transition: box-shadow 150ms ease, transform 150ms ease;
+}
+
+.reveal .card:hover {
+  box-shadow: var(--shadow-md);
 }
 
 .reveal .card h4 {
-  color: var(--foe-primary);
-  margin: 0 0 0.5em 0;
-  font-size: 0.9em;
+  color: var(--foe-navy);
+  margin: 0 0 var(--space-2) 0;
+  font-size: 0.85em;
 }
 
 .reveal .card p {
   margin: 0;
   font-size: 0.7em;
-  color: var(--foe-text-light);
+  color: var(--foe-text-muted);
 }
 
-/* Principle cards */
+/* ==========================================================================
+   Principle Cards - Colored accents
+   ========================================================================== */
 .reveal .principle-card {
-  padding: 2em;
-  border-radius: 20px;
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
   text-align: center;
 }
 
 .reveal .principle-card.understanding {
-  background: linear-gradient(135deg, rgba(62, 197, 187, 0.15) 0%, rgba(62, 197, 187, 0.05) 100%);
-  border: 2px solid var(--foe-understanding);
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.08) 0%, rgba(20, 184, 166, 0.02) 100%);
+  border: 2px solid rgba(20, 184, 166, 0.3);
 }
 
 .reveal .principle-card.feedback {
-  background: linear-gradient(135deg, rgba(204, 139, 250, 0.15) 0%, rgba(204, 139, 250, 0.05) 100%);
-  border: 2px solid var(--foe-feedback);
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.08) 0%, rgba(167, 139, 250, 0.02) 100%);
+  border: 2px solid rgba(167, 139, 250, 0.3);
 }
 
 .reveal .principle-card.confidence {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
-  border: 2px solid var(--foe-confidence);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.02) 100%);
+  border: 2px solid rgba(59, 130, 246, 0.3);
 }
 
-.reveal .principle-card .icon {
-  font-size: 3em;
-  margin-bottom: 0.3em;
-}
-
-.reveal .principle-card h3 {
-  margin: 0.3em 0;
-}
-
-/* Comparison layout */
-.reveal .comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2em;
-  text-align: left;
-}
-
-.reveal .comparison .vs {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.5em;
-  font-weight: 700;
-  color: var(--foe-text-light);
-}
-
-/* Fragment animations */
-.reveal .fragment.highlight-understanding {
-  opacity: 1;
-  visibility: inherit;
-}
-
-.reveal .fragment.highlight-understanding.visible {
-  color: var(--foe-understanding);
-}
-
-.reveal .fragment.highlight-feedback.visible {
-  color: var(--foe-feedback);
-}
-
-.reveal .fragment.highlight-confidence.visible {
-  color: var(--foe-confidence);
-}
-
-/* Controls styling - Navigation arrows */
+/* ==========================================================================
+   Controls & Navigation
+   ========================================================================== */
 .reveal .controls {
-  color: var(--foe-primary);
+  color: var(--foe-navy);
 }
 
 .reveal .controls button {
-  opacity: 0.7;
-  transform: scale(1.3);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0.5;
+  transition: opacity 150ms ease;
 }
 
 .reveal .controls button:hover {
   opacity: 1;
-  transform: scale(1.5);
 }
 
 .reveal .controls button.enabled {
-  opacity: 0.85;
+  opacity: 0.7;
 }
 
-.reveal .controls button.enabled:hover {
-  opacity: 1;
-}
-
-/* Progress bar */
 .reveal .progress {
-  background: rgba(50, 35, 189, 0.2);
-  color: var(--foe-primary);
+  background: rgba(15, 23, 42, 0.1);
+  color: var(--foe-understanding);
+  height: 3px;
 }
 
-/* Slide number */
 .reveal .slide-number {
-  font-family: var(--foe-font-display);
+  font-family: var(--foe-font-sans);
   font-size: 14px;
-  color: var(--foe-text-light);
+  font-weight: 500;
+  color: var(--foe-text-muted);
   background: transparent;
 }
 
-/* Speaker notes styling */
-.reveal aside.notes {
-  display: none;
-}
-
-/* Logo placement */
-.reveal .slide-logo {
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  height: 50px;
-  opacity: 0.7;
-  z-index: 100;
-}
-
-/* Title slide styling */
+/* ==========================================================================
+   Title Slide
+   ========================================================================== */
 .reveal .title-slide {
   text-align: center;
 }
 
 .reveal .title-slide h1 {
-  font-size: 3em;
-  margin-bottom: 0.2em;
+  font-size: 2.2em;
+  margin-bottom: var(--space-3);
 }
 
 .reveal .title-slide .subtitle {
-  font-size: 1.2em;
-  color: var(--foe-text-light);
+  font-size: 1.1em;
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 400;
 }
 
-/* Section divider slides */
-.reveal .section-divider {
-  background: linear-gradient(135deg, var(--foe-gradient-start) 0%, var(--foe-gradient-end) 100%);
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+/* Background utilities */
+.reveal .bg-understanding {
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(20, 184, 166, 0.03) 100%);
+  border: 2px solid rgba(20, 184, 166, 0.25);
 }
 
-.reveal .section-divider h2 {
-  color: white;
-  font-size: 2.5em;
+.reveal .bg-feedback {
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.1) 0%, rgba(167, 139, 250, 0.03) 100%);
+  border: 2px solid rgba(167, 139, 250, 0.25);
 }
 
-.reveal .section-divider p {
-  color: rgba(255, 255, 255, 0.8);
+.reveal .bg-confidence {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.03) 100%);
+  border: 2px solid rgba(59, 130, 246, 0.25);
 }
 
-/* Responsive adjustments */
+.reveal .bg-warning {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.03) 100%);
+  border: 2px solid rgba(245, 158, 11, 0.25);
+}
+
+.reveal .bg-danger {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(239, 68, 68, 0.02) 100%);
+  border: 2px solid rgba(239, 68, 68, 0.2);
+}
+
+.reveal .bg-success {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.03) 100%);
+  border: 2px solid rgba(16, 185, 129, 0.25);
+}
+
+/* Text colors */
+.reveal .text-understanding { color: var(--foe-understanding); }
+.reveal .text-feedback { color: var(--foe-feedback); }
+.reveal .text-confidence { color: var(--foe-confidence); }
+.reveal .text-warning { color: var(--foe-warning); }
+.reveal .text-danger { color: var(--foe-danger); }
+.reveal .text-success { color: var(--foe-success); }
+.reveal .text-muted { color: var(--foe-text-muted); }
+
+/* Border accents */
+.reveal .border-left-understanding {
+  border-left: 4px solid var(--foe-understanding);
+  padding-left: var(--space-4);
+}
+
+.reveal .border-left-feedback {
+  border-left: 4px solid var(--foe-feedback);
+  padding-left: var(--space-4);
+}
+
+.reveal .border-left-confidence {
+  border-left: 4px solid var(--foe-confidence);
+  padding-left: var(--space-4);
+}
+
+/* Layout utilities */
+.reveal .text-center { text-align: center; }
+.reveal .text-left { text-align: left; }
+
+/* Spacing */
+.reveal .mt-0 { margin-top: 0; }
+.reveal .mt-2 { margin-top: var(--space-2); }
+.reveal .mt-4 { margin-top: var(--space-4); }
+.reveal .mb-0 { margin-bottom: 0; }
+.reveal .mb-2 { margin-bottom: var(--space-2); }
+.reveal .mb-4 { margin-bottom: var(--space-4); }
+
+/* ==========================================================================
+   Animations & Fragments
+   ========================================================================== */
+.reveal .fragment {
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.reveal .fragment.fade-up {
+  transform: translateY(20px);
+}
+
+.reveal .fragment.fade-up.visible {
+  transform: translateY(0);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal .fragment,
+  .reveal [data-auto-animate] {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 @media screen and (max-width: 1200px) {
   .reveal {
-    font-size: 36px;
+    font-size: 32px;
   }
   
   .reveal .card-grid {
@@ -447,376 +543,13 @@
   }
 }
 
-/* Print styles */
+/* ==========================================================================
+   Print
+   ========================================================================== */
 @media print {
   .reveal .controls,
   .reveal .progress,
   .reveal .slide-number {
     display: none !important;
-  }
-}
-
-/* Animation utilities */
-.reveal .fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Triangle diagram styles */
-.reveal .triangle-container {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  margin: 2em 0;
-}
-
-.reveal .triangle-node {
-  position: absolute;
-  padding: 1em 2em;
-  border-radius: 12px;
-  font-weight: 600;
-  color: white;
-  text-align: center;
-}
-
-.reveal .triangle-node.understanding {
-  background: var(--foe-understanding);
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.reveal .triangle-node.feedback {
-  background: var(--foe-feedback);
-  bottom: 0;
-  left: 10%;
-}
-
-.reveal .triangle-node.confidence {
-  background: var(--foe-confidence);
-  bottom: 0;
-  right: 10%;
-}
-
-/* Checkmark list */
-.reveal .check-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.reveal .check-list li {
-  position: relative;
-  padding-left: 2em;
-  margin: 0.8em 0;
-}
-
-.reveal .check-list li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--foe-confidence);
-  font-weight: bold;
-}
-
-/* Cross list (for "what NOT" slides) */
-.reveal .cross-list li::before {
-  content: "✗";
-  color: var(--foe-danger);
-}
-
-/* Numbered steps */
-.reveal .steps {
-  counter-reset: step;
-  list-style: none;
-  padding: 0;
-}
-
-.reveal .steps li {
-  position: relative;
-  padding-left: 3em;
-  margin: 1.5em 0;
-}
-
-.reveal .steps li::before {
-  counter-increment: step;
-  content: counter(step);
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2em;
-  height: 2em;
-  background: var(--foe-primary);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.8em;
-}
-
-/* Quote attribution */
-.reveal .quote-attribution {
-  font-size: 0.7em;
-  color: var(--foe-text-light);
-  margin-top: 0.5em;
-  font-style: normal;
-}
-
-/* Highlight box */
-.reveal .highlight-box {
-  background: linear-gradient(135deg, rgba(50, 35, 189, 0.1) 0%, rgba(50, 35, 189, 0.05) 100%);
-  border: 2px solid var(--foe-primary);
-  border-radius: 16px;
-  padding: 1.5em 2em;
-  margin: 1em 0;
-}
-
-/* Two column layout */
-.reveal .two-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2em;
-  text-align: left;
-}
-
-/* Three column layout */
-.reveal .three-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.5em;
-  text-align: center;
-}
-
-/* Image with caption */
-.reveal figure {
-  margin: 1em 0;
-}
-
-.reveal figcaption {
-  font-size: 0.6em;
-  color: var(--foe-text-light);
-  margin-top: 0.5em;
-}
-
-/* Large number emphasis */
-.reveal .big-number {
-  font-size: 6em;
-  font-weight: 800;
-  color: var(--foe-primary);
-  line-height: 1;
-}
-
-.reveal .big-number-suffix {
-  font-size: 0.3em;
-  vertical-align: super;
-}
-
-/* Matrix/grid table */
-.reveal .matrix {
-  width: 100%;
-  font-size: 0.7em;
-}
-
-.reveal .matrix th {
-  background: var(--foe-primary);
-  color: white;
-  padding: 0.8em;
-}
-
-.reveal .matrix td {
-  padding: 0.6em;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.reveal .matrix .level-low {
-  background: #fee2e2;
-}
-
-.reveal .matrix .level-mid {
-  background: #fef3c7;
-}
-
-.reveal .matrix .level-high {
-  background: #dcfce7;
-}
-
-/* ==========================================================================
-   Utility Classes - Reduce inline styles
-   ========================================================================== */
-
-/* Background utilities for principle colors */
-.reveal .bg-understanding {
-  background: linear-gradient(135deg, rgba(62, 197, 187, 0.15) 0%, rgba(62, 197, 187, 0.05) 100%);
-  border: 2px solid var(--foe-understanding);
-}
-
-.reveal .bg-understanding-soft {
-  background: rgba(62, 197, 187, 0.1);
-}
-
-.reveal .bg-understanding-muted {
-  background: rgba(62, 197, 187, 0.08);
-}
-
-.reveal .bg-feedback {
-  background: linear-gradient(135deg, rgba(204, 139, 250, 0.15) 0%, rgba(204, 139, 250, 0.05) 100%);
-  border: 2px solid var(--foe-feedback);
-}
-
-.reveal .bg-feedback-soft {
-  background: rgba(204, 139, 250, 0.1);
-}
-
-.reveal .bg-feedback-muted {
-  background: rgba(204, 139, 250, 0.08);
-}
-
-.reveal .bg-confidence {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
-  border: 2px solid var(--foe-confidence);
-}
-
-.reveal .bg-confidence-soft {
-  background: rgba(59, 130, 246, 0.1);
-}
-
-.reveal .bg-confidence-muted {
-  background: rgba(59, 130, 246, 0.08);
-}
-
-.reveal .bg-warning {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
-  border: 2px solid var(--foe-warning);
-}
-
-.reveal .bg-warning-soft {
-  background: rgba(245, 158, 11, 0.1);
-}
-
-.reveal .bg-danger {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0.05) 100%);
-  border: 2px solid var(--foe-danger);
-}
-
-.reveal .bg-danger-soft {
-  background: rgba(239, 68, 68, 0.1);
-}
-
-/* Text color utilities */
-.reveal .text-understanding { color: var(--foe-understanding); }
-.reveal .text-feedback { color: var(--foe-feedback); }
-.reveal .text-confidence { color: var(--foe-confidence); }
-.reveal .text-warning { color: var(--foe-warning); }
-.reveal .text-danger { color: var(--foe-danger); }
-.reveal .text-muted { color: var(--foe-text-light); }
-
-/* Border utilities */
-.reveal .border-understanding { border-color: var(--foe-understanding); }
-.reveal .border-feedback { border-color: var(--foe-feedback); }
-.reveal .border-confidence { border-color: var(--foe-confidence); }
-
-.reveal .border-left-understanding {
-  border-left: 8px solid var(--foe-understanding);
-  padding-left: 1.5em;
-}
-
-.reveal .border-left-feedback {
-  border-left: 8px solid var(--foe-feedback);
-  padding-left: 1.5em;
-}
-
-.reveal .border-left-confidence {
-  border-left: 8px solid var(--foe-confidence);
-  padding-left: 1.5em;
-}
-
-.reveal .border-top-understanding {
-  border-top: 4px solid var(--foe-understanding);
-}
-
-.reveal .border-top-feedback {
-  border-top: 4px solid var(--foe-feedback);
-}
-
-.reveal .border-top-confidence {
-  border-top: 4px solid var(--foe-confidence);
-}
-
-/* Common box styles */
-.reveal .principle-box {
-  padding: 1.5em 2em;
-  border-radius: 16px;
-}
-
-.reveal .principle-box-sm {
-  padding: 1em 1.5em;
-  border-radius: 12px;
-}
-
-.reveal .info-box {
-  padding: 1em 1.5em;
-  border-radius: 12px;
-  font-size: 0.8em;
-}
-
-/* Flex utilities */
-.reveal .flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.reveal .flex-col-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Text utilities */
-.reveal .text-center { text-align: center; }
-.reveal .text-left { text-align: left; }
-.reveal .font-semibold { font-weight: 600; }
-.reveal .font-bold { font-weight: 700; }
-.reveal .italic { font-style: italic; }
-
-/* Spacing utilities */
-.reveal .mt-0 { margin-top: 0; }
-.reveal .mt-1 { margin-top: 0.5em; }
-.reveal .mt-2 { margin-top: 1em; }
-.reveal .mt-3 { margin-top: 1.5em; }
-.reveal .mt-4 { margin-top: 2em; }
-.reveal .mb-0 { margin-bottom: 0; }
-.reveal .mb-1 { margin-bottom: 0.5em; }
-.reveal .mb-2 { margin-bottom: 1em; }
-
-/* Reduced motion support for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .reveal .fragment,
-  .reveal [data-auto-animate],
-  .reveal .slides section {
-    transition: none !important;
-    animation: none !important;
-  }
-  
-  .reveal .fade-in {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-  
-  .reveal .fragment.fade-in,
-  .reveal .fragment.fade-up,
-  .reveal .fragment.fade-down,
-  .reveal .fragment.fade-left,
-  .reveal .fragment.fade-right {
-    transition: none !important;
   }
 }
