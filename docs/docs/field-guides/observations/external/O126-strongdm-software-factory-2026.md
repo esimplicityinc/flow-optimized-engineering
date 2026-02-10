@@ -1,5 +1,7 @@
 ---
-sidebar_position: 1
+observationId: O126
+displayed_sidebar: fieldGuideSidebar
+sidebar_position: 14
 title: "StrongDM's Software Factory: Building Production Software Without Human Code Review"
 status: completed
 source_type: external
@@ -9,9 +11,9 @@ source:
   year: 2026
   url: "https://simonwillison.net/2026/Feb/7/software-factory/"
 methods:
-  - M121-executable-specifications
-  - M127-given-when-then
-  - M152-test-driven-agent-development
+  - M121
+  - M127
+  - M152
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';
