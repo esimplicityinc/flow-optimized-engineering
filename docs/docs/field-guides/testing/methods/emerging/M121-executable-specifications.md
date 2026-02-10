@@ -18,6 +18,7 @@ observations:
   - O107
   - O120
   - O124
+  - O126-strongdm-software-factory-2026
   - O157
 ---
 

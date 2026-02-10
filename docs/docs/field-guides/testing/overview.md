@@ -96,6 +96,20 @@ This guide draws on methods from established testing frameworks. As we gather in
 
 - [Consumer Contract Testing](/docs/field-guides/system-architecture/methods/established/M145-consumer-contract-testing) - Validate service integration points through consumer-driven contracts (in System Architecture guide)
 
+## Emerging Patterns
+
+### Scenario-Based Validation Without Human Review
+
+Recent observations from StrongDM's "Software Factory" approach (February 2026) suggest a radical shift in testing philosophy: treating code as probabilistic artifacts validated through external behavioral scenarios rather than human inspection. Their approach uses:
+
+- **Executable Specifications** (M121) stored outside the codebase as "holdout sets"
+- **Given-When-Then** (M127) scenarios validated probabilistically via "satisfaction" metrics
+- **Digital Twin Universe**: Behavioral clones of external services for high-volume testing
+
+While this approach requires significant token costs ($1,000/day per engineer), it demonstrates how AI-generated code can achieve production quality through comprehensive scenario validation rather than traditional code review.
+
+**Key Insight:** The line between "test" and "production validation" blurs when agents can generate thousands of scenario runs per hour against realistic service simulations.
+
 ## Getting Started
 
 1. Browse the methods above

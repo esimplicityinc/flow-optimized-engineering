@@ -16,6 +16,7 @@ observations:
   - O105
   - O106
   - O107
+  - O126-strongdm-software-factory-2026
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';

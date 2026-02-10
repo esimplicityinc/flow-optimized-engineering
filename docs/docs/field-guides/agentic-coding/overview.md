@@ -94,6 +94,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       title: 'Test-Driven Agent Development', 
       maturity: 'hypothesized',
       description: 'Apply red-green-refactor cycle to AI-assisted development',
+      observations: ['O126-strongdm-software-factory-2026'],
     },
     { 
       id: 'M148',
