@@ -1,0 +1,10 @@
+{
+  "label": "Layered Architecture",
+  "position": 10,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "doc",
+    "id": "external-frameworks/layered-architecture/overview"
+  }
+}

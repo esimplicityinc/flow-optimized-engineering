@@ -81,6 +81,13 @@ import FrameworkList from '@site/src/components/FrameworkList';
     status: 'well-established',
     methodCount: 10,
   },
+  {
+    slug: 'layered-architecture',
+    title: 'Layered Architecture',
+    description: 'A classic architectural pattern organizing code into horizontal layers with clear responsibilities.',
+    status: 'well-established',
+    methodCount: 7,
+  },
 ]} />
 
 ---

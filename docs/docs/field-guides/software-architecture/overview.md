@@ -33,6 +33,54 @@ adopted_methods:
   - framework: domain-driven-design
     method: domain-service
     foe_maturity: hypothesized
+  - framework: event-sourcing
+    method: domain-event-modeling
+    foe_maturity: hypothesized
+  - framework: event-sourcing
+    method: event-stream-storage
+    foe_maturity: hypothesized
+  - framework: event-sourcing
+    method: state-reconstruction
+    foe_maturity: hypothesized
+  - framework: event-sourcing
+    method: projection-building
+    foe_maturity: hypothesized
+  - framework: event-sourcing
+    method: snapshotting
+    foe_maturity: hypothesized
+  - framework: event-sourcing
+    method: event-versioning
+    foe_maturity: hypothesized
+  - framework: event-sourcing
+    method: temporal-queries
+    foe_maturity: hypothesized
+  - framework: event-sourcing
+    method: event-replay
+    foe_maturity: hypothesized
+  - framework: event-sourcing
+    method: cqrs-integration
+    foe_maturity: hypothesized
+  - framework: layered-architecture
+    method: layer-responsibility-definition
+    foe_maturity: validated
+  - framework: layered-architecture
+    method: dependency-direction-enforcement
+    foe_maturity: validated
+  - framework: layered-architecture
+    method: inter-layer-interface-design
+    foe_maturity: validated
+  - framework: layered-architecture
+    method: data-transfer-object-pattern
+    foe_maturity: validated
+  - framework: layered-architecture
+    method: repository-pattern
+    foe_maturity: validated
+  - framework: layered-architecture
+    method: service-layer-pattern
+    foe_maturity: validated
+  - framework: layered-architecture
+    method: layer-isolation-testing
+    foe_maturity: validated
 ---
 
 import GuideMaturitySummary from '@site/src/components/GuideMaturitySummary';
@@ -90,6 +138,51 @@ Methods for organizing behavior and communication:
 - [Application Service](/docs/external-frameworks/domain-driven-design/methods/M101-application-service) - Use case orchestration coordinating domain objects
 - [Domain Service](/docs/external-frameworks/domain-driven-design/methods/M117-domain-service) - Stateless operations representing domain concepts
 - [Domain Event](/docs/external-frameworks/domain-driven-design/methods/M116-domain-event) - A record of something significant that happened in the domain
+
+### From Event Sourcing
+
+Methods for building systems that store state as a sequence of immutable events:
+
+#### Core Concepts
+
+- [Domain Event Modeling](/docs/external-frameworks/event-sourcing/methods/M240-domain-event-modeling) - Modeling business activities as discrete events using ubiquitous language
+- [Event Stream Storage](/docs/external-frameworks/event-sourcing/methods/M241-event-stream-storage) - Storing events in append-only, ordered streams per aggregate
+- [State Reconstruction](/docs/external-frameworks/event-sourcing/methods/M242-state-reconstruction) - Rebuilding entity state by replaying events (left fold)
+
+#### Operational Patterns
+
+- [Projection Building](/docs/external-frameworks/event-sourcing/methods/M243-projection-building) - Creating read-optimized views from event streams
+- [Snapshotting](/docs/external-frameworks/event-sourcing/methods/M244-snapshotting) - Periodic state snapshots to optimize reconstruction performance
+- [Event Versioning](/docs/external-frameworks/event-sourcing/methods/M245-event-versioning) - Managing schema evolution of events over time
+
+#### Advanced Patterns
+
+- [Temporal Queries](/docs/external-frameworks/event-sourcing/methods/M246-temporal-queries) - Querying state at any point in time
+- [Event Replay](/docs/external-frameworks/event-sourcing/methods/M247-event-replay) - Reprocessing events for debugging, testing, or migration
+- [CQRS Integration](/docs/external-frameworks/event-sourcing/methods/M248-cqrs-integration) - Separating command (write) and query (read) responsibilities
+
+### From Layered Architecture
+
+The foundational pattern for organizing code into distinct layers with clear responsibilities. These methods provide the basis for Clean Architecture, Hexagonal Architecture, and other modern approaches.
+
+#### Layer Organization
+
+- [Layer Responsibility Definition](/docs/external-frameworks/layered-architecture/methods/M209-layer-responsibility-definition) - Assigning clear responsibilities to Presentation, Business Logic, and Data Access layers
+- [Dependency Direction Enforcement](/docs/external-frameworks/layered-architecture/methods/M210-dependency-direction-enforcement) - Ensuring dependencies only point inward toward the domain
+
+#### Communication Patterns
+
+- [Inter-Layer Interface Design](/docs/external-frameworks/layered-architecture/methods/M211-inter-layer-interface-design) - Defining contracts between layers
+- [Data Transfer Object Pattern](/docs/external-frameworks/layered-architecture/methods/M212-data-transfer-object-pattern) - Managing data flow between layers without exposing domain internals
+
+#### Implementation Patterns
+
+- [Repository Pattern](/docs/external-frameworks/layered-architecture/methods/M213-repository-pattern) - Abstracting data access within the persistence layer
+- [Service Layer Pattern](/docs/external-frameworks/layered-architecture/methods/M214-service-layer-pattern) - Orchestrating business logic operations
+
+#### Testing
+
+- [Layer Isolation Testing](/docs/external-frameworks/layered-architecture/methods/M215-layer-isolation-testing) - Unit testing within layer boundaries
 
 ## Getting Started
 

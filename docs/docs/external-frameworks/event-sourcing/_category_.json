@@ -1,0 +1,10 @@
+{
+  "label": "Event Sourcing",
+  "position": 9,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "doc",
+    "id": "external-frameworks/event-sourcing/overview"
+  }
+}

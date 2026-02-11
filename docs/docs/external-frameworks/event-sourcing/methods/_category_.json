@@ -1,0 +1,11 @@
+{
+  "label": "Methods",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Event Sourcing Methods",
+    "description": "Methods and practices for implementing Event Sourcing patterns."
+  }
+}

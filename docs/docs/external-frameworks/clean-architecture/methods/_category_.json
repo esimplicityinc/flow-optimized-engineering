@@ -1,0 +1,11 @@
+{
+  "label": "Methods",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Clean Architecture Methods",
+    "description": "Methods and practices from Clean Architecture and Hexagonal Architecture."
+  }
+}

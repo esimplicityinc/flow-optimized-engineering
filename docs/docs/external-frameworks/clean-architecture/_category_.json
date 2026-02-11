@@ -1,0 +1,10 @@
+{
+  "label": "Clean Architecture / Hexagonal Architecture",
+  "position": 8,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "doc",
+    "id": "external-frameworks/clean-architecture/overview"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "label": "Modular Monolith",
+  "position": 10,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "doc",
+    "id": "external-frameworks/modular-monolith/overview"
+  }
+}
