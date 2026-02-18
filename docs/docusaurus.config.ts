@@ -172,6 +172,10 @@ const config: Config = {
               label: 'FOE Presentation',
               to: '/presentation/foe-overview',
             },
+            {
+              label: 'Gov Mission Continuity',
+              to: '/presentation/gov-mission-continuity',
+            },
           ],
         },
       ],
