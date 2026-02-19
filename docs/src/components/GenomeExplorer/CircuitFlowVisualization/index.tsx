@@ -14,6 +14,7 @@ import type { CircuitFlowVisualizationProps, GeneLevels } from './types';
 import VoltagePanel from './VoltagePanel';
 import GenomeHoneycomb, { SPINE_GENES } from './GenomeHoneycomb';
 import OutputGauges from './OutputGauges';
+import { PermissionGauge } from './OutputGauges';
 import FlowLines from './FlowLines';
 import AIFactorSlider, { geneLevelsFromMaturity } from './AIFactorSlider';
 import InsightPanel, { generateInsight } from './InsightPanel';
@@ -283,9 +284,11 @@ function CircuitFlowVisualization({
   
   // Flow speeds
   const inputFlowSpeed = useMemo(() => 0.5 + aiFactor * 1.5, [aiFactor]);
+  // Output flow is directly driven by permission — near-zero permission = near-stopped
+  const permissionFraction = circuitState.permission / 100;
   const outputFlowSpeed = useMemo(
-    () => inputFlowSpeed * (circuitState.permission / 100),
-    [inputFlowSpeed, circuitState.permission]
+    () => 0.05 + permissionFraction * 2.0,
+    [permissionFraction]
   );
   
   // Handlers
@@ -321,20 +324,27 @@ function CircuitFlowVisualization({
       <div className={styles.header}>
         <h2 className={styles.title}>The Permission Circuit</h2>
         <p className={styles.subtitle}>
-          AI expands capacity (voltage). The genome converts it into permission (current).
+          FOE maturity shifts gene delivery from manual processes to automated evidence. Without it, AI creates speed without confidence.
         </p>
       </div>
       
       {/* Main Circuit Layout */}
       <div className={styles.circuitLayout}>
-        {/* Left: Client Needs */}
-        <VoltagePanel aiFactor={aiFactor} spineStrength={circuitState.spineStrength} animated={true} />
+        {/* Left: Output Gauges */}
+        <OutputGauges
+          permission={circuitState.permission}
+          risk={circuitState.risk}
+          evidenceYield={Math.min(100, circuitState.evidenceYield)}
+          outcomes={circuitState.outcomes}
+          throughput={circuitState.throughput}
+          animated={true}
+        />
         
-        {/* Flow Lines: Input */}
+        {/* Flow Lines: Output */}
         <FlowLines 
-          direction="in" 
-          speed={inputFlowSpeed} 
-          intensity={0.5 + aiFactor * 0.5}
+          direction="out" 
+          speed={outputFlowSpeed} 
+          intensity={circuitState.permission / 100}
         />
         
         {/* Center: Genome Honeycomb */}
@@ -346,22 +356,18 @@ function CircuitFlowVisualization({
           interactive={interactive}
         />
         
-        {/* Flow Lines: Output */}
+        {/* Flow Lines: Input */}
         <FlowLines 
-          direction="out" 
-          speed={outputFlowSpeed} 
-          intensity={circuitState.permission / 100}
+          direction="in" 
+          speed={inputFlowSpeed} 
+          intensity={0.5 + aiFactor * 0.5}
         />
         
-        {/* Right: Output Gauges */}
-        <OutputGauges
-          permission={circuitState.permission}
-          risk={circuitState.risk}
-          evidenceYield={Math.min(100, circuitState.evidenceYield)}
-          outcomes={circuitState.outcomes}
-          throughput={circuitState.throughput}
-          animated={true}
-        />
+        {/* Right: Permission + Client Needs */}
+        <div className={styles.rightPanel}>
+          <PermissionGauge value={circuitState.permission} />
+          <VoltagePanel aiFactor={aiFactor} spineStrength={circuitState.spineStrength} animated={true} />
+        </div>
       </div>
       
       {/* Dual Sliders: AI Factor + FOE Maturity */}

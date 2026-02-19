@@ -1227,6 +1227,232 @@
   margin: 0;
 }
 
+/* ============================================
+   TRADITIONAL LANDSCAPE (Pre-AI Roles)
+   ============================================ */
+
+.traditionalLandscape {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+}
+
+.phaseTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 0 0 0.5rem;
+}
+
+.phaseDesc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 0 auto 2rem;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.rolesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+@media (max-width: 900px) {
+  .rolesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .rolesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.roleCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 10px;
+  padding: 1rem;
+  transition: border-color 0.25s ease;
+}
+
+.roleCard:hover {
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+/* Tint by target species */
+.roleMission {
+  border-left: 3px solid rgba(245, 158, 11, 0.5);
+}
+
+.roleEnablement {
+  border-left: 3px solid rgba(139, 92, 246, 0.5);
+}
+
+.roleBoth {
+  border-left: 3px solid;
+  border-image: linear-gradient(180deg, rgba(245, 158, 11, 0.5), rgba(139, 92, 246, 0.5)) 1;
+}
+
+.roleName {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.roleGenes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.roleGeneTag {
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 0.15rem 0.4rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--tag-color, rgba(148, 163, 184, 0.2));
+  color: var(--tag-color, var(--text-secondary));
+}
+
+/* ============================================
+   MERGE SECTION
+   ============================================ */
+
+.mergeSection {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+}
+
+.mergeVisual {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.mergeColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mergeRoleList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.mergeRoleTag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.mergeMission {
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #F59E0B;
+}
+
+.mergeEnablement {
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  color: #8B5CF6;
+}
+
+.mergeShared {
+  font-size: 0.55rem;
+  opacity: 0.6;
+  margin-left: 0.15rem;
+}
+
+.mergeArrows {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+}
+
+.mergeArrowSvg {
+  width: 60px;
+  height: 80px;
+}
+
+.mergeColumn:first-child .mergeArrowSvg {
+  color: #F59E0B;
+}
+
+.mergeColumn:last-child .mergeArrowSvg {
+  color: #8B5CF6;
+}
+
+.mergeTarget {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+}
+
+.mergeColumn:first-child .mergeTarget {
+  color: #F59E0B;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.mergeColumn:last-child .mergeTarget {
+  color: #8B5CF6;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.mergeCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.mergeCenterLine {
+  width: 1px;
+  flex: 1;
+  min-height: 20px;
+  background: linear-gradient(180deg, transparent, rgba(148, 163, 184, 0.2), transparent);
+}
+
+.mergeCenterText {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.mergeFootnote {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+
 .speciesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -1924,9 +2150,10 @@
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   color: var(--text-muted);
   font-style: italic;
-  margin: 0.5rem 0 2rem;
+  margin: 0.5rem auto 2rem;
   max-width: 600px;
   line-height: 1.5;
+  text-align: center;
 }
 
 .heroQuoteSubtitle .highlight {
@@ -2030,7 +2257,6 @@
   padding: 1.5rem;
   background: transparent;
   border: none;
-  cursor: pointer;
   text-align: left;
   color: inherit;
   display: flex;
@@ -2077,24 +2303,12 @@
   line-height: 1.5;
 }
 
-.expandIcon {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: var(--text-muted);
-  transition: transform 0.3s ease;
-}
+/* expandIcon removed - using single expandAllToggle instead */
 
-.domainCard.expanded .expandIcon {
-  transform: rotate(180deg);
-}
-
-.geneList {
+.domainCard .geneList {
   display: grid;
   gap: 0.75rem;
-  padding: 0 1.5rem 1.5rem;
+  padding: 0 1.5rem;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.4s ease;
@@ -2103,6 +2317,7 @@
 .domainCard.expanded .geneList {
   max-height: 600px;
   padding-top: 0.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .geneCard {
@@ -2172,4 +2387,36 @@
 
 .overviewInsight strong {
   color: var(--domain-systems);
+}
+
+/* Expand All Toggle */
+.expandAllToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem auto 0;
+  padding: 0.625rem 1.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.expandAllToggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.expandAllIcon {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.expandAllIconOpen {
+  transform: rotate(180deg);
 }

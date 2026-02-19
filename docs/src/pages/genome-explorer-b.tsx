@@ -16,6 +16,7 @@ import {
 import CircuitFlowVisualization from '../components/GenomeExplorer/CircuitFlowVisualization';
 import { ThreePillars } from '../components/GenomeExplorer/ThreePillars';
 import { GovPersonas } from '../components/GenomeExplorer/GovPersonas';
+import { DeliverySpectrum } from '../components/GenomeExplorer/DeliverySpectrum';
 
 // ============================================
 // HELPER FUNCTIONS
@@ -133,7 +134,7 @@ const SPINE_GENE_IDS = ['constraints', 'verification', 'operability', 'governanc
 // ============================================
 
 function GenomeOverview({ onGeneSelect }: { onGeneSelect: (gene: Gene) => void }): ReactNode {
-  const [expandedDomain, setExpandedDomain] = useState<Domain | null>(null);
+  const [expanded, setExpanded] = useState(false);
   
   const genesByDomain = {
     product: GENES.filter(g => g.domain === 'product'),
@@ -151,36 +152,29 @@ function GenomeOverview({ onGeneSelect }: { onGeneSelect: (gene: Gene) => void }
     <section className={styles.genomeOverview}>
       <div className={styles.overviewHeader}>
         <h2>The 12 Capability Genes</h2>
-        <p>The capabilities that convert AI capacity into government permission</p>
+        <p>The delivery capabilities that produce the evidence assurance and governance require</p>
       </div>
       
-      <div className={styles.domainCards}>
+      <div className={`${styles.domainCards} ${expanded ? styles.domainCardsExpanded : ''}`}>
         {(Object.keys(genesByDomain) as Domain[]).map((domain) => {
-          const isExpanded = expandedDomain === domain;
           const genes = genesByDomain[domain];
-          const isSpineDomain = domain === 'systems';
           
           return (
             <div 
               key={domain} 
-              className={`${styles.domainCard} ${isExpanded ? styles.expanded : ''} ${isSpineDomain ? styles.spineDomain : ''}`}
+              className={`${styles.domainCard} ${expanded ? styles.expanded : ''}`}
               style={{ '--domain-color': DOMAINS[domain].color } as React.CSSProperties}
             >
-              <button 
-                className={styles.domainCardHeader}
-                onClick={() => setExpandedDomain(isExpanded ? null : domain)}
-              >
+              <div className={styles.domainCardHeader}>
                 <div className={styles.domainCardTitle}>
                   <span 
                     className={styles.domainDot} 
                     style={{ background: DOMAINS[domain].color }}
                   />
                   <h3>{DOMAINS[domain].name}</h3>
-                  {isSpineDomain && <span className={styles.spineTag}>The Spine</span>}
                 </div>
                 <p className={styles.domainDesc}>{domainDescriptions[domain]}</p>
-                <span className={styles.expandIcon}>{isExpanded ? '−' : '+'}</span>
-              </button>
+              </div>
               
               <div className={styles.geneList}>
                 {genes.map((gene) => (
@@ -191,9 +185,6 @@ function GenomeOverview({ onGeneSelect }: { onGeneSelect: (gene: Gene) => void }
                   >
                     <div className={styles.geneCardHeader}>
                       <span className={styles.geneName}>{gene.name}</span>
-                      {SPINE_GENE_IDS.includes(gene.id) && (
-                        <span className={styles.spineIndicator} title="Spine Gene">⚡</span>
-                      )}
                     </div>
                     <p className={styles.geneDefinition}>{gene.definition}</p>
                   </button>
@@ -203,14 +194,19 @@ function GenomeOverview({ onGeneSelect }: { onGeneSelect: (gene: Gene) => void }
           );
         })}
       </div>
+
+      <button 
+        className={styles.expandAllToggle}
+        onClick={() => setExpanded(!expanded)}
+      >
+        <span>{expanded ? 'Hide genes' : 'Show all genes'}</span>
+        <span className={`${styles.expandAllIcon} ${expanded ? styles.expandAllIconOpen : ''}`}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M4 6l4 4 4-4" />
+          </svg>
+        </span>
+      </button>
       
-      <div className={styles.overviewInsight}>
-        <span className={styles.insightIcon}>💡</span>
-        <p>
-          <strong>The Spine:</strong> Systems genes (purple) form the "enablement spine" that converts 
-          AI capacity into auditable evidence. Without a strong spine, more AI creates more chaos, not more permission.
-        </p>
-      </div>
     </section>
   );
 }
@@ -602,6 +598,23 @@ function GeneModal({ gene, onClose }: { gene: Gene; onClose: () => void }): Reac
   );
 }
 
+// Traditional pre-AI roles and their primary genes
+const TRADITIONAL_ROLES: {
+  id: string;
+  name: string;
+  genes: string[];
+  mergesInto: 'mission' | 'enablement' | 'both';
+}[] = [
+  { id: 'product-manager', name: 'Product Manager', genes: ['discovery', 'strategy', 'tradeoffs'], mergesInto: 'mission' },
+  { id: 'ux-designer', name: 'UX / HCD Designer', genes: ['discovery', 'adoption', 'cognitive-ergonomics'], mergesInto: 'mission' },
+  { id: 'business-analyst', name: 'Business Analyst', genes: ['communication', 'tradeoffs', 'strategy'], mergesInto: 'mission' },
+  { id: 'scrum-master', name: 'Scrum Master', genes: ['communication', 'mental-models', 'strategy'], mergesInto: 'mission' },
+  { id: 'developer', name: 'Developer', genes: ['adoption', 'constraints', 'verification', 'enablement'], mergesInto: 'both' },
+  { id: 'qa-tester', name: 'QA / Tester', genes: ['verification', 'constraints', 'governance'], mergesInto: 'enablement' },
+  { id: 'devops-sre', name: 'DevOps / SRE', genes: ['operability', 'governance', 'constraints'], mergesInto: 'enablement' },
+  { id: 'security-engineer', name: 'Security Engineer', genes: ['constraints', 'governance', 'verification'], mergesInto: 'enablement' },
+];
+
 function SpeciesSection(): ReactNode {
   // Permission Economy framing for species
   const speciesFraming: Record<string, { permissionRole: string }> = {
@@ -609,12 +622,110 @@ function SpeciesSection(): ReactNode {
     enablement: { permissionRole: 'Builds the spine that converts capacity to permission' },
   };
 
+  const missionRoles = TRADITIONAL_ROLES.filter(r => r.mergesInto === 'mission' || r.mergesInto === 'both');
+  const enablementRoles = TRADITIONAL_ROLES.filter(r => r.mergesInto === 'enablement' || r.mergesInto === 'both');
+
   return (
     <section className={styles.speciesSection}>
       <div className={styles.sectionHeader}>
         <h2>The Species</h2>
-        <p>Two distinct organisms in the Permission Economy ecosystem</p>
+        <p>How traditional roles evolve into two hybrid organisms</p>
       </div>
+
+      {/* Phase 1: Traditional Landscape */}
+      <div className={styles.traditionalLandscape}>
+        <h3 className={styles.phaseTitle}>The Traditional Landscape</h3>
+        <p className={styles.phaseDesc}>
+          Before agentic development, capabilities were siloed into specialized roles. Each role exercised a narrow slice of the genome.
+        </p>
+        <div className={styles.rolesGrid}>
+          {TRADITIONAL_ROLES.map((role) => {
+            const mergeClass = role.mergesInto === 'mission'
+              ? styles.roleMission
+              : role.mergesInto === 'enablement'
+                ? styles.roleEnablement
+                : styles.roleBoth;
+            return (
+              <div key={role.id} className={`${styles.roleCard} ${mergeClass}`}>
+                <span className={styles.roleName}>{role.name}</span>
+                <div className={styles.roleGenes}>
+                  {role.genes.map((geneId) => {
+                    const gene = GENES.find((g) => g.id === geneId);
+                    return gene ? (
+                      <span
+                        key={geneId}
+                        className={styles.roleGeneTag}
+                        style={{ '--tag-color': getDomainColor(gene.domain) } as React.CSSProperties}
+                      >
+                        {gene.name}
+                      </span>
+                    ) : null;
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Phase 2: The Merge */}
+      <div className={styles.mergeSection}>
+        <div className={styles.mergeVisual}>
+          {/* Left convergence: Mission Hybrid */}
+          <div className={styles.mergeColumn}>
+            <div className={styles.mergeRoleList}>
+              {missionRoles.map((role) => (
+                <span key={role.id} className={`${styles.mergeRoleTag} ${styles.mergeMission}`}>
+                  {role.name}
+                  {role.mergesInto === 'both' && <span className={styles.mergeShared}>*</span>}
+                </span>
+              ))}
+            </div>
+            <div className={styles.mergeArrows}>
+              <svg viewBox="0 0 60 80" className={styles.mergeArrowSvg}>
+                <path d="M10,0 C10,40 30,40 30,70" stroke="currentColor" strokeWidth="1.5" fill="none" strokeDasharray="4 3" opacity="0.5" />
+                <path d="M25,0 C25,35 30,45 30,70" stroke="currentColor" strokeWidth="1.5" fill="none" strokeDasharray="4 3" opacity="0.5" />
+                <path d="M40,0 C40,35 30,50 30,70" stroke="currentColor" strokeWidth="1.5" fill="none" strokeDasharray="4 3" opacity="0.5" />
+                <path d="M55,0 C55,30 30,50 30,70" stroke="currentColor" strokeWidth="1.5" fill="none" strokeDasharray="4 3" opacity="0.5" />
+                <circle cx="30" cy="73" r="4" fill="currentColor" opacity="0.8" />
+              </svg>
+            </div>
+            <span className={styles.mergeTarget}>Mission Hybrid</span>
+          </div>
+
+          {/* Center text */}
+          <div className={styles.mergeCenter}>
+            <div className={styles.mergeCenterLine} />
+            <span className={styles.mergeCenterText}>Agentic delivery collapses silos</span>
+            <div className={styles.mergeCenterLine} />
+          </div>
+
+          {/* Right convergence: Enablement Hybrid */}
+          <div className={styles.mergeColumn}>
+            <div className={styles.mergeRoleList}>
+              {enablementRoles.map((role) => (
+                <span key={role.id} className={`${styles.mergeRoleTag} ${styles.mergeEnablement}`}>
+                  {role.name}
+                  {role.mergesInto === 'both' && <span className={styles.mergeShared}>*</span>}
+                </span>
+              ))}
+            </div>
+            <div className={styles.mergeArrows}>
+              <svg viewBox="0 0 60 80" className={styles.mergeArrowSvg}>
+                <path d="M10,0 C10,40 30,40 30,70" stroke="currentColor" strokeWidth="1.5" fill="none" strokeDasharray="4 3" opacity="0.5" />
+                <path d="M25,0 C25,35 30,45 30,70" stroke="currentColor" strokeWidth="1.5" fill="none" strokeDasharray="4 3" opacity="0.5" />
+                <path d="M40,0 C40,35 30,50 30,70" stroke="currentColor" strokeWidth="1.5" fill="none" strokeDasharray="4 3" opacity="0.5" />
+                <path d="M55,0 C55,30 30,50 30,70" stroke="currentColor" strokeWidth="1.5" fill="none" strokeDasharray="4 3" opacity="0.5" />
+                <circle cx="30" cy="73" r="4" fill="currentColor" opacity="0.8" />
+              </svg>
+            </div>
+            <span className={styles.mergeTarget}>Enablement Hybrid</span>
+          </div>
+        </div>
+        <p className={styles.mergeFootnote}>* Developer spans both species — the role splits based on whether the individual gravitates toward intent or infrastructure.</p>
+      </div>
+
+      {/* Phase 3: The Evolved Species (existing cards) */}
       <div className={styles.speciesGrid}>
         {SPECIES_PROFILES.map((species) => {
           const isMission = species.id === 'mission';
@@ -778,6 +889,15 @@ export default function GenomeExplorerB(): ReactNode {
         {/* Genome Overview - Simple descriptions of each gene */}
         <GenomeOverview onGeneSelect={setSelectedGene} />
         
+        {/* Permission Ecosystem - GovPersonas */}
+        <section className={styles.ecosystemSection} data-theme="dark">
+          <h2>The Permission Ecosystem</h2>
+          <GovPersonas variant="flow" side="both" />
+        </section>
+        
+        {/* Delivery Spectrum - bridges ecosystem to circuit */}
+        <DeliverySpectrum />
+        
         {/* Circuit Flow Visualization - the electrical model */}
         <section className={styles.circuitSection}>
           <CircuitFlowVisualization 
@@ -789,12 +909,6 @@ export default function GenomeExplorerB(): ReactNode {
               if (gene) setSelectedGene(gene);
             }}
           />
-        </section>
-        
-        {/* Permission Ecosystem - GovPersonas */}
-        <section className={styles.ecosystemSection}>
-          <h2>The Permission Ecosystem</h2>
-          <GovPersonas variant="flow" side="both" />
         </section>
         
         <SpeciesSection />

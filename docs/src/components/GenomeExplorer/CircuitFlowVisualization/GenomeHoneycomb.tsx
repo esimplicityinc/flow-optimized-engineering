@@ -37,7 +37,7 @@ const GENES: GeneDefinition[] = [
   // Row 2: Mixed - Strategy (product), Education genes
   { id: 'strategy', name: 'Strategy', shortName: 'Str', domain: 'product', baseSystemRatio: 0.25, scalabilityFactor: 0.35 },
   { id: 'mentalModels', name: 'Mental Models', shortName: 'Men', domain: 'education', baseSystemRatio: 0.30, scalabilityFactor: 0.5 },
-  { id: 'communication', name: 'Communication', shortName: 'Com', domain: 'education', baseSystemRatio: 0.25, scalabilityFactor: 0.4 },
+  { id: 'communication', name: 'Comms', shortName: 'Com', domain: 'education', baseSystemRatio: 0.25, scalabilityFactor: 0.4 },
   { id: 'enablement', name: 'Enablement', shortName: 'Ena', domain: 'education', baseSystemRatio: 0.45, scalabilityFactor: 0.8 },
   // Row 3: Education + Systems (spine starts)
   { id: 'cognitiveErgonomics', name: 'Cog Ergo', shortName: 'Cog', domain: 'education', baseSystemRatio: 0.50, scalabilityFactor: 0.9 },
@@ -134,36 +134,45 @@ function interpolateColor(color1: string, color2: string, ratio: number): string
 /**
  * Calculate delivery mode for a gene (determines BORDER color)
  * 
- * The delivery mode shifts from human → system based on:
- * - Demand pressure (gap between required and current level)
- * - Gene's scalability (how easily it can be productized)
- * - AI factor (higher AI = more pressure to scale)
+ * FOE maturity is the primary driver of delivery mode.
+ * As FOE maturity increases, genes shift from human-delivered (manual processes,
+ * meetings, artifacts) to system-delivered (automated pipelines, CI evidence,
+ * coded guardrails).
  * 
- * Color smoothly transitions from warm orange (human) to cool cyan (system)
+ * Each gene shifts at its own pace based on its scalabilityFactor:
+ * - Systems genes (high scalability) shift to automated earliest
+ * - Product genes (low scalability) retain human judgment longest
+ * 
+ * AI factor provides a small additional nudge (tooling helps everything),
+ * but FOE maturity is what actually moves the needle.
+ * 
+ * Color smoothly transitions from warm orange (human/manual) to cool cyan (system/automated)
  */
 function calculateDeliveryMode(
   gene: GeneDefinition,
   currentLevel: number,
   aiFactor: number
 ): DeliveryModeResult {
-  // Get required level for this gene
-  const isSpineGene = SPINE_GENES.includes(gene.id);
-  const requiredLevel = isSpineGene
-    ? 0.3 + (aiFactor * 0.55)
-    : 0.4 + (aiFactor * 0.2);
+  // FOE maturity (represented by gene level) is the primary driver
+  // Gene level ranges ~0.2 (low maturity) to ~0.9 (high maturity)
+  // Normalize to 0-1 range for the shift calculation
+  const maturitySignal = Math.max(0, Math.min(1, (currentLevel - 0.2) / 0.7));
   
-  // Calculate demand pressure (positive when under capacity)
-  const demandGap = Math.max(0, requiredLevel - currentLevel);
-  const demandPressure = demandGap * aiFactor * 2; // Scale factor for sensitivity
+  // At zero maturity, everything should be fully human-delivered (orange).
+  // The baseSystemRatio only kicks in as maturity grows, blended by scalability.
+  // Use a power curve so low maturity stays firmly orange, then accelerates.
+  const maturityCurve = Math.pow(maturitySignal, 0.7);
   
-  // Calculate system ratio
-  let systemRatio = gene.baseSystemRatio + (demandPressure * gene.scalabilityFactor);
+  // System ratio starts at 0 (full human) and scales up with maturity
+  // Gene's baseSystemRatio acts as a ceiling/target, not a floor
+  const targetRatio = gene.baseSystemRatio + (gene.scalabilityFactor * 0.4);
+  let systemRatio = maturityCurve * targetRatio;
   
-  // Also increase system ratio with AI factor directly (tooling helps everything)
-  systemRatio += aiFactor * 0.15;
+  // AI provides a small additional nudge
+  systemRatio += aiFactor * 0.05;
   
-  // Clamp between 0.15 (always some human) and 0.95 (always some system)
-  systemRatio = Math.min(0.95, Math.max(0.15, systemRatio));
+  // Clamp between 0.02 (fully human at zero) and 0.95
+  systemRatio = Math.min(0.95, Math.max(0.02, systemRatio));
   
   // Smooth color interpolation from human (orange) to system (cyan)
   const color = interpolateColor(
@@ -275,17 +284,17 @@ function GenomeHoneycomb({
         })}
       </div>
       
-      {/* Delivery mode legend (for border) - gradient from Human to System */}
+      {/* Delivery mode legend (for border) - gradient from Manual to Automated */}
       <div className={styles.genomeLegend}>
-        <span className={styles.legendLabel}>Border:</span>
-        <span className={styles.legendEndLabel} style={{ color: DELIVERY_MODE_COLORS.human }}>Human</span>
+        <span className={styles.legendLabel}>Delivery:</span>
+        <span className={styles.legendEndLabel} style={{ color: DELIVERY_MODE_COLORS.human }}>Manual (slow)</span>
         <div 
           className={styles.legendGradient}
           style={{ 
             background: `linear-gradient(90deg, ${DELIVERY_MODE_COLORS.human}, ${DELIVERY_MODE_COLORS.system})` 
           }}
         />
-        <span className={styles.legendEndLabel} style={{ color: DELIVERY_MODE_COLORS.system }}>System</span>
+        <span className={styles.legendEndLabel} style={{ color: DELIVERY_MODE_COLORS.system }}>Automated (fast)</span>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 /**
  * OutputGauges - Display multiple output meters
- * Permission (primary), Risk, Evidence, Outcomes, Throughput
+ * Permission is rendered separately via PermissionGauge.
+ * This component shows: Risk, Evidence, Outcomes, Throughput
  */
 
 import React from 'react';
@@ -21,6 +22,37 @@ function getRiskColor(value: number): string {
   return '#10B981'; // Green
 }
 
+/**
+ * Standalone Permission gauge for placement alongside Client Needs
+ */
+function PermissionGauge({ value }: { value: number }): React.ReactElement {
+  const color = getPermissionColor(value);
+  return (
+    <div className={styles.permissionStandalone}>
+      <div 
+        className={`${styles.gauge} ${styles.primary}`}
+        style={{ '--gauge-color': color } as React.CSSProperties}
+      >
+        <div className={styles.gaugeHeader}>
+          <span className={styles.gaugeLabel}>Permission</span>
+          <span className={styles.gaugeValue}>
+            {Math.round(value)}%
+          </span>
+        </div>
+        <div className={styles.gaugeBar}>
+          <div 
+            className={styles.gaugeBarFill}
+            style={{ 
+              width: `${Math.min(100, value)}%`,
+              background: color,
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function OutputGauges({
   permission,
   risk,
@@ -31,13 +63,6 @@ function OutputGauges({
 }: OutputGaugesProps): React.ReactElement {
   
   const gauges = [
-    {
-      id: 'permission',
-      label: 'Permission',
-      value: permission,
-      color: getPermissionColor(permission),
-      primary: true,
-    },
     {
       id: 'risk',
       label: 'Risk',
@@ -72,7 +97,7 @@ function OutputGauges({
       {gauges.map((gauge) => (
         <div 
           key={gauge.id}
-          className={`${styles.gauge} ${gauge.primary ? styles.primary : ''}`}
+          className={styles.gauge}
           style={{ '--gauge-color': gauge.color } as React.CSSProperties}
         >
           <div className={styles.gaugeHeader}>
@@ -97,3 +122,4 @@ function OutputGauges({
 }
 
 export default OutputGauges;
+export { PermissionGauge };

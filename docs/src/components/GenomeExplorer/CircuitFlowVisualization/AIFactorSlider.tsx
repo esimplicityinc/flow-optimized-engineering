@@ -121,8 +121,8 @@ function AIFactorSlider({
         />
         
         <div className={styles.sliderMarkers}>
-          <span>No Spine (permission bottleneck)</span>
-          <span>Strong Spine (evidence scales)</span>
+          <span>Manual delivery (slow evidence)</span>
+          <span>Automated delivery (fast evidence)</span>
         </div>
       </div>
     </div>

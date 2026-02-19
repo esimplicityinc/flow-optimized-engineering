@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import styles from './styles.module.css';
-import { GOV_PERSONAS, getPersonasBySide, type GovPersona } from '../genomeData';
+import { GOV_PERSONAS, getPersonasBySide, DOMAINS, GENES, type GovPersona, type Domain } from '../genomeData';
 
 interface GovPersonasProps {
   variant?: 'ecosystem' | 'cards' | 'flow';
@@ -298,25 +298,34 @@ function FlowVariant({
   onPersonaClick?: (persona: GovPersona) => void;
 }): React.ReactElement {
   const demandPersonas = getPersonasBySide('demand');
-  const supplyPersonas = getPersonasBySide('supply');
+
+  const domainEntries = (Object.keys(DOMAINS) as Domain[]).map((key) => ({
+    key,
+    ...DOMAINS[key],
+    genes: GENES.filter((g) => g.domain === key),
+  }));
 
   return (
     <div className={styles.flowContainer}>
       <h2 className={styles.flowTitle}>PERMISSION ECONOMY FLOWS</h2>
 
       <div className={styles.sankeyDiagram}>
-        {/* Supply Side Column */}
+        {/* Capability Genes (Supply) Column */}
         <div className={styles.flowColumn}>
-          <h4 className={styles.flowColumnTitle}>Supply (Vendor)</h4>
-          {supplyPersonas.map((persona, idx) => (
+          <h4 className={styles.flowColumnTitle}>Capability Genes</h4>
+          {domainEntries.map((domain, idx) => (
             <div
-              key={persona.id}
-              className={`${styles.flowNode} ${styles.supplyNode} ${highlightPersona === persona.id ? styles.highlighted : ''}`}
-              onClick={() => onPersonaClick?.(persona)}
-              style={{ '--flow-index': idx } as React.CSSProperties}
+              key={domain.key}
+              className={`${styles.flowNode} ${styles.supplyNode}`}
+              style={{ '--flow-index': idx, '--domain-accent': domain.color } as React.CSSProperties}
             >
-              <div className={styles.flowNodeIcon}>{Icons[persona.icon]}</div>
-              <span className={styles.flowNodeName}>{persona.name}</span>
+              <div className={styles.flowNodeDot} style={{ background: domain.color }} />
+              <div className={styles.flowNodeContent}>
+                <span className={styles.flowNodeName}>{domain.name}</span>
+                <span className={styles.flowNodeGenes}>
+                  {domain.genes.map((g) => g.name).join(' · ')}
+                </span>
+              </div>
             </div>
           ))}
         </div>
@@ -392,9 +401,9 @@ function FlowVariant({
         <div className={styles.insightContent}>
           <span className={styles.insightLabel}>KEY INSIGHT</span>
           <p className={styles.insightText}>
-            Risk Owners consume <span className={styles.highlight}>PROOF</span>. Enablement Hybrids
-            produce <span className={styles.highlight}>EVIDENCE</span>. This is the critical
-            exchange.
+            Capability genes produce the <span className={styles.highlight}>EVIDENCE</span> that
+            government personas consume as <span className={styles.highlight}>PROOF</span>. This is
+            the critical exchange.
           </p>
         </div>
         <div className={styles.insightLine}></div>
