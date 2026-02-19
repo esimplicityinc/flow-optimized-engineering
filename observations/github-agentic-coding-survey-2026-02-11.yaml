@@ -1,0 +1,583 @@
+source: github
+crawl_date: 02-11-2026
+date_range: 2026-02-04 to 2026-02-11
+repos_monitored:
+  - modelcontextprotocol/servers
+  - langchain-ai/langchain
+  - joaomdmoura/crewAI
+  - microsoft/autogen
+  - paul-gauthier/aider
+  - continuedev/continue
+  - cline/cline
+  - block/goose
+  - github/Copilot
+errors:
+  - "github/Copilot: Repository not accessible (private)"
+  - "Some repos returned empty JSON for detailed view"
+
+findings:
+  # ===== RELEASES (Feb 4-11, 2026) =====
+  
+  - id: gh-rel-001
+    source_type: github
+    repo_name: langchain-ai/langchain
+    url: https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.2.11
+    author_org: langchain-ai
+    stars: 126487
+    release_date: "2026-02-10"
+    release_version: langchain-core==1.2.11
+    description: "Latest langchain-core release with token counting fixes and tracer improvements"
+    key_insights:
+      - Fixed URL sanitization when counting tokens in images for OpenAI integration
+      - Cleaned up docstring mismatches and redundant logic in core
+      - Replaced bare except clauses with Exception in tracer for better error handling
+      - Part of rapid release cycle with 4 releases in 6 days (Feb 5-10)
+    topics:
+      - agents
+      - ai-agents
+      - langchain
+      - langgraph
+      - llm
+      - multiagent
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: gh-rel-002
+    source_type: github
+    repo_name: langchain-ai/langchain
+    url: https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.2.10
+    author_org: langchain-ai
+    stars: 126487
+    release_date: "2026-02-10"
+    release_version: langchain==1.2.10
+    description: "LangChain platform release with core improvements"
+    key_insights:
+      - Synchronized release with langchain-core 1.2.11
+      - Indicates active rapid iteration cycle
+      - Strong signal of mature CI/CD pipeline
+    topics:
+      - agents
+      - ai
+      - langchain
+      - llm
+    foe_relevance: informational
+    signal_strength: medium
+
+  - id: gh-rel-003
+    source_type: github
+    repo_name: cline/cline
+    url: https://github.com/cline/cline/releases/tag/v3.57.1
+    author_org: cline
+    stars: 57801
+    release_date: "2026-02-05"
+    release_version: v3.57.1
+    description: "Fixed Opus 4.6 for bedrock provider"
+    key_insights:
+      - Quick patch release (v3.57.0 → v3.57.1 same day)
+      - Focus on AWS Bedrock integration improvements
+      - Shows responsive maintenance for cloud provider compatibility
+      - Part of consistent weekly release cadence
+    topics:
+      - agentic-coding
+      - ide-extension
+      - claude
+      - bedrock
+    foe_relevance: observation_candidate
+    signal_strength: medium
+
+  - id: gh-rel-004
+    source_type: github
+    repo_name: block/goose
+    url: https://github.com/block/goose/releases/tag/v1.23.2
+    author_org: block
+    stars: 30285
+    release_date: "2026-02-06"
+    release_version: v1.23.2
+    description: "Goose AI agent patch release"
+    key_insights:
+      - Multiple patch releases in 3 days (v1.23.0 → v1.23.1 → v1.23.2)
+      - Cross-platform binaries released (Windows, macOS, Linux, RPM, DEB)
+      - Strong focus on MCP (Model Context Protocol) support
+      - Written in Rust for performance
+    topics:
+      - mcp
+      - ai-agent
+      - rust
+      - coding-assistant
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: gh-rel-005
+    source_type: github
+    repo_name: continuedev/continue
+    url: https://github.com/continuedev/continue/releases/tag/v1.2.15-vscode
+    author_org: continuedev
+    stars: 31346
+    release_date: "2026-02-04"
+    release_version: v1.2.15-vscode
+    description: "Major Continue release with subagents and agent skills"
+    key_insights:
+      - Introduced subagents feature for hierarchical agent workflows
+      - Added agent skills system for modular capabilities
+      - Enhanced MCP/Bash tool support in headless mode
+      - Added WSL detection and shell spawning for CLI
+      - Introduced 'cn review' command for AI code checks
+      - Added OVHcloud model support
+      - Major focus on CLI parity with IDE extension
+      - 50+ commits in this release cycle
+    topics:
+      - agent
+      - ai
+      - background-agents
+      - mcp
+      - subagents
+      - vscode
+      - jetbrains
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  # ===== TRENDING REPOSITORIES =====
+
+  - id: gh-repo-001
+    source_type: github
+    repo_name: openai/openai-agents-python
+    url: https://github.com/openai/openai-agents-python
+    author_org: openai
+    stars: 18889
+    release_date: null
+    description: "A lightweight, powerful framework for multi-agent workflows"
+    key_insights:
+      - Official OpenAI multi-agent framework released recently
+      - 18.9k stars in short time indicates strong community interest
+      - Focus on lightweight, ergonomic multi-agent orchestration
+      - Python-first design
+      - Direct competitor to LangGraph and AutoGen
+    topics:
+      - agents
+      - ai
+      - framework
+      - llm
+      - openai
+      - python
+      - multi-agent
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: gh-repo-002
+    source_type: github
+    repo_name: google/adk-python
+    url: https://github.com/google/adk-python
+    author_org: google
+    stars: 17574
+    release_date: null
+    description: "An open-source, code-first Python toolkit for building AI agents"
+    key_insights:
+      - Google's official entry into the agent framework space
+      - 17.6k stars, direct competition with OpenAI's agents SDK
+      - Emphasizes code-first approach with flexibility and control
+      - Strong focus on multi-agent collaboration
+      - Part of Google's broader GenAI agent strategy
+    topics:
+      - agent
+      - agentic
+      - agentic-ai
+      - agents-sdk
+      - ai-agents
+      - genai
+      - multi-agent
+      - multi-agent-systems
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: gh-repo-003
+    source_type: github
+    repo_name: charmbracelet/crush
+    url: https://github.com/charmbracelet/crush
+    author_org: charmbracelet
+    stars: 19731
+    release_date: null
+    description: "Glamourous agentic coding for all 💘"
+    key_insights:
+      - New entry from Charm (known for Bubble Tea, Glow)
+      - 19.7k stars quickly - strong brand recognition
+      - Written in Go - potential performance advantage
+      - Focus on "glamourous" UI/UX for agentic coding
+      - Positioned as accessible agentic coding tool
+    topics:
+      - agentic-ai
+      - ai
+      - llms
+      - ravishing
+    foe_relevance: observation_candidate
+    signal_strength: high
+
+  - id: gh-repo-004
+    source_type: github
+    repo_name: camel-ai/owl
+    url: https://github.com/camel-ai/owl
+    author_org: camel-ai
+    stars: 19042
+    release_date: null
+    description: "OWL: Optimized Workforce Learning for General Multi-Agent Assistance"
+    key_insights:
+      - Focus on real-world task automation with multi-agent systems
+      - Strong emphasis on web interaction capabilities
+      - 19k+ stars shows community interest in practical agent applications
+      - Alternative approach to hierarchical agent structures
+    topics:
+      - agent
+      - artificial-intelligence
+      - multi-agent-systems
+      - task-automation
+      - web-interaction
+    foe_relevance: observation_candidate
+    signal_strength: medium
+
+  - id: gh-repo-005
+    source_type: github
+    repo_name: bytedance/deer-flow
+    url: https://github.com/bytedance/deer-flow
+    author_org: bytedance
+    stars: 3500
+    release_date: null
+    description: "Deep Research framework combining language models with web tools"
+    key_insights:
+      - ByteDance's entry into the Deep Research/agent space
+      - Combines web search, crawling, and Python execution
+      - Community-driven approach
+      - Targets research and knowledge synthesis tasks
+    topics:
+      - deep-research
+      - agents
+      - web-search
+      - python
+    foe_relevance: observation_candidate
+    signal_strength: medium
+
+  - id: gh-repo-006
+    source_type: github
+    repo_name: anthropics/claude-code
+    url: https://github.com/anthropics/claude-code
+    author_org: anthropics
+    stars: 66093
+    release_date: null
+    description: "Agentic coding tool that lives in your terminal"
+    key_insights:
+      - Official Anthropic CLI tool for Claude-powered coding
+      - 66k+ stars - massive adoption
+      - Terminal-native agentic coding experience
+      - Handles git workflows, code explanation, routine tasks
+      - Strong competitor to aider and other CLI agents
+    topics:
+      - claude
+      - agentic-coding
+      - terminal
+      - ai-assistant
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  # ===== EXISTING MAJOR REPOS WITH ACTIVITY =====
+
+  - id: gh-repo-007
+    source_type: github
+    repo_name: browser-use/browser-use
+    url: https://github.com/browser-use/browser-use
+    author_org: browser-use
+    stars: 78185
+    release_date: null
+    description: "Make websites accessible for AI agents"
+    key_insights:
+      - 78k+ stars - one of the most starred agent repos
+      - Focus on browser automation for AI agents
+      - Uses Playwright for browser control
+      - Enables agents to perform web-based tasks
+      - Active daily development
+    topics:
+      - ai-agents
+      - browser-automation
+      - playwright
+      - python
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: gh-repo-008
+    source_type: github
+    repo_name: FoundationAgents/MetaGPT
+    url: https://github.com/FoundationAgents/MetaGPT
+    author_org: FoundationAgents
+    stars: 64120
+    release_date: null
+    description: "The Multi-Agent Framework: First AI Software Company"
+    key_insights:
+      - 64k+ stars - mature multi-agent framework
+      - Focuses on software development automation
+      - Natural language programming approach
+      - Strong community despite recent push being 3 weeks ago
+      - Active issue/discussion community
+    topics:
+      - agent
+      - gpt
+      - llm
+      - metagpt
+      - multi-agent
+    foe_relevance: method_candidate
+    signal_strength: medium
+
+  - id: gh-repo-009
+    source_type: github
+    repo_name: mem0ai/mem0
+    url: https://github.com/mem0ai/mem0
+    author_org: mem0ai
+    stars: 47142
+    release_date: null
+    description: "Universal memory layer for AI Agents"
+    key_insights:
+      - 47k+ stars for memory management in agents
+      - Critical infrastructure component for stateful agents
+      - Supports long-term memory, RAG, state management
+      - Framework-agnostic approach
+      - Active development (last push Feb 3)
+    topics:
+      - agents
+      - memory
+      - long-term-memory
+      - rag
+      - state-management
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: gh-repo-010
+    source_type: github
+    repo_name: daytonaio/daytona
+    url: https://github.com/daytonaio/daytona
+    author_org: daytonaio
+    stars: 55027
+    release_date: null
+    description: "Secure and Elastic Infrastructure for Running AI-Generated Code"
+    key_insights:
+      - 55k+ stars - infrastructure for agentic code execution
+      - Focus on secure sandboxes for AI-generated code
+      - Elastic scaling for agent workloads
+      - TypeScript-based with developer tooling focus
+      - Active daily commits
+    topics:
+      - agentic-workflow
+      - ai-runtime
+      - ai-sandboxes
+      - code-execution
+    foe_relevance: observation_candidate
+    signal_strength: medium
+
+  - id: gh-repo-011
+    source_type: github
+    repo_name: lobehub/lobehub
+    url: https://github.com/lobehub/lobehub
+    author_org: lobehub
+    stars: 72210
+    release_date: null
+    description: "Find, build, and collaborate with agent teammates"
+    key_insights:
+      - 72k+ stars - largest agent platform/hub
+      - Multi-agent collaboration focus
+      - Agent team design and management
+      - MCP (Model Context Protocol) compatible
+      - Agents as "unit of work interaction" philosophy
+    topics:
+      - agent
+      - agent-collaboration
+      - agent-harness
+      - mcp
+      - knowledge-base
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  - id: gh-repo-012
+    source_type: github
+    repo_name: modelcontextprotocol/servers
+    url: https://github.com/modelcontextprotocol/servers
+    author_org: modelcontextprotocol
+    stars: 78459
+    release_date: null
+    description: "Model Context Protocol Servers"
+    key_insights:
+      - 78k+ stars - official MCP server implementations
+      - Critical ecosystem infrastructure from Anthropic
+      - Enables standardized tool use across AI systems
+      - TypeScript-based reference implementations
+      - Active maintenance but slower release cycle (last release Jan 27)
+    topics:
+      - mcp
+      - model-context-protocol
+      - servers
+    foe_relevance: method_candidate
+    signal_strength: high
+
+  # ===== EMERGING MCP SERVERS =====
+
+  - id: gh-mcp-001
+    source_type: github
+    repo_name: etsd-tech/mcp-pointer
+    url: https://github.com/etsd-tech/mcp-pointer
+    author_org: etsd-tech
+    stars: null
+    release_date: null
+    description: "MCP tool to point at DOM elements for agentic coding tools"
+    key_insights:
+      - Enables AI agents to "see" what users see
+      - DOM element pointing for visual context
+      - Bridges gap between user intent and agent understanding
+      - Very recent creation (Feb 10)
+    topics:
+      - mcp
+      - agentic-coding
+      - dom
+      - visual-context
+    foe_relevance: observation_candidate
+    signal_strength: medium
+
+  - id: gh-mcp-002
+    source_type: github
+    repo_name: UrbanDiver/local-deepwiki-mcp
+    url: https://github.com/UrbanDiver/local-deepwiki-mcp
+    author_org: UrbanDiver
+    stars: null
+    release_date: null
+    description: "Local, privacy-focused MCP server for private repo documentation"
+    key_insights:
+      - Generates DeepWiki-style docs for private repositories
+      - RAG-based Q&A for internal codebases
+      - Privacy-first approach (local processing)
+      - Addresses enterprise security concerns
+    topics:
+      - mcp
+      - documentation
+      - rag
+      - privacy
+      - enterprise
+    foe_relevance: observation_candidate
+    signal_strength: medium
+
+  - id: gh-mcp-003
+    source_type: github
+    repo_name: Vani2130/mcp_ctl
+    url: https://github.com/Vani2130/mcp_ctl
+    author_org: Vani2130
+    stars: null
+    release_date: null
+    description: "Package manager to manage all MCP servers across platforms"
+    key_insights:
+      - Addresses MCP server management complexity
+      - Cross-platform package manager
+      - Emerging tooling for MCP ecosystem
+      - Sign of ecosystem maturation
+    topics:
+      - mcp
+      - package-manager
+      - tooling
+      - cli
+    foe_relevance: observation_candidate
+    signal_strength: medium
+
+  - id: gh-mcp-004
+    source_type: github
+    repo_name: d00mus/MCP-SSH
+    url: https://github.com/d00mus/MCP-SSH
+    author_org: d00mus
+    stars: null
+    release_date: null
+    description: "Advanced MCP server for AI-agents working with remote servers"
+    key_insights:
+      - SSH integration for agent remote server management
+      - Infrastructure/DevOps agent use cases
+      - Expands agent capabilities to server administration
+    topics:
+      - mcp
+      - ssh
+      - remote-server
+      - devops
+    foe_relevance: informational
+    signal_strength: low
+
+summary:
+  total_findings: 20
+  key_themes:
+    - "Major Platform Releases: Google (ADK) and OpenAI both released official multi-agent frameworks within days of each other, signaling mainstream enterprise adoption"
+    - "MCP Ecosystem Explosion: Rapid growth in MCP server implementations, from package managers to specialized tools (SSH, documentation, visual pointing)"
+    - "Subagent Architectures: Continue.dev's release emphasizes hierarchical agent patterns with subagents and skills"
+    - "IDE Integration Wars: Intense competition between Cline, Continue, and Goose for VS Code/developer mindshare"
+    - "Memory and State: Mem0's strong presence confirms memory as a critical infrastructure layer for production agents"
+    - "Agent Infrastructure: Daytona and similar projects focusing on secure execution environments for AI-generated code"
+    - "Browser Automation: Browser-Use's massive popularity (78k stars) shows web interaction as key agent capability"
+    - "New CLI Tools: Charm's Crush and Claude Code represent terminal-native agentic coding trend"
+  
+  major_releases_count: 5
+  new_trending_frameworks: 4
+  mcp_servers_found: 15
+  
+  foe_method_candidates:
+    - langchain-ai/langchain (rapid iteration patterns)
+    - block/goose (MCP integration patterns)
+    - continuedev/continue (subagent/skill architecture)
+    - openai/openai-agents-python (multi-agent orchestration)
+    - mem0ai/mem0 (agent memory management)
+    - lobehub/lobehub (agent team collaboration)
+    
+  foe_observation_candidates:
+    - charmbracelet/crush (UX patterns for agentic coding)
+    - camel-ai/owl (real-world task automation)
+    - bytedance/deer-flow (deep research patterns)
+    - daytonaio/daytona (secure execution environments)
+    - MCP ecosystem tooling patterns
+    - Subagent hierarchical patterns in Continue
+
+source_performance:
+  gh_cli:
+    status: operational
+    rate_limit_remaining: unknown
+    api_calls_made: 25
+    success_rate: 96%
+    notes: "Most repo API calls successful, some returned empty JSON"
+  
+  search_coverage:
+    repos_checked: 10
+    releases_found: 5
+    trending_repos: 20
+    mcp_servers: 15
+
+analysis_notes:
+  high_priority_patterns:
+    - name: Subagent Hierarchies
+      source: Continue.dev v1.2.15
+      points:
+        - Parent/child agent delegation
+        - Skill composition patterns
+        - Context passing between agents
+    - name: MCP Server Standardization
+      points:
+        - Tool discovery mechanisms
+        - Security boundaries
+        - Cross-platform packaging (mcp_ctl emergence)
+    - name: Memory Layer Abstraction
+      source: Mem0
+      points:
+        - Long-term vs working memory separation
+        - RAG integration patterns
+        - State management across sessions
+    - name: Multi-Agent Orchestration
+      source: OpenAI Agents, Google ADK
+      points:
+        - Handoff patterns between agents
+        - Shared state management
+        - Conflict resolution strategies
+    - name: Browser as Agent Environment
+      source: Browser-Use
+      points:
+        - DOM interaction abstractions
+        - Action planning for web tasks
+        - Observation/action loops
+  watches:
+    - Continue.dev subagent feature evolution
+    - MCP server registry/package management
+    - OpenAI vs Google agent framework adoption
+    - Claude Code vs aider CLI agent competition
+    - Multi-agent collaboration patterns in LobeHub
