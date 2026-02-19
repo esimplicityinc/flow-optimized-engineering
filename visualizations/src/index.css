@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap');
+
+/* Carbona font - if not available via Google Fonts, will need local hosting */
+@font-face {
+  font-family: 'Carbona';
+  src: local('Carbona'), local('Carbona-Regular');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  /* Design System Colors */
+  --color-twilight: #3223BD;
+  --color-black: #1C1C1C;
+  --color-pale-purple: #D9DCF8;
+  --color-light-grey: #F3F3F3;
+  --color-white: #FFFFFF;
+  
+  /* Accent Colors */
+  --color-purple-pop: #CC8BFA;
+  --color-teal-pop: #3EC5BB;
+  --color-persimmon-pop: #FC5848;
+  
+  /* Tints */
+  --color-purple-tint: #EBD1FD;
+  --color-teal-tint: #B2E9E4;
+  --color-persimmon-tint: #F9D5D0;
+  
+  /* Typography */
+  --font-primary: 'Carbona', system-ui, sans-serif;
+  --font-secondary: 'Nunito Sans', system-ui, sans-serif;
+  
+  font-family: var(--font-secondary);
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.writing-mode-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Typography Classes */
+.heading-primary {
+  font-family: var(--font-primary);
+  color: var(--color-twilight);
+}
+
+.heading-secondary {
+  font-family: var(--font-secondary);
+  color: var(--color-black);
+  font-weight: 700;
+}
+
+.text-body {
+  font-family: var(--font-secondary);
+  color: var(--color-black);
+}
