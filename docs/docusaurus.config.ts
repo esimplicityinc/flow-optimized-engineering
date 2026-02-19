@@ -121,6 +121,10 @@ const config: Config = {
               to: '/esimplicity-strategy',
             },
             {
+              label: 'Ecosystem Adoption',
+              to: '/ecosystem-adoption',
+            },
+            {
               label: 'Implementation Plan',
               to: '/esimplicity-plan',
             },
