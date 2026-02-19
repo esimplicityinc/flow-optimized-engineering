@@ -1157,28 +1157,44 @@ function InstitutionCard({ institutionKey }: { institutionKey: InstitutionKey })
   const institution = modeContent[mode].institutions[institutionKey];
   const iconName = institutionIcons[institutionKey];
   const styleClass = institutionStyles[institutionKey];
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className={`${styles.institutionCard} ${styles[styleClass]}`}>
-      <div className={styles.institutionHeader}>
+      <button
+        className={styles.institutionHeader}
+        onClick={() => setIsExpanded(!isExpanded)}
+        aria-expanded={isExpanded}
+      >
         <Icon name={iconName} className={styles.institutionIcon} size={32} />
         <div className={styles.institutionName}>{institution.name}</div>
         <div className={styles.institutionSubtitle}>{institution.subtitle}</div>
-      </div>
-      <div className={styles.institutionBody}>
-        <p>
-          <strong>What it is:</strong> {institution.whatItIs}
-        </p>
-        <p dangerouslySetInnerHTML={{ 
-          __html: `<strong>What it does:</strong> ${institution.whatItDoes}` 
-        }} />
-        <p dangerouslySetInnerHTML={{ 
-          __html: `<strong>Why it matters:</strong> ${institution.whyItMatters}` 
-        }} />
-        <div className={styles.institutionQuote}>
-          {institution.quote}
+        <svg
+          className={`${styles.chevron} ${isExpanded ? styles.expanded : ''}`}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </button>
+      {isExpanded && (
+        <div className={styles.institutionBody}>
+          <p>
+            <strong>What it is:</strong> {institution.whatItIs}
+          </p>
+          <p dangerouslySetInnerHTML={{ 
+            __html: `<strong>What it does:</strong> ${institution.whatItDoes}` 
+          }} />
+          <p dangerouslySetInnerHTML={{ 
+            __html: `<strong>Why it matters:</strong> ${institution.whyItMatters}` 
+          }} />
+          <div className={styles.institutionQuote}>
+            {institution.quote}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
