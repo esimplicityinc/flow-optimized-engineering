@@ -1,4 +1,14 @@
 import React from 'react';
+import {
+  Users,
+  RefreshCw,
+  Settings,
+  Bot,
+  Building2,
+  BookOpen,
+  Zap,
+  Rocket,
+} from 'lucide-react';
 
 /**
  * Level 4 Implementation Slides (29-36)
@@ -378,7 +388,9 @@ export function Level4Slides() {
             border: '2px solid var(--foe-primary)',
             padding: '1.5em'
           }}>
-            <div style={{ fontSize: '2.5em', marginBottom: '0.2em' }}>&#128101;</div>
+            <div style={{ marginBottom: '0.2em', display: 'flex', justifyContent: 'center' }}>
+              <Users size={56} color="var(--foe-primary)" strokeWidth={1.5} aria-hidden="true" />
+            </div>
             <h3 style={{ color: 'var(--foe-primary)', fontSize: '0.9em', margin: '0.5em 0' }}>People</h3>
             <p style={{ fontSize: '0.6em', color: 'var(--foe-text-light)', margin: 0 }}>
               Engineers with new skills: IaC, observability, testing mindset
@@ -390,7 +402,9 @@ export function Level4Slides() {
             border: '2px solid var(--foe-feedback)',
             padding: '1.5em'
           }}>
-            <div style={{ fontSize: '2.5em', marginBottom: '0.2em' }}>&#128260;</div>
+            <div style={{ marginBottom: '0.2em', display: 'flex', justifyContent: 'center' }}>
+              <RefreshCw size={56} color="var(--foe-feedback)" strokeWidth={1.5} aria-hidden="true" />
+            </div>
             <h3 style={{ color: 'var(--foe-feedback)', fontSize: '0.9em', margin: '0.5em 0' }}>Process</h3>
             <p style={{ fontSize: '0.6em', color: 'var(--foe-text-light)', margin: 0 }}>
               Continuous Delivery, BDD, trunk-based development
@@ -402,7 +416,9 @@ export function Level4Slides() {
             border: '2px solid var(--foe-confidence)',
             padding: '1.5em'
           }}>
-            <div style={{ fontSize: '2.5em', marginBottom: '0.2em' }}>&#9881;</div>
+            <div style={{ marginBottom: '0.2em', display: 'flex', justifyContent: 'center' }}>
+              <Settings size={56} color="var(--foe-confidence)" strokeWidth={1.5} aria-hidden="true" />
+            </div>
             <h3 style={{ color: 'var(--foe-confidence)', fontSize: '0.9em', margin: '0.5em 0' }}>Technology</h3>
             <p style={{ fontSize: '0.6em', color: 'var(--foe-text-light)', margin: 0 }}>
               Cloud-native platforms, modern toolchains, AI assistance
@@ -445,7 +461,7 @@ export function Level4Slides() {
         <div className="card-grid" style={{ maxWidth: '800px', margin: '0 auto' }}>
           <div className="fragment card" style={{ borderTop: '4px solid var(--foe-feedback)' }}>
             <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5em' }}>
-              <span style={{ fontSize: '1.2em' }}>&#129302;</span>
+              <Bot size={24} color="var(--foe-feedback)" strokeWidth={1.5} aria-hidden="true" />
               Agentic Coding Guide
             </h4>
             <div style={{ 
@@ -478,7 +494,7 @@ export function Level4Slides() {
           
           <div className="fragment card" style={{ borderTop: '4px solid var(--foe-understanding)' }}>
             <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5em' }}>
-              <span style={{ fontSize: '1.2em' }}>&#127959;</span>
+              <Building2 size={24} color="var(--foe-understanding)" strokeWidth={1.5} aria-hidden="true" />
               Architecture Guide
             </h4>
             <div style={{ 
@@ -618,7 +634,9 @@ export function Level4Slides() {
             }}>
               Katalyst Taxonomy
             </div>
-            <div style={{ fontSize: '2em', margin: '0.3em 0' }}>&#128218;</div>
+            <div style={{ margin: '0.3em 0', display: 'flex', justifyContent: 'center' }}>
+              <BookOpen size={40} color="var(--foe-understanding)" strokeWidth={1.5} aria-hidden="true" />
+            </div>
             <div style={{
               background: 'var(--foe-understanding)',
               color: 'white',
@@ -651,7 +669,9 @@ export function Level4Slides() {
             }}>
               Katalyst BDD Test
             </div>
-            <div style={{ fontSize: '2em', margin: '0.3em 0' }}>&#9889;</div>
+            <div style={{ margin: '0.3em 0', display: 'flex', justifyContent: 'center' }}>
+              <Zap size={40} color="var(--foe-feedback)" strokeWidth={1.5} aria-hidden="true" />
+            </div>
             <div style={{
               background: 'var(--foe-feedback)',
               color: 'white',
@@ -684,7 +704,9 @@ export function Level4Slides() {
             }}>
               Katalyst Platform
             </div>
-            <div style={{ fontSize: '2em', margin: '0.3em 0' }}>&#128640;</div>
+            <div style={{ margin: '0.3em 0', display: 'flex', justifyContent: 'center' }}>
+              <Rocket size={40} color="var(--foe-confidence)" strokeWidth={1.5} aria-hidden="true" />
+            </div>
             <div style={{
               background: 'var(--foe-confidence)',
               color: 'white',
