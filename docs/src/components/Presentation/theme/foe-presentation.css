@@ -234,6 +234,7 @@ html[data-theme='dark'] .reveal-viewport {
   margin: var(--space-4) auto;
   border-collapse: collapse;
   width: 100%;
+  table-layout: fixed;
 }
 
 .reveal table th {
