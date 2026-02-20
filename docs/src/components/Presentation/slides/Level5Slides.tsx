@@ -220,64 +220,71 @@ export function Level5Slides() {
 
       {/* Slide 40 - Questions & Discussion */}
       <section>
-        <img 
-          src="/flow-optimized-engineering/img/foe-logo.svg" 
-          alt="FOE Logo"
-          style={{ 
-            width: '80px', 
-            height: '80px', 
-            marginBottom: '1em'
-          }}
-        />
-        
-        <h2 style={{ marginBottom: '1em' }}>Thank You</h2>
-
-        <div style={{ marginBottom: '2em' }}>
-          <p style={{ fontSize: '0.85em', marginBottom: '0.5em' }}>
-            <strong>FOE Documentation</strong>
-          </p>
-          <p style={{ fontSize: '0.75em', color: 'var(--foe-text-light)' }}>
-            <a href="https://foe.esimplicity.dev" style={{ color: 'var(--foe-primary)' }}>
-              foe.esimplicity.dev
-            </a>
-          </p>
-        </div>
-
-        <div className="fragment" style={{ 
-          marginTop: '2em',
-          padding: '1.5em',
-          background: 'rgba(50, 35, 189, 0.05)',
-          borderRadius: '12px',
-          display: 'inline-block'
-        }}>
-          <p style={{ 
-            fontSize: '1.2em', 
-            margin: 0,
-            color: 'var(--foe-primary)',
-            fontWeight: 600
-          }}>
-            Questions?
-          </p>
-        </div>
-
-        {/* QR Code */}
-        <div className="fragment" style={{ 
-          marginTop: '2em'
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '60vh'
         }}>
           <img 
-            src="/flow-optimized-engineering/img/qr-foe-docs.svg" 
-            alt="QR Code for FOE Documentation"
+            src="/flow-optimized-engineering/img/foe-logo.svg" 
+            alt="FOE Logo"
             style={{ 
-              width: '120px', 
-              height: '120px',
-              borderRadius: '8px',
-              background: 'white',
-              padding: '8px'
+              width: '80px', 
+              height: '80px', 
+              marginBottom: '1em'
             }}
           />
-          <p style={{ fontSize: '0.5em', color: 'var(--foe-text-light)', marginTop: '0.5em' }}>
-            Scan for docs
-          </p>
+          
+          <h2 style={{ marginBottom: '1em' }}>Thank You</h2>
+
+          <div style={{ marginBottom: '1.5em' }}>
+            <p style={{ fontSize: '0.85em', marginBottom: '0.5em' }}>
+              <strong>FOE Documentation</strong>
+            </p>
+            <p style={{ fontSize: '0.75em', color: 'var(--foe-text-light)', margin: 0 }}>
+              <a href="https://foe.esimplicity.dev" style={{ color: 'var(--foe-primary)' }}>
+                foe.esimplicity.dev
+              </a>
+            </p>
+          </div>
+
+          <div className="fragment" style={{ 
+            padding: '1.5em 2.5em',
+            background: 'rgba(50, 35, 189, 0.05)',
+            borderRadius: '12px',
+            display: 'inline-block'
+          }}>
+            <p style={{ 
+              fontSize: '1.2em', 
+              margin: 0,
+              color: 'var(--foe-primary)',
+              fontWeight: 600
+            }}>
+              Questions?
+            </p>
+          </div>
+
+          {/* QR Code */}
+          <div className="fragment" style={{ 
+            marginTop: '2em'
+          }}>
+            <img 
+              src="/flow-optimized-engineering/img/qr-foe-docs.svg" 
+              alt="QR Code for FOE Documentation"
+              style={{ 
+                width: '120px', 
+                height: '120px',
+                borderRadius: '8px',
+                background: 'white',
+                padding: '8px'
+              }}
+            />
+            <p style={{ fontSize: '0.5em', color: 'var(--foe-text-light)', marginTop: '0.5em' }}>
+              Scan for docs
+            </p>
+          </div>
         </div>
 
         <aside className="notes">

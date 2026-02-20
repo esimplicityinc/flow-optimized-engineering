@@ -356,7 +356,7 @@ export function Level3Slides() {
       {/* Slide 28 - Evidence Summary */}
       <Slide>
         <h2>Convergent Evidence</h2>
-        <table className="matrix" style={{ marginTop: '1em', fontSize: '0.65em' }}>
+        <table className="matrix" style={{ marginTop: '1em' }}>
           <thead>
             <tr>
               <th style={{ width: '25%' }}>Research</th>

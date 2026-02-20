@@ -67,9 +67,9 @@
   --radius-lg: 16px;
   
   /* Shadows - soft, modern */
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.12);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.1);
+  --shadow-lg: 0 8px 30px rgba(15, 23, 42, 0.14);
 }
 
 /* ==========================================================================
@@ -344,11 +344,12 @@ html[data-theme='dark'] .reveal-viewport {
   box-shadow: var(--shadow-sm);
   text-align: left;
   border: 1px solid var(--foe-bg-muted);
-  transition: box-shadow 150ms ease, transform 150ms ease;
+  transition: box-shadow 200ms ease, transform 200ms ease;
 }
 
 .reveal .card:hover {
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .reveal .card h4 {
@@ -515,7 +516,7 @@ html[data-theme='dark'] .reveal-viewport {
    Animations & Fragments
    ========================================================================== */
 .reveal .fragment {
-  transition: opacity 200ms ease, transform 200ms ease;
+  transition: opacity 300ms ease, transform 300ms ease;
 }
 
 .reveal .fragment.fade-up {
@@ -534,12 +535,13 @@ html[data-theme='dark'] .reveal-viewport {
 .reveal table tr.fragment td {
   border-color: transparent;
   color: transparent;
+  background: transparent;
 }
 
 .reveal table tr.fragment.visible td {
   border-color: var(--foe-bg-muted);
   color: inherit;
-  transition: color 200ms ease, border-color 200ms ease;
+  transition: color 300ms ease, border-color 300ms ease, background 300ms ease;
 }
 
 .reveal table tr.fragment.visible td.level-low {
@@ -607,7 +609,8 @@ html[data-theme='dark'] .reveal-viewport {
   padding: var(--space-6);
   background: var(--foe-bg-subtle);
   border: 2px solid var(--foe-bg-muted);
-  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--foe-primary);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
 }
 
 /* ==========================================================================
@@ -685,8 +688,11 @@ html[data-theme='dark'] .reveal-viewport {
    Matrix Table - Assessment/comparison tables
    ========================================================================== */
 .reveal table.matrix {
-  font-size: 0.65em;
+  font-size: 0.7em;
   width: 100%;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .reveal table.matrix th {
@@ -695,13 +701,14 @@ html[data-theme='dark'] .reveal-viewport {
   padding: var(--space-3) var(--space-4);
   font-weight: 600;
   text-align: left;
+  white-space: nowrap;
 }
 
 .reveal table.matrix td {
   padding: var(--space-3) var(--space-4);
   border-bottom: 1px solid var(--foe-bg-muted);
   color: var(--foe-text-secondary);
-  font-size: 0.9em;
+  font-size: 0.95em;
 }
 
 .reveal table.matrix tr:nth-child(even) {
@@ -712,16 +719,19 @@ html[data-theme='dark'] .reveal-viewport {
 .reveal .level-low {
   color: var(--foe-danger);
   font-weight: 500;
+  background: rgba(239, 68, 68, 0.06);
 }
 
 .reveal .level-mid {
   color: var(--foe-warning);
   font-weight: 500;
+  background: rgba(245, 158, 11, 0.06);
 }
 
 .reveal .level-high {
   color: var(--foe-success);
   font-weight: 500;
+  background: rgba(16, 185, 129, 0.06);
 }
 
 /* ==========================================================================
