@@ -365,41 +365,31 @@ export function Level3Slides() {
             </tr>
           </thead>
           <tbody>
-            <FragmentBlock>
-              <tr>
-                <td style={{ fontWeight: 600 }}>DORA</td>
-                <td>Speed & Stability are correlated</td>
-                <td style={{ color: 'var(--foe-feedback)' }}>Fast Feedback Loops</td>
-              </tr>
-            </FragmentBlock>
-            <FragmentBlock>
-              <tr>
-                <td style={{ fontWeight: 600 }}>Project Aristotle</td>
-                <td>Psychological Safety is #1</td>
-                <td style={{ color: 'var(--foe-confidence)' }}>Confidence to Change</td>
-              </tr>
-            </FragmentBlock>
-            <FragmentBlock>
-              <tr>
-                <td style={{ fontWeight: 600 }}>NUMMI</td>
-                <td>System design determines outcomes</td>
-                <td style={{ color: 'var(--foe-understanding)' }}>Optimize for Understanding</td>
-              </tr>
-            </FragmentBlock>
-            <FragmentBlock>
-              <tr>
-                <td style={{ fontWeight: 600 }}>TDD Studies</td>
-                <td>Early defect detection ROI</td>
-                <td style={{ color: 'var(--foe-feedback)' }}>Fast Feedback Loops</td>
-              </tr>
-            </FragmentBlock>
-            <FragmentBlock>
-              <tr>
-                <td style={{ fontWeight: 600 }}>Prima BDD</td>
-                <td>Confidence enables refactoring</td>
-                <td style={{ color: 'var(--foe-confidence)' }}>Confidence to Change</td>
-              </tr>
-            </FragmentBlock>
+            <tr className="fragment">
+              <td style={{ fontWeight: 600 }}>DORA</td>
+              <td>Speed & Stability are correlated</td>
+              <td style={{ color: 'var(--foe-feedback)' }}>Fast Feedback Loops</td>
+            </tr>
+            <tr className="fragment">
+              <td style={{ fontWeight: 600 }}>Project Aristotle</td>
+              <td>Psychological Safety is #1</td>
+              <td style={{ color: 'var(--foe-confidence)' }}>Confidence to Change</td>
+            </tr>
+            <tr className="fragment">
+              <td style={{ fontWeight: 600 }}>NUMMI</td>
+              <td>System design determines outcomes</td>
+              <td style={{ color: 'var(--foe-understanding)' }}>Optimize for Understanding</td>
+            </tr>
+            <tr className="fragment">
+              <td style={{ fontWeight: 600 }}>TDD Studies</td>
+              <td>Early defect detection ROI</td>
+              <td style={{ color: 'var(--foe-feedback)' }}>Fast Feedback Loops</td>
+            </tr>
+            <tr className="fragment">
+              <td style={{ fontWeight: 600 }}>Prima BDD</td>
+              <td>Confidence enables refactoring</td>
+              <td style={{ color: 'var(--foe-confidence)' }}>Confidence to Change</td>
+            </tr>
           </tbody>
         </table>
         <FragmentBlock>

@@ -24,6 +24,10 @@
   --foe-slate: #334155;          /* Text secondary */
   --foe-slate-light: #64748B;    /* Muted text */
   
+  /* Primary brand color (used in slides for FOE branding) */
+  --foe-primary: #3223BD;        /* FOE brand purple */
+  --foe-primary-dark: #1a1237;   /* Dark gradient end */
+  
   /* Principle Colors - Harmonious triad */
   --foe-understanding: #14B8A6;  /* Teal - slightly more vibrant */
   --foe-feedback: #A78BFA;       /* Violet - modern purple */
@@ -42,6 +46,7 @@
   /* Text */
   --foe-text: #0F172A;           /* Slate 900 */
   --foe-text-secondary: #475569; /* Slate 600 */
+  --foe-text-light: #475569;     /* Alias for text-secondary, used in slides */
   --foe-text-muted: #64748B;     /* Slate 500 */
   
   /* Typography */
@@ -521,6 +526,34 @@ html[data-theme='dark'] .reveal-viewport {
   transform: translateY(0);
 }
 
+/* Table row fragments: fully hide borders/backgrounds until visible */
+.reveal table tr.fragment {
+  border-color: transparent;
+}
+
+.reveal table tr.fragment td {
+  border-color: transparent;
+  color: transparent;
+}
+
+.reveal table tr.fragment.visible td {
+  border-color: var(--foe-bg-muted);
+  color: inherit;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+
+.reveal table tr.fragment.visible td.level-low {
+  color: var(--foe-danger);
+}
+
+.reveal table tr.fragment.visible td.level-mid {
+  color: var(--foe-warning);
+}
+
+.reveal table tr.fragment.visible td.level-high {
+  color: var(--foe-success);
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .reveal .fragment,
@@ -541,6 +574,154 @@ html[data-theme='dark'] .reveal-viewport {
   .reveal .card-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ==========================================================================
+   Layout Utilities - Multi-column layouts
+   ========================================================================== */
+.reveal .two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.reveal .three-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.reveal .comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+/* ==========================================================================
+   Highlight Box - Emphasis container
+   ========================================================================== */
+.reveal .highlight-box {
+  padding: var(--space-6);
+  background: var(--foe-bg-subtle);
+  border: 2px solid var(--foe-bg-muted);
+  border-radius: var(--radius-lg);
+}
+
+/* ==========================================================================
+   Check List & Cross List
+   ========================================================================== */
+.reveal .check-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.reveal .check-list li {
+  position: relative;
+  padding-left: 1.8em;
+  margin-bottom: var(--space-3);
+}
+
+.reveal .check-list li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: var(--foe-success);
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.reveal .check-list.cross-list li::before {
+  content: '\2717';
+  color: var(--foe-danger);
+}
+
+/* ==========================================================================
+   Steps - Ordered steps list
+   ========================================================================== */
+.reveal .steps {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: step-counter;
+}
+
+.reveal .steps li {
+  position: relative;
+  padding-left: 3em;
+  margin-bottom: var(--space-6);
+  counter-increment: step-counter;
+}
+
+.reveal .steps li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background: var(--foe-primary);
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85em;
+}
+
+/* ==========================================================================
+   Big Number - Large display stat
+   ========================================================================== */
+.reveal .big-number {
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--foe-primary);
+}
+
+/* ==========================================================================
+   Matrix Table - Assessment/comparison tables
+   ========================================================================== */
+.reveal table.matrix {
+  font-size: 0.65em;
+  width: 100%;
+}
+
+.reveal table.matrix th {
+  background: var(--foe-navy);
+  color: white;
+  padding: var(--space-3) var(--space-4);
+  font-weight: 600;
+  text-align: left;
+}
+
+.reveal table.matrix td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--foe-bg-muted);
+  color: var(--foe-text-secondary);
+  font-size: 0.9em;
+}
+
+.reveal table.matrix tr:nth-child(even) {
+  background: var(--foe-bg-subtle);
+}
+
+/* Level indicator cells for assessment tables */
+.reveal .level-low {
+  color: var(--foe-danger);
+  font-weight: 500;
+}
+
+.reveal .level-mid {
+  color: var(--foe-warning);
+  font-weight: 500;
+}
+
+.reveal .level-high {
+  color: var(--foe-success);
+  font-weight: 500;
 }
 
 /* ==========================================================================
