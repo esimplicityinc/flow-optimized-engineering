@@ -6,6 +6,10 @@ title: "Understanding-First Protocol Adoption"
 maturity: observing
 observations:
   - internal/O102-prima-oss-fork-strategy
+  - O210
+  - O212
+  - O214
+  - O216
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';

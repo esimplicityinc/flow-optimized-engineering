@@ -9,15 +9,6 @@ adopted_methods:
   - framework: dora
     method: lead-time-for-changes
     foe_maturity: hypothesized
-  - framework: bdd
-    method: given-when-then
-    foe_maturity: hypothesized
-  - framework: bdd
-    method: executable-specifications
-    foe_maturity: hypothesized
-  - framework: bdd
-    method: gherkin
-    foe_maturity: hypothesized
   - framework: team-topologies
     method: fast-flow
     foe_maturity: hypothesized
@@ -26,9 +17,6 @@ adopted_methods:
     foe_maturity: hypothesized
   - framework: team-topologies
     method: team-cognitive-load
-    foe_maturity: hypothesized
-  - framework: continuous-delivery
-    method: deployment-pipeline
     foe_maturity: hypothesized
   - framework: continuous-delivery
     method: trunk-based-development
@@ -85,7 +73,7 @@ Agentic coding - working with AI coding assistants - changes how we write softwa
       id: 'M155',
       slug: 'verification-before-completion', 
       title: 'Verification Before Completion', 
-      maturity: 'hypothesized',
+      maturity: 'observing',
       description: 'Never claim work is complete without running verification commands',
     },
     { 

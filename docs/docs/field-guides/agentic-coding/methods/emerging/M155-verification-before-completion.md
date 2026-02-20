@@ -3,8 +3,13 @@ methodId: M155
 displayed_sidebar: fieldGuideSidebar
 sidebar_position: 4
 title: "Verification Before Completion"
-maturity: hypothesized
-observations: []
+maturity: observing
+observations:
+  - O210
+  - O211
+  - O212
+  - O215
+  - O216
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
