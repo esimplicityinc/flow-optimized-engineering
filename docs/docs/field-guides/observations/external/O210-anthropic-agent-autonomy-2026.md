@@ -67,7 +67,7 @@ The researchers hypothesized that agent autonomy is not a fixed property of the 
 
 | Finding | Result |
 |---------|--------|
-| 99.9th percentile autonomous turn duration | Nearly doubled from <25 min to >45 min in 3 months |
+| 99.9th percentile autonomous turn duration | Nearly doubled from &lt;25 min to &gt;45 min in 3 months |
 | Tool calls with human-in-the-loop | 73% |
 | Irreversible actions | Only 0.8% of all actions |
 | Experienced user auto-approve rate | 40%+ of sessions |
@@ -76,7 +76,7 @@ The researchers hypothesized that agent autonomy is not a fixed property of the 
 | Internal success rate on hardest tasks | Doubled over study period |
 | Average human interventions per session | Dropped from 5.4 to 3.3 |
 | Software engineering share of agentic API activity | ~50% |
-| Agent-initiated clarification vs human interruption | Agent asks >2x more often on complex tasks |
+| Agent-initiated clarification vs human interruption | Agent asks &gt;2x more often on complex tasks |
 
 ### Major Conclusions
 

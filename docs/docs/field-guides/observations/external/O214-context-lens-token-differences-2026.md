@@ -157,7 +157,7 @@ The 15x token difference on identical tasks should reduce confidence in any sing
 
 | FOE Principle | Application |
 |--------------|-------------|
-| **Understanding** | Investigation strategy determines how well the model understands the code; surgical > brute-force |
+| **Understanding** | Investigation strategy determines how well the model understands the code; surgical beats brute-force |
 | **Fast Feedback** | No context management = no feedback on investigation quality; context visibility enables optimization |
 | **Confidence** | Understanding context composition enables informed tool selection and configuration |
 
