@@ -37,6 +37,8 @@ import {
   ChevronRight,
   Terminal,
   CircleDot,
+  Network,
+  ScrollText,
 } from 'lucide-react';
 
 /**
@@ -1089,6 +1091,293 @@ function GettingStartedSlide() {
 }
 
 /**
+ * Slide: Katalyst Domain Mapper — Collaboration Tool (No AI)
+ * Introduces Katalyst as a non-AI collaboration platform for teams to
+ * input, visualize, and share their domain model. Uses a real government
+ * example (VA Benefits) with an inline SVG bounded context map illustration.
+ * Positioned before the AI-powered slide to establish the "start here" narrative.
+ */
+function KatalystCollaborationSlide() {
+  const stakeholders = [
+    { icon: ScrollText, role: 'Policy Experts', action: 'Define business rules in plain language', color: colors.teal },
+    { icon: Code2, role: 'Engineers', action: 'Connect rules to system behavior', color: colors.violet },
+    { icon: Target, role: 'Program Managers', action: 'See mission coverage at a glance', color: colors.blue },
+  ];
+
+  return (
+    <section>
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: sp[4], marginBottom: sp[3], textAlign: 'left' }}>
+        <img 
+          src="/flow-optimized-engineering/img/katalyst-logo.png" 
+          alt="Katalyst"
+          style={{ width: '72px', height: '72px', borderRadius: '14px' }}
+        />
+        <div>
+          <h2 style={{ ...font.h1, color: colors.gray900, margin: 0 }}>
+            What Does a Domain Model Actually Look Like?
+          </h2>
+          <p style={{ ...font.small, color: colors.gray600, margin: `${sp[1]} 0 0 0` }}>
+            Katalyst Domain Mapper — your team's shared language, in one place
+          </p>
+        </div>
+      </div>
+
+      {/* Fragment 1: SVG Bounded Context Map illustration */}
+      <div className="fragment" style={{
+        background: colors.white,
+        borderRadius: '12px',
+        border: `1px solid ${colors.gray200}`,
+        boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+        padding: `${sp[3]} ${sp[4]}`,
+        marginBottom: sp[3],
+        position: 'relative',
+      }}>
+        {/* Label */}
+        <div style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: sp[2], 
+          marginBottom: sp[2],
+        }}>
+          <Network size={16} color={colors.gray500} />
+          <span style={{ ...font.tiny, fontWeight: 700, color: colors.gray500, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            Example: VA Benefits Domain Model
+          </span>
+        </div>
+
+        {/* Inline SVG — Bounded Context Map */}
+        <svg
+          viewBox="0 0 1060 300"
+          style={{ width: '100%', height: 'auto', display: 'block' }}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            {/* Subtle drop shadow for context boxes */}
+            <filter id="ctx-shadow" x="-4%" y="-4%" width="108%" height="112%">
+              <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#000" floodOpacity="0.08" />
+            </filter>
+          </defs>
+
+          {/* ──── Relationship lines (drawn first, behind boxes) ──── */}
+          {/* Claims ←→ Enrollment */}
+          <path d="M 300 155 C 320 155, 380 155, 400 155" stroke={colors.gray300} strokeWidth="2" fill="none" strokeDasharray="6 4" />
+          {/* Enrollment ←→ Appeals */}
+          <path d="M 680 155 C 700 155, 760 155, 780 155" stroke={colors.gray300} strokeWidth="2" fill="none" strokeDasharray="6 4" />
+          {/* Claims → Appeals (curved bottom connection) */}
+          <path d="M 160 265 C 160 295, 530 300, 900 265" stroke={colors.gray300} strokeWidth="2" fill="none" strokeDasharray="6 4" />
+
+          {/* ──── Animated data dots traveling along connections ──── */}
+          {/* Claims → Enrollment */}
+          <circle r="4" fill={colors.teal} opacity="0">
+            <animateMotion dur="2.5s" repeatCount="indefinite" path="M 300 155 C 320 155, 380 155, 400 155" />
+            <animate attributeName="opacity" dur="2.5s" repeatCount="indefinite" values="0;0.85;0.85;0;0" keyTimes="0;0.1;0.7;0.9;1" />
+          </circle>
+          {/* Enrollment → Appeals */}
+          <circle r="4" fill={colors.violet} opacity="0">
+            <animateMotion dur="2.2s" begin="0.8s" repeatCount="indefinite" path="M 680 155 C 700 155, 760 155, 780 155" />
+            <animate attributeName="opacity" dur="2.2s" begin="0.8s" repeatCount="indefinite" values="0;0.85;0.85;0;0" keyTimes="0;0.1;0.7;0.9;1" />
+          </circle>
+          {/* Claims → Appeals (bottom arc) */}
+          <circle r="3.5" fill={colors.blue} opacity="0">
+            <animateMotion dur="4s" begin="1.5s" repeatCount="indefinite" path="M 160 265 C 160 295, 530 300, 900 265" />
+            <animate attributeName="opacity" dur="4s" begin="1.5s" repeatCount="indefinite" values="0;0.65;0.65;0;0" keyTimes="0;0.1;0.7;0.9;1" />
+          </circle>
+
+          {/* ──── Relationship labels on connection lines ──── */}
+          {/* Claims ↔ Enrollment label */}
+          <rect x="306" y="134" width="88" height="20" rx="10" fill={colors.tealLight} stroke={`${colors.teal}40`} strokeWidth="1" />
+          <text x="350" y="148" textAnchor="middle" fontSize="10" fontWeight="600" fill={colors.teal} fontFamily="system-ui, sans-serif">
+            Veteran Filed
+          </text>
+          {/* Enrollment ↔ Appeals label */}
+          <rect x="695" y="134" width="70" height="20" rx="10" fill={colors.violetLight} stroke={`${colors.violet}40`} strokeWidth="1" />
+          <text x="730" y="148" textAnchor="middle" fontSize="10" fontWeight="600" fill={colors.violet} fontFamily="system-ui, sans-serif">
+            Disputed
+          </text>
+          {/* Bottom arc label */}
+          <rect x="475" y="274" width="110" height="20" rx="10" fill={colors.blueLight} stroke={`${colors.blue}40`} strokeWidth="1" />
+          <text x="530" y="288" textAnchor="middle" fontSize="10" fontWeight="600" fill={colors.blue} fontFamily="system-ui, sans-serif">
+            Appeal Resolved
+          </text>
+
+          {/* ──── Context Box 1: Claims Processing ──── */}
+          <g filter="url(#ctx-shadow)">
+            <rect x="20" y="40" width="280" height="225" rx="12" fill={colors.white} stroke={colors.teal} strokeWidth="2.5" />
+            {/* Header bar */}
+            <rect x="20" y="40" width="280" height="42" rx="12" fill={colors.teal} />
+            <rect x="20" y="70" width="280" height="12" fill={colors.teal} />
+            {/* Icon */}
+            <circle cx="46" cy="61" r="12" fill="rgba(255,255,255,0.2)" />
+            <text x="46" y="66" textAnchor="middle" fontSize="14" fill={colors.white}>&#x1F4CB;</text>
+            {/* Title */}
+            <text x="66" y="66" fontSize="15" fontWeight="700" fill={colors.white} fontFamily="system-ui, sans-serif">
+              Claims Processing
+            </text>
+            {/* Vocabulary section */}
+            <text x="36" y="104" fontSize="9" fontWeight="700" fill={colors.gray500} fontFamily="system-ui, sans-serif" letterSpacing="0.08em">
+              SHARED VOCABULARY
+            </text>
+            <rect x="36" y="112" width="118" height="20" rx="10" fill={colors.tealLight} stroke={`${colors.teal}30`} strokeWidth="1" />
+            <text x="95" y="126" textAnchor="middle" fontSize="10" fill={colors.gray800} fontFamily="system-ui, sans-serif">Service-Connected</text>
+            <rect x="162" y="112" width="115" height="20" rx="10" fill={colors.tealLight} stroke={`${colors.teal}30`} strokeWidth="1" />
+            <text x="219" y="126" textAnchor="middle" fontSize="10" fill={colors.gray800} fontFamily="system-ui, sans-serif">Rating Decision</text>
+            {/* Rules section */}
+            <text x="36" y="155" fontSize="9" fontWeight="700" fill={colors.gray500} fontFamily="system-ui, sans-serif" letterSpacing="0.08em">
+              BUSINESS RULES
+            </text>
+            <circle cx="43" cy="172" r="5" fill={`${colors.teal}20`} />
+            <text x="43" y="175" textAnchor="middle" fontSize="8" fill={colors.teal}>&#x2713;</text>
+            <text x="54" y="176" fontSize="10.5" fill={colors.gray700} fontFamily="system-ui, sans-serif">Verify service connection</text>
+            <circle cx="43" cy="194" r="5" fill={`${colors.teal}20`} />
+            <text x="43" y="197" textAnchor="middle" fontSize="8" fill={colors.teal}>&#x2713;</text>
+            <text x="54" y="198" fontSize="10.5" fill={colors.gray700} fontFamily="system-ui, sans-serif">Calculate disability rating</text>
+            <circle cx="43" cy="216" r="5" fill={`${colors.teal}20`} />
+            <text x="43" y="219" textAnchor="middle" fontSize="8" fill={colors.teal}>&#x2713;</text>
+            <text x="54" y="220" fontSize="10.5" fill={colors.gray700} fontFamily="system-ui, sans-serif">Validate supporting evidence</text>
+          </g>
+
+          {/* ──── Context Box 2: Enrollment ──── */}
+          <g filter="url(#ctx-shadow)">
+            <rect x="400" y="40" width="280" height="225" rx="12" fill={colors.white} stroke={colors.violet} strokeWidth="2.5" />
+            {/* Header bar */}
+            <rect x="400" y="40" width="280" height="42" rx="12" fill={colors.violet} />
+            <rect x="400" y="70" width="280" height="12" fill={colors.violet} />
+            {/* Icon */}
+            <circle cx="426" cy="61" r="12" fill="rgba(255,255,255,0.2)" />
+            <text x="426" y="66" textAnchor="middle" fontSize="14" fill={colors.white}>&#x1F4DD;</text>
+            {/* Title */}
+            <text x="446" y="66" fontSize="15" fontWeight="700" fill={colors.white} fontFamily="system-ui, sans-serif">
+              Enrollment
+            </text>
+            {/* Vocabulary section */}
+            <text x="416" y="104" fontSize="9" fontWeight="700" fill={colors.gray500} fontFamily="system-ui, sans-serif" letterSpacing="0.08em">
+              SHARED VOCABULARY
+            </text>
+            <rect x="416" y="112" width="100" height="20" rx="10" fill={colors.violetLight} stroke={`${colors.violet}30`} strokeWidth="1" />
+            <text x="466" y="126" textAnchor="middle" fontSize="10" fill={colors.gray800} fontFamily="system-ui, sans-serif">Effective Date</text>
+            <rect x="524" y="112" width="105" height="20" rx="10" fill={colors.violetLight} stroke={`${colors.violet}30`} strokeWidth="1" />
+            <text x="576" y="126" textAnchor="middle" fontSize="10" fill={colors.gray800} fontFamily="system-ui, sans-serif">Priority Group</text>
+            {/* Rules section */}
+            <text x="416" y="155" fontSize="9" fontWeight="700" fill={colors.gray500} fontFamily="system-ui, sans-serif" letterSpacing="0.08em">
+              BUSINESS RULES
+            </text>
+            <circle cx="423" cy="172" r="5" fill={`${colors.violet}20`} />
+            <text x="423" y="175" textAnchor="middle" fontSize="8" fill={colors.violet}>&#x2713;</text>
+            <text x="434" y="176" fontSize="10.5" fill={colors.gray700} fontFamily="system-ui, sans-serif">Check eligibility period</text>
+            <circle cx="423" cy="194" r="5" fill={`${colors.violet}20`} />
+            <text x="423" y="197" textAnchor="middle" fontSize="8" fill={colors.violet}>&#x2713;</text>
+            <text x="434" y="198" fontSize="10.5" fill={colors.gray700} fontFamily="system-ui, sans-serif">Validate discharge status</text>
+            <circle cx="423" cy="216" r="5" fill={`${colors.violet}20`} />
+            <text x="423" y="219" textAnchor="middle" fontSize="8" fill={colors.violet}>&#x2713;</text>
+            <text x="434" y="220" fontSize="10.5" fill={colors.gray700} fontFamily="system-ui, sans-serif">Assign priority group</text>
+          </g>
+
+          {/* ──── Context Box 3: Appeals ──── */}
+          <g filter="url(#ctx-shadow)">
+            <rect x="780" y="40" width="260" height="225" rx="12" fill={colors.white} stroke={colors.blue} strokeWidth="2.5" />
+            {/* Header bar */}
+            <rect x="780" y="40" width="260" height="42" rx="12" fill={colors.blue} />
+            <rect x="780" y="70" width="260" height="12" fill={colors.blue} />
+            {/* Icon */}
+            <circle cx="806" cy="61" r="12" fill="rgba(255,255,255,0.2)" />
+            <text x="806" y="66" textAnchor="middle" fontSize="14" fill={colors.white}>&#x2696;</text>
+            {/* Title */}
+            <text x="826" y="66" fontSize="15" fontWeight="700" fill={colors.white} fontFamily="system-ui, sans-serif">
+              Appeals
+            </text>
+            {/* Vocabulary section */}
+            <text x="796" y="104" fontSize="9" fontWeight="700" fill={colors.gray500} fontFamily="system-ui, sans-serif" letterSpacing="0.08em">
+              SHARED VOCABULARY
+            </text>
+            <rect x="796" y="112" width="95" height="20" rx="10" fill={colors.blueLight} stroke={`${colors.blue}30`} strokeWidth="1" />
+            <text x="843" y="126" textAnchor="middle" fontSize="10" fill={colors.gray800} fontFamily="system-ui, sans-serif">Disagreement</text>
+            <rect x="899" y="112" width="110" height="20" rx="10" fill={colors.blueLight} stroke={`${colors.blue}30`} strokeWidth="1" />
+            <text x="954" y="126" textAnchor="middle" fontSize="10" fill={colors.gray800} fontFamily="system-ui, sans-serif">Board Review</text>
+            {/* Rules section */}
+            <text x="796" y="155" fontSize="9" fontWeight="700" fill={colors.gray500} fontFamily="system-ui, sans-serif" letterSpacing="0.08em">
+              BUSINESS RULES
+            </text>
+            <circle cx="803" cy="172" r="5" fill={`${colors.blue}20`} />
+            <text x="803" y="175" textAnchor="middle" fontSize="8" fill={colors.blue}>&#x2713;</text>
+            <text x="814" y="176" fontSize="10.5" fill={colors.gray700} fontFamily="system-ui, sans-serif">Track filing deadlines</text>
+            <circle cx="803" cy="194" r="5" fill={`${colors.blue}20`} />
+            <text x="803" y="197" textAnchor="middle" fontSize="8" fill={colors.blue}>&#x2713;</text>
+            <text x="814" y="198" fontSize="10.5" fill={colors.gray700} fontFamily="system-ui, sans-serif">Route by appeal type</text>
+            <circle cx="803" cy="216" r="5" fill={`${colors.blue}20`} />
+            <text x="803" y="219" textAnchor="middle" fontSize="8" fill={colors.blue}>&#x2713;</text>
+            <text x="814" y="220" fontSize="10.5" fill={colors.gray700} fontFamily="system-ui, sans-serif">Enforce review timeline</text>
+          </g>
+        </svg>
+      </div>
+
+      {/* Fragment 2: Who contributes — stakeholder collaboration strip */}
+      <div className="fragment" style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gap: sp[3],
+        marginBottom: sp[3],
+        textAlign: 'left',
+      }}>
+        {stakeholders.map((s, idx) => (
+          <div key={idx} style={{
+            padding: sp[3],
+            background: colors.white,
+            borderRadius: '8px',
+            border: `1px solid ${colors.gray200}`,
+            borderLeft: `4px solid ${s.color}`,
+            display: 'flex',
+            alignItems: 'center',
+            gap: sp[3],
+          }}>
+            <div style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              background: `${s.color}15`,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
+            }}>
+              <s.icon size={20} color={s.color} />
+            </div>
+            <div>
+              <div style={{ ...font.small, fontWeight: 700, color: colors.gray900 }}>{s.role}</div>
+              <div style={{ ...font.tiny, color: colors.gray600 }}>{s.action}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Fragment 3: Transition hook to AI slide */}
+      <div className="fragment" style={{
+        padding: sp[3],
+        background: colors.black,
+        borderRadius: '8px',
+        textAlign: 'center',
+      }}>
+        <p style={{ ...font.body, color: colors.white, margin: 0 }}>
+          Start by mapping what your team already knows.{' '}
+          <strong style={{ color: colors.teal }}>AI can accelerate this</strong> — but the collaboration is the foundation.
+        </p>
+      </div>
+
+      <aside className="notes">
+        Before we talk about AI, let's look at what a domain model actually is.
+        It's not a technical artifact — it's a shared picture of how your mission works.
+        Here we see a VA Benefits example: three mission areas — Claims, Enrollment, Appeals —
+        each with shared vocabulary and business rules that everyone agrees on.
+        The connecting lines show how work flows between areas — a veteran files, a claim is
+        disputed, an appeal is resolved. Katalyst gives every stakeholder a single place to
+        capture and view this. No AI required. The tool itself is valuable as a collaboration
+        platform. The AI capabilities we'll see next build on this foundation.
+      </aside>
+    </section>
+  );
+}
+
+/**
  * Slide: Katalyst Domain Mapper
  * Positioned after Coherence Gap — introduces the tool that makes coherence achievable
  */
@@ -1947,6 +2236,7 @@ export function GovMissionSlides() {
       <RealExamplesSlide />
       <MissionContinuitySlide />
       <CoherenceGapSlide />
+      <KatalystCollaborationSlide />
       <KatalystDomainMapperSlide />
       <KatalystOwnershipSlide />
       <DomainModelFutureSlide />
@@ -1968,6 +2258,7 @@ export {
   RealExamplesSlide,
   MissionContinuitySlide,
   CoherenceGapSlide,
+  KatalystCollaborationSlide,
   KatalystDomainMapperSlide,
   KatalystOwnershipSlide,
   DomainModelFutureSlide,
