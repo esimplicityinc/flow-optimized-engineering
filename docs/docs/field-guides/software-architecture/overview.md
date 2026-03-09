@@ -85,10 +85,45 @@ adopted_methods:
 
 import GuideMaturitySummary from '@site/src/components/GuideMaturitySummary';
 import MethodList from '@site/src/components/MethodList';
+import MethodMaturityTable from '@site/src/components/MethodMaturityTable';
 
 # Software Architecture
 
 A collection of flow-optimized methods for internal code design, data architecture, and architecture decision-making.
+
+## Methods at a Glance
+
+<MethodMaturityTable
+  guideId="software-architecture"
+  methods={[
+    { id: 'M209', title: 'Layer Responsibility Definition', maturity: 'validated', slug: 'layer-responsibility-definition', framework: 'layered-architecture', frameworkTitle: 'Layered Architecture', description: 'Assigning clear responsibilities to each architectural layer' },
+    { id: 'M210', title: 'Dependency Direction Enforcement', maturity: 'validated', slug: 'dependency-direction-enforcement', framework: 'layered-architecture', frameworkTitle: 'Layered Architecture', description: 'Ensuring dependencies only point inward toward the domain' },
+    { id: 'M211', title: 'Inter-Layer Interface Design', maturity: 'validated', slug: 'inter-layer-interface-design', framework: 'layered-architecture', frameworkTitle: 'Layered Architecture', description: 'Defining contracts between layers' },
+    { id: 'M212', title: 'Data Transfer Object Pattern', maturity: 'validated', slug: 'data-transfer-object-pattern', framework: 'layered-architecture', frameworkTitle: 'Layered Architecture', description: 'Managing data flow between layers without exposing domain internals' },
+    { id: 'M213', title: 'Repository Pattern', maturity: 'validated', slug: 'repository-pattern', framework: 'layered-architecture', frameworkTitle: 'Layered Architecture', description: 'Abstracting data access within the persistence layer' },
+    { id: 'M214', title: 'Service Layer Pattern', maturity: 'validated', slug: 'service-layer-pattern', framework: 'layered-architecture', frameworkTitle: 'Layered Architecture', description: 'Orchestrating business logic operations' },
+    { id: 'M215', title: 'Layer Isolation Testing', maturity: 'validated', slug: 'layer-isolation-testing', framework: 'layered-architecture', frameworkTitle: 'Layered Architecture', description: 'Unit testing within layer boundaries' },
+    { id: 'M103', title: 'Bounded Context', maturity: 'hypothesized', slug: 'bounded-context', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'A boundary within which a domain model is defined and applicable' },
+    { id: 'M108', title: 'Context Mapping', maturity: 'hypothesized', slug: 'context-mapping', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'Documenting relationships between bounded contexts' },
+    { id: 'M134', title: 'Subdomains', maturity: 'hypothesized', slug: 'subdomains', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'Categorizing domain areas by strategic importance' },
+    { id: 'M100', title: 'Aggregate', maturity: 'hypothesized', slug: 'aggregate', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'A cluster of objects treated as a single unit for data changes' },
+    { id: 'M119', title: 'Entity', maturity: 'hypothesized', slug: 'entity', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'Objects defined by identity rather than attributes' },
+    { id: 'M143', title: 'Value Object', maturity: 'hypothesized', slug: 'value-object', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'Immutable objects defined by their attributes' },
+    { id: 'M132', title: 'Repository', maturity: 'hypothesized', slug: 'repository', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'Collection-like interface for accessing aggregates' },
+    { id: 'M101', title: 'Application Service', maturity: 'hypothesized', slug: 'application-service', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'Use case orchestration coordinating domain objects' },
+    { id: 'M117', title: 'Domain Service', maturity: 'hypothesized', slug: 'domain-service', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'Stateless operations representing domain concepts' },
+    { id: 'M116', title: 'Domain Event', maturity: 'hypothesized', slug: 'domain-event', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'A record of something significant that happened in the domain' },
+    { id: 'M240', title: 'Domain Event Modeling', maturity: 'hypothesized', slug: 'domain-event-modeling', framework: 'event-sourcing', frameworkTitle: 'Event Sourcing', description: 'Modeling business activities as discrete events' },
+    { id: 'M241', title: 'Event Stream Storage', maturity: 'hypothesized', slug: 'event-stream-storage', framework: 'event-sourcing', frameworkTitle: 'Event Sourcing', description: 'Storing events in append-only, ordered streams per aggregate' },
+    { id: 'M242', title: 'State Reconstruction', maturity: 'hypothesized', slug: 'state-reconstruction', framework: 'event-sourcing', frameworkTitle: 'Event Sourcing', description: 'Rebuilding entity state by replaying events' },
+    { id: 'M243', title: 'Projection Building', maturity: 'hypothesized', slug: 'projection-building', framework: 'event-sourcing', frameworkTitle: 'Event Sourcing', description: 'Creating read-optimized views from event streams' },
+    { id: 'M244', title: 'Snapshotting', maturity: 'hypothesized', slug: 'snapshotting', framework: 'event-sourcing', frameworkTitle: 'Event Sourcing', description: 'Periodic state snapshots to optimize reconstruction performance' },
+    { id: 'M245', title: 'Event Versioning', maturity: 'hypothesized', slug: 'event-versioning', framework: 'event-sourcing', frameworkTitle: 'Event Sourcing', description: 'Managing schema evolution of events over time' },
+    { id: 'M246', title: 'Temporal Queries', maturity: 'hypothesized', slug: 'temporal-queries', framework: 'event-sourcing', frameworkTitle: 'Event Sourcing', description: 'Querying state at any point in time' },
+    { id: 'M247', title: 'Event Replay', maturity: 'hypothesized', slug: 'event-replay', framework: 'event-sourcing', frameworkTitle: 'Event Sourcing', description: 'Reprocessing events for debugging, testing, or migration' },
+    { id: 'M248', title: 'CQRS Integration', maturity: 'hypothesized', slug: 'cqrs-integration', framework: 'event-sourcing', frameworkTitle: 'Event Sourcing', description: 'Separating command and query responsibilities' },
+  ]}
+/>
 
 ## What This Guide Covers
 

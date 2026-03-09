@@ -6,10 +6,30 @@ title: System Architecture
 
 import GuideMaturitySummary from '@site/src/components/GuideMaturitySummary';
 import MethodList from '@site/src/components/MethodList';
+import MethodMaturityTable from '@site/src/components/MethodMaturityTable';
 
 # System Architecture
 
 A collection of flow-optimized methods for making structural decisions about distributed systems and service organization.
+
+## Methods at a Glance
+
+<MethodMaturityTable
+  guideId="system-architecture"
+  methods={[
+    { id: 'M153', title: 'True Microservices', maturity: 'validated', slug: 'true-microservices', description: 'Design service architectures that enable independent team deployment' },
+    { id: 'M145', title: 'Consumer Contract Testing', maturity: 'validated', slug: 'consumer-contract-testing', description: 'Validate service integration points through consumer-driven contracts' },
+    { id: 'M151', title: 'System Over Individuals', maturity: 'observing', slug: 'system-over-individuals', description: 'Optimize the system before blaming the people' },
+    { id: 'M150', title: 'Service Boundary Extraction', maturity: 'hypothesized', slug: 'service-boundary-extraction', description: 'Extract components with natural boundaries to dedicated containers' },
+    { id: 'M115', title: 'Discovery Workshops', maturity: 'hypothesized', framework: 'bdd', frameworkTitle: 'BDD', description: 'Collaborative sessions to explore and understand domain requirements', href: '/docs/external-frameworks/bdd/methods/M115-discovery-workshops' },
+    { id: 'M138', title: 'Three Amigos', maturity: 'hypothesized', framework: 'bdd', frameworkTitle: 'BDD', description: 'Cross-functional conversation between business, development, and testing', href: '/docs/external-frameworks/bdd/methods/M138-three-amigos' },
+    { id: 'M120', title: 'Example Mapping', maturity: 'hypothesized', framework: 'bdd', frameworkTitle: 'BDD', description: 'Structured technique for breaking stories into rules and examples', href: '/docs/external-frameworks/bdd/methods/M120-example-mapping' },
+    { id: 'M114', title: 'Discover Phase', maturity: 'hypothesized', framework: 'double-diamond', frameworkTitle: 'Double Diamond', description: 'Divergent exploration to understand the problem space', href: '/docs/external-frameworks/double-diamond/methods/M114-discover-phase' },
+    { id: 'M109', title: 'Define Phase', maturity: 'hypothesized', framework: 'double-diamond', frameworkTitle: 'Double Diamond', description: 'Convergent synthesis to frame the right problem', href: '/docs/external-frameworks/double-diamond/methods/M109-define-phase' },
+    { id: 'M113', title: 'Develop Phase', maturity: 'hypothesized', framework: 'double-diamond', frameworkTitle: 'Double Diamond', description: 'Divergent ideation to explore potential solutions', href: '/docs/external-frameworks/double-diamond/methods/M113-develop-phase' },
+    { id: 'M110', title: 'Deliver Phase', maturity: 'hypothesized', framework: 'double-diamond', frameworkTitle: 'Double Diamond', description: 'Convergent refinement to ship a tested solution', href: '/docs/external-frameworks/double-diamond/methods/M110-deliver-phase' },
+  ]}
+/>
 
 ## What This Guide Covers
 
