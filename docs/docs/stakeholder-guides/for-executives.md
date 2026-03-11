@@ -45,21 +45,21 @@ Organizations that haven't invested in engineering coherence face these pressure
 
 ## The Business Case
 
-FOE investments compound over time. Early investments in platforms, practices, and institutional knowledge create leverage that accelerates future delivery.
+FOE investments compound. Early investments in platforms, practices, and institutional knowledge create leverage that accelerates every future delivery.
 
-### Near-Term Returns (6-12 months)
-- Reduced onboarding time for new team members
+### Immediate Returns
+- Faster onboarding for new team members
 - Fewer production incidents requiring emergency response
-- More predictable sprint completion rates
+- More predictable delivery cadence
 
-### Medium-Term Returns (1-2 years)
-- Lower cost to start new contracts (reusable platforms and practices)
-- Better talent retention (engineers prefer environments with good tooling)
-- Stronger competitive position in recompetes
+### Compounding Returns
+- Lower cost to launch new engagements through reusable platforms
+- Stronger talent retention from better engineering environments
+- Improved competitive positioning
 
-### Long-Term Returns (2+ years)
-- Institutional knowledge that survives individual departures
-- Compounding efficiency gains from platform investments
+### Enduring Returns
+- Institutional knowledge that outlasts individual contributors
+- Accelerating efficiency from sustained platform investment
 - Reputation as a mature, reliable delivery partner
 
 ## Key Metrics for Executives
