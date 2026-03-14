@@ -24,7 +24,7 @@ Two complementary patterns emerged independently in the same 22-day period: agen
 ## Context
 
 **Environment:**
-- **Simon Scrapes:** YouTube tutorial demonstrating self-improving agent skills via binary assertion testing (17K views in <1 day, published ~March 2026)
+- **Simon Scrapes:** YouTube tutorial demonstrating self-improving agent skills via binary assertion testing (17K views in &lt;1 day, published ~March 2026)
 - **Karpathy autoresearch:** GitHub repository for autonomous ML research agents (33,544 stars in 8 days, published ~March 2026)
 - **Nick Saraev integration:** YouTube video combining autoresearch with Claude Code (63K views in 1 day — fastest velocity in the YouTube dataset for the period)
 - **Ecosystem context:** Claude Code Skills 2.0 shipped during the same period, enabling improved skill testing and self-improvement capabilities
@@ -68,7 +68,7 @@ The implicit hypothesis behind self-improving agent skills is that the TDD cycle
 | Finding | Result |
 |---------|--------|
 | Karpathy autoresearch stars | 33,544 in 8 days |
-| Simon Scrapes video views | 17K in <1 day |
+| Simon Scrapes video views | 17K in &lt;1 day |
 | Nick Saraev integration views | 63K in 1 day (fastest velocity in dataset) |
 | Claude Code releases in period | 21 (including Skills 2.0) |
 | Independent implementations | 2 (binary assertion testing + autoresearch) |
@@ -116,7 +116,7 @@ Binary assertions provide high confidence in individual skill behaviors (each as
 - **YouTube views measure interest, not adoption:** 50K+ combined views prove the concept resonates but don't prove practitioners are successfully deploying self-improving skills in production
 - **Binary assertion coverage is unverified:** The demonstrations showed assertions working for specific skills; whether binary assertions can cover the full range of agent skill behaviors is unknown
 - **Safety implications unexplored:** Agents modifying their own capabilities raises safety questions (capability drift, unexpected emergent behaviors) that neither demonstration addressed
-- **Short observation window:** 8 days of star growth and <1 day of view velocity may represent novelty spikes rather than sustained adoption
+- **Short observation window:** 8 days of star growth and &lt;1 day of view velocity may represent novelty spikes rather than sustained adoption
 - **No comparison baseline:** No data comparing self-improved skills to human-improved skills for the same tasks
 
 ## Conclusion
@@ -160,7 +160,7 @@ This observation supports **M152: Test-Driven Agent Development** by extending T
 
 ## References
 
-- Simon Scrapes: Self-improving agent skills tutorial (YouTube, 17K views in <1 day, ~March 2026)
+- Simon Scrapes: Self-improving agent skills tutorial (YouTube, 17K views in &lt;1 day, ~March 2026)
 - Karpathy, A.: autoresearch — autonomous ML research agents (GitHub, 33,544 stars in 8 days, ~March 2026), https://github.com/karpathy/autoresearch
 - Nick Saraev: Autoresearch + Claude Code integration (YouTube, 63K views in 1 day, ~March 2026)
 - Anthropic: Claude Code v2.1.50–v2.1.76 release notes, including Skills 2.0 (February–March 2026)
