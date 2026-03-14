@@ -118,7 +118,7 @@ Warnings:
 |------|----------|--------------|-------------|
 | `id_mismatch` | Error | Yes | `methodId`/`observationId` doesn't match filename |
 | `missing_required_field` | Error | Partial | Required frontmatter field missing |
-| `invalid_value` | Error | Partial | Field has invalid value |
+| `invalid_value` | Error | Partial | Field has invalid value (includes invalid `priority`) |
 | `folder_mismatch` | Error | No | File in wrong folder for maturity level |
 | `broken_reference` | Error | No | Reference to non-existent file |
 | `framework_not_found` | Error | No | External method references unknown framework |

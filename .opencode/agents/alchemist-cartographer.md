@@ -125,6 +125,7 @@ Use this template:
 sidebar_position: 1
 title: "Method Name"
 maturity: observing    # hypothesized | observing | validated | proven
+priority: recommended  # essential | recommended | supplemental
 observations:
   - observation-slug
 ---

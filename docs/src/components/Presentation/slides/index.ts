@@ -21,3 +21,4 @@ export { Level3Slides } from './Level3Slides';
 export { Level4Slides } from './Level4Slides';
 export { Level5Slides } from './Level5Slides';
 export { GovMissionSlides } from './GovMissionSlides';
+export { FoeProofSlides } from './FoeProofSlides';

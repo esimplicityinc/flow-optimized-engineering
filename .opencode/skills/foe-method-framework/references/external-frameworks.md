@@ -130,9 +130,10 @@ title: Guide Name
 adopted_methods:
   - framework: framework-slug
     method: method-slug
-    foe_maturity: hypothesized   # hypothesized | experimenting | validated | proven
-    experiments:                  # Optional: FOE experiments supporting this adoption
-      - internal/experiment-slug
+    foe_maturity: hypothesized   # hypothesized | observing | validated | proven
+    priority: recommended         # essential | recommended | supplemental
+    observations:                 # Optional: FOE observations supporting this adoption
+      - internal/observation-slug
 ---
 ```
 
@@ -149,10 +150,11 @@ import MethodList from '@site/src/components/MethodList';
       framework: 'framework-slug',
       method: 'method-slug',
       foe_maturity: 'hypothesized',
+      priority: 'recommended',      // essential | recommended | supplemental
       title: 'Method Display Name',
       description: 'Brief description for the card',
       frameworkTitle: 'FRAMEWORK',  // Display name for badge
-      experiments: [],
+      observations: [],
     },
   ]}
 />
@@ -169,7 +171,8 @@ interface AdoptedMethod {
   framework: string;
   method: string;
   foe_maturity: MaturityLevel;
-  experiments?: string[];
+  priority?: PriorityLevel;       // 'essential' | 'recommended' | 'supplemental' (default: 'recommended')
+  observations?: string[];
 }
 
 interface FrameworkFrontmatter {

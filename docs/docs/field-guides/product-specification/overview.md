@@ -45,7 +45,6 @@ adopted_methods:
 ---
 
 import GuideMaturitySummary from '@site/src/components/GuideMaturitySummary';
-import MethodList from '@site/src/components/MethodList';
 import MethodMaturityTable from '@site/src/components/MethodMaturityTable';
 
 # Product Specification
@@ -76,14 +75,14 @@ A collection of flow-optimized methods for requirements gathering, specification
 <MethodMaturityTable
   guideId="product-specification"
   methods={[
-    { id: 'M115', title: 'Discovery Workshops', maturity: 'hypothesized', slug: 'discovery-workshops', framework: 'bdd', frameworkTitle: 'BDD', description: 'Collaborative sessions to explore requirements through concrete examples' },
-    { id: 'M138', title: 'Three Amigos', maturity: 'hypothesized', slug: 'three-amigos', framework: 'bdd', frameworkTitle: 'BDD', description: 'Cross-functional conversations to define acceptance criteria' },
+    { id: 'M115', title: 'Discovery Workshops', maturity: 'hypothesized', priority: 'essential', slug: 'discovery-workshops', framework: 'bdd', frameworkTitle: 'BDD', description: 'Collaborative sessions to explore requirements through concrete examples' },
+    { id: 'M138', title: 'Three Amigos', maturity: 'hypothesized', priority: 'essential', slug: 'three-amigos', framework: 'bdd', frameworkTitle: 'BDD', description: 'Cross-functional conversations to define acceptance criteria' },
     { id: 'M120', title: 'Example Mapping', maturity: 'hypothesized', slug: 'example-mapping', framework: 'bdd', frameworkTitle: 'BDD', description: 'Structured decomposition of stories into rules, examples, and questions' },
     { id: 'M142', title: 'User Story Template', maturity: 'hypothesized', slug: 'user-story-template', framework: 'bdd', frameworkTitle: 'BDD', description: 'Expressing requirements as role-feature-benefit statements' },
-    { id: 'M127', title: 'Given-When-Then', maturity: 'hypothesized', slug: 'given-when-then', framework: 'bdd', frameworkTitle: 'BDD', description: 'Structured template for expressing testable acceptance criteria' },
+    { id: 'M127', title: 'Given-When-Then', maturity: 'hypothesized', priority: 'essential', slug: 'given-when-then', framework: 'bdd', frameworkTitle: 'BDD', description: 'Structured template for expressing testable acceptance criteria' },
     { id: 'M126', title: 'Gherkin', maturity: 'hypothesized', slug: 'gherkin', framework: 'bdd', frameworkTitle: 'BDD', description: 'Domain-specific language for writing executable specifications' },
     { id: 'M121', title: 'Executable Specifications', maturity: 'hypothesized', slug: 'executable-specifications', framework: 'bdd', frameworkTitle: 'BDD', description: 'Automated tests that serve as living documentation of product intent' },
-    { id: 'M141', title: 'Ubiquitous Language', maturity: 'hypothesized', slug: 'ubiquitous-language', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'Shared vocabulary between product and engineering that eliminates translation' },
+    { id: 'M141', title: 'Ubiquitous Language', maturity: 'hypothesized', priority: 'essential', slug: 'ubiquitous-language', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'Shared vocabulary between product and engineering that eliminates translation' },
     { id: 'M103', title: 'Bounded Context', maturity: 'hypothesized', slug: 'bounded-context', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'Scoping specifications to clear domain boundaries' },
     { id: 'M114', title: 'Discover Phase', maturity: 'hypothesized', slug: 'discover-phase', framework: 'double-diamond', frameworkTitle: 'Double Diamond', description: 'Divergent exploration to understand the problem space before specifying' },
     { id: 'M109', title: 'Define Phase', maturity: 'hypothesized', slug: 'define-phase', framework: 'double-diamond', frameworkTitle: 'Double Diamond', description: 'Convergent synthesis to frame the right problem before specifying solutions' },
@@ -137,7 +136,7 @@ Use **Executable Specifications** to automate verification. Use the **Develop Ph
 ## Getting Started
 
 1. Browse the methods in the table above
-2. Start with Discovery Workshops and Three Amigos to improve requirements quality
-3. Add Given-When-Then acceptance criteria to your stories
-4. Review the supporting observations to understand the evidence
+2. Start with the **Essential** methods -- Discovery Workshops, Three Amigos, Given-When-Then, and Ubiquitous Language
+3. Review the supporting observations to understand the evidence
+4. Try the methods that fit your context
 5. Consider [contributing your own observations](../contributing-observations)

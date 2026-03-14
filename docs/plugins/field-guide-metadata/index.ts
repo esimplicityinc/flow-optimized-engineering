@@ -7,6 +7,7 @@ interface MethodMeta {
   id: string;
   title: string;
   maturity: string;
+  priority: string;
   path: string;
   guideId?: string;
   framework?: string;
@@ -64,6 +65,7 @@ function scanMethodFiles(docsPath: string): MethodMeta[] {
             id,
             title: data.title || 'Untitled',
             maturity: data.maturity || 'hypothesized',
+            priority: data.priority || 'recommended',
             path: `${guide.name}/methods/${folder.name}/${file.replace('.md', '')}`,
             guideId: guide.name,
           });
@@ -97,6 +99,7 @@ function scanMethodFiles(docsPath: string): MethodMeta[] {
           id,
           title: data.title || 'Untitled',
           maturity: data.foe_maturity || 'hypothesized',
+          priority: data.priority || 'recommended',
           path: `external-frameworks/${framework.name}/methods/${file.replace('.md', '')}`,
           framework: framework.name,
         });
@@ -186,6 +189,7 @@ export interface MethodMeta {
   id: string;
   title: string;
   maturity: 'hypothesized' | 'observing' | 'validated' | 'proven';
+  priority: 'essential' | 'recommended' | 'supplemental';
   path: string;
   guideId?: string;
   framework?: string;

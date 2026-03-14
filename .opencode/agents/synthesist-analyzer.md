@@ -129,8 +129,11 @@ Return your analysis in this structure:
 | Outcome consistency | [High/Medium/Low] |
 | Context diversity | [High/Medium/Low] |
 | **Recommended maturity** | **[level]** |
+| **Recommended priority** | **[essential/recommended/supplemental]** |
 
-**Reasoning:** [Why this maturity level is appropriate]
+**Maturity reasoning:** [Why this maturity level is appropriate]
+
+**Priority reasoning:** [Why this priority level — essential methods are core to the guide's purpose, supplemental methods are nice-to-have. Default to recommended when unsure.]
 
 ### Suggested Applicability
 

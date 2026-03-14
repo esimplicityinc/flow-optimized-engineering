@@ -13,6 +13,57 @@ export type MaturityLevel = 'hypothesized' | 'observing' | 'validated' | 'proven
 
 export type ObservationStatus = 'in-progress' | 'completed';
 
+// =============================================================================
+// Priority Levels
+// =============================================================================
+
+export type PriorityLevel = 'essential' | 'recommended' | 'supplemental';
+
+export interface PriorityConfig {
+  level: PriorityLevel;
+  sortOrder: number;
+  label: string;
+  description: string;
+  color: string;
+  bgColor: string;
+}
+
+export const PRIORITY_LEVELS: Record<PriorityLevel, PriorityConfig> = {
+  essential: {
+    level: 'essential',
+    sortOrder: 1,
+    label: 'Essential',
+    description: 'Foundational practice for this guide',
+    color: '#dc2626', // red-600
+    bgColor: '#fef2f2', // red-50
+  },
+  recommended: {
+    level: 'recommended',
+    sortOrder: 2,
+    label: 'Recommended',
+    description: 'High-value practice worth adopting',
+    color: '#2563eb', // blue-600
+    bgColor: '#dbeafe', // blue-100
+  },
+  supplemental: {
+    level: 'supplemental',
+    sortOrder: 3,
+    label: 'Supplemental',
+    description: 'Useful addition for specific contexts',
+    color: '#6b7280', // gray-500
+    bgColor: '#f3f4f6', // gray-100
+  },
+};
+
+export const DEFAULT_PRIORITY: PriorityLevel = 'recommended';
+
+/**
+ * Get priority config from a level
+ */
+export function getPriorityConfig(level: PriorityLevel): PriorityConfig {
+  return PRIORITY_LEVELS[level];
+}
+
 export interface MaturityConfig {
   level: MaturityLevel;
   value: number;
@@ -146,6 +197,7 @@ export interface MethodFrontmatter {
   title: string;
   sidebar_position?: number;
   maturity: MaturityLevel;
+  priority?: PriorityLevel;
   observations?: string[];
 }
 
@@ -245,6 +297,7 @@ export interface AdoptedMethod {
   framework: string;
   method: string;
   foe_maturity: MaturityLevel;
+  priority?: PriorityLevel;
   observations?: string[];
 }
 

@@ -91,6 +91,7 @@ Proceeding to deep validation..."
 - Frontmatter required fields
 - ID/filename matching
 - Maturity/folder alignment
+- Priority values (must be `essential`, `recommended`, or `supplemental`)
 - Bidirectional links
 - Orphaned content
 - External framework references

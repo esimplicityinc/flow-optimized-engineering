@@ -2,7 +2,8 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import MaturityBadge from '@site/src/components/MaturityBadge';
-import { MaturityLevel } from '@site/src/lib/fieldGuides';
+import PriorityBadge from '@site/src/components/PriorityBadge';
+import { MaturityLevel, PriorityLevel, DEFAULT_PRIORITY } from '@site/src/lib/fieldGuides';
 import styles from './styles.module.css';
 
 interface ExternalMethodInfo {
@@ -33,6 +34,7 @@ export default function ExternalMethodHeader(): React.ReactElement | null {
   
   const externalMethod = frontMatter.external_method as ExternalMethodInfo | undefined;
   const foeMaturiy = (frontMatter.foe_maturity || 'hypothesized') as MaturityLevel;
+  const priority = (frontMatter.priority || DEFAULT_PRIORITY) as PriorityLevel;
   
   if (!externalMethod) {
     console.warn('ExternalMethodHeader: No external_method found in frontmatter');
@@ -52,7 +54,10 @@ export default function ExternalMethodHeader(): React.ReactElement | null {
           <span className={styles.sourceLabel}>From</span>
           <span className={styles.frameworkName}>{frameworkName}</span>
         </div>
-        <MaturityBadge maturity={foeMaturiy} />
+        <div className={styles.badges}>
+          <PriorityBadge priority={priority} />
+          <MaturityBadge maturity={foeMaturiy} />
+        </div>
       </div>
       
       <div className={styles.canonicalLink}>

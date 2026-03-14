@@ -19,6 +19,7 @@ Detailed criteria for each maturity level and guidance on transitions.
 **Example Frontmatter:**
 ```yaml
 maturity: hypothesized
+priority: recommended
 observations: []
 ```
 
@@ -45,6 +46,7 @@ observations: []
 **Example Frontmatter:**
 ```yaml
 maturity: observing
+priority: recommended
 observations:
   - initial-test-observation
 ```
@@ -74,6 +76,7 @@ observations:
 **Example Frontmatter:**
 ```yaml
 maturity: validated
+priority: recommended
 observations:
   - completed-observation-1
   - completed-observation-2
@@ -105,6 +108,7 @@ observations:
 **Example Frontmatter:**
 ```yaml
 maturity: proven
+priority: recommended
 observations:
   - observation-team-a
   - observation-team-b

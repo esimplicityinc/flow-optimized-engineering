@@ -20,6 +20,7 @@ The method slug should match the external method's slug (e.g., `deployment-frequ
 
 ```yaml
 ---
+methodId: M###
 sidebar_position: 1
 title: "[Method Name]"
 sidebar_label: "[Method Name]"
@@ -27,7 +28,9 @@ description: "[Brief description of how this method applies to the Field Guide]"
 external_method:
   framework: [framework-slug]  # e.g., dora, bdd, team-topologies
   method: [method-slug]        # e.g., deployment-frequency
+  id: M###
 foe_maturity: hypothesized     # hypothesized | observing | validated | proven
+priority: recommended          # essential | recommended | supplemental
 observations: []               # Array of observation slugs when linked
 ---
 
@@ -76,6 +79,7 @@ in the Field Guide's context:
 | `external_method.framework` | Yes | Framework slug (e.g., `dora`) |
 | `external_method.method` | Yes | Method slug (e.g., `deployment-frequency`) |
 | `foe_maturity` | Yes | FOE maturity level (determines folder: emerging or established) |
+| `priority` | No | `essential` / `recommended` / `supplemental` — importance to this guide (default: `recommended`) |
 | `observations` | Yes | Array of linked observation slugs |
 
 ## Framework Slugs
@@ -111,6 +115,7 @@ external_method:
   framework: dora
   method: deployment-frequency
 foe_maturity: hypothesized
+priority: recommended
 observations: []
 ---
 

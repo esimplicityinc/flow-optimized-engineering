@@ -1,4 +1,5 @@
 ---
+methodId: M###
 sidebar_position: 1
 title: "[Method Name]"
 sidebar_label: "[Method Name]"
@@ -6,7 +7,9 @@ description: "[How this method applies to the Field Guide]"
 external_method:
   framework: [framework-slug]
   method: [method-slug]
+  id: M###
 foe_maturity: hypothesized
+priority: recommended
 observations: []
 ---
 

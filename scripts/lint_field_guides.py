@@ -26,6 +26,8 @@ MATURITY_LEVELS = ["hypothesized", "observing", "validated", "proven"]
 MATURITY_SCORES = {"hypothesized": 1, "observing": 2, "validated": 3, "proven": 4}
 OBSERVATION_STATUSES = ["in-progress", "completed"]
 SOURCE_TYPES = ["internal", "external"]
+PRIORITY_LEVELS = ["essential", "recommended", "supplemental"]
+DEFAULT_PRIORITY = "recommended"
 
 # Maturity -> allowed folders
 MATURITY_FOLDERS = {
@@ -66,6 +68,7 @@ class Method:
     maturity_score: int
     observations: list[str]
     is_external: bool
+    priority: str = "recommended"
     guide_id: Optional[str] = None
     external_framework: Optional[str] = None
     external_method: Optional[str] = None
@@ -78,6 +81,7 @@ class Method:
             "type": "external" if self.is_external else "internal",
             "maturity": self.maturity,
             "maturity_score": self.maturity_score,
+            "priority": self.priority,
             "observation_count": len(self.observations),
         }
         if verbose:
@@ -207,6 +211,7 @@ def load_methods(docs_path: Path) -> dict[str, Method]:
 
             is_external = "external_method" in fm
             maturity = fm.get("foe_maturity" if is_external else "maturity", "hypothesized")
+            priority = fm.get("priority", DEFAULT_PRIORITY)
             
             methods[method_id] = Method(
                 id=method_id,
@@ -216,6 +221,7 @@ def load_methods(docs_path: Path) -> dict[str, Method]:
                 maturity_score=MATURITY_SCORES.get(maturity, 1),
                 observations=fm.get("observations", []),
                 is_external=is_external,
+                priority=priority,
                 guide_id=get_guide_id_from_path(method_file),
                 external_framework=fm.get("external_method", {}).get("framework") if is_external else None,
                 external_method=fm.get("external_method", {}).get("method") if is_external else None,
@@ -352,6 +358,15 @@ def validate_method(
             message=f"Invalid maturity '{method.maturity}'. Must be one of: {MATURITY_LEVELS}",
             file=str(method.path),
         ))
+
+    # Check priority is valid (if explicitly set in frontmatter)
+    if "priority" in method.raw_frontmatter:
+        if method.priority not in PRIORITY_LEVELS:
+            issues.append(Issue(
+                type="invalid_value",
+                message=f"Invalid priority '{method.priority}'. Must be one of: {PRIORITY_LEVELS}",
+                file=str(method.path),
+            ))
 
     # Check folder matches maturity (only for field-guide methods)
     if method.guide_id:

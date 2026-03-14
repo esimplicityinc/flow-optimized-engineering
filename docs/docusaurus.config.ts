@@ -180,6 +180,10 @@ const config: Config = {
               label: 'Gov Mission Continuity',
               to: '/presentation/gov-mission-continuity',
             },
+            {
+              label: 'FOE Proof Strategy',
+              to: '/presentation/foe-proof-strategy',
+            },
           ],
         },
       ],

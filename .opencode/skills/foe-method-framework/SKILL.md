@@ -20,12 +20,13 @@ A method is a documented practice or approach that solves a specific engineering
 
 ## Method Dimensions
 
-Methods have two orthogonal dimensions:
+Methods have three orthogonal dimensions:
 
 | Dimension | Values | Meaning |
 |-----------|--------|---------|
 | **Acceptance** | Emerging / Established | How validated is it within this Field Guide? |
 | **Origin** | Internal / External | Where did it come from? |
+| **Priority** | Essential / Recommended / Supplemental | How important is it to this guide? |
 
 ### Origin: Internal vs External
 
@@ -36,6 +37,16 @@ Methods have two orthogonal dimensions:
 
 - **Emerging** - Methods being validated (hypothesized or observing maturity)
 - **Established** - Methods with strong evidence (validated or proven maturity)
+
+### Priority: Essential / Recommended / Supplemental
+
+Priority indicates how important a method is to a particular field guide. The same method can have different priorities in different guides.
+
+- **Essential** - Foundational practice everyone using this guide should adopt
+- **Recommended** - High-value practice worth adopting (the default if not specified)
+- **Supplemental** - Useful addition for specific contexts or advanced use cases
+
+Priority is set per-guide in the overview page's `MethodMaturityTable` props and optionally in individual method frontmatter. If omitted, defaults to `recommended`.
 
 ## Method Locations
 
@@ -82,6 +93,7 @@ Create a file in `field-guides/[guide]/methods/emerging/[method-slug].md`:
 
 ```yaml
 ---
+methodId: M111
 sidebar_position: 1
 title: "Deployment Frequency"
 sidebar_label: "Deployment Frequency"
@@ -89,7 +101,9 @@ description: "How deployment frequency applies to this Field Guide's context"
 external_method:
   framework: dora
   method: deployment-frequency
+  id: M111
 foe_maturity: hypothesized
+priority: recommended
 observations: []
 ---
 
@@ -113,28 +127,30 @@ import RelatedObservations from '@site/src/components/RelatedObservations';
 <RelatedObservations />
 ```
 
-### 2. Update the Overview's MethodList
+### 2. Update the Overview's MethodMaturityTable
 
-Add the external method to the `externalMethods` prop in the guide's overview:
+Add the external method to the `methods` prop in the guide's overview:
 
 ```jsx
-<MethodList 
+<MethodMaturityTable 
   guideId="your-guide"
-  methods={[...]}  // Internal methods
-  externalMethods={[
+  methods={[
+    // ... internal methods
     {
+      id: 'M111',
       framework: 'dora',
       method: 'deployment-frequency',
-      foe_maturity: 'hypothesized',
+      maturity: 'hypothesized',
       title: 'Deployment Frequency',
       description: 'How often code is deployed to production',
       frameworkTitle: 'DORA',
+      slug: 'deployment-frequency',
     },
   ]}
 />
 ```
 
-The `MethodList` links to the method page. External methods show the `ExternalMethodHeader` which links to the canonical definition.
+The `MethodMaturityTable` links to the method page. External methods show the `ExternalMethodHeader` which links to the canonical definition.
 
 ### 3. Sidebar Auto-Discovery
 

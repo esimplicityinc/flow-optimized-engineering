@@ -66,6 +66,22 @@
   white-space: nowrap;
 }
 
+.priorityCell {
+  white-space: nowrap;
+}
+
+.priorityTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
 .maturityDot {
   display: inline-block;
   width: 0.5rem;

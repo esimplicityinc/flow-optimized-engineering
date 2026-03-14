@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import Link from '@docusaurus/Link';
-import { MaturityLevel, MATURITY_LEVELS, getMaturityConfig } from '@site/src/lib/fieldGuides';
+import { MaturityLevel, PriorityLevel, DEFAULT_PRIORITY, getMaturityConfig, getPriorityConfig } from '@site/src/lib/fieldGuides';
 import styles from './styles.module.css';
 
 // =============================================================================
@@ -11,6 +11,7 @@ interface MethodEntry {
   id: string;
   title: string;
   maturity: MaturityLevel;
+  priority?: PriorityLevel;
   description?: string;
   /** For internal methods: slug for the path */
   slug?: string;
@@ -33,7 +34,7 @@ interface MethodMaturityTableProps {
 // Sort helpers
 // =============================================================================
 
-type SortField = 'title' | 'maturity' | 'source';
+type SortField = 'title' | 'maturity' | 'priority' | 'source';
 type SortDir = 'asc' | 'desc';
 
 const MATURITY_ORDER: Record<MaturityLevel, number> = {
@@ -41,6 +42,12 @@ const MATURITY_ORDER: Record<MaturityLevel, number> = {
   validated: 3,
   observing: 2,
   hypothesized: 1,
+};
+
+const PRIORITY_ORDER: Record<PriorityLevel, number> = {
+  essential: 1,
+  recommended: 2,
+  supplemental: 3,
 };
 
 function compareMethods(
@@ -57,6 +64,15 @@ function compareMethods(
       break;
     case 'maturity':
       cmp = MATURITY_ORDER[a.maturity] - MATURITY_ORDER[b.maturity];
+      // Secondary sort: within same maturity, essential first
+      if (cmp === 0) {
+        cmp = PRIORITY_ORDER[a.priority || DEFAULT_PRIORITY] - PRIORITY_ORDER[b.priority || DEFAULT_PRIORITY];
+        // When maturity sorts desc, priority secondary should also be asc (essential first)
+        return dir === 'desc' ? (cmp === 0 ? 0 : -cmp === 0 ? 0 : -(MATURITY_ORDER[a.maturity] - MATURITY_ORDER[b.maturity]) || cmp) : cmp;
+      }
+      break;
+    case 'priority':
+      cmp = PRIORITY_ORDER[a.priority || DEFAULT_PRIORITY] - PRIORITY_ORDER[b.priority || DEFAULT_PRIORITY];
       break;
     case 'source': {
       const aSource = a.framework ? a.frameworkTitle || a.framework : 'Internal';
@@ -74,7 +90,7 @@ function compareMethods(
 // =============================================================================
 
 /**
- * Compact, sortable table showing all methods in a guide with their maturity levels.
+ * Compact, sortable table showing all methods in a guide with their maturity and priority levels.
  * Designed to be placed near the top of each field guide overview page for quick scanning.
  */
 export default function MethodMaturityTable({
@@ -102,7 +118,7 @@ export default function MethodMaturityTable({
       setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'));
     } else {
       setSortField(field);
-      setSortDir(field === 'maturity' ? 'desc' : 'asc');
+      setSortDir(field === 'maturity' || field === 'priority' ? 'desc' : 'asc');
     }
   }
 
@@ -139,6 +155,9 @@ export default function MethodMaturityTable({
             <th onClick={() => handleSort('title')}>
               Method{renderSortIndicator('title')}
             </th>
+            <th onClick={() => handleSort('priority')}>
+              Priority{renderSortIndicator('priority')}
+            </th>
             <th onClick={() => handleSort('maturity')}>
               Maturity{renderSortIndicator('maturity')}
             </th>
@@ -150,7 +169,8 @@ export default function MethodMaturityTable({
         </thead>
         <tbody>
           {sorted.map((method) => {
-            const config = getMaturityConfig(method.maturity);
+            const maturityConfig = getMaturityConfig(method.maturity);
+            const priorityConfig = getPriorityConfig(method.priority || DEFAULT_PRIORITY);
             const path = buildMethodPath(method);
             const isInternal = !method.framework;
 
@@ -161,13 +181,24 @@ export default function MethodMaturityTable({
                     {method.title}
                   </Link>
                 </td>
+                <td className={styles.priorityCell}>
+                  <span
+                    className={styles.priorityTag}
+                    style={{
+                      backgroundColor: priorityConfig.bgColor,
+                      color: priorityConfig.color,
+                    }}
+                  >
+                    {priorityConfig.label}
+                  </span>
+                </td>
                 <td className={styles.maturityCell}>
                   <span
                     className={styles.maturityDot}
-                    style={{ backgroundColor: config.color }}
+                    style={{ backgroundColor: maturityConfig.color }}
                   />
-                  <span className={styles.maturityLabel} style={{ color: config.color }}>
-                    {config.label}
+                  <span className={styles.maturityLabel} style={{ color: maturityConfig.color }}>
+                    {maturityConfig.label}
                   </span>
                 </td>
                 <td className={styles.sourceCell}>

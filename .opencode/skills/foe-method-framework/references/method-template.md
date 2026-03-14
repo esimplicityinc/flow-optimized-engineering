@@ -6,9 +6,11 @@ This is the complete template for method documentation.
 
 ```yaml
 ---
+methodId: M###
 sidebar_position: 1
 title: "Method Name"
 maturity: observing    # hypothesized | observing | validated | proven
+priority: recommended  # essential | recommended | supplemental
 observations:
   - observation-slug
   - another-observation-slug
@@ -19,18 +21,22 @@ observations:
 
 | Field | Required | Values | Description |
 |-------|----------|--------|-------------|
+| `methodId` | Yes | M### | Unique method identifier matching filename |
 | `sidebar_position` | Yes | Number | Order in sidebar |
 | `title` | Yes | String | Human-readable title |
 | `maturity` | Yes | See levels | Current maturity level |
+| `priority` | No | `essential` / `recommended` / `supplemental` | Importance to the guide (default: `recommended`) |
 | `observations` | No | Array of slugs | Linked observation file names (without .md) |
 
 ## Complete Template (Emerging Method)
 
 ```markdown
 ---
+methodId: M###
 sidebar_position: 1
 title: "Method Name"
 maturity: observing
+priority: recommended
 observations:
   - observation-slug
 ---
@@ -118,9 +124,11 @@ If you're testing this method:
 
 ```markdown
 ---
+methodId: M###
 sidebar_position: 1
 title: "Method Name"
 maturity: validated
+priority: recommended
 observations:
   - observation-1
   - observation-2

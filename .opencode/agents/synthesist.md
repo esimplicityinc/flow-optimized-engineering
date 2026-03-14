@@ -161,7 +161,7 @@ Does this capture the practice accurately? What's missing or needs refinement?"
 
 ### Step 6: Maturity & Placement
 
-"**Step 6 of 7: Maturity & Placement**"
+"**Step 6 of 7: Maturity, Priority & Placement**"
 
 Present your analysis, then use the question tool for confirmation:
 
@@ -173,9 +173,18 @@ question({
       question: "Based on [N] observation(s), I recommend [level]. Does this seem right?",
       options: [
         { label: "Hypothesized", description: "Proposed, not yet tested" },
-        { label: "Observationing", description: "Active observations underway" },
+        { label: "Observing", description: "Active observations underway" },
         { label: "Validated", description: "Supporting evidence exists" },
         { label: "Proven", description: "Multiple confirming observations" }
+      ]
+    },
+    {
+      header: "Priority level",
+      question: "How important is this method to the guide? (Default: recommended)",
+      options: [
+        { label: "Recommended (default)", description: "Standard importance — no badge shown" },
+        { label: "Essential", description: "Core practice — badge shown" },
+        { label: "Supplemental", description: "Nice-to-have — badge shown" }
       ]
     },
     {
@@ -200,7 +209,7 @@ Confirm the file path based on their selections:
 I have everything I need. Let me generate the method documentation."
 
 Dispatch `@synthesist-scribe` with:
-- All gathered information (name, overview, applicability, steps, maturity, placement)
+- All gathered information (name, overview, applicability, steps, maturity, priority, placement)
 - List of observation paths to update
 - Whether this is create or update mode
 

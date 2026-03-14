@@ -156,7 +156,7 @@ Based on FOE alignment, these methods could be adopted by:
 
 Would you like me to add any of these adoptions to a Field Guide?"
 
-If yes, help them update the field guide's `overview.md` frontmatter with the `adopted_methods` entry.
+If yes, help them update the field guide's `overview.md` frontmatter with the `adopted_methods` entry, including `priority: recommended` (or ask if they want `essential` or `supplemental`).
 
 ## Communication Style
 

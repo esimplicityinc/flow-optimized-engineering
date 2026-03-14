@@ -57,6 +57,7 @@ docs/docs/field-guides/[guide-slug]/methods/[emerging|established]/[method-slug]
 sidebar_position: 1
 title: "[Method Title]"
 maturity: [hypothesized|observing|validated|proven]
+priority: [essential|recommended|supplemental]
 observations:
   - observation-slug-1
   - observation-slug-2
@@ -261,6 +262,7 @@ After all files are created/updated and validated, report:
 ### Method Created/Updated
 - **File:** `docs/docs/field-guides/[guide]/methods/[folder]/[method].md`
 - **Maturity:** [level]
+- **Priority:** [level]
 - **Observations linked:** [N]
 
 ### Observations Updated

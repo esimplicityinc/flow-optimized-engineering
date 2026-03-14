@@ -77,6 +77,7 @@ Add the missing field with appropriate value.
 | Field | Valid Values |
 |-------|--------------|
 | `foe_maturity` | `hypothesized`, `observing`, `validated`, `proven` |
+| `priority` | `essential`, `recommended`, `supplemental` (default: `recommended` when omitted) |
 | `source_type` | `internal`, `external` |
 | `status` | `completed`, `in-progress` |
 

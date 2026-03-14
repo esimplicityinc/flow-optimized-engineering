@@ -1,21 +1,23 @@
 ---
+methodId: M###
 sidebar_position: 1
 title: "METHOD NAME"
-maturity: experimenting
-experiments: []
+maturity: hypothesized
+priority: recommended
+observations: []
 ---
 
-import MaturityBadge from '@site/src/components/MaturityBadge';
-import RelatedExperiments from '@site/src/components/RelatedExperiments';
+import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
+import RelatedObservations from '@site/src/components/RelatedObservations';
 
 # METHOD NAME
 
-<MaturityBadge maturity="experimenting" />
+<InternalMethodHeader />
 
 DESCRIPTION
 
 :::caution Early Stage
-This method is still being validated through experiments.
+This method is still being validated through observations.
 :::
 
 ## Overview
@@ -42,4 +44,4 @@ DESCRIPTION
 
 ## Supporting Evidence
 
-<RelatedExperiments />
+<RelatedObservations />
