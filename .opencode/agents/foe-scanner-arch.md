@@ -299,7 +299,7 @@ When recommending improvements, link to these established FOE methods:
 | M150 | Service Boundary Extraction | `architecture/methods/emerging/M150-service-boundary-extraction` | Unclear module boundaries |
 | M151 | System Over Individuals | `agentic-coding/methods/emerging/M151-system-over-individuals` | Architecture documentation gaps |
 | M153 | True Microservices | `architecture/methods/established/M153-true-microservices` | Microservices anti-patterns |
-| M154 | Understanding-First Protocol Adoption | `agentic-coding/methods/emerging/M154-understanding-first-protocol-adoption` | Protocol/tech confusion |
+| M154 | Conceptual Debt Prevention | `agentic-coding/methods/emerging/M154-conceptual-debt-prevention` | Protocol/tech confusion, conceptual debt |
 
 **Architecture Pattern Resources:**
 - Hexagonal gaps → recommend studying ports and adapters pattern

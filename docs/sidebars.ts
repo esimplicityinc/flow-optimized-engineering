@@ -30,7 +30,7 @@ const sidebars: SidebarsConfig = {
           collapsed: true,
           items: [
             'field-guides/agentic-coding/methods/established/M158-agentx-constrained-autonomy',
-            'field-guides/agentic-coding/methods/emerging/M154-understanding-first-protocol-adoption',
+            'field-guides/agentic-coding/methods/emerging/M154-conceptual-debt-prevention',
             'field-guides/agentic-coding/methods/emerging/M146-early-feedback-loop-investment',
             'field-guides/agentic-coding/methods/emerging/M147-knowledge-distribution-as-reliability',
             'field-guides/agentic-coding/methods/emerging/M155-verification-before-completion',

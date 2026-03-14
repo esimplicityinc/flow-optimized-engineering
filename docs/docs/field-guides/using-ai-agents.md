@@ -284,7 +284,7 @@ Synthesist: **Step 3 of 7: Name & Overview**
 
 Based on the analysis, here are suggested names:
 
-1. **Understanding-First Protocol Adoption** - Emphasizes the approach
+1. **Conceptual Debt Prevention** - Emphasizes the approach
 2. **Invest Before You Fork** - Emphasizes the action
 3. **OSS Comprehension Investment** - Emphasizes the domain
 
@@ -981,7 +981,7 @@ A **Literature Evidence Report** with quality-tiered findings:
 ```markdown
 # Literature Prospector Report
 
-## Method: Understanding-First Protocol Adoption
+## Method: Conceptual Debt Prevention
 **Current Maturity:** observing
 **Investigation Mode:** both
 

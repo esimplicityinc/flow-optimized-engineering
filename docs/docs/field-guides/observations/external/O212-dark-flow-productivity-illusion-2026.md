@@ -158,7 +158,7 @@ This observation supports:
 
 **M155: Verification Before Completion** — The 40% perception-reality gap proves that without verification, developers cannot distinguish genuine progress from dark flow. Verification gates are not bureaucracy — they are the only reliable signal of actual productivity.
 
-**M154: Understanding-First Protocol Adoption** — Dark flow is the opposite of understanding-first. Developers in dark flow feel like they understand but actually have shallow comprehension. Understanding-first practices (reading before generating, explaining before committing) break the dark flow cycle.
+**M154: Conceptual Debt Prevention** — Dark flow is the psychological mechanism that makes conceptual debt invisible. Developers in dark flow feel like they understand but actually have shallow comprehension. The 40% perception-reality gap is conceptual debt made measurable. Practices like reading before generating and explaining before committing break the cycle.
 
 ---
 

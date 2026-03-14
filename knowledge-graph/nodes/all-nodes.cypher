@@ -203,7 +203,7 @@ CREATE (:Method {id: 'M-147', name: 'Knowledge Distribution as Reliability', des
 CREATE (:Method {id: 'M-148', name: 'Persistent Planning State', description: 'Maintain explicit planning state in markdown files that agents read before every decision', maturityLevel: 'emerging', fieldGuide: 'agentic-coding'});
 CREATE (:Method {id: 'M-149', name: 'Root-Cause-First Debugging', description: 'Never apply fixes without first investigating the root cause', maturityLevel: 'emerging', fieldGuide: 'agentic-coding'});
 CREATE (:Method {id: 'M-152', name: 'Test-Driven Agent Development', description: 'Apply the red-green-refactor cycle when working with AI coding assistants', maturityLevel: 'emerging', fieldGuide: 'agentic-coding'});
-CREATE (:Method {id: 'M-154', name: 'Understanding-First Protocol Adoption', description: 'Invest time to understand a protocol conceptual model before making architectural decisions', maturityLevel: 'emerging', fieldGuide: 'agentic-coding'});
+CREATE (:Method {id: 'M-154', name: 'Conceptual Debt Prevention', description: 'Understand a technology conceptual model before depending on it to prevent compounding architectural mistakes', maturityLevel: 'emerging', fieldGuide: 'agentic-coding'});
 CREATE (:Method {id: 'M-155', name: 'Verification Before Completion', description: 'Never claim work is complete without running verification commands', maturityLevel: 'emerging', fieldGuide: 'agentic-coding'});
 CREATE (:Method {id: 'M-156', name: 'Agent-Mediated Access', description: 'Democratize system changes by using AI agents as safe, intelligent interfaces between users and codebases', maturityLevel: 'emerging', fieldGuide: 'agentic-coding'});
 

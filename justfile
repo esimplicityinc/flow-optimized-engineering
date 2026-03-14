@@ -1,9 +1,27 @@
-# FOE Knowledge Graph - Neo4j Visualization
-# ==========================================
+# FOE Project Automation
+# ======================
 
 # Default recipe - show available commands
 default:
     @just --list
+
+# ------------------------------------------------------------------------------
+# Setup
+# ------------------------------------------------------------------------------
+
+# Install git hooks for local development
+setup-hooks:
+    cp scripts/hooks/pre-commit .git/hooks/pre-commit
+    chmod +x .git/hooks/pre-commit
+    @echo "Git hooks installed."
+
+# ------------------------------------------------------------------------------
+# Field Guide Validation
+# ------------------------------------------------------------------------------
+
+# Lint field guide files (methods, observations, frameworks)
+fg-lint:
+    uv run --project scripts scripts/lint_field_guides.py
 
 # ------------------------------------------------------------------------------
 # Neo4j Setup & Visualization

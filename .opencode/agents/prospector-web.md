@@ -279,15 +279,15 @@ The parent orchestrator will use this to flag the method for review.
 
 Input:
 ```yaml
-method: understanding-first-protocol-adoption
-title: Understanding-First Protocol Adoption
+method: conceptual-debt-prevention
+title: Conceptual Debt Prevention
 core_claims:
-  - "Investing time to understand protocol conceptual models before architecture decisions reduces rework"
+  - "Teams accumulate conceptual debt when they adopt technologies without understanding their underlying models"
 keywords:
-  - protocol adoption
-  - conceptual understanding
-  - architectural decisions
+  - conceptual debt
+  - technology adoption
   - mental models
+  - architectural decisions
 investigation_mode: both
 results_per_query: 20
 ```
@@ -295,7 +295,7 @@ results_per_query: 20
 Output (abbreviated):
 ```yaml
 source: web
-method: understanding-first-protocol-adoption
+method: conceptual-debt-prevention
 investigation_mode: both
 queries_executed:
   academic:

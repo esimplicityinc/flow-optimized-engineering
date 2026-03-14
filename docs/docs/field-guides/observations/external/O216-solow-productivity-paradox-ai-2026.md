@@ -159,7 +159,7 @@ This observation supports:
 
 **M155: Verification Before Completion** — The productivity paradox demonstrates that claimed AI productivity gains require verification through objective measurement. Without verification, organizations may invest heavily in tools that don't deliver measurable results.
 
-**M154: Understanding-First Protocol Adoption** — The historical parallel with the Solow paradox suggests that productivity gains come from understanding how to restructure around new tools, not from the tools themselves. Understanding-first adoption is the path to resolving the paradox.
+**M154: Conceptual Debt Prevention** — The Solow paradox is conceptual debt at organizational scale: adopting tools without understanding how to restructure around them. The original paradox lasted 15 years and resolved through organizational change, not better hardware. Preventing conceptual debt -- understanding the technology's model before depending on it -- is the path to resolving the AI version.
 
 ---
 

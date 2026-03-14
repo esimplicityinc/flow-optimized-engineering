@@ -167,24 +167,24 @@ Use this to boost relevance when method topic aligns with category:
 
 Input:
 ```yaml
-method: understanding-first-protocol-adoption
-title: Understanding-First Protocol Adoption
+method: conceptual-debt-prevention
+title: Conceptual Debt Prevention
 core_claims:
-  - "Investing time to understand protocol conceptual models before architecture decisions reduces rework"
+  - "Teams accumulate conceptual debt when they adopt technologies without understanding their underlying models"
   - "API familiarity is not the same as model understanding"
 keywords:
-  - protocol adoption
+  - conceptual debt
   - conceptual model
   - understanding
   - architectural decisions
-  - rework reduction
+  - technology adoption
 investigation_mode: both
 ```
 
 Output:
 ```yaml
 source: bookshelf
-method: understanding-first-protocol-adoption
+method: conceptual-debt-prevention
 investigation_mode: both
 
 matches:

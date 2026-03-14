@@ -10,7 +10,7 @@ source:
   url: "https://techcrunch.com/2026/02/09/the-first-signs-of-burnout-are-coming-from-the-people-who-embrace-ai-the-most/"
 methods:
   - agentic-coding/methods/emerging/M155-verification-before-completion
-  - agentic-coding/methods/emerging/M154-understanding-first-protocol-adoption
+  - agentic-coding/methods/emerging/M154-conceptual-debt-prevention
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';
@@ -154,7 +154,7 @@ This observation supports:
 
 **M155: Verification Before Completion** - The 20% perceived vs 3% actual productivity gap demonstrates why verification is essential. Without objective measurement, AI creates dangerous illusions of effectiveness.
 
-**M154: Understanding-First Protocol Adoption** - The research validates that understanding work patterns (not just generating output) is critical. The "calm technology" counter-movement aligns with FOE's emphasis on sustainable, understanding-based workflows.
+**M154: Conceptual Debt Prevention** — The research validates that understanding work patterns (not just generating output) is critical. The "calm technology" counter-movement aligns with FOE's emphasis on sustainable, understanding-based workflows. Increased work intensity without comprehension is conceptual debt driving burnout.
 
 ---
 

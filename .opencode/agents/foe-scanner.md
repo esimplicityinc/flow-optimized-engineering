@@ -408,7 +408,7 @@ When linking gaps to methods, use the full path format. Available methods by dim
 | M150 | Service Boundary Extraction | Unclear module boundaries |
 | M151 | System Over Individuals | Architecture documentation gaps |
 | M153 | True Microservices | Microservices anti-patterns |
-| M154 | Understanding-First Protocol Adoption | Protocol/tech confusion |
+| M154 | Conceptual Debt Prevention | Protocol/tech confusion, conceptual debt |
 
 **Confidence Methods:**
 | ID | Name | Use For |

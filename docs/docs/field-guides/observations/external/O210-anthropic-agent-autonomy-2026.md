@@ -166,7 +166,7 @@ This observation supports:
 
 **M155: Verification Before Completion** — The deployment overhang suggests that verification practices should evolve with experience. Experienced users verify differently (monitoring vs. approval), not less.
 
-**M154: Understanding-First Protocol Adoption** — The approval→monitoring shift requires understanding how agents work. Users who develop this understanding can grant more autonomy safely.
+**M154: Conceptual Debt Prevention** — The approval→monitoring shift requires building a conceptual model of how agents work. Users who skip this understanding carry conceptual debt that prevents them from calibrating trust -- they either over-approve or over-restrict.
 
 ---
 

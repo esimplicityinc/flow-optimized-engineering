@@ -2,6 +2,13 @@
 
 Linting and scoring tools for FOE Field Guides.
 
+## Quick Start
+
+```bash
+# From project root using just
+just fg-lint
+```
+
 ## Prerequisites
 
 - Python 3.11+
@@ -156,15 +163,21 @@ External observations are weighted higher due to larger sample sizes and academi
 
 ## CI Integration
 
-Add to your CI workflow:
+The field guide linter runs automatically in two places:
 
-```yaml
-- name: Lint Field Guides
-  run: |
-    uv run --project scripts scripts/lint_field_guides.py --quiet
+### GitHub Actions
+
+The `.github/workflows/ci.yml` workflow runs the linter on every push to `main` and on pull requests. It fails the build on errors but passes on warnings.
+
+### Pre-commit Hook
+
+A git pre-commit hook runs the linter when field guide files are staged. Install it with:
+
+```bash
+just setup-hooks
 ```
 
-The script will exit with code 1 if there are errors, failing the CI check.
+The hook only triggers when files under `docs/docs/field-guides/`, `docs/docs/external-frameworks/`, or `scripts/lint_field_guides.py` are staged. It blocks commits that introduce lint errors.
 
 ## Current Status
 

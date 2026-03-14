@@ -165,7 +165,7 @@ This observation supports:
 
 **M156: Agent-Mediated Access** — The finding that investigation strategy (how the agent accesses the codebase) determines efficiency validates the importance of structured, mediated access patterns over brute-force approaches.
 
-**M154: Understanding-First Protocol Adoption** — Opus's surgical git-first strategy is an understanding-first approach: build understanding incrementally rather than dumping everything into context. This validates the principle that understanding should guide investigation, not volume.
+**M154: Conceptual Debt Prevention** — Opus's surgical git-first strategy prevents conceptual debt by building understanding incrementally rather than dumping everything into context. The 15x efficiency difference between surgical and brute-force approaches demonstrates the cost of skipping genuine comprehension.
 
 ---
 

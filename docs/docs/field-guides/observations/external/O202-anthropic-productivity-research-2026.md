@@ -10,7 +10,7 @@ source:
   url: "https://arxiv.org/abs/2601.20245"
 methods:
   - agentic-coding/methods/emerging/M155-verification-before-completion
-  - agentic-coding/methods/emerging/M154-understanding-first-protocol-adoption
+  - agentic-coding/methods/emerging/M154-conceptual-debt-prevention
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';
@@ -108,7 +108,7 @@ This research fundamentally challenges the narrative that AI assistance accelera
 The research suggests that current AI coding workflows have broken feedback loops. Developers generate code quickly but lack the deep understanding to debug it effectively. This creates a vicious cycle: generate → doesn't work → generate again → still doesn't work. Fast generation without comprehension provides false feedback.
 
 **Confidence:**
-This research severely undermines confidence in AI-assisted coding as a productivity silver bullet. However, it increases confidence in FOE's cautious approach. The findings suggest that methods emphasizing verification (M155) and understanding-first (M154) are not just good practices but essential for avoiding skill degradation.
+This research severely undermines confidence in AI-assisted coding as a productivity silver bullet. However, it increases confidence in FOE's cautious approach. The findings suggest that methods emphasizing verification (M155) and conceptual debt prevention (M154) are not just good practices but essential for avoiding skill degradation.
 
 ## Limitations
 
@@ -157,7 +157,7 @@ This observation strongly supports:
 
 **M155: Verification Before Completion** - Without verification, AI assistance creates "flimsy understanding" and false confidence. The research shows that simply reviewing generated code doesn't build real comprehension.
 
-**M154: Understanding-First Protocol Adoption** - The research validates that understanding is more important than generation speed. Developers with better understanding perform better, even if they generate code more slowly.
+**M154: Conceptual Debt Prevention** — The research validates that understanding is more important than generation speed. Developers with better understanding perform better, even if they generate code more slowly. Skipping comprehension to generate faster is conceptual debt accumulation.
 
 ---
 

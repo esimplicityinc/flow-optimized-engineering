@@ -94,10 +94,10 @@ For each selected method, read its documentation to extract:
 
 Build a search context:
 ```yaml
-method: understanding-first-protocol-adoption
+method: conceptual-debt-prevention
 maturity: observing
 core_claims:
-  - "Investing time to understand protocol conceptual models before architecture decisions reduces rework"
+  - "Teams accumulate conceptual debt when they adopt technologies without understanding their underlying models"
   - "API familiarity is not the same as model understanding"
 existing_evidence:
   - prima-oss-fork-strategy (internal)

@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Run field guide linter on pre-commit
+# Only runs when field guide files are staged
+
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+
+# Check if any field guide related files are staged
+FG_CHANGED=false
+for file in $STAGED_FILES; do
+  case "$file" in
+    docs/docs/field-guides/*|docs/docs/external-frameworks/*|scripts/lint_field_guides.py)
+      FG_CHANGED=true
+      break
+      ;;
+  esac
+done
+
+if [ "$FG_CHANGED" = false ]; then
+  exit 0
+fi
+
+echo "Field guide files changed — running linter..."
+
+if ! command -v uv &> /dev/null; then
+  echo "WARNING: uv not found, skipping field guide lint"
+  echo "Install uv: https://docs.astral.sh/uv/getting-started/installation/"
+  exit 0
+fi
+
+set +e
+OUTPUT=$(uv run --project scripts scripts/lint_field_guides.py --lint-only --quiet 2>/dev/null)
+EXIT_CODE=$?
+set -e
+
+if [ $EXIT_CODE -eq 1 ]; then
+  echo ""
+  echo "FIELD GUIDE LINT FAILED — errors found:"
+  echo "$OUTPUT" | python3 -c "
+import sys, json
+data = json.load(sys.stdin)
+for e in data.get('errors', []):
+    print(f\"  ERROR: {e['message']}\")
+    if 'file' in e:
+        print(f\"         in {e['file']}\")
+"
+  echo ""
+  echo "Fix errors before committing. Run 'just fg-lint' for details."
+  exit 1
+fi
+
+echo "Field guide lint passed."
