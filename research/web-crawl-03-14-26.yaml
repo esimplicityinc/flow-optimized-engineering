@@ -1,0 +1,1338 @@
+source: web
+crawl_date: 03-14-26
+period: 02-20-26 to 03-14-26
+sources_searched:
+  - hacker_news
+  - arxiv
+  - anthropic_blog
+  - company_blogs_and_forums
+  - google_news
+errors:
+  - "g-search MCP tool timed out consistently; fell back to Playwright browser-based Google searches"
+  - "Twitter/X not directly searchable via Google site: filter; signals captured indirectly through news aggregation"
+
+# ============================================================
+# EXECUTIVE SUMMARY
+# ============================================================
+# This 22-day window (Feb 20 - Mar 14, 2026) shows five dominant shifts:
+#
+# 1. MULTI-AGENT ORCHESTRATION GOES MAINSTREAM - No longer theoretical.
+#    Astro, Oh-My-OpenClaw, Gas Town, and Anthropic's Code Review all
+#    ship DAG-based multi-agent coordination. This is the biggest NEW signal.
+#
+# 2. MCP MATURATION + SKEPTICISM - MCP Skills spec lands, streamable HTTP
+#    replaces SSE, but practitioners question whether MCP adds value over
+#    direct CLI/API calls. Token efficiency tools (mcp2cli) emerge.
+#
+# 3. AGENT MEMORY & PERSISTENCE - ClawMemory ("Git for agent memory")
+#    and session analytics (Rudel) signal that the field recognizes
+#    stateless agents are insufficient. NEW trend.
+#
+# 4. METR PRODUCTIVITY REVERSAL - METR publicly revises its experimental
+#    design after the controversial "20% slowdown" finding. This is the
+#    most important EVOLVED signal from the Solow paradox discussion.
+#
+# 5. VIBE CODING BACKLASH CRYSTALLIZES - "Breaking the spell of vibe
+#    coding" and "rat in a maze" metaphors show the community drawing
+#    sharper lines between vibe coding and professional agentic coding.
+#    EVOLVED from dark-flow-productivity-illusion.
+
+findings:
+  # ============================================
+  # HACKER NEWS - HIGH SIGNAL
+  # ============================================
+
+  - id: web-001
+    source_type: hacker_news
+    title: "Astro: Orchestrator of AI Agents (Claude Code, Codex, OpenClaw)"
+    url: "https://news.ycombinator.com/item?id=47355676"
+    date: 03-12-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_moderate
+      comments: active_discussion
+    key_insights:
+      - DAG-based dependency graph for multi-agent task dispatch
+      - Sits above Claude Code, Codex, and OpenClaw as a meta-orchestrator
+      - Generates dependency graphs from goal descriptions, dispatches in parallel
+      - Represents shift from single-agent to coordinated multi-agent workflows
+    topics:
+      - multi-agent-orchestration
+      - dag-scheduling
+      - agent-coordination
+    delta_status: new
+    signal_strength: high
+    foe_relevance: method_candidate
+    analysis: >
+      First concrete multi-agent orchestrator that treats coding agents as
+      interchangeable workers in a DAG. This is the "Kubernetes for agents"
+      pattern Steve Yegge described. Validates the convergence-divergence
+      framework: the industry is converging on orchestration as the next layer.
+
+  - id: web-002
+    source_type: hacker_news
+    title: "Oh-My-OpenClaw: Agent orchestration for coding, model routing"
+    url: "https://news.ycombinator.com/item?id=47161721"
+    date: 03-01-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_moderate
+      comments: active_discussion
+    key_insights:
+      - Multi-agent orchestration layer on top of OpenClaw
+      - Model routing (GPT-5.3 Codex for logic, Gemini 3.1 Pro for UI)
+      - Configurable via single JSON file
+      - Works with or without the OmO wrapper
+    topics:
+      - multi-agent-orchestration
+      - model-routing
+      - openclaw-ecosystem
+    delta_status: new
+    signal_strength: high
+    foe_relevance: method_candidate
+    analysis: >
+      Model routing per task type is a significant pattern: different models
+      for different subtasks within a single project. This is "harness over
+      model" taken to its logical conclusion -- the harness now selects
+      which model to use for each subtask.
+
+  - id: web-003
+    source_type: hacker_news
+    title: "ClawMemory: Git for AI agent memory (forkable, persistent)"
+    url: "https://news.ycombinator.com/item?id=47354779"
+    date: 03-12-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_low_moderate
+      comments: active_discussion
+    key_insights:
+      - Version-controlled agent memory repositories
+      - Public browsable memory at clawmemory.ai/explore
+      - Built because OpenClaw agents kept forgetting solved problems
+      - Forkable memory enables knowledge transfer between agent instances
+    topics:
+      - agent-memory
+      - persistence
+      - knowledge-management
+    delta_status: new
+    signal_strength: high
+    foe_relevance: method_candidate
+    analysis: >
+      Agent memory is an entirely NEW trend not present in the Feb 20 report.
+      The pain point is clear: agents re-solve problems they've already solved.
+      Git-based memory versioning is an elegant approach that leverages existing
+      developer mental models. This could become a foundational pattern.
+
+  - id: web-004
+    source_type: hacker_news
+    title: "Rudel: Claude Code Session Analytics (1,573 sessions, 15M+ tokens)"
+    url: "https://news.ycombinator.com/item?id=47350416"
+    date: 03-13-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_moderate
+      comments: active_discussion
+    key_insights:
+      - Analytics layer for Claude Code sessions
+      - Dataset of 1,573 real sessions, 15M+ tokens, 270K+ interactions
+      - Enables empirical measurement of agent coding patterns
+      - Addresses the observability gap in agentic workflows
+    topics:
+      - agent-analytics
+      - observability
+      - empirical-measurement
+    delta_status: new
+    signal_strength: high
+    foe_relevance: observation_candidate
+    analysis: >
+      Direct evolution of the agent-autonomy-empirical-measurement trend.
+      Having 1,573 real sessions with token-level data is exactly the kind
+      of empirical evidence FOE needs. This tool could generate observations
+      about actual agent behavior patterns, cost profiles, and failure modes.
+
+  - id: web-005
+    source_type: hacker_news
+    title: "mcp2cli: One CLI for every API, 96-99% fewer tokens than native MCP"
+    url: "https://news.ycombinator.com/item?id=47305149"
+    date: 03-09-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_moderate
+      comments: active_discussion
+    key_insights:
+      - Wraps MCP servers as CLI tools, dramatically reducing token usage
+      - 96-99% token reduction vs native MCP protocol
+      - Commentary calls this "predictable vibe-coder tooling for vibe coders"
+      - Questions whether MCP's overhead is justified
+    topics:
+      - mcp
+      - token-efficiency
+      - protocol-overhead
+    delta_status: evolved
+    evolved_from: harness-over-model
+    signal_strength: high
+    foe_relevance: method_candidate
+    analysis: >
+      MCP's token overhead is becoming a real concern. A 96-99% reduction
+      by wrapping MCP as CLI suggests the protocol carries enormous overhead
+      for simple operations. This challenges MCP's value proposition for
+      individual developers while reinforcing its role in enterprise contexts.
+
+  - id: web-006
+    source_type: hacker_news
+    title: "MCP is the future in enterprise, not for solo vibe coders"
+    url: "https://news.ycombinator.com/item?id=47307729"
+    date: 03-10-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_low_moderate
+      comments: active_discussion
+    key_insights:
+      - MCP makes sense for org-level agent engineering
+      - Does not make sense for solo developers on isolated codebases
+      - No need to sandbox execution for local-only work
+      - Enterprise vs individual developer split emerging
+    topics:
+      - mcp
+      - enterprise-vs-individual
+      - protocol-adoption
+    delta_status: evolved
+    evolved_from: harness-over-model
+    signal_strength: medium
+    foe_relevance: observation_candidate
+    analysis: >
+      The MCP adoption curve is bifurcating: enterprise teams need the
+      standardization and security sandboxing, while solo developers find
+      it adds unnecessary complexity. This is a classic protocol adoption
+      pattern -- the overhead is justified at scale but not for individuals.
+
+  - id: web-007
+    source_type: hacker_news
+    title: "MCP Skills explained simply (streamable HTTP, OAuth 2.1, Resource API decline)"
+    url: "https://news.ycombinator.com/item?id=47328800"
+    date: 03-10-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_low_moderate
+      comments: active_discussion
+    key_insights:
+      - MCP spec evolving: streamable HTTP replacing SSE
+      - OAuth 2.1 integration for authentication
+      - Resource API quietly declining in favor of Skills
+      - Skills represent a higher-level abstraction than raw tool calls
+    topics:
+      - mcp
+      - protocol-evolution
+      - skills-abstraction
+    delta_status: evolved
+    evolved_from: harness-over-model
+    signal_strength: medium
+    foe_relevance: informational
+    analysis: >
+      MCP is maturing rapidly. The shift from SSE to streamable HTTP and
+      the introduction of Skills as a higher-level abstraction suggest the
+      protocol is moving toward production readiness. The Resource API
+      decline indicates the community found it too low-level.
+
+  - id: web-008
+    source_type: hacker_news
+    title: "Best way to use MCP is not to use it -- just call APIs directly"
+    url: "https://news.ycombinator.com/item?id=47160275"
+    date: 02-25-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_low_moderate
+      comments: active_discussion
+    key_insights:
+      - Skepticism about MCP's value over direct API/CLI calls
+      - If APIs/CLIs exist, MCP adds unnecessary indirection
+      - Wrapping MCP in CLI is "second best thing"
+      - Echoes broader protocol-overhead concerns
+    topics:
+      - mcp
+      - protocol-skepticism
+      - simplicity
+    delta_status: evolved
+    evolved_from: harness-over-model
+    signal_strength: medium
+    foe_relevance: observation_candidate
+    analysis: >
+      Three separate HN discussions (web-005, web-006, web-008) all question
+      MCP's value. This is a significant counter-signal to the MCP hype.
+      The pattern: MCP is valuable as a standard for tool discovery and
+      security sandboxing, but adds overhead for simple integrations.
+
+  - id: web-009
+    source_type: hacker_news
+    title: "One MCP server as gateway to 25,000+ other MCP servers (agent-security)"
+    url: "https://news.ycombinator.com/item?id=47374533"
+    date: 03-14-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_new_post
+      comments: early_discussion
+    key_insights:
+      - MCP gateway aggregating 25,000+ MCP servers
+      - Includes agent-security scanning (e.g., scan requirements.txt)
+      - Security layer for MCP ecosystem
+      - Addresses the "MCP server sprawl" problem
+    topics:
+      - mcp
+      - agent-security
+      - gateway-pattern
+    delta_status: new
+    signal_strength: medium
+    foe_relevance: observation_candidate
+    analysis: >
+      The MCP gateway pattern is NEW. As MCP servers proliferate, the need
+      for aggregation, discovery, and security scanning becomes critical.
+      The agent-security scanning feature directly addresses the
+      production-hardening-wave trend.
+
+  - id: web-010
+    source_type: hacker_news
+    title: "I built a governance layer for multi-agent AI coding (6 months lessons)"
+    url: "https://news.ycombinator.com/item?id=47139978"
+    date: 02-24-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_low
+      comments: minimal
+    key_insights:
+      - Six months of experience building governance for multi-agent coding
+      - Governance layer sits between agents and codebase
+      - Addresses the "who approved this change" problem
+      - Lessons learned from production multi-agent deployment
+    topics:
+      - agent-governance
+      - multi-agent
+      - production-hardening
+    delta_status: new
+    signal_strength: medium
+    foe_relevance: method_candidate
+    analysis: >
+      Agent governance is a NEW concern that emerges naturally from
+      multi-agent adoption. When multiple agents can modify code, you need
+      audit trails, approval workflows, and rollback capabilities. This
+      is the production-hardening-wave applied to multi-agent systems.
+
+  - id: web-011
+    source_type: hacker_news
+    title: "OpenClaw Exposure Watchboard (security vulnerability surface)"
+    url: "https://news.ycombinator.com/item?id=47227329"
+    date: 03-02-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_moderate
+      comments: active_discussion
+    key_insights:
+      - OpenClaw configurations exposing security vulnerabilities
+      - Insecure default configurations creating attack surface
+      - Discussion about whether this is typical or misconfiguration
+      - Trivially exploitable vulnerabilities found
+    topics:
+      - agent-security
+      - openclaw
+      - vulnerability-exposure
+    delta_status: evolved
+    evolved_from: agent-harm-incidents
+    signal_strength: high
+    foe_relevance: observation_candidate
+    analysis: >
+      Direct evolution of agent-harm-incidents. The security surface area
+      of agentic coding tools is becoming a real concern. OpenClaw's
+      exposure watchboard suggests the community is starting to take
+      agent security seriously, but default configurations remain dangerous.
+
+  - id: web-012
+    source_type: hacker_news
+    title: "Breaking the spell of vibe coding"
+    url: "https://news.ycombinator.com/item?id=47006615"
+    date: 02-15-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_high
+      comments: very_active
+    key_insights:
+      - Distinguishes between vibe coding and professional agentic coding
+      - "Easier to teach AI tools to a good coder than discipline to a vibe coder"
+      - Claude multi-agent mode can write 2,500 lines of deeply integrated code
+      - But only when guided by experienced developers
+    topics:
+      - vibe-coding-critique
+      - professional-agentic-coding
+      - skill-requirements
+    delta_status: evolved
+    evolved_from: dark-flow-productivity-illusion
+    signal_strength: high
+    foe_relevance: observation_candidate
+    analysis: >
+      The community is crystallizing the distinction between "vibe coding"
+      (low-skill, high-throughput, low-quality) and "professional agentic
+      coding" (high-skill, high-throughput, high-quality). This directly
+      validates the dark-flow-productivity-illusion observation: the
+      illusion is strongest for those who can't evaluate the output.
+
+  - id: web-013
+    source_type: hacker_news
+    title: "Without experience, vibe coding is like being a rat in a maze"
+    url: "https://news.ycombinator.com/item?id=47287424"
+    date: 03-07-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_moderate
+      comments: active_discussion
+    key_insights:
+      - Inexperienced developers waste time, attention, and cost with AI coding
+      - Rat-in-a-maze metaphor for navigating AI-generated code without understanding
+      - Reinforces that AI coding amplifies existing skill, doesn't replace it
+    topics:
+      - vibe-coding-critique
+      - skill-amplification
+      - novice-experience
+    delta_status: evolved
+    evolved_from: dark-flow-productivity-illusion
+    signal_strength: medium
+    foe_relevance: observation_candidate
+    analysis: >
+      The "rat in a maze" metaphor is powerful and captures the novice
+      experience precisely. Without a mental model of the codebase, AI
+      suggestions become a random walk through solution space. This is
+      strong evidence for the supervisory-programming-costs trend.
+
+  - id: web-014
+    source_type: hacker_news
+    title: "From Claude Code to OpenCode: Evolution in Vibe AI tooling"
+    url: "https://news.ycombinator.com/item?id=47361303"
+    date: 03-13-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_low
+      comments: early_discussion
+    key_insights:
+      - Migration path from Codex -> Claude Code -> OpenCode
+      - Open-source alternatives gaining traction
+      - OpenCode serve + Tailscale for remote agent access
+      - Tool migration fatigue emerging
+    topics:
+      - tool-migration
+      - open-source-agents
+      - developer-experience
+    delta_status: evolved
+    evolved_from: convergence-divergence-framework
+    signal_strength: medium
+    foe_relevance: informational
+    analysis: >
+      The rapid tool migration (Cursor -> Claude Code -> OpenCode) suggests
+      the market hasn't settled. Developers are still searching for the
+      right abstraction level. The convergence-divergence framework predicts
+      this: we're in a divergence phase for agent tooling.
+
+  - id: web-015
+    source_type: hacker_news
+    title: "Ask HN: Share your productive usage of OpenClaw"
+    url: "https://news.ycombinator.com/item?id=47147183"
+    date: 02-25-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_moderate
+      comments: active_discussion
+    key_insights:
+      - Community sharing concrete productive use cases
+      - Codex endpoints being used for third-party integrations
+      - OpenClaw ecosystem expanding beyond original scope
+      - Real-world productivity evidence being collected
+    topics:
+      - openclaw-ecosystem
+      - productivity-evidence
+      - use-cases
+    delta_status: evolved
+    evolved_from: agent-autonomy-empirical-measurement
+    signal_strength: medium
+    foe_relevance: observation_candidate
+    analysis: >
+      The "Ask HN" format generates concrete use cases rather than
+      theoretical discussion. This is the kind of empirical evidence
+      that can inform FOE observations about actual productivity patterns.
+
+  - id: web-016
+    source_type: hacker_news
+    title: "OpenClaw has nearly half a million lines of code, 53 config files"
+    url: "https://news.ycombinator.com/item?id=47195487"
+    date: 03-01-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_moderate
+      comments: active_discussion
+    key_insights:
+      - OpenClaw codebase complexity growing rapidly
+      - 500K lines, 53 config files, 70+ dependencies
+      - Some built entirely with Codex from a basic repo
+      - Raises questions about maintainability of AI-generated codebases
+    topics:
+      - codebase-complexity
+      - ai-generated-code-maintenance
+      - technical-debt
+    delta_status: evolved
+    evolved_from: dark-flow-productivity-illusion
+    signal_strength: medium
+    foe_relevance: observation_candidate
+    analysis: >
+      Half a million lines of code with 70+ dependencies built largely
+      by AI agents raises serious maintainability questions. This is the
+      dark-flow-productivity-illusion made concrete: high throughput
+      doesn't mean high quality or maintainability.
+
+  - id: web-017
+    source_type: hacker_news
+    title: "Recalculating GPT-5.3-Codex-Spark on SWE-Bench Pro"
+    url: "https://news.ycombinator.com/item?id=47007896"
+    date: 02-19-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_moderate
+      comments: active_discussion
+    key_insights:
+      - Community fact-checking OpenAI's benchmark claims
+      - 15x faster claim not found in original announcement
+      - SWE-Bench Pro as more rigorous evaluation
+      - Benchmark skepticism continues
+    topics:
+      - benchmarks
+      - gpt-5-codex
+      - evaluation-rigor
+    delta_status: recurring
+    signal_strength: medium
+    foe_relevance: informational
+    analysis: >
+      Benchmark skepticism is a recurring theme. The community continues
+      to push back on vendor benchmark claims, demanding reproducible
+      and rigorous evaluation. SWE-Bench Pro represents the next
+      generation of more realistic benchmarks.
+
+  - id: web-018
+    source_type: hacker_news
+    title: "Claude Code for iPad: Agentic AI coding with file ops, Git, shell"
+    url: "https://news.ycombinator.com/item?id=47272260"
+    date: 03-06-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: est_low_moderate
+      comments: active_discussion
+    key_insights:
+      - Agentic coding tool running on iPad
+      - Claude reads code, edits files, runs commands autonomously in a loop
+      - Mobile-first agentic coding
+      - Expanding the surface area of where agents can operate
+    topics:
+      - mobile-agentic-coding
+      - agent-autonomy
+      - platform-expansion
+    delta_status: new
+    signal_strength: low
+    foe_relevance: informational
+    analysis: >
+      Mobile agentic coding is a niche but interesting signal. It suggests
+      the "supervisory programming" model where developers review and
+      approve agent work could happen from anywhere, not just a desktop IDE.
+
+  # ============================================
+  # ARXIV - ACADEMIC RESEARCH
+  # ============================================
+
+  - id: web-019
+    source_type: arxiv
+    title: "Evaluating the Real-World Utility of AI Code Review Agents"
+    url: "https://arxiv.org/html/2603.11078v1"
+    date: 03-10-26
+    quality_tier: academic
+    key_insights:
+      - Resolution rates alone don't capture developer productivity
+      - Real-world utility of AI code review agents is more nuanced
+      - Constraints on effective agent design identified
+      - Challenges simplistic "AI replaces code review" narratives
+    topics:
+      - code-review
+      - agent-evaluation
+      - productivity-measurement
+    delta_status: new
+    signal_strength: high
+    foe_relevance: observation_candidate
+    analysis: >
+      Directly relevant to the agent-autonomy-empirical-measurement trend.
+      This paper provides academic rigor to the question of whether AI
+      code review agents actually help. The finding that resolution rates
+      are insufficient metrics aligns with FOE's emphasis on understanding
+      over throughput.
+
+  - id: web-020
+    source_type: arxiv
+    title: "Can AI Agents Generate Microservices? How Far are We?"
+    url: "https://arxiv.org/html/2603.09004v1"
+    date: 03-09-26
+    quality_tier: academic
+    key_insights:
+      - Evaluates AI agents on microservice generation (beyond single-file tasks)
+      - Tests architectural-level code generation capability
+      - References comprehensive survey on LLM-empowered agentic systems
+      - Pushes evaluation beyond toy benchmarks to real architecture
+    topics:
+      - microservices
+      - architectural-generation
+      - agent-capabilities
+    delta_status: new
+    signal_strength: medium
+    foe_relevance: observation_candidate
+    analysis: >
+      Moving evaluation from single-file to architectural-level generation
+      is a significant step. Microservices require understanding of
+      distributed systems, API contracts, and deployment patterns --
+      exactly the kind of complex reasoning where agents struggle.
+
+  - id: web-021
+    source_type: arxiv
+    title: "Building AI Coding Agents for the Terminal"
+    url: "https://arxiv.org/html/2603.05344v1"
+    date: 03-05-26
+    quality_tier: academic
+    key_insights:
+      - Academic treatment of terminal-based AI coding agents
+      - Evaluates class-level code generation
+      - References ICSE 2024 work on LLM evaluation
+      - Bridges academic research and practical tool design
+    topics:
+      - terminal-agents
+      - code-generation
+      - agent-architecture
+    delta_status: new
+    signal_strength: medium
+    foe_relevance: informational
+    analysis: >
+      Academic validation of the terminal-based agent pattern (Claude Code,
+      OpenClaw, Cline CLI). The fact that this is now an academic research
+      topic suggests the pattern has matured beyond early experimentation.
+
+  - id: web-022
+    source_type: arxiv
+    title: "Towards a Science of AI Agent Reliability"
+    url: "https://arxiv.org/html/2602.16666v1"
+    date: 02-18-26
+    authors:
+      - "S. Rabanser et al."
+    quality_tier: academic
+    key_insights:
+      - Proposes framework for measuring AI agent reliability
+      - Consistency essential for code-generation agents in CI/CD
+      - Coding agent reviewing PRs and flagging bugs as case study
+      - Calls for scientific approach to agent reliability measurement
+    topics:
+      - agent-reliability
+      - consistency
+      - scientific-measurement
+    delta_status: new
+    signal_strength: high
+    foe_relevance: method_candidate
+    analysis: >
+      This is the most FOE-relevant academic paper in this crawl. A
+      "science of agent reliability" directly maps to FOE's emphasis on
+      empirical measurement and confidence. The consistency requirement
+      for CI/CD deployment is a concrete production-hardening concern.
+
+  - id: web-023
+    source_type: arxiv
+    title: "How Well Does Agent Development Reflect Real-World Work?"
+    url: "https://arxiv.org/html/2603.01203v2"
+    date: 03-06-26
+    quality_tier: academic
+    key_insights:
+      - Examines whether AI agent benchmarks reflect real-world work
+      - Covers software engineering and knowledge-intensive research
+      - Questions ecological validity of current benchmarks
+      - Calls for more realistic evaluation frameworks
+    topics:
+      - benchmark-validity
+      - real-world-evaluation
+      - agent-development
+    delta_status: evolved
+    evolved_from: agent-autonomy-empirical-measurement
+    signal_strength: high
+    foe_relevance: observation_candidate
+    analysis: >
+      Benchmark validity is a critical concern. If SWE-Bench and similar
+      benchmarks don't reflect real-world work, then agent improvements
+      on benchmarks may not translate to actual developer productivity.
+      This paper provides academic backing for the community's benchmark
+      skepticism.
+
+  - id: web-024
+    source_type: arxiv
+    title: "Novice Developers Produce Larger Review Overhead for AI-Generated Code"
+    url: "https://arxiv.org/html/2602.23905v1"
+    date: 02-27-26
+    quality_tier: academic
+    key_insights:
+      - AI coding assistants did NOT mediate developer productivity in study
+      - Novice developers create more review burden when using AI
+      - References "agentic software engineering foundational pillars" roadmap
+      - Empirical evidence that AI amplifies skill gaps
+    topics:
+      - novice-developers
+      - review-overhead
+      - productivity-measurement
+    delta_status: evolved
+    evolved_from: supervisory-programming-costs
+    signal_strength: high
+    foe_relevance: observation_candidate
+    analysis: >
+      CRITICAL finding. Novice developers using AI create MORE review work
+      for senior developers, not less. This is the supervisory-programming-costs
+      trend backed by academic evidence. The "rat in a maze" HN metaphor
+      (web-013) is now empirically validated. AI coding assistants may
+      actually decrease team productivity when used by novices.
+
+  - id: web-025
+    source_type: arxiv
+    title: "Test-Driven AI Agent Definition (TDAD): Compiling Tool-Using Agents from Behavioral Specifications"
+    url: "https://arxiv.org/html/2603.08806v1"
+    date: 03-09-26
+    quality_tier: academic
+    key_insights:
+      - Applies test-driven development principles to agent definition
+      - Compiles agents from behavioral specifications
+      - Software engineering solved analogous problems decades ago through tests
+      - Bridges TDD methodology with agent design
+    topics:
+      - test-driven-agents
+      - behavioral-specification
+      - agent-definition
+    delta_status: new
+    signal_strength: medium
+    foe_relevance: method_candidate
+    analysis: >
+      TDAD is a genuinely novel approach: define agent behavior through
+      tests, then compile the agent. This applies proven SE methodology
+      to the agent design problem. Could become a foundational pattern
+      for reliable agent development.
+
+  - id: web-026
+    source_type: arxiv
+    title: "Mining Type Constructs Using Patterns in AI-Generated Code"
+    url: "https://arxiv.org/html/2602.17955v1"
+    date: 02-20-26
+    quality_tier: academic
+    key_insights:
+      - Analyzes patterns in AI-generated code
+      - References "Rise of AI Teammates in SE 3.0"
+      - AI agents demonstrated capabilities beyond code generation
+      - Debugging, refactoring, and documentation capabilities
+    topics:
+      - code-patterns
+      - ai-generated-code-analysis
+      - se-3.0
+    delta_status: evolved
+    evolved_from: agent-autonomy-empirical-measurement
+    signal_strength: medium
+    foe_relevance: informational
+    analysis: >
+      The "SE 3.0" framing positions AI agents as teammates rather than
+      tools. Pattern mining in AI-generated code could reveal systematic
+      biases or quality issues that inform how we supervise agents.
+
+  # ============================================
+  # COMPANY BLOGS & INDUSTRY
+  # ============================================
+
+  - id: web-027
+    source_type: anthropic_blog
+    title: "Making frontier cybersecurity capabilities available (Claude Code Security)"
+    url: "https://www.anthropic.com/news/claude-code-security"
+    date: 02-20-26
+    quality_tier: industry_research
+    key_insights:
+      - Claude Code Security launched for cybersecurity use cases
+      - Goal of more secure codebases and higher security baseline
+      - Frontier AI capabilities applied to defensive security
+      - Industry-wide security baseline improvement as stated goal
+    topics:
+      - agent-security
+      - cybersecurity
+      - claude-code
+    delta_status: evolved
+    evolved_from: production-hardening-wave
+    signal_strength: high
+    foe_relevance: observation_candidate
+    analysis: >
+      Anthropic is positioning Claude Code as a security tool, not just
+      a coding tool. This is a strategic move that addresses the
+      production-hardening-wave directly. Security-first agent design
+      could become a competitive differentiator.
+
+  - id: web-028
+    source_type: anthropic_blog
+    title: "Measuring AI agent autonomy in practice"
+    url: "https://www.anthropic.com/research/measuring-agent-autonomy"
+    date: 02-18-26
+    quality_tier: industry_research
+    key_insights:
+      - Experienced Claude Code users stop reviewing each action
+      - Users let Claude run autonomously, intervening only when needed
+      - Autonomy increases with user experience
+      - Empirical measurement of autonomy levels in practice
+    topics:
+      - agent-autonomy
+      - user-behavior
+      - empirical-measurement
+    delta_status: evolved
+    evolved_from: agent-autonomy-empirical-measurement
+    signal_strength: high
+    foe_relevance: observation_candidate
+    analysis: >
+      This is Anthropic's own data on how users interact with Claude Code.
+      The finding that experienced users grant more autonomy validates the
+      supervisory-programming-costs model: supervision decreases as trust
+      increases. But this also raises the question of whether reduced
+      supervision leads to more errors going undetected.
+
+  - id: web-029
+    source_type: anthropic_blog
+    title: "Claude Code in an Hour: A Developer's Intro (webinar)"
+    url: "https://www.anthropic.com/webinars/claude-code-in-an-hour-a-developers-intro"
+    date: 03-04-26
+    quality_tier: industry_research
+    key_insights:
+      - Official Anthropic webinar for Claude Code onboarding
+      - Covers exploring codebases, writing tests, fixing bugs, committing
+      - Developer-stays-in-control-at-every-step messaging
+      - Signals Anthropic investing in developer education
+    topics:
+      - claude-code
+      - developer-education
+      - onboarding
+    delta_status: recurring
+    signal_strength: low
+    foe_relevance: informational
+    analysis: >
+      The "developer stays in control" messaging is notable given the
+      autonomy research (web-028) showing users increasingly don't stay
+      in control. There's a tension between Anthropic's marketing
+      (human-in-the-loop) and their research (users prefer autonomy).
+
+  - id: web-030
+    source_type: google_news
+    title: "Anthropic's 2026 Agentic Coding Report: Rise of Multi-Agent Dev Teams"
+    url: "https://news.bitcoin.com/anthropics-2026-agentic-coding-report-maps-the-rise-of-multi-agent-dev-teams/"
+    date: 03-01-26
+    quality_tier: industry_research
+    key_insights:
+      - Anthropic published a formal "Agentic Coding Trends Report"
+      - Claims software development is about orchestrating AI agents, not writing code
+      - Maps the rise of multi-agent development teams
+      - Bold framing of the paradigm shift
+    topics:
+      - multi-agent
+      - industry-report
+      - paradigm-shift
+    delta_status: new
+    signal_strength: high
+    foe_relevance: observation_candidate
+    analysis: >
+      Anthropic publishing a formal trends report signals they see agentic
+      coding as a major market category, not just a feature. The "orchestrating
+      agents, not writing code" framing is the strongest version of the
+      harness-over-model thesis yet. This is an authoritative industry signal.
+
+  - id: web-031
+    source_type: google_news
+    title: "Anthropic launches multi-agent code review tool for Claude Code"
+    url: "https://thenewstack.io/anthropic-launches-a-multi-agent-code-review-tool-for-claude-code/"
+    date: 03-10-26
+    quality_tier: industry_research
+    key_insights:
+      - Multi-agent system that analyzes PRs for bugs
+      - Available as research preview
+      - Developers shipping more code than ever, creating review bottleneck
+      - Code review as the first multi-agent production feature
+    topics:
+      - multi-agent
+      - code-review
+      - claude-code
+    delta_status: new
+    signal_strength: high
+    foe_relevance: method_candidate
+    analysis: >
+      Anthropic's first official multi-agent feature is code review, not
+      code generation. This is strategically significant: they're addressing
+      the review bottleneck created by increased code throughput. Directly
+      validates the supervisory-programming-costs trend -- if agents
+      generate more code, you need agents to review it too.
+
+  - id: web-032
+    source_type: google_news
+    title: "METR: We are Changing our Developer Productivity Experiment Design"
+    url: "https://metr.org/blog/2026-02-24-uplift-update/"
+    date: 02-24-26
+    quality_tier: academic
+    key_insights:
+      - METR revising experimental design after "20% slowdown" finding
+      - Original paper found AI tools caused slowdown for experienced OSS developers
+      - Acknowledges methodological concerns
+      - Redesigning experiments for more robust conclusions
+    topics:
+      - productivity-measurement
+      - experimental-design
+      - metr-study
+    delta_status: evolved
+    evolved_from: dark-flow-productivity-illusion
+    signal_strength: high
+    foe_relevance: observation_candidate
+    analysis: >
+      THIS IS THE MOST IMPORTANT EVOLVED SIGNAL. METR's original "20%
+      slowdown" finding was the strongest empirical evidence for the
+      Solow productivity paradox in AI coding. Their decision to revise
+      the experimental design suggests either (a) the finding was
+      methodologically flawed, or (b) the effect is real but needs
+      better measurement. Either way, this is a pivotal moment for
+      the productivity debate.
+
+  - id: web-033
+    source_type: google_news
+    title: "Gas Town: Kubernetes for AI Coding Agents (Steve Yegge)"
+    url: "https://cloudnativenow.com/features/gas-town-what-kubernetes-for-ai-coding-agents-actually-looks-like/"
+    date: 02-20-26
+    quality_tier: practitioner
+    key_insights:
+      - Steve Yegge built Gas Town to orchestrate 20-30 AI coding agents in parallel
+      - Kubernetes-for-AI-development framing
+      - Preview of production-scale agent orchestration
+      - From a well-known industry voice (ex-Google, ex-Amazon)
+    topics:
+      - multi-agent-orchestration
+      - production-scale
+      - infrastructure
+    delta_status: new
+    signal_strength: high
+    foe_relevance: method_candidate
+    analysis: >
+      Steve Yegge is a credible industry voice. Running 20-30 agents in
+      parallel is a different paradigm than single-agent coding. The
+      "Kubernetes for agents" metaphor suggests we need container-like
+      isolation, scheduling, and resource management for agents. This
+      is the infrastructure layer that multi-agent coding requires.
+
+  - id: web-034
+    source_type: google_news
+    title: "Cline CLI 2.0: Terminal as AI Agent Control Plane"
+    url: "https://devops.com/cline-cli-2-0-turns-your-terminal-into-an-ai-agent-control-plane/"
+    date: 02-25-26
+    quality_tier: practitioner
+    key_insights:
+      - Full AI coding agents in the terminal
+      - Parallel execution support
+      - Headless CI/CD mode for automated pipelines
+      - ACP (Agent Communication Protocol) editor support
+    topics:
+      - terminal-agents
+      - parallel-execution
+      - ci-cd-integration
+    delta_status: evolved
+    evolved_from: production-hardening-wave
+    signal_strength: medium
+    foe_relevance: informational
+    analysis: >
+      Cline CLI 2.0's headless CI/CD mode is significant: agents running
+      in CI/CD pipelines without human supervision. This is the logical
+      endpoint of the production-hardening-wave -- agents as automated
+      pipeline stages. The ACP protocol is a competitor to MCP.
+
+  - id: web-035
+    source_type: google_news
+    title: "Microsoft Agent Framework: A2A and MCP for multi-agent actions"
+    url: "https://cloudwars.com/ai/ai-agent-and-copilot-podcast-microsoft-agent-framework-enables-complex-multi-agent-actions/"
+    date: 03-09-26
+    quality_tier: industry_research
+    key_insights:
+      - Microsoft Agent Framework supports both A2A and MCP protocols
+      - Bring-your-own-model approach
+      - Seamless integration of diverse AI tools
+      - Enterprise-grade multi-agent orchestration
+    topics:
+      - microsoft
+      - a2a-protocol
+      - mcp
+      - multi-agent
+    delta_status: new
+    signal_strength: medium
+    foe_relevance: informational
+    analysis: >
+      Microsoft supporting both A2A (Google's Agent-to-Agent) and MCP
+      (Anthropic's Model Context Protocol) signals protocol convergence
+      at the enterprise level. The bring-your-own-model approach aligns
+      with the harness-over-model thesis.
+
+  - id: web-036
+    source_type: google_news
+    title: "Augment Code Intent vs Claude Code: Multi-Agent Orchestration comparison"
+    url: "https://www.augmentcode.com/tools/intent-vs-claude-code"
+    date: 03-07-26
+    quality_tier: practitioner
+    key_insights:
+      - Intent turns executable specifications into coordinated multi-agent workflows
+      - Coordinator breaks requirements into tasks across entire codebase
+      - Direct comparison with Claude Code's terminal-first approach
+      - Executable-specifications as a new abstraction level
+    topics:
+      - multi-agent-orchestration
+      - executable-specifications
+      - tool-comparison
+    delta_status: new
+    signal_strength: medium
+    foe_relevance: informational
+    analysis: >
+      "Executable specifications" is a new framing that bridges requirements
+      and implementation. The coordinator pattern (break requirements into
+      tasks, dispatch to agents) is becoming the standard multi-agent
+      architecture. Competition between approaches is healthy.
+
+  # ============================================
+  # CURSOR FORUM - TOOL ECOSYSTEM
+  # ============================================
+
+  - id: web-037
+    source_type: cursor_forum
+    title: "Cursor vs Claude Code: Cost and Performance comparison"
+    url: "https://forum.cursor.com/t/cursor-vs-claude-code-experiences-with-cost-and-performance/154003"
+    date: 03-07-26
+    quality_tier: practitioner
+    key_insights:
+      - Claude models through Claude Code may be more cost-efficient than through Cursor
+      - Performance differences between same model via different tools
+      - Cost optimization becoming a real concern for practitioners
+      - Tool choice driven by economics, not just features
+    topics:
+      - cost-optimization
+      - tool-comparison
+      - cursor-vs-claude-code
+    delta_status: evolved
+    evolved_from: convergence-divergence-framework
+    signal_strength: medium
+    foe_relevance: observation_candidate
+    analysis: >
+      Cost is becoming a primary differentiator between agentic coding tools.
+      When the same model (Claude) is available through multiple tools,
+      the tool's token efficiency and pricing model matter more than the
+      model itself. This is harness-over-model applied to economics.
+
+  - id: web-038
+    source_type: cursor_forum
+    title: "Your moat isn't the model, it's the platform (power user perspective)"
+    url: "https://forum.cursor.com/t/your-moat-isnt-the-model-its-the-platform-a-power-users-perspective/154213"
+    date: 03-09-26
+    quality_tier: practitioner
+    key_insights:
+      - "Claude Code optimizes for autonomy; you hand off a task and hope for the best"
+      - "That doesn't work for production systems"
+      - Platform control (Cursor) vs agent autonomy (Claude Code) as key tradeoff
+      - Power users want control, not just capability
+    topics:
+      - autonomy-vs-control
+      - platform-moat
+      - production-systems
+    delta_status: evolved
+    evolved_from: harness-over-model
+    signal_strength: high
+    foe_relevance: observation_candidate
+    analysis: >
+      This is the clearest articulation of the autonomy-vs-control tradeoff.
+      Claude Code's autonomy-first design works for exploration but not for
+      production. Cursor's platform approach offers more control. This
+      tension will define the next generation of agentic coding tools.
+
+  - id: web-039
+    source_type: cursor_forum
+    title: "Rule-porter: Convert AI IDE rules between Cursor, Claude Code, Copilot, AGENTS.md"
+    url: "https://forum.cursor.com/t/rule-porter-convert-your-mdc-rules-to-claude-md-agents-md-or-copilot/153197"
+    date: 02-27-26
+    quality_tier: practitioner
+    key_insights:
+      - Tool to convert rules between different AI coding tools
+      - Cursor .mdc -> CLAUDE.md -> AGENTS.md -> Copilot
+      - Zero dependencies, runs from npx
+      - Signals fragmentation in agent configuration formats
+    topics:
+      - tool-interoperability
+      - configuration-portability
+      - agent-rules
+    delta_status: new
+    signal_strength: medium
+    foe_relevance: informational
+    analysis: >
+      The need for a rule-porter tool highlights the fragmentation in
+      agent configuration. Each tool has its own format (CLAUDE.md,
+      .mdc, AGENTS.md). This is a classic interoperability problem
+      that suggests the ecosystem needs standardization.
+
+  - id: web-040
+    source_type: cursor_forum
+    title: "Cursor 2.5: Plugins (MCP integration, Cloud agent)"
+    url: "https://forum.cursor.com/t/cursor-2-5-plugins/152124"
+    date: 02-17-26
+    quality_tier: industry_research
+    key_insights:
+      - Cursor 2.5 adds plugin system
+      - MCP integration via plugins
+      - Cloud agent capability
+      - IDE, CLI, and Cloud as three execution modes
+    topics:
+      - cursor
+      - plugins
+      - mcp-integration
+    delta_status: evolved
+    evolved_from: convergence-divergence-framework
+    signal_strength: medium
+    foe_relevance: informational
+    analysis: >
+      Cursor adding plugins and cloud agents shows convergence toward
+      the same feature set as Claude Code. The three execution modes
+      (IDE, CLI, Cloud) suggest the industry is converging on a
+      multi-modal agent interaction pattern.
+
+# ============================================
+# TREND SYNTHESIS
+# ============================================
+trend_synthesis:
+  new_trends:
+    - id: multi-agent-orchestration-wave
+      description: >
+        Multi-agent orchestration has moved from theoretical to practical.
+        Astro, Oh-My-OpenClaw, Gas Town, Anthropic Code Review, and
+        Augment Intent all ship DAG-based or coordinator-based multi-agent
+        systems. This is the dominant NEW signal in this period.
+      evidence:
+        - web-001  # Astro orchestrator
+        - web-002  # Oh-My-OpenClaw
+        - web-030  # Anthropic Agentic Coding Report
+        - web-031  # Anthropic multi-agent code review
+        - web-033  # Gas Town (Yegge)
+        - web-036  # Augment Intent
+      foe_relevance: method_candidate
+      signal_strength: high
+
+    - id: agent-memory-persistence
+      description: >
+        Agent memory and persistence is emerging as a critical concern.
+        ClawMemory provides Git-based versioned memory, and Rudel provides
+        session analytics. The field recognizes that stateless agents
+        re-solve problems and lose context across sessions.
+      evidence:
+        - web-003  # ClawMemory
+        - web-004  # Rudel session analytics
+      foe_relevance: method_candidate
+      signal_strength: high
+
+    - id: agent-governance-layer
+      description: >
+        As multi-agent systems deploy, governance becomes necessary.
+        Who approved this change? What agent made it? Can we roll back?
+        Audit trails and approval workflows for agent actions.
+      evidence:
+        - web-010  # Governance layer for multi-agent
+        - web-009  # MCP gateway with security scanning
+        - web-011  # OpenClaw Exposure Watchboard
+      foe_relevance: method_candidate
+      signal_strength: medium
+
+    - id: test-driven-agent-definition
+      description: >
+        TDAD applies TDD principles to agent design: define behavior
+        through tests, compile the agent from specifications. Bridges
+        proven SE methodology with agent development.
+      evidence:
+        - web-025  # TDAD paper
+      foe_relevance: method_candidate
+      signal_strength: medium
+
+    - id: agent-reliability-science
+      description: >
+        Academic push toward a rigorous science of agent reliability,
+        including consistency measurement, benchmark validity assessment,
+        and real-world evaluation frameworks.
+      evidence:
+        - web-022  # Science of AI Agent Reliability
+        - web-023  # Agent benchmarks vs real-world
+        - web-019  # AI Code Review Agent evaluation
+      foe_relevance: method_candidate
+      signal_strength: high
+
+  evolved_trends:
+    - id: harness-over-model-v2
+      evolved_from: harness-over-model
+      description: >
+        The harness-over-model thesis now includes model routing (different
+        models for different subtasks), token efficiency optimization
+        (mcp2cli), and platform-as-moat (Cursor vs Claude Code). The
+        harness is becoming the primary competitive differentiator.
+      evidence:
+        - web-002  # Model routing in Oh-My-OpenClaw
+        - web-005  # mcp2cli token efficiency
+        - web-038  # Platform moat perspective
+        - web-037  # Cost comparison
+      signal_strength: high
+
+    - id: mcp-maturation-and-skepticism
+      evolved_from: harness-over-model
+      description: >
+        MCP is maturing (Skills, streamable HTTP, OAuth 2.1) but facing
+        skepticism about overhead and value. Enterprise adoption is strong,
+        but individual developers question the complexity. Protocol
+        bifurcation: enterprise vs individual use cases.
+      evidence:
+        - web-005  # 96-99% token reduction without MCP
+        - web-006  # MCP for enterprise, not solo
+        - web-007  # MCP Skills spec evolution
+        - web-008  # Best way to use MCP is not to
+        - web-009  # MCP gateway pattern
+        - web-035  # Microsoft A2A + MCP support
+      signal_strength: high
+
+    - id: dark-flow-crystallization
+      evolved_from: dark-flow-productivity-illusion
+      description: >
+        The vibe coding backlash has crystallized into a clear distinction
+        between "vibe coding" (low-skill, high-throughput, low-quality)
+        and "professional agentic coding" (high-skill, high-throughput,
+        high-quality). Academic evidence now supports this distinction.
+      evidence:
+        - web-012  # Breaking the spell of vibe coding
+        - web-013  # Rat in a maze metaphor
+        - web-016  # 500K lines of AI-generated code
+        - web-024  # Novice developers create review overhead
+      signal_strength: high
+
+    - id: productivity-measurement-crisis
+      evolved_from: dark-flow-productivity-illusion
+      description: >
+        METR's decision to revise their experimental design after the
+        "20% slowdown" finding creates a measurement crisis. We don't
+        yet have reliable methods to measure AI coding productivity.
+        Resolution rates, benchmark scores, and self-reported metrics
+        are all insufficient.
+      evidence:
+        - web-032  # METR redesigning experiments
+        - web-019  # Resolution rates insufficient
+        - web-023  # Benchmarks don't reflect real work
+        - web-017  # GPT-5.3 benchmark skepticism
+      signal_strength: high
+
+    - id: supervisory-costs-empirical
+      evolved_from: supervisory-programming-costs
+      description: >
+        Academic evidence now confirms that novice developers using AI
+        create MORE review overhead, not less. The supervisory cost is
+        real and measurable. Experienced users grant more autonomy but
+        this may mask quality issues.
+      evidence:
+        - web-024  # Novice review overhead paper
+        - web-028  # Anthropic autonomy measurement
+        - web-013  # Rat in a maze experience
+      signal_strength: high
+
+    - id: production-hardening-v2
+      evolved_from: production-hardening-wave
+      description: >
+        Production hardening now includes security scanning (Claude Code
+        Security), CI/CD integration (Cline CLI headless mode), and
+        agent governance layers. The focus has shifted from "can agents
+        code" to "can agents code safely in production."
+      evidence:
+        - web-027  # Claude Code Security
+        - web-034  # Cline CLI CI/CD mode
+        - web-010  # Governance layer
+        - web-011  # Exposure Watchboard
+      signal_strength: high
+
+  recurring_trends:
+    - id: benchmark-skepticism
+      description: >
+        Community continues to fact-check vendor benchmark claims.
+        SWE-Bench Pro and academic papers question ecological validity.
+      evidence:
+        - web-017
+        - web-023
+      signal_strength: medium
+
+    - id: tool-migration-fatigue
+      description: >
+        Developers continue migrating between tools (Cursor -> Claude Code
+        -> OpenCode -> etc). The market hasn't settled on a dominant
+        paradigm. Configuration portability tools (rule-porter) emerge.
+      evidence:
+        - web-014
+        - web-039
+        - web-040
+      signal_strength: medium
+
+# ============================================
+# FOE METHOD CANDIDATES
+# ============================================
+foe_method_candidates:
+  - name: multi-agent-orchestration-patterns
+    description: >
+      Patterns for coordinating multiple AI coding agents: DAG-based
+      task decomposition, model routing per subtask, coordinator
+      architectures, and parallel execution.
+    evidence_count: 6
+    maturity: emerging
+
+  - name: agent-memory-management
+    description: >
+      Strategies for persistent agent memory: version-controlled memory
+      repositories, session analytics, cross-session knowledge transfer,
+      and forkable memory patterns.
+    evidence_count: 2
+    maturity: nascent
+
+  - name: agent-reliability-measurement
+    description: >
+      Scientific approaches to measuring agent reliability: consistency
+      metrics, real-world evaluation frameworks, and benchmark validity
+      assessment.
+    evidence_count: 3
+    maturity: emerging
+
+  - name: test-driven-agent-definition
+    description: >
+      Defining agent behavior through test specifications, then compiling
+      agents from those specifications. Applies TDD to agent design.
+    evidence_count: 1
+    maturity: nascent
+
+  - name: supervisory-cost-optimization
+    description: >
+      Strategies for reducing the supervisory overhead of AI coding:
+      graduated autonomy based on experience, automated review agents,
+      and governance layers for multi-agent systems.
+    evidence_count: 4
+    maturity: emerging
+
+# ============================================
+# KEY NUMBERS
+# ============================================
+key_metrics:
+  - metric: "Claude Code sessions analyzed by Rudel"
+    value: "1,573 sessions, 15M+ tokens, 270K+ interactions"
+    source: web-004
+  - metric: "Token reduction via mcp2cli vs native MCP"
+    value: "96-99% fewer tokens"
+    source: web-005
+  - metric: "MCP servers accessible via gateway"
+    value: "25,000+"
+    source: web-009
+  - metric: "AI agents orchestrated in parallel (Gas Town)"
+    value: "20-30 agents"
+    source: web-033
+  - metric: "OpenClaw codebase size"
+    value: "~500K lines, 53 config files, 70+ dependencies"
+    source: web-016
+  - metric: "METR original finding on AI tool productivity"
+    value: "20% slowdown for experienced OSS developers"
+    source: web-032

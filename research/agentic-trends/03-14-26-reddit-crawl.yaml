@@ -1,0 +1,926 @@
+---
+source: reddit
+crawl_date: "03-14-26"
+period_start: "02-20-26"
+period_end: "03-14-26"
+previous_report: "02-20-26-trends.md"
+
+subreddits_searched:
+  - r/ClaudeAI
+  - r/LocalLLaMA
+  - r/ChatGPT
+  - r/cursor
+  - r/ExperiencedDevs
+  - r/programming
+  - r/MachineLearning
+  - r/artificial
+  - r/singularity
+  - r/codingagents
+  - r/softwareengineering
+
+errors:
+  - "g-search: timed out on all queries (3 batches). Fell back to Reddit JSON API."
+  - "reddit.com: CAPTCHA blocked Playwright direct browsing. Used .json API endpoints."
+
+metrics:
+  total_posts_scanned: 275
+  relevant_posts_filtered: 66
+  deep_dived_threads: 8
+  high_signal_findings: 18
+  medium_signal_findings: 12
+  low_signal_findings: 5
+
+# ============================================================================
+# EXECUTIVE SUMMARY
+# ============================================================================
+executive_summary: |
+  The 22-day period from Feb 20 to Mar 14, 2026 shows five dominant themes:
+
+  1. VIBE CODING BACKLASH CRYSTALLIZES - The "dark flow" concept from the previous
+     report has evolved into a full-blown cultural war. r/ClaudeAI's "Why the majority
+     of vibe coded projects fail" (4,900 ups, 510 comments) and r/ExperiencedDevs'
+     "We just got hit with the vibe-coding hammer" (749 ups, 703 comments) represent
+     a new phase: companies mandating AI usage with tracking metrics, while empirical
+     data shows negative or null productivity gains.
+
+  2. FUNCTION CALLING ABANDONED BY PRACTITIONERS - The Manus backend lead's post
+     (1,759 ups) arguing for Unix-style shell commands over typed function calls
+     represents a NEW architectural pattern that challenges the entire MCP/tool-use
+     paradigm.
+
+  3. PRODUCTIVITY DATA GOES MAINSTREAM - The METR study and Anthropic's own RCT
+     are now being cited in mainstream dev communities. The "perception gap" (devs
+     think AI saves 24%, it actually costs 19% more time) is the most-discussed
+     finding.
+
+  4. AGENT AUTONOMY EXPANDS - Cursor agents controlling computers, Claude Code
+     scheduled tasks, Opus 4.6 defaulting to 1M context, and Claude's new memory
+     feature all push toward greater agent independence.
+
+  5. QWEN 3.5 DISRUPTS LOCAL AGENTIC CODING - The Qwen 3.5 family, especially
+     the 35B-A3B MoE variant, is being called a "gamechanger for agentic coding"
+     on local hardware.
+
+# ============================================================================
+# FINDINGS
+# ============================================================================
+findings:
+
+  # --------------------------------------------------------------------------
+  # TREND: Vibe Coding Backlash & Mandate Resistance
+  # --------------------------------------------------------------------------
+  - id: reddit-001
+    title: "Why the majority of vibe coded projects fail"
+    url: "https://www.reddit.com/r/ClaudeAI/comments/1rt31th/"
+    subreddit: r/ClaudeAI
+    date: "03-13-26"
+    upvotes: 4900
+    num_comments: 510
+    signal_strength: high
+    delta_status: evolved  # from dark-flow-productivity-illusion
+    foe_relevance: observation_candidate
+    topics:
+      - vibe-coding-backlash
+      - quality-vs-throughput
+      - engineering-vs-programming
+    analysis: |
+      Massive thread crystallizing the vibe coding debate. The auto-generated TL;DR
+      captures it well: "a proper civil war between seasoned SWEs and vibe coders."
+      Key insight from modbot summary: "AI is replacing programmers, not software
+      engineers." The nuanced middle ground: AI is an amplifier - great engineers
+      become 10x, beginners create messes faster. The "0.5% of Slack" argument
+      (building a UI is trivial; scalability, compliance, and ops are the real work)
+      resonated strongly. EVOLVED from dark-flow-productivity-illusion - now includes
+      concrete failure modes and the programmer/engineer distinction.
+
+  - id: reddit-002
+    title: "We just got hit with the vibe-coding hammer"
+    url: "https://www.reddit.com/r/ExperiencedDevs/comments/1rqt03s/"
+    subreddit: r/ExperiencedDevs
+    date: "03-11-26"
+    upvotes: 749
+    num_comments: 703
+    signal_strength: high
+    delta_status: new  # corporate-ai-mandates
+    foe_relevance: method_candidate
+    topics:
+      - corporate-ai-mandates
+      - developer-autonomy
+      - ai-usage-tracking
+      - organizational-theater
+    analysis: |
+      NEW TREND: Corporate AI mandates with tracking. Leadership demands "80% of
+      developers using AI daily" with per-team tracking tied to ARR. Top comment
+      (657 ups): "I use AI, but I am hoping we get to an equilibrium where engineers
+      can be trusted when/how to apply tools." Key insight: "If AI were truly as
+      productive as claimed, you wouldn't need to mandate it - the results would
+      speak for themselves" (241 ups). OP's edit notes suspicious AI-positive
+      astroturfing in the thread. This is a FOE method candidate for
+      "developer-tool-autonomy" - the principle that mandating tools undermines
+      the judgment that makes engineers effective.
+
+  - id: reddit-003
+    title: "Development manager doesn't want the Devs looking at the code"
+    url: "https://www.reddit.com/r/ExperiencedDevs/comments/1rksynj/"
+    subreddit: r/ExperiencedDevs
+    date: "03-04-26"
+    upvotes: 399
+    num_comments: 277
+    signal_strength: high
+    delta_status: evolved  # from supervisory-programming-costs
+    foe_relevance: observation_candidate
+    topics:
+      - code-review-elimination
+      - supervisory-abdication
+      - ai-generated-tech-debt
+    analysis: |
+      Dev manager bans developers from reading code, wants them to only prompt Claude.
+      Company also moving to AI code review "because review will be a bottleneck to
+      increased productivity." Top comment (603 ups): "time to give our old friend
+      Malicious Compliance a call." Key insight from commenter: "Short term, efficiency
+      will increase. Long term, the unmaintainable code will cause loss of customer
+      trust. But your manager will already have been promoted." EVOLVED from
+      supervisory-programming-costs - now we see orgs actively removing human review
+      from the loop entirely.
+
+  - id: reddit-004
+    title: "How to make SWE in the age of AI more enjoyable?"
+    url: "https://www.reddit.com/r/ExperiencedDevs/comments/1rh818k/"
+    subreddit: r/ExperiencedDevs
+    date: "02-28-26"
+    upvotes: 338
+    num_comments: 244
+    signal_strength: medium
+    delta_status: evolved  # from dark-flow-productivity-illusion
+    foe_relevance: observation_candidate
+    topics:
+      - developer-experience
+      - review-burden
+      - ai-joy-deficit
+    analysis: |
+      Senior dev reports that "most of my day has become reviewing code" since AI
+      adoption. Code review was already their least favorite part; now it dominates.
+      This is the flip side of AI productivity - the human becomes a full-time
+      reviewer of machine output, losing the creative aspects of engineering.
+      Connects to supervisory-programming-costs from previous report.
+
+  # --------------------------------------------------------------------------
+  # TREND: Productivity Data Goes Mainstream
+  # --------------------------------------------------------------------------
+  - id: reddit-005
+    title: "The AI coding productivity data is in and it's not what anyone expected"
+    url: "https://www.reddit.com/r/ExperiencedDevs/comments/1rnkv2t/"
+    subreddit: r/ExperiencedDevs
+    date: "03-07-26"
+    upvotes: 1323
+    num_comments: 434
+    signal_strength: high
+    delta_status: evolved  # from dark-flow-productivity-illusion, agent-autonomy-empirical-measurement
+    foe_relevance: observation_candidate
+    topics:
+      - productivity-empirical-data
+      - metr-study
+      - anthropic-rct
+      - junior-hiring-collapse
+      - perception-gap
+    analysis: |
+      Comprehensive synthesis of recent AI productivity research, now reaching
+      mainstream dev communities. Key data points cited:
+      - Anthropic RCT: AI users scored 17% lower on comprehension; productivity
+        gains not statistically significant
+      - METR study: AI increased completion time by 19% for experienced devs;
+        devs predicted 24% savings (perception gap)
+      - DeveloperWeek 2026: "Off-the-shelf AI doesn't understand internal patterns"
+      - Harvard study: junior dev hiring dropped ~20% since 2022; 9-10% cut within
+        6 quarters of AI adoption
+      Top comment (959 ups): "The junior non-hiring is creating a lost cohort."
+      NOTE: Multiple commenters flagged the post itself as AI-generated (219 ups
+      for the callout). The irony of AI-generated content about AI productivity
+      problems is itself a signal. EVOLVED from dark-flow-productivity-illusion
+      with concrete numbers now in circulation.
+
+  - id: reddit-006
+    title: "Software Engineer position will never die"
+    url: "https://www.reddit.com/r/ClaudeAI/comments/1rbrpmv/"
+    subreddit: r/ClaudeAI
+    date: "02-22-26"
+    upvotes: 4093
+    num_comments: 335
+    signal_strength: high
+    delta_status: evolved  # from productivity-debate
+    foe_relevance: informational
+    topics:
+      - career-resilience
+      - engineering-vs-coding
+      - anthropic-hiring-paradox
+    analysis: |
+      Points out the paradox: Anthropic pays engineers $570K while CEO tells Davos
+      AI can handle "most, maybe all" coding tasks. The market signal (what companies
+      pay) contradicts the marketing signal (what companies say). This "revealed
+      preference" argument resonated massively in the Claude community.
+
+  # --------------------------------------------------------------------------
+  # TREND: Function Calling Abandoned (NEW)
+  # --------------------------------------------------------------------------
+  - id: reddit-007
+    title: "I was backend lead at Manus. After building agents for 2 years, I stopped using function calling entirely."
+    url: "https://www.reddit.com/r/LocalLLaMA/comments/1rrisqn/"
+    subreddit: r/LocalLLaMA
+    date: "03-12-26"
+    upvotes: 1759
+    num_comments: 372
+    signal_strength: high
+    delta_status: new  # unix-shell-over-function-calling
+    foe_relevance: method_candidate
+    topics:
+      - agent-architecture
+      - function-calling-alternatives
+      - unix-philosophy
+      - tool-design
+    analysis: |
+      NEW TREND: Major practitioner argument against function calling. Ex-Manus
+      backend lead argues that a single `run(command="...")` tool with Unix-style
+      commands outperforms typed function catalogs. Core insight: "Unix made a
+      design decision 50 years ago: everything is a text stream. LLMs made an
+      almost identical decision 50 years later: everything is tokens." These two
+      converge on the same interface model. Top comments validate: "The most
+      powerful agent framework might end up looking exactly like the shell" (125 ups).
+      This directly challenges the MCP/function-calling paradigm. Strong FOE method
+      candidate for "unix-agent-interface" or "text-stream-tool-design."
+
+  # --------------------------------------------------------------------------
+  # TREND: Agent Security & Steganographic Attacks
+  # --------------------------------------------------------------------------
+  - id: reddit-008
+    title: "Invisible characters hidden in text can trick AI agents into following secret instructions"
+    url: "https://www.reddit.com/r/artificial/comments/1rfjew5/"
+    subreddit: r/artificial
+    date: "02-26-26"
+    upvotes: 145
+    num_comments: 36
+    signal_strength: high
+    delta_status: evolved  # from agent-harm-incidents, security-concerns
+    foe_relevance: observation_candidate
+    topics:
+      - agent-security
+      - steganographic-attacks
+      - tool-use-vulnerability
+      - input-sanitization
+    analysis: |
+      Research testing invisible Unicode character injection across 5 models and
+      8,308 cases. Critical finding: "Without tools, models almost never follow
+      hidden instructions. With tools, they can write scripts to decode the hidden
+      message and follow it." Key comment: "The real fix is architectural: agents
+      should have technically enforced scope boundaries where the action surface
+      is constrained independently of what the model was told." Compared to SQL
+      injection by multiple commenters. EVOLVED from agent-harm-incidents - now
+      with systematic research quantifying the attack surface. The tool-use
+      amplification finding is particularly relevant to FOE's security methods.
+
+  - id: reddit-009
+    title: "Anthropic's Claude found 22 vulnerabilities in Firefox in just two weeks"
+    url: "https://www.reddit.com/r/artificial/comments/1ro1ybn/"
+    subreddit: r/artificial
+    date: "03-08-26"
+    upvotes: 285
+    num_comments: 68
+    signal_strength: medium
+    delta_status: evolved  # from production-hardening-wave
+    foe_relevance: informational
+    topics:
+      - ai-security-research
+      - vulnerability-discovery
+      - agent-capabilities
+    analysis: |
+      Claude used for automated vulnerability discovery at scale. Demonstrates
+      the dual-use nature of agent capabilities - the same tool-use that creates
+      security risks can also find security bugs. Relevant to the security
+      governance discussion.
+
+  # --------------------------------------------------------------------------
+  # TREND: Agent Autonomy Expansion
+  # --------------------------------------------------------------------------
+  - id: reddit-010
+    title: "Cursor agents can now control their own computers"
+    url: "https://www.reddit.com/r/cursor/comments/1rdp2t7/"
+    subreddit: r/cursor
+    date: "02-24-26"
+    upvotes: 115
+    num_comments: 81
+    signal_strength: high
+    delta_status: evolved  # from agent-autonomy-empirical-measurement
+    foe_relevance: observation_candidate
+    topics:
+      - agent-computer-use
+      - autonomy-expansion
+      - cursor-platform
+    analysis: |
+      Cursor launches agent computer use - agents can now interact with the full
+      desktop environment, not just code files. Community reaction notably skeptical:
+      top comment is just "Meh" (34 ups), and "40 minutes for a table" criticism.
+      The gap between capability announcements and practitioner enthusiasm is itself
+      a signal. EVOLVED from agent-autonomy-empirical-measurement.
+
+  - id: reddit-011
+    title: "Anthropic just made Claude Code run without you. Scheduled tasks are live."
+    url: "https://www.reddit.com/r/ClaudeAI/comments/1rnkv2t/"  # approximate
+    subreddit: r/ClaudeAI
+    date: "03-07-26"
+    upvotes: 1193
+    num_comments: 246
+    signal_strength: high
+    delta_status: new  # scheduled-autonomous-agents
+    foe_relevance: method_candidate
+    topics:
+      - scheduled-agents
+      - autonomous-execution
+      - claude-code-evolution
+    analysis: |
+      NEW TREND: Claude Code now runs on schedules without human prompting.
+      "Daily commit reviews, dependency audits" running autonomously. This
+      represents a shift from interactive to autonomous agent operation.
+      Combined with Opus 4.6 defaulting to 1M context (1,743 ups) and the
+      new memory feature (1,458 ups for initial announcement, 1,850 ups for
+      cross-tool context transfer), Claude's agent infrastructure is rapidly
+      expanding toward persistent, autonomous operation.
+
+  - id: reddit-012
+    title: "Opus 4.6 now defaults to 1M context! (same pricing)"
+    url: "https://www.reddit.com/r/ClaudeAI/comments/1rt31th/"  # from search
+    subreddit: r/ClaudeAI
+    date: "03-13-26"
+    upvotes: 1743
+    num_comments: 165
+    signal_strength: high
+    delta_status: evolved  # from context-window-monitoring
+    foe_relevance: observation_candidate
+    topics:
+      - context-window-expansion
+      - pricing-model
+      - agent-capabilities
+    analysis: |
+      1M context becoming the default (not opt-in) at same pricing fundamentally
+      changes the context engineering calculus. Previous report flagged
+      context-window-monitoring as a trend; now the window is large enough that
+      monitoring becomes less about conservation and more about quality of what
+      fills the window. EVOLVED from context-window-monitoring.
+
+  - id: reddit-013
+    title: "New: Anthropic introduces a memory feature for cross-tool context transfer"
+    url: "https://www.reddit.com/r/ClaudeAI/"
+    subreddit: r/ClaudeAI
+    date: "03-01-26"
+    upvotes: 1850
+    num_comments: 127
+    signal_strength: high
+    delta_status: evolved  # from unified-memory-systems
+    foe_relevance: method_candidate
+    topics:
+      - agent-memory
+      - cross-tool-context
+      - persistence
+    analysis: |
+      Anthropic's memory feature lets users transfer context and preferences from
+      other AI tools into Claude. This is the productization of the
+      unified-memory-systems trend from the previous report. Combined with the
+      earlier memory announcement (1,458 ups on Feb 26), memory/persistence is
+      becoming a first-class platform feature rather than a community hack.
+
+  # --------------------------------------------------------------------------
+  # TREND: Local Model Revolution for Agentic Coding
+  # --------------------------------------------------------------------------
+  - id: reddit-014
+    title: "Qwen3.5-35B-A3B is a gamechanger for agentic coding"
+    url: "https://www.reddit.com/r/LocalLLaMA/comments/1rdxfdu/"
+    subreddit: r/LocalLLaMA
+    date: "02-24-26"
+    upvotes: 1154
+    num_comments: 389
+    signal_strength: high
+    delta_status: new  # local-agentic-coding-viable
+    foe_relevance: observation_candidate
+    topics:
+      - local-models
+      - qwen-3.5
+      - agentic-coding
+      - cost-optimization
+    analysis: |
+      NEW TREND: Local models becoming viable for agentic coding. Qwen 3.5 35B-A3B
+      (MoE with only 3B active parameters) tested with OpenCode and found capable
+      of real agentic work. Follow-up posts confirm: "Ran Qwen 3.5 9B on M1 Pro
+      as an actual agent, not just a chat demo" (960 ups). The Qwen 3.5 family
+      benchmark comparison (1,157 ups) shows "122B, 35B, and especially 27B retain
+      a lot of the flagship's performance" while "2B/0.8B fall off much harder on
+      agent categories." This democratizes agentic coding beyond API-dependent
+      workflows.
+
+  - id: reddit-015
+    title: "Ran Qwen 3.5 9B on M1 Pro (16GB) as an actual agent. Honest results."
+    url: "https://www.reddit.com/r/LocalLLaMA/comments/1rll349/"
+    subreddit: r/LocalLLaMA
+    date: "03-05-26"
+    upvotes: 960
+    num_comments: 249
+    signal_strength: medium
+    delta_status: new  # local-agentic-coding-viable
+    foe_relevance: observation_candidate
+    topics:
+      - local-models
+      - agent-benchmarks
+      - hardware-requirements
+    analysis: |
+      Practical test of local agentic coding on consumer hardware. User runs
+      personal automation system built on Claude Code, switches to Ollama with
+      Qwen 3.5 9B as "a one-line config change." Provides honest assessment of
+      where local models succeed and fail for agent tasks. Validates the
+      cross-provider-agent-composition pattern from previous report.
+
+  # --------------------------------------------------------------------------
+  # TREND: AI Coding Tool Economics & Platform Wars
+  # --------------------------------------------------------------------------
+  - id: reddit-016
+    title: "I used Cursor to cut my AI costs by 50-70% with a simple local hook"
+    url: "https://www.reddit.com/r/cursor/comments/1rkh0nl/"
+    subreddit: r/cursor
+    date: "03-04-26"
+    upvotes: 225
+    num_comments: 83
+    signal_strength: medium
+    delta_status: new  # ai-cost-optimization-patterns
+    foe_relevance: method_candidate
+    topics:
+      - cost-optimization
+      - model-routing
+      - intelligent-model-selection
+    analysis: |
+      NEW TREND: Practitioners building cost optimization layers. User built a
+      local hook that routes requests to cheaper models when expensive ones aren't
+      needed, cutting costs 50-70%. This is the "harness-over-model" insight
+      applied to economics - the routing/orchestration layer matters more than
+      any single model. FOE method candidate for "intelligent-model-routing."
+
+  - id: reddit-017
+    title: "$15-25 per PR? Is anyone actually doing the math on Claude's new Code Review?"
+    url: "https://www.reddit.com/r/CodingAgents/comments/1rrttpc/"
+    subreddit: r/codingagents
+    date: "03-12-26"
+    upvotes: 2
+    num_comments: 1
+    signal_strength: medium
+    delta_status: new  # ai-review-economics
+    foe_relevance: observation_candidate
+    topics:
+      - ai-code-review
+      - cost-analysis
+      - roi-calculation
+    analysis: |
+      Low engagement but high signal content. Claude Code Review pricing at
+      $15-25 per PR forces explicit ROI calculation. At scale (e.g., 100 PRs/week),
+      this is $78K-130K/year - approaching a junior developer salary. The economics
+      of AI review vs human review are becoming concrete and debatable.
+
+  # --------------------------------------------------------------------------
+  # TREND: Agent Harm & Production Incidents
+  # --------------------------------------------------------------------------
+  - id: reddit-018
+    title: "Amazon service was taken down by AI coding bot [December outage]"
+    url: "https://www.reddit.com/r/programming/comments/1r9nhsx/"
+    subreddit: r/programming
+    date: "02-20-26"
+    upvotes: 1705
+    num_comments: 201
+    signal_strength: high
+    delta_status: evolved  # from agent-harm-incidents
+    foe_relevance: observation_candidate
+    topics:
+      - production-incidents
+      - agent-harm
+      - aws-outage
+    analysis: |
+      The AWS AI coding bot outage from December continues to generate discussion
+      into this period. 1,705 upvotes on r/programming shows the incident has
+      become a canonical reference point for agent harm. EVOLVED from
+      agent-harm-incidents in previous report.
+
+  - id: reddit-019
+    title: "Creator of Claude Code: 'Coding is solved'"
+    url: "https://www.reddit.com/r/programming/comments/1rakdst/"
+    subreddit: r/programming
+    date: "02-21-26"
+    upvotes: 2149
+    num_comments: 791
+    signal_strength: high
+    delta_status: evolved  # from productivity-debate
+    foe_relevance: observation_candidate
+    topics:
+      - vendor-claims
+      - community-skepticism
+      - coding-solved-debate
+    analysis: |
+      Boris Cherny's "coding is solved" claim met with massive skepticism on
+      r/programming. Top comment (4,403 ups): "Guy selling product says product
+      solves problem." Second top (2,191 ups): "Creator of the microwave: 'Cooking
+      is solved.'" OP's own framing is devastating: "Since coding is solved, I
+      wonder why they don't just use Claude Code to solve all 5k issues in the
+      Claude Code repo?" The community's response demonstrates the credibility
+      gap between vendor claims and practitioner experience.
+
+  # --------------------------------------------------------------------------
+  # TREND: Agentic Workflow Architecture
+  # --------------------------------------------------------------------------
+  - id: reddit-020
+    title: "Open-Source Agentic Workflow Architecture: Multi-Model Review, Synchronous Clarification, and Parallel Execution"
+    url: "https://www.reddit.com/r/CodingAgents/comments/1rgy47t/"
+    subreddit: r/codingagents
+    date: "02-28-26"
+    upvotes: 2
+    num_comments: 0
+    signal_strength: low
+    delta_status: evolved  # from multi-agent-orchestration
+    foe_relevance: method_candidate
+    topics:
+      - agentic-workflows
+      - multi-model-review
+      - parallel-execution
+      - github-copilot-agents
+    analysis: |
+      Low engagement but architecturally significant. Open-source project treating
+      GitHub Copilot agents as role-based agents (planning, execution, review,
+      debugging). Separating concerns across agent roles mirrors the
+      multi-agent-orchestration trend. The "synchronous clarification" pattern
+      (agent asks human mid-task) is worth tracking.
+
+  - id: reddit-021
+    title: "How are you structuring agentic workflows for GitHub Copilot or VS Code Agents?"
+    url: "https://www.reddit.com/r/CodingAgents/comments/1rfe28o/"
+    subreddit: r/codingagents
+    date: "02-26-26"
+    upvotes: 1
+    num_comments: 0
+    signal_strength: low
+    delta_status: evolved  # from multi-agent-orchestration
+    foe_relevance: informational
+    topics:
+      - workflow-patterns
+      - role-based-agents
+      - copilot-agents
+    analysis: |
+      Early signal of practitioners trying to apply role-based agent patterns
+      to VS Code/Copilot ecosystem. The question itself reveals the gap between
+      tool capabilities and workflow patterns.
+
+  # --------------------------------------------------------------------------
+  # TREND: Anthropic Education & Ecosystem
+  # --------------------------------------------------------------------------
+  - id: reddit-022
+    title: "Anthropic has opened up its entire educational curriculum for free"
+    url: "https://www.reddit.com/r/ClaudeAI/comments/1rh92yp/"
+    subreddit: r/ClaudeAI
+    date: "02-28-26"
+    upvotes: 3177
+    num_comments: 110
+    signal_strength: medium
+    delta_status: new  # anthropic-education-platform
+    foe_relevance: informational
+    topics:
+      - education
+      - mcp-mastery
+      - claude-code-training
+      - ecosystem-building
+    analysis: |
+      Anthropic releases free educational curriculum including "Claude Code, MCP
+      Mastery, API courses, and AI Fluency." Two posts about this (3,177 and
+      2,258 ups). This is ecosystem lock-in through education - training users
+      on Anthropic-specific patterns. The "MCP Mastery" course is particularly
+      relevant as it standardizes MCP patterns.
+
+  # --------------------------------------------------------------------------
+  # TREND: Claude Code Cowork & Scheduled Agents
+  # --------------------------------------------------------------------------
+  - id: reddit-023
+    title: "Hands down the best guide to Claude Cowork"
+    url: "https://www.reddit.com/r/ClaudeAI/"
+    subreddit: r/ClaudeAI
+    date: "03-09-26"
+    upvotes: 1531
+    num_comments: 90
+    signal_strength: medium
+    delta_status: new  # claude-cowork-pattern
+    foe_relevance: method_candidate
+    topics:
+      - claude-cowork
+      - multi-agent-patterns
+      - workflow-orchestration
+    analysis: |
+      Claude Cowork represents Anthropic's productized multi-agent pattern.
+      High engagement (1,531 ups) suggests practitioners are actively adopting
+      multi-agent workflows within the Claude ecosystem. This is the
+      cross-provider-agent-composition trend being absorbed into a single
+      vendor's platform.
+
+  # --------------------------------------------------------------------------
+  # TREND: Kimi K2.5 & Model Diversity in Tooling
+  # --------------------------------------------------------------------------
+  - id: reddit-024
+    title: "Kimi K2.5 finally added to Cursor!"
+    url: "https://www.reddit.com/r/cursor/comments/1rajl37/"
+    subreddit: r/cursor
+    date: "02-21-26"
+    upvotes: 129
+    num_comments: 23
+    signal_strength: medium
+    delta_status: evolved  # from cross-provider-agent-composition
+    foe_relevance: informational
+    topics:
+      - model-diversity
+      - cursor-platform
+      - kimi-k2.5
+      - cost-optimization
+    analysis: |
+      Kimi K2.5 added to Cursor at $0.60/M input tokens (83% savings with caching).
+      Multiple appreciation posts. This validates the cross-provider-agent-composition
+      trend - practitioners want model diversity within their tools, not lock-in to
+      a single provider.
+
+  # --------------------------------------------------------------------------
+  # TREND: OpenClaw Security Fork
+  # --------------------------------------------------------------------------
+  - id: reddit-025
+    title: "[D] AMA Secure version of OpenClaw"
+    url: "https://www.reddit.com/r/MachineLearning/comments/1rlnwsk/"
+    subreddit: r/MachineLearning
+    date: "03-05-26"
+    upvotes: 171
+    num_comments: 114
+    signal_strength: medium
+    delta_status: evolved  # from production-hardening-wave
+    foe_relevance: observation_candidate
+    topics:
+      - agent-security
+      - rust-rewrite
+      - data-protection
+      - open-source-security
+    analysis: |
+      Security-focused Rust rewrite of OpenClaw agent framework. "There's a major
+      risk that OpenClaw will exploit your data and funds." This is the
+      production-hardening-wave manifesting in the open-source community -
+      practitioners building security-first alternatives to popular but
+      insecure agent frameworks.
+
+  # --------------------------------------------------------------------------
+  # TREND: Process Theater Elimination
+  # --------------------------------------------------------------------------
+  - id: reddit-026
+    title: "Our team stopped doing standups, story points and retros - and nothing broke"
+    url: "https://www.reddit.com/r/SoftwareEngineering/comments/1rq16fl/"
+    subreddit: r/softwareengineering
+    date: "03-10-26"
+    upvotes: 131
+    num_comments: 60
+    signal_strength: medium
+    delta_status: new  # process-theater-elimination
+    foe_relevance: method_candidate
+    topics:
+      - process-elimination
+      - organizational-theater
+      - team-practices
+    analysis: |
+      NEW TREND adjacent to agentic coding: teams eliminating traditional
+      engineering processes. While not directly about AI, this connects to the
+      broader question of what engineering practices remain valuable when AI
+      changes the work. The hypothesis that "many processes are mostly
+      organizational theater" becomes more testable as AI changes what
+      developers actually do day-to-day.
+
+  # --------------------------------------------------------------------------
+  # TREND: Distillation Attacks & Model Security
+  # --------------------------------------------------------------------------
+  - id: reddit-027
+    title: "Anthropic: 'We've identified industrial-scale distillation attacks on our models by DeepSeek, Moonshot AI, and MiniMax'"
+    url: "https://www.reddit.com/r/LocalLLaMA/comments/1rcpmwn/"
+    subreddit: r/LocalLLaMA
+    date: "02-23-26"
+    upvotes: 4736
+    num_comments: 872
+    signal_strength: high
+    delta_status: new  # model-distillation-attacks
+    foe_relevance: informational
+    topics:
+      - model-security
+      - distillation-attacks
+      - deepseek
+      - intellectual-property
+    analysis: |
+      Anthropic accuses DeepSeek, Moonshot AI, and MiniMax of setting up 24,000+
+      fraudulent accounts and distilling from 16M+ exchanges. Massive engagement
+      across r/LocalLLaMA (4,736 ups), r/singularity (2,600 ups), and r/ClaudeAI
+      (2,474 ups). While not directly about agentic coding, this has implications
+      for model trust and the cross-provider composition patterns - if models are
+      distilled copies, the "blind spots don't overlap" assumption weakens.
+
+  # --------------------------------------------------------------------------
+  # TREND: GPT 5.4 & Competitive Landscape
+  # --------------------------------------------------------------------------
+  - id: reddit-028
+    title: "GPT 5.4 is now available in Cursor and leading benchmarks"
+    url: "https://www.reddit.com/r/cursor/comments/1rlp16k/"
+    subreddit: r/cursor
+    date: "03-05-26"
+    upvotes: 200
+    num_comments: 49
+    signal_strength: medium
+    delta_status: evolved  # from platform-wars
+    foe_relevance: informational
+    topics:
+      - gpt-5.4
+      - model-competition
+      - cursor-platform
+    analysis: |
+      GPT 5.4 arrives in Cursor. The rapid model churn (GPT 5.4, Opus 4.6,
+      Qwen 3.5, Kimi K2.5 all within this period) reinforces the
+      harness-over-model insight - the tooling layer that can swap models
+      matters more than any individual model.
+
+  # --------------------------------------------------------------------------
+  # TREND: Interactive Education for Agent Tools
+  # --------------------------------------------------------------------------
+  - id: reddit-029
+    title: "I built an interactive website that teaches Claude Code by letting you explore a simulated project"
+    url: "https://www.reddit.com/r/ClaudeAI/"
+    subreddit: r/ClaudeAI
+    date: "03-06-26"
+    upvotes: 1111
+    num_comments: 59
+    signal_strength: medium
+    delta_status: new  # interactive-agent-education
+    foe_relevance: informational
+    topics:
+      - education
+      - claude-code
+      - interactive-learning
+      - configuration-complexity
+    analysis: |
+      Developer builds interactive simulator for Claude Code because "there's
+      this massive configuration surface: .claude/ directories" that's hard to
+      learn. The existence of this tool signals that agent configuration has
+      become complex enough to need its own educational infrastructure.
+
+  # --------------------------------------------------------------------------
+  # TREND: M5 Max for Local AI
+  # --------------------------------------------------------------------------
+  - id: reddit-030
+    title: "M5 Max just arrived - benchmarks incoming"
+    url: "https://www.reddit.com/r/LocalLLaMA/comments/1rqnpvj/"
+    subreddit: r/LocalLLaMA
+    date: "03-11-26"
+    upvotes: 2089
+    num_comments: 344
+    signal_strength: medium
+    delta_status: evolved  # from local-agentic-coding-viable
+    foe_relevance: informational
+    topics:
+      - hardware
+      - apple-silicon
+      - local-inference
+      - benchmarks
+    analysis: |
+      M5 Max 128GB benchmarks for local LLM inference. The hardware enabling
+      local agentic coding continues to improve. Combined with Qwen 3.5's
+      efficiency, the local agentic coding stack is becoming increasingly viable.
+
+# ============================================================================
+# DELTA ANALYSIS vs Previous Report (Feb 20, 2026)
+# ============================================================================
+delta_analysis:
+  new_trends:
+    - id: corporate-ai-mandates
+      description: "Companies mandating AI usage with tracking metrics tied to business outcomes. Developers forced to use AI daily regardless of task suitability."
+      evidence: "reddit-002, reddit-003"
+      foe_priority: high
+
+    - id: unix-shell-over-function-calling
+      description: "Experienced agent builders abandoning typed function calling in favor of Unix-style shell commands. Challenges the MCP/tool-use paradigm."
+      evidence: "reddit-007"
+      foe_priority: high
+
+    - id: local-agentic-coding-viable
+      description: "Qwen 3.5 MoE models make agentic coding viable on consumer hardware (M1 Pro 16GB). Democratizes beyond API-dependent workflows."
+      evidence: "reddit-014, reddit-015"
+      foe_priority: medium
+
+    - id: scheduled-autonomous-agents
+      description: "Claude Code now runs on schedules without human prompting. Shift from interactive to autonomous agent operation."
+      evidence: "reddit-011"
+      foe_priority: high
+
+    - id: ai-cost-optimization-patterns
+      description: "Practitioners building local routing hooks to cut AI costs 50-70% through intelligent model selection."
+      evidence: "reddit-016"
+      foe_priority: medium
+
+    - id: process-theater-elimination
+      description: "Teams eliminating traditional engineering processes (standups, story points, retros) as AI changes what developers do."
+      evidence: "reddit-026"
+      foe_priority: low
+
+    - id: model-distillation-attacks
+      description: "Industrial-scale distillation attacks on frontier models. Implications for model trust in cross-provider composition."
+      evidence: "reddit-027"
+      foe_priority: low
+
+    - id: interactive-agent-education
+      description: "Agent tool configuration complex enough to need dedicated educational infrastructure."
+      evidence: "reddit-022, reddit-029"
+      foe_priority: low
+
+  evolved_trends:
+    - id: dark-flow-productivity-illusion
+      evolution: "Evolved into full cultural war. Now includes concrete empirical data (METR, Anthropic RCT), the programmer/engineer distinction, and corporate mandate resistance."
+      evidence: "reddit-001, reddit-004, reddit-005, reddit-006, reddit-019"
+
+    - id: supervisory-programming-costs
+      evolution: "Escalated to organizations actively removing human review from the loop. Code review treated as 'bottleneck to productivity.' Developers becoming full-time reviewers."
+      evidence: "reddit-003, reddit-004"
+
+    - id: agent-harm-incidents
+      evolution: "AWS outage continues as canonical reference. Steganographic attacks now systematically researched. Security moving from anecdotal to empirical."
+      evidence: "reddit-008, reddit-018"
+
+    - id: context-window-monitoring
+      evolution: "1M context now DEFAULT at same pricing. Monitoring shifts from conservation to quality-of-fill."
+      evidence: "reddit-012"
+
+    - id: unified-memory-systems
+      evolution: "Productized by Anthropic as cross-tool context transfer feature. Memory becoming first-class platform feature."
+      evidence: "reddit-013"
+
+    - id: cross-provider-agent-composition
+      evolution: "Kimi K2.5 in Cursor, Qwen 3.5 via Ollama, GPT 5.4 availability. Model diversity in tooling accelerating."
+      evidence: "reddit-024, reddit-028"
+
+    - id: production-hardening-wave
+      evolution: "Security-focused Rust rewrites of agent frameworks. OpenClaw security fork signals community-driven hardening."
+      evidence: "reddit-025"
+
+    - id: agent-autonomy-empirical-measurement
+      evolution: "Cursor computer use, Claude scheduled tasks, and 1M default context all expand agent autonomy. Community reception notably skeptical."
+      evidence: "reddit-010, reddit-011, reddit-012"
+
+    - id: multi-agent-orchestration
+      evolution: "Claude Cowork productizes multi-agent patterns. Open-source role-based agent architectures emerging for Copilot."
+      evidence: "reddit-020, reddit-021, reddit-023"
+
+  recurring_trends:
+    - id: quality-vs-throughput
+      note: "Still the dominant tension. Now with empirical data on both sides."
+
+    - id: platform-wars
+      note: "Cursor $2B ARR, Claude Code traffic spikes, GPT 5.4 launch. Competition intensifying."
+
+    - id: evaluation-challenges
+      note: "Qwen 3.5 benchmarks, M5 Max benchmarks, productivity studies all grapple with measurement."
+
+# ============================================================================
+# FOE METHOD CANDIDATES (for potential field guide entries)
+# ============================================================================
+foe_method_candidates:
+  - name: "developer-tool-autonomy"
+    description: "Engineers should choose their own tools based on task suitability. Mandating AI usage undermines the judgment that makes engineers effective."
+    evidence_strength: high
+    sources: ["reddit-002", "reddit-003"]
+
+  - name: "unix-agent-interface"
+    description: "A single shell-style tool with Unix commands may outperform typed function catalogs for agent tool design."
+    evidence_strength: medium
+    sources: ["reddit-007"]
+
+  - name: "intelligent-model-routing"
+    description: "Route agent requests to appropriate models based on task complexity, cutting costs 50-70% without quality loss."
+    evidence_strength: medium
+    sources: ["reddit-016"]
+
+  - name: "review-as-primary-skill"
+    description: "As AI generates more code, code review becomes the primary engineering skill. Eliminating review creates catastrophic tech debt."
+    evidence_strength: high
+    sources: ["reddit-003", "reddit-004"]
+
+  - name: "perception-gap-awareness"
+    description: "Developers consistently overestimate AI productivity gains (24% predicted vs -19% actual). Teams need empirical measurement, not vibes."
+    evidence_strength: high
+    sources: ["reddit-005"]
+
+# ============================================================================
+# CONFIDENCE & NOTES
+# ============================================================================
+confidence:
+  coverage: medium-high
+  notes: |
+    Reddit-only crawl (other sources like HN, YouTube, GitHub, arxiv not included).
+    Google search timed out; fell back to Reddit JSON API which provided good
+    coverage of top/month posts across all 11 subreddits. Deep-dived 8 threads
+    with full comment analysis. Some posts near the edges of the date range may
+    have been created just outside the window. The r/codingagents subreddit is
+    very low-traffic but contains architecturally interesting content.
+    r/softwareengineering also low-traffic. The highest-signal subreddits for
+    agentic coding trends were r/ExperiencedDevs, r/ClaudeAI, r/LocalLLaMA,
+    and r/programming.

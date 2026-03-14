@@ -1,0 +1,1186 @@
+---
+# Skills.sh Survey for FOE Adaptation
+# Crawl Date: 2026-03-14
+# Focus: Agentic coding skills, ecosystem trends, FOE relevance
+# Previous survey: 2026-02-20 (referenced for delta analysis)
+
+source: skills.sh
+crawl_date: "2026-03-14"
+url_base: "https://skills.sh"
+errors: []
+
+# ============================================
+# PLATFORM OVERVIEW
+# ============================================
+
+platform_stats:
+  total_skills: 88456
+  previous_total: 68654  # Feb 20
+  growth: 19802
+  growth_pct: "28.8%"
+  growth_period_days: 22
+  daily_growth_rate: ~900
+
+  agent_platforms: 18
+  previous_platforms: 18
+  platforms_list:
+    - AMP (ampcode.com)
+    - Antigravity (Google)
+    - Claude Code
+    - ClawdBot
+    - Cline
+    - Codex (OpenAI)
+    - Cursor
+    - Droid (Factory AI)
+    - Gemini (Google)
+    - GitHub Copilot
+    - Goose (Block)
+    - Kilo
+    - Kiro CLI (AWS)
+    - OpenCode
+    - Roo
+    - Trae
+    - VSCode
+    - Windsurf (Codeium)
+  new_platforms_since_feb20:
+    - "Antigravity (Google) - NEW"
+    - "ClawdBot - NEW"
+    - "Droid (Factory AI) - NEW"
+    - "Kiro CLI (AWS) - NEW"
+  removed_platforms_since_feb20:
+    - "Aider - REMOVED"
+    - "Zed - REMOVED"
+    - "Warp - REMOVED"
+    - "Continue - REMOVED"
+  platform_notes: |
+    Platform count stayed at 18 but composition changed significantly.
+    Google added Antigravity alongside Gemini. AWS entered via Kiro CLI.
+    Factory AI's Droid represents enterprise CI/CD agent integration.
+    Removal of Aider/Zed/Warp/Continue suggests consolidation around
+    major vendor-backed agents.
+
+  security_audit_providers:
+    - "Gen Agent Trust Hub"
+    - "Socket"
+    - "Snyk"
+  audit_notes: |
+    Three-provider audit system now standard. Each skill page shows
+    Pass/Fail/Warn for all three. This is a major maturation signal
+    vs Feb 20 when audits were newer.
+
+  leaderboard_views:
+    - "All Time (88,456)"
+    - "Trending (24h)"
+    - "Hot (1h change)"
+
+# ============================================
+# TOP SKILLS LEADERBOARD (All Time)
+# ============================================
+
+top_skills_all_time:
+  - rank: 1
+    name: find-skills
+    repo: vercel-labs/skills
+    installs: 544.9K
+    note: "Meta-skill for discovering other skills. Massive lead."
+
+  - rank: 2
+    name: vercel-react-best-practices
+    repo: vercel-labs/agent-skills
+    installs: 208.3K
+
+  - rank: 3
+    name: web-design-guidelines
+    repo: vercel-labs/agent-skills
+    installs: 163.8K
+
+  - rank: 4
+    name: frontend-design
+    repo: anthropics/skills
+    installs: 154.8K
+
+  - rank: 5
+    name: remotion-best-practices
+    repo: remotion-dev/skills
+    installs: 144.3K
+
+  - rank: 6
+    name: azure-ai
+    repo: microsoft/github-copilot-for-azure
+    installs: 135.0K
+    collection_total: "2.5M (19 skills)"
+
+# ============================================
+# OBRA/SUPERPOWERS COLLECTION DEEP DIVE
+# ============================================
+
+obra_superpowers:
+  total_skills: 14
+  total_installs: 324300  # 324.3K
+  previous_total_installs: 146500  # Feb 20 estimate
+  growth: 177800
+  growth_pct: "121.4%"
+  github_stars: 81800  # 81.8K
+  first_seen: "2026-01-19"
+
+  skills_ranked:
+    - name: brainstorming
+      installs: 54300
+      previous: 25000
+      growth_pct: "117.2%"
+      trending_24h: 1600
+      hot_1h: null
+      description: |
+        Collaborative design skill. Turns ideas into specs through
+        structured dialogue. Includes visual companion, spec review
+        loop with subagent dispatch, and YAGNI enforcement.
+      foe_relevance: high
+      foe_notes: |
+        Directly supports incremental-development and living-documentation.
+        The spec review loop (dispatch subagent, iterate up to 5x, then
+        escalate to human) is a sophisticated feedback pattern.
+        "Every project goes through this process" - even simple ones.
+
+    - name: systematic-debugging
+      installs: 29800
+      previous: 13800
+      growth_pct: "115.9%"
+      trending_24h: 788
+      description: "Structured debugging methodology with evidence-based approach"
+      foe_relevance: high
+
+    - name: writing-plans
+      installs: 27800
+      previous: 12100
+      growth_pct: "129.8%"
+      description: "Creates implementation plans from design specs"
+      foe_relevance: high
+
+    - name: test-driven-development
+      installs: 24600
+      previous: 11300
+      growth_pct: "117.7%"
+      hot_1h_change: "+7"
+      description: "Strict red-green-refactor TDD enforcement"
+      foe_relevance: very-high
+
+    - name: executing-plans
+      installs: 23200
+      previous: null  # Not tracked in Feb 20
+      description: "Executes implementation plans step by step"
+      foe_relevance: high
+
+    - name: requesting-code-review
+      installs: 22600
+      description: "Structures code review requests"
+      foe_relevance: high
+
+    - name: using-superpowers
+      installs: 22400
+      trending_24h: 924
+      description: "Meta-skill for the superpowers collection"
+      foe_relevance: medium
+
+    - name: subagent-driven-development
+      installs: 19000
+      previous: 8500
+      growth_pct: "123.5%"
+      hot_1h_change: "+6"
+      description: "Orchestrates work across multiple sub-agents"
+      foe_relevance: high
+
+    - name: verification-before-completion
+      installs: 17800
+      previous: 8100
+      growth_pct: "119.8%"
+      hot_1h_change: "+6"
+      description: |
+        "Claiming work is complete without verification is dishonesty,
+        not efficiency." Iron law: NO COMPLETION CLAIMS WITHOUT FRESH
+        VERIFICATION EVIDENCE. Includes rationalization prevention table.
+      foe_relevance: very-high
+      foe_notes: |
+        This is the single most FOE-aligned skill in the ecosystem.
+        Directly embodies "build confidence through evidence."
+        The rationalization prevention table maps exactly to cognitive
+        biases that undermine engineering quality.
+
+    - name: receiving-code-review
+      installs: 17700
+      description: "How to process and respond to code review feedback"
+      foe_relevance: high
+
+    - name: writing-skills
+      installs: 16900
+      hot_1h_change: "+7"
+      description: "Meta-skill for writing new skills"
+      foe_relevance: medium
+
+    - name: using-git-worktrees
+      installs: 16800
+      hot_1h_change: "+11"
+      description: "Git worktree workflow for parallel development"
+      foe_relevance: medium
+
+    - name: dispatching-parallel-agents
+      installs: 16200
+      hot_1h_change: "+6"
+      description: "Orchestrates parallel agent execution"
+      foe_relevance: high
+
+    - name: finishing-a-development-branch
+      installs: 15100
+      hot_1h_change: "+10"
+      description: "Branch completion checklist and verification"
+      foe_relevance: high
+
+  collection_analysis: |
+    obra/superpowers has more than doubled since Feb 20 (146.5K -> 324.3K).
+    The collection now represents a complete agentic development lifecycle:
+      brainstorming -> writing-plans -> executing-plans -> test-driven-development
+      -> verification-before-completion -> requesting-code-review ->
+      receiving-code-review -> finishing-a-development-branch
+
+    Key pattern: Skills chain together. brainstorming invokes writing-plans.
+    writing-plans feeds executing-plans. verification-before-completion gates
+    all completion claims. This is an opinionated workflow, not a toolkit.
+
+    The "Hot" leaderboard shows obra/superpowers skills are actively growing
+    RIGHT NOW - using-git-worktrees (+11/hr), finishing-a-development-branch
+    (+10/hr), test-driven-development (+7/hr). This collection has sustained
+    momentum, not just a launch spike.
+
+# ============================================
+# MICROSOFT COLLECTIONS
+# ============================================
+
+microsoft_collections:
+  github_copilot_for_azure:
+    total_skills: 19  # "+18 more" + azure-ai
+    total_installs: "2.5M"
+    previous_installs: "~187K (18 skills x ~10.4K)"
+    growth: "massive - 13x"
+    top_skill: "azure-ai at 135.0K"
+    security_notes: |
+      azure-prepare: Snyk Critical
+      azure-resource-visualizer: Snyk High Risk
+      azure-aigateway: Snyk High Risk
+      Most others: Safe/Low Risk
+    analysis: |
+      Microsoft's Copilot for Azure collection exploded from ~187K to 2.5M.
+      This is the single largest install base on the platform. Signals
+      massive enterprise adoption of skills-based agent configuration.
+
+  azure_skills:
+    total_skills: 20  # "+19 more" + microsoft-foundry
+    total_installs: "751.7K"
+    top_skill: "microsoft-foundry at 37.9K"
+    trending_24h_total: "55.7K"
+    hot_1h_leader: "azure-upgrade at 95 (+95)"
+    note: |
+      NEW collection since Feb 20. Second Microsoft collection focused on
+      Azure-specific skills. azure-upgrade is #1 on Hot leaderboard right now.
+
+# ============================================
+# NEW COLLECTIONS SINCE FEB 20
+# ============================================
+
+new_collections:
+  - name: google-labs-code/stitch-skills
+    total_installs: "~80K estimated"
+    skills_count: 5+
+    github_stars: 2400
+    first_seen: "2026-01-23"
+    key_skills:
+      - "react:components (14.9K)"
+      - "design-md (14.6K)"
+      - "stitch-loop (12.9K)"
+      - "enhance-prompt (12.3K)"
+      - "shadcn-ui (11.0K)"
+      - "stitch-design (trending hot)"
+    analysis: |
+      Google's Stitch is an autonomous frontend builder using a "baton system"
+      for iterative site building. The stitch-loop skill implements a
+      continuous build loop pattern where each iteration reads a task,
+      generates a page, integrates it, and writes the next task.
+
+      FOE relevance: The baton system is an interesting incremental
+      development pattern. Each iteration is self-contained and produces
+      a verifiable artifact. However, it's frontend-specific.
+
+  - name: pbakaus/impeccable
+    total_installs: "78.0K"
+    skills_count: "9+"
+    trending_24h_total: "31.0K"
+    key_skills:
+      - "frontend-design (11.7K)"
+      - "polish (11.3K)"
+      - "critique (11.2K)"
+      - "normalize (11.0K)"
+      - "teach-impeccable (11.0K)"
+      - "bolder (11.0K)"
+    analysis: |
+      Design-focused collection with a review/critique workflow.
+      The critique + polish pattern is a feedback loop for design quality.
+      teach-impeccable is a meta-skill for extending the collection.
+
+  - name: microsoft/azure-skills
+    total_installs: "751.7K"
+    skills_count: 20
+    note: "See Microsoft collections section above"
+
+  - name: anthropics/skills
+    total_installs: "~600K estimated"
+    github_stars: 92800
+    key_skills:
+      - "frontend-design (154.8K)"
+      - "skill-creator (81.3K)"
+      - "pdf (37.5K)"
+      - "pptx (33.3K)"
+      - "docx (29.5K)"
+      - "xlsx (27.3K)"
+      - "webapp-testing (23.5K)"
+      - "mcp-builder (20.7K)"
+      - "canvas-design (18.3K)"
+      - "doc-coauthoring (14.6K)"
+      - "theme-factory (14.4K)"
+      - "algorithmic-art (14.3K)"
+      - "web-artifacts-builder (13.9K)"
+      - "brand-guidelines (13.3K)"
+      - "internal-comms (12.2K)"
+      - "template-skill (11.8K)"
+      - "slack-gif-creator (11.6K)"
+      - "claude-api (trending hot)"
+    analysis: |
+      Anthropic's official collection is now the most diverse on the platform.
+      92.8K GitHub stars. Covers document generation (pdf/pptx/docx/xlsx),
+      testing (webapp-testing), design, and meta-skills (skill-creator,
+      template-skill). The webapp-testing skill is particularly FOE-relevant.
+
+  - name: expo/skills
+    key_skills:
+      - "building-native-ui (17.7K)"
+      - "native-data-fetching (11.5K)"
+      - "upgrading-expo (11.5K)"
+      - "expo-deployment (trending hot)"
+    analysis: "React Native/Expo-specific. Limited FOE relevance."
+
+  - name: cloudflare/skills
+    key_skills:
+      - "cloudflare (trending hot, 9 installs +5/hr)"
+      - "durable-objects (6 installs +5/hr)"
+    analysis: "Brand new, just launched. Infrastructure-specific."
+
+  - name: apify/agent-skills
+    key_skills:
+      - "apify-trend-analysis"
+      - "apify-audience-analysis"
+      - "apify-influencer-discovery"
+      - "apify-content-analytics"
+      - "apify-brand-reputation-monitoring"
+    analysis: |
+      Web scraping/data collection skills. All trending hot at +5/hr.
+      Signals expansion beyond coding into data/marketing automation.
+
+# ============================================
+# INFEREN-SH/SKILLS (formerly inference.sh)
+# ============================================
+
+inferen_sh:
+  total_skills: 71
+  previous_skills: null  # Was "agent-tools" collection
+  total_installs: "386.2K"
+  trending_24h_total: "138.6K (top) + 36.9K (long tail)"
+  analysis: |
+    Massively expanded from the original agent-tools. Now 71 skills
+    covering AI image/video generation, social media automation,
+    web search, browser automation, and more. The original 12 core
+    skills each have ~23.5K installs (suspiciously uniform - likely
+    bulk-installed together). 59 newer skills at ~1.5K each.
+
+    Trending #1 on 24h leaderboard with ai-image-generation (12.9K/24h).
+
+    SECURITY NOTE: Previous Feb 20 report flagged critical security
+    failures in agent-tools. Current audit status not checked in detail
+    but the collection's rapid expansion to 71 skills warrants caution.
+
+# ============================================
+# TRENDING (24h) HIGHLIGHTS
+# ============================================
+
+trending_24h:
+  top_10:
+    - rank: 1
+      name: ai-image-generation
+      repo: inferen-sh/skills
+      installs_24h: 12900
+    - rank: 2
+      name: find-skills
+      repo: vercel-labs/skills
+      installs_24h: 12800
+    - rank: 3
+      name: ai-video-generation
+      repo: inferen-sh/skills
+      installs_24h: 12700
+    # ranks 4-13: inferen-sh/skills collection (138.6K total)
+    - rank: 14
+      name: frontend-design
+      repo: anthropics/skills
+      installs_24h: 3500
+    - rank: 15
+      name: vercel-react-best-practices
+      repo: vercel-labs/agent-skills
+      installs_24h: 3500
+    - rank: 16
+      name: web-design-guidelines
+      repo: vercel-labs/agent-skills
+      installs_24h: 2900
+    - rank: 17
+      name: microsoft-foundry
+      repo: microsoft/azure-skills
+      installs_24h: 2700
+
+  trending_analysis: |
+    inferen-sh dominates 24h trending through sheer volume (71 skills).
+    After filtering out inferen-sh, the real trending leaders are:
+    - Anthropic's frontend-design (3.5K/24h)
+    - Vercel's React/design skills (2.9-3.5K/24h)
+    - Microsoft Azure skills (2.7K/24h for foundry alone, 55.7K total)
+    - obra/superpowers brainstorming (1.6K/24h)
+
+# ============================================
+# HOT (1h) HIGHLIGHTS
+# ============================================
+
+hot_1h:
+  top_10:
+    - rank: 1
+      name: azure-upgrade
+      repo: microsoft/azure-skills
+      installs_1h: 95
+      change: "+95"
+    - rank: 2
+      name: lead-magnets
+      repo: coreyhaines31/marketingskills
+      installs_1h: 22
+      change: "+22"
+    - rank: 3
+      name: web-design-guidelines
+      repo: vercel-labs/agent-skills
+      installs_1h: 141
+      change: "+12"
+    - rank: 4
+      name: using-git-worktrees
+      repo: obra/superpowers
+      installs_1h: 28
+      change: "+11"
+    - rank: 5
+      name: finishing-a-development-branch
+      repo: obra/superpowers
+      installs_1h: 27
+      change: "+10"
+
+  hot_foe_relevant:
+    - name: using-git-worktrees
+      change: "+11/hr"
+      foe_note: "Parallel development workflow"
+    - name: finishing-a-development-branch
+      change: "+10/hr"
+      foe_note: "Branch completion verification"
+    - name: test-driven-development
+      change: "+7/hr"
+      foe_note: "Core TDD enforcement"
+    - name: writing-skills
+      change: "+7/hr"
+      foe_note: "Meta-skill creation"
+    - name: subagent-driven-development
+      change: "+6/hr"
+      foe_note: "Agent orchestration"
+    - name: verification-before-completion
+      change: "+6/hr"
+      foe_note: "Completion verification gate"
+    - name: dispatching-parallel-agents
+      change: "+6/hr"
+      foe_note: "Parallel agent execution"
+    - name: skill-vetter
+      change: "+5/hr"
+      foe_note: "Security vetting for skills"
+
+# ============================================
+# SECURITY AUDIT DEVELOPMENTS
+# ============================================
+
+security_audits:
+  providers:
+    - name: "Gen Agent Trust Hub"
+      coverage: "Top skills audited"
+      rating_scale: "Safe / Med Risk / High Risk"
+    - name: "Socket"
+      coverage: "Top skills audited"
+      rating_scale: "0-N alerts"
+    - name: "Snyk"
+      coverage: "Top skills audited"
+      rating_scale: "Low Risk / Med Risk / High Risk / Critical"
+
+  notable_findings:
+    critical:
+      - skill: azure-prepare
+        repo: microsoft/github-copilot-for-azure
+        snyk: Critical
+        note: "Microsoft's own skill flagged Critical by Snyk"
+      - skill: agent-browser
+        repo: vercel-labs/agent-browser
+        snyk: Critical
+        socket: "1 alert"
+        note: "Browser automation skill with Critical risk"
+
+    high_risk:
+      - skill: azure-resource-visualizer
+        repo: microsoft/github-copilot-for-azure
+        snyk: "High Risk"
+      - skill: azure-aigateway
+        repo: microsoft/github-copilot-for-azure
+        snyk: "High Risk"
+      - skill: browser-use
+        repo: browser-use/browser-use
+        gen: "Med Risk"
+        snyk: "High Risk"
+        note: "49.1K installs with High Risk rating"
+      - skill: ui-ux-pro-max
+        repo: nextlevelbuilder/ui-ux-pro-max-skill
+        gen: "High Risk"
+        note: "61.0K installs, Gen flagged High Risk"
+
+    new_security_skill:
+      name: skill-vetter
+      repo: useai-pro/openclaw-skills-security
+      installs: 5500
+      hot_change: "+5/hr"
+      description: |
+        Security auditor skill that vets other skills before installation.
+        Includes: metadata check, permission scope analysis, content
+        analysis for red flags, typosquat detection, trust hierarchy.
+        Flags network+shell permission combo as data exfiltration risk.
+      foe_relevance: medium
+      foe_notes: |
+        The vetting protocol is a good model for our own skill evaluation.
+        The permission scope analysis table and red flag checklist could
+        inform FOE skill security guidelines.
+
+  audit_analysis: |
+    Security auditing has matured significantly since Feb 20. Three
+    independent providers now audit top skills. Notable that even
+    Microsoft's own skills have Critical/High findings from Snyk.
+
+    The skill-vetter community skill (5.5K installs, trending hot)
+    shows demand for user-side security verification. This is a
+    healthy ecosystem signal - users want to verify before trusting.
+
+    Browser automation skills (agent-browser, browser-use) consistently
+    flag as high risk, which makes sense given their capabilities.
+
+# ============================================
+# PATTERN ANALYSIS
+# ============================================
+
+patterns_observed:
+
+  skill_chaining:
+    description: |
+      Skills increasingly reference and invoke each other. obra/superpowers
+      is the clearest example: brainstorming -> writing-plans -> executing-plans.
+      Google's stitch-loop references design-md. This creates skill ecosystems
+      rather than isolated capabilities.
+    foe_relevance: high
+    foe_notes: |
+      FOE skills should be designed for chaining. Our observation-framework
+      could invoke field-guide-linter. Method creation could invoke
+      observation validation. This is the direction the ecosystem is heading.
+
+  baton_pattern:
+    description: |
+      Google's stitch-loop introduces a "baton system" where each iteration
+      writes instructions for the next. A file (.stitch/next-prompt.md)
+      acts as a relay between agent invocations. This enables autonomous
+      iterative development without maintaining session state.
+    foe_relevance: medium
+    foe_notes: |
+      Interesting pattern for long-running FOE workflows. Could enable
+      multi-session observation collection or method maturation tracking.
+      The key insight: state lives in files, not in agent memory.
+
+  verification_gates:
+    description: |
+      verification-before-completion has established a pattern where
+      skills act as gates rather than tools. The skill doesn't DO anything -
+      it prevents premature completion claims. This "negative skill" pattern
+      (preventing bad behavior rather than enabling good behavior) is
+      increasingly common.
+    foe_relevance: very-high
+    foe_notes: |
+      FOE should adopt gate skills. A "verify-observation-evidence" gate
+      could prevent observations from being created without supporting
+      evidence. A "method-maturity-gate" could prevent premature promotion.
+
+  enterprise_bulk_publishing:
+    description: |
+      Microsoft now has TWO collections totaling 3.25M installs across
+      39 skills. This is enterprise-scale skills deployment. The azure-skills
+      collection (751.7K) is entirely new since Feb 20.
+    foe_relevance: low
+    foe_notes: |
+      Signals that skills.sh is becoming an enterprise distribution channel.
+      FOE skills could eventually be published here for broader adoption.
+
+  description_anti_pattern_update:
+    description: |
+      The Feb 20 report identified that descriptions summarizing workflow
+      cause agents to skip reading the full body. Reviewing current top
+      skills, the best-designed skills (obra/superpowers) use short
+      descriptions that DON'T summarize the workflow. brainstorming's
+      description is just "Help turn ideas into fully formed designs and
+      specs through natural collaborative dialogue." The actual workflow
+      is in the body.
+    foe_relevance: high
+    foe_notes: |
+      Our existing skills follow this pattern correctly. Continue to
+      keep descriptions as capability statements, not workflow summaries.
+
+  agent_distribution_data:
+    description: |
+      Skills now show per-agent install counts. For obra/superpowers
+      brainstorming: opencode (45.1K), gemini-cli (43.3K), codex (43.1K),
+      github-copilot (40.8K), kimi-cli (37.2K), amp (37.1K).
+      For anthropics webapp-testing: opencode (18.5K), gemini-cli (17.6K),
+      codex (17.2K), claude-code (15.9K), cursor (15.7K).
+    foe_relevance: medium
+    foe_notes: |
+      OpenCode and Gemini CLI are the top install targets, not Claude Code.
+      This suggests skills are being installed across many agents, not just
+      the one they were designed for. Cross-agent compatibility matters.
+
+  marketing_skills_explosion:
+    description: |
+      coreyhaines31/marketingskills has expanded significantly with
+      skills like seo-audit (42.1K), copywriting (35.1K), and many more.
+      Total collection: ~160K installs across 15+ skills. This signals
+      skills.sh expanding well beyond coding into business domains.
+    foe_relevance: low
+
+# ============================================
+# FOE-RELEVANT SKILL DEEP DIVES
+# ============================================
+
+foe_findings:
+
+  - id: skillssh-2026-03-001
+    name: "verification-before-completion"
+    url: "https://skills.sh/obra/superpowers/verification-before-completion"
+    repo: "obra/superpowers"
+    installs: 17800
+    growth_since_feb20: "119.8%"
+    description: |
+      Gate skill that prevents completion claims without fresh verification
+      evidence. "Claiming work is complete without verification is dishonesty,
+      not efficiency." Includes iron law, common failure table, rationalization
+      prevention, and red flag detection.
+    adaptation_analysis:
+      foe_fit: very-high
+      target_guide: "continuous-feedback"
+      current_functionality: |
+        Prevents premature completion claims. Requires fresh command output
+        before any success statement. Includes tables mapping claims to
+        required evidence and common rationalizations to rebuttals.
+      modifications_needed:
+        - "Already adapted as FOE skill - validate alignment with latest version"
+        - "Consider adding FOE-specific verification targets (observation evidence, method maturity)"
+        - "The rationalization prevention table could inform FOE anti-patterns"
+      effort_estimate: low
+      potential_value: "Core FOE principle embodied as executable skill"
+    security:
+      gen: Pass
+      socket: Pass
+      snyk: Pass
+    topics:
+      - verification
+      - quality-gates
+      - evidence-based
+      - anti-rationalization
+
+  - id: skillssh-2026-03-002
+    name: "test-driven-development"
+    url: "https://skills.sh/obra/superpowers/test-driven-development"
+    repo: "obra/superpowers"
+    installs: 24600
+    growth_since_feb20: "117.7%"
+    description: |
+      Strict TDD enforcement with red-green-refactor cycle. Iron law:
+      NO PRODUCTION CODE WITHOUT A FAILING TEST FIRST. Includes
+      verification checklists and anti-pattern detection.
+    adaptation_analysis:
+      foe_fit: very-high
+      target_guide: "continuous-feedback"
+      current_functionality: "Full TDD lifecycle enforcement"
+      modifications_needed:
+        - "Already well-aligned with FOE principles"
+        - "Could add observation-level testing patterns"
+        - "Integration with verification-before-completion for end-to-end"
+      effort_estimate: low
+      potential_value: "Fast feedback through immediate test verification"
+    topics:
+      - testing
+      - tdd
+      - feedback-loops
+      - incremental
+
+  - id: skillssh-2026-03-003
+    name: "brainstorming"
+    url: "https://skills.sh/obra/superpowers/brainstorming"
+    repo: "obra/superpowers"
+    installs: 54300
+    growth_since_feb20: "117.2%"
+    description: |
+      Collaborative design skill with structured dialogue, visual companion,
+      spec review loop (subagent dispatch, max 5 iterations), YAGNI
+      enforcement, and mandatory design-before-implementation gate.
+      Includes process flow diagram (graphviz).
+    adaptation_analysis:
+      foe_fit: high
+      target_guide: "incremental-development"
+      current_functionality: |
+        Turns ideas into validated specs through one-question-at-a-time
+        dialogue. Enforces design review before implementation. Chains
+        to writing-plans skill for implementation planning.
+      modifications_needed:
+        - "The spec review loop pattern could inform FOE observation validation"
+        - "The 'every project needs design' principle aligns with FOE's 'optimize for understanding'"
+        - "Visual companion pattern could enhance FOE documentation workflows"
+        - "Process flow diagram (graphviz) is a good documentation pattern"
+      effort_estimate: medium
+      potential_value: "Design-first workflow that prevents wasted work"
+    topics:
+      - design
+      - incremental
+      - feedback-loops
+      - documentation
+
+  - id: skillssh-2026-03-004
+    name: "webapp-testing"
+    url: "https://skills.sh/anthropics/skills/webapp-testing"
+    repo: "anthropics/skills"
+    installs: 23500
+    description: |
+      Playwright-based web application testing skill. Includes decision tree
+      for choosing approach (static vs dynamic), reconnaissance-then-action
+      pattern, server lifecycle management, and best practices for
+      using bundled scripts as black boxes.
+    adaptation_analysis:
+      foe_fit: high
+      target_guide: "continuous-feedback"
+      current_functionality: |
+        Automated web testing with Playwright. Key pattern: "Always run
+        scripts with --help first. DO NOT read the source until you try
+        running the script first." This is a context-efficiency pattern.
+      modifications_needed:
+        - "The 'black box scripts' pattern is excellent for token efficiency"
+        - "Decision tree approach could inform FOE skill design"
+        - "Reconnaissance-then-action pattern applicable to FOE observation collection"
+        - "Server lifecycle management pattern useful for integration testing"
+      effort_estimate: medium
+      potential_value: "Testing automation with context-efficient patterns"
+    security:
+      gen: Pass
+      socket: Pass
+      snyk: Pass
+    topics:
+      - testing
+      - automation
+      - playwright
+      - context-efficiency
+
+  - id: skillssh-2026-03-005
+    name: "subagent-driven-development"
+    url: "https://skills.sh/obra/superpowers/subagent-driven-development"
+    repo: "obra/superpowers"
+    installs: 19000
+    growth_since_feb20: "123.5%"
+    description: |
+      Orchestrates work across multiple sub-agents. Enables parallel
+      execution of independent tasks with coordination.
+    adaptation_analysis:
+      foe_fit: high
+      target_guide: "ai-native-development"
+      current_functionality: "Multi-agent orchestration and coordination"
+      modifications_needed:
+        - "Could inform FOE patterns for parallel observation collection"
+        - "Agent dispatch patterns relevant to automated field guide maintenance"
+        - "Coordination model useful for multi-skill FOE workflows"
+      effort_estimate: medium
+      potential_value: "Enables parallel agentic workflows"
+    topics:
+      - agent-orchestration
+      - parallel-execution
+      - coordination
+
+  - id: skillssh-2026-03-006
+    name: "dispatching-parallel-agents"
+    url: "https://skills.sh/obra/superpowers/dispatching-parallel-agents"
+    repo: "obra/superpowers"
+    installs: 16200
+    hot_change: "+6/hr"
+    description: "Parallel agent dispatch and result aggregation"
+    adaptation_analysis:
+      foe_fit: high
+      target_guide: "ai-native-development"
+      current_functionality: "Dispatches multiple agents in parallel"
+      modifications_needed:
+        - "Pattern for parallel FOE skill execution"
+        - "Could enable concurrent observation validation"
+      effort_estimate: low
+      potential_value: "Efficiency through parallelism"
+    topics:
+      - parallel-execution
+      - agent-orchestration
+
+  - id: skillssh-2026-03-007
+    name: "skill-vetter"
+    url: "https://skills.sh/useai-pro/openclaw-skills-security/skill-vetter"
+    repo: "useai-pro/openclaw-skills-security"
+    installs: 5500
+    hot_change: "+5/hr"
+    first_seen: "2026-02-06"
+    description: |
+      Security auditor for skills. Vetting protocol: metadata check,
+      permission scope analysis (fileRead/fileWrite/network/shell with
+      risk levels), content analysis for red flags (credential access,
+      curl/wget, base64, prompt injection), typosquat detection, and
+      trust hierarchy.
+    adaptation_analysis:
+      foe_fit: medium
+      target_guide: "ai-native-development"
+      current_functionality: |
+        Pre-installation security vetting. Permission scope analysis
+        with risk levels. Red flag detection including prompt injection
+        patterns. Trust hierarchy from official to unknown authors.
+      modifications_needed:
+        - "Adapt vetting protocol for FOE skill evaluation"
+        - "Permission scope analysis model useful for skill governance"
+        - "Prompt injection detection relevant to skill security"
+        - "Trust hierarchy could inform FOE skill sourcing policy"
+      effort_estimate: low
+      potential_value: "Security framework for skill ecosystem"
+    security:
+      gen: Pass
+      socket: Pass
+      snyk: Warn
+    topics:
+      - security
+      - vetting
+      - governance
+
+  - id: skillssh-2026-03-008
+    name: "stitch-loop"
+    url: "https://skills.sh/google-labs-code/stitch-skills/stitch-loop"
+    repo: "google-labs-code/stitch-skills"
+    installs: 12900
+    first_seen: "2026-01-23"
+    description: |
+      Autonomous frontend builder using a "baton system" for iterative
+      site building. Each iteration reads task from baton file, generates
+      page, integrates into site, writes next task. Supports CI/CD,
+      human-in-loop, agent chains, and manual orchestration.
+    adaptation_analysis:
+      foe_fit: medium
+      target_guide: "incremental-development"
+      current_functionality: |
+        Iterative build loop with state persisted in files. Baton system
+        enables autonomous multi-iteration development. Orchestration-
+        agnostic design supports multiple execution models.
+      modifications_needed:
+        - "Baton pattern could inform FOE multi-session workflows"
+        - "File-based state persistence is a good pattern for agent workflows"
+        - "Orchestration-agnostic design principle applicable to FOE skills"
+        - "Would need significant rework for non-frontend use cases"
+      effort_estimate: high
+      potential_value: "Iterative autonomous development pattern"
+    security:
+      gen: Pass
+      socket: Pass
+      snyk: Pass
+    topics:
+      - iterative-development
+      - autonomous-agents
+      - state-management
+
+  - id: skillssh-2026-03-009
+    name: "finishing-a-development-branch"
+    url: "https://skills.sh/obra/superpowers/finishing-a-development-branch"
+    repo: "obra/superpowers"
+    installs: 15100
+    hot_change: "+10/hr"
+    description: "Branch completion checklist and verification workflow"
+    adaptation_analysis:
+      foe_fit: high
+      target_guide: "continuous-feedback"
+      current_functionality: "Structured branch completion with verification"
+      modifications_needed:
+        - "Could inform FOE 'definition of done' for method/observation work"
+        - "Branch completion checklist pattern applicable to FOE workflows"
+      effort_estimate: low
+      potential_value: "Completion verification for development branches"
+    topics:
+      - git-workflow
+      - verification
+      - completion-gates
+
+  - id: skillssh-2026-03-010
+    name: "requesting-code-review"
+    url: "https://skills.sh/obra/superpowers/requesting-code-review"
+    repo: "obra/superpowers"
+    installs: 22600
+    description: "Structures code review requests for clarity and actionability"
+    adaptation_analysis:
+      foe_fit: high
+      target_guide: "continuous-feedback"
+      current_functionality: "Structured code review request creation"
+      modifications_needed:
+        - "Could inform FOE observation peer review process"
+        - "Review request structure applicable to method review"
+      effort_estimate: low
+      potential_value: "Structured feedback solicitation"
+    topics:
+      - code-review
+      - feedback
+      - communication
+
+  - id: skillssh-2026-03-011
+    name: "doc-coauthoring"
+    url: "https://skills.sh/anthropics/skills/doc-coauthoring"
+    repo: "anthropics/skills"
+    installs: 14600
+    description: "Collaborative document authoring with AI assistance"
+    adaptation_analysis:
+      foe_fit: medium
+      target_guide: "living-documentation"
+      current_functionality: "AI-assisted document co-authoring"
+      modifications_needed:
+        - "Could inform FOE observation/method co-authoring workflows"
+        - "Collaborative patterns applicable to field guide maintenance"
+      effort_estimate: medium
+      potential_value: "Living documentation through collaboration"
+    topics:
+      - documentation
+      - collaboration
+      - co-authoring
+
+  - id: skillssh-2026-03-012
+    name: "mcp-builder"
+    url: "https://skills.sh/anthropics/skills/mcp-builder"
+    repo: "anthropics/skills"
+    installs: 20700
+    description: "Builds MCP (Model Context Protocol) servers"
+    adaptation_analysis:
+      foe_fit: medium
+      target_guide: "ai-native-development"
+      current_functionality: "MCP server creation and configuration"
+      modifications_needed:
+        - "Could enable FOE-specific MCP tools"
+        - "MCP integration pattern for field guide access"
+      effort_estimate: high
+      potential_value: "Extensible tool creation for AI agents"
+    topics:
+      - mcp
+      - tooling
+      - extensibility
+
+# ============================================
+# DELTA ANALYSIS (Feb 20 -> Mar 14)
+# ============================================
+
+delta_analysis:
+  total_skills:
+    feb20: 68654
+    mar14: 88456
+    change: "+19,802 (+28.8%)"
+    daily_rate: "~900 new skills/day"
+
+  obra_superpowers_installs:
+    feb20:
+      brainstorming: 25000
+      systematic_debugging: 13800
+      writing_plans: 12100
+      test_driven_development: 11300
+      subagent_driven_development: 8500
+      verification_before_completion: 8100
+      total: 146500
+    mar14:
+      brainstorming: 54300
+      systematic_debugging: 29800
+      writing_plans: 27800
+      test_driven_development: 24600
+      executing_plans: 23200
+      requesting_code_review: 22600
+      using_superpowers: 22400
+      subagent_driven_development: 19000
+      verification_before_completion: 17800
+      receiving_code_review: 17700
+      writing_skills: 16900
+      using_git_worktrees: 16800
+      dispatching_parallel_agents: 16200
+      finishing_a_development_branch: 15100
+      total: 324300
+    change: "+177,800 (+121.4%)"
+    note: "Collection more than doubled in 22 days"
+
+  microsoft_installs:
+    feb20:
+      copilot_for_azure: "~187K (18 skills x ~10.4K)"
+    mar14:
+      copilot_for_azure: "2.5M (19 skills)"
+      azure_skills: "751.7K (20 skills, NEW)"
+      total: "3.25M"
+    change: "~17x growth"
+
+  platform_changes:
+    added:
+      - "Antigravity (Google)"
+      - "ClawdBot"
+      - "Droid (Factory AI)"
+      - "Kiro CLI (AWS)"
+    removed:
+      - "Aider"
+      - "Zed"
+      - "Warp"
+      - "Continue"
+    net_change: "0 (still 18, but 4 swapped)"
+
+  new_entrants:
+    - "google-labs-code/stitch-skills (~80K)"
+    - "pbakaus/impeccable (78.0K)"
+    - "microsoft/azure-skills (751.7K)"
+    - "useai-pro/openclaw-skills-security (5.5K)"
+    - "cloudflare/skills (new, trending)"
+    - "apify/agent-skills (new, trending)"
+    - "tavily-ai/skills (search skill, trending)"
+
+  security_evolution: |
+    Three-provider audit system (Gen, Socket, Snyk) now covers top skills.
+    Community security skill (skill-vetter) emerged and is trending.
+    Microsoft's own skills have Critical/High findings - no one is exempt.
+    Browser automation skills consistently flagged as high risk.
+
+# ============================================
+# KEY INSIGHTS & RECOMMENDATIONS
+# ============================================
+
+insights:
+
+  - id: insight-001
+    title: "Skills ecosystem is consolidating around major vendors"
+    detail: |
+      Platform list swapped 4 agents (removed indie tools, added Google/AWS/Factory).
+      Microsoft dominates installs (3.25M). Anthropic has most GitHub stars (92.8K).
+      Google entered with Stitch. This is becoming an enterprise distribution channel.
+    foe_implication: |
+      FOE skills should be designed for cross-agent compatibility. The platform
+      is consolidating but skills work across all 18 agents.
+
+  - id: insight-002
+    title: "obra/superpowers defines the agentic development lifecycle"
+    detail: |
+      324.3K total installs, 81.8K GitHub stars, 14 skills that chain together
+      into a complete workflow. From brainstorming through code review to branch
+      completion. This is the de facto standard for agentic coding methodology.
+    foe_implication: |
+      FOE should study and potentially integrate with this workflow rather than
+      competing. Our skills (observation-framework, method-framework, field-guide-linter)
+      complement rather than overlap with superpowers.
+
+  - id: insight-003
+    title: "Verification gates are a proven pattern"
+    detail: |
+      verification-before-completion (17.8K, +120%) proves that "negative skills"
+      (preventing bad behavior) are valued. The skill's growth rate matches
+      the collection average, meaning users install it alongside productive skills.
+    foe_implication: |
+      FOE should create verification gate skills for observation quality,
+      method maturity, and field guide completeness. The pattern works.
+
+  - id: insight-004
+    title: "Security auditing has matured but gaps remain"
+    detail: |
+      Three providers, community vetting skill, even Microsoft flagged.
+      But 71-skill collections like inferen-sh still have questionable
+      security posture. The ecosystem needs more user-side verification.
+    foe_implication: |
+      Any FOE skills published to skills.sh should pass all three audits.
+      Consider adopting skill-vetter's permission scope analysis for
+      evaluating third-party skills we recommend.
+
+  - id: insight-005
+    title: "Token efficiency patterns emerging in skill design"
+    detail: |
+      webapp-testing explicitly says "DO NOT read the source until you try
+      running the script first" to preserve context window. brainstorming
+      uses short descriptions that don't summarize workflow. These are
+      deliberate context-efficiency patterns.
+    foe_implication: |
+      Continue following the description anti-pattern guidance from Feb 20.
+      Consider adding explicit "don't read source, use --help" patterns
+      for FOE skills that reference external scripts.
+
+  - id: insight-006
+    title: "File-based state persistence enables multi-session workflows"
+    detail: |
+      Google's stitch-loop baton system and obra's spec files both use
+      file-based state to enable workflows that span multiple agent sessions.
+      State lives in the repo, not in agent memory.
+    foe_implication: |
+      FOE already does this with frontmatter-based observation/method files.
+      This validates our approach. Consider whether a "baton" pattern could
+      enable automated field guide maintenance across sessions.
+
+  - id: insight-007
+    title: "Cross-agent install data reveals OpenCode as top target"
+    detail: |
+      Per-agent install counts show OpenCode, Gemini CLI, and Codex as
+      top install targets - not Claude Code or Cursor. This suggests
+      CLI-based agents are the primary skills consumers.
+    foe_implication: |
+      FOE skills are already OpenCode-native. This is the right target.
+      Ensure skills also work well in Gemini CLI and Codex contexts.
+
+recommendations:
+  - priority: high
+    action: "Validate FOE skills against latest obra/superpowers patterns"
+    detail: |
+      obra/superpowers has evolved significantly. Review our skills for
+      alignment with their chaining pattern, verification gates, and
+      process flow documentation (graphviz diagrams).
+
+  - priority: high
+    action: "Create FOE verification gate skills"
+    detail: |
+      Following the verification-before-completion pattern, create gates for:
+      - observation-evidence-gate (prevent observations without evidence)
+      - method-maturity-gate (prevent premature promotion)
+      - field-guide-completeness-gate (prevent incomplete guides)
+
+  - priority: medium
+    action: "Study skill-vetter for FOE skill governance"
+    detail: |
+      Adapt the permission scope analysis and red flag detection for
+      evaluating skills we recommend or install in FOE projects.
+
+  - priority: medium
+    action: "Consider publishing FOE skills to skills.sh"
+    detail: |
+      The ecosystem has matured enough for FOE skills to be published.
+      Our observation-framework and method-framework skills would be
+      unique offerings. Ensure they pass all three security audits first.
+
+  - priority: low
+    action: "Monitor stitch-loop baton pattern for FOE applicability"
+    detail: |
+      The file-based baton system could enable automated multi-session
+      FOE workflows. Worth monitoring but not urgent to adopt.
