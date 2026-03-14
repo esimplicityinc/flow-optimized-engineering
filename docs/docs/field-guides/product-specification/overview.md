@@ -54,7 +54,7 @@ A collection of flow-optimized methods for requirements gathering, specification
 <GuideMaturitySummary
   guideId="product-specification"
   methods={[
-    { maturity: 'hypothesized' },
+    { maturity: 'validated' },
     { maturity: 'hypothesized' },
     { maturity: 'hypothesized' },
     { maturity: 'hypothesized' },
@@ -79,7 +79,7 @@ A collection of flow-optimized methods for requirements gathering, specification
     { id: 'M138', title: 'Three Amigos', maturity: 'hypothesized', priority: 'essential', slug: 'three-amigos', framework: 'bdd', frameworkTitle: 'BDD', description: 'Cross-functional conversations to define acceptance criteria' },
     { id: 'M120', title: 'Example Mapping', maturity: 'hypothesized', slug: 'example-mapping', framework: 'bdd', frameworkTitle: 'BDD', description: 'Structured decomposition of stories into rules, examples, and questions' },
     { id: 'M142', title: 'User Story Template', maturity: 'hypothesized', slug: 'user-story-template', framework: 'bdd', frameworkTitle: 'BDD', description: 'Expressing requirements as role-feature-benefit statements' },
-    { id: 'M127', title: 'Given-When-Then', maturity: 'hypothesized', priority: 'essential', slug: 'given-when-then', framework: 'bdd', frameworkTitle: 'BDD', description: 'Structured template for expressing testable acceptance criteria' },
+    { id: 'M127', title: 'Given-When-Then', maturity: 'validated', priority: 'essential', slug: 'given-when-then', framework: 'bdd', frameworkTitle: 'BDD', description: 'Structured template for expressing testable acceptance criteria' },
     { id: 'M126', title: 'Gherkin', maturity: 'hypothesized', slug: 'gherkin', framework: 'bdd', frameworkTitle: 'BDD', description: 'Domain-specific language for writing executable specifications' },
     { id: 'M121', title: 'Executable Specifications', maturity: 'hypothesized', slug: 'executable-specifications', framework: 'bdd', frameworkTitle: 'BDD', description: 'Automated tests that serve as living documentation of product intent' },
     { id: 'M141', title: 'Ubiquitous Language', maturity: 'hypothesized', priority: 'essential', slug: 'ubiquitous-language', framework: 'domain-driven-design', frameworkTitle: 'DDD', description: 'Shared vocabulary between product and engineering that eliminates translation' },

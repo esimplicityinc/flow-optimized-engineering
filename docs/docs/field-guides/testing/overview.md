@@ -42,7 +42,7 @@ A collection of flow-optimized methods for testing strategies, test design, and 
 <GuideMaturitySummary 
   guideId="testing" 
   methods={[
-    { maturity: 'hypothesized' },
+    { maturity: 'validated' },
     { maturity: 'hypothesized' },
     { maturity: 'hypothesized' },
     { maturity: 'hypothesized' },
@@ -63,7 +63,7 @@ A collection of flow-optimized methods for testing strategies, test design, and 
     { id: 'M164', title: 'Test Pyramid', maturity: 'hypothesized', priority: 'essential', slug: 'test-pyramid', framework: 'tdd', frameworkTitle: 'TDD', description: 'A model for balancing unit, integration, and E2E tests' },
     { id: 'M165', title: 'Test List', maturity: 'hypothesized', slug: 'test-list', framework: 'tdd', frameworkTitle: 'TDD', description: 'Writing out test cases before coding to guide development' },
     { id: 'M121', title: 'Executable Specifications', maturity: 'hypothesized', priority: 'essential', slug: 'executable-specifications', framework: 'bdd', frameworkTitle: 'BDD', description: 'Automated tests from human-readable specs that serve as living documentation' },
-    { id: 'M127', title: 'Given-When-Then', maturity: 'hypothesized', slug: 'given-when-then', framework: 'bdd', frameworkTitle: 'BDD', description: 'Template for expressing acceptance criteria as structured scenarios' },
+    { id: 'M127', title: 'Given-When-Then', maturity: 'validated', slug: 'given-when-then', framework: 'bdd', frameworkTitle: 'BDD', description: 'Template for expressing acceptance criteria as structured scenarios' },
     { id: 'M126', title: 'Gherkin', maturity: 'hypothesized', slug: 'gherkin', framework: 'bdd', frameworkTitle: 'BDD', description: 'DSL for writing executable specifications in human-readable format' },
     { id: 'M112', title: 'Deployment Pipeline', maturity: 'hypothesized', slug: 'deployment-pipeline', framework: 'continuous-delivery', frameworkTitle: 'Continuous Delivery', description: 'Automated build/test/deploy process that provides progressive confidence' },
     { id: 'M105', title: 'Change Failure Rate', maturity: 'hypothesized', slug: 'change-failure-rate', framework: 'dora', frameworkTitle: 'DORA', description: 'Measuring test effectiveness at catching issues before production' },
