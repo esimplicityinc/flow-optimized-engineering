@@ -9,7 +9,7 @@ external_method:
   framework: dora
   method: lead-time-for-changes
   id: M130
-foe_maturity: hypothesized
+foe_maturity: observing
 observations:
   - O110
 ---

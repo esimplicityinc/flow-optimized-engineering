@@ -3,7 +3,7 @@ methodId: M155
 displayed_sidebar: fieldGuideSidebar
 sidebar_position: 4
 title: "Verification Before Completion"
-maturity: observing
+maturity: validated
 observations:
   - O210
   - O211

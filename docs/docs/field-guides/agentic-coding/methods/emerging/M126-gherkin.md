@@ -9,7 +9,7 @@ external_method:
   framework: bdd
   method: gherkin
   id: M126
-foe_maturity: hypothesized
+foe_maturity: observing
 observations:
   - O100
 ---

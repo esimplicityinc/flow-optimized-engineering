@@ -9,7 +9,7 @@ external_method:
   framework: bdd
   method: given-when-then
   id: M127
-foe_maturity: hypothesized
+foe_maturity: validated
 observations:
   - O100
   - O104

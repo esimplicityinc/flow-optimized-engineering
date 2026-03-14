@@ -9,14 +9,14 @@ external_method:
   framework: bdd
   method: given-when-then
   id: M127
-foe_maturity: hypothesized
+foe_maturity: validated
 observations:
   - O100
   - O104
   - O105
   - O106
   - O107
-  - O126-strongdm-software-factory-2026
+  - O126
 ---
 
 import ExternalMethodHeader from '@site/src/components/ExternalMethodHeader';

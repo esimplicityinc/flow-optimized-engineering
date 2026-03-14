@@ -10,7 +10,6 @@ source:
   year: 2026
   url: "https://theredbeard.io/blog/i-intercepted-3177-api-calls-across-4-ai-coding-tools"
 methods:
-  - M156
   - M154
 ---
 

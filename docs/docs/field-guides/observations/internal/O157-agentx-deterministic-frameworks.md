@@ -3,7 +3,7 @@ observationId: O157
 displayed_sidebar: fieldGuideSidebar
 sidebar_position: 2
 title: "AgentX: Deterministic Frameworks Enable Safe Agent Autonomy"
-status: in-progress
+status: completed
 source_type: internal
 methods:
   - M156
@@ -15,7 +15,7 @@ methods:
 
 # AgentX: Deterministic Frameworks Enable Safe Agent Autonomy
 
-> **Status:** In Progress (Medium confidence - promising preliminary evidence, needs cross-org replication)
+> **Status:** Completed (Medium confidence - promising preliminary evidence, needs cross-org replication)
 
 Giving AI agents access to the same deterministic abstractions (make/just targets, typed schemas, frameworks) that humans and CI/CD use creates shared interfaces that provide safety boundaries, fast feedback, and discoverable capabilities without requiring agent-specific tooling.
 

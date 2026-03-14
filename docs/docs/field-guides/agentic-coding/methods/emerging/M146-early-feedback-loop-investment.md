@@ -5,9 +5,9 @@ sidebar_position: 2
 title: "Early Feedback Loop Investment"
 maturity: observing
 observations:
-  - internal/O102-prima-oss-fork-strategy
-  - internal/O100-prima-bdd-api-testing-adoption
-  - internal/O157-agentx-deterministic-frameworks
+  - O102
+  - O100
+  - O157
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';

@@ -3,10 +3,10 @@ methodId: M154
 displayed_sidebar: fieldGuideSidebar
 sidebar_position: 1
 title: "Conceptual Debt Prevention"
-maturity: observing
+maturity: validated
 priority: recommended
 observations:
-  - internal/O102-prima-oss-fork-strategy
+  - O102
   - O210
   - O212
   - O214
@@ -23,8 +23,8 @@ import RelatedObservations from '@site/src/components/RelatedObservations';
 
 Teams accumulate *conceptual debt* when they adopt technologies without understanding their underlying models. Like technical debt, conceptual debt compounds -- each misunderstanding produces architectural decisions that produce bugs that produce hotfixes that produce more complexity. Unlike technical debt, conceptual debt is psychologically invisible: you feel like you understand while your assumptions silently diverge from reality.
 
-:::caution Early Stage
-This method is still being validated through observations. The steps may evolve as we gather more evidence.
+:::tip Validated
+This method has been validated through 6 independent observations from diverse sources including academic research, industry reports, and practitioner data.
 :::
 
 ## Overview

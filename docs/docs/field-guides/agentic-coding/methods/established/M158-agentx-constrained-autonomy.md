@@ -4,9 +4,9 @@ sidebar_position: 1
 title: "AgentX: Constrained Autonomy Through Shared Abstractions"
 maturity: validated
 observations:
-  - observations/internal/O157-agentx-deterministic-frameworks
-  - observations/internal/O125-content-portal-agent-mediated-access
-  - observations/internal/O126-datalink-pilot-agent-orchestrated-development
+  - O157
+  - O125
+  - O126
   - O218
 ---
 

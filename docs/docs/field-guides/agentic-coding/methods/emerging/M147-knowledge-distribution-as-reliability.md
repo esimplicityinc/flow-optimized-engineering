@@ -5,7 +5,7 @@ sidebar_position: 3
 title: "Knowledge Distribution as Reliability"
 maturity: observing
 observations:
-  - internal/O102-prima-oss-fork-strategy
+  - O102
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';

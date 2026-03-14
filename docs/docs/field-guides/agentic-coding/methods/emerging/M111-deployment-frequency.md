@@ -9,7 +9,7 @@ external_method:
   framework: dora
   method: deployment-frequency
   id: M111
-foe_maturity: hypothesized
+foe_maturity: observing
 observations:
   - O109
   - O110
