@@ -6,6 +6,7 @@ title: "Persistent Planning State"
 maturity: observing
 observations:
   - O126
+  - O221
 ---
 
 import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
