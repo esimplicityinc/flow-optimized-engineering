@@ -7,6 +7,7 @@ observations:
   - observations/internal/O157-agentx-deterministic-frameworks
   - observations/internal/O125-content-portal-agent-mediated-access
   - observations/internal/O126-datalink-pilot-agent-orchestrated-development
+  - O218
 ---
 
 import MaturityBadge from '@site/src/components/MaturityBadge';
