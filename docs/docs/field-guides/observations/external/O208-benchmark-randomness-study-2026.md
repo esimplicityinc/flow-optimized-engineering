@@ -9,7 +9,7 @@ source:
   year: 2026
   url: "https://arxiv.org/abs/2602.07150"
 methods:
-  - agentic-coding/methods/emerging/M155-verification-before-completion
+  - M155
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

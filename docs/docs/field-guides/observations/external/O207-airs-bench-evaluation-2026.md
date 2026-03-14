@@ -9,8 +9,8 @@ source:
   year: 2026
   url: "https://www.reddit.com/r/MachineLearning/comments/1r0e4io/r_airsbench_a_benchmark_for_ai_agents_on_the_full/"
 methods:
-  - agentic-coding/methods/emerging/M152-test-driven-agent-development
-  - agentic-coding/methods/emerging/M155-verification-before-completion
+  - M152
+  - M155
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

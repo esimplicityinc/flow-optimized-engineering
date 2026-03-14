@@ -9,8 +9,8 @@ source:
   year: 2026
   url: "https://arxiv.org/abs/2601.20245"
 methods:
-  - agentic-coding/methods/emerging/M155-verification-before-completion
-  - agentic-coding/methods/emerging/M154-conceptual-debt-prevention
+  - M155
+  - M154
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';

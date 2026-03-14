@@ -9,8 +9,8 @@ source:
   year: 2026
   url: "https://arxiv.org/abs/2602.09540"
 methods:
-  - agentic-coding/methods/emerging/M152-test-driven-agent-development
-  - agentic-coding/methods/emerging/M155-verification-before-completion
+  - M152
+  - M155
 ---
 
 import RelatedMethods from '@site/src/components/RelatedMethods';
