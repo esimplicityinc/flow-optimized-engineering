@@ -6,6 +6,8 @@ description: "Evaluating contractor engineering maturity and predicting delivery
 
 # Flow Optimized Engineering for Government Customers
 
+<p class="reading-time">~10 min read</p>
+
 Your mission depends on software that works reliably. This guide helps you evaluate contractor engineering maturity, ask better questions, and identify practices that predict delivery success.
 
 ## Why Engineering Maturity Matters

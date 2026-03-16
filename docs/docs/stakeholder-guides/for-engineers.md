@@ -6,6 +6,8 @@ description: "How FOE affects your daily work, tooling, and career growth. ~10 m
 
 # Flow Optimized Engineering for Engineers
 
+<p class="reading-time">~10 min read</p>
+
 FOE is about making your daily work better: less friction, faster feedback, more autonomy, and fewer fire drills. Here's what it means for you.
 
 ## What FOE Actually Means for Your Day-to-Day

@@ -5,6 +5,8 @@ title: "FOE vs Alternatives"
 
 # FOE vs Alternatives
 
+<p class="reading-time">~6 min read</p>
+
 FOE is not the only approach to software delivery. It's useful to understand how it differs from common alternatives, and why those alternatives often fail.
 
 ## The Alternatives

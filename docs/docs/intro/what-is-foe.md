@@ -5,6 +5,8 @@ title: "What is FOE?"
 
 # What is Flow Optimized Engineering?
 
+<p class="reading-time">~3 min read</p>
+
 Flow Optimized Engineering (FOE) is a **delivery doctrine**: a way to organize engineering so the organization moves faster without becoming reckless.
 
 FOE is not a methodology, framework, or certification. It is a set of principles and practices that treat speed as an **epistemic problem** (what you can safely know) rather than a motivation problem (how hard people are trying).

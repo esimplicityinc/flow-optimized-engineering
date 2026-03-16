@@ -6,6 +6,8 @@ description: "Margin protection, delivery risk, and competitive positioning. ~9 
 
 # Flow Optimized Engineering for Executives
 
+<p class="reading-time">~9 min read</p>
+
 FOE is a strategic investment in how your engineering organization works. It protects margins, reduces delivery risk, and strengthens your competitive position in government contracting.
 
 ## The Executive Summary

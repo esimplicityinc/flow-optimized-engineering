@@ -6,6 +6,8 @@ description: "Translating engineering maturity into proposal differentiators. ~1
 
 # Flow Optimized Engineering for Capture Teams
 
+<p class="reading-time">~11 min read</p>
+
 FOE provides concrete discriminators for technical proposals. This guide helps you position engineering maturity as competitive advantage and translate FOE practices into win themes.
 
 ## Why FOE Wins

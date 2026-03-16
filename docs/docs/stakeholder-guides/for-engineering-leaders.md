@@ -6,6 +6,8 @@ description: "Building institutions, implementation paths, and sustaining excell
 
 # Flow Optimized Engineering for Engineering Leaders
 
+<p class="reading-time">~10 min read</p>
+
 You're responsible for building engineering organizations that deliver reliably today and improve over time. FOE provides the framework for doing both.
 
 ## Your Role in FOE

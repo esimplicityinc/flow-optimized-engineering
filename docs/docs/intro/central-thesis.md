@@ -5,6 +5,8 @@ title: "The Central Thesis"
 
 # The Central Thesis
 
+<p class="reading-time">~4 min read</p>
+
 > **Go faster by knowing more, not by caring less.**
 
 FOE's central thesis is that speed and safety are not tradeoffs. They are the same thing, viewed from different angles.

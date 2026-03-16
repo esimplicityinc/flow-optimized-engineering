@@ -5,6 +5,8 @@ title: "Optimize for Confidence"
 
 # Optimize for Confidence
 
+<p class="reading-time">~11 min read</p>
+
 Confidence is not certainty. Certainty is knowing the outcome. Confidence is being willing to act when you *don't* know the outcome, because the risk is bounded, visible, and reversible.
 
 > The goal isn't to eliminate uncertainty. It's to make uncertainty safe enough to act within.

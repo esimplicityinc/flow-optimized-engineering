@@ -5,6 +5,8 @@ title: "The Three Optimizations"
 
 # The Three Optimizations
 
+<p class="reading-time">~5 min read</p>
+
 Flow Optimized Engineering rests on three principles that map directly to how humans actually function under uncertainty. These aren't arbitrary best practices; they're the minimum requirements for sustainable high performance in complex systems.
 
 ## The Cognitive Foundation

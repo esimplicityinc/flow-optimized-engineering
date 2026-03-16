@@ -5,6 +5,8 @@ title: "Optimize for Fast Feedback"
 
 # Optimize for Fast Feedback
 
+<p class="reading-time">~10 min read</p>
+
 Fast feedback isn't about shipping faster. It's about *learning* faster: closing the gap between making a decision and discovering whether that decision was right.
 
 > Every code change is a claim about reality. Fast feedback creates selection environments where wrong claims get corrected before they compound.

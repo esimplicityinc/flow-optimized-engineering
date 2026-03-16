@@ -383,6 +383,24 @@ html.hide-navbar .main-wrapper {
   background: var(--ifm-color-emphasis-100);
 }
 
+/* Card description: allow 2 lines instead of truncating */
+.cardDescription_PWke {
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+}
+
+/* Reading time indicator below page title */
+.reading-time {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
 /* Doc card improvements */
 article.margin-bottom--lg {
   transition: all 0.3s ease;

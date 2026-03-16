@@ -5,6 +5,8 @@ title: "The Cognitive Triangle"
 
 # The Cognitive Triangle
 
+<p class="reading-time">~8 min read</p>
+
 The three optimizations, Understanding, Fast Feedback, and Confidence, form a closed system. Each enables the others. Each can destroy the others. FOE is the practice of keeping all three in balance.
 
 ![Cognitive Triangle: Understanding, Confidence, Fast Feedback](/img/illustrations/cognitive-triangle.png)

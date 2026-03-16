@@ -5,6 +5,8 @@ title: "Why FOE Exists"
 
 # Why FOE Exists
 
+<p class="reading-time">~4 min read</p>
+
 ## The Economic Premise
 
 Speed requires evidence.

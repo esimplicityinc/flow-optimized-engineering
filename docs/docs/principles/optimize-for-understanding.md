@@ -5,6 +5,8 @@ title: "Optimize for Understanding"
 
 # Optimize for Understanding
 
+<p class="reading-time">~8 min read</p>
+
 Understanding is the ability to form accurate mental models: to predict how a system will behave before you change it. When understanding breaks down, engineers stop reasoning and start pattern-matching. They copy what worked before, avoid what failed before, and treat the system as an adversary rather than a tool.
 
 > Understanding isn't about documentation. It's about whether the system is *legible*: whether a competent person can look at it and form coherent predictions.
