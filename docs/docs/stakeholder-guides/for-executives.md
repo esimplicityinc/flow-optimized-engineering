@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: "FOE for Executives"
+description: "Margin protection, delivery risk, and competitive positioning. ~9 min read"
 ---
 
 # Flow Optimized Engineering for Executives

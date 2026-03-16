@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: "FOE for Capture Teams"
+description: "Translating engineering maturity into proposal differentiators. ~11 min read"
 ---
 
 # Flow Optimized Engineering for Capture Teams

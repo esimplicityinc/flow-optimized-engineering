@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: "FOE for Government Customers"
+description: "Evaluating contractor engineering maturity and predicting delivery success. ~10 min read"
 ---
 
 # Flow Optimized Engineering for Government Customers

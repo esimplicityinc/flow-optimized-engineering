@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: "FOE for Engineers"
+description: "How FOE affects your daily work, tooling, and career growth. ~10 min read"
 ---
 
 # Flow Optimized Engineering for Engineers

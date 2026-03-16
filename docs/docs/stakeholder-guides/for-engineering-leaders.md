@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: "FOE for Engineering Leaders"
+description: "Building institutions, implementation paths, and sustaining excellence. ~10 min read"
 ---
 
 # Flow Optimized Engineering for Engineering Leaders
