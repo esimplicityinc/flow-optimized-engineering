@@ -41,6 +41,7 @@ In government contracting, margin protection requires accurate estimation, effic
 | Execution efficiency | Paved paths eliminate reinvention; fast feedback catches problems early |
 | Scope control | Clear interfaces and modular architecture isolate change impact |
 | Asset reuse | Platform investments and portable practices reduce startup costs |
+| Team portability | Consistent practices across prime/sub teams reduce integration friction and onboarding costs |
 
 ### Returns That Compound
 
@@ -50,7 +51,7 @@ FOE investments build on each other. Early investments in platforms, practices, 
 
 **Compounding:** Lower cost to launch new engagements through reusable platforms. Stronger talent retention from better engineering environments. Improved competitive positioning.
 
-**Enduring:** Institutional knowledge that outlasts individual contributors. Accelerating efficiency from sustained platform investment. Reputation as a mature, reliable delivery partner.
+**Enduring:** Institutional knowledge that outlasts individual contributors. Accelerating efficiency from sustained platform investment. Reputation as a mature delivery partner with customers, evaluators, and primes seeking reliable subcontractors.
 
 ### What the Research Confirms
 
@@ -65,7 +66,7 @@ The data from the 2019 State of DevOps Report quantifies the gap between elite a
 | Change Failure Rate | **7x** lower |
 | Mean Time to Recovery | **2,604x** faster |
 
-26% of teams already operate at elite performance levels [<a href="#ref-8">8</a>]. High performance is achievable, not rare.
+26% of teams already operate at elite performance levels [<a href="#ref-8">8</a>]. High performance is achievable, not rare. In government environments with ATO gates, change control boards, and release approval processes, absolute deployment frequency will differ from commercial benchmarks. What matters is the relative trend: are your teams improving within your compliance constraints, or stagnating?
 
 ## Why This Matters Now
 
@@ -78,7 +79,7 @@ Government contracting faces converging pressures:
 | Margin compression | Fixed-price and lowest-price-technically-acceptable contracts leave no room for rework |
 | Delivery expectations | Government customers increasingly expect commercial-grade velocity; delivery gaps strain the COR/PM relationship that took years to build |
 
-Organizations that haven't invested in engineering maturity face these pressures with brittle, heroics-dependent delivery. The cost is measurable: 42% of developer time lost to preventable friction [<a href="#ref-3">3</a>], 30-50% of effort consumed by rework [<a href="#ref-4">4</a>], and $225K-$400K every time a frustrated engineer walks out the door, with 52% of those departures preventable through better management and working conditions [<a href="#ref-9">9</a>]. These failures don't just cost money. They cost CPARS ratings, past performance narratives, and the customer trust that BD teams spent years building.
+Organizations that haven't invested in engineering maturity face these pressures with brittle, heroics-dependent delivery. The cost is measurable: 42% of developer time lost to preventable friction [<a href="#ref-3">3</a>], 30-50% of effort consumed by rework [<a href="#ref-4">4</a>], and $225K-$400K every time a frustrated engineer walks out the door, with 52% of those departures preventable through better management and working conditions [<a href="#ref-9">9</a>]. These failures don't just cost money. They cost CPARS ratings, past performance narratives, and the customer trust that BD teams spent years building. Meanwhile, competitors who have invested in engineering maturity are writing proposals with concrete delivery metrics, lower risk profiles, and stronger past performance. The gap compounds with every evaluation cycle.
 
 ## What FOE Protects Against
 
@@ -112,7 +113,7 @@ The fastest engineering organizations are also the most disciplined. They invest
 - **Confident customers**: Government partners trust delivery quality, deepening relationships that drive recompetes and follow-on work
 - **Sustainable pace**: Engineers maintain productivity without burnout
 - **Compounding capability**: Each contract builds reusable assets and knowledge
-- **Stronger account relationships**: Consistent delivery lets BD and account teams focus on growth, not damage control
+- **Stronger account relationships**: Consistent delivery frees account teams to pursue expansion rather than manage escalations
 
 ## Key Metrics for Executives
 
@@ -132,6 +133,7 @@ You don't need to understand the technical details. You need visibility into whe
 | Engineer Retention | Voluntary turnover rate | High turnover destroys institutional knowledge |
 | Onboarding Time | Time to first meaningful contribution | Shorter times indicate better documentation and tooling |
 | Cross-Team Mobility | Ability to move engineers between projects | Higher mobility indicates portable practices |
+| CPARS Trend | Direction of past performance ratings over time | Declining ratings signal delivery problems before they become recompete losses |
 
 Ask your engineering leaders to report these metrics quarterly. Trends matter more than absolute numbers.
 
@@ -179,12 +181,14 @@ FOE isn't free. It requires:
 
 The question isn't whether you can afford to invest. It's whether you can afford not to, and whether competitors who do invest will eventually outperform you.
 
+In government contracting, this investment typically draws from IR&D, B&P, or overhead pools, not billable contract hours. The trade-off is real: you are spending margin now to protect margin later. The organizations that make this trade consistently outperform those that treat engineering improvement as something they'll get to "after this contract."
+
 ---
 
 :::info[Katalyst: Strategic Platform Investment]
-The **Katalyst ecosystem** represents the kind of platform investment that creates sustainable competitive advantage:
+The **Katalyst ecosystem** is one example of the kind of platform investment FOE encourages. Your organization's equivalent may look different, but the strategic pattern is the same: reusable infrastructure that compounds across contracts.
 
-### Portfolio Value
+### Example: Portfolio Value
 | Katalyst Component | Strategic Benefit |
 |-------------------|-------------------|
 | **[Katalyst Platform](https://d3bvp0fxrpttzf.cloudfront.net/)** | Reusable infrastructure reduces startup costs on new contracts |
