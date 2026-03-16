@@ -436,6 +436,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'stakeholder-guides/for-executives',
         'stakeholder-guides/for-engineering-leaders',
+        'stakeholder-guides/for-program-managers',
         'stakeholder-guides/for-engineers',
         'stakeholder-guides/for-government-customers',
         'stakeholder-guides/for-capture-teams',

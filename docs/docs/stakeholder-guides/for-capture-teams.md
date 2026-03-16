@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 title: "FOE for Capture Teams"
 description: "Translating engineering maturity into proposal differentiators. ~11 min read"
 ---
