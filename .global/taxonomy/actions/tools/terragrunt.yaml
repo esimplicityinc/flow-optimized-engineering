@@ -1,0 +1,78 @@
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: terragrunt-validate
+  version: "0.1.0"
+spec:
+  description: Validate Terragrunt configuration and underlying modules.
+  type: shell
+  when: pre
+  run: just terragrunt-version
+  tags:
+    - validate
+    - safety
+    - terragrunt
+---
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: terragrunt-plan
+  version: "0.1.0"
+spec:
+  description: Produce a Terragrunt execution plan for the current stack.
+  type: shell
+  when: pre
+  run: just terragrunt-plan
+  timeoutSeconds: 600
+  tags:
+    - plan
+    - preview
+    - terragrunt
+---
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: terragrunt-apply
+  version: "0.1.0"
+spec:
+  description: Apply Terragrunt-managed infrastructure changes.
+  type: shell
+  when: main
+  run: just terragrunt-apply
+  timeoutSeconds: 1800
+  tags:
+    - apply
+    - deploy
+    - terragrunt
+---
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: terragrunt-run-all-plan
+  version: "0.1.0"
+spec:
+  description: Run plan across all child modules in dependency order.
+  type: shell
+  when: pre
+  run: just terragrunt-run-all-plan
+  timeoutSeconds: 900
+  tags:
+    - orchestration
+    - plan
+    - terragrunt
+---
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: terragrunt-run-all-apply
+  version: "0.1.0"
+spec:
+  description: Apply infrastructure changes across all child modules.
+  type: shell
+  when: main
+  run: just terragrunt-run-all-apply
+  timeoutSeconds: 3600
+  tags:
+    - orchestration
+    - apply
+    - terragrunt

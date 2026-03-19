@@ -1,0 +1,29 @@
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: aws-login-check
+  version: "0.1.0"
+spec:
+  description: Confirm the configured AWS profile has valid credentials.
+  type: shell
+  when: pre
+  run: just aws-login-check
+  tags:
+    - auth
+    - check
+    - aws
+---
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: aws-sso-login
+  version: "0.1.0"
+spec:
+  description: Authenticate with AWS SSO for the configured profile.
+  type: shell
+  when: pre
+  run: just aws-sso-login
+  tags:
+    - login
+    - sso
+    - aws

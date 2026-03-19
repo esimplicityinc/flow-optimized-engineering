@@ -1,0 +1,44 @@
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardBinding
+metadata:
+  name: pre-commit-k8s-kustomize
+  labels:
+    tool: pre-commit
+    layerType: k8s-kustomize
+spec:
+  description: Pre-commit hooks for Kustomize Kubernetes manifest layers.
+  actions:
+    - action: lint
+      stage: pre-commit
+    - action: validate
+      stage: pre-commit
+---
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardBinding
+metadata:
+  name: husky-k8s-kustomize
+  labels:
+    tool: husky
+    layerType: k8s-kustomize
+spec:
+  description: Husky hooks for Kustomize Kubernetes manifest layers.
+  actions:
+    - action: lint
+      stage: pre-commit
+    - action: validate
+      stage: pre-commit
+---
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardBinding
+metadata:
+  name: lefthook-k8s-kustomize
+  labels:
+    tool: lefthook
+    layerType: k8s-kustomize
+spec:
+  description: Lefthook hooks for Kustomize Kubernetes manifest layers.
+  actions:
+    - action: lint
+      stage: pre-commit
+    - action: validate
+      stage: pre-commit

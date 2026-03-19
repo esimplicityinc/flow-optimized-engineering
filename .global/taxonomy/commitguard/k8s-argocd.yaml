@@ -1,0 +1,44 @@
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardBinding
+metadata:
+  name: pre-commit-k8s-argocd
+  labels:
+    tool: pre-commit
+    layerType: k8s-argocd
+spec:
+  description: Pre-commit hooks for ArgoCD application definition layers.
+  actions:
+    - action: lint
+      stage: pre-commit
+    - action: validate
+      stage: pre-commit
+---
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardBinding
+metadata:
+  name: husky-k8s-argocd
+  labels:
+    tool: husky
+    layerType: k8s-argocd
+spec:
+  description: Husky hooks for ArgoCD application definition layers.
+  actions:
+    - action: lint
+      stage: pre-commit
+    - action: validate
+      stage: pre-commit
+---
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardBinding
+metadata:
+  name: lefthook-k8s-argocd
+  labels:
+    tool: lefthook
+    layerType: k8s-argocd
+spec:
+  description: Lefthook hooks for ArgoCD application definition layers.
+  actions:
+    - action: lint
+      stage: pre-commit
+    - action: validate
+      stage: pre-commit

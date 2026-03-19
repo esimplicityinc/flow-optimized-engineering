@@ -1,0 +1,44 @@
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: kustomize-build
+  version: "0.1.0"
+spec:
+  description: Render Kustomize overlays into final manifests.
+  type: shell
+  when: pre
+  run: just kustomize-build
+  tags:
+    - render
+    - manifests
+    - kustomize
+---
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: kustomize-diff
+  version: "0.1.0"
+spec:
+  description: Diff rendered manifests against a target state.
+  type: shell
+  when: pre
+  run: just kustomize-diff
+  tags:
+    - diff
+    - review
+    - kustomize
+---
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: kustomize-validate
+  version: "0.1.0"
+spec:
+  description: Validate rendered manifests with policy checks or schemas.
+  type: shell
+  when: pre
+  run: just kustomize-validate
+  tags:
+    - validation
+    - safety
+    - kustomize

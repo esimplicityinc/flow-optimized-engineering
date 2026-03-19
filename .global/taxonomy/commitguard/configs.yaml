@@ -1,0 +1,36 @@
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardConfig
+metadata:
+  name: pre-commit
+spec:
+  description: >-
+    Git pre-commit framework (https://pre-commit.com).
+    Generates .pre-commit-config.yaml with local hooks that delegate to
+    kata actions for each affected layer.
+  tool: pre-commit
+  installCommand: pre-commit install
+  generateCommand: kata tax hooks generate --tool pre-commit
+---
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardConfig
+metadata:
+  name: husky
+spec:
+  description: >-
+    Husky Git hooks for Node.js projects (https://typicode.github.io/husky).
+    Generates .husky/pre-commit shell scripts that delegate to kata actions.
+  tool: husky
+  installCommand: npx husky install
+  generateCommand: kata tax hooks generate --tool husky
+---
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardConfig
+metadata:
+  name: lefthook
+spec:
+  description: >-
+    Lefthook — fast polyglot Git hooks manager (https://github.com/evilmartians/lefthook).
+    Generates lefthook.yml with commands that delegate to kata actions.
+  tool: lefthook
+  installCommand: lefthook install
+  generateCommand: kata tax hooks generate --tool lefthook

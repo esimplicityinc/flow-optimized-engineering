@@ -1,0 +1,55 @@
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardBinding
+metadata:
+  name: pre-commit-app-docker
+  labels:
+    tool: pre-commit
+    layerType: app-docker
+spec:
+  description: Pre-commit hooks for Docker container build layers.
+  actions:
+    - action: lint
+      stage: pre-commit
+    - action: security-scan
+      stage: pre-commit
+    - action: build
+      stage: pre-push
+  additionalHooks:
+    - name: hadolint
+      run: hadolint base/Dockerfile
+      files: "Dockerfile"
+      stage: pre-commit
+---
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardBinding
+metadata:
+  name: husky-app-docker
+  labels:
+    tool: husky
+    layerType: app-docker
+spec:
+  description: Husky hooks for Docker container build layers.
+  actions:
+    - action: lint
+      stage: pre-commit
+    - action: security-scan
+      stage: pre-commit
+    - action: build
+      stage: pre-push
+---
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardBinding
+metadata:
+  name: lefthook-app-docker
+  labels:
+    tool: lefthook
+    layerType: app-docker
+spec:
+  description: Lefthook hooks for Docker container build layers.
+  actions:
+    - action: lint
+      stage: pre-commit
+    - action: security-scan
+      stage: pre-commit
+    - action: build
+      stage: pre-push

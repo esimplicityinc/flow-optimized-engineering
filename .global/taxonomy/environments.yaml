@@ -1,0 +1,41 @@
+apiVersion: katalyst.taxonomy/v1alpha
+kind: Environment
+metadata:
+  name: dev
+spec:
+  description: Development environment
+  templateReplacements:
+    ENV: dev
+    ENVIRONMENT: development
+    environment_name: dev
+    environment: dev
+  layerTemplates:
+    iac-terragrunt:
+      remote_state_bucket: 591639515130-katalyst-cicd-bootstrap-dev-tf-state
+      remote_state_region: us-east-1
+    k8s-argocd:
+      environment_namespace: katalyst-dev
+      argocd_project_environment: katalyst
+    k8s-kustomize:
+      namespace: katalyst-dev
+---
+apiVersion: katalyst.taxonomy/v1alpha
+kind: Environment
+metadata:
+  name: prod
+spec:
+  description: Production environment
+  templateReplacements:
+    ENV: prod
+    ENVIRONMENT: production
+    environment_name: prod
+    environment: prod
+  layerTemplates:
+    iac-terragrunt:
+      remote_state_bucket: 591639515130-katalyst-cicd-bootstrap-prod-tf-state
+      remote_state_region: us-east-1
+    k8s-argocd:
+      environment_namespace: katalyst-prod
+      argocd_project_environment: katalyst
+    k8s-kustomize:
+      namespace: katalyst-prod

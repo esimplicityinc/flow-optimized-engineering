@@ -1,0 +1,29 @@
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: ghcr-login-check
+  version: "0.1.0"
+spec:
+  description: Verify Docker credentials exist for the GHCR registry.
+  type: shell
+  when: pre
+  run: just ghcr-login-check
+  tags:
+    - auth
+    - check
+    - ghcr
+---
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: ghcr-login
+  version: "0.1.0"
+spec:
+  description: Authenticate to ghcr.io using a GitHub PAT.
+  type: shell
+  when: pre
+  run: just ghcr-login
+  tags:
+    - registry
+    - login
+    - ghcr

@@ -1,0 +1,20 @@
+apiVersion: katalyst.taxonomy.plugins.extensions/v1alpha
+kind: Extension
+metadata:
+  name: agentic-layer-support
+  requires:
+    - apiVersion: katalyst.taxonomy.plugins.capabilities/v1alpha
+      kind: Capability
+      name: agentic-coding
+      mode: conditional
+spec:
+  description: >-
+    Adds agentic coding configuration to all layer types.
+    Provides an AGENTS.md file with layer-specific context
+    for AI coding assistants.
+  extends:
+    apiVersion: katalyst.taxonomy.plugins.layer_types/v1alpha
+    kind: LayerType
+    names: ["*"]
+  provides:
+    template: templates/agentic-addon

@@ -1,0 +1,55 @@
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardBinding
+metadata:
+  name: pre-commit-iac-terragrunt
+  labels:
+    tool: pre-commit
+    layerType: iac-terragrunt
+spec:
+  description: Pre-commit hooks for Terragrunt/Terraform infrastructure layers.
+  actions:
+    - action: lint
+      stage: pre-commit
+    - action: validate
+      stage: pre-commit
+    - action: security-scan
+      stage: pre-commit
+  additionalHooks:
+    - name: terraform-fmt
+      run: terraform fmt -check -recursive
+      files: '\.tf$'
+      stage: pre-commit
+---
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardBinding
+metadata:
+  name: husky-iac-terragrunt
+  labels:
+    tool: husky
+    layerType: iac-terragrunt
+spec:
+  description: Husky hooks for Terragrunt/Terraform infrastructure layers.
+  actions:
+    - action: lint
+      stage: pre-commit
+    - action: validate
+      stage: pre-commit
+    - action: security-scan
+      stage: pre-commit
+---
+apiVersion: katalyst.taxonomy.plugins.commitguard/v1alpha
+kind: CommitGuardBinding
+metadata:
+  name: lefthook-iac-terragrunt
+  labels:
+    tool: lefthook
+    layerType: iac-terragrunt
+spec:
+  description: Lefthook hooks for Terragrunt/Terraform infrastructure layers.
+  actions:
+    - action: lint
+      stage: pre-commit
+    - action: validate
+      stage: pre-commit
+    - action: security-scan
+      stage: pre-commit

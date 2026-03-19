@@ -1,0 +1,53 @@
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: argo-apply
+  version: "0.1.0"
+  labels:
+    layerType: k8s-argocd
+spec:
+  description: Apply the Argo CD Application manifest to the cluster.
+  type: shell
+  when: main
+  run: just argo-apply
+  timeoutSeconds: 300
+  tags:
+    - apply
+    - argocd
+    - gitops
+---
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: argo-sync
+  version: "0.1.0"
+  labels:
+    layerType: k8s-argocd
+spec:
+  description: Trigger an Argo CD sync for the application.
+  type: shell
+  when: main
+  run: just argo-sync
+  timeoutSeconds: 300
+  tags:
+    - sync
+    - argocd
+    - gitops
+---
+apiVersion: katalyst.taxonomy.plugins.actions/v1alpha
+kind: Action
+metadata:
+  name: argo-wait
+  version: "0.1.0"
+  labels:
+    layerType: k8s-argocd
+spec:
+  description: Wait for Argo CD application to reach Synced/Healthy state.
+  type: shell
+  when: post
+  run: just argo-wait
+  timeoutSeconds: 600
+  tags:
+    - wait
+    - health
+    - argocd
