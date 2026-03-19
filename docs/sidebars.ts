@@ -440,6 +440,7 @@ const sidebars: SidebarsConfig = {
         'stakeholder-guides/for-engineers',
         'stakeholder-guides/for-government-customers',
         'stakeholder-guides/for-capture-teams',
+        'stakeholder-guides/for-hr-leaders',
       ],
     },
     {
