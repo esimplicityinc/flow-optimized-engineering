@@ -1,0 +1,375 @@
+/* ── Layout ── */
+
+.assessment {
+  max-width: 800px;
+}
+
+/* ── Progress header ── */
+
+.progressHeader {
+  position: sticky;
+  top: 60px;
+  z-index: 10;
+  background: var(--ifm-background-color);
+  padding: 12px 0 16px;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  margin-bottom: 24px;
+}
+
+.progressText {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.progressBarTrack {
+  width: 100%;
+  height: 6px;
+  background: var(--ifm-color-emphasis-200);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* ── Sections ── */
+
+.section {
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--ifm-toc-border-color);
+}
+
+.sectionDot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Question cards ── */
+
+.questionCard {
+  margin-bottom: 28px;
+}
+
+.questionTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.questionNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: var(--foe-radius-sm);
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Level options ── */
+
+.levelOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.levelOption {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--ifm-background-surface-color);
+  border: 2px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--foe-radius-md);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--ifm-font-color-base);
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+}
+
+.levelOption:hover {
+  border-color: var(--ifm-color-emphasis-400);
+  box-shadow: var(--foe-shadow-sm);
+}
+
+.levelOptionSelected {
+  box-shadow: var(--foe-shadow-md);
+  font-weight: 500;
+}
+
+.levelBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.levelDescription {
+  padding-top: 3px;
+}
+
+/* ── Submit area ── */
+
+.submitArea {
+  text-align: center;
+  padding: 32px 0;
+  margin-top: 16px;
+}
+
+.submitButton {
+  display: inline-block;
+  padding: 14px 40px;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--ifm-color-primary);
+  border: none;
+  border-radius: var(--foe-radius-md);
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  box-shadow: var(--foe-shadow-md);
+}
+
+.submitButton:hover:not(:disabled) {
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--foe-shadow-lg);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitButtonDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Results panel ── */
+
+.resultsPanel {
+  max-width: 800px;
+}
+
+.resultsTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.overallScore {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  background: var(--ifm-background-surface-color);
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: var(--foe-radius-lg);
+  margin-bottom: 20px;
+  box-shadow: var(--foe-shadow-md);
+}
+
+.overallScoreNumber {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--ifm-color-primary);
+  line-height: 1;
+}
+
+.overallScoreContext {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.overallScoreLabel {
+  font-size: 0.9375rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.overallScoreLevel {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+}
+
+.lowestLevel {
+  padding: 16px;
+  background: color-mix(in srgb, var(--foe-color-warning) 10%, transparent);
+  border-left: 4px solid var(--foe-color-warning);
+  border-radius: var(--foe-radius-sm);
+  margin-bottom: 28px;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+/* ── Principle score cards ── */
+
+.principleScores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 768px) {
+  .principleScores {
+    grid-template-columns: 1fr;
+  }
+}
+
+.principleScoreCard {
+  padding: 20px;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: var(--foe-radius-md);
+  box-shadow: var(--foe-shadow-sm);
+}
+
+.principleScoreHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.principleDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.principleScoreLabel {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  flex: 1;
+}
+
+.principleScoreValue {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ifm-font-color-base);
+}
+
+.principleScoreMeta {
+  margin-top: 8px;
+  font-size: 0.8125rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* ── Analysis sections ── */
+
+.analysisSection {
+  padding: 20px;
+  background: color-mix(in srgb, var(--foe-color-confidence) 6%, var(--ifm-background-surface-color));
+  border: 1px solid color-mix(in srgb, var(--foe-color-confidence) 20%, var(--ifm-toc-border-color));
+  border-radius: var(--foe-radius-md);
+  margin-bottom: 16px;
+}
+
+.analysisConcerns {
+  background: color-mix(in srgb, var(--foe-color-warning) 6%, var(--ifm-background-surface-color));
+  border-color: color-mix(in srgb, var(--foe-color-warning) 20%, var(--ifm-toc-border-color));
+}
+
+.analysisSectionTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.analysisList {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.analysisList li {
+  margin-bottom: 6px;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.analysisList li:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Action buttons ── */
+
+.resultsActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.actionButton {
+  padding: 10px 24px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: var(--foe-radius-md);
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.actionButton:hover {
+  background: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.actionButtonSecondary {
+  background: transparent;
+  color: var(--ifm-color-primary);
+}
+
+.actionButtonSecondary:hover {
+  background: color-mix(in srgb, var(--ifm-color-primary) 8%, transparent);
+  color: var(--ifm-color-primary-dark);
+}
