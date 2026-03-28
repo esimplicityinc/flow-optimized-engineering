@@ -178,3 +178,4 @@ neo4j-test: neo4j-check
         echo "Make sure the database is running in Neo4j Desktop"
         exit 1
     fi
+

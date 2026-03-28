@@ -1,0 +1,80 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  GitHub Actions OIDC provider and IAM role for the FOE repository.
+  Grants Bedrock InvokeModel access so the weekly Scout agent can run
+  via OpenCode in CI.
+
+Parameters:
+  GitHubOrg:
+    Type: String
+    Default: esimplicityinc
+    Description: GitHub organization or user that owns the repository.
+
+  GitHubRepo:
+    Type: String
+    Default: flow-optimized-engineering
+    Description: GitHub repository name.
+
+  GitHubBranch:
+    Type: String
+    Default: main
+    Description: Branch allowed to assume this role.
+
+Resources:
+  # ──────────────────────────────────────────────────────────────
+  # IAM Role assumed by GitHub Actions via OIDC
+  # The GitHub OIDC provider already exists in this account.
+  # ──────────────────────────────────────────────────────────────
+  GitHubActionsRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: foe-github-actions
+      Description: >
+        Role assumed by GitHub Actions for the FOE repository.
+        Grants Amazon Bedrock InvokeModel for the Scout agent.
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Sub arn:aws:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+              StringLike:
+                token.actions.githubusercontent.com:sub:
+                  - !Sub repo:${GitHubOrg}/${GitHubRepo}:ref:refs/heads/${GitHubBranch}
+                  - !Sub repo:${GitHubOrg}/${GitHubRepo}:event:schedule
+      Policies:
+        - PolicyName: bedrock-invoke
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: BedrockInvokeModel
+                Effect: Allow
+                Action:
+                  - bedrock:InvokeModel
+                  - bedrock:InvokeModelWithResponseStream
+                Resource:
+                  # Claude Sonnet 4 in us-east-1
+                  - arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0
+                  # Cross-region inference profile (if needed)
+                  - !Sub arn:aws:bedrock:us-east-1:${AWS::AccountId}:inference-profile/us.anthropic.claude-sonnet-4-20250514-v1:0
+                  # Allow any Anthropic model for flexibility
+                  - arn:aws:bedrock:us-east-1::foundation-model/anthropic.*
+      Tags:
+        - Key: Project
+          Value: flow-optimized-engineering
+        - Key: ManagedBy
+          Value: cloudformation
+
+Outputs:
+  RoleArn:
+    Description: ARN of the GitHub Actions IAM role. Store as AWS_ROLE_ARN GitHub secret.
+    Value: !GetAtt GitHubActionsRole.Arn
+
+  OIDCProviderArn:
+    Description: ARN of the GitHub OIDC identity provider (pre-existing).
+    Value: !Sub arn:aws:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com

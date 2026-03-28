@@ -1,0 +1,102 @@
+name: Scout - Weekly Agentic Trends
+
+on:
+  schedule:
+    # Every Monday at 9:00 AM UTC
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+    inputs:
+      focus:
+        description: "Focus area (leave empty for general scan)"
+        required: false
+        type: string
+      timeframe:
+        description: "Timeframe to scan"
+        required: false
+        default: "past week"
+        type: string
+
+permissions:
+  id-token: write
+  contents: write
+
+env:
+  AWS_REGION: us-east-1
+
+jobs:
+  scout:
+    name: Run Scout Agent
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Verify Bedrock access
+        run: |
+          aws bedrock list-foundation-models \
+            --region ${{ env.AWS_REGION }} \
+            --query 'modelSummaries[?starts_with(modelId, `anthropic`)].modelId' \
+            --output text | head -5
+          echo "Bedrock access verified"
+
+      - name: Install OpenCode
+        run: curl -fsSL https://opencode.ai/install | bash
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run Scout agent
+        env:
+          # OpenCode uses Bedrock via AWS credentials (already configured above)
+          OPENCODE_PERMISSION: '{"allow":[".*"]}'
+        run: |
+          FOCUS="${{ github.event.inputs.focus || 'general scan of all agentic coding trends' }}"
+          TIMEFRAME="${{ github.event.inputs.timeframe || 'past week' }}"
+
+          opencode run \
+            --agent scout \
+            --model amazon-bedrock/us.anthropic.claude-sonnet-4-20250514-v1:0 \
+            "Run a scout survey with the following parameters:
+            - Focus: ${FOCUS}
+            - Timeframe: ${TIMEFRAME}
+            - Sources: all 5 crawlers (reddit, youtube, github, skills.sh, web)
+
+            Skip the intake questions and proceed directly with these parameters.
+            Write the report to research/agentic-trends/ following the standard naming convention.
+            Do NOT ask for confirmation -- just generate the report."
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add -A
+          if git diff --staged --quiet; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          REPORT_DATE=$(date -u +"%m-%d-%y")
+          git commit -m "scout: add agentic trends report ${REPORT_DATE}
+
+          Automated weekly scout survey of the agentic coding landscape.
+          Sources: Reddit, YouTube, GitHub, skills.sh, web."
+          git push origin main
