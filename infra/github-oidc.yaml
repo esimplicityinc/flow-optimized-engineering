@@ -58,12 +58,10 @@ Resources:
                   - bedrock:InvokeModel
                   - bedrock:InvokeModelWithResponseStream
                 Resource:
-                  # Claude Sonnet 4 in us-east-1
-                  - arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0
-                  # Cross-region inference profile (if needed)
-                  - !Sub arn:aws:bedrock:us-east-1:${AWS::AccountId}:inference-profile/us.anthropic.claude-sonnet-4-20250514-v1:0
-                  # Allow any Anthropic model for flexibility
-                  - arn:aws:bedrock:us-east-1::foundation-model/anthropic.*
+                  # Cross-region inference profile (routes to any US region)
+                  - !Sub arn:aws:bedrock:us-east-1:${AWS::AccountId}:inference-profile/us.anthropic.*
+                  # Foundation models in all US regions (cross-region inference can route anywhere)
+                  - arn:aws:bedrock:*::foundation-model/anthropic.*
       Tags:
         - Key: Project
           Value: flow-optimized-engineering
