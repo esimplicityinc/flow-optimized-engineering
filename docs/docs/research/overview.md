@@ -32,4 +32,8 @@ Each Scout report includes:
 
 | Date | Focus | Findings | Method Candidates |
 |------|-------|----------|-------------------|
+| [Apr 6, 2026](./agentic-trends/2026-04-06) | General Scan | 152 | 32 |
+| [Mar 14, 2026](./agentic-trends/2026-03-14) | General Scan | 126 | 28 |
+| [Feb 20, 2026](./agentic-trends/2026-02-20) | General Scan | 97 | 31 |
+| [Feb 4, 2026](./agentic-trends/2026-02-04) | General Scan | 86 | 18 |
 | [Jan 25, 2026](./agentic-trends/2026-01-25) | General Scan | 127 | 23 |
