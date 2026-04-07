@@ -1,0 +1,995 @@
+source: web
+crawl_date: 04-06-26
+period: 03-14-26 to 04-06-26
+sources_searched:
+  - hacker_news
+  - twitter_x
+  - arxiv
+  - anthropic_blog
+  - openai_blog
+  - google_blog
+  - microsoft_devblogs
+  - dev_to
+  - medium
+errors:
+  - "Twitter/X content only partially accessible via Google site: filter; engagement metrics approximate"
+
+# ============================================================
+# EXECUTIVE SUMMARY
+# ============================================================
+# This 23-day window (Mar 14 - Apr 6, 2026) reveals six dominant themes:
+#
+# 1. TRUST & VERIFICATION BECOMES THE CENTRAL CONCERN - OpenAI publishes
+#    "How we monitor internal coding agents for misalignment." HN debates
+#    whether juniors can push AI code without senior sign-off. SkillFortify
+#    ships formal verification for agent skills. The field is shifting from
+#    "can agents code?" to "can we trust what agents produce?"
+#
+# 2. BREAKING CHANGES IN AI-GENERATED CODE (ACADEMIC) - arXiv paper
+#    directly compares breaking changes in human vs. AI-generated PRs.
+#    Code Review Agent Benchmark formalizes evaluation of AI code review.
+#    Verified Multi-Agent Orchestration (VMAO) adds formal verification
+#    to multi-agent coordination. Academic rigor catching up to practice.
+#
+# 3. PRODUCTIVITY PANIC CRYSTALLIZES - "Claude Code and the Great
+#    Productivity Panic of 2026" captures the tension between agentic
+#    flow states and cognitive exhaustion. The "tiredness is real" thread
+#    validates dark-flow-productivity-illusion observations.
+#
+# 4. COMPANY BLOGS CONVERGE ON AGENT-FIRST ENGINEERING - OpenAI's Harness
+#    Engineering, Microsoft's 10-month Copilot Coding Agent retrospective,
+#    Google's Antigravity coding agent, and Anthropic's Agentic Coding
+#    Trends Report all describe agents producing CI/CD config, release
+#    tooling, and internal dev tools. Agents are moving beyond code into
+#    the full SDLC.
+#
+# 5. CUSTOM AGENTS & SKILLS ECOSYSTEM MATURES - Visual Studio ships
+#    custom agent builder. OpenAI publishes skills patterns for long-running
+#    agents. Dev.to practitioners compare Claude Code + skills stacks.
+#    The "wrapper economy" emerges around Claude Code.
+#
+# 6. PROGRESSIVE DELIVERY + AI INTERSECTION - Harness, Azati, and others
+#    publish on AI-powered progressive delivery. Feature flags meet
+#    intelligent rollout. This is a NEW signal connecting deployment
+#    automation to AI agent capabilities.
+
+findings:
+  # ============================================
+  # HACKER NEWS - HIGH SIGNAL
+  # ============================================
+
+  - id: web-001
+    source_type: hacker_news
+    title: "Claude Code and the Great Productivity Panic of 2026"
+    url: "https://news.ycombinator.com/item?id=47467922"
+    date: 03-22-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: high
+      comments: active_discussion
+    key_insights:
+      - "Agentic coding is a completely different type of experience from traditional coding"
+      - "After a 10 hour flow state deep coding session" - validates extended agentic sessions
+      - "The agent follows a tested process instead of guessing and leads to fewer surprises"
+      - "The tiredness is real" - community validates cognitive exhaustion from agent supervision
+    topics:
+      - agentic-coding
+      - productivity
+      - cognitive-load
+      - dark-flow
+    relevance: high
+    foe_connection: >
+      Directly validates FOE observations on dark-flow-productivity-illusion.
+      The "tiredness is real" signal confirms that agentic flow states create
+      cognitive exhaustion distinct from traditional coding fatigue. The "tested
+      process" comment aligns with FOE's emphasis on structured agent workflows.
+
+  - id: web-002
+    source_type: hacker_news
+    title: "Toward Automated Verification of Unreviewed AI-Generated Code"
+    url: "https://news.ycombinator.com/item?id=47397367"
+    date: 03-17-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: moderate
+      comments: active_discussion
+    key_insights:
+      - "It can be ok to trust code that passes tests if you can trust the tests"
+      - "I frequently see agents write code" that passes tests but has subtle issues
+      - Trust-but-verify approach gaining traction in community
+      - Tests as the trust boundary for AI-generated code
+    topics:
+      - verification
+      - trust
+      - testing
+      - ai-code-quality
+    relevance: high
+    foe_connection: >
+      Core FOE principle: optimize for confidence. This discussion validates
+      the need for verification layers in agentic workflows. The insight that
+      "trusting tests" is the key trust boundary aligns with FOE's fast-feedback
+      methods.
+
+  - id: web-003
+    source_type: hacker_news
+    title: "Show HN: SkillFortify - Formal Verification for AI Agent Skills"
+    url: "https://news.ycombinator.com/item?id=47168723"
+    date: 02-27-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: moderate
+      comments: technical_discussion
+    key_insights:
+      - "Five mathematical theorems guarantee soundness"
+      - "If SkillFortify says a skill is safe, it provably cannot exceed its declared capabilities"
+      - CVE-2026-25253 was the first RCE in agent software
+      - Industry responded with heuristic approaches; SkillFortify offers formal guarantees
+      - 6,000+ malicious agent tools catalogued by researchers
+    topics:
+      - formal-verification
+      - agent-safety
+      - skills
+      - security
+    relevance: high
+    foe_connection: >
+      Formal verification of agent capabilities is a trust-building mechanism.
+      The emergence of CVEs in agent software and malicious agent tools validates
+      FOE's emphasis on confidence and verification in agentic workflows.
+
+  - id: web-004
+    source_type: hacker_news
+    title: "Junior and Mid-Level Engineers Can No Longer Push AI-Assisted Code Without Senior Sign-Off"
+    url: "https://news.ycombinator.com/item?id=47325002"
+    date: 03-28-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: high
+      comments: heated_discussion
+    key_insights:
+      - Organizations implementing mandatory senior review for AI-generated code
+      - "Review by a senior is one of the biggest silver bullet illusions managers suffer from"
+      - Tension between gatekeeping and enabling AI-assisted development
+      - Organizational trust models for AI code are evolving rapidly
+    topics:
+      - code-review
+      - trust
+      - organizational-policy
+      - ai-governance
+    relevance: high
+    foe_connection: >
+      Directly relevant to FOE's trust and verification methods. Shows
+      organizations grappling with how to build confidence in AI-generated
+      code. The pushback against "senior review as silver bullet" suggests
+      automated verification (tests, linting, static analysis) may be more
+      effective than human gatekeeping alone.
+
+  - id: web-005
+    source_type: hacker_news
+    title: "Cursor vs. Claude Code: Parallel vs. Focus, Not Code Quality"
+    url: "https://news.ycombinator.com/item?id=46563650"
+    date: 01-11-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: moderate
+      comments: active_discussion
+    key_insights:
+      - "Starting to run Claude Code in CI/CD for well-scoped tasks like tests, refactors, and reproducible bug fixes"
+      - "That background... CLI-first tools start to matter"
+      - Distinction is workflow shape (parallel vs focused), not output quality
+      - CI/CD integration of coding agents is happening now
+    topics:
+      - tool-comparison
+      - ci-cd-integration
+      - workflow-design
+    relevance: medium
+    foe_connection: >
+      Validates FOE observation that agents in CI/CD pipelines are a natural
+      evolution. The parallel-vs-focus framing maps to FOE's understanding
+      vs. fast-feedback optimization axes.
+
+  - id: web-006
+    source_type: hacker_news
+    title: "We Might All Be AI Engineers Now"
+    url: "https://news.ycombinator.com/item?id=47272734"
+    date: 03-06-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: high
+      comments: active_discussion
+    key_insights:
+      - Role identity shifting as AI agents handle more coding tasks
+      - Engineers becoming orchestrators and reviewers rather than writers
+      - Skepticism about whether this shift benefits developers or just employers
+    topics:
+      - role-evolution
+      - developer-identity
+      - ai-engineering
+    relevance: medium
+    foe_connection: >
+      FOE's core thesis that engineering shifts from writing to orchestrating
+      and verifying. The role evolution discussion validates the need for
+      new methods and practices around agent supervision.
+
+  - id: web-007
+    source_type: hacker_news
+    title: "LLM Coding Workflow Going Into 2026"
+    url: "https://news.ycombinator.com/item?id=46570115"
+    date: 01-11-26
+    quality_tier: practitioner
+    engagement_metrics:
+      points: moderate
+      comments: active_discussion
+    key_insights:
+      - "Agent OS with Claude Code's $100 plan and it is pretty darn great"
+      - Practitioners building meta-layers on top of coding agents
+      - Skills and plugins becoming the differentiation layer
+    topics:
+      - workflow-design
+      - agent-os
+      - skills
+    relevance: medium
+    foe_connection: >
+      The "Agent OS" concept aligns with FOE's skills-based approach to
+      agent customization. Validates the pattern of layering structured
+      workflows on top of raw agent capabilities.
+
+  # ============================================
+  # ARXIV - ACADEMIC RESEARCH
+  # ============================================
+
+  - id: web-008
+    source_type: arxiv
+    title: "A Comparative Study of Breaking Changes in Human vs. AI-Generated Pull Requests"
+    url: "https://arxiv.org/html/2603.27524v1"
+    date: 03-29-26
+    quality_tier: academic
+    key_insights:
+      - Direct comparison of breaking changes between human and AI-generated PRs
+      - AI coding agents increasingly integrated into open-source workflows
+      - Quantitative analysis of code quality differences
+      - First rigorous study of AI PR failure modes in production repos
+    topics:
+      - code-quality
+      - breaking-changes
+      - empirical-study
+      - pull-requests
+    relevance: high
+    foe_connection: >
+      Critical evidence for FOE's confidence optimization. Understanding
+      how AI-generated PRs differ in breaking change patterns directly
+      informs verification strategies and review processes.
+
+  - id: web-009
+    source_type: arxiv
+    title: "Will It Survive? Deciphering the Fate of AI-Generated Code in Open Source"
+    url: "https://arxiv.org/abs/2601.16809"
+    date: 01-2026
+    authors:
+      - "M Rahman et al."
+    quality_tier: academic
+    key_insights:
+      - "The bottleneck for agent-generated code may not be generation quality"
+      - "But the organizational practices that govern its long-term evolution"
+      - Survival analysis of AI-generated code in open-source projects
+      - Organizational factors matter more than code quality for long-term viability
+    topics:
+      - code-survival
+      - organizational-practices
+      - open-source
+      - longitudinal-study
+    relevance: high
+    foe_connection: >
+      Validates FOE's emphasis on practices and methods over raw tool capability.
+      The finding that organizational practices determine AI code survival
+      directly supports FOE's method-based approach to agentic engineering.
+
+  - id: web-010
+    source_type: arxiv
+    title: "Code Review Agent Benchmark"
+    url: "https://arxiv.org/abs/2603.23448"
+    date: 03-24-26
+    authors:
+      - "Y Zhang et al."
+    quality_tier: academic
+    key_insights:
+      - Formalizes evaluation of AI agents performing code review
+      - "As AI agents permeate code writing, code quality comes front and centre"
+      - Benchmark for measuring agent code review effectiveness
+      - Shifts focus from code generation to code verification
+    topics:
+      - code-review
+      - benchmarks
+      - verification
+      - agent-evaluation
+    relevance: high
+    foe_connection: >
+      Directly supports FOE's verification-first approach. A benchmark for
+      code review agents enables measuring confidence in AI-assisted review
+      processes. Aligns with the shift from "can agents write code?" to
+      "can agents verify code?"
+
+  - id: web-011
+    source_type: arxiv
+    title: "Verified Multi-Agent Orchestration (VMAO): A Plan-Execute-Verify Framework"
+    url: "https://arxiv.org/pdf/2603.11445"
+    date: 03-2026
+    authors:
+      - "X Zhang et al."
+    quality_tier: academic
+    cited_by: 1
+    key_insights:
+      - Framework coordinating specialized LLM-based agents through verification-driven iteration
+      - Plan-Execute-Verify loop as core architecture pattern
+      - Formal verification integrated into multi-agent coordination
+      - Already cited, indicating community interest
+    topics:
+      - multi-agent
+      - formal-verification
+      - orchestration
+      - plan-execute-verify
+    relevance: high
+    foe_connection: >
+      The Plan-Execute-Verify pattern maps directly to FOE's optimize-for-confidence
+      principle. Verification as a first-class concern in multi-agent orchestration
+      validates FOE's approach to building trust in agent workflows.
+
+  - id: web-012
+    source_type: arxiv
+    title: "WybeCoder: Verified Imperative Code Generation"
+    url: "https://arxiv.org/pdf/2603.29088"
+    date: 03-2026
+    authors:
+      - "F Gloeckle et al."
+    quality_tier: academic
+    key_insights:
+      - Multi-agent scaffolds for scaling inference compute
+      - End-to-end verification latencies measured and compared
+      - Formal verification of generated imperative code
+      - Practical approach to verified code generation at scale
+    topics:
+      - verified-code-generation
+      - multi-agent
+      - formal-methods
+      - scaling
+    relevance: medium
+    foe_connection: >
+      Demonstrates that verified code generation is becoming practical,
+      not just theoretical. Supports FOE's confidence optimization by
+      showing formal verification can work at reasonable latencies.
+
+  - id: web-013
+    source_type: arxiv
+    title: "How to Build AI Agents by Augmenting LLMs with Codified Domain Knowledge"
+    url: "https://arxiv.org/abs/2601.15153"
+    date: 01-2026
+    authors:
+      - "M Kulyabin et al."
+    quality_tier: academic
+    key_insights:
+      - Industrial case study of embedding human domain knowledge into AI agents
+      - Codified knowledge as agent augmentation strategy
+      - Proposes systematic approach to knowledge capture for agents
+      - Bridges gap between tacit engineering knowledge and agent capabilities
+    topics:
+      - domain-knowledge
+      - agent-augmentation
+      - knowledge-engineering
+      - industrial-case-study
+    relevance: medium
+    foe_connection: >
+      Directly relevant to FOE's skills and CLAUDE.md approach. Codifying
+      domain knowledge into agent-consumable formats is exactly what FOE
+      methods and observations accomplish.
+
+  # ============================================
+  # COMPANY BLOGS - INDUSTRY RESEARCH
+  # ============================================
+
+  - id: web-014
+    source_type: anthropic_blog
+    title: "2026 Agentic Coding Trends Report"
+    url: "https://resources.anthropic.com/hubfs/2026%20Agentic%20Coding%20Trends%20Report.pdf"
+    date: 01-21-26
+    quality_tier: industry_research
+    key_insights:
+      - 8 trends reshaping development identified by Anthropic
+      - Hierarchical multi-agent orchestration as key pattern
+      - Central orchestration agent coordinating specialized sub-agents
+      - "Tool will discover they are competing in a game with new rules"
+    topics:
+      - agentic-coding-trends
+      - multi-agent
+      - orchestration
+      - official-report
+    relevance: high
+    foe_connection: >
+      Anthropic's official framing of agentic coding trends. The "new rules"
+      language validates FOE's thesis that traditional engineering practices
+      need adaptation for agentic workflows. Multi-agent orchestration
+      patterns directly inform FOE method development.
+
+  - id: web-015
+    source_type: anthropic_blog
+    title: "Introducing Claude Opus 4.6"
+    url: "https://www.anthropic.com/news/claude-opus-4-6"
+    date: 2026
+    quality_tier: industry_research
+    key_insights:
+      - Latest Claude model release with enhanced capabilities
+      - Continued investment in agentic coding capabilities
+      - Model improvements directly impact agent effectiveness
+    topics:
+      - claude
+      - model-release
+      - capabilities
+    relevance: medium
+    foe_connection: >
+      Model capability improvements affect all FOE methods that depend on
+      agent reasoning quality. Understanding model evolution helps calibrate
+      trust and verification requirements.
+
+  - id: web-016
+    source_type: anthropic_blog
+    title: "Measuring AI Agent Autonomy in Practice"
+    url: "https://www.anthropic.com/news/measuring-agent-autonomy"
+    date: 2026
+    quality_tier: industry_research
+    key_insights:
+      - Anthropic developing frameworks for measuring agent autonomy levels
+      - Practical metrics for how much autonomy to grant agents
+      - Bridges gap between capability and trust
+    topics:
+      - agent-autonomy
+      - measurement
+      - trust
+      - safety
+    relevance: high
+    foe_connection: >
+      Directly relevant to FOE's trust and confidence optimization. Measuring
+      autonomy levels helps determine appropriate verification intensity.
+      Aligns with FOE's graduated trust model for agent workflows.
+
+  - id: web-017
+    source_type: openai_blog
+    title: "How We Monitor Internal Coding Agents for Misalignment"
+    url: "https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/"
+    date: 03-19-26
+    quality_tier: industry_research
+    key_insights:
+      - OpenAI using advanced coding agents internally
+      - Monitoring for misalignment in realistic workflows
+      - Understanding how users apply agents in a wide range of environments
+      - First major company to publish on internal agent misalignment monitoring
+    topics:
+      - misalignment
+      - monitoring
+      - safety
+      - internal-usage
+    relevance: high
+    foe_connection: >
+      Critical signal for FOE's trust and verification methods. If OpenAI
+      monitors its own agents for misalignment, this validates the need for
+      verification layers in all agentic workflows. The "realistic workflows"
+      framing aligns with FOE's practice-based approach.
+
+  - id: web-018
+    source_type: openai_blog
+    title: "Harness Engineering: Leveraging Codex in an Agent-First Workflow"
+    url: "https://openai.com/index/harness-engineering/"
+    date: 02-11-26
+    quality_tier: industry_research
+    key_insights:
+      - "Agents produce: Product code and tests; CI configuration and release tooling; Internal developer tools; Documentation and design history"
+      - Agents moving beyond code into full SDLC artifacts
+      - CI/CD configuration as an agent-generated artifact
+      - Release tooling produced by agents
+    topics:
+      - agent-first-engineering
+      - ci-cd
+      - release-tooling
+      - full-sdlc
+    relevance: high
+    foe_connection: >
+      Validates FOE's vision of agents participating in the full software
+      lifecycle, not just code generation. Agents producing CI config and
+      release tooling directly connects to FOE's deployment automation
+      observations.
+
+  - id: web-019
+    source_type: openai_blog
+    title: "Shell + Skills + Compaction: Tips for Long-Running Agents"
+    url: "https://developers.openai.com/blog/skills-shell-tips/"
+    date: 2026
+    quality_tier: industry_research
+    key_insights:
+      - Skills as a pattern for extending agent capabilities
+      - Shell integration for agent tool use
+      - Compaction strategies for long-running agent sessions
+      - Practical patterns for production agent deployment
+    topics:
+      - skills
+      - long-running-agents
+      - compaction
+      - production-patterns
+    relevance: medium
+    foe_connection: >
+      Skills pattern directly parallels FOE's skills-based agent customization.
+      Compaction strategies address the context window management challenge
+      that FOE methods must account for in extended workflows.
+
+  - id: web-020
+    source_type: openai_blog
+    title: "Using Skills to Accelerate OSS Maintenance"
+    url: "https://developers.openai.com/blog/skills-agents-sdk/"
+    date: 2026
+    quality_tier: industry_research
+    key_insights:
+      - Skills as reusable agent capability modules
+      - Applied to open-source maintenance workflows
+      - Agent SDK integration patterns
+      - Practical demonstration of skills in production
+    topics:
+      - skills
+      - open-source
+      - maintenance
+      - agent-sdk
+    relevance: medium
+    foe_connection: >
+      Validates FOE's skills-based approach. OSS maintenance is a concrete
+      use case where structured agent skills improve reliability and
+      consistency.
+
+  - id: web-021
+    source_type: microsoft_devblogs
+    title: "Ten Months with Copilot Coding Agent in dotnet/runtime"
+    url: "https://devblogs.microsoft.com/dotnet/ten-months-with-cca-in-dotnet-runtime/"
+    date: 03-23-26
+    quality_tier: industry_research
+    key_insights:
+      - 10-month longitudinal study of Copilot Coding Agent in a major codebase
+      - "Enormous excitement, and equal skepticism" at launch
+      - Real-world retrospective on agent effectiveness in large-scale project
+      - Practical lessons from sustained agent usage
+    topics:
+      - copilot
+      - longitudinal-study
+      - large-codebase
+      - retrospective
+    relevance: high
+    foe_connection: >
+      Rare longitudinal data on agent effectiveness in a production codebase.
+      The excitement-to-skepticism arc mirrors FOE's observations about
+      productivity illusion. Concrete evidence for calibrating trust in
+      agent-assisted development.
+
+  - id: web-022
+    source_type: microsoft_devblogs
+    title: "Visual Studio March Update: Build Your Own Custom Agents"
+    url: "https://devblogs.microsoft.com/visualstudio/visual-studio-march-update-build-your-own-custom-agents/"
+    date: 03-31-26
+    quality_tier: industry_research
+    key_insights:
+      - "Want Copilot to follow your team's coding standards, run your build pipeline, or query your internal docs?"
+      - Custom agents can enforce team-specific standards
+      - Build pipeline integration as a first-class agent capability
+      - Internal docs querying through custom agents
+    topics:
+      - custom-agents
+      - coding-standards
+      - build-pipeline
+      - ide-integration
+    relevance: medium
+    foe_connection: >
+      Custom agents enforcing team standards aligns with FOE's codified
+      knowledge approach. Build pipeline integration validates the trend
+      of agents participating in CI/CD workflows.
+
+  - id: web-023
+    source_type: google_blog
+    title: "Improve Coding Agents' Performance with Gemini API Docs MCP Agent Skills"
+    url: "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-docsmcp-agent-skills/"
+    date: 2026
+    quality_tier: industry_research
+    key_insights:
+      - "Best-practice instructions, resources-links and patterns to guide the agent toward current SDK patterns"
+      - MCP-based skills for improving agent coding performance
+      - Documentation-as-context pattern for agent guidance
+      - Google investing in MCP ecosystem for developer tools
+    topics:
+      - mcp
+      - agent-skills
+      - documentation
+      - gemini
+    relevance: medium
+    foe_connection: >
+      Documentation-as-context for agents parallels FOE's CLAUDE.md and
+      skills approach. Google's investment in MCP skills validates the
+      ecosystem-wide shift toward structured agent knowledge.
+
+  - id: web-024
+    source_type: google_blog
+    title: "Google AI Studio: Vibe Code to Production with Antigravity Coding Agent"
+    url: "https://blog.google/innovation-and-ai/technology/developers-tools/full-stack-vibe-coding-google-ai-studio/"
+    date: 03-2026
+    quality_tier: industry_research
+    key_insights:
+      - "Turn prompts into production-ready apps" using Antigravity coding agent
+      - Build mode in Google AI Studio for full-stack app generation
+      - Google entering the agentic coding tool space directly
+      - "Vibe code to production" framing
+    topics:
+      - vibe-coding
+      - google-ai-studio
+      - full-stack
+      - production-deployment
+    relevance: medium
+    foe_connection: >
+      Google's "vibe code to production" framing contrasts with FOE's
+      emphasis on structured, verified workflows. Represents the "easy path"
+      that FOE methods aim to improve upon with verification and confidence.
+
+  # ============================================
+  # TWITTER/X - REAL-TIME SIGNALS
+  # ============================================
+
+  - id: web-025
+    source_type: twitter
+    title: "2026 is the year where agents will succeed in all other domains"
+    url: "https://x.com/kimmonismus/status/2034359275385192829"
+    date: ~03-23-26
+    author: "@kimmonismus"
+    quality_tier: practitioner
+    engagement:
+      likes: 110+
+    key_insights:
+      - "First breakthroughs in agentic coding (Claude Code) are poised for a breakthrough"
+      - Agents expanding from coding to other domains
+      - Claude Code seen as the leading agentic coding tool
+    topics:
+      - agentic-coding
+      - claude-code
+      - market-trends
+    relevance: medium
+    foe_connection: >
+      Market sentiment signal. The expansion of agents beyond coding
+      validates FOE's broader vision of agent-assisted engineering
+      across the full SDLC.
+
+  - id: web-026
+    source_type: twitter
+    title: "Anthropic's 2026 Agentic Coding Report - 8 Trends Reshaping Dev"
+    url: "https://x.com/VittoStack/status/2027389287956681108"
+    date: ~03-04-26
+    author: "@VittoStack"
+    quality_tier: practitioner
+    engagement:
+      likes: 270+
+    key_insights:
+      - High engagement thread summarizing Anthropic's trends report
+      - 8 trends identified as reshaping development
+      - Community amplification of official Anthropic research
+    topics:
+      - agentic-coding-trends
+      - anthropic
+      - community-signal
+    relevance: medium
+    foe_connection: >
+      Amplification signal showing practitioner interest in structured
+      understanding of agentic coding trends. High engagement indicates
+      the community is hungry for frameworks to understand the shift.
+
+  - id: web-027
+    source_type: twitter
+    title: "2026 is the year of Claude Code wrappers"
+    url: "https://x.com/mlejva/status/2013269215202193766"
+    date: ~02-06-26
+    author: "@mlejva"
+    quality_tier: practitioner
+    engagement:
+      likes: 20+
+    key_insights:
+      - "Businesses and products built on top of Claude Code"
+      - Wrapper economy emerging around Claude Code
+      - Parallels to 2023 GPT wrapper phenomenon
+    topics:
+      - claude-code
+      - wrapper-economy
+      - ecosystem
+    relevance: low
+    foe_connection: >
+      The wrapper economy signal suggests Claude Code is becoming
+      infrastructure. FOE's skills-based approach is a more principled
+      version of the "wrapper" pattern.
+
+  - id: web-028
+    source_type: twitter
+    title: "Agentic Interfaces - Claude Code with Obsidian"
+    url: "https://x.com/rileybrown/status/2007188826226340167"
+    date: ~01-2026
+    author: "@rileybrown"
+    quality_tier: practitioner
+    engagement:
+      likes: 290+
+    key_insights:
+      - "2026 is going to be the year of Agentic Interfaces"
+      - Claude Code + Obsidian integration as workflow pattern
+      - Thinking about best interfaces for agent interaction
+      - High engagement indicates resonance
+    topics:
+      - agentic-interfaces
+      - obsidian
+      - claude-code
+      - workflow
+    relevance: medium
+    foe_connection: >
+      Claude Code + Obsidian is exactly the FOE workflow pattern.
+      The "agentic interfaces" framing validates FOE's approach of
+      using Obsidian as the knowledge layer for agent-assisted engineering.
+
+  # ============================================
+  # DEV.TO - PRACTITIONER ARTICLES
+  # ============================================
+
+  - id: web-029
+    source_type: dev_to
+    title: "The Best Way to Do Agentic Development in 2026"
+    url: "https://dev.to/chand1012/the-best-way-to-do-agentic-development-in-2026-14mn"
+    date: 01-23-26
+    author: "chand1012"
+    quality_tier: practitioner
+    key_insights:
+      - "Tried Claude Code, switched to OpenCode + Oh-My-Code, then Conductor + Claude Code + Lots of Plugins and Skills"
+      - Tool-hopping journey common among practitioners
+      - Skills and plugins as the differentiation layer
+      - Conductor as orchestration layer on top of Claude Code
+    topics:
+      - tool-comparison
+      - skills
+      - plugins
+      - workflow-evolution
+    relevance: medium
+    foe_connection: >
+      The tool-hopping journey validates FOE's observation that raw tools
+      are insufficient - structured methods and skills are what make
+      agentic development effective. The convergence on "skills + plugins"
+      aligns with FOE's approach.
+
+  - id: web-030
+    source_type: dev_to
+    title: "AI Agents & Agentic Dev: 7 Quick Tips Every Dev Needs in 2026"
+    url: "https://dev.to/emma_schmidt_/ai-agents-agentic-dev-7-quick-tips-every-dev-needs-in-2026-3jad"
+    date: 03-17-26
+    author: "emma_schmidt_"
+    quality_tier: practitioner
+    key_insights:
+      - "Tool hopping is the #1 productivity killer in 2026"
+      - "Claude Code: Terminal workflow, full filesystem access, max control"
+      - Practical tips for effective agentic development
+      - Focus on workflow stability over tool novelty
+    topics:
+      - best-practices
+      - tool-selection
+      - productivity
+      - practical-tips
+    relevance: medium
+    foe_connection: >
+      "Tool hopping as productivity killer" validates FOE's emphasis on
+      stable, well-understood methods over chasing new tools. The "max
+      control" framing for Claude Code aligns with FOE's terminal-first
+      approach.
+
+  - id: web-031
+    source_type: dev_to
+    title: "Agentic AI vs AI Workflows (2026 Perspective)"
+    url: "https://dev.to/swatigoyal911/day-28-agentic-ai-vs-ai-workflows-2026-perspective-1j4h"
+    date: 04-02-26
+    author: "swatigoyal911"
+    quality_tier: practitioner
+    key_insights:
+      - "Most organizations do not fail at AI because of bad models"
+      - Distinction between agentic AI and structured AI workflows
+      - Organizational readiness as the key success factor
+      - Published 4 days ago - very recent signal
+    topics:
+      - agentic-vs-workflow
+      - organizational-readiness
+      - ai-adoption
+    relevance: medium
+    foe_connection: >
+      "Organizations don't fail because of bad models" directly supports
+      FOE's thesis that methods and practices matter more than tool
+      capabilities. The agentic-vs-workflow distinction maps to FOE's
+      structured approach.
+
+  # ============================================
+  # MEDIUM - LONG-FORM ANALYSIS
+  # ============================================
+
+  - id: web-032
+    source_type: medium
+    title: "The State of Agentic iOS Engineering in 2026"
+    url: "https://dimillian.medium.com/the-state-of-agentic-ios-engineering-in-2026-c5f0cbaa7b34"
+    date: ~01-2026
+    author: "Thomas Ricouard"
+    quality_tier: practitioner
+    engagement:
+      likes: 1000+
+    key_insights:
+      - Perspective on AI-driven programming, workflows, and tooling for iOS
+      - 1K+ likes indicates very high resonance
+      - Platform-specific agentic engineering analysis
+      - Workflows and tooling as key differentiators
+    topics:
+      - ios-engineering
+      - agentic-workflows
+      - platform-specific
+    relevance: medium
+    foe_connection: >
+      High-engagement signal that agentic engineering practices are being
+      adapted to specific platforms. Validates FOE's approach of creating
+      domain-specific methods and observations.
+
+  - id: web-033
+    source_type: medium
+    title: "The No-Nonsense Guide to AI-Assisted Coding in 2026"
+    url: "https://kotrotsos.medium.com/the-no-nonsense-guide-to-ai-assisted-coding-in-2026-9e3c961be244"
+    date: ~02-2026
+    author: "Marco Kotrotsos"
+    quality_tier: practitioner
+    engagement:
+      likes: 90+
+    key_insights:
+      - "Branded methodologies. Frameworks with acronyms. Screenshots of terminal output with dramatic claims."
+      - "It's productivity porn for developers"
+      - Pushback against hype and methodology theater
+      - Call for practical, grounded approaches
+    topics:
+      - anti-hype
+      - practical-approach
+      - methodology-criticism
+    relevance: medium
+    foe_connection: >
+      Important counter-signal for FOE. The "productivity porn" criticism
+      applies to many agentic coding frameworks. FOE must ensure its
+      methods are grounded in evidence (observations) rather than
+      aspirational claims. Validates the observation-backed approach.
+
+  - id: web-034
+    source_type: medium
+    title: "The Agentic Coding Revolution: From Writing Code to Orchestrating Intelligence"
+    url: "https://medium.com/codex/the-agentic-coding-revolution-from-writing-code-to-orchestrating-intelligence-413a56098986"
+    date: ~03-2026
+    author: "Adith - The Data Guy"
+    quality_tier: practitioner
+    key_insights:
+      - "In 2025, agentic AI changed how developers write code"
+      - "In 2026, the systemic effects are reconfiguring the entire software lifecycle"
+      - Shift from code writing to intelligence orchestration
+      - Engineering roles being reshaped
+    topics:
+      - role-evolution
+      - orchestration
+      - software-lifecycle
+    relevance: medium
+    foe_connection: >
+      The "writing to orchestrating" shift is FOE's core thesis.
+      The observation that 2026 brings systemic effects validates
+      FOE's focus on methods and practices, not just tools.
+
+  # ============================================
+  # DEPLOYMENT & PROGRESSIVE DELIVERY
+  # ============================================
+
+  - id: web-035
+    source_type: company_blog
+    title: "AI Deployment in 2026: CI/CD for LLMs & Agents"
+    url: "https://www.harness.io/blog/ai-deployment-in-production-orchestrate-llms-rag-agents"
+    date: 2026
+    quality_tier: industry_research
+    key_insights:
+      - CI/CD pipelines adapted for LLM and agent deployment
+      - Production orchestration patterns for AI systems
+      - Deployment automation specific to AI workloads
+    topics:
+      - ci-cd
+      - ai-deployment
+      - production-orchestration
+    relevance: medium
+    foe_connection: >
+      Connects AI agent development to deployment automation.
+      Validates FOE's interest in how agents participate in and
+      improve deployment workflows.
+
+  - id: web-036
+    source_type: company_blog
+    title: "AI-Powered Progressive Delivery: How Intelligent Feature Flags Transform Rollouts"
+    url: "https://azati.ai/blog/ai-powered-progressive-delivery-feature-flags-2026/"
+    date: 2026
+    quality_tier: practitioner
+    key_insights:
+      - AI-powered feature flag management for progressive delivery
+      - Intelligent rollout decisions based on AI analysis
+      - Intersection of AI capabilities and deployment safety
+    topics:
+      - progressive-delivery
+      - feature-flags
+      - ai-powered-rollout
+    relevance: medium
+    foe_connection: >
+      NEW signal connecting AI to deployment safety. Progressive delivery
+      with AI-powered decisions aligns with FOE's confidence optimization
+      principle applied to the deployment phase.
+
+  # ============================================
+  # VERIFICATION & SAFETY TOOLS
+  # ============================================
+
+  - id: web-037
+    source_type: youtube
+    title: "Automated Code Review for AI Agents | Sonar Summit 2026"
+    url: "https://www.youtube.com/watch?v=B2oLNixFoo8"
+    date: 03-04-26
+    quality_tier: industry_research
+    key_insights:
+      - "How AI Coding Shifts the Bottleneck to Code Review"
+      - "The Engineering Productivity Paradox in AI Development"
+      - "Why AI Reviewing AI-Generated Code Has Limits"
+      - "From Vibe Coding to Vibe and Verify Development"
+      - Static analysis via MCP tools integrated into agent workflows
+      - Quality profiles defining code quality and security standards
+    topics:
+      - code-review
+      - static-analysis
+      - mcp
+      - vibe-and-verify
+      - productivity-paradox
+    relevance: high
+    foe_connection: >
+      "Vibe and Verify" is essentially FOE's thesis in two words. The
+      engineering productivity paradox validates dark-flow observations.
+      Static analysis via MCP tools shows verification being integrated
+      directly into agent workflows - exactly what FOE advocates.
+
+# ============================================================
+# CROSS-CUTTING THEMES & FOE IMPLICATIONS
+# ============================================================
+#
+# THEME 1: VERIFICATION IS THE NEW BOTTLENECK
+# Sources: web-002, web-003, web-004, web-008, web-010, web-011, web-012, web-017, web-037
+# Signal strength: VERY HIGH (academic + industry + practitioner convergence)
+# FOE implication: Verification methods should be the highest-priority FOE development area.
+# The field is converging on "trust but verify" as the operating model for AI-generated code.
+#
+# THEME 2: ORGANIZATIONAL PRACTICES > TOOL CAPABILITIES
+# Sources: web-009, web-031, web-033, web-034
+# Signal strength: HIGH (academic evidence + practitioner experience)
+# FOE implication: FOE's method-based approach is validated. The bottleneck is not
+# generation quality but organizational practices. Methods and observations matter
+# more than which AI tool you use.
+#
+# THEME 3: AGENTS EXPANDING INTO FULL SDLC
+# Sources: web-018, web-022, web-035, web-036
+# Signal strength: HIGH (multiple company blogs converging)
+# FOE implication: FOE should expand observation coverage beyond code generation
+# to include CI/CD, deployment, release management, and documentation.
+#
+# THEME 4: COGNITIVE LOAD & DARK FLOW VALIDATED
+# Sources: web-001, web-006, web-037
+# Signal strength: MEDIUM-HIGH (practitioner experience + industry research)
+# FOE implication: dark-flow-productivity-illusion observation continues to be
+# validated. "The tiredness is real" and "engineering productivity paradox"
+# are independent confirmations.
+#
+# THEME 5: SKILLS & KNOWLEDGE CODIFICATION
+# Sources: web-013, web-019, web-020, web-023, web-029, web-030
+# Signal strength: MEDIUM-HIGH (academic + industry + practitioner)
+# FOE implication: The skills pattern is becoming universal across all major
+# platforms. FOE's skills-based approach is well-positioned but should track
+# emerging standards and interoperability.
+#
+# THEME 6: WRAPPER ECONOMY & ANTI-HYPE
+# Sources: web-027, web-033
+# Signal strength: MEDIUM (practitioner sentiment)
+# FOE implication: FOE must differentiate itself from "productivity porn"
+# and methodology theater. The observation-backed, evidence-driven approach
+# is the key differentiator. Keep methods grounded in real observations.

@@ -1,0 +1,1440 @@
+source: github
+crawl_date: 04-06-26
+previous_report: 03-14-26-trends.md
+
+repos_monitored:
+  - anthropics/claude-code
+  - charmbracelet/crush
+  - cline/cline
+  - opencode-ai/opencode
+  - paul-gauthier/aider
+  - continuedev/continue
+  - plandex-ai/plandex
+  - langchain-ai/langgraph
+  - modelcontextprotocol/servers
+  - modelcontextprotocol/python-sdk
+  - PrefectHQ/fastmcp
+  - pydantic/pydantic-ai
+  - microsoft/autogen
+  - obra/superpowers
+  - anthropics/skills
+
+errors: []
+
+summary:
+  total_findings: 48
+  repos_discovered: 30
+  releases_tracked: 10
+  key_themes:
+    - "Agent Skills as infrastructure — obra/superpowers (137k stars) and anthropics/skills (111k stars) signal skills are the new package ecosystem"
+    - "Context engineering replaces prompt engineering — multiple repos with 5k-48k stars dedicated to the discipline"
+    - "Background/async agents going mainstream — ColeMurray/background-agents, CodeMachine-CLI for long-running workflows"
+    - "MCP ecosystem explosion — 84k stars on awesome-mcp-servers, FastMCP 3.2 ships interactive UI apps inside MCP"
+    - "Agent memory/persistence layer emerging — engram, ByteRover CLI, mcp_agent_mail for cross-agent coordination"
+    - "Terminal-native agentic tools proliferating — Crush, OpenCode, oh-my-pi, snow-cli all competing in the terminal agent space"
+
+findings:
+
+  # ============================================================
+  # TRENDING REPOSITORIES — Agent Skills & Context Engineering
+  # ============================================================
+
+  - id: github-001
+    type: repo
+    name: superpowers
+    owner: obra
+    url: https://github.com/obra/superpowers
+    stars: 137697
+    last_updated: 04-07-26
+    summary: >
+      An agentic skills framework and software development methodology. At 137k stars,
+      this is the most-starred agent skills repo on GitHub — signaling that the community
+      has converged on skills-as-methodology, not just skills-as-config. Directly relevant
+      to FOE's approach of encoding engineering practices as teachable agent behaviors.
+    key_features:
+      - Skills framework with methodology integration
+      - Cross-agent compatibility
+      - Community-driven skill contributions
+    topics:
+      - agent-skills
+      - methodology
+      - framework
+    foe_relevance:
+      type: method_candidate
+      guides:
+        - using-ai-agents
+        - agentic-coding
+      notes: >
+        Validates FOE's direction of encoding methods as agent-consumable artifacts.
+        The 137k stars prove the market wants structured agent guidance, not ad-hoc prompts.
+    delta_status: new
+    relevance: high
+
+  - id: github-002
+    type: repo
+    name: skills
+    owner: anthropics
+    url: https://github.com/anthropics/skills
+    stars: 111717
+    last_updated: 04-07-26
+    summary: >
+      Anthropic's official public repository for Agent Skills. At 111k stars, this is
+      the canonical skills registry from the Claude Code maker. The existence of an
+      official skills repo from Anthropic confirms skills are a first-class concept
+      in the agentic coding ecosystem, not a community hack.
+    key_features:
+      - Official Anthropic-maintained skills
+      - Standardized skill format
+      - Integration with Claude Code
+    topics:
+      - agent-skills
+      - claude-code
+      - official
+    foe_relevance:
+      type: observation_candidate
+      guides:
+        - using-ai-agents
+      notes: >
+        External observation: Anthropic investing in skills as first-class infrastructure.
+        FOE should ensure its methods/skills are compatible with this format.
+    delta_status: new
+    relevance: high
+
+  - id: github-003
+    type: repo
+    name: get-shit-done
+    owner: gsd-build
+    url: https://github.com/gsd-build/get-shit-done
+    stars: 48473
+    last_updated: 04-07-26
+    summary: >
+      A meta-prompting, context engineering, and spec-driven development system for
+      Claude Code. At 48k stars, this represents the crystallization of the anti-vibe-coding
+      movement into concrete tooling. Uses structured specs to keep agents on track during
+      long autonomous sessions.
+    key_features:
+      - Meta-prompting system
+      - Context engineering patterns
+      - Spec-driven development workflow
+      - Long-session agent guidance
+    topics:
+      - context-engineering
+      - spec-driven
+      - claude-code
+      - methodology
+    foe_relevance:
+      type: method_candidate
+      guides:
+        - agentic-coding
+        - product-specification
+      notes: >
+        Directly aligned with FOE's spec-driven approach. The 48k stars validate that
+        developers want structured methodology for agent work, not just "vibe coding."
+        Compare with FOE's existing product-specification guide.
+    delta_status: evolved
+    relevance: high
+
+  - id: github-004
+    type: repo
+    name: antigravity-awesome-skills
+    owner: sickn33
+    url: https://github.com/sickn33/antigravity-awesome-skills
+    stars: 31138
+    last_updated: 04-07-26
+    summary: >
+      Installable library of 1,370+ agentic skills for Claude Code, Cursor, Codex CLI,
+      Gemini CLI, Antigravity, and more. Includes installer CLI, bundles, workflows,
+      and official/community skill collections.
+    key_features:
+      - 1370+ skills catalog
+      - Cross-platform installer CLI
+      - Skill bundles and workflows
+      - Community + official collections
+    topics:
+      - agent-skills
+      - skill-registry
+      - cross-platform
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        The sheer volume (1370+ skills) suggests skill sprawl is becoming a problem.
+        FOE's curated, method-backed approach may be a differentiator vs. quantity-first registries.
+    delta_status: new
+    relevance: medium
+
+  - id: github-005
+    type: repo
+    name: awesome-copilot
+    owner: github
+    url: https://github.com/github/awesome-copilot
+    stars: 28712
+    last_updated: 04-07-26
+    summary: >
+      GitHub's official community-contributed instructions, agents, skills, and
+      configurations for GitHub Copilot. Signals that GitHub/Microsoft is fully
+      embracing the skills paradigm for Copilot.
+    key_features:
+      - Official GitHub-maintained
+      - Community skill contributions
+      - Copilot agent configurations
+    topics:
+      - copilot
+      - agent-skills
+      - github-official
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        GitHub entering the skills space confirms cross-platform skill portability
+        is becoming essential. FOE skills should target multiple agent platforms.
+    delta_status: new
+    relevance: medium
+
+  - id: github-006
+    type: repo
+    name: agent-skills
+    owner: vercel-labs
+    url: https://github.com/vercel-labs/agent-skills
+    stars: 24574
+    last_updated: 04-07-26
+    summary: >
+      Vercel's official collection of agent skills. Another major platform vendor
+      investing in the skills ecosystem, reinforcing that skills are becoming
+      the standard unit of agent capability.
+    key_features:
+      - Vercel-maintained official skills
+      - Web development focused
+      - Integration with Vercel platform
+    topics:
+      - agent-skills
+      - vercel
+      - web-development
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        Vercel, GitHub, Anthropic all shipping official skills repos.
+        The "skills as infrastructure" trend identified in the March report is now confirmed.
+    delta_status: evolved
+    relevance: medium
+
+  - id: github-007
+    type: repo
+    name: context-engineering-intro
+    owner: coleam00
+    url: https://github.com/coleam00/context-engineering-intro
+    stars: 13069
+    last_updated: 04-07-26
+    summary: >
+      Educational repo positioning context engineering as "the new vibe coding" —
+      the way to actually make AI coding assistants work. Centered on Claude Code
+      but applicable to any AI coding assistant.
+    key_features:
+      - Context engineering methodology
+      - Practical examples
+      - Claude Code focused
+    topics:
+      - context-engineering
+      - methodology
+      - education
+    foe_relevance:
+      type: observation_candidate
+      guides:
+        - agentic-coding
+      notes: >
+        External evidence that context engineering is becoming a recognized discipline.
+        FOE's three principles (understanding, fast feedback, confidence) map well to
+        context engineering goals.
+    delta_status: evolved
+    relevance: high
+
+  - id: github-008
+    type: repo
+    name: Agent-Skills-for-Context-Engineering
+    owner: muratcankoylan
+    url: https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering
+    stars: 14795
+    last_updated: 04-07-26
+    summary: >
+      Comprehensive collection of Agent Skills for context engineering, multi-agent
+      architectures, and production agent systems. Bridges the skills and context
+      engineering trends into a unified collection.
+    key_features:
+      - Context engineering skills
+      - Multi-agent architecture patterns
+      - Production agent system guidance
+    topics:
+      - context-engineering
+      - agent-skills
+      - multi-agent
+    foe_relevance:
+      type: method_candidate
+      guides:
+        - agentic-coding
+        - using-ai-agents
+      notes: >
+        Intersection of skills + context engineering is exactly where FOE operates.
+        Review for patterns that could become FOE methods.
+    delta_status: new
+    relevance: high
+
+  # ============================================================
+  # TRENDING REPOSITORIES — Agentic Coding Tools
+  # ============================================================
+
+  - id: github-009
+    type: repo
+    name: claude-code
+    owner: anthropics
+    url: https://github.com/anthropics/claude-code
+    stars: 110025
+    last_updated: 04-04-26
+    summary: >
+      Anthropic's official agentic coding tool. At 110k stars, it dominates the
+      terminal-based agent space. Rapid release cadence (v2.1.87-v2.1.92 in one week)
+      shows intense active development.
+    key_features:
+      - Terminal-native agentic coding
+      - Codebase understanding
+      - Git workflow automation
+      - Natural language commands
+      - Background agents support
+      - Remote control sessions
+    topics:
+      - agentic-coding
+      - terminal
+      - claude
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+        - agentic-coding
+      notes: >
+        Primary tool for FOE agentic coding workflows. Track releases closely
+        for capability changes that affect FOE methods.
+    delta_status: evolved
+    relevance: high
+
+  - id: github-010
+    type: repo
+    name: cline
+    owner: cline
+    url: https://github.com/cline/cline
+    stars: 59980
+    last_updated: 04-07-26
+    summary: >
+      Autonomous coding agent in VS Code. At 60k stars, it's the leading IDE-integrated
+      agent. v3.77.0 adds "Lazy Teammate Mode" — an experimental toggle suggesting
+      agents are being designed for different engagement levels.
+    key_features:
+      - VS Code integrated autonomous agent
+      - File creation/editing
+      - Command execution
+      - Browser automation
+      - Lazy Teammate Mode (new)
+    topics:
+      - autonomous-agent
+      - vscode
+      - ide-integration
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        "Lazy Teammate Mode" is an interesting UX pattern — agents with adjustable
+        autonomy levels. Relevant to FOE's confidence optimization principle.
+    delta_status: evolved
+    relevance: high
+
+  - id: github-011
+    type: repo
+    name: crush
+    owner: charmbracelet
+    url: https://github.com/charmbracelet/crush
+    stars: 22587
+    last_updated: 04-07-26
+    summary: >
+      "Glamourous agentic coding for all" from Charmbracelet (makers of Bubble Tea,
+      Glow, etc.). A polished terminal-based agentic coding tool. v0.55.1 focuses
+      on local model compatibility. Growing fast at 22k stars.
+    key_features:
+      - Beautiful terminal UI (Charmbracelet quality)
+      - Local model support
+      - Context window management
+      - Session summarization
+    topics:
+      - agentic-coding
+      - terminal
+      - local-models
+      - charmbracelet
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        Charmbracelet entering the agentic coding space signals mainstream adoption.
+        Local model support is a differentiator for air-gapped/enterprise environments.
+    delta_status: new
+    relevance: high
+
+  - id: github-012
+    type: repo
+    name: DeepCode
+    owner: HKUDS
+    url: https://github.com/HKUDS/DeepCode
+    stars: 15116
+    last_updated: 04-07-26
+    summary: >
+      Open agentic coding system from HKU Data Science lab. Supports Paper2Code,
+      Text2Web, and Text2Backend workflows. Academic research turned practical tool.
+    key_features:
+      - Paper2Code conversion
+      - Text2Web generation
+      - Text2Backend generation
+      - Research-backed approach
+    topics:
+      - code-generation
+      - research
+      - multi-modal
+    foe_relevance:
+      type: observation_candidate
+      guides:
+        - agentic-coding
+      notes: >
+        Academic validation of agentic coding patterns. Paper2Code workflow
+        could be relevant for FOE's research-to-practice pipeline.
+    delta_status: new
+    relevance: medium
+
+  - id: github-013
+    type: repo
+    name: plandex
+    owner: plandex-ai
+    url: https://github.com/plandex-ai/plandex
+    stars: 15213
+    last_updated: 04-07-26
+    summary: >
+      Open source AI coding agent designed for large projects and real-world tasks.
+      Plan-first approach with multi-file editing. Stable at 15k stars.
+    key_features:
+      - Plan-first development
+      - Large project support
+      - Multi-file editing
+      - Version control integration
+    topics:
+      - agentic-coding
+      - planning
+      - large-projects
+    foe_relevance:
+      type: informational
+      guides:
+        - agentic-coding
+      notes: >
+        Plan-first approach aligns with FOE's spec-driven methodology.
+    delta_status: recurring
+    relevance: medium
+
+  - id: github-014
+    type: repo
+    name: opencode
+    owner: opencode-ai
+    url: https://github.com/opencode-ai/opencode
+    stars: 11864
+    last_updated: 04-07-26
+    summary: >
+      A powerful AI coding agent built for the terminal. Open-source alternative
+      to Claude Code. Growing rapidly in the terminal agent space.
+    key_features:
+      - Terminal-native coding agent
+      - Open source
+      - Multi-model support
+    topics:
+      - agentic-coding
+      - terminal
+      - open-source
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        Open-source terminal agent alternative. FOE skills/methods should be
+        agent-agnostic to work across Claude Code, OpenCode, Crush, etc.
+    delta_status: evolved
+    relevance: medium
+
+  - id: github-015
+    type: repo
+    name: humanlayer
+    owner: humanlayer
+    url: https://github.com/humanlayer/humanlayer
+    stars: 10306
+    last_updated: 04-07-26
+    summary: >
+      "The best way to get AI coding agents to solve hard problems in complex codebases."
+      Human-in-the-loop layer for agent systems. Also maintains
+      advanced-context-engineering-for-coding-agents (1.6k stars).
+    key_features:
+      - Human-in-the-loop for agents
+      - Complex codebase support
+      - Context engineering guidance
+    topics:
+      - human-in-the-loop
+      - agent-oversight
+      - context-engineering
+    foe_relevance:
+      type: method_candidate
+      guides:
+        - agentic-coding
+      notes: >
+        Human-in-the-loop patterns directly relevant to FOE's confidence optimization.
+        The tension between autonomy and oversight is a core FOE concern.
+    delta_status: evolved
+    relevance: high
+
+  # ============================================================
+  # TRENDING REPOSITORIES — Agent Infrastructure & Memory
+  # ============================================================
+
+  - id: github-016
+    type: repo
+    name: openskills
+    owner: numman-ali
+    url: https://github.com/numman-ali/openskills
+    stars: 9457
+    last_updated: 04-07-26
+    summary: >
+      Universal skills loader for AI coding agents. Install via npm. Provides a
+      standardized way to load skills across different agent platforms.
+    key_features:
+      - Universal skill loading
+      - npm-based distribution
+      - Cross-agent compatibility
+    topics:
+      - agent-skills
+      - package-manager
+      - infrastructure
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        Skills distribution infrastructure. FOE should consider how its methods
+        could be distributed through channels like this.
+    delta_status: new
+    relevance: medium
+
+  - id: github-017
+    type: repo
+    name: agentskills
+    owner: agentskills
+    url: https://github.com/agentskills/agentskills
+    stars: 15236
+    last_updated: 04-07-26
+    summary: >
+      Specification and documentation for Agent Skills. An attempt to standardize
+      the skill format across the ecosystem. At 15k stars, there's clear demand
+      for a standard.
+    key_features:
+      - Skill specification standard
+      - Cross-platform compatibility
+      - Community governance
+    topics:
+      - agent-skills
+      - specification
+      - standard
+    foe_relevance:
+      type: observation_candidate
+      guides:
+        - using-ai-agents
+      notes: >
+        A skills specification standard emerging. FOE should track this and ensure
+        compatibility. Could become the "package.json" of agent skills.
+    delta_status: new
+    relevance: high
+
+  - id: github-018
+    type: repo
+    name: context-mode
+    owner: mksglu
+    url: https://github.com/mksglu/context-mode
+    stars: 6663
+    last_updated: 04-07-26
+    summary: >
+      Context window optimization for AI coding agents. Claims 98% reduction in
+      tool output via sandboxing. Supports 12 platforms.
+    key_features:
+      - 98% context reduction
+      - Tool output sandboxing
+      - 12 platform support
+    topics:
+      - context-optimization
+      - token-efficiency
+      - infrastructure
+    foe_relevance:
+      type: method_candidate
+      guides:
+        - agentic-coding
+      notes: >
+        Context window optimization is critical for agent effectiveness.
+        98% reduction claim needs validation but the approach is sound.
+        Directly relevant to FOE's "optimize for understanding" principle.
+    delta_status: new
+    relevance: high
+
+  - id: github-019
+    type: repo
+    name: engram
+    owner: Gentleman-Programming
+    url: https://github.com/Gentleman-Programming/engram
+    stars: 2301
+    last_updated: 04-07-26
+    summary: >
+      Persistent memory system for AI coding agents. Agent-agnostic Go binary with
+      SQLite + FTS5, MCP server, HTTP API, CLI, and TUI. Addresses the stateless
+      nature of agent sessions.
+    key_features:
+      - Persistent agent memory
+      - SQLite + FTS5 storage
+      - MCP server integration
+      - Agent-agnostic design
+    topics:
+      - agent-memory
+      - persistence
+      - mcp
+    foe_relevance:
+      type: method_candidate
+      guides:
+        - agentic-coding
+      notes: >
+        Agent memory persistence is a gap in current FOE coverage. This tool
+        addresses the "context loss between sessions" problem that affects
+        all agentic coding workflows.
+    delta_status: new
+    relevance: high
+
+  - id: github-020
+    type: repo
+    name: mcp_agent_mail
+    owner: Dicklesworthstone
+    url: https://github.com/Dicklesworthstone/mcp_agent_mail
+    stars: 1869
+    last_updated: 04-07-26
+    summary: >
+      Asynchronous coordination layer for AI coding agents. Provides identities,
+      inboxes, searchable threads, and advisory file leases over FastMCP + Git + SQLite.
+      Enables multi-agent coordination without shared state.
+    key_features:
+      - Agent identity system
+      - Inbox-based communication
+      - File lease advisory locks
+      - Git + SQLite backend
+    topics:
+      - multi-agent
+      - coordination
+      - mcp
+      - async
+    foe_relevance:
+      type: method_candidate
+      guides:
+        - agentic-coding
+      notes: >
+        Multi-agent coordination via message passing. Relevant to FOE's
+        multi-agent orchestration patterns. The "advisory file lease" concept
+        is particularly interesting for preventing agent conflicts.
+    delta_status: new
+    relevance: high
+
+  - id: github-021
+    type: repo
+    name: background-agents
+    owner: ColeMurray
+    url: https://github.com/ColeMurray/background-agents
+    stars: 1457
+    last_updated: 04-07-26
+    summary: >
+      Open-source background agents coding system. Enables agents to work
+      asynchronously on tasks without blocking the developer's workflow.
+    key_features:
+      - Background agent execution
+      - Async task processing
+      - Open source implementation
+    topics:
+      - background-agents
+      - async
+      - autonomous
+    foe_relevance:
+      type: method_candidate
+      guides:
+        - agentic-coding
+      notes: >
+        Background agents are the next frontier after interactive agents.
+        FOE should develop methods for when to use background vs. interactive agents.
+    delta_status: evolved
+    relevance: medium
+
+  - id: github-022
+    type: repo
+    name: agentsview
+    owner: wesm
+    url: https://github.com/wesm/agentsview
+    stars: 671
+    last_updated: 04-07-26
+    summary: >
+      Local-first desktop and web app for browsing, searching, and analyzing AI agent
+      coding sessions. Supports Claude Code, Codex, Gemini, OpenCode, Copilot and more.
+      By Wes McKinney (pandas creator).
+    key_features:
+      - Cross-agent session analysis
+      - Local-first architecture
+      - Search and browse agent sessions
+      - By Wes McKinney
+    topics:
+      - agent-observability
+      - session-analysis
+      - local-first
+    foe_relevance:
+      type: observation_candidate
+      guides:
+        - agentic-coding
+      notes: >
+        Agent session observability tool. Relevant to FOE's "optimize for understanding"
+        principle — understanding what agents actually do during sessions.
+        Notable creator (Wes McKinney) adds credibility.
+    delta_status: new
+    relevance: medium
+
+  # ============================================================
+  # TRENDING REPOSITORIES — MCP Ecosystem
+  # ============================================================
+
+  - id: github-023
+    type: repo
+    name: awesome-mcp-servers
+    owner: punkpeye
+    url: https://github.com/punkpeye/awesome-mcp-servers
+    stars: 84335
+    last_updated: 04-07-26
+    summary: >
+      The definitive collection of MCP servers. At 84k stars, MCP has become
+      the dominant protocol for agent-tool integration. Growth from the March
+      report is substantial.
+    key_features:
+      - Comprehensive MCP server catalog
+      - Community curated
+      - Categorized by function
+    topics:
+      - mcp
+      - ecosystem
+      - catalog
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        MCP ecosystem health indicator. 84k stars confirms MCP as the standard.
+    delta_status: evolved
+    relevance: high
+
+  - id: github-024
+    type: repo
+    name: servers
+    owner: modelcontextprotocol
+    url: https://github.com/modelcontextprotocol/servers
+    stars: 83093
+    last_updated: 04-07-26
+    summary: >
+      Official Model Context Protocol servers repository. The canonical reference
+      implementation for MCP servers.
+    key_features:
+      - Official MCP server implementations
+      - Reference architecture
+      - Multiple language support
+    topics:
+      - mcp
+      - official
+      - reference
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        Canonical MCP reference. FOE MCP integrations should follow these patterns.
+    delta_status: recurring
+    relevance: high
+
+  - id: github-025
+    type: repo
+    name: playwright-mcp
+    owner: microsoft
+    url: https://github.com/microsoft/playwright-mcp
+    stars: 30376
+    last_updated: 04-07-26
+    summary: >
+      Microsoft's official Playwright MCP server. Enables AI agents to automate
+      browser interactions through MCP. At 30k stars, browser automation via MCP
+      is a major use case.
+    key_features:
+      - Browser automation via MCP
+      - Microsoft official
+      - Playwright integration
+    topics:
+      - mcp
+      - browser-automation
+      - microsoft
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        Browser automation is a key agent capability. Microsoft's investment
+        signals enterprise readiness.
+    delta_status: evolved
+    relevance: medium
+
+  - id: github-026
+    type: repo
+    name: github-mcp-server
+    owner: github
+    url: https://github.com/github/github-mcp-server
+    stars: 28599
+    last_updated: 04-07-26
+    summary: >
+      GitHub's official MCP server. Enables AI agents to interact with GitHub
+      repositories, issues, PRs, and more through MCP.
+    key_features:
+      - Official GitHub MCP integration
+      - Repository management
+      - Issue/PR automation
+    topics:
+      - mcp
+      - github
+      - official
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        GitHub + MCP = agents that can manage the full development lifecycle.
+    delta_status: evolved
+    relevance: medium
+
+  - id: github-027
+    type: repo
+    name: pal-mcp-server
+    owner: BeehiveInnovations
+    url: https://github.com/BeehiveInnovations/pal-mcp-server
+    stars: 11375
+    last_updated: 04-07-26
+    summary: >
+      Bridges Claude Code, Gemini CLI, Codex CLI with any model provider
+      (Gemini, OpenAI, OpenRouter, Azure, Grok, Ollama, custom). Enables
+      model-agnostic agent workflows through MCP.
+    key_features:
+      - Multi-model bridge via MCP
+      - Works with Claude Code, Gemini CLI, Codex CLI
+      - Supports all major providers
+    topics:
+      - mcp
+      - model-agnostic
+      - bridge
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        Model-agnostic agent infrastructure. Relevant to FOE's principle of
+        not being locked into a single provider.
+    delta_status: new
+    relevance: medium
+
+  - id: github-028
+    type: repo
+    name: Figma-Context-MCP
+    owner: GLips
+    url: https://github.com/GLips/Figma-Context-MCP
+    stars: 14173
+    last_updated: 04-07-26
+    summary: >
+      MCP server providing Figma layout information to AI coding agents like Cursor.
+      Bridges design and code through MCP.
+    key_features:
+      - Figma design context for agents
+      - Layout information extraction
+      - Cursor integration
+    topics:
+      - mcp
+      - design-to-code
+      - figma
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        Design-to-code via MCP. Interesting for full-stack agent workflows.
+    delta_status: evolved
+    relevance: medium
+
+  # ============================================================
+  # TRENDING REPOSITORIES — Agent Frameworks
+  # ============================================================
+
+  - id: github-029
+    type: repo
+    name: pydantic-ai
+    owner: pydantic
+    url: https://github.com/pydantic/pydantic-ai
+    stars: 16140
+    last_updated: 04-07-26
+    summary: >
+      AI Agent Framework built the Pydantic way. Type-safe, validated agent
+      development. Rapid release cadence (daily releases). v1.77.0 adds
+      smart instruction caching and deferred tool loading.
+    key_features:
+      - Type-safe agent development
+      - Pydantic validation
+      - Smart instruction caching (new)
+      - Deferred tool loading for search
+      - ThreadExecutor capability
+    topics:
+      - agent-framework
+      - pydantic
+      - type-safety
+    foe_relevance:
+      type: informational
+      guides:
+        - agentic-coding
+      notes: >
+        Type-safe agent development aligns with FOE's confidence optimization.
+        Smart instruction caching is a context engineering innovation.
+    delta_status: evolved
+    relevance: medium
+
+  - id: github-030
+    type: repo
+    name: openai-agents-python
+    owner: openai
+    url: https://github.com/openai/openai-agents-python
+    stars: 20617
+    last_updated: 04-07-26
+    summary: >
+      OpenAI's lightweight framework for multi-agent workflows. Official
+      OpenAI agent framework at 20k stars.
+    key_features:
+      - Official OpenAI framework
+      - Multi-agent workflows
+      - Lightweight design
+    topics:
+      - agent-framework
+      - openai
+      - multi-agent
+    foe_relevance:
+      type: informational
+      guides:
+        - agentic-coding
+      notes: >
+        OpenAI's official agent framework. Track for patterns that may
+        become industry standards.
+    delta_status: evolved
+    relevance: medium
+
+  - id: github-031
+    type: repo
+    name: agent-framework
+    owner: microsoft
+    url: https://github.com/microsoft/agent-framework
+    stars: 9022
+    last_updated: 04-07-26
+    summary: >
+      Microsoft's framework for building, orchestrating, and deploying AI agents
+      and multi-agent workflows. Supports Python and .NET.
+    key_features:
+      - Microsoft official
+      - Multi-language (Python, .NET)
+      - Agent orchestration
+      - Deployment support
+    topics:
+      - agent-framework
+      - microsoft
+      - enterprise
+    foe_relevance:
+      type: informational
+      guides:
+        - agentic-coding
+      notes: >
+        Microsoft's agent framework alongside AutoGen shows their multi-pronged
+        approach to the agent space.
+    delta_status: new
+    relevance: medium
+
+  - id: github-032
+    type: repo
+    name: voltagent
+    owner: VoltAgent
+    url: https://github.com/VoltAgent/voltagent
+    stars: 7395
+    last_updated: 04-07-26
+    summary: >
+      AI Agent Engineering Platform built on an open-source TypeScript AI Agent
+      Framework. Growing fast with focus on developer experience.
+    key_features:
+      - TypeScript-native
+      - Agent engineering platform
+      - Developer experience focus
+    topics:
+      - agent-framework
+      - typescript
+      - platform
+    foe_relevance:
+      type: informational
+      guides:
+        - agentic-coding
+      notes: >
+        TypeScript agent framework. Relevant for teams building agent-powered
+        web applications.
+    delta_status: new
+    relevance: low
+
+  # ============================================================
+  # RELEASES — Major Tool Updates
+  # ============================================================
+
+  - id: github-033
+    type: release
+    repo: anthropics/claude-code
+    version: v2.1.92
+    url: https://github.com/anthropics/claude-code/releases/tag/v2.1.92
+    date: 04-04-26
+    summary: >
+      Latest Claude Code release with interactive Bedrock setup wizard, per-model
+      cost breakdown, improved Write tool diff speed (60% faster), and numerous
+      stability fixes for long-running sessions.
+    highlights:
+      - "Interactive Bedrock setup wizard for AWS authentication"
+      - "Per-model and cache-hit breakdown in /cost for subscription users"
+      - "60% faster Write tool diff computation for large files"
+      - "Fixed subagent spawning after tmux windows killed during long sessions"
+      - "Fixed prompt-type Stop hooks and preventContinuation semantics"
+      - "Linux sandbox ships apply-seccomp helper in both npm and native builds"
+      - "Removed /tag and /vim commands (vim mode now in /config)"
+    breaking_changes:
+      - "Removed /tag command"
+      - "Removed /vim command (use /config → Editor mode)"
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+        - agentic-coding
+      notes: >
+        The Bedrock wizard and per-model cost tracking signal enterprise adoption.
+        60% faster diffs improve the feedback loop for large file edits.
+        Subagent stability fixes matter for multi-agent FOE workflows.
+    relevance: high
+
+  - id: github-034
+    type: release
+    repo: PrefectHQ/fastmcp
+    version: v3.2.0
+    url: https://github.com/PrefectHQ/fastmcp/releases/tag/v3.2.0
+    date: 03-30-26
+    summary: >
+      MAJOR release — "The Apps Release." FastMCP tools can now return interactive
+      UIs (charts, dashboards, forms, maps) rendered inside the conversation.
+      Introduces FastMCPApp provider, 5 built-in providers (FileUpload, Approval,
+      Choice, FormInput, GenerativeUI), dev server, and major security hardening.
+    highlights:
+      - "FastMCPApp: tools return interactive UIs inside conversations"
+      - "GenerativeUI: LLM writes UI code at runtime, streams to user"
+      - "5 built-in providers: FileUpload, Approval, Choice, FormInput, GenerativeUI"
+      - "Dev server for browser-based app tool preview"
+      - "Major security hardening: SSRF prevention, JWT restrictions, CSRF fixes"
+      - "Clerk auth provider added"
+      - "MCP conformance tests in CI"
+    breaking_changes:
+      - "App tool calls routed via ___-prefixed names"
+      - "PromptToolMiddleware and ResourceToolMiddleware deprecated"
+    foe_relevance:
+      type: method_candidate
+      guides:
+        - agentic-coding
+      notes: >
+        FastMCP 3.2 is a paradigm shift — MCP tools that return interactive UIs.
+        The Approval provider is directly relevant to FOE's human-in-the-loop patterns.
+        GenerativeUI means agents can create custom interfaces on the fly.
+        This could change how we think about agent output and feedback loops.
+    relevance: high
+
+  - id: github-035
+    type: release
+    repo: modelcontextprotocol/python-sdk
+    version: v1.27.0
+    url: https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.27.0
+    date: 04-02-26
+    summary: >
+      MCP Python SDK update with idle timeout for StreamableHTTP sessions,
+      RFC 8707 resource validation, comprehensive documentation restructure,
+      and stability fixes for transport layer.
+    highlights:
+      - "Idle timeout for StreamableHTTP sessions"
+      - "RFC 8707 resource validation in OAuth client"
+      - "Comprehensive documentation restructure into docs/ pages"
+      - "TasksCallCapability backported to v1.x"
+      - "Handle non-UTF-8 bytes in stdio server stdin"
+      - "Handle ClosedResourceError when transport closes mid-request"
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        MCP SDK maturation. Idle timeouts and transport stability are
+        production-readiness indicators.
+    relevance: medium
+
+  - id: github-036
+    type: release
+    repo: cline/cline
+    version: v3.77.0
+    url: https://github.com/cline/cline/releases/tag/v3.77.0
+    date: 04-01-26
+    summary: >
+      Cline adds experimental "Lazy Teammate Mode" and chunked file reading
+      for targeted file access.
+    highlights:
+      - "Lazy Teammate Mode experimental toggle"
+      - "Chunked file reading for targeted access"
+      - "Notification hook polish"
+    foe_relevance:
+      type: observation_candidate
+      guides:
+        - using-ai-agents
+      notes: >
+        "Lazy Teammate Mode" suggests agents with variable engagement levels.
+        This is a UX pattern worth tracking — not all tasks need full autonomy.
+    relevance: medium
+
+  - id: github-037
+    type: release
+    repo: charmbracelet/crush
+    version: v0.55.1
+    url: https://github.com/charmbracelet/crush/releases/tag/v0.55.1
+    date: 04-06-26
+    summary: >
+      Crush patch for local model compatibility. Fixes max_tokens=0 rejection
+      by LM Studio and premature summarization when context window is unknown.
+    highlights:
+      - "Local model compatibility improvements"
+      - "Omit max_tokens when unset (LM Studio fix)"
+      - "Skip summarization when context window unknown"
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        Local model support is increasingly important. Crush making this
+        a priority signals enterprise/air-gapped demand.
+    relevance: low
+
+  - id: github-038
+    type: release
+    repo: pydantic/pydantic-ai
+    version: v1.77.0
+    url: https://github.com/pydantic/pydantic-ai/releases/tag/v1.77.0
+    date: 04-03-26
+    summary: >
+      PydanticAI adds local WebFetch tool, deferred tool loading for search,
+      ThreadExecutor capability, and smart instruction caching for Anthropic/Bedrock.
+    highlights:
+      - "Local WebFetch tool when provider lacks builtin support"
+      - "Deferred tool loading enables tool search"
+      - "ThreadExecutor capability for concurrent tool execution"
+      - "Smart instruction caching at static/dynamic split boundary"
+    foe_relevance:
+      type: informational
+      guides:
+        - agentic-coding
+      notes: >
+        Smart instruction caching is a context engineering innovation.
+        Deferred tool loading addresses the "too many tools" problem.
+    relevance: medium
+
+  - id: github-039
+    type: release
+    repo: langchain-ai/langgraph
+    version: "1.1.6"
+    url: https://github.com/langchain-ai/langgraph/releases/tag/1.1.6
+    date: 04-03-26
+    summary: >
+      Minor LangGraph release with execution info patching fix.
+    highlights:
+      - "Fix execution info patching"
+    foe_relevance:
+      type: informational
+      guides:
+        - agentic-coding
+      notes: >
+        Maintenance release. LangGraph remains active but this is a minor fix.
+    relevance: low
+
+  - id: github-040
+    type: release
+    repo: continuedev/continue
+    version: v1.2.22-vscode
+    url: https://github.com/continuedev/continue/releases/tag/v1.2.22-vscode
+    date: 03-27-26
+    summary: >
+      Continue VS Code extension update. Also shipping JetBrains pre-release.
+    highlights:
+      - "VS Code stable release"
+      - "JetBrains pre-release v1.0.67"
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        Continue expanding IDE coverage with JetBrains support.
+    relevance: low
+
+  # ============================================================
+  # NOTABLE REPOS — Emerging Patterns
+  # ============================================================
+
+  - id: github-041
+    type: repo
+    name: claude-code-system-prompts
+    owner: Piebald-AI
+    url: https://github.com/Piebald-AI/claude-code-system-prompts
+    stars: 8365
+    last_updated: 04-07-26
+    summary: >
+      All parts of Claude Code's system prompt extracted and documented: 24 builtin
+      tool descriptions, sub-agent prompts (Plan/Explore/Task), utility prompts
+      (CLAUDE.md, compact, statusline, magic docs, WebFetch, Bash, security review,
+      agent creation). Updated for each Claude Code version.
+    key_features:
+      - Complete system prompt extraction
+      - Sub-agent prompt documentation
+      - Version-tracked updates
+    topics:
+      - claude-code
+      - system-prompts
+      - reverse-engineering
+    foe_relevance:
+      type: observation_candidate
+      guides:
+        - agentic-coding
+        - using-ai-agents
+      notes: >
+        Understanding Claude Code's internal architecture helps FOE design
+        better agent interactions. The sub-agent prompt patterns (Plan/Explore/Task)
+        are directly relevant to FOE workflow design.
+    delta_status: new
+    relevance: high
+
+  - id: github-042
+    type: repo
+    name: agent-skills
+    owner: addyosmani
+    url: https://github.com/addyosmani/agent-skills
+    stars: 6360
+    last_updated: 04-07-26
+    summary: >
+      Production-grade engineering skills for AI coding agents by Addy Osmani
+      (Google Chrome team). Focus on real engineering practices, not just prompts.
+    key_features:
+      - Production-grade skills
+      - Engineering best practices
+      - By Addy Osmani
+    topics:
+      - agent-skills
+      - engineering
+      - best-practices
+    foe_relevance:
+      type: observation_candidate
+      guides:
+        - using-ai-agents
+      notes: >
+        Addy Osmani's engineering-focused skills validate FOE's approach of
+        encoding real engineering practices (not just prompts) as agent guidance.
+    delta_status: new
+    relevance: high
+
+  - id: github-043
+    type: repo
+    name: cmux
+    owner: manaflow-ai
+    url: https://github.com/manaflow-ai/cmux
+    stars: 12913
+    last_updated: 04-07-26
+    summary: >
+      Ghostty-based macOS terminal with vertical tabs and notifications for AI
+      coding agents. Purpose-built terminal for the agentic coding workflow.
+    key_features:
+      - Purpose-built for AI agents
+      - Ghostty-based terminal
+      - Vertical tabs for agent sessions
+      - Agent notifications
+    topics:
+      - terminal
+      - developer-tools
+      - agent-ux
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        Purpose-built terminals for agent work signal the maturation of
+        agentic coding as a distinct workflow requiring specialized tooling.
+    delta_status: new
+    relevance: medium
+
+  - id: github-044
+    type: repo
+    name: cc-connect
+    owner: chenhg5
+    url: https://github.com/chenhg5/cc-connect
+    stars: 4412
+    last_updated: 04-07-26
+    summary: >
+      Bridge local AI coding agents (Claude Code, Cursor, Gemini CLI, Codex) to
+      messaging platforms (Feishu/Lark, DingTalk, Slack, Telegram, Discord, LINE,
+      WeChat Work). Chat with your AI dev assistant from anywhere.
+    key_features:
+      - Agent-to-messaging bridge
+      - Multi-platform support
+      - No public IP required
+    topics:
+      - agent-bridge
+      - messaging
+      - remote-access
+    foe_relevance:
+      type: informational
+      guides:
+        - using-ai-agents
+      notes: >
+        Agents accessible via messaging platforms. Interesting for team
+        collaboration patterns where agents report status via Slack/Teams.
+    delta_status: new
+    relevance: low
+
+  - id: github-045
+    type: repo
+    name: arrakis
+    owner: abshkbh
+    url: https://github.com/abshkbh/arrakis
+    stars: 796
+    last_updated: 04-06-26
+    summary: >
+      Self-hosted sandboxing solution for AI agent code execution and computer use.
+      Features backtracking, REST API, Python SDK, automatic port forwarding, and
+      secure MicroVM isolation.
+    key_features:
+      - MicroVM isolation for agents
+      - Backtracking support
+      - REST API and Python SDK
+      - Self-hosted
+    topics:
+      - sandboxing
+      - security
+      - agent-execution
+    foe_relevance:
+      type: method_candidate
+      guides:
+        - agentic-coding
+      notes: >
+        Agent sandboxing with backtracking is directly relevant to FOE's
+        confidence optimization. Backtracking enables safe experimentation.
+    delta_status: new
+    relevance: medium
+
+  - id: github-046
+    type: repo
+    name: claude-reflect
+    owner: BayramAnnakov
+    url: https://github.com/BayramAnnakov/claude-reflect
+    stars: 881
+    last_updated: 04-07-26
+    summary: >
+      Self-learning system for Claude Code that captures corrections, positive
+      feedback, and preferences — then syncs them to CLAUDE.md and AGENTS.md.
+      Agents that learn from their mistakes.
+    key_features:
+      - Correction capture
+      - Preference learning
+      - Auto-sync to CLAUDE.md/AGENTS.md
+      - Self-improving agent behavior
+    topics:
+      - self-learning
+      - agent-improvement
+      - feedback-loop
+    foe_relevance:
+      type: method_candidate
+      guides:
+        - agentic-coding
+      notes: >
+        Self-learning agents that improve from corrections. Directly relevant
+        to FOE's "optimize for fast feedback" principle. The feedback loop
+        from human corrections to agent behavior is a key pattern.
+    delta_status: new
+    relevance: high
+
+  - id: github-047
+    type: repo
+    name: CodeMachine-CLI
+    owner: moazbuilds
+    url: https://github.com/moazbuilds/CodeMachine-CLI
+    stars: 2420
+    last_updated: 04-07-26
+    summary: >
+      Open-source tool that orchestrates AI coding agents into repeatable,
+      long-running workflows. Addresses the "one-shot prompt" limitation
+      of current agent tools.
+    key_features:
+      - Repeatable agent workflows
+      - Long-running orchestration
+      - Open source
+    topics:
+      - orchestration
+      - workflows
+      - long-running
+    foe_relevance:
+      type: method_candidate
+      guides:
+        - agentic-coding
+      notes: >
+        Repeatable agent workflows align with FOE's emphasis on reproducible
+        engineering practices. Moving beyond one-shot to orchestrated workflows.
+    delta_status: new
+    relevance: medium
+
+  - id: github-048
+    type: repo
+    name: agentic_coding_flywheel_setup
+    owner: Dicklesworthstone
+    url: https://github.com/Dicklesworthstone/agentic_coding_flywheel_setup
+    stars: 1372
+    last_updated: 04-07-26
+    summary: >
+      Bootstraps a fresh Ubuntu VPS into a complete multi-agent AI development
+      environment in 30 minutes. Includes coding agents, session management,
+      safety tools, and coordination infrastructure.
+    key_features:
+      - Full environment bootstrap
+      - Multi-agent setup
+      - Safety tools included
+      - Coordination infrastructure
+    topics:
+      - infrastructure
+      - multi-agent
+      - setup-automation
+    foe_relevance:
+      type: informational
+      guides:
+        - agentic-coding
+      notes: >
+        Infrastructure-as-code for agent environments. The "flywheel" metaphor
+        suggests self-reinforcing agent productivity loops.
+    delta_status: new
+    relevance: medium

@@ -1,0 +1,1212 @@
+---
+# Skills.sh Survey for FOE Adaptation
+# Crawl Date: 2026-04-06
+# Focus: Deployment/CI-CD, code review/testing, documentation, architecture,
+#         agentic workflows, observation/method creation support
+# Previous survey: 2026-03-14 (referenced for delta analysis)
+
+source: skills.sh
+crawl_date: "2026-04-06"
+url_base: "https://skills.sh"
+skills_found: 22
+skills_relevant: 18
+errors:
+  - "Playwright browser launch failed (Chrome session conflict) - fell back to defuddle CLI + webfetch"
+
+# ============================================
+# PLATFORM OVERVIEW
+# ============================================
+
+platform_stats:
+  total_skills: 91575  # from "All Time (91,575)" leaderboard label
+  previous_total: 88456  # Mar 14
+  growth: 3119
+  growth_pct: "3.5%"
+  growth_period_days: 23
+  daily_growth_rate: ~136
+  note: |
+    Growth rate has decelerated significantly from ~900/day (Feb-Mar) to ~136/day.
+    This suggests the platform is maturing past its initial explosion phase.
+    Quality may be improving as the novelty install wave subsides.
+
+  agent_platforms: 19
+  previous_platforms: 18
+  new_platforms_since_mar14:
+    - "Nous Research - NEW"
+  platforms_list:
+    - AMP (ampcode.com)
+    - Antigravity (Google)
+    - Claude Code
+    - ClawdBot
+    - Cline
+    - Codex (OpenAI)
+    - Cursor
+    - Droid (Factory AI)
+    - Gemini (Google)
+    - GitHub Copilot
+    - Goose (Block)
+    - Kilo
+    - Kiro CLI (AWS)
+    - Nous Research
+    - OpenCode
+    - Roo
+    - Trae
+    - VSCode
+    - Windsurf (Codeium)
+
+  leaderboard_views:
+    - "All Time (91,575)"
+    - "Trending (24h)"
+    - "Hot"
+
+  audit_section:
+    url: "https://skills.sh/audits"
+    note: "Dedicated /audits page now exists - security auditing is first-class"
+
+  official_section:
+    url: "https://skills.sh/official"
+    note: "New /official page for vendor-verified skills"
+
+# ============================================
+# TOP SKILLS LEADERBOARD SNAPSHOT
+# ============================================
+
+top_skills_snapshot:
+  - rank: 1
+    name: find-skills
+    repo: vercel-labs/skills
+    installs: 774.9K
+    previous: 544.9K
+    growth_pct: "42.2%"
+
+  - rank: 2
+    name: vercel-react-best-practices
+    repo: vercel-labs/agent-skills
+    installs: 261.1K
+
+  - rank: 3
+    name: frontend-design
+    repo: anthropics/skills
+    installs: 218.5K
+
+  - rank: 4
+    name: web-design-guidelines
+    repo: vercel-labs/agent-skills
+    installs: 210.6K
+
+  - rank: 5
+    name: remotion-best-practices
+    repo: remotion-dev/skills
+    installs: 187.3K
+
+  - rank: 6
+    name: azure-ai
+    repo: microsoft/github-copilot-for-azure
+    installs: 146.5K
+    collection_total: "2.3M (15+ skills)"
+
+# ============================================
+# FOE-RELEVANT FINDINGS
+# ============================================
+
+findings:
+
+  # ------------------------------------------
+  # CATEGORY 1: AGENTIC WORKFLOWS & ORCHESTRATION
+  # ------------------------------------------
+
+  - id: skillssh-001
+    name: subagent-driven-development
+    url: "https://skills.sh/obra/superpowers/subagent-driven-development"
+    repo: obra/superpowers
+    installs: 30.6K
+    previous: 19.0K
+    growth_pct: "61.1%"
+    github_stars: 137.4K
+    first_seen: "2026-01-19"
+    description: |
+      Dispatch fresh subagents per task with two-stage review (spec compliance,
+      then code quality) in the current session. Isolates each task to a dedicated
+      subagent with precisely crafted context, preventing context pollution.
+      Handles implementer status signals (DONE, DONE_WITH_CONCERNS, NEEDS_CONTEXT,
+      BLOCKED) with appropriate escalation. Recommends model selection by task
+      complexity.
+    author: obra/superpowers (Jesse Vincent)
+    adaptation_analysis:
+      foe_fit: very-high
+      target_guides:
+        - incremental-development
+        - continuous-feedback
+        - ai-native-development
+      current_functionality: |
+        Complete agentic development lifecycle with task isolation, two-stage
+        review gates, and model selection guidance. The two-stage review
+        (spec compliance THEN code quality) is a sophisticated feedback loop.
+      modifications_needed:
+        - "Add FOE observation capture hooks after each review cycle"
+        - "Integrate method maturity tracking into task completion signals"
+        - "Add observation-signal detection to reviewer prompts"
+        - "Map DONE_WITH_CONCERNS to observation opportunity triggers"
+        - "Add sustainable-pace checks (task count per session limits)"
+      effort_estimate: medium
+      potential_value: |
+        Could become the backbone of FOE's ai-native-development workflow.
+        The two-stage review pattern directly embodies continuous-feedback.
+        Task isolation prevents context pollution - a key FOE principle.
+    topics:
+      - agentic-workflow
+      - subagent-orchestration
+      - code-review
+      - task-isolation
+      - feedback-loops
+    relevance: very-high
+
+  - id: skillssh-002
+    name: dispatching-parallel-agents
+    url: "https://skills.sh/obra/superpowers/dispatching-parallel-agents"
+    repo: obra/superpowers
+    installs: 26.6K
+    previous: 16.2K
+    growth_pct: "64.2%"
+    github_stars: 137.4K
+    description: |
+      Delegate independent tasks to specialized agents working concurrently
+      with isolated context. One agent per problem domain when facing 3+
+      unrelated failures. Agents work in parallel on independent investigations,
+      then you review summaries and integrate non-conflicting fixes.
+    author: obra/superpowers
+    adaptation_analysis:
+      foe_fit: high
+      target_guides:
+        - ai-native-development
+        - continuous-feedback
+      current_functionality: |
+        Parallel agent dispatch for independent problem domains. Includes
+        verification step after integration. Real-world example shows
+        6 failures across 3 files resolved concurrently with zero conflicts.
+      modifications_needed:
+        - "Add parallel observation mining across multiple repos"
+        - "Adapt for parallel field guide validation tasks"
+        - "Add FOE-specific agent prompt templates for observation work"
+        - "Integrate with Katalyst taxonomy for parallel layer analysis"
+      effort_estimate: low
+      potential_value: |
+        Directly applicable to FOE's multi-repo observation mining.
+        Could parallelize field guide linting, observation validation,
+        and method maturity scoring across guides simultaneously.
+    topics:
+      - parallel-execution
+      - agent-orchestration
+      - independent-tasks
+    relevance: high
+
+  - id: skillssh-003
+    name: self-improving-agent
+    url: "https://skills.sh/charon-fan/agent-playbook/self-improving-agent"
+    repo: charon-fan/agent-playbook
+    installs: 19.8K
+    github_stars: 27
+    first_seen: "2026-01-22"
+    description: |
+      Universal self-improving agent with multi-memory architecture (semantic,
+      episodic, working memory). Auto-triggers on skill completion, errors,
+      and session events via hooks. Extracts patterns, abstracts insights,
+      and continuously evolves skill guidance. Includes confidence tracking,
+      self-correction with traceable evolution markers, and validation workflows.
+    author: charon-fan
+    adaptation_analysis:
+      foe_fit: very-high
+      target_guides:
+        - continuous-feedback
+        - living-documentation
+        - ai-native-development
+      current_functionality: |
+        Implements a complete learning loop: experience extraction -> pattern
+        abstraction -> skill updates -> memory consolidation. Uses semantic
+        memory for reusable patterns, episodic memory for specific experiences,
+        and working memory for session context. Self-correction detects and
+        fixes inaccurate guidance with traceable markers.
+      modifications_needed:
+        - "Map semantic memory patterns to FOE observations"
+        - "Map episodic memory to FOE method evidence"
+        - "Add observation-creation triggers when patterns reach confidence threshold"
+        - "Integrate evolution markers with FOE method maturity levels"
+        - "Add field guide as target for pattern consolidation"
+        - "Replace generic skill categories with FOE field guide categories"
+      effort_estimate: high
+      potential_value: |
+        This is the most conceptually aligned skill to FOE's core philosophy.
+        FOE IS a self-improving system - observations feed methods, methods
+        mature through evidence. This skill's memory architecture could
+        automate the observation-to-method pipeline. The confidence tracking
+        maps directly to method maturity levels (Emerging -> Established ->
+        Validated). High effort but transformative potential.
+    topics:
+      - self-improvement
+      - memory-architecture
+      - pattern-extraction
+      - continuous-learning
+      - feedback-loops
+    relevance: very-high
+
+  - id: skillssh-004
+    name: skill-creator
+    url: "https://skills.sh/anthropics/skills/skill-creator"
+    repo: anthropics/skills
+    installs: 115.6K
+    github_stars: 111.6K
+    first_seen: "2026-01-19"
+    description: |
+      Full skill development lifecycle: intent capture, drafting, test case
+      creation, evaluation, and iteration. Runs parallel test cases with and
+      without the skill to measure impact. Generates interactive browser-based
+      reviewer. Includes description optimization for triggering accuracy.
+    author: Anthropic
+    adaptation_analysis:
+      foe_fit: high
+      target_guides:
+        - ai-native-development
+        - continuous-feedback
+      current_functionality: |
+        Complete skill authoring workflow with TDD-like evaluation loop.
+        The "run with skill vs without skill" comparison is a rigorous
+        A/B testing methodology. Description optimization tests 20
+        trigger/non-trigger queries across 5 iterations.
+      modifications_needed:
+        - "Adapt evaluation framework for FOE skill creation"
+        - "Add FOE-specific test scenarios (observation creation, method linking)"
+        - "Integrate with field-guide-linter for validation"
+        - "Add FOE frontmatter schema awareness to skill templates"
+      effort_estimate: medium
+      potential_value: |
+        Essential for creating new FOE skills with quality gates.
+        The evaluation framework could validate that FOE skills
+        actually improve observation quality and method accuracy.
+    topics:
+      - skill-creation
+      - evaluation
+      - testing
+      - iteration
+    relevance: high
+
+  # ------------------------------------------
+  # CATEGORY 2: CODE REVIEW & TESTING
+  # ------------------------------------------
+
+  - id: skillssh-005
+    name: test-driven-development
+    url: "https://skills.sh/obra/superpowers/test-driven-development"
+    repo: obra/superpowers
+    installs: 37.1K
+    previous: 24.6K
+    growth_pct: "50.8%"
+    github_stars: 137.4K
+    description: |
+      Strict red-green-refactor TDD enforcement. "NO PRODUCTION CODE WITHOUT
+      A FAILING TEST FIRST." Includes comprehensive rationalization prevention
+      table, red flags checklist, and verification requirements. Covers common
+      excuses with concrete rebuttals.
+    author: obra/superpowers
+    adaptation_analysis:
+      foe_fit: very-high
+      target_guides:
+        - continuous-feedback
+        - incremental-development
+      current_functionality: |
+        Iron-law TDD enforcement with anti-rationalization safeguards.
+        The rationalization table is a masterclass in closing cognitive
+        loopholes. Verification checklist ensures every claim is backed
+        by evidence.
+      modifications_needed:
+        - "Already well-aligned with FOE principles"
+        - "Add observation template for TDD adoption metrics"
+        - "Link to FOE method: test-first-development"
+        - "Add FOE-specific red flags for observation/method file changes"
+      effort_estimate: low
+      potential_value: |
+        Near-direct adoption. TDD IS continuous feedback at the code level.
+        The rationalization prevention pattern could be adapted for
+        observation quality enforcement.
+    topics:
+      - tdd
+      - testing
+      - feedback-loops
+      - discipline
+    relevance: very-high
+
+  - id: skillssh-006
+    name: requesting-code-review
+    url: "https://skills.sh/obra/superpowers/requesting-code-review"
+    repo: obra/superpowers
+    installs: 35.5K
+    previous: 22.6K
+    growth_pct: "57.1%"
+    description: |
+      Dispatch code-reviewer subagent with focused context. Provides reviewer
+      with precise git SHAs, implementation details, and requirements.
+      Categorizes feedback into Critical/Important/Minor severity levels.
+      Integrates with subagent-driven development workflows.
+    author: obra/superpowers
+    adaptation_analysis:
+      foe_fit: high
+      target_guides:
+        - continuous-feedback
+        - incremental-development
+      current_functionality: |
+        Structured code review dispatch with severity categorization.
+        The "review after each task" pattern embodies continuous feedback.
+      modifications_needed:
+        - "Add FOE observation review criteria to reviewer prompts"
+        - "Include method-linkage validation in review checklist"
+        - "Add frontmatter schema compliance to review scope"
+        - "Integrate observation-signal detection into review"
+      effort_estimate: low
+      potential_value: |
+        Could extend to review observation files and method definitions,
+        not just code. The severity categorization maps well to
+        observation confidence levels.
+    topics:
+      - code-review
+      - feedback
+      - quality-gates
+    relevance: high
+
+  - id: skillssh-007
+    name: receiving-code-review
+    url: "https://skills.sh/obra/superpowers/receiving-code-review"
+    repo: obra/superpowers
+    installs: 28.5K
+    previous: 17.7K
+    growth_pct: "61.0%"
+    description: |
+      Evaluate code review feedback with technical rigor before implementing.
+      Avoid performative agreement and blind implementation. Verify feedback
+      against actual codebase behavior. Push back on suggestions that break
+      functionality or violate YAGNI.
+    author: obra/superpowers
+    adaptation_analysis:
+      foe_fit: high
+      target_guides:
+        - continuous-feedback
+        - sustainable-pace
+      current_functionality: |
+        Technical evaluation framework for processing review feedback.
+        The YAGNI check and pushback guidance prevent scope creep.
+        "Actions speak. Just fix it." - evidence over ceremony.
+      modifications_needed:
+        - "Adapt for processing observation review feedback"
+        - "Add FOE-specific YAGNI criteria for method scope"
+        - "Include method maturity context in pushback reasoning"
+      effort_estimate: low
+      potential_value: |
+        Directly applicable to FOE's review culture. The anti-performative
+        stance ("no gratitude expressions, just fix it") aligns with
+        FOE's evidence-over-ceremony philosophy.
+    topics:
+      - code-review
+      - feedback-processing
+      - technical-rigor
+    relevance: high
+
+  - id: skillssh-008
+    name: verification-before-completion
+    url: "https://skills.sh/obra/superpowers/verification-before-completion"
+    repo: obra/superpowers
+    installs: 28.7K
+    previous: 17.8K
+    growth_pct: "61.2%"
+    description: |
+      "Claiming work is complete without verification is dishonesty, not
+      efficiency." Iron law: NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION
+      EVIDENCE. Five-step gate function: identify proof command, run it fresh,
+      read full output, verify claim matches evidence, state result with
+      evidence attached.
+    author: obra/superpowers (originally from cloudflare/workerd)
+    adaptation_analysis:
+      foe_fit: very-high
+      target_guides:
+        - continuous-feedback
+        - incremental-development
+      current_functionality: |
+        Evidence-before-claims enforcement. The gate function is a
+        verification protocol that prevents false completion signals.
+        Rationalization prevention table blocks cognitive shortcuts.
+      modifications_needed:
+        - "Already deeply aligned with FOE 'build confidence through evidence'"
+        - "Add observation verification gate (lint, link check, frontmatter)"
+        - "Add method maturity verification before claiming level changes"
+        - "Integrate with field-guide-linter as verification command"
+      effort_estimate: low
+      potential_value: |
+        The single most FOE-aligned skill in the ecosystem (confirmed from
+        Mar 14 survey). "Evidence before claims" IS FOE's core principle.
+        Could gate all observation and method file changes.
+    topics:
+      - verification
+      - evidence
+      - completion-gates
+      - discipline
+    relevance: very-high
+
+  - id: skillssh-009
+    name: systematic-debugging
+    url: "https://skills.sh/obra/superpowers/systematic-debugging"
+    repo: obra/superpowers
+    installs: 44.2K
+    previous: 29.8K
+    growth_pct: "48.3%"
+    description: |
+      Four-phase debugging: root cause investigation, pattern analysis,
+      hypothesis testing, implementation with mandatory test cases.
+      Requires completing Phase 1 before proposing fixes. Enforces
+      stopping after three failed attempts to question architecture.
+    author: obra/superpowers
+    adaptation_analysis:
+      foe_fit: high
+      target_guides:
+        - continuous-feedback
+        - incremental-development
+      current_functionality: |
+        Evidence-based debugging methodology. The "3 failed fixes = question
+        architecture" rule prevents thrashing. Multi-component diagnostic
+        instrumentation guidance is sophisticated.
+      modifications_needed:
+        - "Adapt Phase 2 (Pattern Analysis) for observation pattern matching"
+        - "Add FOE method references as 'working examples' in Phase 2"
+        - "Create observation template for debugging insights"
+      effort_estimate: low
+      potential_value: |
+        The systematic approach generates natural observation opportunities.
+        Every debugging session that reveals a pattern is a potential
+        FOE observation. The 4-phase structure could template observation
+        evidence gathering.
+    topics:
+      - debugging
+      - root-cause-analysis
+      - evidence-gathering
+    relevance: high
+
+  - id: skillssh-010
+    name: webapp-testing
+    url: "https://skills.sh/anthropics/skills/webapp-testing"
+    repo: anthropics/skills
+    installs: 35.8K
+    github_stars: 111.6K
+    description: |
+      Native Python Playwright scripts for testing local web applications.
+      Includes with_server.py helper for server lifecycle management.
+      Supports reconnaissance-then-action workflow: screenshot/inspect DOM,
+      identify selectors, then execute actions.
+    author: Anthropic
+    adaptation_analysis:
+      foe_fit: medium
+      target_guides:
+        - continuous-feedback
+      current_functionality: |
+        Automated web application testing with server management.
+        The reconnaissance-then-action pattern is methodical.
+      modifications_needed:
+        - "Adapt for FOE documentation site testing"
+        - "Add visual regression tests for field guide rendering"
+        - "Create test fixtures for observation/method page validation"
+      effort_estimate: medium
+      potential_value: |
+        Could automate testing of FOE's Astro documentation site.
+        Useful for validating that observation and method pages
+        render correctly after changes.
+    topics:
+      - web-testing
+      - playwright
+      - automation
+    relevance: medium
+
+  - id: skillssh-011
+    name: playwright-best-practices
+    url: "https://skills.sh/currents-dev/playwright-best-practices-skill/playwright-best-practices"
+    repo: currents-dev/playwright-best-practices-skill
+    installs: 17.7K
+    github_stars: 181
+    first_seen: "2026-01-29"
+    description: |
+      Comprehensive Playwright reference covering 50+ testing patterns.
+      Includes E2E, component, API, visual regression, accessibility,
+      security, and mobile testing. Activity-based lookup tables and
+      decision trees for test architecture choices.
+    author: currents-dev
+    adaptation_analysis:
+      foe_fit: medium
+      target_guides:
+        - continuous-feedback
+      current_functionality: |
+        Encyclopedic Playwright testing reference. The activity-based
+        lookup table pattern is excellent for skill discoverability.
+      modifications_needed:
+        - "Extract the activity-based lookup table pattern for FOE skills"
+        - "Adapt CI/CD pipeline patterns for FOE documentation builds"
+        - "Use as reference for FOE site E2E testing"
+      effort_estimate: medium
+      potential_value: |
+        The activity-based lookup table pattern is worth adopting for
+        FOE skill organization. The CI/CD integration patterns could
+        inform FOE's documentation pipeline.
+    topics:
+      - testing
+      - playwright
+      - ci-cd
+      - best-practices
+    relevance: medium
+
+  # ------------------------------------------
+  # CATEGORY 3: DOCUMENTATION & WRITING
+  # ------------------------------------------
+
+  - id: skillssh-012
+    name: doc-coauthoring
+    url: "https://skills.sh/anthropics/skills/doc-coauthoring"
+    repo: anthropics/skills
+    installs: 21.0K
+    github_stars: 111.6K
+    first_seen: "2026-01-20"
+    description: |
+      Structured workflow for collaboratively authoring documentation.
+      Three stages: Context Gathering (closing knowledge gaps), Refinement
+      & Structure (building sections iteratively), and Reader Testing
+      (validating with fresh reader via sub-agents). Supports integration
+      with shared documents and team channels.
+    author: Anthropic
+    adaptation_analysis:
+      foe_fit: high
+      target_guides:
+        - living-documentation
+        - continuous-feedback
+      current_functionality: |
+        Complete documentation co-authoring workflow with reader testing.
+        The "Reader Testing" stage (test doc with fresh Claude instance)
+        is a brilliant feedback mechanism - validates documentation
+        actually works for readers who lack author context.
+      modifications_needed:
+        - "Adapt Context Gathering for observation evidence collection"
+        - "Map Refinement stages to observation/method file structure"
+        - "Use Reader Testing to validate observation clarity"
+        - "Add FOE frontmatter schema to document templates"
+        - "Integrate with field-guide-linter for validation"
+      effort_estimate: medium
+      potential_value: |
+        The Reader Testing pattern is directly applicable to FOE.
+        Observations should be understandable by someone without
+        the author's context - this skill enforces that. Could
+        transform how we validate observation quality.
+    topics:
+      - documentation
+      - co-authoring
+      - reader-testing
+      - feedback-loops
+    relevance: high
+
+  - id: skillssh-013
+    name: writing-plans
+    url: "https://skills.sh/obra/superpowers/writing-plans"
+    repo: obra/superpowers
+    installs: 47.8K
+    previous: 27.8K
+    growth_pct: "71.9%"
+    description: |
+      Comprehensive implementation plans breaking specs into bite-sized,
+      testable steps (2-5 minutes each). Maps file structure upfront.
+      Includes exact file paths, complete code samples, specific commands
+      with expected outputs. Requires plan review via subagent before
+      execution. No placeholders allowed.
+    author: obra/superpowers
+    adaptation_analysis:
+      foe_fit: high
+      target_guides:
+        - incremental-development
+        - living-documentation
+      current_functionality: |
+        Detailed implementation planning with "no placeholders" rule.
+        The bite-sized task granularity (2-5 min each) enforces
+        incremental development. Self-review checklist catches gaps.
+      modifications_needed:
+        - "Create FOE-specific plan templates for observation creation"
+        - "Add method-linking steps to plan structure"
+        - "Include field-guide-linter validation as plan verification step"
+        - "Add observation evidence gathering as explicit plan tasks"
+      effort_estimate: low
+      potential_value: |
+        The "no placeholders" rule and bite-sized task pattern are
+        directly applicable to FOE method creation workflows.
+        Could template the observation-to-method pipeline.
+    topics:
+      - planning
+      - incremental-development
+      - task-decomposition
+    relevance: high
+
+  - id: skillssh-014
+    name: writing-skills
+    url: "https://skills.sh/obra/superpowers/writing-skills"
+    repo: obra/superpowers
+    installs: 27.8K
+    previous: 16.9K
+    growth_pct: "64.5%"
+    description: |
+      TDD applied to documentation. Write failing test scenarios first
+      (baseline agent behavior), then write minimal skill to address
+      violations. Skills must include YAML frontmatter, overview, core
+      patterns, quick reference, and common mistakes. Description field
+      must start with "Use when..." and list only triggering conditions.
+    author: obra/superpowers
+    adaptation_analysis:
+      foe_fit: high
+      target_guides:
+        - ai-native-development
+        - living-documentation
+      current_functionality: |
+        Complete skill authoring methodology with TDD discipline.
+        The "description = when to use, NOT what it does" insight
+        prevents Claude from shortcutting skill content. Token
+        efficiency guidelines (<150 words for getting-started,
+        <200 for frequently-loaded) are practical.
+      modifications_needed:
+        - "Adapt TDD-for-docs approach to observation file creation"
+        - "Use the CSO (Claude Search Optimization) patterns for FOE skill discovery"
+        - "Apply rationalization table pattern to observation quality enforcement"
+        - "Adopt token efficiency guidelines for FOE skill design"
+      effort_estimate: low
+      potential_value: |
+        The meta-insight that "TDD applies to documentation" is
+        profound for FOE. Observations ARE documentation that should
+        be tested. The CSO patterns could improve FOE skill triggering.
+    topics:
+      - skill-creation
+      - tdd-for-docs
+      - documentation
+      - meta-skills
+    relevance: high
+
+  # ------------------------------------------
+  # CATEGORY 4: ARCHITECTURE & DESIGN
+  # ------------------------------------------
+
+  - id: skillssh-015
+    name: brainstorming
+    url: "https://skills.sh/obra/superpowers/brainstorming"
+    repo: obra/superpowers
+    installs: 79.9K
+    previous: 54.3K
+    growth_pct: "47.1%"
+    description: |
+      Structured design dialogue that validates ideas before implementation.
+      Hard gate: no code until design is presented and approved. Nine
+      sequential steps from context exploration through spec documentation.
+      Includes visual companion for mockups and diagrams. Terminates by
+      invoking writing-plans skill.
+    author: obra/superpowers
+    adaptation_analysis:
+      foe_fit: high
+      target_guides:
+        - incremental-development
+        - living-documentation
+      current_functionality: |
+        Design-before-code enforcement with spec review loop.
+        "Every project goes through this process" - even simple ones.
+        The anti-pattern section ("This Is Too Simple To Need A Design")
+        prevents skipping design for "obvious" work.
+      modifications_needed:
+        - "Adapt for observation hypothesis design before evidence gathering"
+        - "Add FOE method design template to spec output"
+        - "Include field guide placement decision in design flow"
+        - "Add observation-signal assessment to context exploration"
+      effort_estimate: medium
+      potential_value: |
+        The "design before implementation" gate could enforce
+        observation hypothesis formation before evidence gathering.
+        Prevents the FOE anti-pattern of collecting evidence without
+        a clear question to answer.
+    topics:
+      - design
+      - brainstorming
+      - spec-writing
+      - design-gates
+    relevance: high
+
+  - id: skillssh-016
+    name: api-design-principles
+    url: "https://skills.sh/wshobson/agents/api-design-principles"
+    repo: wshobson/agents
+    installs: 13.2K
+    github_stars: 33.1K
+    description: |
+      REST and GraphQL API design principles. Covers resource-oriented
+      patterns, HTTP method semantics, pagination, filtering, error
+      handling, versioning strategies, and HATEOAS. Includes GraphQL
+      schema-first development with DataLoader for N+1 prevention.
+    author: wshobson
+    adaptation_analysis:
+      foe_fit: low
+      target_guides:
+        - incremental-development
+      current_functionality: |
+        Comprehensive API design reference. Well-structured with
+        patterns, anti-patterns, and code examples.
+      modifications_needed:
+        - "Limited direct FOE applicability"
+        - "Could inform Katalyst taxonomy API design"
+        - "Pagination patterns useful for field guide querying"
+      effort_estimate: high
+      potential_value: |
+        Tangentially related. Useful if FOE builds API-driven tooling
+        but not directly applicable to observation/method workflows.
+    topics:
+      - api-design
+      - rest
+      - graphql
+    relevance: low
+
+  # ------------------------------------------
+  # CATEGORY 5: CI/CD & DEPLOYMENT
+  # ------------------------------------------
+
+  - id: skillssh-017
+    name: github-actions-docs
+    url: "https://skills.sh/xixu-me/skills/github-actions-docs"
+    repo: xixu-me/skills
+    installs: 22.7K
+    github_stars: 24
+    first_seen: "10 days ago"
+    description: |
+      Grounds GitHub Actions answers in official documentation rather than
+      stale memory. Classifies requests into buckets (workflow authoring,
+      runners, security, deployments, migration, etc.) and searches
+      docs.github.com as source of truth before answering.
+    author: xixu-me
+    adaptation_analysis:
+      foe_fit: medium
+      target_guides:
+        - continuous-feedback
+        - ai-native-development
+      current_functionality: |
+        Documentation-grounded GitHub Actions guidance. The "search
+        official docs first" pattern prevents hallucinated CI/CD advice.
+        Topic map provides structured navigation.
+      modifications_needed:
+        - "Adapt docs-grounding pattern for FOE documentation queries"
+        - "Create FOE-specific topic map for field guide navigation"
+        - "Use as template for Katalyst CI/CD documentation skill"
+      effort_estimate: low
+      potential_value: |
+        The docs-grounding pattern is valuable for any FOE skill that
+        needs to reference authoritative sources. Could template how
+        FOE skills reference field guide content.
+    topics:
+      - github-actions
+      - ci-cd
+      - documentation-grounding
+    relevance: medium
+
+  - id: skillssh-018
+    name: finishing-a-development-branch
+    url: "https://skills.sh/obra/superpowers/finishing-a-development-branch"
+    repo: obra/superpowers
+    installs: 24.8K
+    previous: 15.1K
+    growth_pct: "64.2%"
+    description: |
+      Structured workflow for completing development branches. Verifies
+      all tests pass before presenting integration options. Four choices:
+      merge locally, create PR, keep branch, or discard with confirmation.
+      Includes worktree cleanup.
+    author: obra/superpowers
+    adaptation_analysis:
+      foe_fit: medium
+      target_guides:
+        - incremental-development
+        - continuous-feedback
+      current_functionality: |
+        Branch completion checklist with test verification gate.
+        The structured options prevent ambiguous "what now?" moments.
+      modifications_needed:
+        - "Add field-guide-linter as pre-merge verification step"
+        - "Include observation/method file validation in test suite"
+        - "Add PR template with FOE change categories"
+      effort_estimate: low
+      potential_value: |
+        Useful for FOE development workflow. The test-before-merge
+        gate could include field guide validation.
+    topics:
+      - git-workflow
+      - branch-management
+      - completion-gates
+    relevance: medium
+
+  - id: skillssh-019
+    name: mcp-builder
+    url: "https://skills.sh/anthropics/skills/mcp-builder"
+    repo: anthropics/skills
+    installs: 29.3K
+    github_stars: 111.6K
+    description: |
+      Comprehensive guide for building MCP servers. Four-phase workflow:
+      research, implementation, testing, evaluation. Emphasizes API
+      coverage over workflow tools, clear tool naming, and actionable
+      error messages. Includes evaluation framework requiring 10
+      independent questions with verifiable answers.
+    author: Anthropic
+    adaptation_analysis:
+      foe_fit: medium
+      target_guides:
+        - ai-native-development
+      current_functionality: |
+        Complete MCP server development guide. The evaluation framework
+        (10 complex questions with verifiable answers) is a rigorous
+        quality gate.
+      modifications_needed:
+        - "Use to build FOE-specific MCP servers (observation query, method lookup)"
+        - "Adapt evaluation framework for FOE tool validation"
+        - "Create MCP server for field guide operations"
+      effort_estimate: high
+      potential_value: |
+        Could enable building MCP servers that expose FOE field guide
+        operations to any agent platform. The evaluation framework
+        ensures quality.
+    topics:
+      - mcp
+      - tool-building
+      - evaluation
+    relevance: medium
+
+  # ------------------------------------------
+  # CATEGORY 6: WORKFLOW INFRASTRUCTURE
+  # ------------------------------------------
+
+  - id: skillssh-020
+    name: executing-plans
+    url: "https://skills.sh/obra/superpowers/executing-plans"
+    repo: obra/superpowers
+    installs: 35.1K
+    previous: 23.2K
+    growth_pct: "51.3%"
+    description: |
+      Execute a written implementation plan with critical review and task
+      checkpoints. Requires loading and critically reviewing the plan
+      before execution. Stops immediately on blockers rather than guessing.
+      Recommends subagent-driven-development as preferred alternative.
+    author: obra/superpowers
+    adaptation_analysis:
+      foe_fit: high
+      target_guides:
+        - incremental-development
+      current_functionality: |
+        Plan execution with blocker detection and escalation.
+        The "stop and ask rather than guess" principle prevents
+        cascading errors.
+      modifications_needed:
+        - "Add FOE-specific plan templates for observation workflows"
+        - "Include field-guide-linter as verification step"
+        - "Add observation capture hooks at task completion"
+      effort_estimate: low
+      potential_value: |
+        Direct execution engine for FOE implementation plans.
+        The blocker detection prevents wasted effort on
+        misunderstood observation requirements.
+    topics:
+      - plan-execution
+      - task-management
+      - blocker-detection
+    relevance: high
+
+  - id: skillssh-021
+    name: using-git-worktrees
+    url: "https://skills.sh/obra/superpowers/using-git-worktrees"
+    repo: obra/superpowers
+    installs: 26.8K
+    previous: 16.8K
+    growth_pct: "59.5%"
+    description: |
+      Isolated git worktrees with smart directory selection and safety
+      verification. Auto-detects project setup (npm, cargo, pip, go).
+      Runs baseline tests to ensure clean starting state. Integrates
+      with brainstorming and plan execution workflows.
+    author: obra/superpowers
+    adaptation_analysis:
+      foe_fit: medium
+      target_guides:
+        - incremental-development
+      current_functionality: |
+        Workspace isolation with baseline verification. The
+        "verify clean baseline before starting" pattern prevents
+        pre-existing issues from contaminating new work.
+      modifications_needed:
+        - "Add FOE project detection (field guides, observations)"
+        - "Include field-guide-linter in baseline verification"
+        - "Auto-detect FOE project structure for setup"
+      effort_estimate: low
+      potential_value: |
+        Useful infrastructure for FOE development. Clean baseline
+        verification prevents working on top of broken field guides.
+    topics:
+      - git-worktrees
+      - workspace-isolation
+      - baseline-verification
+    relevance: medium
+
+  - id: skillssh-022
+    name: expo-cicd-workflows
+    url: "https://skills.sh/expo/skills/expo-cicd-workflows"
+    repo: expo/skills
+    installs: 13.4K
+    github_stars: 1.6K
+    description: |
+      Write and validate EAS CI/CD workflow YAML files. Fetches latest
+      JSON schema from API to ensure current job types and parameters.
+      Supports dynamic expressions. Includes validation script that
+      checks workflow structure against schema.
+    author: Expo
+    adaptation_analysis:
+      foe_fit: low
+      target_guides:
+        - continuous-feedback
+      current_functionality: |
+        Schema-driven CI/CD workflow generation with validation.
+        The "fetch schema, validate against it" pattern is sound.
+      modifications_needed:
+        - "Extract the schema-driven validation pattern"
+        - "Apply to FOE frontmatter schema validation"
+        - "Adapt workflow YAML patterns for Katalyst CI/CD"
+      effort_estimate: high
+      potential_value: |
+        The schema-driven validation pattern is worth extracting.
+        Limited direct applicability but the approach of fetching
+        current schema before generating YAML is robust.
+    topics:
+      - ci-cd
+      - schema-validation
+      - workflow-generation
+    relevance: low
+
+# ============================================
+# OBRA/SUPERPOWERS COLLECTION ANALYSIS
+# ============================================
+
+obra_superpowers_update:
+  total_skills_tracked: 14
+  total_installs_estimated: 490000  # ~490K
+  previous_total: 324300  # Mar 14
+  growth: 165700
+  growth_pct: "51.1%"
+  github_stars: 137.4K
+  previous_stars: 81.8K
+  stars_growth_pct: "67.9%"
+
+  lifecycle_chain: |
+    The obra/superpowers collection now represents a complete, opinionated
+    agentic development lifecycle with clear skill chaining:
+
+    1. brainstorming (79.9K) → design before code
+    2. writing-plans (47.8K) → decompose into testable tasks
+    3. using-git-worktrees (26.8K) → isolate workspace
+    4. executing-plans (35.1K) OR subagent-driven-development (30.6K) → execute
+    5. test-driven-development (37.1K) → TDD for each task
+    6. systematic-debugging (44.2K) → when things break
+    7. dispatching-parallel-agents (26.6K) → parallelize independent work
+    8. requesting-code-review (35.5K) → get feedback
+    9. receiving-code-review (28.5K) → process feedback
+    10. verification-before-completion (28.7K) → prove it works
+    11. finishing-a-development-branch (24.8K) → merge/PR
+    12. writing-skills (27.8K) → capture learnings as skills
+
+    This chain maps remarkably well to FOE's field guide structure:
+    - Steps 1-3 = incremental-development (plan, isolate, decompose)
+    - Steps 4-7 = ai-native-development (agents, TDD, parallel work)
+    - Steps 8-10 = continuous-feedback (review, verify, evidence)
+    - Step 12 = living-documentation (capture learnings)
+
+  growth_analysis: |
+    The collection grew 51.1% in 23 days (Mar 14 → Apr 6), down from
+    121.4% in the prior period. Growth is decelerating but still strong.
+    GitHub stars nearly doubled (81.8K → 137.4K), suggesting the
+    collection is gaining recognition beyond just installs.
+
+    brainstorming remains the most-installed skill (79.9K), confirming
+    that "design before code" is the entry point to the workflow.
+    systematic-debugging (44.2K) overtook writing-plans (47.8K) as
+    the second most popular, suggesting debugging is a primary use case.
+
+# ============================================
+# CROSS-CUTTING PATTERNS & FOE INSIGHTS
+# ============================================
+
+cross_cutting_patterns:
+
+  evidence_over_ceremony:
+    description: |
+      Multiple skills enforce "evidence before claims" patterns:
+      - verification-before-completion: "NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE"
+      - test-driven-development: "If you didn't watch the test fail, you don't know if it tests the right thing"
+      - systematic-debugging: "ALWAYS find root cause before attempting fixes"
+      - receiving-code-review: "Actions speak. Just fix it."
+    foe_alignment: |
+      This is FOE's core principle expressed across different domains.
+      FOE should adopt these patterns wholesale for observation and
+      method quality enforcement.
+
+  rationalization_prevention:
+    description: |
+      obra/superpowers skills include comprehensive rationalization tables
+      that anticipate and counter cognitive shortcuts. Each table maps
+      common excuses to concrete rebuttals.
+    foe_alignment: |
+      FOE should adopt this pattern for observation quality. Common
+      rationalizations like "this observation is obvious" or "we don't
+      need evidence for this method" should have explicit counters.
+
+  feedback_loop_architecture:
+    description: |
+      The two-stage review pattern (spec compliance THEN code quality)
+      from subagent-driven-development creates layered feedback:
+      1. Does it match the spec? (correctness)
+      2. Is it well-built? (quality)
+      This prevents conflating "does it work?" with "is it good?"
+    foe_alignment: |
+      FOE observation review could adopt this two-stage pattern:
+      1. Does the observation match the evidence? (accuracy)
+      2. Is the observation well-written and actionable? (quality)
+
+  self_improvement_loop:
+    description: |
+      self-improving-agent implements a complete learning cycle:
+      experience → pattern → skill update → memory consolidation.
+      Confidence tracking determines when patterns become rules.
+    foe_alignment: |
+      This IS the FOE observation-to-method pipeline:
+      experience → observation → method → maturity level.
+      The confidence tracking maps to maturity levels
+      (Emerging → Established → Validated).
+
+  incremental_task_design:
+    description: |
+      writing-plans enforces 2-5 minute tasks with "no placeholders."
+      Each task is independently testable and committable.
+    foe_alignment: |
+      FOE's incremental-development guide should reference this
+      granularity standard. Observation creation could be decomposed
+      into similarly bite-sized steps.
+
+# ============================================
+# RECOMMENDATIONS
+# ============================================
+
+recommendations:
+
+  immediate_adoption:
+    description: "Skills that can be adopted with minimal modification"
+    skills:
+      - name: verification-before-completion
+        action: "Extend gate function to include field-guide-linter"
+        effort: low
+        impact: very-high
+
+      - name: test-driven-development
+        action: "Adopt as-is for FOE code; adapt rationalization table for observations"
+        effort: low
+        impact: very-high
+
+      - name: receiving-code-review
+        action: "Adopt anti-performative review culture for observation feedback"
+        effort: low
+        impact: high
+
+  short_term_adaptation:
+    description: "Skills requiring moderate adaptation (1-2 weeks)"
+    skills:
+      - name: subagent-driven-development
+        action: "Add observation capture hooks and FOE reviewer prompts"
+        effort: medium
+        impact: very-high
+
+      - name: doc-coauthoring
+        action: "Adapt Reader Testing for observation clarity validation"
+        effort: medium
+        impact: high
+
+      - name: writing-skills
+        action: "Apply TDD-for-docs methodology to FOE skill creation"
+        effort: medium
+        impact: high
+
+      - name: skill-creator
+        action: "Adapt evaluation framework for FOE skill quality gates"
+        effort: medium
+        impact: high
+
+  strategic_investment:
+    description: "Skills requiring significant adaptation but high long-term value"
+    skills:
+      - name: self-improving-agent
+        action: "Map memory architecture to FOE observation-method pipeline"
+        effort: high
+        impact: transformative
+
+      - name: mcp-builder
+        action: "Build FOE field guide MCP server for cross-platform access"
+        effort: high
+        impact: high
+
+  pattern_extraction:
+    description: "Patterns worth extracting regardless of skill adoption"
+    patterns:
+      - name: "Rationalization prevention tables"
+        source: "obra/superpowers (multiple skills)"
+        application: "Observation and method quality enforcement"
+
+      - name: "Two-stage review (spec then quality)"
+        source: "subagent-driven-development"
+        application: "Observation review workflow"
+
+      - name: "Reader Testing"
+        source: "doc-coauthoring"
+        application: "Observation clarity validation"
+
+      - name: "Evidence-before-claims gate function"
+        source: "verification-before-completion"
+        application: "Method maturity level changes"
+
+      - name: "Activity-based lookup tables"
+        source: "playwright-best-practices"
+        application: "FOE skill organization and discovery"
+
+      - name: "Docs-grounding pattern"
+        source: "github-actions-docs"
+        application: "FOE skills referencing field guide content"
+
+# ============================================
+# DELTA FROM PREVIOUS SURVEY (2026-03-14)
+# ============================================
+
+delta_analysis:
+  platform_changes:
+    - "Nous Research added as 19th agent platform"
+    - "Platform growth slowed (18 → 19 vs 18 → 18 with 4 swaps)"
+    - "New /official and /audits pages indicate platform maturation"
+
+  install_growth:
+    - "find-skills: 544.9K → 774.9K (+42.2%)"
+    - "obra/superpowers collection: ~324K → ~490K (+51.1%)"
+    - "GitHub stars for obra/superpowers: 81.8K → 137.4K (+67.9%)"
+
+  new_skills_of_interest:
+    - "github-actions-docs (xixu-me) - appeared 10 days ago, already 22.7K installs"
+    - "No major new FOE-relevant skills since Mar 14"
+
+  ecosystem_trends:
+    - "Growth rate deceleration (900/day → 136/day) suggests maturation"
+    - "obra/superpowers solidifying as the dominant agentic workflow collection"
+    - "Microsoft collections continue massive enterprise adoption"
+    - "Security auditing now first-class with dedicated /audits page"
+    - "Official vendor verification via /official page"
+
+  foe_relevance_changes:
+    - "self-improving-agent gaining traction (19.8K) - most conceptually aligned to FOE"
+    - "doc-coauthoring Reader Testing pattern identified as high-value for FOE"
+    - "writing-skills TDD-for-docs methodology directly applicable to observation creation"
+    - "Two-stage review pattern from subagent-driven-development maps to observation review"

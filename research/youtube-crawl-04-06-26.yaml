@@ -1,0 +1,722 @@
+source: youtube
+crawl_date: 04-06-26
+period: 03-10-26 to 04-06-26
+search_terms_used:
+  - "agentic coding 2026"
+  - "Claude Code tutorial 2026"
+  - "Cursor AI workflow demo 2026"
+  - "AI coding agent demo 2026"
+  - "Copilot agent coding 2026"
+  - "AI software engineering conference talk 2026"
+  - "aider AI coding 2026"
+  - "vibe coding developer 2026"
+  - "AI coding developer experience workflow 2026"
+  - "AI pair programming 2026"
+  - "AI CI/CD automation coding agent 2026"
+  - "AI coding trust verification safety 2026"
+  - "MCP tools coding agent 2026"
+  - "multi-agent software development 2026"
+  - "Claude coding agent deployment 2026"
+  - "Claude Code best practices CLAUDE.md hooks 2026"
+  - "Continuous Delivery AI coding Dave Farley 2026"
+  - "Anthropic Claude Code official 2026"
+  - "OpenAI Codex agent 2026"
+errors: []
+
+# ============================================================
+# EXECUTIVE SUMMARY
+# ============================================================
+# This YouTube crawl (Mar 10 - Apr 6, 2026) reveals five dominant themes
+# in video content about agentic coding and AI-assisted development:
+#
+# 1. CLAUDE CODE DOMINATES TUTORIAL CONTENT - Claude Code is the clear
+#    center of gravity for agentic coding tutorials. Tech With Tim (167K
+#    views in 1 week), Nick Saraev (1.1M views), and Ray Amjad (25K views)
+#    all produce high-engagement Claude Code content. The ecosystem around
+#    CLAUDE.md, hooks, skills, and subagents is maturing rapidly.
+#
+# 2. VERIFICATION IS THE NEW FRONTIER - Sonar's SonarQube MCP demo and
+#    their "Vibe Then Verify" talk signal that the industry recognizes
+#    AI-generated code needs automated quality gates. TDD workflows
+#    enforced via CLAUDE.md rules are emerging as a best practice.
+#    Directly relevant to FOE's confidence-through-verification principle.
+#
+# 3. MATURITY LADDER THINKING EMERGES - Jo Van Eyck's "You Are Not Ready"
+#    talk (31K views) explicitly introduces an "AI coding maturity ladder"
+#    framework. Dave Farley's channel (290K views) studies 150 developers
+#    and finds nuanced results. The field is moving past hype toward
+#    structured capability assessment.
+#
+# 4. MCP SERVERS AS AGENT INFRASTRUCTURE - MCP is no longer theoretical.
+#    Videos demonstrate PostHog, Sentry, SonarQube, and Context7 as
+#    practical MCP servers that give agents real-world capabilities.
+#    This validates FOE's tool-use and fast-feedback principles.
+#
+# 5. DEPLOYMENT-COMPLETE WORKFLOWS - Multiple videos now show the full
+#    loop: prompt → code → test → deploy. No Code MBA's Claude Code
+#    tutorial covers GitHub integration, Vercel deployment, and error
+#    fixing. This signals the shift from "AI writes code" to "AI ships
+#    software" — directly relevant to FOE's end-to-end flow optimization.
+
+findings:
+  # ============================================
+  # TIER 1: HIGH RELEVANCE TO FOE
+  # ============================================
+
+  - id: yt-001
+    title: "You are Not Ready: Agentic coding in 2026"
+    channel: Jo Van Eyck
+    url: "https://www.youtube.com/watch?v=6W_-YWHKwZ4"
+    date: ~03-06-26
+    views: 30800
+    summary: >
+      Conference-style talk covering the state of agentic coding in 2026.
+      Introduces an "AI coding maturity ladder" framework. Covers long-horizon
+      agentic workloads, while-loops around agents, Trello-style agent task
+      management (Beads), multi-agent orchestration (Gas Town), OpenClaw as
+      personal AI assistant, and how Claude Code incorporates all these ideas.
+      Concludes with future skillset requirements for developers.
+    topics:
+      - agentic-coding
+      - maturity-ladder
+      - multi-agent-orchestration
+      - claude-code
+      - developer-skills
+      - long-horizon-tasks
+    foe_relevance: >
+      Directly maps to FOE's maturity model thinking. The "AI coding maturity
+      ladder" concept parallels FOE's method maturity levels. Multi-agent
+      orchestration coverage validates FOE observations about coordinated
+      agent workflows. The "future skillset" section aligns with FOE's
+      emphasis on understanding over speed.
+    relevance: high
+
+  - id: yt-002
+    title: "FULL Claude Code Tutorial for Beginners in 2026! (Step-By-Step)"
+    channel: Tech With Tim
+    url: "https://www.youtube.com/watch?v=qYqIhX9hTQk"
+    date: 03-29-26
+    views: 166900
+    summary: >
+      Comprehensive beginner tutorial for Claude Code from a well-established
+      programming educator (1.4M+ subscribers). Step-by-step walkthrough of
+      setup, usage patterns, and practical application. High production quality
+      and extremely high engagement for a 1-week-old video.
+    topics:
+      - claude-code
+      - tutorial
+      - beginner
+      - workflow
+    foe_relevance: >
+      Signals mainstream adoption of Claude Code as the primary agentic coding
+      tool. When channels of this size cover a tool, it indicates the technology
+      has crossed from early-adopter to early-majority. Important signal for
+      FOE's understanding of adoption curves.
+    relevance: high
+
+  - id: yt-003
+    title: "How to Verify AI-Generated Code with AI Coding Agents (SonarQube MCP)"
+    channel: Sonar
+    url: "https://www.youtube.com/watch?v=ZKjTmw4IehE"
+    date: ~03-06-26
+    views: 250
+    summary: >
+      Official Sonar demo of their new beta: static analysis built specifically
+      for AI coding agents. Shows SonarQube MCP tools integrated into agent
+      workflows. Demonstrates TDD workflow enforced via CLAUDE.md rules,
+      sending code diffs to SonarQube for analysis, fixing issues by referencing
+      static analysis rules, and logging issues to prevent repeating bugs.
+      Analysis completes in 1-3 seconds. Covers the full loop: plan → test →
+      implement → analyze → fix → re-analyze → PR.
+    topics:
+      - verification
+      - static-analysis
+      - mcp
+      - sonarqube
+      - tdd
+      - claude-code
+      - code-quality
+      - agent-workflow
+    foe_relevance: >
+      CRITICAL for FOE. This is the "confidence through verification" principle
+      made concrete. SonarQube as an MCP server gives agents automated quality
+      gates. The CLAUDE.md rules enforcing TDD and static analysis represent
+      exactly the kind of "guardrails that enable autonomy" FOE advocates.
+      The 1-3 second analysis time validates fast-feedback loops.
+    relevance: high
+
+  - id: yt-004
+    title: "We Studied 150 Developers Using AI (Here's What's Actually Happening)"
+    channel: Modern Software Engineering (Dave Farley)
+    url: "https://www.youtube.com/watch?v=b9EbCb5A408"
+    date: 01-27-26
+    views: 290600
+    summary: >
+      Dave Farley's channel presents findings from studying 150 developers
+      using AI coding tools. Examines what's actually working vs. hype.
+      From one of the most respected voices in continuous delivery and
+      software engineering. Extremely high engagement (290K views in ~2 months).
+    topics:
+      - developer-study
+      - ai-productivity
+      - empirical-evidence
+      - continuous-delivery
+      - software-engineering
+    foe_relevance: >
+      Essential empirical evidence for FOE. Dave Farley is a foundational
+      voice in continuous delivery — his assessment of AI coding carries
+      significant weight. The study of 150 developers provides the kind of
+      evidence-based analysis FOE values. Likely contains nuanced findings
+      about when AI helps vs. hinders, directly relevant to FOE's
+      "optimize for understanding" principle.
+    relevance: high
+
+  - id: yt-005
+    title: "My Claude Code Workflow for 2026"
+    channel: Ray Amjad
+    url: "https://www.youtube.com/watch?v=sy65ARFI9Bg"
+    date: ~01-06-26
+    views: 25900
+    summary: >
+      Practitioner workflow guide covering: video-based specs, the developer's
+      role as orchestrator, model choice strategy, parallel vibe coding,
+      voice dictation, planning against architectural drift, shape of diffs,
+      subagents for context over roles, and forking for learning. Deeply
+      practical and opinionated.
+    topics:
+      - claude-code
+      - workflow
+      - orchestration
+      - architectural-drift
+      - subagents
+      - practitioner-experience
+    foe_relevance: >
+      Highly relevant practitioner workflow. "Planning against architectural
+      drift" directly maps to FOE's concern about maintaining understanding.
+      "Subagents for context over roles" is a nuanced insight about agent
+      delegation. "Shape of diffs" suggests attention to reviewability —
+      a key FOE verification concern. "Developer as orchestrator" aligns
+      with FOE's human-in-the-loop philosophy.
+    relevance: high
+
+  - id: yt-006
+    title: "AI Makes Verifying the Bottleneck — with Dave Farley"
+    channel: Aviator
+    url: "https://www.youtube.com/watch?v=PkITOx9lIT8"
+    date: ~03-06-26
+    views: 220
+    summary: >
+      Interview with Dave Farley (Continuous Delivery author) arguing that
+      as AI accelerates code generation, verification becomes the new
+      bottleneck. Discusses how the shift from writing to verifying changes
+      the developer workflow and what skills matter most.
+    topics:
+      - verification-bottleneck
+      - continuous-delivery
+      - developer-skills
+      - dave-farley
+      - workflow-shift
+    foe_relevance: >
+      FOUNDATIONAL for FOE. Dave Farley explicitly names verification as
+      the bottleneck — this is the core thesis behind FOE's emphasis on
+      confidence and fast feedback. When the author of "Continuous Delivery"
+      says verification is the constraint, it validates FOE's entire
+      approach to optimizing the verification loop rather than the
+      generation loop.
+    relevance: high
+
+  - id: yt-007
+    title: "Skills Developers NEED In 2026 (Because Vibe Coding Changes Everything)"
+    channel: Modern Software Engineering (Dave Farley)
+    url: "https://www.youtube.com/watch?v=06kr0DiDAlU"
+    date: 02-13-26
+    views: 12900
+    summary: >
+      Dave Farley examines what skills developers need in the age of vibe
+      coding. Argues that certain engineering fundamentals become MORE
+      important, not less, when AI generates code. Likely covers testing,
+      architecture, and verification skills.
+    topics:
+      - developer-skills
+      - vibe-coding
+      - software-engineering
+      - continuous-delivery
+      - fundamentals
+    foe_relevance: >
+      Directly supports FOE's thesis that understanding and engineering
+      discipline become more valuable, not less, with AI coding tools.
+      Farley's perspective on which skills matter maps to FOE's emphasis
+      on the human's role in maintaining quality and architectural coherence.
+    relevance: high
+
+  - id: yt-008
+    title: "Code Security and Verification in the AI-Centric SDLC"
+    channel: Sonar
+    url: "https://www.youtube.com/watch?v=TTotAh3yI18"
+    date: ~03-06-26
+    views: 70
+    summary: >
+      Sonar's vision for code security in AI-centric development. Introduces
+      "Vibe Then Verify" as a methodology. Covers MCP integrations, IDE
+      real-time issue detection, pipeline trust with JFrog artifact validation,
+      governance layers across IDE/pipeline/governance, and agentic workflows
+      with Sonar at the center. Shows how MCP is accelerating integrations.
+    topics:
+      - verification
+      - security
+      - mcp
+      - pipeline-trust
+      - governance
+      - agentic-workflows
+      - sdlc
+    foe_relevance: >
+      "Vibe Then Verify" is a catchy framing of FOE's core principle.
+      The three-layer model (IDE → Pipeline → Governance) maps to FOE's
+      thinking about where verification happens. Pipeline trust with JFrog
+      shows the verification chain extending beyond code to artifacts.
+      Low views but high signal — this is vendor thought leadership that
+      shapes tooling direction.
+    relevance: high
+
+  - id: yt-009
+    title: "Build and deploy a full app with Claude Code in 2026 (full tutorial)"
+    channel: No Code MBA
+    url: "https://www.youtube.com/watch?v=sKBuSaaoN1Y"
+    date: ~03-30-26
+    views: 11200
+    summary: >
+      End-to-end tutorial: setup → first prompt → plan mode → local testing →
+      Neon database + authentication → user signup/login testing → GitHub
+      integration → Vercel deployment → fixing deployment errors → live app.
+      Also covers skills transfer to OpenAI Codex. Shows the complete
+      development-to-deployment loop using Claude Code.
+    topics:
+      - claude-code
+      - deployment
+      - full-stack
+      - vercel
+      - github
+      - end-to-end
+      - tutorial
+    foe_relevance: >
+      Demonstrates the full flow FOE optimizes for: from intent to deployed
+      software. The "fixing deployment errors" section is particularly
+      relevant — it shows the agent handling the messy reality of deployment,
+      not just the clean path of code generation. The Codex skills transfer
+      note suggests tool-agnostic patterns are emerging.
+    relevance: high
+
+  - id: yt-010
+    title: "Anthropic Just Dropped Ultra Plan for Claude Code"
+    channel: Ray Amjad
+    url: "https://www.youtube.com/watch?v=UNhA17l6CWw"
+    date: 04-06-26
+    views: 21200
+    summary: >
+      Breaking coverage of Anthropic's new Ultra plan for Claude Code.
+      21K views in 1 day indicates extremely high community interest.
+      Ray Amjad is becoming a key voice in the Claude Code ecosystem.
+    topics:
+      - claude-code
+      - anthropic
+      - pricing
+      - product-launch
+    foe_relevance: >
+      Market signal: Anthropic investing in higher-tier Claude Code plans
+      suggests they see professional/enterprise agentic coding as a major
+      revenue driver. The rapid view count shows the developer community
+      is deeply engaged with Claude Code's evolution.
+    relevance: medium
+
+  # ============================================
+  # TIER 2: MEDIUM RELEVANCE TO FOE
+  # ============================================
+
+  - id: yt-011
+    title: "CLAUDE CODE FULL COURSE 4 HOURS: Build & Sell (2026)"
+    channel: Nick Saraev
+    url: "https://www.youtube.com/watch?v=QoQBzR1NIqI"
+    date: ~03-06-26
+    views: 1100000
+    summary: >
+      Massive 4-hour comprehensive Claude Code course. 1.1M views makes this
+      the highest-engagement Claude Code content found. Covers building and
+      selling applications using Claude Code. The scale of engagement signals
+      that Claude Code has become a mainstream developer tool.
+    topics:
+      - claude-code
+      - full-course
+      - building-apps
+      - monetization
+    foe_relevance: >
+      The 1.1M view count is the most important signal here — it confirms
+      Claude Code has crossed into mainstream adoption. The "Build & Sell"
+      framing shows the community sees AI coding as a production tool,
+      not just an experiment. However, the monetization angle may prioritize
+      speed over the engineering discipline FOE advocates.
+    relevance: medium
+
+  - id: yt-012
+    title: "Top 5 MCP Servers For Vibe Coding In 2026"
+    channel: BridgeMind
+    url: "https://www.youtube.com/watch?v=jyv3HCiVSD4"
+    date: 02-24-26
+    views: 8400
+    summary: >
+      Practical guide to MCP servers: PostHog (analytics & conversion
+      optimization), Sentry (real-time debugging & error logs), BridgeMind
+      (agentic memory & swarm orchestration), Exa (real-time web search),
+      and Context7 (up-to-date code documentation). Shows MCP as practical
+      infrastructure, not just protocol spec.
+    topics:
+      - mcp
+      - posthog
+      - sentry
+      - agent-memory
+      - web-search
+      - documentation
+      - tool-infrastructure
+    foe_relevance: >
+      MCP servers as agent infrastructure directly supports FOE's fast-feedback
+      principle. Sentry for real-time debugging gives agents error context.
+      PostHog for analytics gives agents production feedback. The "agentic
+      memory" server (BridgeMind) addresses the stateless agent limitation
+      identified in previous FOE research. Context7 for documentation
+      addresses the "stale training data" problem.
+    relevance: medium
+
+  - id: yt-013
+    title: "I Let Aider AI Refactor My App"
+    channel: Better Stack
+    url: "https://www.youtube.com/watch?v=cTSvN0YLMgw"
+    date: ~03-06-26
+    views: 5900
+    summary: >
+      Developer experience report of using Aider for a real refactoring task.
+      Covers terminal-based repo editing, live demo building Flask auth with
+      tests, multi-file refactor (React + TypeScript), honest comparison with
+      Cursor and Copilot, and proper usage tips (Architect Mode + Git workflow).
+    topics:
+      - aider
+      - refactoring
+      - developer-experience
+      - comparison
+      - git-workflow
+      - terminal-based
+    foe_relevance: >
+      Practical developer experience with an open-source alternative to
+      Claude Code. The refactoring use case is particularly relevant — it
+      tests whether AI can handle existing codebases, not just greenfield.
+      The "Architect Mode + Git workflow tips" section likely contains
+      patterns relevant to FOE's verification practices.
+    relevance: medium
+
+  - id: yt-014
+    title: "2026 will be the Year of Multi-agent AIs - Here's why!"
+    channel: CodeWithHarry
+    url: "https://www.youtube.com/watch?v=s4dLwoanLm0"
+    date: 02-25-26
+    views: 116200
+    summary: >
+      High-engagement overview of multi-agent AI for software development.
+      Covers what AI agents are, creating agents with Oz by Warp, why 2026
+      is the year of background AI agents, and a hype vs. reality breakdown.
+      From a major programming education channel (18M+ subscribers).
+    topics:
+      - multi-agent
+      - background-agents
+      - warp
+      - hype-vs-reality
+    foe_relevance: >
+      The "hype vs. reality breakdown" section is most relevant to FOE.
+      The massive view count (116K) signals mainstream developer interest
+      in multi-agent patterns. Background agents represent a shift toward
+      autonomous operation that FOE needs to address in its trust and
+      verification frameworks.
+    relevance: medium
+
+  - id: yt-015
+    title: "Build NEXT-LEVEL Copilot Agents with VS Code & GitHub"
+    channel: Collaboration Simplified
+    url: "https://www.youtube.com/watch?v=TrZ6fKBENB8"
+    date: ~03-30-26
+    views: 16900
+    summary: >
+      Tutorial on building Copilot agents using VS Code and GitHub Copilot
+      Studio. Covers MCP server integration in Copilot Studio, agent
+      structure in VS Code, GitHub Copilot Chat, /init and /plan commands,
+      LLM selection, and syncing between Copilot Studio and local VS Code.
+      Shows the Microsoft ecosystem's approach to agentic coding.
+    topics:
+      - github-copilot
+      - vs-code
+      - copilot-studio
+      - mcp
+      - agent-building
+      - microsoft-ecosystem
+    foe_relevance: >
+      Shows the Microsoft/GitHub approach to agentic coding, providing
+      competitive context for Claude Code-centric FOE practices. MCP
+      integration in Copilot Studio confirms MCP as a cross-ecosystem
+      standard. The /plan command pattern parallels Claude Code's plan mode.
+    relevance: medium
+
+  - id: yt-016
+    title: "Claude Code Is Completely Different Now - Full 2026 Crash Course"
+    channel: Leon van Zyl
+    url: "https://www.youtube.com/watch?v=Q0bsphUTLtw"
+    date: 04-01-26
+    views: 6000
+    summary: >
+      Crash course covering recent changes to Claude Code. The "completely
+      different now" framing suggests significant feature updates. 6K views
+      in 5 days shows strong interest in Claude Code's evolution.
+    topics:
+      - claude-code
+      - updates
+      - tutorial
+      - crash-course
+    foe_relevance: >
+      Tracks Claude Code's rapid evolution. Understanding what changed
+      helps FOE stay current with the primary tool's capabilities and
+      adjust methods accordingly.
+    relevance: medium
+
+  - id: yt-017
+    title: "How to Automate API Testing and CI/CD with AI"
+    channel: Postman
+    url: "https://www.youtube.com/watch?v=u-B9N7q66OE"
+    date: 02-20-26
+    views: 610
+    summary: >
+      Official Postman tutorial on AI-automated API testing and CI/CD.
+      Covers creating workspaces from Git repos, generating comprehensive
+      API tests with AI, running tests and fixing failures automatically,
+      adding tests to CI/CD with GitHub Actions YAML, and opening PRs
+      to trigger automated tests.
+    topics:
+      - api-testing
+      - ci-cd
+      - github-actions
+      - automation
+      - postman
+    foe_relevance: >
+      Demonstrates AI integration into CI/CD pipelines — a key FOE concern.
+      The "fix failures automatically" step shows AI in the feedback loop,
+      not just the generation step. From an authoritative source (Postman).
+      Low views but high signal quality.
+    relevance: medium
+
+  - id: yt-018
+    title: "This is how I actually use AI agents to ship real features to production"
+    channel: Sabatino Develops
+    url: "https://www.youtube.com/watch?v=M7-GyiGjtbA"
+    date: ~02-06-26
+    views: 2000
+    summary: >
+      Practitioner experience report on using AI agents for shipping real
+      features to production. The "actually" framing suggests honest,
+      non-hype assessment of what works in practice.
+    topics:
+      - practitioner-experience
+      - production-shipping
+      - real-world-usage
+      - ai-agents
+    foe_relevance: >
+      Real-world practitioner report on shipping with AI agents. These
+      experience reports are the raw material for FOE observations.
+      The production focus (not just prototyping) aligns with FOE's
+      emphasis on end-to-end flow.
+    relevance: medium
+
+  - id: yt-019
+    title: "Claude Code Best Practices — The Ultimate Guide (23K Stars)"
+    channel: Hyperautomation Labs
+    url: "https://www.youtube.com/watch?v=izy8L9UEkNo"
+    date: 03-29-26
+    views: 120
+    summary: >
+      Walkthrough of the Claude Code best practices guide (23K GitHub stars).
+      Likely covers CLAUDE.md configuration, hooks, skills, and workflow
+      patterns from the community-maintained best practices repository.
+    topics:
+      - claude-code
+      - best-practices
+      - claude-md
+      - community-guide
+    foe_relevance: >
+      The 23K-star best practices repo is a key community artifact. This
+      video likely distills patterns that FOE should be aware of and
+      potentially incorporate into its methods. Low views but the
+      underlying content (the repo) has massive adoption.
+    relevance: medium
+
+  - id: yt-020
+    title: "Stop Paying for Claude — This FREE Setup Gives You Everything"
+    channel: Nick Ponte
+    url: "https://www.youtube.com/watch?v=yDVwptu-Iz4"
+    date: 04-02-26
+    views: 49100
+    summary: >
+      Tutorial on setting up Claude Code without paid plans. 49K views in
+      4 days shows massive interest in cost optimization for AI coding tools.
+      Likely covers API key usage, alternative setups, or open-source
+      alternatives.
+    topics:
+      - claude-code
+      - cost-optimization
+      - free-setup
+      - accessibility
+    foe_relevance: >
+      Cost is a real barrier to adoption. Understanding free/low-cost
+      setups helps FOE address accessibility concerns. The high engagement
+      signals that cost is a significant concern for the community.
+    relevance: medium
+
+  # ============================================
+  # TIER 3: CONTEXTUAL / LOWER RELEVANCE
+  # ============================================
+
+  - id: yt-021
+    title: "AI Software Engineering Agents: What Works and What Doesn't"
+    channel: Open Data Science and AI Conference
+    url: "https://www.youtube.com/watch?v=3Oqyrt9UWhY"
+    date: 07-25-25
+    views: unknown
+    summary: >
+      Conference talk covering what works and what doesn't with AI software
+      engineering agents. Covers agent internals, terminal usage, sandboxing,
+      fixing merge conflicts, web-based workflows, good use cases, fixing
+      failing tests, building apps from scratch, and future skills.
+    topics:
+      - conference-talk
+      - agent-evaluation
+      - sandboxing
+      - merge-conflicts
+      - use-cases
+    foe_relevance: >
+      Older (Jul 2025) but from a conference setting with structured analysis.
+      The "what works and what doesn't" framing provides evidence-based
+      assessment. Sandboxing and merge conflict sections are relevant to
+      FOE's safety and verification concerns.
+    relevance: low
+
+  - id: yt-022
+    title: "Best Vibe Coding Tools in 2026 (Only 1 Can Build ANYTHING!)"
+    channel: Mikey No Code
+    url: "https://www.youtube.com/watch?v=DOcXQR4JaNM"
+    date: 04-05-26
+    views: 15000
+    summary: >
+      Comparison of vibe coding tools. 15K views in 1 day shows high
+      interest. From a no-code focused channel, representing the non-developer
+      perspective on AI coding tools.
+    topics:
+      - vibe-coding
+      - tool-comparison
+      - no-code
+    foe_relevance: >
+      Represents the "vibe coding" end of the spectrum that FOE distinguishes
+      from professional agentic coding. Understanding what the no-code
+      community values helps FOE articulate its differentiated position.
+    relevance: low
+
+  - id: yt-023
+    title: "OpenAI Codex Full Tutorial in 2026 | Using Codex from Scratch"
+    channel: Arsh Goyal
+    url: "https://www.youtube.com/watch?v=69m2qGsyAec"
+    date: 03-29-26
+    views: 2600
+    summary: >
+      Tutorial on OpenAI's Codex cloud-based coding agent. Covers setup
+      and usage from scratch. Provides competitive context for Claude Code.
+    topics:
+      - openai-codex
+      - tutorial
+      - cloud-agent
+    foe_relevance: >
+      Competitive intelligence. Understanding Codex's approach helps FOE
+      identify tool-agnostic patterns vs. Claude Code-specific ones.
+    relevance: low
+
+  - id: yt-024
+    title: "Claude Code Complete Guide – Skills, Hooks & Demos"
+    channel: Thetips4you
+    url: "https://www.youtube.com/watch?v=YF_ucLkkHTw"
+    date: 04-06-26
+    views: 10
+    summary: >
+      Very new (published today) guide covering Claude Code skills, hooks,
+      and demos. Too early to assess engagement but covers the advanced
+      features most relevant to professional usage.
+    topics:
+      - claude-code
+      - skills
+      - hooks
+      - advanced-features
+    foe_relevance: >
+      Skills and hooks are the extensibility mechanisms that make Claude Code
+      a professional tool rather than just a chatbot. Understanding these
+      features is important for FOE method design.
+    relevance: low
+
+# ============================================================
+# CROSS-CUTTING ANALYSIS
+# ============================================================
+#
+# KEY SIGNALS FOR FOE:
+#
+# 1. VERIFICATION AS BOTTLENECK (yt-003, yt-006, yt-008)
+#    Dave Farley explicitly names verification as the new bottleneck.
+#    Sonar builds MCP-based verification tools. This is FOE's core thesis
+#    validated by authoritative voices and commercial investment.
+#
+# 2. CLAUDE CODE ECOSYSTEM MATURITY (yt-002, yt-005, yt-009, yt-011, yt-019)
+#    CLAUDE.md, hooks, skills, subagents, plan mode — Claude Code now has
+#    a rich configuration surface. The 23K-star best practices repo and
+#    1.1M-view course signal a mature ecosystem. FOE methods should
+#    leverage these capabilities.
+#
+# 3. DEVELOPER-AS-ORCHESTRATOR PATTERN (yt-001, yt-005, yt-014)
+#    Multiple sources describe the developer's role shifting from "writer"
+#    to "orchestrator." This maps directly to FOE's human-in-the-loop
+#    philosophy. The orchestrator needs different skills: specification,
+#    verification, architectural thinking.
+#
+# 4. FULL-LOOP DEMONSTRATIONS (yt-009, yt-017, yt-018)
+#    Videos increasingly show the complete loop from intent to deployment.
+#    This validates FOE's focus on end-to-end flow rather than just the
+#    code generation step.
+#
+# 5. EMPIRICAL EVIDENCE EMERGING (yt-004, yt-007)
+#    Dave Farley's 150-developer study and skills analysis provide the
+#    kind of empirical evidence FOE needs. The field is moving from
+#    anecdotes to data.
+#
+# POTENTIAL OBSERVATION CANDIDATES:
+#
+# - "Verification becomes the bottleneck as AI accelerates generation"
+#   Sources: yt-003, yt-006, yt-008
+#   Method link: fast-feedback-loops, confidence-through-verification
+#
+# - "CLAUDE.md as executable engineering standards"
+#   Sources: yt-003, yt-005, yt-019
+#   Method link: agent-configuration, guardrails-enable-autonomy
+#
+# - "Developer role shifts from writer to orchestrator"
+#   Sources: yt-001, yt-005, yt-014
+#   Method link: human-in-the-loop, understanding-over-speed
+#
+# - "MCP servers as agent quality infrastructure"
+#   Sources: yt-003, yt-008, yt-012, yt-015
+#   Method link: tool-use, fast-feedback-loops
+#
+# VIEW COUNT BENCHMARKS (for context):
+#   1.1M  - Nick Saraev Claude Code full course (1 month)
+#   290K  - Dave Farley 150-developer study (2 months)
+#   167K  - Tech With Tim Claude Code tutorial (1 week)
+#   116K  - CodeWithHarry multi-agent (1 month)
+#   49K   - Nick Ponte free Claude setup (4 days)
+#   31K   - Jo Van Eyck agentic coding maturity (1 month)
+#   26K   - Ray Amjad Claude Code workflow (3 months)
+#   21K   - Ray Amjad Ultra plan announcement (1 day)
