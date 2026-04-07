@@ -1,0 +1,104 @@
+---
+methodId: M249
+displayed_sidebar: fieldGuideSidebar
+sidebar_position: 7
+title: Decouple Deployment from Release
+description: The principle that deploying code to production and releasing features to users should be independent activities.
+framework: continuous-delivery
+framework_url: https://continuousdelivery.com
+foe_alignment:
+  primary: Confidence
+  secondary: Feedback
+status: industry-standard
+aliases:
+  - Dark Launching
+  - Deploy != Release
+  - Separate Deployment from Release
+observations:
+  - O223
+  - O224
+---
+
+# Decouple Deployment from Release
+
+**Pillar:** Patterns
+
+Decoupling deployment from release means treating two activities as independent: *deployment* (installing new code in production) and *release* (making features available to users). When these are separate, teams can deploy continuously without worrying that every deployment changes what users see.
+
+## Definition
+
+> "The key to continuous delivery is to decouple deployment from release. Deployment is installing a version of your software to a particular environment. Release is making a feature available to users."
+>
+> — Jez Humble, *Continuous Delivery*
+
+## Why It Matters
+
+When deployment equals release, every deployment carries user-facing risk. Teams slow down. Deployments become large, infrequent, and stressful. Failures affect everyone at once.
+
+Separating the two breaks this cycle:
+
+- **Deploy often, release deliberately** — Code reaches production in small increments. Features reach users when they're ready, not when the next deployment happens.
+- **Instant rollback without redeployment** — A bad feature can be turned off in seconds. The deployment stays; only the feature disappears.
+- **Parallel work without coordination** — Multiple teams can deploy independently. No one waits for someone else's feature to be "release-ready" before deploying.
+- **Real production validation** — Code runs in production under real load before any user sees it. Problems surface in the environment that matters, not in a staging approximation.
+
+## FOE Framing
+
+**Primary: Confidence to Act**
+
+When deployment doesn't mean user exposure, the stakes of any individual deployment drop dramatically. Teams deploy more often because each deployment is low-risk. If something breaks, they disable the feature — no rollback, no redeployment, no incident. This confidence compounds: frequent deployments stay small, and small deployments are easy to understand and fix.
+
+**Secondary: Fast Feedback Loops**
+
+Decoupling enables progressive exposure — canary releases, percentage rollouts, beta groups. Teams get real production feedback from real users in controlled increments. They learn whether a feature works before committing to a full release, and they learn fast because the code is already in production.
+
+## How It Works
+
+Decoupling deployment from release is a principle, not a single technique. Several methods implement it:
+
+### Feature Flags
+
+The most common approach. Wrap new functionality in a flag that defaults to off. Deploy the code. Enable the flag for specific users, percentages, or segments when ready.
+
+### Dark Launches
+
+Deploy new code paths and execute them in production, but don't show results to users. Compare the new path's output against the existing path to validate correctness and performance under real load.
+
+### Blue-Green Deployments
+
+Maintain two production environments. Deploy to the idle environment, validate, then switch traffic. The deployment happens before any user sees the change; the traffic switch is the release.
+
+### Canary Releases
+
+Route a small percentage of traffic to the new version. Monitor error rates, latency, and business metrics. Increase the percentage gradually or roll back instantly.
+
+### Combined Approach
+
+In practice, teams combine these techniques. A deployment pipeline pushes code to a blue-green environment. Feature flags control which features are active. Canary routing controls how many users see the new environment. Each layer adds control.
+
+## Relationship to DORA Metrics
+
+This principle directly enables three of the four DORA metrics:
+
+| DORA Metric | How Decoupling Helps |
+|-------------|---------------------|
+| **Deployment Frequency** | Deployments become routine because they carry no release risk |
+| **Change Failure Rate** | Progressive exposure catches failures before full rollout |
+| **Time to Restore Service** | Disabling a feature flag is faster than rolling back a deployment |
+
+## Relationship to Other Methods
+
+This is the parent principle that several Continuous Delivery methods implement:
+
+- **[Feature Flags](./M125-feature-flags)** — The primary mechanism for decoupling at the feature level
+- **[Blue-Green Deployment](./M102-blue-green-deployment)** — Decouples at the environment level
+- **[Canary Release](./M104-canary-release)** — Decouples through gradual traffic shifting
+- **[Trunk-Based Development](./M140-trunk-based-development)** — Enabled by decoupling; incomplete features can be merged because they won't be released
+- **[Deployment Pipeline](./M112-deployment-pipeline)** — Automates the deployment side of the equation
+
+## Citations
+
+- Humble, J., & Farley, D. (2010). *Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation*. Addison-Wesley.
+- Humble, J. (2012). [Continuous Delivery](https://continuousdelivery.com). continuousdelivery.com.
+- Forsgren, N., Humble, J., & Kim, G. (2018). *Accelerate: The Science of Lean Software and DevOps*. IT Revolution Press.
+- [Feature Toggles](https://martinfowler.com/articles/feature-toggles.html) — Pete Hodgson, martinfowler.com.

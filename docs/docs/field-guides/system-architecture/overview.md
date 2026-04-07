@@ -2,7 +2,10 @@
 displayed_sidebar: fieldGuideSidebar
 sidebar_position: 1
 title: System Architecture
-adopted_methods: []
+adopted_methods:
+  - framework: continuous-delivery
+    method: decouple-deployment-from-release
+    foe_maturity: validated
 ---
 
 import GuideMaturitySummary from '@site/src/components/GuideMaturitySummary';
@@ -26,6 +29,7 @@ A collection of flow-optimized methods for making structural decisions about dis
     { maturity: 'hypothesized' },
     { maturity: 'hypothesized' },
     { maturity: 'hypothesized' },
+    { maturity: 'validated' },
   ]} 
 />
 
@@ -45,6 +49,7 @@ A collection of flow-optimized methods for making structural decisions about dis
     { id: 'M109', title: 'Define Phase', maturity: 'hypothesized', priority: 'supplemental', framework: 'double-diamond', frameworkTitle: 'Double Diamond', description: 'Convergent synthesis to frame the right problem', href: '/docs/external-frameworks/double-diamond/methods/M109-define-phase' },
     { id: 'M113', title: 'Develop Phase', maturity: 'hypothesized', priority: 'supplemental', framework: 'double-diamond', frameworkTitle: 'Double Diamond', description: 'Divergent ideation to explore potential solutions', href: '/docs/external-frameworks/double-diamond/methods/M113-develop-phase' },
     { id: 'M110', title: 'Deliver Phase', maturity: 'hypothesized', priority: 'supplemental', framework: 'double-diamond', frameworkTitle: 'Double Diamond', description: 'Convergent refinement to ship a tested solution', href: '/docs/external-frameworks/double-diamond/methods/M110-deliver-phase' },
+    { id: 'M249', title: 'Decouple Deployment from Release', maturity: 'validated', framework: 'continuous-delivery', frameworkTitle: 'Continuous Delivery', description: 'Separate code deployment from feature release for independent, low-risk deployments', href: '/docs/external-frameworks/continuous-delivery/methods/M249-decouple-deployment-from-release' },
   ]}
 />
 

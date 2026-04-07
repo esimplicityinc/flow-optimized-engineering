@@ -80,6 +80,7 @@ Core Continuous Delivery methods:
 - [Deployment Pipeline](./methods/M112-deployment-pipeline) - Automated path from commit to production
 - [Trunk-Based Development](./methods/M140-trunk-based-development) - Collaborate on a single branch
 - [Feature Flags](./methods/M125-feature-flags) - Decouple deployment from release
+- [Decouple Deployment from Release](./methods/M249-decouple-deployment-from-release) - Separate the act of deploying code from releasing features to users
 - [Blue-Green Deployment](./methods/M102-blue-green-deployment) - Zero-downtime deployments
 - [Canary Release](./methods/M104-canary-release) - Gradual rollout to detect issues
 - [Infrastructure as Code](./methods/M128-infrastructure-as-code) - Treat infrastructure like application code
