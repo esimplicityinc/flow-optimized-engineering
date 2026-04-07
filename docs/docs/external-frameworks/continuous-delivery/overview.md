@@ -78,6 +78,7 @@ Continuous Delivery aligns strongly with all three Flow Optimized Engineering pr
 Core Continuous Delivery methods:
 
 - [Deployment Pipeline](./methods/M112-deployment-pipeline) - Automated path from commit to production
+- [Definitive Deployment Pipeline](./methods/M250-definitive-deployment-pipeline) - The pipeline as sole path to production and verification authority
 - [Trunk-Based Development](./methods/M140-trunk-based-development) - Collaborate on a single branch
 - [Feature Flags](./methods/M125-feature-flags) - Decouple deployment from release
 - [Decouple Deployment from Release](./methods/M249-decouple-deployment-from-release) - Separate the act of deploying code from releasing features to users
