@@ -35,7 +35,7 @@ const sidebars: SidebarsConfig = {
             'field-guides/agentic-coding/methods/emerging/M147-knowledge-distribution-as-reliability',
             'field-guides/agentic-coding/methods/established/M155-verification-before-completion',
             'field-guides/agentic-coding/methods/established/M152-test-driven-agent-development',
-            'field-guides/agentic-coding/methods/emerging/M159-use-governed-ai-coding-agents',
+            'field-guides/agentic-coding/methods/established/M159-use-governed-ai-coding-agents',
             'field-guides/agentic-coding/methods/emerging/M160-plan-mode-first',
             'field-guides/agentic-coding/methods/emerging/M161-explicit-mcp-version-control',
             'field-guides/agentic-coding/methods/emerging/M162-worktree-based-agent-isolation',
