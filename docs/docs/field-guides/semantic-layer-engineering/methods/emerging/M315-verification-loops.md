@@ -1,0 +1,137 @@
+---
+methodId: M315
+sidebar_position: 16
+title: "Verification Loops"
+maturity: hypothesized
+priority: recommended
+observations: []
+---
+
+import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
+import RelatedObservations from '@site/src/components/RelatedObservations';
+
+# Verification Loops
+
+<InternalMethodHeader />
+
+Require agents to expose their reasoning chain and source evidence before acting on conclusions, enabling human and automated verification of AI-generated insights before they propagate into decisions or downstream systems.
+
+:::caution Early Stage
+This method is still being validated through observations.
+:::
+
+## Overview
+
+An agent that reached the right conclusion through flawed reasoning is a reliability risk. An agent that reached a wrong conclusion is an immediate problem. Without visibility into reasoning, both look the same from the outside — until one of them causes a failure.
+
+Verification Loops are the mechanism by which AI-generated meaning is made auditable. Before a conclusion is acted upon, the agent surfaces: what sources it consulted, what reasoning chain led to its conclusion, and what alternative interpretations it considered and rejected. This creates a verification opportunity — for humans reviewing high-stakes outputs, and for automated systems checking for common error patterns.
+
+This method is closely related to Source Attribution (M313), which handles the sourcing side. Verification Loops extend this to the reasoning side: not just "where did this come from?" but "how did you get from the sources to the conclusion?"
+
+## When to Use
+
+Use this method when:
+
+- Agent outputs will be used to take consequential actions (financial transactions, compliance decisions, policy enforcement)
+- Building systems that must meet regulatory requirements for explainability
+- Deploying agents in domains where errors are costly or hard to detect
+- Establishing trust in a new agent system — verification loops are how trust is earned, not assumed
+
+## When NOT to Use
+
+Avoid this method when:
+
+- The task is low-stakes enough that verification overhead doesn't pay off
+- Full reasoning transparency is computationally prohibitive in your latency budget — implement sampling instead (verify a percentage of outputs)
+- Users have already established high trust in a well-validated agent — consider simplifying the surface presentation while preserving underlying auditability
+
+## How It Works
+
+### Prerequisites
+
+Before starting:
+- Source attribution (M313) must be in place — reasoning chains reference sources
+- Define what "verification" means for your domain: human review, automated checks, or both
+- Define the threshold for required verification (all outputs? High-stakes only? Flagged uncertainty?)
+
+### Step 1: Design Reasoning Chain Output
+
+Instruct the agent to produce structured reasoning alongside its conclusions:
+
+```
+Conclusion: [The answer/recommendation]
+
+Reasoning:
+1. Retrieved [N] sources (see citations below)
+2. Key finding from [Source A]: [specific claim]
+3. Key finding from [Source B]: [specific claim]
+4. These findings support each other because [...]
+5. Applied [domain rule/policy] from [Source C]
+6. Conclusion follows because [logical chain]
+
+Uncertainty: [Any aspects where confidence is lower and why]
+Alternatives considered: [What other conclusions were possible and why rejected]
+
+Citations: [Structured citation list per M313]
+```
+
+### Step 2: Implement Automated Checks
+
+Build automated verification checks that run against every reasoning chain:
+- **Citation validation**: Do cited source IDs exist and actually support the cited claim?
+- **Logical consistency**: Does the conclusion follow from the stated reasoning steps?
+- **Policy compliance**: Does the reasoning comply with stated domain rules and taxonomies?
+- **Confidence calibration**: Is stated uncertainty consistent with source quality and recency?
+
+### Step 3: Route to Human Review by Risk Level
+
+Automatically route outputs to human review based on risk signals:
+- Low-authority sources cited as primary evidence
+- Stated uncertainty above threshold
+- Automated check failures
+- High-stakes action category (financial, compliance, legal)
+
+### Step 4: Close the Loop
+
+When human reviewers approve or reject conclusions, feed that signal back into the system. Patterns of rejection indicate reasoning failures that can be addressed in the domain layer (M301) or through improved retrieval (M303).
+
+## Example
+
+Without verification loop:
+"Recommendation: Approve vendor DataFlow Inc. for renewal."
+
+With verification loop:
+```
+Conclusion: Approve vendor DataFlow Inc. for renewal.
+
+Reasoning:
+1. Retrieved current vendor assessment [VAR-2025-0089, authority: official-assessment]
+2. Assessment outcome: compliant with 2025 security standards
+3. Three 2024 remediation items verified closed [AUDIT-2024-0441]
+4. One minor open finding (#3) — reviewed against policy [SEC-POL-2025 §4.2]: minor findings do not block renewal
+5. No adverse news in public record [SANCTION-CHECK-2026-05-28]
+6. Renewal approval follows per standard vendor management policy [VMP-2024 §7.1]
+
+Uncertainty: Open finding #3 should be tracked to resolution. Confidence: high.
+Alternatives considered: Conditional approval (pending finding closure) — rejected because policy §4.2 explicitly permits renewal with minor open items.
+
+Citations: [VAR-2025-0089, AUDIT-2024-0441, SEC-POL-2025, SANCTION-CHECK-2026-05-28, VMP-2024]
+```
+
+## Common Pitfalls
+
+1. **Reasoning theater** — agents that produce reasoning chains post-hoc rather than as the actual reasoning process. Use chain-of-thought prompting to make reasoning generative, not retrospective.
+2. **Verification bottlenecks** — requiring human review for every output creates bottlenecks. Tier verification requirements by risk level; automate what can be automated.
+3. **Loop without feedback** — verification that doesn't improve the system is overhead. Build feedback pathways from review decisions back into agent behavior.
+
+## How You Can Help
+
+If you're testing this method:
+
+1. Measure the false positive rate (outputs requiring review that were correct) and tune thresholds
+2. Document the automated checks you implemented and their precision/recall
+3. Share patterns of reasoning failures that verification loops surfaced
+
+## Supporting Evidence
+
+<RelatedObservations />

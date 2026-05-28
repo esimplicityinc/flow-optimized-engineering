@@ -1,0 +1,114 @@
+---
+methodId: M314
+sidebar_position: 15
+title: "Authority-Recency-Scope Metadata"
+maturity: hypothesized
+priority: recommended
+observations: []
+---
+
+import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
+import RelatedObservations from '@site/src/components/RelatedObservations';
+
+# Authority-Recency-Scope Metadata
+
+<InternalMethodHeader />
+
+Tag every data artifact with structured metadata declaring its trust level (authority), temporal validity (recency), and access permissions (scope) so downstream agents and systems can reason about trustworthiness without inspecting content.
+
+:::caution Early Stage
+This method is still being validated through observations.
+:::
+
+## Overview
+
+Not all information is equally trustworthy, current, or appropriate for all consumers. A 2019 policy memo, a 2023 amendment, and an informal Slack thread discussing the same topic carry different weight and should be used differently. Without explicit metadata, agents and retrieval systems treat them as equivalent.
+
+Authority-Recency-Scope (ARS) metadata is the operationalization of the Context Contract (M300) at the data layer. Where Context Contract Design describes the pattern, ARS Metadata specifies the implementation: concrete taxonomies for authority levels, recency models, and scope classifications that are applied systematically at ingestion.
+
+ARS metadata is attached once, at the source, and travels with the artifact through all transformations and retrievals. It is the trust signal layer of the semantic architecture.
+
+## When to Use
+
+Use this method when:
+
+- Ingesting data from sources with heterogeneous authority levels
+- Operating in domains where information freshness materially affects decision quality
+- Building systems with access controls that must be enforced at the content level
+- Retrieval systems need to rank results by trustworthiness, not just relevance
+
+## When NOT to Use
+
+Avoid this method when:
+
+- All data comes from a single source with uniform authority, recency, and access (metadata adds no value)
+- Metadata taxonomy design effort isn't warranted by the scale or stakes of the system
+
+## How It Works
+
+### Prerequisites
+
+Before starting:
+- Map all data sources and their inherent authority levels
+- Define a recency model appropriate for your domain's update cadence
+- Understand the access control requirements for your users and data
+
+### Step 1: Define the Authority Taxonomy
+
+Create an explicit, ranked taxonomy of authority levels for your domain. Example for enterprise:
+
+| Level | Label | Description | Examples |
+|---|---|---|---|
+| 5 | Official Policy | Formally approved, authoritative | Board resolutions, approved policies |
+| 4 | Official Record | Documented official activity | Signed contracts, audit reports |
+| 3 | Working Document | Active, team-approved work product | Design docs, project plans |
+| 2 | Informal Communication | Undocumented, unofficial | Emails, Slack messages |
+| 1 | Superseded | No longer in effect | Replaced policies, closed tickets |
+
+### Step 2: Define the Recency Model
+
+Choose a recency model that matches your domain's information lifecycle:
+- **TTL-based**: each artifact has an explicit expiration date
+- **Version-based**: each artifact is superseded when a newer version is published
+- **Event-triggered**: recency is invalidated by specific domain events (e.g., a regulation change makes all pre-change assessments stale)
+
+### Step 3: Define the Scope Classification
+
+Define access control levels and their enforcement:
+- Visibility: public / internal / restricted / confidential
+- Permitted roles: list of roles allowed to access this artifact
+- Data classification: regulatory classification if applicable (PII, PHI, CUI, etc.)
+
+### Step 4: Apply ARS at Ingestion
+
+Integrate ARS tagging into the distillation pipeline (M309). Every artifact receives ARS metadata as part of its context contract. Metadata is validated against the defined taxonomies — artifacts without complete ARS metadata are flagged for review, not silently ingested with defaults.
+
+## Example
+
+Same document, different ARS profiles:
+
+**2019 data retention policy:** authority=1 (superseded), recency={valid_until: "2023-06-01", is_current: false}, scope={visibility: internal}
+
+**2023 data retention policy amendment:** authority=5 (official-policy), recency={valid_from: "2023-06-01", is_current: true, review_date: "2025-06-01"}, scope={visibility: internal}
+
+**Informal Slack thread discussing the amendment:** authority=2 (informal-communication), recency={captured_date: "2023-06-15", is_current: unknown}, scope={visibility: restricted, permitted_roles: [legal-team]}
+
+When an agent asks "what is our data retention policy?", the retriever ensemble surfaces all three but applies ARS weighting: the 2023 amendment dominates, the 2019 policy surfaces only as historical context, and the Slack thread is suppressed for non-legal-team queries.
+
+## Common Pitfalls
+
+1. **Authority inflation** — assigning high authority levels to working documents to ensure they get surfaced. This defeats the purpose of ARS. Enforce the taxonomy consistently.
+2. **Recency neglect** — marking documents as current at ingestion and never updating recency metadata. Build automated expiry and recency review into the data lifecycle.
+3. **Scope as theater** — declaring access restrictions in metadata but not enforcing them in the retrieval layer. ARS metadata is only meaningful if it's acted upon.
+
+## How You Can Help
+
+If you're testing this method:
+
+1. Document the authority taxonomy you defined and how many levels you ended up with
+2. Share what recency model worked for your domain
+3. Note any enforcement gaps between declared scope and actual retrieval behavior
+
+## Supporting Evidence
+
+<RelatedObservations />
