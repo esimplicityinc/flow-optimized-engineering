@@ -86,6 +86,68 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Semantic Layer Engineering',
+      className: 'sidebar-icon-semantic',
+      link: {
+        type: 'doc',
+        id: 'field-guides/semantic-layer-engineering/overview',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Context Design',
+          collapsed: true,
+          items: [
+            'field-guides/semantic-layer-engineering/methods/emerging/M300-context-contract-design',
+            'field-guides/semantic-layer-engineering/methods/emerging/M301-instruction-layering',
+            'field-guides/semantic-layer-engineering/methods/emerging/M302-global-context-assembly',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Retrieval Strategy',
+          collapsed: true,
+          items: [
+            'field-guides/semantic-layer-engineering/methods/emerging/M303-retriever-ensemble',
+            'field-guides/semantic-layer-engineering/methods/emerging/M304-semantic-vector-search',
+            'field-guides/semantic-layer-engineering/methods/emerging/M305-lexical-precision-search',
+            'field-guides/semantic-layer-engineering/methods/emerging/M306-graph-based-reasoning',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Data Semantics',
+          collapsed: true,
+          items: [
+            'field-guides/semantic-layer-engineering/methods/emerging/M307-entity-resolution-and-linking',
+            'field-guides/semantic-layer-engineering/methods/emerging/M308-taxonomy-anchoring',
+            'field-guides/semantic-layer-engineering/methods/emerging/M309-information-distillation',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Memory Architecture',
+          collapsed: true,
+          items: [
+            'field-guides/semantic-layer-engineering/methods/emerging/M310-working-memory-vs-long-term-memory',
+            'field-guides/semantic-layer-engineering/methods/emerging/M311-consolidation-cycles',
+            'field-guides/semantic-layer-engineering/methods/emerging/M312-stateful-agent-design',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Governance & Provenance',
+          collapsed: true,
+          items: [
+            'field-guides/semantic-layer-engineering/methods/emerging/M313-source-attribution',
+            'field-guides/semantic-layer-engineering/methods/emerging/M314-authority-recency-scope-metadata',
+            'field-guides/semantic-layer-engineering/methods/emerging/M315-verification-loops',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'System Architecture',
       className: 'sidebar-icon-architecture',
       link: {

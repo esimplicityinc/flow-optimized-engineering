@@ -33,6 +33,10 @@ import Link from '@docusaurus/Link';
     <strong style={{fontSize: '1.1rem', color: 'var(--ifm-color-primary)'}}>Product Specification</strong>
     <p style={{margin: '0.5rem 0 0 0', fontSize: '0.9rem', color: 'var(--ifm-color-emphasis-700)'}}>Flow-optimized methods for requirements and product-engineering collaboration</p>
   </Link>
+  <Link to="./semantic-layer-engineering/overview" style={{display: 'block', padding: '1.25rem', border: '2px solid var(--ifm-color-primary)', borderRadius: '0.5rem', textDecoration: 'none', color: 'inherit'}}>
+    <strong style={{fontSize: '1.1rem', color: 'var(--ifm-color-primary)'}}>Semantic Layer Engineering</strong>
+    <p style={{margin: '0.5rem 0 0 0', fontSize: '0.9rem', color: 'var(--ifm-color-emphasis-700)'}}>Flow-optimized methods for making information legible to both human and AI consumers</p>
+  </Link>
 </div>
 
 ---
