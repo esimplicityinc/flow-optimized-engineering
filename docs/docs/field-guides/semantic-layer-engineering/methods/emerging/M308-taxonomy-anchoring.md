@@ -1,0 +1,102 @@
+---
+methodId: M308
+sidebar_position: 9
+title: "Taxonomy Anchoring"
+maturity: hypothesized
+priority: essential
+observations: []
+---
+
+import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
+import RelatedObservations from '@site/src/components/RelatedObservations';
+
+# Taxonomy Anchoring
+
+<InternalMethodHeader />
+
+Ground an AI system's vocabulary in the organization's actual terminology and shared definitions, preventing the agent from inventing or importing meanings that don't match how the business actually uses its terms.
+
+:::caution Early Stage
+This method is still being validated through observations.
+:::
+
+## Overview
+
+If the business doesn't have a shared definition of "success," the AI agent will invent its own. And its invented definition will be drawn from its training data — which reflects how the internet uses the word "success," not how your organization does. In a financial firm, "success" might mean "exceeded covenant threshold." In a government contract, it might mean "met CDRL deliverable." In a product team, it might mean "user retention above 40%."
+
+Taxonomy Anchoring is the practice of explicitly defining the organization's vocabulary and making those definitions authoritative for the AI system. It is the DDD concept of Ubiquitous Language applied to AI: the same term must mean the same thing to humans, systems, and agents operating in the same domain.
+
+This requires building and maintaining a domain taxonomy — a structured glossary of terms, their definitions in context, their relationships to other terms, and their boundaries (what the term does and doesn't include). This taxonomy becomes the semantic backbone of the entire knowledge layer.
+
+## When to Use
+
+Use this method when:
+
+- The domain uses specialized terminology that differs from common usage
+- Multiple teams or systems use the same term to mean different things (a "customer" is different in sales, finance, and legal)
+- Agents are producing answers that are technically coherent but contextually wrong for the domain
+- Building a shared knowledge layer that will be used by multiple agent types
+
+## When NOT to Use
+
+Avoid this method when:
+
+- The domain vocabulary is standard and well-defined by an external authority (e.g., FHIR for healthcare data)
+- The system is so narrow that vocabulary ambiguity isn't a practical problem
+- A taxonomy exists but is so out-of-date it would actively mislead agents — remediate the taxonomy first
+
+## How It Works
+
+### Prerequisites
+
+Before starting:
+- Identify the domain's core concepts and the terms used to express them
+- Involve domain experts in definition — taxonomy anchoring cannot be done by engineers alone
+- Accept that the taxonomy will be incomplete at launch and will grow
+
+### Step 1: Build the Core Taxonomy
+
+Create a structured glossary with, for each term:
+- **Canonical definition** — what this term means in this domain
+- **Scope** — what it includes and explicitly excludes
+- **Related terms** — synonyms, antonyms, parent/child concepts
+- **Usage examples** — 2-3 examples of correct usage in context
+- **Anti-patterns** — 2-3 examples of incorrect or context-inappropriate usage
+
+### Step 2: Inject Taxonomy into Agent Context
+
+Make the relevant portion of the taxonomy available to agents as part of the domain layer (see M301 Instruction Layering). Don't inject the entire taxonomy — select the subset relevant to the agent's domain and function.
+
+### Step 3: Use Taxonomy to Validate Retrieval
+
+When retrieved content uses a term that has a taxonomy entry, check that the usage context matches the canonical definition. Flag content that uses domain terms in non-canonical ways — it may be outdated, from an external source, or from a different domain context.
+
+### Step 4: Evolve the Taxonomy
+
+Taxonomy is not a one-time artifact. Build a governance process: who can propose new terms, who approves definitions, how conflicts between domain usages are resolved. Version the taxonomy and track changes over time.
+
+## Example
+
+Domain: government contracting
+
+Undefined term behavior: Agent is asked "Is this deliverable compliant?" It interprets "compliant" through its training data lens — maybe "follows coding standards" or "meets accessibility guidelines."
+
+With taxonomy anchoring: The domain taxonomy defines "compliant" as "meeting all applicable CDRL requirements as specified in the contract's DID and accepted by the COR." The agent retrieves the applicable CDRL, checks the DID requirements, and looks for COR acceptance documentation. It answers a fundamentally different — and correct — question.
+
+## Common Pitfalls
+
+1. **Engineer-authored taxonomy** — taxonomies built without domain expert involvement produce technically correct but contextually wrong definitions. Domain experts must own definitions.
+2. **Taxonomy as document, not system** — a taxonomy in a PDF that agents can't access is theater. Build taxonomy injection into the context assembly pipeline.
+3. **Vocabulary drift** — the business evolves but the taxonomy doesn't. Stale taxonomies actively mislead agents. Build taxonomy review into your change management process.
+
+## How You Can Help
+
+If you're testing this method:
+
+1. Document the taxonomy governance process you used
+2. Note how many terms you started with and how the taxonomy grew over 3 months
+3. Share examples of questions where taxonomy anchoring meaningfully changed agent behavior
+
+## Supporting Evidence
+
+<RelatedObservations />
