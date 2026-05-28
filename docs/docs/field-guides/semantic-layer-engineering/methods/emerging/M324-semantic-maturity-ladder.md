@@ -1,0 +1,143 @@
+---
+methodId: M324
+sidebar_position: 25
+title: "Semantic Maturity Ladder"
+maturity: hypothesized
+priority: recommended
+observations: []
+---
+
+import InternalMethodHeader from '@site/src/components/InternalMethodHeader';
+import RelatedObservations from '@site/src/components/RelatedObservations';
+
+# Semantic Maturity Ladder
+
+<InternalMethodHeader />
+
+Use the six-level semantic maturity ladder — from raw data to durable memory — as a diagnostic framework to assess where an organization's knowledge layer sits and to sequence investments in the semantic layer systematically.
+
+:::caution Early Stage
+This method is still being validated through observations.
+:::
+
+## Overview
+
+Organizations implementing AI systems routinely underestimate how much semantic infrastructure is required before agents can reason reliably. They connect an LLM to a document corpus and expect intelligent behavior. What they get is sophisticated text retrieval. The gap between "retrieves text" and "reasons about the organization" is the semantic maturity ladder.
+
+The ladder has six levels, each building on the previous:
+
+| Level | What exists | What the agent can do |
+|---|---|---|
+| **1 — Raw Data** | Files, rows, logs, messages | Search and summarize |
+| **2 — Metadata** | Names, owners, timestamps, schemas | Filter and locate |
+| **3 — Semantics** | Types, definitions, relationships | Understand what things are |
+| **4 — Ontology** | Formal model of entities and relationships | Reason across the organization |
+| **5 — Governance** | Rules, permissions, risks, evidence | Act safely and defensibly |
+| **6 — Memory** | Durable learned state | Avoid rediscovery and improve over time |
+
+Each level requires specific infrastructure and produces a qualitatively different class of agent capability. An organization at Level 2 cannot get Level 4 results by adding more documents. They need the semantic infrastructure of Level 3 before Level 4 becomes possible.
+
+The ladder is also a sequencing guide: don't build memory architecture (Level 6) before the ontology (Level 4) that memory should be organized around.
+
+## When to Use
+
+Use this method when:
+
+- Assessing an existing AI system to diagnose why it isn't meeting expectations
+- Planning a new semantic layer — use the ladder to sequence the investment
+- Communicating with stakeholders about what infrastructure is needed and why
+- Evaluating a vendor's semantic layer capabilities — ask which levels they address
+
+## When NOT to Use
+
+Avoid this method when:
+
+- The system is genuinely narrow enough that only levels 1-2 are needed
+- Using the ladder as a compliance checklist rather than a genuine diagnostic — the goal is capability, not level achievement
+
+## How It Works
+
+### Prerequisites
+
+Before starting:
+- Identify the use cases the agent system is expected to support
+- Map those use cases to the level of the ladder they require
+- Assess where the current infrastructure sits
+
+### Step 1: Assess Current Level
+
+For each level, ask whether the infrastructure exists:
+
+**Level 1 — Raw Data**: Can the system retrieve raw documents, rows, and logs?
+
+**Level 2 — Metadata**: Does every artifact have structured metadata (owner, timestamp, classification, schema)?
+
+**Level 3 — Semantics**: Are entities defined by type? Are definitions shared and consistently applied? Does the taxonomy exist (M308)?
+
+**Level 4 — Ontology**: Is there a formal model of entities and their relationships? Can the system answer "what depends on X?" or "who owns Y?" (M322 Ontology-First Design)
+
+**Level 5 — Governance**: Are permissions, risks, and evidence modeled? Can the agent determine whether an action is authorized? (M323 Responsibility-Action Linking)
+
+**Level 6 — Memory**: Does the system maintain durable learned state across sessions? Do agents improve over time without re-discovering the same context? (M311 Consolidation Cycles, M312 Stateful Agent Design)
+
+### Step 2: Identify the Gap
+
+The most common pattern: an organization at Level 2 is trying to get Level 4-5 behavior. The gap is the semantic infrastructure of Level 3 (type definitions, taxonomy) and Level 4 (formal ontology).
+
+Document the gap clearly: "Our system has raw data and basic metadata. To answer relational questions about data ownership and risk, we need Level 3-4 infrastructure: taxonomy anchoring (M308), entity resolution (M307), and ontology-first design (M322)."
+
+### Step 3: Sequence the Investment
+
+Build levels sequentially. Don't skip levels. The reason organizations fail at AI is not lack of data — it is attempting to use Level 1-2 infrastructure for Level 4-5 use cases.
+
+Recommended sequencing:
+1. Establish raw data and metadata hygiene (Level 1-2) — 1-2 months
+2. Add taxonomy and entity definitions (Level 3) — 1-3 months
+3. Build ontology for priority domain (Level 4) — 2-4 months
+4. Add governance model for high-stakes actions (Level 5) — 2-3 months
+5. Implement memory architecture for high-frequency interactions (Level 6) — 1-2 months
+
+### Step 4: Measure Capability at Each Level
+
+For each level achieved, measure whether the target capabilities are actually available:
+- Level 3: Can agents correctly classify entity types and apply definitions?
+- Level 4: Can agents answer relational queries without hallucinating relationships?
+- Level 5: Can agents correctly determine authorization for actions and refuse unauthorized ones?
+- Level 6: Do agents demonstrate continuity across sessions without re-establishing context?
+
+## Example
+
+Organization assessment:
+
+Current state: Document corpus ingested, basic vector search, no metadata standards, no taxonomy.
+Level assessment: Level 1 (raw data). Partial Level 2 (some documents have owners, many don't).
+
+Target use case: "Agent that can answer compliance questions and surface missing evidence for controls."
+
+Level required: Level 5 (governance — controls, evidence, authority must be modeled). Currently at Level 1.
+
+Gap analysis:
+- Level 2 gap: metadata standards for all documents (owner, classification, date)
+- Level 3 gap: taxonomy for compliance terms (control, evidence, requirement, finding)
+- Level 4 gap: ontology modeling controls → evidence → requirements relationships
+- Level 5 gap: authority model for who can attest to evidence, who can close findings
+
+Sequenced investment: 8-12 months to Level 5 if focused. "Adding more documents" would not have closed this gap.
+
+## Common Pitfalls
+
+1. **Treating the ladder as a checklist** — ticking boxes at each level without the underlying infrastructure produces fragile systems. The ladder measures genuine capability, not documentation.
+2. **Skipping levels under time pressure** — attempting to deliver Level 5 behavior with Level 2 infrastructure produces unreliable agents that erode user trust. Sequence matters.
+3. **Level 6 without Levels 3-4** — building memory architecture before defining ontology means the agent is accumulating learned state organized around undefined or inconsistent entities. Memory quality depends on semantic quality.
+
+## How You Can Help
+
+If you're testing this method:
+
+1. Use the ladder to assess an existing system and document where it sits
+2. Share whether the gap analysis correctly predicted the failure modes you were experiencing
+3. Measure whether sequenced investment according to the ladder produced more reliable capability than previous ad-hoc approaches
+
+## Supporting Evidence
+
+<RelatedObservations />
