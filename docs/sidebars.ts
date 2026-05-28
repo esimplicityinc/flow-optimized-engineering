@@ -95,6 +95,17 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: 'category',
+          label: 'Ontology & Semantic Model',
+          collapsed: true,
+          items: [
+            'field-guides/semantic-layer-engineering/methods/emerging/M321-semantic-operating-model',
+            'field-guides/semantic-layer-engineering/methods/emerging/M322-ontology-first-design',
+            'field-guides/semantic-layer-engineering/methods/emerging/M323-responsibility-action-linking',
+            'field-guides/semantic-layer-engineering/methods/emerging/M324-semantic-maturity-ladder',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Context Design',
           collapsed: true,
           items: [
@@ -142,6 +153,18 @@ const sidebars: SidebarsConfig = {
             'field-guides/semantic-layer-engineering/methods/emerging/M313-source-attribution',
             'field-guides/semantic-layer-engineering/methods/emerging/M314-authority-recency-scope-metadata',
             'field-guides/semantic-layer-engineering/methods/emerging/M315-verification-loops',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Harness & Observability',
+          collapsed: true,
+          items: [
+            'field-guides/semantic-layer-engineering/methods/emerging/M316-harness-engineering',
+            'field-guides/semantic-layer-engineering/methods/emerging/M317-quality-gates',
+            'field-guides/semantic-layer-engineering/methods/emerging/M318-retrieval-evaluation-ragas',
+            'field-guides/semantic-layer-engineering/methods/emerging/M319-semantic-observability',
+            'field-guides/semantic-layer-engineering/methods/emerging/M320-production-to-eval-pipeline',
           ],
         },
       ],
