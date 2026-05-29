@@ -28,15 +28,19 @@ RAGAS (Retrieval-Augmented Generation Assessment) provides a mathematical framew
 
 The three core metrics address different failure modes:
 
-**Context Precision ($P_c$)** — Signal-to-noise ratio. Are the top-K retrieved chunks actually relevant?
+**Context Precision (Pc)** — Signal-to-noise ratio. Are the top-K retrieved chunks actually relevant?
 
-$$P_c = \frac{\text{Relevant Chunks in top } K}{K}$$
+```
+Pc = (Relevant Chunks in top K) / K
+```
 
 Low precision means the retriever is surfacing noise alongside signal. The agent must work harder to find the relevant content, and may be distracted by irrelevant material.
 
-**Context Recall ($R_c$)** — Coverage. Did the semantic layer provide all the information needed to answer the query?
+**Context Recall (Rc)** — Coverage. Did the semantic layer provide all the information needed to answer the query?
 
-$$R_c = \frac{\text{Relevant Attributes found in Context}}{\text{Attributes in Ground Truth}}$$
+```
+Rc = (Relevant Attributes found in Context) / (Attributes in Ground Truth)
+```
 
 Low recall means the semantic layer is missing information the agent needs. The agent may hallucinate to fill the gap or produce an incomplete answer.
 

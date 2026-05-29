@@ -87,11 +87,11 @@ Integrate ARS tagging into the distillation pipeline (M309). Every artifact rece
 
 Same document, different ARS profiles:
 
-**2019 data retention policy:** authority=1 (superseded), recency={valid_until: "2023-06-01", is_current: false}, scope={visibility: internal}
+**2019 data retention policy:** authority=1 (superseded), recency=`{valid_until: "2023-06-01", is_current: false}`, scope=`{visibility: internal}`
 
-**2023 data retention policy amendment:** authority=5 (official-policy), recency={valid_from: "2023-06-01", is_current: true, review_date: "2025-06-01"}, scope={visibility: internal}
+**2023 data retention policy amendment:** authority=5 (official-policy), recency=`{valid_from: "2023-06-01", is_current: true, review_date: "2025-06-01"}`, scope=`{visibility: internal}`
 
-**Informal Slack thread discussing the amendment:** authority=2 (informal-communication), recency={captured_date: "2023-06-15", is_current: unknown}, scope={visibility: restricted, permitted_roles: [legal-team]}
+**Informal Slack thread discussing the amendment:** authority=2 (informal-communication), recency=`{captured_date: "2023-06-15", is_current: unknown}`, scope=`{visibility: restricted, permitted_roles: [legal-team]}`
 
 When an agent asks "what is our data retention policy?", the retriever ensemble surfaces all three but applies ARS weighting: the 2023 amendment dominates, the 2019 policy surfaces only as historical context, and the Slack thread is suppressed for non-legal-team queries.
 
