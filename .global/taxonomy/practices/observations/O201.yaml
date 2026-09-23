@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O201
+spec:
+  description: 'OpenClaw Security Disaster: 42K Exposed Agent Instances'
+  title: 'OpenClaw Security Disaster: 42K Exposed Agent Instances'
+  observation_id: O201
+  source_type: external
+  status: completed
+  methods:
+  - M159
+  source_url: https://www.reddit.com/r/LocalLLaMA/comments/1r1xlli/openclaw_disaster_42k_exposed_instances_341/
+  source_organization: Reddit r/LocalLLaMA Community
+  source_year: 2026
+  source_path: field-guides/observations/external/O201-openclaw-security-disaster-2026.md

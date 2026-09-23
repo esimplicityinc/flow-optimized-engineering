@@ -1,0 +1,19 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M115
+spec:
+  description: Collaborative conversations to explore, discover, and agree on the
+    desired behavior for a user story through concrete examples.
+  title: Discovery Workshops
+  method_id: M115
+  maturity: hypothesized
+  observations:
+  - O100
+  - O114
+  pillar: discovery
+  source_path: external-frameworks/bdd/methods/M115-discovery-workshops.md; field-guides/product-specification/methods/emerging/M115-discovery-workshops.md
+  parents:
+    node: product-specification

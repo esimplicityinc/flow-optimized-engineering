@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M113
+spec:
+  description: The second divergent phase where teams generate multiple potential
+    solutions through ideation and prototyping.
+  title: Develop Phase
+  method_id: M113
+  maturity: hypothesized
+  observations:
+  - O116
+  pillar: problem-solving
+  source_path: external-frameworks/double-diamond/methods/M113-develop-phase.md; field-guides/product-specification/methods/emerging/M113-develop-phase.md
+  parents:
+    node: product-specification

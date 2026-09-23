@@ -1,0 +1,13 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M204
+spec:
+  description: Design enterprise-wide business objects that encapsulate critical business
+    rules and data, independent of databases and frameworks.
+  title: Entity Design
+  method_id: M204
+  pillar: layer-organization
+  source_path: external-frameworks/clean-architecture/methods/M204-entity-design.md

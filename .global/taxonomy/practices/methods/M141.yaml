@@ -1,0 +1,21 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M141
+spec:
+  description: A shared language between developers and domain experts used consistently
+    in code, documentation, and conversation.
+  title: Ubiquitous Language
+  method_id: M141
+  maturity: hypothesized
+  observations:
+  - O108
+  - O115
+  - O118
+  pillar: strategic-design
+  source_path: external-frameworks/domain-driven-design/methods/M141-ubiquitous-language.md;
+    field-guides/product-specification/methods/emerging/M141-ubiquitous-language.md
+  parents:
+    node: product-specification

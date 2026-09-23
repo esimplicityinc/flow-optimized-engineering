@@ -1,0 +1,21 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O219
+spec:
+  description: 'Skills.sh Verification Gate Adoption: obra/superpowers Doubles to
+    324K Installs'
+  title: 'Skills.sh Verification Gate Adoption: obra/superpowers Doubles to 324K Installs'
+  observation_id: O219
+  source_type: external
+  status: completed
+  methods:
+  - M155
+  - M152
+  - M149
+  source_url: https://skills.sh/obra/superpowers
+  source_organization: skills.sh / obra/superpowers
+  source_year: 2026
+  source_path: field-guides/observations/external/O219-skillssh-verification-gate-adoption-2026.md

@@ -1,0 +1,15 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M119
+spec:
+  description: Objects defined by their identity rather than their attributes.
+  title: Entity
+  method_id: M119
+  maturity: hypothesized
+  pillar: tactical-design
+  source_path: external-frameworks/domain-driven-design/methods/M119-entity.md; field-guides/software-architecture/methods/emerging/M119-entity.md
+  parents:
+    node: software-architecture

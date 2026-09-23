@@ -1,0 +1,21 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M164
+spec:
+  description: A model for balancing different types of automated tests, favoring
+    many fast unit tests over few slow end-to-end tests.
+  title: Test Pyramid
+  method_id: M164
+  maturity: hypothesized
+  framework: tdd
+  framework_url: https://martinfowler.com/bliki/TestPyramid.html
+  pillar: test-first
+  foe_principle: Feedback
+  foe_principle_secondary: Confidence
+  status: industry-standard
+  source_path: external-frameworks/tdd/methods/M164-test-pyramid.md; field-guides/testing/methods/emerging/M164-test-pyramid.md
+  parents:
+    node: testing

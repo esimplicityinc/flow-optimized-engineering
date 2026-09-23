@@ -1,0 +1,16 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M150
+spec:
+  description: Service Boundary Extraction
+  title: Service Boundary Extraction
+  method_id: M150
+  maturity: hypothesized
+  observations:
+  - O103
+  source_path: field-guides/system-architecture/methods/emerging/M150-service-boundary-extraction.md
+  parents:
+    node: system-architecture

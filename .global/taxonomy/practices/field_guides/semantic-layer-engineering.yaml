@@ -1,0 +1,10 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_field_guide
+metadata:
+  name: semantic-layer-engineering
+spec:
+  description: 'FOE field guide: Semantic Layer Engineering.'
+  title: Semantic Layer Engineering
+  domain: semantic-layer-engineering

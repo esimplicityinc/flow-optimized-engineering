@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O225
+spec:
+  description: 'Accelerate: Automated Pipelines Outperform Manual Approval Processes'
+  title: 'Accelerate: Automated Pipelines Outperform Manual Approval Processes'
+  observation_id: O225
+  source_type: external
+  status: completed
+  methods:
+  - M250
+  source_url: https://dora.dev
+  source_organization: DORA / Google Cloud
+  source_year: 2018
+  source_path: field-guides/observations/external/O225-accelerate-pipeline-authority-approval.md

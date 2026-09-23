@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M160
+spec:
+  description: Plan Mode First
+  title: Plan Mode First
+  method_id: M160
+  maturity: observing
+  observations:
+  - O159
+  - O160
+  - O161
+  source_path: field-guides/agentic-coding/methods/emerging/M160-plan-mode-first.md
+  parents:
+    node: agentic-coding

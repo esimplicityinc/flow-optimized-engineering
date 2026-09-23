@@ -1,0 +1,21 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M165
+spec:
+  description: Writing out all test cases before coding to guide development and ensure
+    comprehensive coverage.
+  title: Test List
+  method_id: M165
+  maturity: hypothesized
+  framework: tdd
+  framework_url: https://tidyfirst.substack.com/p/canon-tdd
+  pillar: test-first
+  foe_principle: Understanding
+  foe_principle_secondary: Confidence
+  status: well-established
+  source_path: external-frameworks/tdd/methods/M165-test-list.md; field-guides/testing/methods/emerging/M165-test-list.md
+  parents:
+    node: testing

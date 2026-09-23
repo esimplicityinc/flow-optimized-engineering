@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O213
+spec:
+  description: AWS Production Outages Caused by AI Coding Bots
+  title: AWS Production Outages Caused by AI Coding Bots
+  observation_id: O213
+  source_type: external
+  status: completed
+  methods:
+  - M159
+  source_url: https://www.ft.com/content/00c282de-ed14-4acd-a948-bc8d6bdb339d
+  source_organization: Financial Times
+  source_year: 2026
+  source_path: field-guides/observations/external/O213-aws-ai-bot-outages-2026.md

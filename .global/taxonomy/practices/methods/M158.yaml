@@ -1,0 +1,20 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M158
+spec:
+  description: 'AgentX: Constrained Autonomy Through Shared Abstractions'
+  title: 'AgentX: Constrained Autonomy Through Shared Abstractions'
+  method_id: M158
+  maturity: validated
+  observations:
+  - O157
+  - O125
+  - O126
+  - O218
+  - O222
+  source_path: field-guides/agentic-coding/methods/established/M158-agentx-constrained-autonomy.md
+  parents:
+    node: agentic-coding

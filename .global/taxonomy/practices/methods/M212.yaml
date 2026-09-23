@@ -1,0 +1,16 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M212
+spec:
+  description: Managing data flow between layers
+  title: Data Transfer Object Pattern
+  method_id: M212
+  maturity: validated
+  pillar: abstraction-layers
+  source_path: external-frameworks/layered-architecture/methods/M212-data-transfer-object-pattern.md;
+    field-guides/software-architecture/methods/established/M212-data-transfer-object-pattern.md
+  parents:
+    node: software-architecture

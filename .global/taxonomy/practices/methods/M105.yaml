@@ -1,0 +1,17 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M105
+spec:
+  description: Percentage of deployments causing failures requiring remediation.
+  title: Change Failure Rate
+  method_id: M105
+  maturity: hypothesized
+  observations:
+  - O110
+  pillar: stability
+  source_path: external-frameworks/dora/methods/M105-change-failure-rate.md; field-guides/testing/methods/emerging/M105-change-failure-rate.md
+  parents:
+    node: testing

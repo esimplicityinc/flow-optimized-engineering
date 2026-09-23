@@ -1,0 +1,20 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M134
+spec:
+  description: Categorizing domain areas by strategic importance to focus modeling
+    effort.
+  title: Subdomains
+  method_id: M134
+  maturity: hypothesized
+  observations:
+  - O115
+  - O121
+  pillar: strategic-design
+  source_path: external-frameworks/domain-driven-design/methods/M134-subdomains.md;
+    field-guides/software-architecture/methods/emerging/M134-subdomains.md
+  parents:
+    node: software-architecture

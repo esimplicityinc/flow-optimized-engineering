@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M229
+spec:
+  description: Command Query Responsibility Segregation separates read and write models,
+    enabling optimized data access patterns and independent scaling in microservices.
+  title: CQRS (Microservices)
+  method_id: M229
+  framework: microservices
+  framework_url: https://microservices.io/patterns/data/cqrs.html
+  pillar: data-patterns
+  foe_principle: Understanding
+  foe_principle_secondary: Feedback
+  status: well-established
+  source_path: external-frameworks/microservices/methods/M229-cqrs-microservices.md

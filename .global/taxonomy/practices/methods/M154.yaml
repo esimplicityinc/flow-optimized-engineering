@@ -1,0 +1,21 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M154
+spec:
+  description: Conceptual Debt Prevention
+  title: Conceptual Debt Prevention
+  method_id: M154
+  maturity: validated
+  observations:
+  - O102
+  - O210
+  - O212
+  - O214
+  - O216
+  - O217
+  source_path: field-guides/agentic-coding/methods/established/M154-conceptual-debt-prevention.md
+  parents:
+    node: agentic-coding

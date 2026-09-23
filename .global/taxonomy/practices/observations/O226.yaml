@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O226
+spec:
+  description: 'Knight Capital: $440M Loss from Pipeline Bypass and Missing Verification'
+  title: 'Knight Capital: $440M Loss from Pipeline Bypass and Missing Verification'
+  observation_id: O226
+  source_type: external
+  status: completed
+  methods:
+  - M250
+  source_url: https://www.sec.gov/litigation/admin/2013/34-70694.pdf
+  source_organization: SEC
+  source_year: 2013
+  source_path: field-guides/observations/external/O226-knight-capital-pipeline-bypass-catastrophe.md

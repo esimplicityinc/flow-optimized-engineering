@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O120
+spec:
+  description: 'TDD Defect Reduction: Microsoft/IBM Study'
+  title: 'TDD Defect Reduction: Microsoft/IBM Study'
+  observation_id: O120
+  source_type: external
+  status: completed
+  methods:
+  - M121
+  source_url: https://www.microsoft.com/en-us/research/publication/realizing-quality-improvement-through-test-driven-development-results-and-experiences-of-four-industrial-teams/
+  source_organization: Microsoft Research / IBM
+  source_year: 2008
+  source_path: field-guides/observations/external/O120-tdd-defect-reduction-study.md

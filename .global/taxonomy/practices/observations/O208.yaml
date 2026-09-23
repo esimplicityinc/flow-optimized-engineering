@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O208
+spec:
+  description: 'On Randomness in Agentic Evals: Benchmark Reliability Concerns'
+  title: 'On Randomness in Agentic Evals: Benchmark Reliability Concerns'
+  observation_id: O208
+  source_type: external
+  status: completed
+  methods:
+  - M155
+  source_url: https://arxiv.org/abs/2602.07150
+  source_organization: Academic Research
+  source_year: 2026
+  source_path: field-guides/observations/external/O208-benchmark-randomness-study-2026.md

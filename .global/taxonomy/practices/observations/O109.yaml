@@ -1,0 +1,19 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O109
+spec:
+  description: 'DORA 2023: User-Centricity Research'
+  title: 'DORA 2023: User-Centricity Research'
+  observation_id: O109
+  source_type: external
+  status: completed
+  methods:
+  - M114
+  - M111
+  source_url: https://dora.dev/research/2023/
+  source_organization: DORA / Google Cloud
+  source_year: 2023
+  source_path: field-guides/observations/external/O109-dora-2023-user-centricity.md

@@ -1,0 +1,20 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O210
+spec:
+  description: 'Anthropic Agent Autonomy: Empirical Measurement of Human-Agent Interaction'
+  title: 'Anthropic Agent Autonomy: Empirical Measurement of Human-Agent Interaction'
+  observation_id: O210
+  source_type: external
+  status: completed
+  methods:
+  - M159
+  - M155
+  - M154
+  source_url: https://anthropic.com/research/measuring-agent-autonomy
+  source_organization: Anthropic
+  source_year: 2026
+  source_path: field-guides/observations/external/O210-anthropic-agent-autonomy-2026.md

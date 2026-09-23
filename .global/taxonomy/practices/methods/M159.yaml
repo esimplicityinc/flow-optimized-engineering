@@ -1,0 +1,20 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M159
+spec:
+  description: Use Governed AI Coding Agents
+  title: Use Governed AI Coding Agents
+  method_id: M159
+  maturity: proven
+  observations:
+  - O158
+  - O210
+  - O213
+  - O215
+  - O218
+  source_path: field-guides/agentic-coding/methods/established/M159-use-governed-ai-coding-agents.md
+  parents:
+    node: agentic-coding

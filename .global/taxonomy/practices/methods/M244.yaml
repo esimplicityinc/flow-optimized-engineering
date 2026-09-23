@@ -1,0 +1,16 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M244
+spec:
+  description: Periodic state snapshots to optimize reconstruction performance for
+    aggregates with many events.
+  title: Snapshotting
+  method_id: M244
+  maturity: hypothesized
+  pillar: operational-patterns
+  source_path: external-frameworks/event-sourcing/methods/M244-snapshotting.md; field-guides/software-architecture/methods/emerging/M244-snapshotting.md
+  parents:
+    node: software-architecture

@@ -1,0 +1,20 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O221
+spec:
+  description: 'Rudel Session Analysis: 1,573 Claude Code Sessions Reveal Memory and
+    Context Patterns'
+  title: 'Rudel Session Analysis: 1,573 Claude Code Sessions Reveal Memory and Context
+    Patterns'
+  observation_id: O221
+  source_type: external
+  status: completed
+  methods:
+  - M148
+  source_url: https://github.com/rudel-dev/rudel
+  source_organization: Rudel
+  source_year: 2026
+  source_path: field-guides/observations/external/O221-rudel-session-analysis-2026.md

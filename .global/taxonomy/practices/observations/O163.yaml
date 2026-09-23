@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O163
+spec:
+  description: 'Twelve-Factor App: Explicitly Declare and Isolate Dependencies'
+  title: 'Twelve-Factor App: Explicitly Declare and Isolate Dependencies'
+  observation_id: O163
+  source_type: external
+  status: completed
+  methods:
+  - M161
+  source_url: https://12factor.net/dependencies
+  source_organization: Heroku
+  source_year: 2012
+  source_path: field-guides/observations/external/O163-twelve-factor-dependency-declaration.md

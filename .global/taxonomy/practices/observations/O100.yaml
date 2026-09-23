@@ -1,0 +1,19 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O100
+spec:
+  description: 'Prima: BDD Adoption for API Testing'
+  title: 'Prima: BDD Adoption for API Testing'
+  observation_id: O100
+  source_type: internal
+  status: completed
+  methods:
+  - M127
+  - M121
+  - M126
+  - M115
+  - M146
+  source_path: field-guides/observations/internal/O100-prima-bdd-api-testing-adoption.md

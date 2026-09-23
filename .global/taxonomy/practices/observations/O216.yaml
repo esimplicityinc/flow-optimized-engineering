@@ -1,0 +1,19 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O216
+spec:
+  description: Solow's Productivity Paradox Applied to AI Coding Tools
+  title: Solow's Productivity Paradox Applied to AI Coding Tools
+  observation_id: O216
+  source_type: external
+  status: completed
+  methods:
+  - M155
+  - M154
+  source_url: https://fortune.com
+  source_organization: Fortune / IBM
+  source_year: 2026
+  source_path: field-guides/observations/external/O216-solow-productivity-paradox-ai-2026.md

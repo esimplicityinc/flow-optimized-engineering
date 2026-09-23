@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M227
+spec:
+  description: Mechanism for services to find and communicate with each other dynamically
+    without hardcoded locations, enabling auto-scaling and resilience.
+  title: Service Discovery
+  method_id: M227
+  framework: microservices
+  framework_url: https://microservices.io/patterns/client-side-discovery.html
+  pillar: communication-patterns
+  foe_principle: Feedback
+  foe_principle_secondary: Confidence
+  status: industry-standard
+  source_path: external-frameworks/microservices/methods/M227-service-discovery.md

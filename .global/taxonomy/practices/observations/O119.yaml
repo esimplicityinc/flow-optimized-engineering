@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O119
+spec:
+  description: 'Consumer-Driven Contracts: A Service Evolution Pattern'
+  title: 'Consumer-Driven Contracts: A Service Evolution Pattern'
+  observation_id: O119
+  source_type: external
+  status: completed
+  methods:
+  - M145
+  source_url: https://martinfowler.com/articles/consumerDrivenContracts.html
+  source_organization: ThoughtWorks
+  source_year: 2006
+  source_path: field-guides/observations/external/O119-robinson-consumer-driven-contracts.md

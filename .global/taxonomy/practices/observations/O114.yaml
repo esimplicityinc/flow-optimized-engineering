@@ -1,0 +1,19 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O114
+spec:
+  description: 'Google Project Aristotle: Psychological Safety'
+  title: 'Google Project Aristotle: Psychological Safety'
+  observation_id: O114
+  source_type: external
+  status: completed
+  methods:
+  - M138
+  - M115
+  source_url: https://rework.withgoogle.com/guides/understanding-team-effectiveness
+  source_organization: Harvard Business School / Google
+  source_year: 2015
+  source_path: field-guides/observations/external/O114-google-project-aristotle.md

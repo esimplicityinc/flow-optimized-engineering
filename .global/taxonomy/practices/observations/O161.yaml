@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O161
+spec:
+  description: 'Building Effective AI Agents: Anthropic''s Implementation Patterns'
+  title: 'Building Effective AI Agents: Anthropic''s Implementation Patterns'
+  observation_id: O161
+  source_type: external
+  status: completed
+  methods:
+  - M160
+  source_url: https://www.anthropic.com/research/building-effective-agents
+  source_organization: Anthropic
+  source_year: 2024
+  source_path: field-guides/observations/external/O161-anthropic-building-effective-agents.md

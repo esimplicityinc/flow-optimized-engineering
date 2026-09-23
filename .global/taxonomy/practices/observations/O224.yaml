@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O224
+spec:
+  description: 'LaunchDarkly 2024: Feature Flags Drive 84% More Frequent Deployments'
+  title: 'LaunchDarkly 2024: Feature Flags Drive 84% More Frequent Deployments'
+  observation_id: O224
+  source_type: external
+  status: completed
+  methods:
+  - M249
+  source_url: https://launchdarkly.com/the-galaxy-of-feature-management/
+  source_organization: LaunchDarkly / Wakefield Research
+  source_year: 2024
+  source_path: field-guides/observations/external/O224-launchdarkly-feature-flag-impact-2024.md

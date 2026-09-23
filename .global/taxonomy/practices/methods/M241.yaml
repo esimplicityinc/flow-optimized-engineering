@@ -1,0 +1,16 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M241
+spec:
+  description: Storing events in append-only, ordered streams per aggregate.
+  title: Event Stream Storage
+  method_id: M241
+  maturity: hypothesized
+  pillar: core-concepts
+  source_path: external-frameworks/event-sourcing/methods/M241-event-stream-storage.md;
+    field-guides/software-architecture/methods/emerging/M241-event-stream-storage.md
+  parents:
+    node: software-architecture

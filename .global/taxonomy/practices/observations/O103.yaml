@@ -1,0 +1,16 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O103
+spec:
+  description: Containerizing Heavy ML Dependencies
+  title: Containerizing Heavy ML Dependencies
+  observation_id: O103
+  source_type: internal
+  status: completed
+  methods:
+  - M150
+  - M153
+  source_path: field-guides/observations/internal/O103-prima-presidio-containerization.md

@@ -1,0 +1,14 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M314
+spec:
+  description: Authority-Recency-Scope Metadata
+  title: Authority-Recency-Scope Metadata
+  method_id: M314
+  maturity: hypothesized
+  source_path: field-guides/semantic-layer-engineering/methods/emerging/M314-authority-recency-scope-metadata.md
+  parents:
+    node: semantic-layer-engineering

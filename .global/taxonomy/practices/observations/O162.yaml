@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O162
+spec:
+  description: 'OpenAI Codex App: Built-in Worktree Support for Parallel Agents'
+  title: 'OpenAI Codex App: Built-in Worktree Support for Parallel Agents'
+  observation_id: O162
+  source_type: external
+  status: completed
+  methods:
+  - M162
+  source_url: https://openai.com/index/introducing-the-codex-app/
+  source_organization: OpenAI
+  source_year: 2026
+  source_path: field-guides/observations/external/O162-openai-codex-app-worktree-isolation.md

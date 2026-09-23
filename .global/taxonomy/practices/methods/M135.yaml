@@ -1,0 +1,16 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M135
+spec:
+  description: A clear definition of how a team interacts with other teams.
+  title: Team API
+  method_id: M135
+  framework: team-topologies
+  framework_url: https://teamtopologies.com/key-concepts
+  foe_principle: Understanding
+  foe_principle_secondary: Feedback
+  status: well-established
+  source_path: external-frameworks/team-topologies/methods/M135-team-api.md

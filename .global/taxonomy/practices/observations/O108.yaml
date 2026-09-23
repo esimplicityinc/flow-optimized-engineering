@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O108
+spec:
+  description: 'Domain-Driven Design: Bounded Contexts'
+  title: 'Domain-Driven Design: Bounded Contexts'
+  observation_id: O108
+  source_type: external
+  status: completed
+  methods:
+  - M153
+  source_url: https://www.domainlanguage.com/ddd/
+  source_organization: Addison-Wesley / Domain Language
+  source_year: 2003
+  source_path: field-guides/observations/external/O108-ddd-bounded-contexts.md

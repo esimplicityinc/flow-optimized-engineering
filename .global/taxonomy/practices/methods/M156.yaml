@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M156
+spec:
+  description: Agent-Mediated Access
+  title: Agent-Mediated Access
+  method_id: M156
+  maturity: observing
+  observations:
+  - O125
+  - O126
+  - O157
+  source_path: field-guides/agentic-coding/methods/emerging/M156-agent-mediated-access.md
+  parents:
+    node: agentic-coding

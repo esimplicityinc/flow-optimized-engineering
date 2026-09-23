@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O125
+spec:
+  description: 'Content Portal: Product Owner Makes 42 Commits in 7 Days via Agent-Mediated
+    Access'
+  title: 'Content Portal: Product Owner Makes 42 Commits in 7 Days via Agent-Mediated
+    Access'
+  observation_id: O125
+  source_type: internal
+  status: completed
+  methods:
+  - M156
+  - M158
+  source_path: field-guides/observations/internal/O125-content-portal-agent-mediated-access.md

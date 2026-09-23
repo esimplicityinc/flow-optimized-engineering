@@ -1,0 +1,19 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O202
+spec:
+  description: 'Anthropic Research: AI-Assisted Coding Shows No Productivity Gains'
+  title: 'Anthropic Research: AI-Assisted Coding Shows No Productivity Gains'
+  observation_id: O202
+  source_type: external
+  status: completed
+  methods:
+  - M155
+  - M154
+  source_url: https://arxiv.org/abs/2601.20245
+  source_organization: Anthropic
+  source_year: 2026
+  source_path: field-guides/observations/external/O202-anthropic-productivity-research-2026.md

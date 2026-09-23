@@ -1,0 +1,17 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M131
+spec:
+  description: Teams that provide a compelling internal product to accelerate delivery
+    by stream-aligned teams.
+  title: Platform Team
+  method_id: M131
+  framework: team-topologies
+  framework_url: https://teamtopologies.com/key-concepts
+  foe_principle: Confidence
+  foe_principle_secondary: Feedback
+  status: well-established
+  source_path: external-frameworks/team-topologies/methods/M131-platform-team.md

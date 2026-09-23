@@ -1,0 +1,19 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M120
+spec:
+  description: A structured technique using colored index cards to map user stories
+    to rules, examples, and questions.
+  title: Example Mapping
+  method_id: M120
+  maturity: hypothesized
+  observations:
+  - O104
+  - O107
+  pillar: discovery
+  source_path: external-frameworks/bdd/methods/M120-example-mapping.md; field-guides/product-specification/methods/emerging/M120-example-mapping.md
+  parents:
+    node: product-specification

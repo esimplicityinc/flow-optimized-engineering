@@ -1,0 +1,19 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O207
+spec:
+  description: 'AIRS-Bench: 58.8% Valid Submission Rate on ML Research Tasks'
+  title: 'AIRS-Bench: 58.8% Valid Submission Rate on ML Research Tasks'
+  observation_id: O207
+  source_type: external
+  status: completed
+  methods:
+  - M152
+  - M155
+  source_url: https://www.reddit.com/r/MachineLearning/comments/1r0e4io/r_airsbench_a_benchmark_for_ai_agents_on_the_full/
+  source_organization: Meta (Facebook AI Research)
+  source_year: 2026
+  source_path: field-guides/observations/external/O207-airs-bench-evaluation-2026.md

@@ -1,0 +1,13 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M201
+spec:
+  description: Organizing code into concentric layers with Entities at the core, surrounded
+    by Use Cases, Interface Adapters, and Frameworks/Drivers.
+  title: Layer Organization
+  method_id: M201
+  pillar: layer-organization
+  source_path: external-frameworks/clean-architecture/methods/M201-layer-organization.md

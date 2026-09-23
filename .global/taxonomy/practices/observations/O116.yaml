@@ -1,0 +1,21 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O116
+spec:
+  description: Why Design Thinking Works (HBR 2018)
+  title: Why Design Thinking Works (HBR 2018)
+  observation_id: O116
+  source_type: external
+  status: completed
+  methods:
+  - M114
+  - M109
+  - M113
+  - M110
+  source_url: https://hbr.org/2018/09/why-design-thinking-works
+  source_organization: Harvard Business Review / Darden School of Business
+  source_year: 2018
+  source_path: field-guides/observations/external/O116-liedtka-2018-design-thinking-works.md

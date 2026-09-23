@@ -1,0 +1,17 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M137
+spec:
+  description: Creating platforms with just enough capability without unnecessary
+    complexity.
+  title: Thinnest Viable Platform
+  method_id: M137
+  framework: team-topologies
+  framework_url: https://teamtopologies.com/key-concepts
+  foe_principle: Feedback
+  foe_principle_secondary: Confidence
+  status: well-established
+  source_path: external-frameworks/team-topologies/methods/M137-thinnest-viable-platform.md

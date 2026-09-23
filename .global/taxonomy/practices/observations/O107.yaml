@@ -1,0 +1,20 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O107
+spec:
+  description: BDD Systematic Literature Review
+  title: BDD Systematic Literature Review
+  observation_id: O107
+  source_type: external
+  status: completed
+  methods:
+  - M127
+  - M121
+  - M138
+  source_url: https://ieeexplore.ieee.org/abstract/document/10210040/
+  source_organization: IEEE Access
+  source_year: 2023
+  source_path: field-guides/observations/external/O107-bdd-systematic-review-2023.md

@@ -1,0 +1,19 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_observation
+metadata:
+  name: O157
+spec:
+  description: 'AgentX: Deterministic Frameworks Enable Safe Agent Autonomy'
+  title: 'AgentX: Deterministic Frameworks Enable Safe Agent Autonomy'
+  observation_id: O157
+  source_type: internal
+  status: completed
+  methods:
+  - M156
+  - M121
+  - M152
+  - M146
+  - M158
+  source_path: field-guides/observations/internal/O157-agentx-deterministic-frameworks.md

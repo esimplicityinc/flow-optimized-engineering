@@ -1,0 +1,12 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_method
+metadata:
+  name: M123
+spec:
+  description: Encapsulates complex object and aggregate creation logic.
+  title: Factory
+  method_id: M123
+  pillar: tactical-design
+  source_path: external-frameworks/domain-driven-design/methods/M123-factory.md
