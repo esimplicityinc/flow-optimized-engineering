@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Semantic Vector Search
+  description: Use dense vector embeddings to retrieve content by intent and meaning
+    rather than keyword overlap, enabling queries to find relevant content even when
+    no exact terms match.
   title: Semantic Vector Search
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M304-semantic-vector-search.md

@@ -1,0 +1,139 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M212
+spec:
+  description: Prose for Data Transfer Object Pattern.
+  body: "## Why This Matters for Software Architecture\n\nLayers need to exchange\
+    \ data, but exposing domain entities directly creates coupling problems: lazy\
+    \ loading exceptions, serialization issues, and leaking internal state. Data Transfer\
+    \ Objects (DTOs) provide a clean separation by carrying data between layers without\
+    \ exposing domain implementation details.\n\n**Architecture Benefits:**\n- Prevents\
+    \ lazy loading and serialization issues\n- Shapes data for specific use cases\n\
+    - Hides internal domain structure\n- Enables optimization (projection queries)\n\
+    - Supports API versioning independently from domain\n\n**FOE Alignment:**\n- **Understanding**\
+    \ - DTOs show exactly what data crosses boundaries\n- **Confidence** - No surprise\
+    \ lazy loading or serialization errors\n- **Fast Feedback** - Failures happen\
+    \ at compile time, not runtime\n\n## Definition\n\n> A Data Transfer Object (DTO)\
+    \ is an object that carries data between processes or across layer boundaries.\
+    \ DTOs contain no business logic, only storage, accessors, and possibly serialization.\
+    \ They decouple the internal domain model from external representations.\n>\n\
+    > — Fowler, Patterns of Enterprise Application Architecture (2002)\n\n## DTO Types\
+    \ by Purpose\n\n### 1. Request DTOs (Inbound)\nCarry data from presentation to\
+    \ application layer:\n\n```java\npublic record CreateOrderRequest(\n    @NotNull\
+    \ CustomerId customerId,\n    @NotEmpty List<@Valid OrderLineRequest> lines,\n\
+    \    @Pattern(regexp = \"DISCOUNT\\\\d{4}\") Optional<String> discountCode,\n\
+    \    ShippingAddress shippingAddress\n) {\n    public record OrderLineRequest(\n\
+    \        @NotNull ProductId productId,\n        @Min(1) @Max(999) int quantity\n\
+    \    ) {}\n}\n```\n\n**Characteristics:**\n- Validation annotations\n- Primitive\
+    \ or value types\n- No domain logic\n- Immutable\n\n### 2. Response DTOs (Outbound)\n\
+    Shape data for presentation or external consumers:\n\n```java\npublic record OrderResponse(\n\
+    \    String orderId,\n    CustomerSummary customer,\n    List<OrderLineResponse>\
+    \ lines,\n    MoneyDTO total,\n    String status,\n    String createdAt,\n   \
+    \ Optional<String> trackingNumber\n) {\n    public record OrderLineResponse(\n\
+    \        String productId,\n        String productName,\n        int quantity,\n\
+    \        MoneyDTO unitPrice,\n        MoneyDTO lineTotal\n    ) {}\n}\n```\n\n\
+    **Characteristics:**\n- Flattened structure (no lazy loading)\n- Formatted for\
+    \ clients (String dates, not Instant)\n- Calculated fields included\n- No circular\
+    \ references\n\n### 3. Query/Filter DTOs\nParameterize data retrieval:\n\n```java\n\
+    public record OrderSearchCriteria(\n    Optional<CustomerId> customerId,\n   \
+    \ Optional<OrderStatus> status,\n    Optional<DateRange> dateRange,\n    Optional<MoneyRange>\
+    \ totalRange\n) {}\n\npublic record PageRequest(\n    int pageNumber,\n    int\
+    \ pageSize,\n    Optional<String> sortBy,\n    SortDirection sortDirection\n)\
+    \ {}\n```\n\n## Mapping Strategies\n\n### 1. Constructor Mapping\nSimple, type-safe\
+    \ conversion:\n\n```java\npublic record OrderDTO(\n    String id,\n    String\
+    \ customerName,\n    BigDecimal total\n) {\n    // Static factory from domain\n\
+    \    public static OrderDTO from(Order order) {\n        return new OrderDTO(\n\
+    \            order.getId().toString(),\n            order.getCustomer().getName(),\n\
+    \            order.getTotal().getAmount()\n        );\n    }\n}\n```\n\n### 2.\
+    \ Mapper Classes\nComplex mapping in dedicated classes:\n\n```java\n@Component\n\
+    public class OrderMapper {\n    \n    public OrderDTO toDTO(Order order) {\n \
+    \       return new OrderDTO(\n            order.getId().value(),\n           \
+    \ mapCustomer(order.getCustomer()),\n            order.getLines().stream()\n \
+    \               .map(this::toLineDTO)\n                .toList(),\n          \
+    \  toMoneyDTO(order.getTotal()),\n            order.getStatus().name(),\n    \
+    \        formatDate(order.getCreatedAt())\n        );\n    }\n    \n    public\
+    \ Order toDomain(CreateOrderRequest request) {\n        return new Order(\n  \
+    \          new CustomerId(request.customerId()),\n            request.lines().stream()\n\
+    \                .map(line -> new OrderLine(\n                    new ProductId(line.productId()),\n\
+    \                    line.quantity()\n                ))\n                .toList()\n\
+    \        );\n    }\n}\n```\n\n### 3. Mapping Libraries\nFor repetitive mapping:\n\
+    \n```java\n// MapStruct generates mappers at compile time\n@Mapper(componentModel\
+    \ = \"spring\")\npublic interface OrderMapper {\n    OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);\n\
+    \    \n    @Mapping(source = \"id.value\", target = \"orderId\")\n    @Mapping(source\
+    \ = \"customer.name\", target = \"customerName\")\n    OrderDTO toDTO(Order order);\n\
+    \    \n    @Mapping(target = \"id\", ignore = true)\n    Order toDomain(CreateOrderRequest\
+    \ request);\n}\n```\n\n**Popular Libraries:**\n- **MapStruct** - Compile-time\
+    \ code generation, type-safe\n- **ModelMapper** - Runtime reflection-based\n-\
+    \ **MapStruct** is preferred for compile-time safety\n\n## DTO Lifecycle Patterns\n\
+    \n### Pattern 1: Request → Domain → Response\nFull round-trip with separate representations:\n\
+    \n```java\n@PostMapping(\"/orders\")\npublic ResponseEntity<OrderResponse> createOrder(\n\
+    \        @RequestBody @Valid CreateOrderRequest request) {\n    \n    // 1. Map\
+    \ request to domain\n    Order order = orderMapper.toDomain(request);\n    \n\
+    \    // 2. Process in domain\n    Order savedOrder = orderService.create(order);\n\
+    \    \n    // 3. Map domain to response\n    OrderResponse response = orderMapper.toDTO(savedOrder);\n\
+    \    \n    return ResponseEntity.created(...).body(response);\n}\n```\n\n### Pattern\
+    \ 2: Projection DTOs (Query Optimization)\nQuery only needed fields directly:\n\
+    \n```java\npublic interface OrderSummaryDTO {\n    String getOrderId();\n    String\
+    \ getCustomerName();\n    BigDecimal getTotal();\n    String getStatus();\n}\n\
+    \n// Repository returns projection\npublic interface OrderRepository {\n    @Query(\"\
+    \"\"\n        SELECT o.id as orderId, c.name as customerName, \n             \
+    \  o.total as total, o.status as status\n        FROM Order o JOIN o.customer\
+    \ c\n        WHERE o.status = :status\n        \"\"\")\n    List<OrderSummaryDTO>\
+    \ findSummariesByStatus(OrderStatus status);\n}\n```\n\n### Pattern 3: CQRS with\
+    \ Separate DTOs\nDifferent models for reads and writes:\n\n```java\n// Write model\
+    \ (Command side)\npublic record CreateOrderCommand(\n    CustomerId customerId,\n\
+    \    List<OrderLine> lines\n) {}\n\n// Read model (Query side) - denormalized\
+    \ for queries\npublic record OrderListItem(\n    String orderId,\n    String customerName,\n\
+    \    String customerEmail,\n    BigDecimal total,\n    int itemCount,\n    String\
+    \ status,\n    LocalDateTime createdAt\n) {}\n```\n\n## Common Pitfalls\n\n###\
+    \ 1. Anemic Domain Model\nUsing DTOs everywhere, entities become data bags:\n\n\
+    ```java\n// WRONG: Just passing DTOs through\n@Service\npublic class OrderService\
+    \ {\n    public OrderDTO process(OrderDTO dto) {\n        // No domain logic,\
+    \ just data manipulation\n        dto.setStatus(\"PROCESSED\");\n        return\
+    \ dto;\n    }\n}\n```\n\n**Solution:** Use domain entities for business logic,\
+    \ DTOs only at boundaries:\n```java\n// CORRECT: Domain handles logic\n@Service\n\
+    public class OrderService {\n    public OrderResult process(OrderId id) {\n  \
+    \      Order order = repository.findById(id);\n        order.process();  // Domain\
+    \ logic\n        repository.save(order);\n        return mapper.toResult(order);\n\
+    \    }\n}\n```\n\n### 2. DTO Explosion\nCreating DTOs for every variation:\n\n\
+    ```java\n// WRONG: Too many similar DTOs\nOrderDTO\nOrderSummaryDTO\nOrderListDTO\n\
+    OrderDetailDTO\nOrderAdminDTO\nOrderCustomerDTO\n// ... maintainability nightmare\n\
+    ```\n\n**Solution:** Use generic patterns or optional fields:\n```java\n// CORRECT:\
+    \ One flexible DTO\npublic record OrderDTO(\n    String id,\n    CustomerSummary\
+    \ customer,\n    List<OrderLineDTO> lines,\n    MoneyDTO total,\n    // Optional\
+    \ based on context\n    Optional<List<ShipmentDTO>> shipments,\n    Optional<PaymentDetails>\
+    \ paymentDetails\n) {}\n```\n\n### 3. Leaky DTOs\nDTOs expose internal structure:\n\
+    \n```java\n// WRONG: Exposes Hibernate proxies\npublic record OrderDTO(\n    Long\
+    \ id,  // Database ID!\n    Customer customer,  // Entity with lazy loading!\n\
+    \    List<OrderLine> lines  // More entities!\n) {}\n```\n\n**Solution:** Fully\
+    \ flatten and transform:\n```java\n// CORRECT: No domain references\npublic record\
+    \ OrderDTO(\n    String orderId,  // Domain ID\n    CustomerSummary customer,\
+    \  // Separate DTO\n    List<LineDTO> lines  // Transformed DTOs\n) {}\n```\n\n\
+    ## DTO Design Guidelines\n\n### Do:\n- Keep DTOs immutable (records in Java, dataclasses\
+    \ in Python)\n- Use primitive types or other DTOs (no entity references)\n- Include\
+    \ only data needed for the use case\n- Validate at the boundary\n- Document the\
+    \ purpose\n\n### Don't:\n- Put business logic in DTOs\n- Expose database IDs (use\
+    \ domain IDs)\n- Create deep object graphs\n- Share DTOs across unrelated use\
+    \ cases\n- Use entities as DTOs\n\n## Modern Alternatives\n\n### GraphQL\nClient\
+    \ specifies needed fields:\n```graphql\nquery {\n  order(id: \"123\") {\n    id\n\
+    \    total\n    customer { name }\n    # Only request what you need\n  }\n}\n\
+    ```\n\n### gRPC/Protobuf\nBinary serialization with schema:\n```protobuf\nmessage\
+    \ Order {\n  string order_id = 1;\n  Customer customer = 2;\n  repeated OrderLine\
+    \ lines = 3;\n  Money total = 4;\n}\n```\n\n## FOE Alignment\n\nThis method supports\
+    \ **Optimize for Understanding** by:\n- Making data contracts explicit\n- Showing\
+    \ exactly what crosses layer boundaries\n- Preventing hidden lazy loading surprises\n\
+    \nIt supports **Fast Feedback Loops** through:\n- Compile-time type safety\n-\
+    \ No runtime serialization errors\n- Clear validation at boundaries\n\nIt supports\
+    \ **Confidence Through Evidence** by:\n- Enabling contract testing\n- Supporting\
+    \ API versioning\n- Making breaking changes visible\n\n## References\n\n- Fowler,\
+    \ M. (2002). *Patterns of Enterprise Application Architecture*. Addison-Wesley.\n\
+    - Gamma, E., et al. (1994). *Design Patterns*. Addison-Wesley.\n- Microsoft (n.d.).\
+    \ [DTO Pattern](https://docs.microsoft.com/en-us/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5)"
+  lead: 'Layers need to exchange data, but exposing domain entities directly creates
+    coupling problems: lazy loading exceptions, serialization issues, and leaking
+    internal state. Data Transfer Objects (DTOs) provide a clean separation by carrying
+    data between layers without exposing domain implementation details.'
+  docs_url_path: field-guides/software-architecture/methods/established/M212-data-transfer-object-pattern

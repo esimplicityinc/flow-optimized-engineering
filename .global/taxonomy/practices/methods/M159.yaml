@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: proven
 spec:
-  description: Use Governed AI Coding Agents
+  description: Deploy AI agents through governed architectures that provide centralized
+    control over LLM access, tool execution, policy management, audit logging, and
+    content exclusion rather than allowing ungoverned individual tool adoption.
   title: Use Governed AI Coding Agents
   annotations:
     foe.source_path: field-guides/agentic-coding/methods/established/M159-use-governed-ai-coding-agents.md

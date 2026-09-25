@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Global Context Assembly
+  description: Synthesize distributed, cross-domain information into a coherent contextual
+    picture before retrieval, rather than relying on single-query retrieval to surface
+    meaning that is inherently scattered.
   title: Global Context Assembly
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M302-global-context-assembly.md

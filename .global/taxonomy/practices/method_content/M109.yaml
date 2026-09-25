@@ -1,0 +1,43 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M109
+spec:
+  description: Prose for Define Phase.
+  body: "**Pillar:** Problem Finding  \n**Thinking Mode:** Convergent (focusing narrowly)\n\
+    \nThe Define phase is the second phase of the Double Diamond, where teams synthesize\
+    \ insights from discovery into a clear, actionable problem definition. This convergent\
+    \ phase creates focus by narrowing from broad exploration to a specific challenge.\n\
+    \n## What It Is\n\nThe Define phase makes sense of the findings from discovery,\
+    \ understanding how user needs and the problem align. The result is a clear design\
+    \ brief that articulates the challenge based on evidence rather than assumptions.\n\
+    \nKey activities in this phase include:\n- **Insight synthesis** — Grouping and\
+    \ analyzing research findings\n- **Journey mapping** — Visualizing the user experience\
+    \ end-to-end\n- **Problem framing** — Articulating the challenge in a clear statement\n\
+    - **Opportunity identification** — Finding the most impactful areas to focus on\n\
+    - **Design brief creation** — Documenting the validated problem to solve\n\n##\
+    \ How to Measure\n\n- **Problem clarity** — Can anyone on the team articulate\
+    \ the problem consistently?\n- **User alignment** — Does the problem statement\
+    \ reflect actual user needs?\n- **Stakeholder agreement** — Do all stakeholders\
+    \ agree on the challenge definition?\n- **Actionability** — Is the problem framed\
+    \ in a way that enables solution generation?\n\n## FOE Alignment\n\nThe Define\
+    \ phase strongly supports **Understanding** by ensuring the team has a shared,\
+    \ evidence-based understanding of the problem. It also builds **Confidence** —\
+    \ a validated problem definition gives the team justified confidence they're solving\
+    \ the right problem before investing in solutions.\n\n## When to Use\n\nUse the\
+    \ Define phase when:\n- Discovery has generated substantial insights that need\
+    \ synthesis\n- The team has many possible problems and needs to prioritize\n-\
+    \ Stakeholders have different views on what the problem is\n- Moving to solutions\
+    \ without clear problem definition\n\n## Common Pitfalls\n\n- **Solution creep**\
+    \ — Defining the problem in terms of a predetermined solution\n- **Too broad**\
+    \ — A problem statement so general it doesn't provide focus\n- **Too narrow**\
+    \ — Constraining the problem space prematurely\n- **Ignoring insights** — Letting\
+    \ organizational politics override user evidence\n\n## Further Reading\n\n- [Design\
+    \ Methods Step 2: Define](https://www.designcouncil.org.uk/our-work/news-opinion/design-methods-step-2-define)\
+    \ — Design Council guide"
+  lead: The Define phase is the second phase of the Double Diamond, where teams synthesize
+    insights from discovery into a clear, actionable problem definition. This convergent
+    phase creates focus by narrowing from broad exploration to a specific challenge.
+  docs_url_path: external-frameworks/double-diamond/methods/M109-define-phase

@@ -1,0 +1,107 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M201
+spec:
+  description: Prose for Layer Organization.
+  body: "**Pillar:** Layer Organization\n\nClean Architecture organizes code into\
+    \ concentric layers, with the most stable, high-level policies at the center and\
+    \ volatile implementation details at the periphery. Each layer has a specific\
+    \ responsibility and communicates only with adjacent inner layers.\n\n## Definition\n\
+    \n> The concentric circles represent different areas of software. In general,\
+    \ the further in you go, the higher level the software becomes. The outer circles\
+    \ are mechanisms. The inner circles are policies.\n>\n> — Robert C. Martin, Clean\
+    \ Architecture\n\n## The Four Layers\n\n### Layer 1: Entities (Enterprise Business\
+    \ Rules)\n\n**Responsibility:** Encapsulate enterprise-wide business rules and\
+    \ critical business data.\n\n**Characteristics:**\n- Most abstract and stable\
+    \ layer\n- Can be used across multiple applications\n- Contains business objects\
+    \ with methods that implement business rules\n- Independent of external concerns\n\
+    \n**Examples:**\n- `User`, `Order`, `Product` domain objects\n- Business rule\
+    \ validation logic\n- Domain events\n\n```typescript\n// Entity - knows nothing\
+    \ about databases, UI, or frameworks\nclass Order {\n  private items: OrderItem[]\
+    \ = [];\n  private status: OrderStatus = OrderStatus.PENDING;\n  \n  addItem(product:\
+    \ Product, quantity: number): void {\n    if (quantity <= 0) {\n      throw new\
+    \ DomainError('Quantity must be positive');\n    }\n    this.items.push(new OrderItem(product,\
+    \ quantity));\n  }\n  \n  calculateTotal(): Money {\n    return this.items.reduce(\n\
+    \      (sum, item) => sum.add(item.getSubtotal()),\n      Money.zero()\n    );\n\
+    \  }\n  \n  canBeCancelled(): boolean {\n    return this.status === OrderStatus.PENDING;\n\
+    \  }\n}\n```\n\n### Layer 2: Use Cases (Application Business Rules)\n\n**Responsibility:**\
+    \ Orchestrate the flow of data to and from entities, and direct entities to use\
+    \ their enterprise-wide business rules to achieve the goals of the use case.\n\
+    \n**Characteristics:**\n- Application-specific business rules\n- Coordinate entities\
+    \ to accomplish tasks\n- Define input/output boundaries (ports)\n- Independent\
+    \ of UI, database, and external frameworks\n\n**Examples:**\n- `CreateOrderUseCase`\n\
+    - `ProcessPaymentUseCase`\n- `GenerateReportUseCase`\n\n```typescript\n// Use\
+    \ Case - orchestrates entities, defines input/output interfaces\ninterface CreateOrderInput\
+    \ {\n  customerId: string;\n  items: { productId: string; quantity: number }[];\n\
+    }\n\ninterface CreateOrderOutput {\n  orderId: string;\n  total: Money;\n}\n\n\
+    class CreateOrderUseCase {\n  constructor(\n    private orderRepository: OrderRepository,\n\
+    \    private productRepository: ProductRepository,\n    private paymentGateway:\
+    \ PaymentGateway\n  ) {}\n  \n  async execute(input: CreateOrderInput): Promise<CreateOrderOutput>\
+    \ {\n    // Orchestrate entities and external services\n    const order = new\
+    \ Order(input.customerId);\n    \n    for (const item of input.items) {\n    \
+    \  const product = await this.productRepository.findById(item.productId);\n  \
+    \    order.addItem(product, item.quantity);\n    }\n    \n    await this.orderRepository.save(order);\n\
+    \    \n    return {\n      orderId: order.id,\n      total: order.calculateTotal()\n\
+    \    };\n  }\n}\n```\n\n### Layer 3: Interface Adapters\n\n**Responsibility:**\
+    \ Convert data from the format most convenient for use cases and entities, to\
+    \ the format most convenient for external agencies (databases, UI, external services).\n\
+    \n**Characteristics:**\n- Controllers, presenters, and gateways\n- Convert between\
+    \ use case formats and external formats\n- No business logic\n- Know about use\
+    \ cases but not about frameworks\n\n**Examples:**\n- HTTP controllers\n- Database\
+    \ mappers/repositories\n- External service clients\n- View models\n\n```typescript\n\
+    // Controller - adapts HTTP to use case\nclass OrderController {\n  constructor(private\
+    \ createOrderUseCase: CreateOrderUseCase) {}\n  \n  async createOrder(req: HttpRequest):\
+    \ Promise<HttpResponse> {\n    // Convert HTTP request to use case input\n   \
+    \ const input: CreateOrderInput = {\n      customerId: req.body.customerId,\n\
+    \      items: req.body.items\n    };\n    \n    // Execute use case\n    const\
+    \ output = await this.createOrderUseCase.execute(input);\n    \n    // Convert\
+    \ use case output to HTTP response\n    return {\n      status: 201,\n      body:\
+    \ {\n        orderId: output.orderId,\n        total: output.total.toString()\n\
+    \      }\n    };\n  }\n}\n```\n\n### Layer 4: Frameworks & Drivers\n\n**Responsibility:**\
+    \ Contain frameworks, tools, and drivers that connect to the external world.\n\
+    \n**Characteristics:**\n- Most volatile layer\n- Contains actual database implementations\n\
+    - Web frameworks (Express, Fastify, etc.)\n- UI frameworks (React, Angular, etc.)\n\
+    - External service clients\n- Main/composition root\n\n**Examples:**\n- Express.js\
+    \ application setup\n- Database connection configuration\n- React components\n\
+    - Message queue consumers\n\n```typescript\n// Framework layer - Express setup\n\
+    \nconst app = express();\n\n// Compose dependencies\nconst db = new PostgresConnection(process.env.DATABASE_URL);\n\
+    const orderRepository = new PostgresOrderRepository(db);\nconst productRepository\
+    \ = new PostgresProductRepository(db);\nconst paymentGateway = new StripePaymentGateway(process.env.STRIPE_KEY);\n\
+    const createOrderUseCase = new CreateOrderUseCase(\n  orderRepository,\n  productRepository,\n\
+    \  paymentGateway\n);\nconst orderController = new OrderController(createOrderUseCase);\n\
+    \n// Wire up routes\napp.post('/orders', (req, res) => orderController.createOrder(req,\
+    \ res));\n\napp.listen(3000);\n```\n\n## Layer Communication Rules\n\n| From |\
+    \ Can Talk To |\n|------|-------------|\n| Entities | Nothing (innermost) |\n\
+    | Use Cases | Entities |\n| Interface Adapters | Use Cases, Entities |\n| Frameworks\
+    \ | Interface Adapters, Use Cases, Entities |\n\n## Common Mistakes\n\n### ❌ Skipping\
+    \ Layers\n\n```typescript\n// WRONG: Controller directly accesses entities\nclass\
+    \ OrderController {\n  constructor(private orderRepository: OrderRepository) {}\n\
+    \  \n  async createOrder(req: Request) {\n    const order = new Order(); // ❌\
+    \ Controller creating entity directly\n    // Business logic here - should be\
+    \ in use case\n    await this.orderRepository.save(order);\n  }\n}\n```\n\n###\
+    \ ❌ Business Logic in Adapters\n\n```typescript\n// WRONG: Business logic in controller\n\
+    class OrderController {\n  async createOrder(req: Request) {\n    if (req.body.quantity\
+    \ > 100) { // ❌ Business rule in controller\n      throw new Error('Max quantity\
+    \ exceeded');\n    }\n    // ...\n  }\n}\n```\n\n### ❌ Framework Dependencies\
+    \ in Use Cases\n\n```typescript\n// WRONG: Use case depends on Express\n\nclass\
+    \ CreateOrderUseCase {\n  async execute(req: Request) { // ❌ Framework type in\
+    \ use case\n    // ...\n  }\n}\n```\n\n## FOE Alignment\n\nLayer Organization\
+    \ supports FOE principles:\n\n- **Understanding** - Clear layer responsibilities\
+    \ make it obvious where code belongs; new team members can navigate the codebase\
+    \ confidently\n- **Confidence** - Changes are isolated to specific layers; modifying\
+    \ the UI doesn't risk breaking business rules\n- **Fast Feedback** - Inner layers\
+    \ can be developed and tested before outer layers exist; business logic is verified\
+    \ independently\n\n## Related Methods\n\n- [M200-dependency-rule](/docs/external-frameworks/clean-architecture/methods/M200-dependency-rule)\
+    \ - The foundational rule governing layer dependencies\n- [M204-entity-design](/docs/external-frameworks/clean-architecture/methods/M204-entity-design)\
+    \ - Designing enterprise business objects\n- [M205-use-case-implementation](/docs/external-frameworks/clean-architecture/methods/M205-use-case-implementation)\
+    \ - Implementing application business rules\n\n## References\n\n- Martin, R. C.\
+    \ (2017). *Clean Architecture: A Craftsman's Guide to Software Structure and Design*.\
+    \ Prentice Hall.\n- Cockburn, A. (2005). [Hexagonal Architecture](https://alistair.cockburn.us/hexagonal-architecture/)."
+  lead: Clean Architecture organizes code into concentric layers, with the most stable,
+    high-level policies at the center and volatile implementation details at the periphery.
+    Each layer has a specific responsibility and communicates only with adjacent inner
+    layers.
+  docs_url_path: external-frameworks/clean-architecture/methods/M201-layer-organization

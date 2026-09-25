@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Retriever Ensemble
+  description: Combine multiple retrieval strategies — semantic, lexical, and graph-based
+    — into a unified retrieval pipeline so that no single mode's blind spots become
+    system failures.
   title: Retriever Ensemble
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M303-retriever-ensemble.md

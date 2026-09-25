@@ -1,0 +1,200 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M214
+spec:
+  description: Prose for Service Layer Pattern.
+  body: "## Why This Matters for Software Architecture\n\nBusiness operations often\
+    \ span multiple domain objects, repositories, and external services. Putting this\
+    \ orchestration in controllers creates bloated, untestable code. Putting it in\
+    \ entities violates single responsibility. The Service Layer provides a clean\
+    \ boundary for use case orchestration, coordinating domain objects to fulfill\
+    \ application operations.\n\n**Architecture Benefits:**\n- Clear boundary for\
+    \ use case orchestration\n- Controllers remain thin (HTTP concerns only)\n- Domain\
+    \ entities focus on business logic, not coordination\n- Operations are reusable\
+    \ across UIs (web, mobile, CLI)\n- Transaction boundaries are explicit\n\n**FOE\
+    \ Alignment:**\n- **Understanding** - Each service represents a clear use case\n\
+    - **Confidence** - Service methods are cohesive and testable units\n- **Fast Feedback**\
+    \ - Service logic can be unit tested in isolation\n\n## Definition\n\n> A Service\
+    \ Layer defines an application's boundary and its set of available operations\
+    \ from the perspective of the interfacing client layers. It encapsulates the application's\
+    \ business logic, transaction control, and coordination of responses in the implementation\
+    \ of its operations.\n>\n> — Fowler, Patterns of Enterprise Application Architecture\
+    \ (2002)\n\n## Types of Services\n\n### Application Services\nOrchestrate use\
+    \ cases, coordinate domain objects:\n\n```java\n@Service\n@RequiredArgsConstructor\n\
+    public class OrderApplicationService {\n    private final OrderRepository orderRepository;\n\
+    \    private final ProductRepository productRepository;\n    private final PaymentGateway\
+    \ paymentGateway;\n    private final EventPublisher eventPublisher;\n    \n  \
+    \  @Transactional\n    public OrderResult createOrder(CreateOrderCommand command)\
+    \ {\n        // 1. Load supporting data\n        List<Product> products = productRepository\n\
+    \            .findAllById(command.productIds());\n        \n        // 2. Create\
+    \ domain aggregate\n        Order order = new Order(command.customerId());\n \
+    \       \n        // 3. Apply domain logic\n        for (Product product : products)\
+    \ {\n            order.addItem(product, command.quantityFor(product));\n     \
+    \   }\n        \n        order.calculateTotal();\n        \n        // 4. Coordinate\
+    \ external services\n        PaymentResult payment = paymentGateway.process(\n\
+    \            new Payment(order.getTotal(), command.paymentMethod())\n        );\n\
+    \        \n        if (!payment.isSuccessful()) {\n            throw new PaymentFailedException(payment.getError());\n\
+    \        }\n        \n        order.confirm();\n        \n        // 5. Persist\
+    \ changes\n        Order savedOrder = orderRepository.save(order);\n        \n\
+    \        // 6. Publish events\n        eventPublisher.publish(new OrderCreatedEvent(savedOrder));\n\
+    \        \n        // 7. Return result\n        return OrderResult.from(savedOrder);\n\
+    \    }\n}\n```\n\n**Characteristics:**\n- No business logic (just orchestration)\n\
+    - Transaction boundaries\n- Coordinate multiple domain objects\n- Handle external\
+    \ service calls\n- Publish domain events\n\n### Domain Services\nEncapsulate domain\
+    \ logic that doesn't fit in entities:\n\n```java\n// Domain Service - pure business\
+    \ logic\npublic class PricingService {\n    \n    public Money calculateOrderTotal(Order\
+    \ order, DiscountPolicy discount) {\n        Money subtotal = order.getLines().stream()\n\
+    \            .map(line -> line.getProduct().getPrice()\n                     \
+    \      .multiply(line.getQuantity()))\n            .reduce(Money.ZERO, Money::add);\n\
+    \        \n        Money discountAmount = discount.calculateDiscount(subtotal);\n\
+    \        \n        return subtotal.subtract(discountAmount)\n                \
+    \       .add(order.getShippingCost());\n    }\n    \n    public boolean isEligibleForDiscount(Customer\
+    \ customer, Order order) {\n        return customer.isPremium() && \n        \
+    \       order.getTotal().isGreaterThan(Money.of(100));\n    }\n}\n```\n\n**Characteristics:**\n\
+    - Stateless business logic\n- Operations involving multiple aggregates\n- Domain\
+    \ concepts without natural entity home\n- Pure domain, no infrastructure concerns\n\
+    \n### Infrastructure Services\nAbstract technical concerns:\n\n```java\n// Infrastructure\
+    \ Service\n@Service\npublic class SmtpEmailService implements EmailService {\n\
+    \    private final JavaMailSender mailSender;\n    private final TemplateEngine\
+    \ templateEngine;\n    \n    @Override\n    public void sendOrderConfirmation(Order\
+    \ order, Customer customer) {\n        MimeMessage message = mailSender.createMimeMessage();\n\
+    \        MimeMessageHelper helper = new MimeMessageHelper(message);\n        \n\
+    \        helper.setTo(customer.getEmail());\n        helper.setSubject(\"Order\
+    \ Confirmation: \" + order.getId());\n        helper.setText(buildConfirmationEmail(order),\
+    \ true);\n        \n        mailSender.send(message);\n    }\n}\n```\n\n**Characteristics:**\n\
+    - Technical implementations\n- Interface defined in domain/application\n- Implementation\
+    \ in infrastructure\n- Examples: EmailService, NotificationService, FileStorageService\n\
+    \n## Service Design Principles\n\n### 1. Single Responsibility per Method\nEach\
+    \ method implements one use case:\n\n```java\n// CORRECT: One use case per method\n\
+    @Service\npublic class OrderService {\n    public OrderResult createOrder(CreateOrderCommand\
+    \ cmd) { ... }\n    public void cancelOrder(CancelOrderCommand cmd) { ... }\n\
+    \    public void shipOrder(ShipOrderCommand cmd) { ... }\n    public OrderDTO\
+    \ getOrder(OrderId id) { ... }\n    public List<OrderSummary> listCustomerOrders(CustomerId\
+    \ id) { ... }\n}\n```\n\n### 2. Command vs Query Separation\nSeparate read and\
+    \ write operations:\n\n```java\n// Commands - modify state\n@Service\npublic class\
+    \ OrderCommandService {\n    @Transactional\n    public OrderId createOrder(CreateOrderCommand\
+    \ command) { ... }\n    \n    @Transactional\n    public void cancelOrder(CancelOrderCommand\
+    \ command) { ... }\n}\n\n// Queries - read-only, optimized\n@Service\npublic class\
+    \ OrderQueryService {\n    @Transactional(readOnly = true)\n    public OrderDTO\
+    \ getOrder(OrderId id) { ... }\n    \n    @Transactional(readOnly = true)\n  \
+    \  public List<OrderSummary> searchOrders(OrderSearchCriteria criteria) { ...\
+    \ }\n}\n```\n\n### 3. Explicit Transaction Boundaries\n```java\n@Service\npublic\
+    \ class OrderService {\n    \n    @Transactional  // Atomic operation\n    public\
+    \ void transferFunds(AccountId from, AccountId to, Money amount) {\n        Account\
+    \ source = accountRepository.findById(from);\n        Account target = accountRepository.findById(to);\n\
+    \        \n        source.debit(amount);\n        target.credit(amount);\n   \
+    \     \n        accountRepository.save(source);\n        accountRepository.save(target);\n\
+    \        // Both succeed or both fail\n    }\n}\n```\n\n## Service Coordination\
+    \ Patterns\n\n### Saga Pattern\nLong-running transactions across services:\n\n\
+    ```java\n@Service\npublic class OrderSaga {\n    private final OrderRepository\
+    \ orderRepository;\n    private final InventoryService inventoryService;\n   \
+    \ private final PaymentService paymentService;\n    private final ShippingService\
+    \ shippingService;\n    \n    @Transactional\n    public void processOrder(OrderId\
+    \ orderId) {\n        Order order = orderRepository.findById(orderId);\n     \
+    \   \n        try {\n            // Step 1: Reserve inventory\n            inventoryService.reserveItems(order.getItems());\n\
+    \            \n            // Step 2: Process payment\n            paymentService.charge(order.getTotal(),\
+    \ order.getPaymentMethod());\n            \n            // Step 3: Create shipment\n\
+    \            Shipment shipment = shippingService.createShipment(order);\n    \
+    \        \n            order.complete(shipment.getTrackingNumber());\n       \
+    \     \n        } catch (Exception e) {\n            // Compensating transactions\n\
+    \            inventoryService.releaseReservation(order.getItems());\n        \
+    \    paymentService.refund(order.getTotal(), order.getPaymentMethod());\n    \
+    \        order.fail(e.getMessage());\n            throw e;\n        }\n      \
+    \  \n        orderRepository.save(order);\n    }\n}\n```\n\n### Workflow Service\n\
+    Complex multi-step processes:\n\n```java\n@Service\npublic class OrderFulfillmentWorkflow\
+    \ {\n    \n    public FulfillmentResult fulfill(Order order) {\n        Workflow\
+    \ workflow = Workflow.start(order);\n        \n        // Step 1: Validate\n \
+    \       workflow.addStep(\"VALIDATE\", () -> validateOrder(order));\n        \n\
+    \        // Step 2: Check inventory\n        workflow.addStep(\"CHECK_INVENTORY\"\
+    , () -> checkInventory(order));\n        \n        // Step 3: Process payment\
+    \ (async, may wait)\n        workflow.addAsyncStep(\"PAYMENT\", () -> processPayment(order));\n\
+    \        \n        // Step 4: Pick and pack\n        workflow.addStep(\"FULFILL\"\
+    , () -> createFulfillment(order));\n        \n        // Step 5: Ship\n      \
+    \  workflow.addStep(\"SHIP\", () -> createShipment(order));\n        \n      \
+    \  return workflow.execute();\n    }\n}\n```\n\n## Service Layer Anti-Patterns\n\
+    \n### Anemic Service (Over-Delegation)\n```java\n// WRONG: Service just passes\
+    \ through\n@Service\npublic class OrderService {\n    private final OrderRepository\
+    \ repo;\n    \n    public Order findById(Long id) {  // Just delegation\n    \
+    \    return repo.findById(id).orElse(null);\n    }\n    \n    public Order save(Order\
+    \ order) {  // Just delegation\n        return repo.save(order);\n    }\n}\n```\n\
+    \n**Solution:** Services orchestrate, repositories persist:\n```java\n// CORRECT:\
+    \ Service coordinates use case\n@Service\npublic class OrderService {\n    public\
+    \ OrderResult processOrder(CreateOrderCommand cmd) {\n        Order order = new\
+    \ Order(cmd);\n        \n        // Business rules\n        if (!order.isValid())\
+    \ {\n            throw new InvalidOrderException();\n        }\n        \n   \
+    \     // Coordination\n        PaymentResult payment = paymentGateway.process(order.getPayment());\n\
+    \        if (payment.isSuccessful()) {\n            order.confirm();\n       \
+    \ }\n        \n        return OrderResult.from(orderRepository.save(order));\n\
+    \    }\n}\n```\n\n### God Service\n```java\n// WRONG: One service for everything\n\
+    @Service\npublic class OrderService {\n    // 100+ methods\n    public Order createOrder(...)\
+    \ { ... }\n    public void cancelOrder(...) { ... }\n    public void refundOrder(...)\
+    \ { ... }\n    public void shipOrder(...) { ... }\n    public void returnOrder(...)\
+    \ { ... }\n    public void exchangeOrder(...) { ... }\n    public List<Order>\
+    \ searchOrders(...) { ... }\n    public OrderReport generateReport(...) { ...\
+    \ }\n    public void updateInventory(...) { ... }  // Wrong domain!\n}\n```\n\n\
+    **Solution:** Split by responsibility:\n```java\n@Service\npublic class OrderLifecycleService\
+    \ { ... }  // Create, cancel, etc.\n@Service\npublic class OrderFulfillmentService\
+    \ { ... }  // Ship, track, etc.\n@Service\npublic class OrderQueryService { ...\
+    \ }  // Search, reports\n@Service\npublic class OrderReturnService { ... }  //\
+    \ Returns, exchanges\n```\n\n### Business Logic in Services\n```java\n// WRONG:\
+    \ Domain logic in service\n@Service\npublic class OrderService {\n    public void\
+    \ applyDiscount(Order order, String code) {\n        if (code.startsWith(\"VIP\"\
+    ) && order.getTotal() > 100) {\n            order.setTotal(order.getTotal() *\
+    \ 0.9);  // Business rule!\n        }\n    }\n}\n```\n\n**Solution:** Logic belongs\
+    \ in domain:\n```java\n// CORRECT: Logic in domain entity\npublic class Order\
+    \ {\n    public void applyDiscount(DiscountCode code) {\n        if (code.isValidFor(this))\
+    \ {\n            this.total = code.apply(this.total);\n        }\n    }\n}\n\n\
+    // Service just orchestrates\n@Service\npublic class OrderService {\n    public\
+    \ void applyDiscount(OrderId id, DiscountCode code) {\n        Order order = repository.findById(id);\n\
+    \        order.applyDiscount(code);  // Domain handles logic\n        repository.save(order);\n\
+    \    }\n}\n```\n\n## Testing Services\n\n### Unit Test with Mocks\n```java\n@ExtendWith(MockitoExtension.class)\n\
+    class OrderServiceTest {\n    @Mock\n    private OrderRepository orderRepository;\n\
+    \    @Mock\n    private PaymentGateway paymentGateway;\n    \n    @InjectMocks\n\
+    \    private OrderService orderService;\n    \n    @Test\n    void shouldCreateOrderWhenPaymentSucceeds()\
+    \ {\n        // Given\n        CreateOrderCommand command = new CreateOrderCommand(...);\n\
+    \        when(paymentGateway.process(any())).thenReturn(successfulPayment());\n\
+    \        when(orderRepository.save(any())).thenAnswer(i -> i.getArgument(0));\n\
+    \        \n        // When\n        OrderResult result = orderService.createOrder(command);\n\
+    \        \n        // Then\n        assertThat(result.getStatus()).isEqualTo(CONFIRMED);\n\
+    \        verify(orderRepository).save(any(Order.class));\n    }\n    \n    @Test\n\
+    \    void shouldThrowExceptionWhenPaymentFails() {\n        // Given\n       \
+    \ CreateOrderCommand command = new CreateOrderCommand(...);\n        when(paymentGateway.process(any())).thenReturn(failedPayment());\n\
+    \        \n        // Then\n        assertThrows(PaymentFailedException.class,\
+    \ () -> {\n            orderService.createOrder(command);\n        });\n     \
+    \   verify(orderRepository, never()).save(any());\n    }\n}\n```\n\n### Integration\
+    \ Test\n```java\n@SpringBootTest\n@Transactional\nclass OrderServiceIntegrationTest\
+    \ {\n    @Autowired\n    private OrderService orderService;\n    \n    @Autowired\n\
+    \    private OrderRepository orderRepository;\n    \n    @Test\n    void shouldPersistOrder()\
+    \ {\n        CreateOrderCommand command = new CreateOrderCommand(...);\n     \
+    \   \n        OrderResult result = orderService.createOrder(command);\n      \
+    \  \n        Order persisted = orderRepository.findById(result.getId()).orElseThrow();\n\
+    \        assertThat(persisted.getStatus()).isEqualTo(CONFIRMED);\n    }\n}\n```\n\
+    \n## When to Use / When Not to Use\n\n### Use Service Layer When:\n- Operations\
+    \ span multiple domain objects\n- Need transaction coordination\n- Business process\
+    \ has multiple steps\n- Same operation used from multiple UIs\n- Need to coordinate\
+    \ external services\n\n### May Skip When:\n- Simple CRUD with no business logic\n\
+    - Single entity operations\n- Read-only queries (use Query Handlers instead)\n\
+    - Simple data transformations\n\n## Evolution to Modern Patterns\n\n| Pattern\
+    \ | Evolution | Use Case |\n|---------|-----------|----------|\n| **Service Layer**\
+    \ | Traditional | CRUD, simple orchestration |\n| **CQRS** | Split reads/writes\
+    \ | Complex queries, different models |\n| **Event Sourcing** | State as events\
+    \ | Audit trails, temporal queries |\n| **Saga** | Distributed txns | Multi-service\
+    \ operations |\n\n## FOE Alignment\n\nThis method supports **Optimize for Understanding**\
+    \ by:\n- Making use cases explicit in service methods\n- Separating orchestration\
+    \ from domain logic\n- Creating clear transaction boundaries\n\nIt supports **Fast\
+    \ Feedback Loops** through:\n- Service-level unit testing\n- Clear success/failure\
+    \ per operation\n- Mockable boundaries for testing\n\nIt supports **Confidence\
+    \ Through Evidence** by:\n- Transaction boundaries ensure data consistency\n-\
+    \ Explicit orchestration makes flows clear\n- Testable units provide rapid validation\n\
+    \n## References\n\n- Fowler, M. (2002). *Patterns of Enterprise Application Architecture*.\
+    \ Addison-Wesley.\n- Evans, E. (2003). *Domain-Driven Design*. Addison-Wesley.\n\
+    - Microsoft (n.d.). [Service Layer](https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles#dependency-inversion)"
+  lead: Business operations often span multiple domain objects, repositories, and
+    external services. Putting this orchestration in controllers creates bloated,
+    untestable code. Putting it in entities violates single responsibility. The Service
+    Layer provides a clean boundary for use case orchestration, coordinating domain
+    objects to fulfill application operations.
+  docs_url_path: field-guides/software-architecture/methods/established/M214-service-layer-pattern

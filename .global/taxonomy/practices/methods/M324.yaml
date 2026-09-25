@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Semantic Maturity Ladder
+  description: Use the six-level semantic maturity ladder — from raw data to durable
+    memory — as a diagnostic framework to assess where an organization's knowledge
+    layer sits and to sequence investments in the semantic layer systematically.
   title: Semantic Maturity Ladder
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M324-semantic-maturity-ladder.md

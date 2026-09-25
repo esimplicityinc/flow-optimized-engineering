@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: observing
 spec:
-  description: Persistent Planning State
+  description: Maintain explicit planning state in markdown files that agents read
+    before every decision. This keeps goals in the attention window and prevents context
+    drift during long sessions.
   title: Persistent Planning State
   annotations:
     foe.source_path: field-guides/agentic-coding/methods/emerging/M148-persistent-planning-state.md

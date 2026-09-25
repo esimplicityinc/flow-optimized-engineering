@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Stateful Agent Design
+  description: Architect agents as stateful systems that maintain persistent understanding
+    across sessions and tasks, rather than stateless query-response machines that
+    lose all context between interactions.
   title: Stateful Agent Design
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M312-stateful-agent-design.md

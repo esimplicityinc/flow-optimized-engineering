@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: observing
 spec:
-  description: System Over Individuals
+  description: When performance is poor, optimize the system before blaming the people.
+    The same individuals can produce dramatically different outcomes depending on
+    the system they operate within.
   title: System Over Individuals
   annotations:
     foe.source_path: field-guides/system-architecture/methods/emerging/M151-system-over-individuals.md

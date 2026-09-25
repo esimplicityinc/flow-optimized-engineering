@@ -7,7 +7,8 @@ metadata:
   labels:
     foe.maturity: observing
 spec:
-  description: Worktree-Based Agent Isolation
+  description: Give each parallel agent its own git worktree to prevent file conflicts
+    and enable true concurrent development on the same repository.
   title: Worktree-Based Agent Isolation
   annotations:
     foe.source_path: field-guides/agentic-coding/methods/emerging/M162-worktree-based-agent-isolation.md

@@ -1,0 +1,197 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M233
+spec:
+  description: Prose for Backpressure.
+  body: "**Pillar:** Operational Patterns\n\nBackpressure is a flow control mechanism\
+    \ where a downstream component signals to upstream components that it is overwhelmed\
+    \ and cannot keep up with the current load. The upstream component then reduces\
+    \ its output rate, preventing cascade failures and resource exhaustion. This creates\
+    \ a self-regulating system that gracefully handles load spikes.\n\n## Definition\n\
+    \n> \"Back-pressure is an important feedback mechanism that allows systems to\
+    \ gracefully respond to load rather than collapse under it. When a component is\
+    \ under stress, it can propagate that stress upstream to reduce the load.\"\n\
+    > — Reactive Streams Specification\n\n## Why It Matters\n\nWithout backpressure,\
+    \ systems experience cascade failures:\n\n```\nWITHOUT BACKPRESSURE:\nClient ──▶\
+    \ Service A ──▶ Service B ──▶ Database\n            (1000 req/s)  (100 req/s)\
+    \   (50 req/s)\n                │              │             │\n             \
+    \   │     Queue    │    Queue    │\n                │    grows...  │   grows...\
+    \  │\n                ▼              ▼             ▼\n           Memory      \
+    \  Memory        Memory\n           exhausted     exhausted     exhausted\n  \
+    \              │              │             │\n                └──────────────┴─────────────┘\n\
+    \                         ↓\n                    System crash\n\nWITH BACKPRESSURE:\n\
+    Client ──▶ Service A ──▶ Service B ──▶ Database\n            (1000 req/s)  (100\
+    \ req/s)   (50 req/s)\n                ▲              ▲\n                │   \"\
+    Slow down\" │  \"Slow down\"\n                └───────────────┴──────────────┘\n\
+    \                         ↓\n            Client throttles requests\n         \
+    \   (serves 50 req/s gracefully)\n```\n\n## How It Works\n\n### Backpressure Signals\n\
+    \nComponents communicate their capacity through various mechanisms:\n\n| Mechanism\
+    \ | How It Works | Use Case |\n|-----------|--------------|----------|\n| **Blocking**\
+    \ | Synchronous call blocks until capacity available | Simple synchronous systems\
+    \ |\n| **Bounded Queues** | Queue rejects when full | Async message processing\
+    \ |\n| **Flow Control** | Explicit rate negotiation (TCP, Reactive Streams) |\
+    \ Streaming data |\n| **Credits/Tokens** | Consumer grants permits to producer\
+    \ | Rate-limited APIs |\n| **Delay/Retry-After** | HTTP 429 or 503 with retry\
+    \ header | HTTP-based services |\n\n### Reactive Streams Backpressure\n\nThe standard\
+    \ approach for async backpressure:\n\n```javascript\nconst { Readable, Writable\
+    \ } = require('stream');\n\n// Producer (upstream)\nconst producer = new Readable({\n\
+    \  objectMode: true,\n  highWaterMark: 10, // Buffer size\n  \n  read() {\n  \
+    \  // Only called when consumer requests more data\n    const data = generateData();\n\
+    \    this.push(data);\n  }\n});\n\n// Consumer (downstream)\nconst consumer =\
+    \ new Writable({\n  objectMode: true,\n  highWaterMark: 5,\n  \n  write(chunk,\
+    \ encoding, callback) {\n    // Process data\n    processChunk(chunk)\n      .then(()\
+    \ => callback()) // Signal ready for more\n      .catch(err => callback(err));\
+    \ // Signal error\n  }\n});\n\n// Pipe with automatic backpressure\nproducer.pipe(consumer);\n\
+    \n// Consumer controls rate by how fast it calls callback()\n```\n\n### HTTP-Based\
+    \ Backpressure\n\n```javascript\n// Service B signals overload\napp.post('/process',\
+    \ async (req, res) => {\n  if (queue.size >= MAX_QUEUE_SIZE) {\n    // Signal\
+    \ backpressure\n    return res.status(503).json({\n      error: 'Service temporarily\
+    \ overloaded',\n      retryAfter: 5 // seconds\n    });\n  }\n  \n  // Queue request\
+    \ for processing\n  await queue.add(req.body);\n  res.status(202).json({ status:\
+    \ 'accepted' });\n});\n\n// Service A respects backpressure\nasync function callServiceB(data)\
+    \ {\n  try {\n    return await httpClient.post('/process', data);\n  } catch (error)\
+    \ {\n    if (error.status === 503 && error.response.retryAfter) {\n      // Back\
+    \ off and retry\n      await delay(error.response.retryAfter * 1000);\n      return\
+    \ await callServiceB(data); // Retry\n    }\n    throw error;\n  }\n}\n```\n\n\
+    ## Implementation Patterns\n\n### 1. Rate Limiting\n\nPrevent upstream from overwhelming\
+    \ downstream:\n\n```javascript\nconst { RateLimiter } = require('limiter');\n\n\
+    // Token bucket rate limiter\nconst limiter = new RateLimiter({\n  tokensPerInterval:\
+    \ 100,  // 100 requests\n  interval: 'second'       // per second\n});\n\nasync\
+    \ function callDownstream(request) {\n  // Wait for token (backpressure)\n  await\
+    \ limiter.removeTokens(1);\n  \n  return await downstreamService.call(request);\n\
+    }\n```\n\n### 2. Bounded Queues\n\nQueue requests with explicit limits:\n\n```javascript\n\
+    class BoundedQueue {\n  constructor(capacity) {\n    this.capacity = capacity;\n\
+    \    this.queue = [];\n    this.waiting = [];\n  }\n  \n  async enqueue(item)\
+    \ {\n    if (this.queue.length >= this.capacity) {\n      // Queue full - apply\
+    \ backpressure\n      throw new QueueFullError('Cannot accept more items');\n\
+    \    }\n    \n    this.queue.push(item);\n    \n    // Notify waiting consumers\n\
+    \    if (this.waiting.length > 0) {\n      const resolve = this.waiting.shift();\n\
+    \      resolve(this.queue.shift());\n    }\n  }\n  \n  async dequeue() {\n   \
+    \ if (this.queue.length > 0) {\n      return this.queue.shift();\n    }\n    \n\
+    \    // Wait for item\n    return new Promise(resolve => {\n      this.waiting.push(resolve);\n\
+    \    });\n  }\n}\n\n// Usage\nconst queue = new BoundedQueue(100);\n\n// Producer\n\
+    async function produce(items) {\n  for (const item of items) {\n    try {\n  \
+    \    await queue.enqueue(item);\n    } catch (error) {\n      if (error instanceof\
+    \ QueueFullError) {\n        // Apply backpressure - slow down\n        await\
+    \ delay(100);\n        await queue.enqueue(item); // Retry\n      }\n    }\n \
+    \ }\n}\n\n// Consumer\nasync function consume() {\n  while (true) {\n    const\
+    \ item = await queue.dequeue();\n    await process(item);\n  }\n}\n```\n\n###\
+    \ 3. Credit-Based Flow Control\n\nConsumer grants credits to producer:\n\n```javascript\n\
+    class CreditBasedProducer {\n  constructor(consumer) {\n    this.consumer = consumer;\n\
+    \    this.credits = 0;\n    this.pending = [];\n  }\n  \n  async send(data) {\n\
+    \    if (this.credits > 0) {\n      this.credits--;\n      await this.consumer.receive(data);\n\
+    \    } else {\n      // No credits - must wait\n      await new Promise(resolve\
+    \ => this.pending.push(resolve));\n      this.credits--;\n      await this.consumer.receive(data);\n\
+    \    }\n  }\n  \n  receiveCredits(count) {\n    this.credits += count;\n    //\
+    \ Resume pending sends\n    while (this.pending.length > 0 && this.credits > 0)\
+    \ {\n      const resolve = this.pending.shift();\n      resolve();\n    }\n  }\n\
+    }\n\nclass CreditBasedConsumer {\n  constructor(producer, maxCredits) {\n    this.producer\
+    \ = producer;\n    this.availableCredits = maxCredits;\n    this.maxCredits =\
+    \ maxCredits;\n    this.queue = [];\n  }\n  \n  async receive(data) {\n    this.queue.push(data);\n\
+    \    this.availableCredits--;\n    \n    // Process when ready\n    await this.processQueue();\n\
+    \  }\n  \n  async processQueue() {\n    while (this.queue.length > 0 && this.canProcess())\
+    \ {\n      const item = this.queue.shift();\n      await this.process(item);\n\
+    \      \n      // Replenish credits\n      this.availableCredits++;\n      await\
+    \ this.producer.receiveCredits(1);\n    }\n  }\n  \n  canProcess() {\n    // Only\
+    \ process if we have capacity\n    return this.processingCount < this.maxConcurrent;\n\
+    \  }\n}\n```\n\n### 4. Circuit Breaker as Backpressure\n\nCircuit breakers can\
+    \ signal backpressure by opening:\n\n```javascript\nclass BackpressureCircuitBreaker\
+    \ {\n  constructor(threshold) {\n    this.queueSize = 0;\n    this.threshold =\
+    \ threshold;\n    this.state = 'CLOSED';\n  }\n  \n  canAccept() {\n    if (this.queueSize\
+    \ >= this.threshold) {\n      this.state = 'OPEN';\n      return false;\n    }\n\
+    \    return this.state === 'CLOSED';\n  }\n  \n  async execute(fn) {\n    if (!this.canAccept())\
+    \ {\n      throw new BackpressureError('Circuit open - apply backpressure');\n\
+    \    }\n    \n    this.queueSize++;\n    try {\n      return await fn();\n   \
+    \ } finally {\n      this.queueSize--;\n      if (this.queueSize < this.threshold\
+    \ * 0.8) {\n        this.state = 'CLOSED';\n      }\n    }\n  }\n}\n```\n\n##\
+    \ FOE Alignment\n\n**Primary: Confidence to Act**\n\nBackpressure provides confidence\
+    \ that the system won't collapse under load. When components signal overload,\
+    \ upstream systems respond by throttling, creating a self-protecting system. This\
+    \ confidence enables teams to deploy without fear of traffic spikes causing outages.\n\
+    \n**Secondary: Fast Feedback Loops**\n\nBackpressure creates immediate feedback\
+    \ about system capacity. Instead of discovering overload through failures or timeouts,\
+    \ components receive explicit signals to slow down. This rapid feedback enables\
+    \ quick adaptation to changing load conditions.\n\n## Benefits\n\n- ✅ **Prevents\
+    \ cascade failures** - Overload contained at bottleneck\n- ✅ **Self-regulating**\
+    \ - System automatically adjusts to capacity\n- ✅ **Graceful degradation** - Slows\
+    \ down rather than crashes\n- ✅ **Resource protection** - Prevents memory exhaustion\
+    \ from queues\n- ✅ **Predictable behavior** - Known capacity limits vs. unpredictable\
+    \ failures\n\n## Trade-offs\n\n- ⚠️ **Latency increase** - Throttling adds delays\n\
+    - ⚠️ **Complexity** - Requires coordination between components\n- ⚠️ **Client\
+    \ handling** - Clients must respect backpressure signals\n- ⚠️ **Potential deadlock**\
+    \ - Poorly implemented backpressure can stall system\n\n## When to Use\n\n✅ **Essential\
+    \ for:**\n- Streaming data processing (Kafka, RabbitMQ)\n- Microservices with\
+    \ varying capacities\n- Systems with bursty traffic patterns\n- Resource-constrained\
+    \ environments\n- Any async message processing\n\n❌ **Can simplify when:**\n-\
+    \ Synchronous request-response only\n- Load is predictable and steady\n- Resources\
+    \ are abundant\n- All components have equal capacity\n\n## Backpressure Strategies\n\
+    \n### 1. Drop (Lossy)\n\n```javascript\n// When overloaded, drop new requests\n\
+    if (queue.isFull()) {\n  metrics.increment('dropped_requests');\n  return; //\
+    \ Silently drop\n}\n```\n\n**Use for:** Metrics, logs, non-critical telemetry\n\
+    **Trade-off:** Data loss\n\n### 2. Buffer (Lossless)\n\n```javascript\n// Queue\
+    \ with backpressure to producer\nwhile (queue.isFull()) {\n  await sleep(10);\
+    \ // Back off\n}\nawait queue.enqueue(item);\n```\n\n**Use for:** Critical data\
+    \ that cannot be lost\n**Trade-off:** Increased latency\n\n### 3. Shed Load\n\n\
+    ```javascript\n// Reject requests with retry guidance\nif (load > threshold) {\n\
+    \  res.status(503).header('Retry-After', 5).send('Overloaded');\n}\n```\n\n**Use\
+    \ for:** HTTP APIs, client can retry\n**Trade-off:** Client must handle retries\n\
+    \n### 4. Elastic Scaling\n\n```javascript\n// Scale out when backpressure detected\n\
+    if (queue.depth > scaleUpThreshold) {\n  await autoScaler.scaleUp();\n}\n```\n\
+    \n**Use for:** Cloud environments, stateless services\n**Trade-off:** Cost, scaling\
+    \ delays\n\n## Integration with Reactive Streams\n\nThe Reactive Streams standard\
+    \ (Java, JavaScript, .NET):\n\n```java\n// Java Reactive Streams example\nPublisher<Data>\
+    \ publisher = createPublisher();\nSubscriber<Data> subscriber = new Subscriber<Data>()\
+    \ {\n    private Subscription subscription;\n    private int credits = 10;\n \
+    \   \n    @Override\n    public void onSubscribe(Subscription s) {\n        this.subscription\
+    \ = s;\n        // Request initial batch\n        s.request(credits);\n    }\n\
+    \    \n    @Override\n    public void onNext(Data data) {\n        process(data);\n\
+    \        credits--;\n        \n        // When running low, request more\n   \
+    \     if (credits < 3) {\n            int more = 10 - credits;\n            subscription.request(more);\n\
+    \            credits += more;\n        }\n    }\n    // ... onError, onComplete\n\
+    };\n\npublisher.subscribe(subscriber);\n```\n\n## Monitoring\n\nTrack these metrics:\n\
+    \n```javascript\nconst backpressureMetrics = {\n  // Queue depth signals backpressure\
+    \ need\n  'queue.depth': gauge,\n  'queue.utilization': gauge, // depth / capacity\n\
+    \  \n  // Backpressure events\n  'backpressure.applied': counter, // Times throttling\
+    \ engaged\n  'backpressure.duration': histogram, // How long throttled\n  \n \
+    \ // Downstream signals\n  'rate_limit.hits': counter,\n  'rate_limit.current':\
+    \ gauge,\n  \n  // Upstream behavior\n  'requests.throttled': counter,\n  'retry.attempts':\
+    \ counter\n};\n```\n\n## Anti-Patterns\n\n### ❌ Unbounded Queues\n\n```javascript\n\
+    // WRONG: Queue grows without limit\nconst queue = [];\nwhile (true) {\n  queue.push(await\
+    \ receive()); // Memory exhaustion!\n}\n\n// RIGHT: Bounded queue with backpressure\n\
+    const queue = new BoundedQueue(1000);\nwhile (true) {\n  await queue.enqueue(await\
+    \ receive()); // Blocks when full\n}\n```\n\n### ❌ Ignoring Backpressure Signals\n\
+    \n```javascript\n// WRONG: Retry immediately without respecting Retry-After\n\
+    async function callService(request) {\n  try {\n    return await httpClient.post('/api',\
+    \ request);\n  } catch (error) {\n    if (error.status === 503) {\n      await\
+    \ delay(100); // Arbitrary delay\n      return await callService(request); //\
+    \ Retry storm!\n    }\n  }\n}\n\n// RIGHT: Respect server's guidance\nasync function\
+    \ callService(request) {\n  try {\n    return await httpClient.post('/api', request);\n\
+    \  } catch (error) {\n    if (error.status === 503) {\n      const retryAfter\
+    \ = error.response.headers['retry-after'] || 5;\n      await delay(retryAfter\
+    \ * 1000);\n      return await callService(request);\n    }\n  }\n}\n```\n\n###\
+    \ ❌ Synchronous Backpressure in Async Chain\n\n```javascript\n// WRONG: Blocking\
+    \ call breaks async flow\nasync function processStream(source) {\n  for await\
+    \ (const item of source) {\n    await slowOperation(item); // Blocks entire stream\n\
+    \  }\n}\n\n// RIGHT: Use async backpressure\nconst pipeline = source\n  .pipe(new\
+    \ Transform({\n    async transform(chunk, encoding, callback) {\n      await slowOperation(chunk);\n\
+    \      callback(); // Signals ready for next\n    }\n  }));\n```\n\n## Known Uses\n\
+    \n- **Reactive Streams** - Java, JavaScript, .NET standard\n- **Akka Streams**\
+    \ - Actor-based streaming with backpressure\n- **RxJS** - Reactive extensions\
+    \ with backpressure operators\n- **Apache Kafka** - Consumer lag as backpressure\
+    \ signal\n- **gRPC** - HTTP/2 flow control\n- **Netflix Zuul** - Request throttling\n\
+    \n## References\n\n- Reactive Streams Specification: [reactive-streams.org](https://www.reactive-streams.org/)\n\
+    - [Reactive Manifesto](https://www.reactivemanifesto.org/) - Defines responsive,\
+    \ resilient, elastic, message-driven systems\n- [Backpressure - Reactive Manifesto\
+    \ Glossary](https://www.reactivemanifesto.org/glossary#Back-Pressure)\n- Venkat,\
+    \ S. (2016). \"Reactive Programming with RxJS.\" Pragmatic Bookshelf.\n- Vernon,\
+    \ V. (2016). *Reactive Messaging Patterns with the Actor Model*. Addison-Wesley.\n\
+    - [Akka Streams Backpressure](https://doc.akka.io/docs/akka/current/stream/stream-flows-and-basics.html#back-pressure-explained)"
+  lead: Backpressure is a flow control mechanism where a downstream component signals
+    to upstream components that it is overwhelmed and cannot keep up with the current
+    load. The upstream component then reduces its output rate, preventing cascade
+    failures and resource exhaustion. This creates a self-regulating system that gracefully
+    handles load spikes.
+  docs_url_path: external-frameworks/microservices/methods/M233-backpressure

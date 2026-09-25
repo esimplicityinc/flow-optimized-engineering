@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: validated
 spec:
-  description: Consumer Contract Testing
+  description: Validate service integration points through consumer-driven contracts—tests
+    that verify providers honor what consumers actually need, enabling independent
+    deployment without full end-to-end test environments.
   title: Consumer Contract Testing
   annotations:
     foe.source_path: field-guides/system-architecture/methods/established/M145-consumer-contract-testing.md

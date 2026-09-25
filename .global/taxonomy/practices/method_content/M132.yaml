@@ -1,0 +1,70 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M132
+spec:
+  description: Prose for Repository.
+  body: "**Pillar:** Tactical Design\n\nA Repository provides a collection-like interface\
+    \ for accessing and persisting aggregates. It encapsulates the logic required\
+    \ to access data sources, presenting a simple interface that hides the complexity\
+    \ of data access.\n\n## Definition\n\n> A mechanism for encapsulating storage,\
+    \ retrieval, and search behavior which emulates a collection of objects.\n>\n\
+    > — Eric Evans, DDD Reference\n\n## Why It Matters\n\nRepositories are essential\
+    \ because:\n\n- **Hide persistence details** - Domain code doesn't know about\
+    \ databases\n- **Enable testing** - Repositories can be easily mocked or stubbed\n\
+    - **Provide collection semantics** - Work with aggregates as if they were in memory\n\
+    - **Centralize query logic** - All data access goes through one place\n- **Support\
+    \ multiple implementations** - Can swap storage without changing domain\n\n##\
+    \ Repository Rules\n\n1. **One repository per aggregate root** - Not per entity\
+    \ or value object\n2. **Return complete aggregates** - Never return partial aggregates\n\
+    3. **Collection-like interface** - Add, remove, find operations\n4. **No business\
+    \ logic** - Repositories are purely for data access\n5. **Interface in domain,\
+    \ implementation in infrastructure** - Dependency inversion\n\n## Standard Operations\n\
+    \n```typescript\ninterface OrderRepository {\n  // Retrieval\n  findById(id: OrderId):\
+    \ Order | null;\n  findByCustomer(customerId: CustomerId): Order[];\n  \n  //\
+    \ Persistence\n  save(order: Order): void;\n  \n  // Removal\n  remove(order:\
+    \ Order): void;\n  \n  // Existence check\n  exists(id: OrderId): boolean;\n}\n\
+    ```\n\n## Implementation Patterns\n\n| Pattern | Description | Trade-offs |\n\
+    |---------|-------------|------------|\n| **Collection-oriented** | Tracks changes,\
+    \ saves on commit | More complex, better for rich domains |\n| **Persistence-oriented**\
+    \ | Explicit save calls | Simpler, more explicit |\n\n### Collection-Oriented\
+    \ Example\n\n```typescript\n// Changes tracked automatically\nconst order = orderRepository.findById(orderId);\n\
+    order.addLineItem(product, quantity);\n// Changes saved when unit of work commits\n\
+    unitOfWork.commit();\n```\n\n### Persistence-Oriented Example\n\n```typescript\n\
+    // Explicit save required\nconst order = orderRepository.findById(orderId);\n\
+    order.addLineItem(product, quantity);\norderRepository.save(order);\n```\n\n##\
+    \ Query Methods\n\nRepositories can include query methods, but keep them focused:\n\
+    \n```typescript\ninterface OrderRepository {\n  // Good: Domain-meaningful queries\n\
+    \  findPendingOrdersOlderThan(days: number): Order[];\n  findByStatus(status:\
+    \ OrderStatus): Order[];\n  \n  // Avoid: Generic queries that bypass the domain\n\
+    \  // findByArbitraryCondition(condition: QueryCondition): Order[];\n}\n```\n\n\
+    For complex queries, consider a separate **Read Model** or **Query Service**.\n\
+    \n## Common Mistakes\n\n- **Repository per entity** - Should be per aggregate\
+    \ root only\n- **Returning partial data** - Always return complete aggregates\n\
+    - **Business logic in repository** - Keep repositories focused on data access\n\
+    - **Exposing ORM details** - Domain shouldn't know about Entity Framework, Hibernate,\
+    \ etc.\n- **Too many query methods** - Consider CQRS for complex query needs\n\
+    \n## Testing with Repositories\n\nRepositories enable easy testing:\n\n```typescript\n\
+    // In-memory implementation for tests\nclass InMemoryOrderRepository implements\
+    \ OrderRepository {\n  private orders: Map<string, Order> = new Map();\n\n  findById(id:\
+    \ OrderId): Order | null {\n    return this.orders.get(id.value) ?? null;\n  }\n\
+    \n  save(order: Order): void {\n    this.orders.set(order.id.value, order);\n\
+    \  }\n}\n\n// Test\nconst repository = new InMemoryOrderRepository();\nconst order\
+    \ = Order.create(customerId, lineItems);\nrepository.save(order);\n\norder.cancel();\n\
+    repository.save(order);\n\nconst retrieved = repository.findById(order.id);\n\
+    expect(retrieved.status).toBe(OrderStatus.Cancelled);\n```\n\n## Relationship\
+    \ to Other Patterns\n\n- **Aggregate** - Repositories work with aggregate roots\n\
+    - **Factory** - May be used by repository to reconstitute aggregates\n- **Unit\
+    \ of Work** - Often coordinates with repositories for transactions\n- **Domain\
+    \ Event** - Repository may dispatch events after save\n\n## FOE Alignment\n\n\
+    Repositories support both **Confidence** and **Fast Feedback**. By providing a\
+    \ consistent interface for data access, repositories make it easy to write tests\
+    \ that run quickly against in-memory implementations. The abstraction also gives\
+    \ confidence that persistence concerns won't leak into domain logic, making the\
+    \ codebase more maintainable and changes safer."
+  lead: A Repository provides a collection-like interface for accessing and persisting
+    aggregates. It encapsulates the logic required to access data sources, presenting
+    a simple interface that hides the complexity of data access.
+  docs_url_path: external-frameworks/domain-driven-design/methods/M132-repository

@@ -1,0 +1,100 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M121
+spec:
+  description: Prose for Executable Specifications.
+  body: "**Pillar:** Automation\n\nExecutable Specifications are the automation layer\
+    \ of BDD, where formulated Gherkin scenarios are connected to the actual system\
+    \ through step definitions. This creates living documentation that verifies the\
+    \ system behaves as specified while serving as always-up-to-date documentation.\n\
+    \n## Definition\n\n> Automated tests derived from human-readable specifications\
+    \ (Gherkin scenarios) that both verify system behavior and serve as living documentation,\
+    \ staying in sync with the actual system through continuous execution.\n\n## Why\
+    \ It Matters\n\nExecutable Specifications provide:\n\n- **Living documentation**\
+    \ - Specs that can't become outdated because they're verified continuously\n-\
+    \ **Fast feedback** - Immediate notification when behavior changes unexpectedly\n\
+    - **Regression protection** - Automated verification that existing behavior still\
+    \ works\n- **Development guidance** - Red-green-refactor cycle driven by business\
+    \ examples\n\n## How It Works\n\n### The Connection: Step Definitions\n\nStep\
+    \ definitions are code that connects Gherkin steps to system actions:\n\n**Gherkin\
+    \ Step:**\n```gherkin\nGiven a user \"alice\" with password \"secret123\"\n```\n\
+    \n**Step Definition (JavaScript/Cucumber):**\n```javascript\nGiven('a user {string}\
+    \ with password {string}', async function(username, password) {\n  await userService.createUser(username,\
+    \ password);\n});\n```\n\n**Step Definition (Python/Behave):**\n```python\n@given('a\
+    \ user \"{username}\" with password \"{password}\"')\ndef step_create_user(context,\
+    \ username, password):\n    context.user = UserService.create(username, password)\n\
+    ```\n\n### The Automation Pyramid\n\nExecutable specifications typically operate\
+    \ at the acceptance test level:\n\n```\n        /\\\n       /  \\  UI Tests (few)\n\
+    \      /----\\\n     /      \\  Acceptance Tests ← BDD scenarios live here\n \
+    \   /--------\\\n   /          \\  Integration Tests\n  /------------\\\n /  \
+    \            \\  Unit Tests (many)\n/________________\\\n```\n\n## Implementation\
+    \ Patterns\n\n### Outside-In Development\n\n1. **Write the scenario** (Red) -\
+    \ Scenario fails because feature doesn't exist\n2. **Implement step definitions**\
+    \ - Connect steps to (non-existent) code\n3. **Write the code** (Green) - Implement\
+    \ until scenario passes\n4. **Refactor** - Clean up while keeping scenarios green\n\
+    \n### Step Definition Organization\n\n```\nfeatures/\n├── shopping_cart.feature\n\
+    ├── checkout.feature\n└── step_definitions/\n    ├── common_steps.js      # Shared\
+    \ steps (login, navigation)\n    ├── cart_steps.js        # Cart-specific steps\n\
+    \    ├── checkout_steps.js    # Checkout-specific steps\n    └── support/\n  \
+    \      ├── world.js         # Test context/state\n        └── hooks.js       \
+    \  # Before/After hooks\n```\n\n### Reusable Steps\n\nWrite steps that can be\
+    \ reused across scenarios:\n\n```javascript\n// Generic step that works for any\
+    \ item\nGiven('the cart contains {string}', async function(itemName) {\n  await\
+    \ this.cart.addItem(itemName);\n});\n\n// Can be used in multiple scenarios:\n\
+    // Given the cart contains \"Blue T-Shirt\"\n// Given the cart contains \"Wireless\
+    \ Mouse\"\n// Given the cart contains \"Coffee Mug\"\n```\n\n## Best Practices\n\
+    \n### Step Definition Guidelines\n\n| Practice | Example |\n|----------|---------|\n\
+    | Keep steps declarative | `Given I am logged in` not `Given I enter credentials\
+    \ and click submit` |\n| Use parameters | `{string}`, `{int}` for flexibility\
+    \ |\n| Share state via context | Store data in `this` or `context` object |\n\
+    | Handle async properly | Use `async/await` or promises |\n\n### Maintaining Living\
+    \ Documentation\n\n| Practice | Rationale |\n|----------|-----------|\n| Run specs\
+    \ in CI/CD | Catch failures immediately |\n| Fix broken specs immediately | Don't\
+    \ let them become ignored |\n| Review specs in PRs | Ensure they still make sense\
+    \ |\n| Generate reports | Make documentation accessible |\n\n## Common Challenges\n\
+    \n### Flaky Tests\n\n**Symptoms:** Tests pass sometimes, fail sometimes\n\n**Solutions:**\n\
+    - Wait for elements/conditions explicitly\n- Isolate test data\n- Reset state\
+    \ between scenarios\n- Avoid time-dependent tests\n\n### Slow Test Suites\n\n\
+    **Symptoms:** Feedback takes too long\n\n**Solutions:**\n- Run at appropriate\
+    \ level (not everything through UI)\n- Parallelize execution\n- Use tags to run\
+    \ subsets\n- Optimize setup/teardown\n\n### Brittle Step Definitions\n\n**Symptoms:**\
+    \ Small changes break many tests\n\n**Solutions:**\n- Use page objects or screen\
+    \ objects\n- Abstract implementation details\n- Keep steps at behavior level\n\
+    \n## Tools and Frameworks\n\n| Language | Framework | Notes |\n|----------|-----------|-------|\n\
+    | JavaScript | Cucumber.js | Official Cucumber for Node |\n| Java | Cucumber-JVM\
+    \ | Enterprise-grade, Spring integration |\n| Python | Behave | Pythonic BDD framework\
+    \ |\n| Ruby | Cucumber | Original implementation |\n| .NET | SpecFlow | Visual\
+    \ Studio integration |\n| Go | Godog | Official Cucumber for Go |\n\n## Example:\
+    \ Complete Flow\n\n**Feature File:**\n```gherkin\nFeature: User Registration\n\
+    \n  Scenario: Successful registration\n    Given I am on the registration page\n\
+    \    When I register with:\n      | email    | alice@example.com |\n      | password\
+    \ | SecurePass123!    |\n    Then I should see \"Welcome, alice!\"\n    And a\
+    \ confirmation email should be sent to \"alice@example.com\"\n```\n\n**Step Definitions:**\n\
+    ```javascript\nconst { Given, When, Then } = require('@cucumber/cucumber');\n\
+    const { expect } = require('chai');\n\nGiven('I am on the registration page',\
+    \ async function() {\n  await this.page.goto('/register');\n});\n\nWhen('I register\
+    \ with:', async function(dataTable) {\n  const data = dataTable.rowsHash();\n\
+    \  await this.page.fill('#email', data.email);\n  await this.page.fill('#password',\
+    \ data.password);\n  await this.page.click('#submit');\n  this.registeredEmail\
+    \ = data.email;\n});\n\nThen('I should see {string}', async function(expectedText)\
+    \ {\n  const content = await this.page.textContent('body');\n  expect(content).to.include(expectedText);\n\
+    });\n\nThen('a confirmation email should be sent to {string}', async function(email)\
+    \ {\n  const emails = await this.emailService.getEmailsTo(email);\n  expect(emails).to.have.lengthOf(1);\n\
+    \  expect(emails[0].subject).to.include('Confirm your registration');\n});\n```\n\
+    \n## FOE Alignment\n\nExecutable Specifications strongly support FOE principles:\n\
+    \n- **Fast Feedback Loops** - Automated execution provides immediate feedback\
+    \ on behavior changes\n- **Build Confidence** - Passing specs prove the system\
+    \ does what it's supposed to do\n- **Optimize for Understanding** - Living documentation\
+    \ that stakeholders can read and trust\n\n## References\n\n- Cucumber Documentation.\
+    \ \"Step Definitions.\" https://cucumber.io/docs/cucumber/step-definitions/\n\
+    - Smart, J.F. (2014). \"BDD in Action.\" Manning Publications.\n- Wynne, M. &\
+    \ Hellesøy, A. \"The Cucumber Book.\" Pragmatic Bookshelf.\n- Adzic, G. (2011).\
+    \ \"Specification by Example.\" Manning Publications."
+  lead: Executable Specifications are the automation layer of BDD, where formulated
+    Gherkin scenarios are connected to the actual system through step definitions.
+    This creates living documentation that verifies the system behaves as specified
+    while serving as always-up-to-date documentation.
+  docs_url_path: external-frameworks/bdd/methods/M121-executable-specifications

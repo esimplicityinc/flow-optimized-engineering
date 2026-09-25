@@ -1,0 +1,83 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M123
+spec:
+  description: Prose for Factory.
+  body: "**Pillar:** Tactical Design\n\nA Factory encapsulates the knowledge needed\
+    \ to create complex objects or aggregates. Factories ensure that objects are created\
+    \ in a valid state and hide the complexity of construction from clients.\n\n##\
+    \ Definition\n\n> Shift the responsibility for creating instances of complex objects\
+    \ and Aggregates to a separate object, which may itself have no responsibility\
+    \ in the domain model but is still part of the domain design.\n>\n> — Eric Evans,\
+    \ DDD Reference\n\n## Why It Matters\n\nFactories are essential because:\n\n-\
+    \ **Ensure valid initial state** - Objects are always created correctly\n- **Hide\
+    \ construction complexity** - Clients don't need to know creation details\n- **Express\
+    \ domain concepts** - Creation can be a significant domain operation\n- **Support\
+    \ invariants** - Complex invariants are enforced at creation\n- **Enable reconstitution**\
+    \ - Rebuild objects from persistence\n\n## When to Use Factories\n\nUse a factory\
+    \ when:\n\n- Object creation is complex (many parameters, conditional logic)\n\
+    - Creation involves multiple objects that must be consistent\n- You need to enforce\
+    \ invariants at creation time\n- The creation process is a domain concept itself\n\
+    - You need to reconstitute objects from storage\n\n## Factory Patterns\n\n###\
+    \ Factory Method on Aggregate Root\n\n```typescript\nclass Order {\n  private\
+    \ constructor(\n    private readonly id: OrderId,\n    private readonly customerId:\
+    \ CustomerId,\n    private readonly lineItems: OrderLine[],\n    private readonly\
+    \ status: OrderStatus,\n    private readonly createdAt: Timestamp\n  ) {}\n\n\
+    \  // Factory method\n  static create(\n    customerId: CustomerId,\n    lineItems:\
+    \ OrderLine[]\n  ): Order {\n    if (lineItems.length === 0) {\n      throw new\
+    \ Error(\"Order must have at least one line item\");\n    }\n    \n    return\
+    \ new Order(\n      OrderId.generate(),\n      customerId,\n      lineItems,\n\
+    \      OrderStatus.Draft,\n      Timestamp.now()\n    );\n  }\n\n  // Reconstitution\
+    \ factory (for repository use)\n  static reconstitute(\n    id: OrderId,\n   \
+    \ customerId: CustomerId,\n    lineItems: OrderLine[],\n    status: OrderStatus,\n\
+    \    createdAt: Timestamp\n  ): Order {\n    return new Order(id, customerId,\
+    \ lineItems, status, createdAt);\n  }\n}\n```\n\n### Standalone Factory\n\n```typescript\n\
+    class OrderFactory {\n  constructor(\n    private readonly pricingService: PricingService,\n\
+    \    private readonly inventoryChecker: InventoryChecker\n  ) {}\n\n  async createOrder(\n\
+    \    customer: Customer,\n    items: Array<{ product: Product; quantity: Quantity\
+    \ }>\n  ): Promise<Order> {\n    // Check inventory\n    for (const item of items)\
+    \ {\n      const available = await this.inventoryChecker.check(\n        item.product.id,\n\
+    \        item.quantity\n      );\n      if (!available) {\n        throw new InsufficientInventoryError(item.product.id);\n\
+    \      }\n    }\n\n    // Calculate prices\n    const lineItems = items.map(item\
+    \ => {\n      const price = this.pricingService.calculatePrice(\n        item.product,\n\
+    \        customer,\n        item.quantity\n      );\n      return OrderLine.create(item.product.id,\
+    \ item.quantity, price);\n    });\n\n    return Order.create(customer.id, lineItems);\n\
+    \  }\n}\n```\n\n## Factory vs Constructor\n\n| Aspect | Constructor | Factory\
+    \ |\n|--------|-------------|---------|\n| **Complexity** | Simple creation |\
+    \ Complex creation |\n| **Dependencies** | None | May have dependencies |\n| **Naming**\
+    \ | Fixed name | Descriptive names |\n| **Return type** | Always same type | Can\
+    \ return subtypes |\n\n## Creation vs Reconstitution\n\n| Purpose | Creation |\
+    \ Reconstitution |\n|---------|----------|----------------|\n| **When** | New\
+    \ object | Loading from storage |\n| **Validation** | Full validation | Minimal\
+    \ (data already valid) |\n| **Defaults** | Applied | Not applied |\n| **Events**\
+    \ | May generate | Should not generate |\n\n```typescript\nclass Order {\n  //\
+    \ Creation: validates, sets defaults, may emit events\n  static create(customerId:\
+    \ CustomerId, items: OrderLine[]): Order {\n    // ... validation and setup\n\
+    \  }\n\n  // Reconstitution: trusts the data, no events\n  static reconstitute(data:\
+    \ OrderData): Order {\n    return new Order(\n      data.id,\n      data.customerId,\n\
+    \      data.lineItems,\n      data.status,\n      data.createdAt\n    );\n  }\n\
+    }\n```\n\n## Common Mistakes\n\n- **Validation in constructor only** - Factories\
+    \ should also validate\n- **Skipping factories for \"simple\" objects** - Even\
+    \ simple objects benefit from factory methods\n- **Business logic in factories**\
+    \ - Factories create, they don't make business decisions\n- **Forgetting reconstitution**\
+    \ - Repositories need a way to rebuild objects\n\n## Factory Method Naming\n\n\
+    Use intention-revealing names:\n\n```typescript\nclass Subscription {\n  static\
+    \ createTrial(customerId: CustomerId): Subscription { ... }\n  static createPaid(customerId:\
+    \ CustomerId, plan: Plan): Subscription { ... }\n  static upgrade(current: Subscription,\
+    \ newPlan: Plan): Subscription { ... }\n}\n```\n\n## Relationship to Other Patterns\n\
+    \n- **Aggregate** - Factories create aggregates in valid initial state\n- **Repository**\
+    \ - Uses reconstitution factories to rebuild aggregates\n- **Value Object** -\
+    \ Often created via factory methods\n- **Domain Service** - May use factories\
+    \ as part of complex operations\n\n## FOE Alignment\n\nFactories support **Confidence\
+    \ to Act** by ensuring objects are always created in a valid state. When creation\
+    \ logic is encapsulated in factories, developers can trust that if an object exists,\
+    \ it was created correctly. This eliminates a class of bugs where objects are\
+    \ partially initialized or in invalid states. The explicit factory methods also\
+    \ improve understanding by making creation a visible, named operation."
+  lead: A Factory encapsulates the knowledge needed to create complex objects or aggregates.
+    Factories ensure that objects are created in a valid state and hide the complexity
+    of construction from clients.
+  docs_url_path: external-frameworks/domain-driven-design/methods/M123-factory

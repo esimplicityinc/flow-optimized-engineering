@@ -1,0 +1,108 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M202
+spec:
+  description: Prose for Port Definition.
+  body: "**Pillar:** Dependency Management\n\nPorts are interfaces defined by the\
+    \ application core that specify how external actors can interact with the application.\
+    \ They represent the \"purposeful conversation\" the application wants to have,\
+    \ independent of the technology used to implement it.\n\n## Definition\n\n> A\
+    \ port is an interface that defines a purposeful conversation between the application\
+    \ and an external actor. The application says, \"Here is how you can talk to me,\"\
+    \ and the external actor implements that interface.\n>\n> — Alistair Cockburn,\
+    \ Hexagonal Architecture\n\n## Why It Matters\n\nPorts provide several key benefits:\n\
+    \n- **Technology independence** - The core defines what it needs, not how it's\
+    \ provided\n- **Testability** - Ports can be implemented with mocks or stubs for\
+    \ testing\n- **Delayed decisions** - You can define ports before choosing technologies\n\
+    - **Multiple implementations** - Different adapters can implement the same port\
+    \ (e.g., test database vs. production database)\n\n## Types of Ports\n\n### Primary\
+    \ Ports (Driving Ports)\n\nPrimary ports are interfaces that the application exposes\
+    \ for external actors to initiate interactions. They define what the application\
+    \ can do.\n\n**Examples:**\n- Application services / Use case interfaces\n- Command\
+    \ handlers\n- Query handlers\n\n```typescript\n// Primary Port - what the application\
+    \ offers\ninterface OrderService {\n  createOrder(command: CreateOrderCommand):\
+    \ Promise<OrderResult>;\n  cancelOrder(command: CancelOrderCommand): Promise<void>;\n\
+    \  getOrder(query: GetOrderQuery): Promise<OrderDto>;\n}\n\n// Command objects\
+    \ - immutable inputs\nclass CreateOrderCommand {\n  constructor(\n    readonly\
+    \ customerId: string,\n    readonly items: OrderItemCommand[]\n  ) {}\n}\n\n//\
+    \ Result objects - structured outputs\ninterface OrderResult {\n  orderId: string;\n\
+    \  total: Money;\n  status: OrderStatus;\n}\n```\n\n### Secondary Ports (Driven\
+    \ Ports)\n\nSecondary ports are interfaces that the application depends on to\
+    \ interact with external systems. They define what the application needs from\
+    \ the outside world.\n\n**Examples:**\n- Repository interfaces\n- Payment gateway\
+    \ interfaces\n- Notification service interfaces\n- File storage interfaces\n\n\
+    ```typescript\n// Secondary Port - what the application needs\ninterface OrderRepository\
+    \ {\n  findById(id: OrderId): Promise<Order | null>;\n  findByCustomer(customerId:\
+    \ CustomerId): Promise<Order[]>;\n  save(order: Order): Promise<void>;\n  delete(id:\
+    \ OrderId): Promise<void>;\n}\n\ninterface PaymentGateway {\n  charge(amount:\
+    \ Money, cardToken: string): Promise<PaymentResult>;\n  refund(transactionId:\
+    \ string, amount: Money): Promise<void>;\n}\n\ninterface NotificationService {\n\
+    \  sendOrderConfirmation(customerEmail: string, order: Order): Promise<void>;\n\
+    \  sendShippingNotification(customerEmail: string, tracking: TrackingInfo): Promise<void>;\n\
+    }\n```\n\n## Designing Good Ports\n\n### 1. Use Domain Language\n\nPorts should\
+    \ use ubiquitous language from the domain, not technical terms:\n\n```typescript\n\
+    // GOOD: Domain language\ninterface OrderRepository {\n  findById(id: OrderId):\
+    \ Promise<Order | null>;\n  save(order: Order): Promise<void>;\n}\n\n// BAD: Technical/database\
+    \ language\ninterface OrderRepository {\n  selectByPrimaryKey(id: string): Promise<any>;\n\
+    \  insertOrUpdate(record: object): Promise<void>;\n}\n```\n\n### 2. Keep Ports\
+    \ Stable\n\nPorts should change less frequently than implementations:\n\n```typescript\n\
+    // GOOD: Stable interface\ninterface EmailService {\n  send(to: EmailAddress,\
+    \ subject: string, body: string): Promise<void>;\n}\n\n// BAD: Leaks implementation\
+    \ details\ninterface SendGridEmailService {\n  sendWithTemplate(to: string, templateId:\
+    \ string, dynamicData: object): Promise<void>;\n}\n```\n\n### 3. Define Clear\
+    \ Contracts\n\nPorts should specify preconditions, postconditions, and error cases:\n\
+    \n```typescript\ninterface InventoryService {\n  /**\n   * Reserves inventory\
+    \ for an order.\n   * @param productId - The product to reserve\n   * @param quantity\
+    \ - Amount to reserve (must be > 0)\n   * @returns Reservation ID if successful\n\
+    \   * @throws InsufficientInventoryError if not enough stock\n   * @throws ProductNotFoundError\
+    \ if product doesn't exist\n   */\n  reserve(productId: ProductId, quantity: number):\
+    \ Promise<ReservationId>;\n  \n  /**\n   * Releases a previous reservation.\n\
+    \   * @param reservationId - The reservation to release\n   * @throws ReservationNotFoundError\
+    \ if reservation doesn't exist\n   */\n  release(reservationId: ReservationId):\
+    \ Promise<void>;\n}\n```\n\n### 4. Avoid Leaking Framework Types\n\n```typescript\n\
+    // GOOD: Pure domain types\ninterface UserRepository {\n  findByEmail(email: Email):\
+    \ Promise<User | null>;\n}\n\n// BAD: Leaks database types\ninterface UserRepository\
+    \ {\n  findByEmail(email: string): Promise<PrismaUser | null>; // ❌ Prisma type\n\
+    }\n```\n\n## Port Granularity\n\n### Fine-Grained Ports\n\nMany small, focused\
+    \ interfaces (Interface Segregation Principle):\n\n```typescript\ninterface UserReader\
+    \ {\n  findById(id: UserId): Promise<User | null>;\n}\n\ninterface UserWriter\
+    \ {\n  save(user: User): Promise<void>;\n}\n\ninterface UserDeleter {\n  delete(id:\
+    \ UserId): Promise<void>;\n}\n```\n\n**Pros:**\n- Adapters implement only what\
+    \ they need\n- Easier to mock for testing\n- Clearer dependencies\n\n**Cons:**\n\
+    - More interfaces to manage\n- May require combining for common operations\n\n\
+    ### Coarse-Grained Ports\n\nFewer, larger interfaces:\n\n```typescript\ninterface\
+    \ UserRepository {\n  findById(id: UserId): Promise<User | null>;\n  findByEmail(email:\
+    \ Email): Promise<User | null>;\n  save(user: User): Promise<void>;\n  delete(id:\
+    \ UserId): Promise<void>;\n  list(options: ListOptions): Promise<PaginatedResult<User>>;\n\
+    }\n```\n\n**Pros:**\n- Simpler dependency injection\n- Fewer interfaces to import\n\
+    \n**Cons:**\n- Adapters must implement unused methods\n- Harder to test in isolation\n\
+    \n## Common Mistakes\n\n### ❌ Ports Depending on Adapters\n\n```typescript\n//\
+    \ WRONG: Port depends on adapter\ninterface OrderRepository {\n  save(order: Order,\
+    \ dbConnection: PostgresConnection): Promise<void>; // ❌ Adapter type in port\n\
+    }\n```\n\n### ❌ Leaking Implementation Details\n\n```typescript\n// WRONG: Port\
+    \ exposes SQL\ninterface ProductRepository {\n  query(sql: string, params: any[]):\
+    \ Promise<any[]>; // ❌ SQL in port\n}\n```\n\n### ❌ Anemic Ports\n\n```typescript\n\
+    // WRONG: Port is just CRUD, no domain meaning\ninterface OrderRepository {\n\
+    \  create(data: object): Promise<void>;\n  read(id: string): Promise<object>;\n\
+    \  update(id: string, data: object): Promise<void>;\n  delete(id: string): Promise<void>;\n\
+    }\n```\n\n## FOE Alignment\n\nPort Definition supports FOE principles:\n\n- **Understanding**\
+    \ - Ports make the application's needs and capabilities explicit; they serve as\
+    \ documentation of the system's boundaries\n- **Confidence** - Well-defined ports\
+    \ prevent tight coupling; you can change implementations without touching the\
+    \ core\n- **Fast Feedback** - Ports enable testing the core logic with fast, in-memory\
+    \ implementations before real infrastructure exists\n\n## Related Methods\n\n\
+    - [M200-dependency-rule](/docs/external-frameworks/clean-architecture/methods/M200-dependency-rule)\
+    \ - Dependencies point inward toward ports\n- [M203-adapter-implementation](/docs/external-frameworks/clean-architecture/methods/M203-adapter-implementation)\
+    \ - Implementing ports with specific technologies\n- [M206-boundary-crossing](/docs/external-frameworks/clean-architecture/methods/M206-boundary-crossing)\
+    \ - Mechanisms for crossing layer boundaries\n\n## References\n\n- Cockburn, A.\
+    \ (2005). [Hexagonal Architecture](https://alistair.cockburn.us/hexagonal-architecture/).\n\
+    - Martin, R. C. (2017). *Clean Architecture: A Craftsman's Guide to Software Structure\
+    \ and Design*. Prentice Hall."
+  lead: Ports are interfaces defined by the application core that specify how external
+    actors can interact with the application. They represent the "purposeful conversation"
+    the application wants to have, independent of the technology used to implement
+    it.
+  docs_url_path: external-frameworks/clean-architecture/methods/M202-port-definition

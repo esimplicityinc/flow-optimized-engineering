@@ -1,0 +1,117 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M160
+spec:
+  description: Prose for Plan Mode First.
+  body: "Use dedicated planning mode with a stronger reasoning model before implementation.\
+    \ This separates high-level thinking from execution, improving outcomes while\
+    \ potentially reducing costs.\n\n## Overview\n\nAI coding assistants can operate\
+    \ in different modes: planning (thinking through approach) vs. implementation\
+    \ (writing code). Many developers jump straight to implementation, missing the\
+    \ benefits of explicit planning.\n\nThe **Plan Mode First** method advocates using\
+    \ planning mode before any significant implementation. Key benefits:\n\n1. **Stronger\
+    \ reasoning** - Planning can use more capable (thinking) models optimized for\
+    \ analysis\n2. **Cost efficiency** - Cheaper models can handle implementation\
+    \ once the plan is clear\n3. **Better outcomes** - Separating planning from execution\
+    \ improves both\n4. **Human checkpoint** - Plans can be reviewed and adjusted\
+    \ before work begins\n\n## When to Use\n\nUse this method when:\n\n- Starting\
+    \ a new feature or significant change\n- The task involves multiple files or components\n\
+    - Architectural decisions need to be made\n- You want to review the approach before\
+    \ code is written\n- Working with tiered model access (strong planner, efficient\
+    \ implementer)\n\n## When NOT to Use\n\nAvoid this method when:\n\n- Making trivial\
+    \ changes (typo fixes, simple renames)\n- Exploratory debugging where the problem\
+    \ isn't yet understood\n- The plan is already crystal clear in your head\n- Time\
+    \ pressure makes planning overhead unacceptable\n- **Using modern reasoning models**\
+    \ (o1, o3, Claude with extended thinking) that have built-in planning capabilities—explicit\
+    \ planning prompts may add only 2-3% improvement while increasing time by 20-80%\
+    \ ([Wharton study, 2025](https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/))\n\
+    - **Pattern-matching tasks** where intuitive processing works better than deliberation—research\
+    \ shows CoT can *reduce* performance by up to 36% on such tasks ([Liu et al.,\
+    \ 2024](https://openreview.net/forum?id=rpbzBXdo4x))\n- **Emergent design situations**\
+    \ where you're intentionally using XP-style refactoring to discover the design\
+    \ through iteration\n\n:::tip Planning Has Diminishing Returns\nDonald Reinertsen's\
+    \ research on product development flow shows that planning follows a U-curve:\
+    \ some planning is valuable, but excessive planning delays feedback and increases\
+    \ cycle time. Find the sweet spot for your context.\n:::\n\n## How It Works\n\n\
+    ### Prerequisites\n\nBefore starting:\n- Access to an AI assistant with distinct\
+    \ planning/implementation modes (or the ability to prompt for planning)\n- Understanding\
+    \ of which model tiers are available to you\n- A task that's complex enough to\
+    \ benefit from planning\n\n### Step 1: Enter Planning Mode\n\nStart by explicitly\
+    \ requesting planning, not implementation:\n\n```\n\"Before we write any code,\
+    \ let's plan this out. What's the approach \nfor implementing [feature]? Consider:\
+    \ architecture, files involved, \nsequence of changes, and potential risks.\"\n\
+    ```\n\nOr if your tool has explicit modes:\n```\n/plan Add user authentication\
+    \ with JWT tokens\n```\n\n### Step 2: Review and Refine the Plan\n\nRead the proposed\
+    \ plan critically:\n\n- Does it address all requirements?\n- Are there edge cases\
+    \ it missed?\n- Is the sequencing logical?\n- Are there simpler alternatives?\n\
+    \nIterate on the plan before proceeding:\n\n```\n\"The plan looks good but I'm\
+    \ concerned about [X]. How would we \nhandle [scenario]? Also, can we simplify\
+    \ step 3?\"\n```\n\n### Step 3: Approve and Switch to Implementation\n\nOnce satisfied\
+    \ with the plan:\n\n```\n\"The plan looks good. Now implement it, starting with\
+    \ step 1.\"\n```\n\nOr with explicit modes:\n```\n/implement\n```\n\n### Step\
+    \ 4: Reference Plan During Implementation\n\nIf the agent drifts from the plan:\n\
+    \n```\n\"Let's pause. Check the plan - we should be working on [X] but \nyou're\
+    \ doing [Y]. Let's get back on track.\"\n```\n\n## Example\n\n**Without Plan Mode\
+    \ First:**\n```\nYou: Add user authentication\n\nAI: [Immediately starts writing\
+    \ auth code, makes architectural \ndecisions on the fly, may not consider all\
+    \ requirements]\n```\n\n**With Plan Mode First:**\n```\nYou: Let's plan out user\
+    \ authentication before implementing.\n\nAI: Here's my proposed approach:\n1.\
+    \ Add User model with email, password_hash, created_at\n2. Create auth middleware\
+    \ for route protection\n3. Implement /register, /login, /logout endpoints\n4.\
+    \ Add JWT token generation and validation\n5. Update existing routes to require\
+    \ auth where needed\n\nConsiderations:\n- Password hashing with bcrypt (12 rounds)\n\
+    - JWT expiry: 24h access token, 7d refresh token\n- Rate limiting on auth endpoints\
+    \ to prevent brute force\n\nYou: Good plan. But let's use 1h access tokens for\
+    \ security. \nAlso, add /refresh endpoint for token renewal.\n\nAI: Updated plan:\n\
+    [...]\n\nYou: Approved. Implement starting with the User model.\n```\n\n## Why\
+    \ This Works\n\n### Cognitive Load Separation\n\nPlanning and implementing use\
+    \ different cognitive skills:\n- **Planning**: Abstract reasoning, system thinking,\
+    \ risk assessment\n- **Implementing**: Concrete details, syntax, edge cases\n\n\
+    Separating them lets each mode focus on what it does best.\n\n### Model Optimization\n\
+    \nModern AI systems offer tiered models:\n- Stronger models (e.g., Claude Opus,\
+    \ GPT-4) excel at reasoning\n- Faster models (e.g., Claude Sonnet, GPT-4o-mini)\
+    \ excel at execution\n\nPlan Mode First lets you use the right model for each\
+    \ phase.\n\n### Error Prevention\n\nMany implementation errors stem from unclear\
+    \ plans:\n- Missed requirements\n- Poor architectural choices\n- Inconsistent\
+    \ approaches\n\nBy catching these in planning, you avoid costly rework.\n\n##\
+    \ Common Pitfalls\n\n1. **Over-planning** - Don't plan every detail. Focus on\
+    \ architecture, sequencing, and risks. Leave implementation details for implementation.\n\
+    \n2. **Ignoring the plan** - A plan only helps if you follow it. Reference it\
+    \ during implementation.\n\n3. **Planning trivial tasks** - Know when to skip\
+    \ planning. Not every change needs a formal plan.\n\n4. **Not iterating** - The\
+    \ first plan is rarely perfect. Refine it before implementing.\n\n## FOE Alignment\n\
+    \nThis method directly supports **Optimize for Understanding**:\n- Explicit plans\
+    \ make thinking visible\n- Separating phases clarifies what we're trying to achieve\n\
+    - Reviews catch misunderstandings before they become code\n\nAlso supports **Fast\
+    \ Feedback**:\n- Reviewing plans is faster than reviewing implementations\n- Catch\
+    \ mistakes before investing in code\n\n## How You Can Help\n\nIf you're testing\
+    \ this method:\n\n1. Try explicit planning mode on your next significant task\n\
+    2. Compare outcomes vs. jumping straight to implementation\n3. Track time spent\
+    \ and quality of results\n4. Document your experience as an observation\n\n##\
+    \ Supporting Evidence\n\n### Academic Research\n\n**Chain-of-Thought Prompting**\
+    \ (Wei et al., 2022) - The foundational research showing that generating intermediate\
+    \ reasoning steps before final answers dramatically improves LLM performance on\
+    \ complex tasks. 25,000+ citations. [arXiv](https://arxiv.org/abs/2201.11903)\n\
+    \n**ReAct: Synergizing Reasoning and Acting** (Yao et al., 2022) - Demonstrates\
+    \ that interleaving reasoning (planning) with action outperforms either alone,\
+    \ achieving 34% improvement on decision-making benchmarks. [arXiv](https://arxiv.org/abs/2210.03629)\n\
+    \n**Tree of Thoughts** (Yao et al., 2023) - Shows that deliberate exploration\
+    \ of multiple reasoning paths before committing improves success rates from 4%\
+    \ to 74% on complex planning tasks. [arXiv](https://arxiv.org/abs/2305.10601)\n\
+    \n### Industry Validation\n\n**Building Effective AI Agents** (Anthropic, 2024)\
+    \ - Recommends orchestrator-worker patterns where agents plan before operating.\
+    \ \"Once the task is clear, agents plan and operate independently.\" [anthropic.com](https://www.anthropic.com/research/building-effective-agents)\n\
+    \n### Cognitive Science Foundation\n\n**Thinking, Fast and Slow** (Kahneman) -\
+    \ System 1 vs System 2 thinking provides the cognitive foundation for separating\
+    \ deliberate planning from intuitive execution.\n\n**The Programmer's Brain**\
+    \ (Hermans) - Working memory limitations in programmers support the claim that\
+    \ simultaneous design+implementation is error-prone.\n\n### Contradicting Evidence\n\
+    \nResearch also shows limitations—see \"When NOT to Use\" section for conditions\
+    \ where planning overhead may not be worth the cost."
+  lead: Use dedicated planning mode with a stronger reasoning model before implementation.
+    This separates high-level thinking from execution, improving outcomes while potentially
+    reducing costs.
+  docs_url_path: field-guides/agentic-coding/methods/emerging/M160-plan-mode-first

@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: observing
 spec:
-  description: Root-Cause-First Debugging
+  description: Never apply fixes without first investigating the root cause. Understand
+    the problem before solving it—especially when working with AI assistants that
+    are eager to generate solutions.
   title: Root-Cause-First Debugging
   annotations:
     foe.source_path: field-guides/agentic-coding/methods/emerging/M149-root-cause-first-debugging.md

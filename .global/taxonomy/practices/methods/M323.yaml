@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Responsibility-Action Linking
+  description: Explicitly connect meaning to responsibility and responsibility to
+    permitted action in the semantic model, so agents can reason about what they are
+    allowed to do — not just what data says — before taking consequential actions.
   title: Responsibility-Action Linking
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M323-responsibility-action-linking.md

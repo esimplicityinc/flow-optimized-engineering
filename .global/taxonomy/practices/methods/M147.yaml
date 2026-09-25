@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: observing
 spec:
-  description: Knowledge Distribution as Reliability
+  description: Treat concentrated knowledge as a system reliability risk to be actively
+    addressed—when only 2-3 people understand a system, that's not a compliment to
+    those people, it's a fragility to fix.
   title: Knowledge Distribution as Reliability
   annotations:
     foe.source_path: field-guides/agentic-coding/methods/emerging/M147-knowledge-distribution-as-reliability.md

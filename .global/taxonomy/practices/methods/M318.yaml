@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Retrieval Evaluation with RAGAS
+  description: Apply the RAGAS framework's three core metrics — Context Precision,
+    Context Recall, and Faithfulness — to mathematically validate the quality of the
+    semantic layer's retrieval pipeline and ground truth alignment.
   title: Retrieval Evaluation with RAGAS
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M318-retrieval-evaluation-ragas.md

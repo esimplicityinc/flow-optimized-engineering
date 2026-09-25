@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Instruction Layering
+  description: Separate system-level, domain-level, and task-level context into composable
+    layers rather than monolithic prompts, enabling reuse, auditability, and targeted
+    updates without full-prompt rewrites.
   title: Instruction Layering
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M301-instruction-layering.md

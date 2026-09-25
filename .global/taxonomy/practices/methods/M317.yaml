@@ -7,7 +7,10 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Quality Gates
+  description: Implement discrete, automated evaluation checkpoints between the agent's
+    retrieval and reasoning steps and between reasoning and output delivery, so that
+    quality failures are caught and corrected before they reach users or downstream
+    systems.
   title: Quality Gates
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M317-quality-gates.md

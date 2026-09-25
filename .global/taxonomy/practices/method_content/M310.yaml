@@ -1,0 +1,192 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M310
+spec:
+  description: Prose for Working Memory vs Long-Term Memory.
+  body: 'Architect agent memory as three distinct tiers — context window (working
+    memory), knowledge store (long-term memory), and synthesized cache (memory objects)
+    — with explicit rules for what lives in each tier and how information moves between
+    them.
+
+
+    :::caution Early Stage
+
+    This method is still being validated through observations.
+
+    :::
+
+
+    ## Overview
+
+
+    An agent that tries to remember everything understands nothing. The context window
+    is finite; flooding it with everything the agent might need guarantees that the
+    most important information competes with noise for the model''s attention.
+
+
+    Drawing from von Neumann architecture, agent memory should be separated into three
+    tiers:
+
+
+    - **Context Window (RAM)** — the immediate information the agent is actively reasoning
+    about. Fast, finite, expensive. Contains only what''s needed for the current task.
+
+    - **Knowledge Layer (Disk)** — the vast, persistent store of domain knowledge.
+    Slow to access directly, but unlimited. Retrieved via the semantic layer (M303
+    Retriever Ensemble).
+
+    - **Memory Objects (Cache)** — synthesized summaries of previous interactions
+    and consolidated insights. Pre-computed, compact, high-density. Retrieved when
+    a prior interaction or consolidated knowledge is relevant to the current task.
+
+
+    The key discipline is knowing what belongs in each tier and designing explicit
+    flows between them.
+
+
+    ## When to Use
+
+
+    Use this method when:
+
+
+    - Building agents that operate across multiple sessions or maintain context over
+    time
+
+    - Context window costs are a concern (filling the window with raw history is expensive)
+
+    - Agent reasoning quality degrades as conversations grow longer (context window
+    saturation)
+
+    - Building multi-agent systems where memory isolation between agents matters
+
+
+    ## When NOT to Use
+
+
+    Avoid this method when:
+
+
+    - Building single-turn, stateless agents where memory architecture doesn''t apply
+
+    - The task scope is narrow enough that the context window never saturates
+
+
+    ## How It Works
+
+
+    ### Prerequisites
+
+
+    Before starting:
+
+    - Understand the context window limits of your chosen model
+
+    - Decide on a storage backend for memory objects (vector DB, key-value store,
+    or a dedicated memory system)
+
+    - Define the "unit of memory" for your domain (session, project, entity, user)
+
+
+    ### Step 1: Define Tier Boundaries
+
+
+    For your specific agent, explicitly define what belongs in each tier:
+
+
+    | Tier | Contents | Lifecycle | Access Pattern |
+
+    |---|---|---|---|
+
+    | Context Window | Current query, task instructions, retrieved chunks, immediate
+    history | Per-turn | Direct (in prompt) |
+
+    | Knowledge Layer | All domain documents, policies, data | Persistent | Via retrieval
+    (M303) |
+
+    | Memory Objects | Session summaries, user preferences, consolidated insights,
+    learned patterns | Persistent, updated by consolidation | Via retrieval (by relevance)
+    |
+
+
+    ### Step 2: Implement Context Window Budget Management
+
+
+    Allocate the context window explicitly: X tokens for instructions, Y tokens for
+    retrieved context, Z tokens for conversation history, W tokens for the response.
+    When any allocation fills, apply a pruning strategy (summarize history, reduce
+    retrieval K, etc.).
+
+
+    ### Step 3: Implement Memory Object Storage
+
+
+    When interactions conclude (session end, task completion, periodic checkpoint),
+    distill the interaction into a memory object: what was asked, what was found,
+    what decisions were made, what was learned. Store as a retrievable artifact with
+    appropriate metadata.
+
+
+    ### Step 4: Retrieve Memory Objects at Session Start
+
+
+    At the beginning of a new session or task, retrieve relevant memory objects alongside
+    domain knowledge. A user returning to a project gets the session summary from
+    their last interaction — they don''t have to re-establish context.
+
+
+    ## Example
+
+
+    Without memory architecture:
+
+    Day 1: User asks about vendor risk. Agent fetches 15 documents, fills context
+    window, provides answer.
+
+    Day 7: User follows up on vendor risk. Agent has no memory of Day 1. Fetches the
+    same 15 documents again. Asks clarifying questions already answered on Day 1.
+
+
+    With memory architecture:
+
+    Day 1: Agent processes query, stores memory object: "User asked about DataFlow
+    vendor risk. Key findings: three outstanding audit items, medium overall risk,
+    next review due Q3. User''s primary concern was the vendor''s subcontractor exposure."
+
+    Day 7: Memory object retrieved at session start. Agent immediately has Day 1 context.
+    Follows up with updated information, not a fresh start.
+
+
+    ## Common Pitfalls
+
+
+    1. **Over-stuffing the context window** — retrieving more than the window can
+    handle thoughtfully. Budget allocations prevent this; enforce them.
+
+    2. **Memory object proliferation** — creating a memory object for every micro-interaction
+    creates a noisy, low-quality memory store. Consolidate aggressively (see M311
+    Consolidation Cycles).
+
+    3. **Memory isolation failures** — in multi-user systems, memory objects from
+    one user''s session must not be retrievable by another user. Scope memory objects
+    by user/session in metadata.
+
+
+    ## How You Can Help
+
+
+    If you''re testing this method:
+
+
+    1. Document your tier definitions and budget allocations
+
+    2. Measure whether memory object retrieval reduced repeat-question rates
+
+    3. Share what triggered memory object creation in your system'
+  lead: Architect agent memory as three distinct tiers — context window (working memory),
+    knowledge store (long-term memory), and synthesized cache (memory objects) — with
+    explicit rules for what lives in each tier and how information moves between them.
+  docs_url_path: field-guides/semantic-layer-engineering/methods/emerging/M310-working-memory-vs-long-term-memory

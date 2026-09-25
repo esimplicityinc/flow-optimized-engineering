@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: validated
 spec:
-  description: Test-Driven Agent Development
+  description: Apply the red-green-refactor cycle when working with AI coding assistants.
+    If you didn't watch the test fail, you don't know if it tests the right thing—this
+    is doubly true when AI writes the test.
   title: Test-Driven Agent Development
   annotations:
     foe.source_path: field-guides/agentic-coding/methods/established/M152-test-driven-agent-development.md

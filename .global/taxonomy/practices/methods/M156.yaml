@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: observing
 spec:
-  description: Agent-Mediated Access
+  description: Democratize system changes by using AI agents as safe, intelligent
+    interfaces between users and codebases—but only when backed by deterministic frameworks
+    that keep the agent itself on rails.
   title: Agent-Mediated Access
   annotations:
     foe.source_path: field-guides/agentic-coding/methods/emerging/M156-agent-mediated-access.md

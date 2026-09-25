@@ -1,0 +1,212 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M317
+spec:
+  description: Prose for Quality Gates.
+  body: 'Implement discrete, automated evaluation checkpoints between the agent''s
+    retrieval and reasoning steps and between reasoning and output delivery, so that
+    quality failures are caught and corrected before they reach users or downstream
+    systems.
+
+
+    :::caution Early Stage
+
+    This method is still being validated through observations.
+
+    :::
+
+
+    ## Overview
+
+
+    Quality gates are the enforcement mechanism of the harness (M316). Where harness
+    engineering describes the overall pattern, quality gates are the individual checkpoints
+    — each a discrete, deterministic function that receives a specific artifact (retrieved
+    context, reasoning chain, output) and returns pass or fail.
+
+
+    The key insight is that gates should be placed at the right moments in the agent
+    pipeline, not just at the end. A gate that catches a retrieval failure before
+    the LLM attempts to reason is far cheaper than a gate that catches a reasoning
+    failure in the final output — both in token cost and in the compounding error
+    risk of reasoning on bad context.
+
+
+    The gate placement strategy follows the "shift-left" principle from software testing:
+    catch failures as early and cheaply as possible.
+
+
+    ## When to Use
+
+
+    Use this method when:
+
+
+    - Building agents that must meet quality standards consistently, not just on average
+
+    - Retrieval quality is variable (some queries return excellent context, others
+    return noise)
+
+    - Output errors are consequential (wrong citations, out-of-scope claims, schema
+    violations)
+
+    - You need systematic quality measurement, not just observed user feedback
+
+
+    ## When NOT to Use
+
+
+    Avoid this method when:
+
+
+    - Latency requirements are so tight that even fast gate operations are prohibitive
+
+    - The output domain is so open-ended that meaningful automated evaluation isn''t
+    feasible
+
+
+    ## How It Works
+
+
+    ### Prerequisites
+
+
+    Before starting:
+
+    - Have the harness structure (M316) in place
+
+    - Define pass/fail criteria for each gate type
+
+    - Identify which failure modes are most costly in your domain
+
+
+    ### Step 1: Place Gates at Three Pipeline Stages
+
+
+    **Pre-reasoning gates** (run on retrieved context before LLM reasoning):
+
+    - Relevance gate: are the retrieved chunks relevant to the query?
+
+    - Coverage gate: does the retrieved context contain sufficient information to
+    answer?
+
+    - Freshness gate: are the retrieved sources current per their context contracts
+    (M300)?
+
+
+    **Post-reasoning gates** (run on LLM output before delivery):
+
+    - Citation gate: do all cited sources exist in the knowledge layer?
+
+    - Scope gate: does the answer stay within the declared domain of the agent?
+
+    - Schema gate: does the output conform to the required structure?
+
+
+    **Action gates** (run before any agentic action is executed):
+
+    - Authorization gate: is the agent permitted to take this action?
+
+    - Precondition gate: are the preconditions for this action satisfied?
+
+    - Reversibility gate: if this action is irreversible, require explicit confirmation
+
+
+    ### Step 2: Score Rather Than Binary-Gate Where Possible
+
+
+    Some gates benefit from a score rather than a hard pass/fail:
+
+    - Relevance: return a score 0-1; gate fails below threshold (e.g., 0.6)
+
+    - Coverage: return the fraction of query facets addressed
+
+    - Freshness: return days since last update; gate fails above threshold
+
+
+    Scores enable better observability and threshold tuning than binary gates.
+
+
+    ### Step 3: Define Gate Failure Responses
+
+
+    For each gate, define what happens on failure:
+
+    - **Soft fail**: log, continue, flag output for review
+
+    - **Retry**: trigger a context reset and re-run the pipeline
+
+    - **Hard fail**: return a structured error to the caller
+
+
+    ### Step 4: Log Every Gate Decision
+
+
+    Every gate invocation — pass or fail, score, the artifact evaluated, and the time
+    taken — must be logged. This data feeds semantic observability (M319) and enables
+    threshold calibration over time.
+
+
+    ## Example
+
+
+    Query: "What is our current policy on third-party AI tool procurement?"
+
+
+    Pipeline with gates:
+
+    1. Retrieval returns 5 chunks
+
+    2. **Relevance gate**: 3 of 5 chunks score above 0.6 → pass (3 relevant chunks
+    proceed)
+
+    3. **Freshness gate**: all 3 chunks are current per context contracts → pass
+
+    4. LLM reasons and produces answer citing "AI-POL-2025-v2"
+
+    5. **Citation gate**: "AI-POL-2025-v2" found in knowledge layer index → pass
+
+    6. **Scope gate**: answer discusses procurement policy → pass
+
+    7. **Schema gate**: output matches required JSON structure → pass
+
+    8. Answer delivered
+
+
+    If step 2 had failed (0 relevant chunks): Context Reset triggered. Query reformulated.
+    Pipeline retried.
+
+
+    ## Common Pitfalls
+
+
+    1. **Gates only at output** — placing all gates at the end catches failures late.
+    Pre-reasoning gates are cheaper and prevent reasoning on bad context.
+
+    2. **Hard-coded thresholds** — gates with thresholds set once and never revisited
+    degrade as the knowledge layer evolves. Review thresholds monthly against gate
+    decision logs.
+
+    3. **Gate as trust signal** — a gate that always passes isn''t providing signal,
+    it''s providing false confidence. Monitor pass rates; consistently high rates
+    may indicate gates are too permissive.
+
+
+    ## How You Can Help
+
+
+    If you''re testing this method:
+
+
+    1. Document which gate types you implemented and at which pipeline stage
+
+    2. Share your gate failure rates by type — which gates fail most often?
+
+    3. Measure the pass rate before and after threshold calibration'
+  lead: Implement discrete, automated evaluation checkpoints between the agent's retrieval
+    and reasoning steps and between reasoning and output delivery, so that quality
+    failures are caught and corrected before they reach users or downstream systems.
+  docs_url_path: field-guides/semantic-layer-engineering/methods/emerging/M317-quality-gates

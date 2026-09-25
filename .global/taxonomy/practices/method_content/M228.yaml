@@ -1,0 +1,178 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M228
+spec:
+  description: Prose for Strangler Fig Pattern.
+  body: "**Pillar:** Communication Patterns\n\nThe Strangler Fig Pattern enables incremental\
+    \ migration from a monolithic application to microservices by gradually replacing\
+    \ specific pieces of functionality with new services. The name comes from strangler\
+    \ fig trees that grow around existing trees, eventually replacing them entirely.\
+    \ This pattern minimizes risk by allowing gradual transition rather than big-bang\
+    \ rewrites.\n\n## Definition\n\n> \"One of the natural wonders of this area are\
+    \ the huge strangler figs. They seed in the upper branches of a tree and gradually\
+    \ work their way down the tree until they root in the soil. Over many years they\
+    \ grow into fantastic and beautiful shapes, meanwhile strangling and killing the\
+    \ tree that was their host.\"\n> — Martin Fowler\n\n> \"One of my favorite techniques\
+    \ for tackling legacy code is to come up with a strategy for strangling it by\
+    \ putting a layer around the legacy code that intercepts requests and gradually\
+    \ replaces the legacy functionality with new code.\"\n> — Martin Fowler\n\n##\
+    \ Why It Matters\n\nBig-bang rewrites are risky:\n\n- **Long time to value** -\
+    \ No benefits until the rewrite is complete\n- **Requirements drift** - Business\
+    \ needs change during the long rewrite\n- **Project cancellation risk** - Management\
+    \ loses patience\n- **Knowledge loss** - Original developers leave during the\
+    \ project\n- **No rollback** - All-or-nothing deployment\n\nThe Strangler Fig\
+    \ approach:\n- **Delivers value incrementally** - Each extracted service provides\
+    \ immediate benefit\n- **Reduces risk** - Can stop at any point with partial progress\n\
+    - **Enables learning** - Teams learn microservices gradually\n- **Allows rollback**\
+    \ - Can revert individual services if needed\n- **Maintains business continuity**\
+    \ - Monolith continues running throughout\n\n## How It Works\n\n### Architecture\n\
+    \n```\nPhase 1: Initial Setup\n┌─────────────────────────────────────┐\n│    \
+    \       Router/Proxy              │ ◀── Strangler facade\n│     (API Gateway /\
+    \ Load Balancer)   │\n└──────────────┬──────────────────────┘\n              \
+    \ │\n        ┌──────┴──────┐\n        ▼             ▼\n┌──────────────┐ ┌──────────────┐\n\
+    │   Monolith   │ │  New Service │ ◀── Extracted capability\n│   (Legacy)   │ │\
+    \   (Users)    │\n└──────────────┘ └──────────────┘\n\nPhase 2: Partial Migration\n\
+    ┌─────────────────────────────────────┐\n│           Router/Proxy            \
+    \  │\n└──────────────┬──────────────────────┘\n               │\n        ┌──────┼──────┬──────┐\n\
+    \        ▼      ▼      ▼      ▼\n┌──────────┐ ┌────┐ ┌────┐ ┌────┐\n│ Monolith\
+    \ │ │User│ │Prod│ │Ord │\n│ (smaller)│ │Svc │ │Svc │ │Svc │\n└──────────┘ └────┘\
+    \ └────┘ └────┘\n\nPhase 3: Completion\n┌─────────────────────────────────────┐\n\
+    │           Router/Proxy              │\n└──────────┬──────────┬───────────────┘\n\
+    \           │          │\n    ┌──────┴───┐ ┌────┴────┐ ┌────────┐\n    │   User\
+    \   │ │ Product │ │ Order  │\n    │  Service │ │ Service │ │ Service│\n    └──────────┘\
+    \ └─────────┘ └────────┘\n        (Monolith fully replaced)\n```\n\n### Routing\
+    \ Strategies\n\nThe strangler facade routes requests based on URL patterns, headers,\
+    \ or content:\n\n```javascript\n// Example: Route based on URL path\nfunction\
+    \ routeRequest(request) {\n  const path = request.path;\n  \n  if (path.startsWith('/api/users'))\
+    \ {\n    return routeToUserService(request);\n  }\n  \n  if (path.startsWith('/api/products'))\
+    \ {\n    return routeToProductService(request);\n  }\n  \n  if (path.startsWith('/api/orders'))\
+    \ {\n    return routeToOrderService(request);\n  }\n  \n  // Default: route to\
+    \ monolith\n  return routeToMonolith(request);\n}\n```\n\n### Migration Steps\n\
+    \n1. **Identify Bounded Context** - Use DDD to find natural boundaries\n2. **Create\
+    \ Strangler Facade** - Deploy router in front of monolith\n3. **Extract First\
+    \ Service** - Move one capability to new service\n4. **Update Routing** - Route\
+    \ relevant traffic to new service\n5. **Verify & Monitor** - Ensure service performs\
+    \ correctly\n6. **Repeat** - Continue extracting services\n7. **Retire Monolith**\
+    \ - When all functionality extracted\n\n## Implementation Approaches\n\n### 1.\
+    \ API Gateway as Strangler\n\nUse an API Gateway to route between monolith and\
+    \ new services:\n\n```yaml\n# Kong configuration example\nservices:\n  - name:\
+    \ monolith\n    url: http://monolith.internal:8080\n    routes:\n      - paths:\n\
+    \          - /api/legacy\n          \n  - name: user-service\n    url: http://user-service:8080\n\
+    \    routes:\n      - paths:\n          - /api/users\n          \n  - name: product-service\n\
+    \    url: http://product-service:8080\n    routes:\n      - paths:\n         \
+    \ - /api/products\n```\n\n**Pros:** Purpose-built for routing, rich features\n\
+    **Cons:** Additional infrastructure to manage\n\n### 2. Load Balancer Routing\n\
+    \nUse NGINX, HAProxy, or cloud load balancers:\n\n```nginx\n# NGINX configuration\n\
+    server {\n    listen 80;\n    server_name api.example.com;\n    \n    location\
+    \ /api/users {\n        proxy_pass http://user-service;\n    }\n    \n    location\
+    \ /api/products {\n        proxy_pass http://product-service;\n    }\n    \n \
+    \   location / {\n        proxy_pass http://monolith;\n    }\n}\n```\n\n**Pros:**\
+    \ Simple, proven, high performance\n**Cons:** Less flexible than code-based routing\n\
+    \n### 3. Code-Based Strangler\n\nImplement routing logic in application code:\n\
+    \n```javascript\nclass StranglerRouter {\n  constructor(routes) {\n    this.routes\
+    \ = routes;\n    this.monolith = new MonolithClient();\n  }\n  \n  async handle(request)\
+    \ {\n    const route = this.findRoute(request);\n    \n    if (route) {\n    \
+    \  // Route to new service\n      return await route.service.handle(request);\n\
+    \    }\n    \n    // Default to monolith\n    return await this.monolith.handle(request);\n\
+    \  }\n  \n  findRoute(request) {\n    return this.routes.find(r => r.matches(request));\n\
+    \  }\n}\n```\n\n**Pros:** Maximum flexibility, can implement complex logic\n**Cons:**\
+    \ More code to maintain\n\n## Migration Strategies\n\n### By Domain (Recommended)\n\
+    \nExtract entire bounded contexts at once:\n\n```\nIteration 1: User Management\n\
+    - Extract: authentication, profiles, preferences\n- Keep in monolith: orders,\
+    \ products, payments\n\nIteration 2: Product Catalog\n- Extract: product data,\
+    \ inventory, search\n- Keep in monolith: orders, payments\n\nIteration 3: Order\
+    \ Management\n- Extract: shopping cart, checkout, order history\n- Keep in monolith:\
+    \ payments\n\nIteration 4: Payment Processing\n- Extract: payment processing,\
+    \ refunds\n- Monolith retired\n```\n\n### By Feature\n\nExtract individual features:\n\
+    \n```\nIteration 1: User Authentication\nIteration 2: Product Search\nIteration\
+    \ 3: Shopping Cart\nIteration 4: Checkout\nIteration 5: Order History\n...\n```\n\
+    \n### By Layer (Anti-pattern)\n\nAvoid extracting by technical layer:\n\n```\n\
+    ❌ WRONG: Extract all data access first\n❌ WRONG: Extract all business logic first\n\
+    ✅ RIGHT: Extract by business capability\n```\n\n## Data Migration\n\n### Data\
+    \ Synchronization\n\nDuring transition, keep data synchronized:\n\n```javascript\n\
+    // Dual-write pattern\nasync function updateUser(userId, data) {\n  // Write to\
+    \ new service\n  await userService.update(userId, data);\n  \n  // Also write\
+    \ to monolith (temporary)\n  await monolith.user.update(userId, data);\n}\n```\n\
+    \n### Read Replicas\n\nRoute reads to new service, writes to both:\n\n```\nReads\
+    \ ───────────────▶ New Service\n                       │\n                   \
+    \    │ Sync\n                       ▼\nWrites ───▶ Monolith ◀──────────\n```\n\
+    \n### Event-Based Migration\n\nUse events to keep systems in sync:\n\n```javascript\n\
+    // Monolith publishes events\nmonolith.on('user.updated', async (event) => {\n\
+    \  await userService.sync(event.userId, event.data);\n});\n\n// Eventually, new\
+    \ service becomes source of truth\n```\n\n## FOE Alignment\n\n**Primary: Optimize\
+    \ for Understanding**\n\nThe Strangler Fig pattern makes the migration process\
+    \ understandable and manageable. Instead of a mysterious \"rewrite in progress\"\
+    \ that no one understands the status of, each extracted service is a concrete,\
+    \ completed step with clear boundaries and functionality.\n\n**Secondary: Confidence\
+    \ to Act**\n\nBecause the migration is incremental, teams can deploy with confidence\
+    \ at each step. If something goes wrong, only the extracted service is affected—the\
+    \ monolith continues running. This safety net enables bolder refactoring and faster\
+    \ progress.\n\n## Benefits\n\n- ✅ **Incremental delivery** - Value delivered at\
+    \ each step\n- ✅ **Risk reduction** - Can stop or revert at any point\n- ✅ **Learning\
+    \ opportunity** - Team gains microservices experience gradually\n- ✅ **Business\
+    \ continuity** - Monolith keeps running during migration\n- ✅ **Parallel development**\
+    \ - New features in services, maintenance in monolith\n\n## Trade-offs\n\n- ⚠️\
+    \ **Extended timeline** - Takes longer than big-bang rewrite\n- ⚠️ **Running dual\
+    \ systems** - Must maintain both codebases temporarily\n- ⚠️ **Data consistency**\
+    \ - Keeping data in sync adds complexity\n- ⚠️ **Routing overhead** - Additional\
+    \ network hop through strangler\n- ⚠️ **Requires discipline** - Temptation to\
+    \ take shortcuts\n\n## When to Use\n\n✅ **Ideal for:**\n- Large, critical monoliths\
+    \ that can't risk big-bang rewrite\n- Teams new to microservices (learn as you\
+    \ go)\n- Systems with clear domain boundaries\n- Organizations that need continuous\
+    \ delivery during migration\n\n❌ **Consider alternatives when:**\n- Monolith is\
+    \ small (< 10K lines)\n- Domain boundaries are unclear\n- Team has extensive microservices\
+    \ experience\n- Organization can tolerate downtime for cutover\n\n## Success Factors\n\
+    \n### 1. Clear Domain Boundaries\n\nUse Domain-Driven Design to identify extraction\
+    \ candidates:\n\n```\nBounded Contexts (good extraction candidates):\n- User Management\n\
+    - Product Catalog  \n- Order Management\n- Payment Processing\n- Inventory\n```\n\
+    \n### 2. Automated Testing\n\nComprehensive tests ensure extraction doesn't break\
+    \ functionality:\n\n- **Contract tests** - Verify new service matches monolith\
+    \ behavior\n- **Integration tests** - Test routing and data synchronization\n\
+    - **End-to-end tests** - Full user journey verification\n\n### 3. Feature Flags\n\
+    \nControl routing with feature flags for gradual rollout:\n\n```javascript\nif\
+    \ (featureFlags.isEnabled('use-new-user-service', userId)) {\n  return await userService.getUser(userId);\n\
+    } else {\n  return await monolith.getUser(userId);\n}\n```\n\n### 4. Monitoring\n\
+    \nTrack both systems during transition:\n\n```javascript\n// Compare monolith\
+    \ vs service metrics\nmetrics.histogram('response_time', monolithTime, { source:\
+    \ 'monolith' });\nmetrics.histogram('response_time', serviceTime, { source: 'user-service'\
+    \ });\n\n// Alert on divergence\nif (Math.abs(monolithTime - serviceTime) > threshold)\
+    \ {\n  alert('Performance divergence detected');\n}\n```\n\n## Anti-Patterns\n\
+    \n### ❌ Big-Bang Cutover\n\n```\nWRONG: Migrate everything at once\n┌──────────┐\
+    \                    ┌──────────┐\n│ Monolith │ ────(one day)───▶ │ Services │\n\
+    └──────────┘                    └──────────┘\n\nRIGHT: Gradual migration\n┌──────────┐\
+    \     ┌──────────┐     ┌──────────┐\n│ Monolith │ ──▶ │ Partial  │ ──▶ │ Services\
+    \ │\n└──────────┘     └──────────┘     └──────────┘\n```\n\n### ❌ Tight Coupling\
+    \ Remaining\n\nDon't extract services that still need constant monolith access:\n\
+    \n```\nWRONG: Extracted service calls monolith for every request\n┌──────────┐\
+    \     ┌──────────┐\n│  Users   │◀───▶│ Monolith │\n│  Service │     │        \
+    \  │\n└──────────┘     └──────────┘\n```\n\n### ❌ No Rollback Plan\n\nAlways be\
+    \ able to route back to monolith:\n\n```javascript\n// Keep routing configuration\
+    \ flexible\nconst routingConfig = {\n  users: {\n    primary: 'user-service',\n\
+    \    fallback: 'monolith',\n    healthCheck: '/health'\n  }\n};\n```\n\n## Known\
+    \ Uses\n\n- **Amazon** - Gradual migration from monolith to services over years\n\
+    - **Netflix** - Strangler fig approach for DVD to streaming transition\n- **Guardian**\
+    \ - Migrated from monolith to microservices over 3 years\n- **UK Government Digital\
+    \ Service** - Multiple strangler fig migrations\n- **SoundCloud** - Monolith to\
+    \ microservices using BFF pattern\n\n## Case Study: SoundCloud\n\nSoundCloud used\
+    \ the Strangler Fig pattern to migrate their monolithic Rails application:\n\n\
+    1. **Initial State**: Single Rails monolith handling all features\n2. **Strangler\
+    \ Setup**: NGINX router in front of monolith\n3. **First Extraction**: Authentication\
+    \ service (clear boundary)\n4. **Continued Extraction**: Track uploads, social\
+    \ features, analytics\n5. **Final State**: 200+ microservices, monolith retired\n\
+    \nKey learnings:\n- Extract vertical slices (full features), not horizontal layers\n\
+    - Keep extracted services truly independent\n- Invest in automated testing for\
+    \ each extraction\n- Plan for data migration from the start\n\n## References\n\
+    \n- Fowler, M. (2004). [Strangler Fig Application](https://martinfowler.com/bliki/StranglerFigApplication.html).\n\
+    - Richardson, C. (2018). *Microservices Patterns*. Chapter 13: Refactoring to\
+    \ Microservices.\n- Newman, S. (2021). *Building Microservices* (2nd ed.). Chapter\
+    \ 5: Splitting the Monolith.\n- [Strangler Fig Pattern - Microsoft](https://docs.microsoft.com/en-us/azure/architecture/patterns/strangler-fig)\n\
+    - [SoundCloud Case Study](https://developers.soundcloud.com/blog/building-products-at-soundcloud-part-3-microservices-in-scala-and-finch)"
+  lead: The Strangler Fig Pattern enables incremental migration from a monolithic
+    application to microservices by gradually replacing specific pieces of functionality
+    with new services. The name comes from strangler fig trees that grow around existing
+    trees, eventually replacing them entirely. This pattern minimizes risk by allowing
+    gradual transition rather than big-bang rewrites.
+  docs_url_path: external-frameworks/microservices/methods/M228-strangler-fig-pattern

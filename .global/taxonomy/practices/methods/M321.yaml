@@ -7,7 +7,10 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Semantic Operating Model
+  description: Build a formal model of the organization's actors, systems, datasets,
+    controls, risks, and authorities before deploying agents — transforming scattered
+    data into a computable world model that agents can reason against rather than
+    search through.
   title: Semantic Operating Model
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M321-semantic-operating-model.md

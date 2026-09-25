@@ -1,0 +1,78 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M120
+spec:
+  description: Prose for Example Mapping.
+  body: "**Pillar:** Discovery\n\nExample Mapping is a structured discovery technique\
+    \ created by Matt Wynne that uses colored index cards to visually organize a user\
+    \ story into rules, examples, and questions. It provides a fast, focused way to\
+    \ explore requirements and identify gaps in understanding.\n\n## Definition\n\n\
+    > A collaborative technique that uses four colors of index cards to decompose\
+    \ a user story into its acceptance rules, concrete examples, and open questions\
+    \ in a structured, visual format.\n\n## Why It Matters\n\nExample Mapping provides:\n\
+    \n- **Visual structure** - See the shape of a story at a glance\n- **Fast feedback**\
+    \ - A 25-minute session reveals if a story is ready\n- **Clear signals** - Too\
+    \ many cards of one color indicates problems\n- **Actionable output** - Cards\
+    \ translate directly to Gherkin scenarios\n\n## The Four Colors\n\n### Yellow\
+    \ - Story\n\nThe user story being explored. One yellow card per session, placed\
+    \ at the top.\n\n**Example:** \"As a shopper, I want to filter products by price\
+    \ range so I can find items in my budget.\"\n\n### Blue - Rules\n\nBusiness rules\
+    \ or acceptance criteria that govern the story's behavior. Each rule gets its\
+    \ own blue card, placed in a row below the story.\n\n**Examples:**\n- \"Price\
+    \ filter has min and max values\"\n- \"Products outside range are hidden, not\
+    \ removed\"\n- \"Filter persists across page navigation\"\n\n### Green - Examples\n\
+    \nConcrete examples that illustrate a rule. Green cards are placed below their\
+    \ corresponding blue rule card.\n\n**Examples (for \"Price filter has min and\
+    \ max values\"):**\n- \"Filter $10-$50 shows $25 item\"\n- \"Filter $10-$50 hides\
+    \ $5 item\"\n- \"Filter $10-$50 hides $100 item\"\n- \"Filter $10-$10 shows only\
+    \ $10 items\"\n\n### Red - Questions\n\nAnything that can't be answered in the\
+    \ session. Red cards are placed to the side and must be resolved before development.\n\
+    \n**Examples:**\n- \"What happens with items on sale?\"\n- \"Do we include or\
+    \ exclude boundary values?\"\n- \"How do we handle items with no price?\"\n\n\
+    ## How to Run an Example Mapping Session\n\n### Setup (2 minutes)\n\n1. Gather\
+    \ colored index cards (or digital equivalent)\n2. Write the story on a yellow\
+    \ card\n3. Place it at the top of the workspace\n\n### Mapping (20 minutes)\n\n\
+    1. **Identify rules** - What are the acceptance criteria? (Blue cards)\n2. **Generate\
+    \ examples** - For each rule, what are concrete scenarios? (Green cards)\n3. **Capture\
+    \ questions** - What can't we answer? (Red cards)\n4. **Refine rules** - Split\
+    \ or merge as patterns emerge\n\n### Evaluate (3 minutes)\n\nLook at the card\
+    \ distribution:\n\n| Pattern | Signal | Action |\n|---------|--------|--------|\n\
+    | Few blue, few green | Well-understood, simple story | Ready for development\
+    \ |\n| Many blue cards | Story may be too big | Consider splitting |\n| Many red\
+    \ cards | Too many unknowns | Research before development |\n| Blue with no green\
+    \ | Rule not understood | Generate examples or question it |\n| Many green under\
+    \ one blue | Complex rule | Consider splitting the rule |\n\n## Visual Layout\n\
+    \n```\n┌─────────────────────────────────────────────────────────┐\n│  [YELLOW]\
+    \ User Story                                    │\n├─────────────────────────────────────────────────────────┤\n\
+    │                                                         │\n│  [BLUE] Rule 1\
+    \    [BLUE] Rule 2    [BLUE] Rule 3       │\n│       │                │      \
+    \          │               │\n│  [GREEN]          [GREEN]          [GREEN]   \
+    \           │\n│  [GREEN]          [GREEN]                               │\n│\
+    \  [GREEN]                                                │\n│               \
+    \                                          │\n│                              [RED]\
+    \ Question 1           │\n│                              [RED] Question 2    \
+    \       │\n└─────────────────────────────────────────────────────────┘\n```\n\n\
+    ## Best Practices\n\n- **Time-box strictly** - 25 minutes maximum\n- **Start with\
+    \ rules** - They provide structure for examples\n- **Be concrete** - Use real\
+    \ values, not placeholders\n- **Embrace red cards** - Questions are valuable discoveries\n\
+    - **Photograph the result** - Capture the visual for reference\n\n## From Cards\
+    \ to Gherkin\n\nEach green example card becomes a scenario:\n\n**Card:** \"Filter\
+    \ $10-$50 shows $25 item\"\n\n**Gherkin:**\n```gherkin\nScenario: Item within\
+    \ price range is shown\n  Given a product priced at $25\n  And the price filter\
+    \ is set to $10-$50\n  When I view the filtered results\n  Then the $25 product\
+    \ is displayed\n```\n\n## FOE Alignment\n\nExample Mapping strongly supports FOE\
+    \ principles:\n\n- **Optimize for Understanding** - Visual structure makes complexity\
+    \ visible\n- **Fast Feedback Loops** - 25-minute sessions quickly reveal story\
+    \ readiness\n- **Build Confidence** - Clear rules and examples reduce ambiguity\n\
+    \n## References\n\n- Wynne, M. (2015). \"Introducing Example Mapping.\" Cucumber\
+    \ Blog. https://cucumber.io/blog/bdd/example-mapping-introduction/\n- Nagy, G.\
+    \ & Rose, S. \"Discovery: Explore Behaviour Using Examples.\" Leanpub.\n- Wynne,\
+    \ M. & Hellesøy, A. \"The Cucumber Book.\" Pragmatic Bookshelf."
+  lead: Example Mapping is a structured discovery technique created by Matt Wynne
+    that uses colored index cards to visually organize a user story into rules, examples,
+    and questions. It provides a fast, focused way to explore requirements and identify
+    gaps in understanding.
+  docs_url_path: external-frameworks/bdd/methods/M120-example-mapping

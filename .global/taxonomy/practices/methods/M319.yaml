@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Semantic Observability
+  description: Instrument the agent's retrieval-reasoning chain with distributed tracing
+    so that every span of a request — query, retrieval, re-ranking, reasoning, output
+    — is logged, attributable, and analyzable for semantic failures.
   title: Semantic Observability
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M319-semantic-observability.md

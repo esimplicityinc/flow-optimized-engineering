@@ -1,0 +1,185 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M303
+spec:
+  description: Prose for Retriever Ensemble.
+  body: 'Combine multiple retrieval strategies — semantic, lexical, and graph-based
+    — into a unified retrieval pipeline so that no single mode''s blind spots become
+    system failures.
+
+
+    :::caution Early Stage
+
+    This method is still being validated through observations.
+
+    :::
+
+
+    ## Overview
+
+
+    A single search method is a single point of failure. Semantic vector search finds
+    intent but misses exact identifiers. Lexical search finds exact terms but misses
+    paraphrases. Graph traversal finds relationships but requires entities to already
+    be resolved.
+
+
+    The Retriever Ensemble pattern treats retrieval as a pipeline, not a lookup. Each
+    retrieval mode is a specialist that covers different ground. The ensemble combines
+    their outputs, applies context contracts (M300) to weight results, and delivers
+    a richer, more reliable context package than any single method could.
+
+
+    This is the architectural pattern that makes the difference between a RAG system
+    that works in demos and one that works in production. Real enterprise queries
+    — "What are the downstream effects of changing our pricing model?" — require all
+    three retrieval modes to answer reliably.
+
+
+    ## When to Use
+
+
+    Use this method when:
+
+
+    - Queries span multiple types of information (facts, identifiers, relationships)
+
+    - The domain contains regulated content where exact-match accuracy is mandatory
+
+    - Users ask questions that may or may not use canonical terminology
+
+    - Retrieval failures are consequential (compliance, financial decisions, medical
+    information)
+
+
+    ## When NOT to Use
+
+
+    Avoid this method when:
+
+
+    - The domain is so narrow that one retrieval mode demonstrably covers all query
+    types
+
+    - Latency constraints make multi-mode retrieval impractical (optimize later once
+    quality is validated)
+
+    - You don''t yet have the infrastructure for more than one retrieval mode — start
+    with the most important one for your domain
+
+
+    ## How It Works
+
+
+    ### Prerequisites
+
+
+    Before starting:
+
+    - Have at least two retrieval modes available (vector DB + keyword search is a
+    common starting point)
+
+    - Understand which query types are most critical for your domain
+
+    - Have context contracts (M300) in place so retrieved results can be weighted
+    by authority
+
+
+    ### Step 1: Categorize Query Types
+
+
+    Analyze the queries your system will face and assign them to retrieval mode strengths:
+
+    - **Intent-based queries** ("what do we think about X?") → semantic vector
+
+    - **Identifier-based queries** ("what is the status of contract #A-2026-0042?")
+    → lexical
+
+    - **Relational queries** ("what projects does this vendor touch?") → graph
+
+
+    ### Step 2: Run Retrieval Modes in Parallel
+
+
+    Issue the query to all active retrieval modes simultaneously. Don''t chain them
+    sequentially — parallel execution is faster and avoids mode-ordering bias.
+
+
+    ### Step 3: Merge and Deduplicate Results
+
+
+    Combine results from all modes. Deduplicate by document/chunk identity (not by
+    text similarity). Assign a composite relevance score that weights each mode''s
+    contribution based on query type signals.
+
+
+    ### Step 4: Apply Context Contract Weighting
+
+
+    Before presenting results to the LLM, apply context contract (M300) weighting:
+    boost recent, authoritative content; suppress superseded or restricted content
+    for the requesting scope.
+
+
+    ### Step 5: Trim to Context Budget
+
+
+    Select the highest-weighted results that fit within the available context window.
+    Log what was included and excluded for observability.
+
+
+    ## Example
+
+
+    Query: "Is the vendor DataFlow Inc. compliant with our 2025 security standards?"
+
+
+    - **Semantic search** finds: general vendor assessment documents mentioning DataFlow
+    in context, security evaluation frameworks
+
+    - **Lexical search** finds: exact contract references "DataFlow Inc. MSA-2024-0089",
+    the specific security standard document "SEC-STD-2025-v2"
+
+    - **Graph traversal** finds: DataFlow Inc. node → linked compliance assessment
+    → linked audit findings → linked remediation tickets
+
+
+    The ensemble delivers a complete picture: the contract, the standard, the assessment
+    results, and the outstanding remediation items. Any single mode would have missed
+    critical pieces.
+
+
+    ## Common Pitfalls
+
+
+    1. **Equal weighting across modes** — semantic similarity scores and BM25 scores
+    are not directly comparable. Normalize scores before merging or use rank-based
+    fusion (Reciprocal Rank Fusion is a common approach).
+
+    2. **Missing deduplication** — the same document may be returned by multiple modes.
+    Without deduplication, it inflates the context window.
+
+    3. **Ignoring query type signals** — running the full ensemble for every query
+    wastes resources. Route simple identifier lookups to lexical only; save the full
+    ensemble for complex queries.
+
+
+    ## How You Can Help
+
+
+    If you''re testing this method:
+
+
+    1. Measure retrieval quality with a single mode vs. the ensemble on your actual
+    query distribution
+
+    2. Document which mode contributed the most critical context for each query type
+
+    3. Share your rank fusion implementation approach'
+  lead: Combine multiple retrieval strategies — semantic, lexical, and graph-based
+    — into a unified retrieval pipeline so that no single mode's blind spots become
+    system failures.
+  docs_url_path: field-guides/semantic-layer-engineering/methods/emerging/M303-retriever-ensemble

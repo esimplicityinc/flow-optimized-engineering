@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Verification Loops
+  description: Require agents to expose their reasoning chain and source evidence
+    before acting on conclusions, enabling human and automated verification of AI-generated
+    insights before they propagate into decisions or downstream systems.
   title: Verification Loops
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M315-verification-loops.md

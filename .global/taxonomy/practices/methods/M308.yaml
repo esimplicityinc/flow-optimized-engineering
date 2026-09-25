@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Taxonomy Anchoring
+  description: Ground an AI system's vocabulary in the organization's actual terminology
+    and shared definitions, preventing the agent from inventing or importing meanings
+    that don't match how the business actually uses its terms.
   title: Taxonomy Anchoring
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M308-taxonomy-anchoring.md

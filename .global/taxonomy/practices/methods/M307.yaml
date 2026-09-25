@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Entity Resolution & Linking
+  description: Assign persistent, unique identifiers to real-world entities and resolve
+    all aliases, abbreviations, and contextual references to their canonical form
+    so AI agents treat distributed references as a single, coherent entity.
   title: Entity Resolution & Linking
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M307-entity-resolution-and-linking.md

@@ -1,0 +1,84 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M300
+spec:
+  description: Prose for Context Contract Design.
+  body: "Attach a structured metadata sidecar to every piece of ingested information,\
+    \ declaring its authority, recency, and scope so AI agents can reason about trustworthiness\
+    \ before acting on content.\n\n:::caution Early Stage\nThis method is still being\
+    \ validated through observations.\n:::\n\n## Overview\n\nWhen an AI agent retrieves\
+    \ information, it faces an implicit question it cannot answer without help: *should\
+    \ I trust this?* A document from a 2019 policy memo and one from last week's board\
+    \ meeting may look identical to a retrieval system but carry radically different\
+    \ weight.\n\nThe Context Contract pattern solves this by treating metadata as\
+    \ a first-class citizen of data ingestion. Every artifact — document, database\
+    \ row, email, API response — receives a structured \"sidecar\" that declares three\
+    \ properties: **authority** (how much to trust this source), **recency** (whether\
+    \ this information is still valid), and **scope** (who is permitted to see and\
+    \ act on it).\n\nThis isn't just good data hygiene. It's the foundation that makes\
+    \ all other semantic layer methods reliable. Without context contracts, retrieval\
+    \ ensembles surface content but cannot weigh it. Memory consolidation compresses\
+    \ meaning but cannot preserve trust signals. Source attribution can point to a\
+    \ node but cannot communicate whether that node should have been trusted.\n\n\
+    ## When to Use\n\nUse this method when:\n\n- Ingesting documents from sources\
+    \ with varying authority levels (official policy vs. informal notes)\n- Building\
+    \ systems where data freshness materially affects decision quality\n- Operating\
+    \ in regulated environments where access controls must be enforced at the content\
+    \ level\n- Designing RAG pipelines where retrieved content will be used to make\
+    \ consequential decisions\n\n## When NOT to Use\n\nAvoid this method when:\n\n\
+    - All data comes from a single, homogeneous, always-current source (authority\
+    \ and recency are uniform)\n- The system is purely exploratory / low-stakes and\
+    \ the overhead of metadata design outweighs the benefit\n- You don't yet have\
+    \ a taxonomy of authority levels — establish that first (see M308 Taxonomy Anchoring)\n\
+    \n## How It Works\n\n### Prerequisites\n\nBefore starting:\n- Identify all data\
+    \ sources that will be ingested into the semantic layer\n- Define an authority\
+    \ taxonomy for your domain (e.g., official policy > meeting notes > informal email)\n\
+    - Determine your recency model (TTL-based, version-based, or event-triggered invalidation)\n\
+    \n### Step 1: Define the Contract Schema\n\nDesign a metadata schema that captures\
+    \ the three dimensions. A minimal contract:\n\n```json\n{\n  \"authority\": \"\
+    official-policy\",\n  \"recency\": {\n    \"valid_from\": \"2025-01-01\",\n  \
+    \  \"valid_until\": \"2026-12-31\",\n    \"is_current\": true\n  },\n  \"scope\"\
+    : {\n    \"visibility\": \"internal\",\n    \"permitted_roles\": [\"analyst\"\
+    , \"manager\"],\n    \"classification\": \"confidential\"\n  }\n}\n```\n\n###\
+    \ Step 2: Attach Contracts at Ingestion Time\n\nAt the point data enters the semantic\
+    \ layer — not after — attach the contract sidecar. This is critical: retrofitting\
+    \ contracts onto already-ingested data is error-prone and often incomplete. Build\
+    \ contract attachment into the ingestion pipeline as a required step, not an optional\
+    \ enrichment.\n\n### Step 3: Propagate Contracts Through Transformations\n\nWhen\
+    \ a derived artifact is created (a summary, an embedding, a graph node), it inherits\
+    \ the most restrictive contract properties of its source material. A summary derived\
+    \ from one confidential document and one public document is confidential. Implement\
+    \ this inheritance rule explicitly in your transformation pipelines.\n\n### Step\
+    \ 4: Surface Contracts to Consuming Agents\n\nMake the contract readable by downstream\
+    \ agents at query time. When a retriever returns a chunk, the contract travels\
+    \ with it. Agents can then apply trust weighting: lower confidence in older content,\
+    \ refuse to surface restricted content to unauthorized requesters.\n\n## Example\n\
+    \n**Without context contracts:**\nAn agent retrieves three documents to answer\
+    \ \"What is our current data retention policy?\" It gets a 2019 policy document,\
+    \ a 2023 amendment memo, and an informal Slack thread from last month. It has\
+    \ no way to know which to weight. It synthesizes all three and produces an answer\
+    \ that blends an outdated policy with informal conversation.\n\n**With context\
+    \ contracts:**\nThe 2019 document carries `authority: superseded, is_current:\
+    \ false`. The 2023 amendment carries `authority: official-policy, is_current:\
+    \ true`. The Slack thread carries `authority: informal-communication`. The agent\
+    \ weights accordingly: the 2023 amendment dominates, the 2019 document is surfaced\
+    \ only as historical context, the Slack thread is omitted from the authoritative\
+    \ answer.\n\n## Common Pitfalls\n\n1. **Attaching contracts after ingestion**\
+    \ — retroactively adding metadata is unreliable. Build contracts into the ingestion\
+    \ pipeline at the source.\n2. **Too many authority levels** — a taxonomy with\
+    \ 15 authority levels creates decision paralysis. Start with 3-5 well-defined\
+    \ levels (official, working, informal, superseded).\n3. **Static recency** — \"\
+    valid until 2026\" is only useful if someone updates it in 2026. Design recency\
+    \ for automatic invalidation wherever possible.\n4. **Orphaned scope controls**\
+    \ — contracts that declare access restrictions but aren't enforced at query time\
+    \ are theater. Wire scope checks into the retrieval layer.\n\n## How You Can Help\n\
+    \nIf you're testing this method:\n\n1. Review the contract schema design\n2. Try\
+    \ it in an ingestion pipeline\n3. Document what authority taxonomy you used and\
+    \ whether 3 dimensions were sufficient"
+  lead: Attach a structured metadata sidecar to every piece of ingested information,
+    declaring its authority, recency, and scope so AI agents can reason about trustworthiness
+    before acting on content.
+  docs_url_path: field-guides/semantic-layer-engineering/methods/emerging/M300-context-contract-design

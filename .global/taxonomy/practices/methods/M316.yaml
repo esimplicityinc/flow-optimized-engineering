@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Harness Engineering
+  description: Wrap AI agents in a structured harness of constraints, quality gates,
+    and verification loops so they operate safely in enterprise environments — shifting
+    from probabilistic compliance to deterministic enforcement.
   title: Harness Engineering
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M316-harness-engineering.md

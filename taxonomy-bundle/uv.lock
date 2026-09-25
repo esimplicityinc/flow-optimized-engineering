@@ -26,6 +26,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "katalyst-engine" },
+    { name = "pyyaml" },
 ]
 
 [package.dev-dependencies]
@@ -36,7 +37,10 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "katalyst-engine", specifier = ">=4.1.0" }]
+requires-dist = [
+    { name = "katalyst-engine", specifier = ">=4.1.0" },
+    { name = "pyyaml", specifier = ">=6.0" },
+]
 
 [package.metadata.requires-dev]
 dev = [

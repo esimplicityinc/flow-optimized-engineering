@@ -67,6 +67,8 @@ from typing import Any
 
 import yaml
 
+from .content import clean_body, lead_paragraph, split_frontmatter
+
 API_VERSION = "katalyst.taxonomy/v2alpha"
 
 #: Frontmatter keys that exist for Docusaurus and carry no taxonomy meaning.
@@ -94,6 +96,8 @@ class Report:
     observations_parked: int = 0
     #: Methods whose documentation homes declare different maturities.
     maturity_conflicts: list[str] = field(default_factory=list[str])
+    method_content: int = 0
+    descriptions_filled: int = 0
 
     @property
     def practices(self) -> int:
@@ -101,7 +105,7 @@ class Report:
 
     @property
     def total(self) -> int:
-        return self.practice_areas + self.practices + self.methods
+        return self.practice_areas + self.practices + self.methods + self.method_content
 
 
 def parse_frontmatter(path: Path) -> dict[str, Any] | None:
@@ -251,6 +255,8 @@ def generate(docs_root: Path, out_root: Path, report: Report) -> None:
     #: Specification. Keeping a set makes the disagreement visible instead of
     #: letting whichever file sorts last silently win.
     maturities: dict[str, set[str]] = {}
+    #: method_id -> (cleaned markdown, the doc path it came from)
+    bodies: dict[str, tuple[str, str]] = {}
 
     for path in sorted(docs_root.rglob("M[0-9]*.md")):
         fm = parse_frontmatter(path)
@@ -292,6 +298,14 @@ def generate(docs_root: Path, out_root: Path, report: Report) -> None:
             # `method_id` is not carried: metadata.name already *is* the id.
         }
 
+        # Keep the longest body across a method's homes. A merged method has
+        # several, and the external-framework copy is usually a stub while the
+        # field-guide copy carries the explanation.
+        _, raw_body = split_frontmatter(path.read_text(encoding="utf-8", errors="replace"))
+        cleaned = clean_body(raw_body)
+        if len(cleaned) > len(bodies.get(method_id, ("", ""))[0]):
+            bodies[method_id] = (cleaned, rel)
+
         homes.setdefault(method_id, []).append(rel)
         if declared_framework.get(method_id) in (None, ""):
             declared_framework[method_id] = _framework_of(rel, fm.get("framework"))
@@ -327,11 +341,39 @@ def generate(docs_root: Path, out_root: Path, report: Report) -> None:
             report.maturity_conflicts.append(f"{method_id}: {sorted(found)}")
         # Every home, so provenance survives the merge.
         spec["annotations"] = {"foe.source_path": "; ".join(sorted(homes[method_id]))}
+        body, source_rel = bodies.get(method_id, ("", ""))
+        lead = lead_paragraph(body)
+        # 42 methods carry no `description`, so theirs currently repeats the title.
+        # The lead paragraph is a real summary and is already written.
+        if spec.get("description") in (None, "", spec.get("title")) and lead != "":
+            spec["description"] = lead
+            report.descriptions_filled += 1
+
         doc = _document("method", method_id, spec)
         if labels:
             doc["metadata"]["labels"] = dict(sorted(labels.items()))
         _write(out_root / "methods" / f"{method_id}.yaml", doc)
         report.methods += 1
+
+        if body != "":
+            # Same name as the method it extends: that is what makes it an
+            # extension rather than a loosely associated node.
+            _write(
+                out_root / "method_content" / f"{method_id}.yaml",
+                _document(
+                    "method_content",
+                    method_id,
+                    {
+                        "description": f"Prose for {spec.get('title', method_id)}.",
+                        "body": body,
+                        "lead": lead,
+                        # Path only — a hardcoded host would rot, and the consumer
+                        # knows where its docs site lives.
+                        "docs_url_path": source_rel.removesuffix(".md"),
+                    },
+                ),
+            )
+            report.method_content += 1
 
     # ── Framework practices ─────────────────────────────────────────
     #
@@ -487,6 +529,8 @@ def main(argv: list[str] | None = None) -> int:
     print(f"practice      : {report.practices}   "
           f"({report.framework_practices} frameworks + {report.curated_practices} curated)")
     print(f"method        : {report.methods}{merged}")
+    print(f"method_content: {report.method_content}   "
+          f"({report.descriptions_filled} descriptions filled from a lead paragraph)")
     print(f"total nodes   : {report.total}")
     if report.maturity_conflicts:
         print(

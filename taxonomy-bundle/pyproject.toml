@@ -3,10 +3,13 @@ name = "foe-taxonomy"
 version = "0.1.0"
 description = "Generate Katalyst taxonomy nodes from Flow Optimized Engineering docs"
 requires-python = ">=3.12"
-# No katalyst-engine dependency: this package declares no node types and only
-# reads markdown to write YAML. The kinds it emits belong to katalyst-forge,
-# which the consuming taxonomy environment already provides.
-dependencies = ["pyyaml>=6.0"]
+# katalyst-engine only, per the bundle dependency contract. The practice_area,
+# practice and method kinds come from katalyst-forge, which the consuming
+# environment already provides; this declares one extension of `method`.
+dependencies = ["katalyst-engine>=4.1.0", "pyyaml>=6.0"]
+
+[project.entry-points."katalyst_engine.bundles"]
+foe = "foe_taxonomy:FoeBundle"
 
 [build-system]
 requires = ["hatchling"]

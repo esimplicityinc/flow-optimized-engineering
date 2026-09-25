@@ -7,7 +7,8 @@ metadata:
   labels:
     foe.maturity: validated
 spec:
-  description: True Microservices
+  description: Design service architectures that enable independent team deployment—not
+    distributed monoliths wearing microservices clothing.
   title: True Microservices
   annotations:
     foe.source_path: field-guides/system-architecture/methods/established/M153-true-microservices.md

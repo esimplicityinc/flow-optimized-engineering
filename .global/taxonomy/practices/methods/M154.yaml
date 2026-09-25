@@ -7,7 +7,12 @@ metadata:
   labels:
     foe.maturity: validated
 spec:
-  description: Conceptual Debt Prevention
+  description: 'Teams accumulate *conceptual debt* when they adopt technologies without
+    understanding their underlying models. Like technical debt, conceptual debt compounds
+    -- each misunderstanding produces architectural decisions that produce bugs that
+    produce hotfixes that produce more complexity. Unlike technical debt, conceptual
+    debt is psychologically invisible: you feel like you understand while your assumptions
+    silently diverge from reality.'
   title: Conceptual Debt Prevention
   annotations:
     foe.source_path: field-guides/agentic-coding/methods/established/M154-conceptual-debt-prevention.md

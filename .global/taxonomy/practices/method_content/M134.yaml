@@ -1,0 +1,157 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M134
+spec:
+  description: Prose for Subdomains.
+  body: '**Pillar:** Strategic Design
+
+
+    Subdomains are a way of categorizing different areas of a domain by their strategic
+    importance to the business. This classification helps teams decide where to invest
+    their modeling effort and what level of sophistication is appropriate for each
+    area.
+
+
+    ## Definition
+
+
+    > A portion of the domain, typically reflecting some organizational structure.
+    A subdomain may encompass many bounded contexts.
+
+    >
+
+    > — Eric Evans, DDD Reference
+
+
+    ## Types of Subdomains
+
+
+    | Type | Description | Investment Level | Example |
+
+    |------|-------------|------------------|---------|
+
+    | **Core** | Competitive advantage, what makes you unique | High - custom development,
+    deep modeling | Recommendation algorithm for Netflix |
+
+    | **Supporting** | Necessary but not differentiating | Medium - custom but simpler
+    | User profile management |
+
+    | **Generic** | Commodity, same for everyone | Low - buy or use standard solutions
+    | Email sending, payment processing |
+
+
+    ## Why It Matters
+
+
+    Subdomain classification is essential because:
+
+
+    - **Focuses investment** - Put your best developers and deepest modeling on core
+    domains
+
+    - **Avoids over-engineering** - Generic subdomains don''t need sophisticated models
+
+    - **Guides build vs. buy decisions** - Generic subdomains are candidates for third-party
+    solutions
+
+    - **Clarifies priorities** - When resources are limited, core domains come first
+
+    - **Aligns with business strategy** - Technical investment matches business value
+
+
+    ## How to Identify Subdomain Types
+
+
+    **Core Domain indicators:**
+
+    - This is why customers choose you over competitors
+
+    - Significant business investment in this area
+
+    - Frequent changes driven by business strategy
+
+    - Deep domain expertise required
+
+
+    **Supporting Domain indicators:**
+
+    - Necessary for the core domain to function
+
+    - Could theoretically be outsourced
+
+    - Changes less frequently than core
+
+    - Important but not differentiating
+
+
+    **Generic Domain indicators:**
+
+    - Same solution would work for any company
+
+    - Well-understood problem with existing solutions
+
+    - Rarely changes
+
+    - No competitive advantage from custom implementation
+
+
+    ## Common Mistakes
+
+
+    - **Treating everything as core** - Leads to over-investment and slow delivery
+
+    - **Misidentifying core domains** - Building commodity solutions for differentiating
+    capabilities
+
+    - **Ignoring supporting domains** - They still need adequate attention
+
+    - **Static classification** - Subdomain types can change as business strategy
+    evolves
+
+
+    ## Example Classification
+
+
+    For an e-commerce company:
+
+
+    | Subdomain | Type | Rationale |
+
+    |-----------|------|-----------|
+
+    | Product Recommendations | Core | Differentiates from competitors |
+
+    | Inventory Management | Supporting | Necessary but not unique |
+
+    | Order Processing | Supporting | Important but standard patterns |
+
+    | Payment Processing | Generic | Use Stripe, not custom |
+
+    | Email Notifications | Generic | Use SendGrid, not custom |
+
+
+    ## Relationship to Other Patterns
+
+
+    - **Bounded Context** - A subdomain may contain one or more bounded contexts
+
+    - **Context Mapping** - Relationships often differ by subdomain type
+
+    - **Ubiquitous Language** - Core domains need the richest language
+
+
+    ## FOE Alignment
+
+
+    Subdomains support **Optimize for Understanding** by helping teams focus their
+    attention. By classifying domains, teams know where deep understanding is essential
+    (core) versus where standard patterns suffice (generic). This focus prevents cognitive
+    overload and ensures modeling effort creates maximum business value.'
+  lead: Subdomains are a way of categorizing different areas of a domain by their
+    strategic importance to the business. This classification helps teams decide where
+    to invest their modeling effort and what level of sophistication is appropriate
+    for each area.
+  docs_url_path: external-frameworks/domain-driven-design/methods/M134-subdomains

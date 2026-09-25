@@ -1,0 +1,133 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M204
+spec:
+  description: Prose for Entity Design.
+  body: "**Pillar:** Layer Organization\n\nEntities are enterprise-wide business objects\
+    \ that encapsulate critical business rules and data. They represent the most abstract\
+    \ and stable layer of Clean Architecture, containing the high-level rules that\
+    \ would exist even if the application didn't.\n\n## Definition\n\n> An entity\
+    \ is an object that embodies a small set of critical business rules operating\
+    \ on Critical Business Data. An entity either embodies a set of business rules\
+    \ or knows a set of business rules that control how it behaves.\n>\n> — Robert\
+    \ C. Martin, Clean Architecture\n\n## Why It Matters\n\nWell-designed entities\
+    \ provide:\n\n- **Business rule encapsulation** - Rules live with the data they\
+    \ govern\n- **Independence** - No dependencies on databases, frameworks, or external\
+    \ services\n- **Reusability** - Can be shared across multiple applications in\
+    \ the enterprise\n- **Testability** - Pure business logic can be tested without\
+    \ infrastructure\n- **Integrity** - Invariants are enforced at the domain level\n\
+    \n## Characteristics of Good Entities\n\n### 1. Rich Behavior\n\nEntities should\
+    \ have methods that implement business rules, not just data accessors:\n\n```typescript\n\
+    // GOOD: Rich entity with behavior\nclass Order {\n  private items: OrderItem[]\
+    \ = [];\n  private status: OrderStatus = OrderStatus.PENDING;\n  private total:\
+    \ Money = Money.zero();\n  \n  addItem(product: Product, quantity: number): void\
+    \ {\n    this.assertCanBeModified();\n    \n    if (quantity <= 0) {\n      throw\
+    \ new DomainError('Quantity must be positive');\n    }\n    \n    if (quantity\
+    \ > 100) {\n      throw new DomainError('Maximum quantity per item is 100');\n\
+    \    }\n    \n    const item = new OrderItem(product, quantity);\n    this.items.push(item);\n\
+    \    this.recalculateTotal();\n    \n    this.recordEvent(new ItemAddedEvent(this.id,\
+    \ product.id, quantity));\n  }\n  \n  removeItem(productId: ProductId): void {\n\
+    \    this.assertCanBeModified();\n    \n    const index = this.items.findIndex(item\
+    \ => item.productId.equals(productId));\n    if (index === -1) {\n      throw\
+    \ new DomainError('Item not found in order');\n    }\n    \n    this.items.splice(index,\
+    \ 1);\n    this.recalculateTotal();\n    \n    this.recordEvent(new ItemRemovedEvent(this.id,\
+    \ productId));\n  }\n  \n  submit(): void {\n    if (this.items.length === 0)\
+    \ {\n      throw new DomainError('Cannot submit empty order');\n    }\n    \n\
+    \    if (this.total.isGreaterThan(Money.of(50000))) {\n      throw new DomainError('Order\
+    \ exceeds maximum value');\n    }\n    \n    this.status = OrderStatus.SUBMITTED;\n\
+    \    this.submittedAt = new Date();\n    \n    this.recordEvent(new OrderSubmittedEvent(this.id,\
+    \ this.total));\n  }\n  \n  private assertCanBeModified(): void {\n    if (this.status\
+    \ !== OrderStatus.PENDING) {\n      throw new DomainError(`Cannot modify order\
+    \ in ${this.status} status`);\n    }\n  }\n  \n  private recalculateTotal(): void\
+    \ {\n    this.total = this.items.reduce(\n      (sum, item) => sum.add(item.getSubtotal()),\n\
+    \      Money.zero()\n    );\n  }\n}\n```\n\n### 2. Identity-Based Equality\n\n\
+    Entities are defined by their identity, not their attributes:\n\n```typescript\n\
+    abstract class Entity<TId> {\n  protected constructor(public readonly id: TId)\
+    \ {}\n  \n  equals(other: Entity<TId>): boolean {\n    if (!(other instanceof\
+    \ this.constructor)) {\n      return false;\n    }\n    return this.id.equals(other.id);\n\
+    \  }\n  \n  hashCode(): number {\n    return this.id.hashCode();\n  }\n}\n\nclass\
+    \ OrderId extends ValueObject {\n  private constructor(private readonly value:\
+    \ string) {\n    super();\n  }\n  \n  static create(value: string): OrderId {\n\
+    \    if (!value || value.length !== 36) {\n      throw new DomainError('Invalid\
+    \ order ID');\n    }\n    return new OrderId(value);\n  }\n  \n  equals(other:\
+    \ OrderId): boolean {\n    return this.value === other.value;\n  }\n  \n  hashCode():\
+    \ number {\n    // Hash implementation\n    return hashString(this.value);\n \
+    \ }\n  \n  toString(): string {\n    return this.value;\n  }\n}\n```\n\n### 3.\
+    \ Invariant Enforcement\n\nEntities must protect their invariants (rules that\
+    \ must always be true):\n\n```typescript\nclass BankAccount extends Entity<AccountId>\
+    \ {\n  private balance: Money;\n  private status: AccountStatus;\n  private dailyWithdrawalTotal:\
+    \ Money = Money.zero();\n  private lastWithdrawalDate: Date | null = null;\n \
+    \ \n  constructor(\n    id: AccountId,\n    private customerId: CustomerId,\n\
+    \    initialBalance: Money\n  ) {\n    super(id);\n    \n    // Invariant: Balance\
+    \ cannot be negative on creation\n    if (initialBalance.isNegative()) {\n   \
+    \   throw new DomainError('Initial balance cannot be negative');\n    }\n    \n\
+    \    this.balance = initialBalance;\n    this.status = AccountStatus.ACTIVE;\n\
+    \  }\n  \n  withdraw(amount: Money): void {\n    // Invariant: Account must be\
+    \ active\n    if (this.status !== AccountStatus.ACTIVE) {\n      throw new DomainError('Account\
+    \ is not active');\n    }\n    \n    // Invariant: Cannot overdraw\n    if (amount.isGreaterThan(this.balance))\
+    \ {\n      throw new InsufficientFundsError(this.balance, amount);\n    }\n  \
+    \  \n    // Invariant: Daily withdrawal limit\n    this.resetDailyTotalIfNeeded();\n\
+    \    const dailyLimit = Money.of(1000);\n    if (amount.add(this.dailyWithdrawalTotal).isGreaterThan(dailyLimit))\
+    \ {\n      throw new DailyLimitExceededError();\n    }\n    \n    this.balance\
+    \ = this.balance.subtract(amount);\n    this.dailyWithdrawalTotal = this.dailyWithdrawalTotal.add(amount);\n\
+    \    this.lastWithdrawalDate = new Date();\n    \n    this.recordEvent(new WithdrawalEvent(this.id,\
+    \ amount, this.balance));\n  }\n  \n  private resetDailyTotalIfNeeded(): void\
+    \ {\n    const today = new Date();\n    if (this.lastWithdrawalDate && !isSameDay(today,\
+    \ this.lastWithdrawalDate)) {\n      this.dailyWithdrawalTotal = Money.zero();\n\
+    \    }\n  }\n  \n  // Invariant: Balance is always accessible but protected\n\
+    \  getBalance(): Money {\n    return this.balance;\n  }\n}\n```\n\n### 4. Domain\
+    \ Events\n\nEntities should record significant state changes as domain events:\n\
+    \n```typescript\nabstract class AggregateRoot<TId> extends Entity<TId> {\n  private\
+    \ domainEvents: DomainEvent[] = [];\n  \n  protected recordEvent(event: DomainEvent):\
+    \ void {\n    this.domainEvents.push(event);\n  }\n  \n  getDomainEvents(): DomainEvent[]\
+    \ {\n    return [...this.domainEvents];\n  }\n  \n  clearDomainEvents(): void\
+    \ {\n    this.domainEvents = [];\n  }\n}\n\nclass Order extends AggregateRoot<OrderId>\
+    \ {\n  // ...\n  \n  cancel(reason: string): void {\n    if (this.status === OrderStatus.SHIPPED)\
+    \ {\n      throw new DomainError('Cannot cancel shipped order');\n    }\n    \n\
+    \    if (this.status === OrderStatus.CANCELLED) {\n      throw new DomainError('Order\
+    \ is already cancelled');\n    }\n    \n    this.status = OrderStatus.CANCELLED;\n\
+    \    this.cancellationReason = reason;\n    this.cancelledAt = new Date();\n \
+    \   \n    // Record significant business event\n    this.recordEvent(new OrderCancelledEvent(\n\
+    \      this.id,\n      reason,\n      this.total\n    ));\n  }\n}\n```\n\n## Entity\
+    \ vs Value Object\n\n| Aspect | Entity | Value Object |\n|--------|--------|--------------|\n\
+    | **Identity** | Has unique identity | No identity, defined by attributes |\n\
+    | **Equality** | Based on ID | Based on all attributes |\n| **Mutability** | Can\
+    \ change state | Should be immutable |\n| **Lifecycle** | Long-lived, tracked\
+    \ | Created as needed, discarded |\n| **Example** | `Order`, `Customer`, `Product`\
+    \ | `Money`, `Address`, `DateRange` |\n\n## Common Mistakes\n\n### ❌ Anemic Domain\
+    \ Model\n\n```typescript\n// WRONG: Entity is just data with no behavior\nclass\
+    \ Order {\n  id: string;\n  customerId: string;\n  items: OrderItem[];\n  status:\
+    \ string;\n  // No methods - just data!\n}\n\n// Business logic scattered in services\n\
+    class OrderService {\n  calculateTotal(order: Order): number {\n    return order.items.reduce((sum,\
+    \ item) => sum + item.price * item.quantity, 0);\n  }\n  \n  canCancel(order:\
+    \ Order): boolean {\n    return order.status !== 'SHIPPED';\n  }\n}\n```\n\n###\
+    \ ❌ Framework Dependencies\n\n```typescript\n// WRONG: Entity depends on ORM\n\
+    @Entity() // ❌ JPA decorator\n@Table('orders')\nclass Order {\n  @Column() //\
+    \ ❌ ORM concern\n  @PrimaryKey() // ❌ Database concern\n  id: string;\n  \n  @OneToMany(()\
+    \ => OrderItem) // ❌ Database relationship\n  items: OrderItem[];\n}\n```\n\n\
+    ### ❌ Direct Database Access\n\n```typescript\n// WRONG: Entity accesses database\n\
+    class Order {\n  async save(): Promise<void> {\n    await database.query('INSERT\
+    \ INTO orders ...'); // ❌ Infrastructure in entity\n  }\n}\n```\n\n### ❌ Public\
+    \ Setters\n\n```typescript\n// WRONG: Exposing internal state\nclass Order {\n\
+    \  public status: OrderStatus; // ❌ Can be changed from anywhere\n  public items:\
+    \ OrderItem[]; // ❌ Can be modified directly\n}\n\n// Any code can do this:\n\
+    order.status = OrderStatus.SHIPPED; // Bypasses business rules!\norder.items =\
+    \ []; // Corrupts order state!\n```\n\n## FOE Alignment\n\nEntity Design supports\
+    \ FOE principles:\n\n- **Understanding** - Rich entities make business rules explicit\
+    \ and discoverable; code reflects the domain language\n- **Confidence** - Invariants\
+    \ prevent invalid states; entities protect their own integrity\n- **Fast Feedback**\
+    \ - Pure domain logic can be unit tested instantly without databases or services\n\
+    \n## Related Methods\n\n- [M201-layer-organization](/docs/external-frameworks/clean-architecture/methods/M201-layer-organization)\
+    \ - Entities as the innermost layer\n- [M205-use-case-implementation](/docs/external-frameworks/clean-architecture/methods/M205-use-case-implementation)\
+    \ - Orchestrating entities\n- [M143-value-object](/docs/external-frameworks/domain-driven-design/methods/M143-value-object)\
+    \ - Distinguishing entities from value objects\n\n## References\n\n- Martin, R.\
+    \ C. (2017). *Clean Architecture: A Craftsman's Guide to Software Structure and\
+    \ Design*. Prentice Hall.\n- Evans, E. (2003). *Domain-Driven Design: Tackling\
+    \ Complexity in the Heart of Software*. Addison-Wesley."
+  lead: Entities are enterprise-wide business objects that encapsulate critical business
+    rules and data. They represent the most abstract and stable layer of Clean Architecture,
+    containing the high-level rules that would exist even if the application didn't.
+  docs_url_path: external-frameworks/clean-architecture/methods/M204-entity-design

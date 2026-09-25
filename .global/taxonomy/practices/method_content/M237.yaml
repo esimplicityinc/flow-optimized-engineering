@@ -1,0 +1,155 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M237
+spec:
+  description: Prose for Internal API Contracts.
+  body: "**Pillar:** Modularity\n\nInternal API contracts establish the rules of engagement\
+    \ between modules in a modular monolith. While modules live in the same process,\
+    \ treating their interactions as formal APIs ensures loose coupling and enables\
+    \ independent evolution—whether those modules stay in-process or eventually become\
+    \ distributed services.\n\n## Definition\n\n> An internal API contract is a formal\
+    \ specification of how modules communicate, including the operations available,\
+    \ data structures exchanged, error handling, versioning policy, and non-functional\
+    \ characteristics like performance SLAs.\n\n## Why It Matters\n\nWithout explicit\
+    \ contracts, module interactions devolve into tight coupling:\n\n```python\n#\
+    \ Bad: Direct database access across modules\n# Orders module directly queries\
+    \ Catalog tables\ndef create_order(product_id):\n    product = db.query(\"SELECT\
+    \ * FROM catalog.products WHERE id = ?\", product_id)\n    # Orders now depends\
+    \ on Catalog's internal schema\n```\n\nWith contracts, dependencies are explicit\
+    \ and manageable:\n\n```python\n# Good: Contract-based interaction\n# Orders uses\
+    \ Catalog's public API\ndef create_order(product_id):\n    product = catalog_api.get_product(product_id)\
+    \  # Contract-defined\n    # Orders depends only on the API contract\n```\n\n\
+    ## Principles of Good Internal APIs\n\n### 1. **Explicit Over Implicit**\n\nEvery\
+    \ interaction should be through a declared interface:\n\n```typescript\n// catalog/public-api.ts\n\
+    // Explicitly exported API\nexport interface CatalogAPI {\n  getProduct(id: ProductId):\
+    \ Promise<ProductDTO>;\n  searchProducts(query: SearchQuery): Promise<ProductList>;\n\
+    \  checkAvailability(id: ProductId, quantity: number): Promise<boolean>;\n}\n\n\
+    // Internal implementation - NOT exported\nclass CatalogService implements CatalogAPI\
+    \ { ... }\n```\n\n### 2. **Stable Over Changing**\n\nAPIs should evolve without\
+    \ breaking consumers:\n\n- **Additive changes only** (new fields, new endpoints)\n\
+    - **Deprecation cycles** before removal\n- **Versioning strategy** for incompatible\
+    \ changes\n\n### 3. **Minimal Surface Area**\n\nExpose only what's necessary:\n\
+    \n```typescript\n// Good: Minimal API\nexport { \n  ProductDTO,           // Data\
+    \ transfer object\n  ProductNotFoundError, // Domain error\n  CatalogService \
+    \       // Service interface\n};\n\n// Bad: Exposing internals\nexport * from\
+    \ './domain/entities';      // Internal entities\nexport * from './infrastructure';\
+    \       // Repository details\nexport * from './application/mappers';  // Internal\
+    \ mappers\n```\n\n### 4. **Consumer-Aware Design**\n\nDesign APIs for their consumers:\n\
+    \n```typescript\n// Bad: API exposes internal optimization\ninterface ProductQuery\
+    \ {\n  joinTables: string[];  // Consumer shouldn't know about joins\n  useCache:\
+    \ boolean;     // Implementation detail\n}\n\n// Good: API designed for use case\n\
+    interface ProductSearchRequest {\n  category?: string;\n  priceRange?: { min:\
+    \ number; max: number };\n  inStock?: boolean;\n}\n```\n\n## Designing Internal\
+    \ APIs\n\n### Step 1: Identify Use Cases\n\nMap what consumers need to do:\n\n\
+    ```\nOrders Module needs from Catalog:\n- Get product details by ID\n- Check if\
+    \ product is available\n- Get pricing information\n- Subscribe to product updates\n\
+    \nCatalog does NOT expose:\n- Direct database access\n- Inventory management details\n\
+    - Supplier information\n```\n\n### Step 2: Define Operations\n\nFor each use case,\
+    \ define an operation:\n\n```yaml\n# API Contract Specification (OpenAPI style)\n\
+    operations:\n  getProduct:\n    description: Retrieve product details\n    input:\n\
+    \      productId: UUID\n    output:\n      product: ProductDTO\n      or: ProductNotFoundError\n\
+    \    sla:\n      p99_latency: 50ms\n      availability: 99.9%\n  \n  checkAvailability:\n\
+    \    description: Check stock availability\n    input:\n      productId: UUID\n\
+    \      quantity: integer\n    output:\n      available: boolean\n      estimatedDelivery:\
+    \ date (optional)\n```\n\n### Step 3: Define Data Structures\n\nDTOs should be\
+    \ designed for the API, not internal entities:\n\n```typescript\n// Internal entity\
+    \ - rich behavior, complex relationships\nclass Product {\n  private variants:\
+    \ ProductVariant[];\n  private suppliers: Supplier[];\n  private pricingHistory:\
+    \ PricingEvent[];\n  \n  calculatePrice(context: PricingContext): Money { ...\
+    \ }\n  applyDiscount(discount: Discount): void { ... }\n}\n\n// API DTO - flat,\
+    \ serializable, consumer-focused\ninterface ProductDTO {\n  id: string;\n  name:\
+    \ string;\n  description: string;\n  currentPrice: MoneyDTO;\n  category: CategoryDTO;\n\
+    \  available: boolean;\n  // No variants, suppliers, or pricing history\n  //\
+    \ Consumers get what they need, not internal structure\n}\n```\n\n### Step 4:\
+    \ Handle Errors\n\nDefine a consistent error model:\n\n```typescript\n// Base\
+    \ error type for module APIs\nabstract class ModuleError extends Error {\n  abstract\
+    \ code: string;\n  abstract retryable: boolean;\n  \n  toDTO(): ErrorDTO {\n \
+    \   return {\n      code: this.code,\n      message: this.message,\n      retryable:\
+    \ this.retryable\n    };\n  }\n}\n\n// Specific errors\nclass ProductNotFoundError\
+    \ extends ModuleError {\n  code = 'CATALOG_PRODUCT_NOT_FOUND';\n  retryable =\
+    \ false;\n}\n\nclass PricingCalculationError extends ModuleError {\n  code = 'CATALOG_PRICING_ERROR';\n\
+    \  retryable = true;\n}\n```\n\n## API Implementation Patterns\n\n### Synchronous\
+    \ (Direct Method Calls)\n\nFor in-process modules, APIs are often interface implementations:\n\
+    \n```typescript\n// In-process API implementation\nclass CatalogModuleAPI implements\
+    \ CatalogAPI {\n  constructor(\n    private productService: ProductService,\n\
+    \    private pricingService: PricingService\n  ) {}\n  \n  async getProduct(id:\
+    \ ProductId): Promise<ProductDTO> {\n    const product = await this.productService.findById(id);\n\
+    \    if (!product) throw new ProductNotFoundError(id);\n    \n    const price\
+    \ = await this.pricingService.getCurrentPrice(product);\n    return this.mapToDTO(product,\
+    \ price);\n  }\n}\n\n// Registration in DI container\ncontainer.register<CatalogAPI>(CatalogModuleAPI);\n\
+    ```\n\n### Asynchronous (Events)\n\nFor loose coupling, use domain events:\n\n\
+    ```typescript\n// Pricing publishes event\nclass PriceChangedEvent {\n  constructor(\n\
+    \    public readonly productId: string,\n    public readonly oldPrice: Money,\n\
+    \    public readonly newPrice: Money,\n    public readonly effectiveDate: Date\n\
+    \  ) {}\n}\n\n// Catalog subscribes\nclass CatalogEventHandlers {\n  @EventHandler(PriceChangedEvent)\n\
+    \  async onPriceChanged(event: PriceChangedEvent): Promise<void> {\n    await\
+    \ this.updateProductPrice(event.productId, event.newPrice);\n  }\n}\n```\n\n##\
+    \ Versioning Strategy\n\nEven internal APIs need versioning when you have multiple\
+    \ teams:\n\n### Semantic Versioning for APIs\n\n```\nMAJOR.MINOR.PATCH\n\nMAJOR:\
+    \ Breaking changes (consumer code must change)\nMINOR: New features (backward\
+    \ compatible)\nPATCH: Bug fixes (transparent)\n```\n\n### Breaking Change Process\n\
+    \n1. **Introduce v2 alongside v1**\n   ```typescript\n   interface CatalogAPI\
+    \ {\n     // v1 - deprecated\n     getProduct(id: string): Promise<ProductDTO>;\n\
+    \     \n     // v2 - new\n     getProductV2(id: ProductId): Promise<ProductDTOV2>;\n\
+    \   }\n   ```\n\n2. **Migration period** (typically 2-4 sprints)\n   - Update\
+    \ consumers gradually\n   - Monitor v1 usage\n\n3. **Deprecation warnings**\n\
+    \   ```typescript\n   async getProduct(id: string): Promise<ProductDTO> {\n  \
+    \   this.logger.warn('DEPRECATED: getProduct v1 will be removed in v3.0');\n \
+    \    // ... implementation\n   }\n   ```\n\n4. **Removal in next major version**\n\
+    \n## Contract Testing\n\nVerify that APIs meet their contracts:\n\n```typescript\n\
+    // Consumer contract test (in Orders module)\ndescribe('Catalog API Contract',\
+    \ () => {\n  it('should return product for valid ID', async () => {\n    const\
+    \ product = await catalogAPI.getProduct('valid-id');\n    \n    expect(product).toHaveProperty('id');\n\
+    \    expect(product).toHaveProperty('name');\n    expect(product).toHaveProperty('currentPrice');\n\
+    \  });\n  \n  it('should throw ProductNotFoundError for invalid ID', async ()\
+    \ => {\n    await expect(catalogAPI.getProduct('invalid'))\n      .rejects.toBeInstanceOf(ProductNotFoundError);\n\
+    \  });\n  \n  it('should complete within 50ms (p99)', async () => {\n    const\
+    \ latencies = await measureMultiple(async () => {\n      await catalogAPI.getProduct('test-id');\n\
+    \    }, 100);\n    \n    expect(percentile(latencies, 99)).toBeLessThan(50);\n\
+    \  });\n});\n```\n\n## When to Use\n\n**Always use API contracts for:**\n- Inter-module\
+    \ communication\n- Module boundaries (M235)\n- Any code that might be extracted\
+    \ to services\n- Cross-team boundaries\n\n**Particularly important when:**\n-\
+    \ Multiple teams work on different modules\n- Planning eventual service extraction\
+    \ (M236)\n- Modules have different deployment frequencies\n- Integration testing\
+    \ is expensive\n\n## Common Mistakes\n\n### 1. **Exposing Internal Models**\n\
+    Returning internal entities instead of DTOs:\n\n```python\n# Bad: Exposing internal\
+    \ model\nclass CatalogService:\n    def get_product(self, id: str) -> Product:\
+    \  # Internal entity\n        return self.product_repository.find(id)\n```\n\n\
+    **Solution**: Map to DTOs at the API boundary.\n\n### 2. **Chatty APIs**\nMultiple\
+    \ small calls instead of batch operations:\n\n```python\n# Bad: N+1 queries across\
+    \ module boundary\nfor item in order.items:\n    product = catalog.get_product(item.product_id)\
+    \  # Network/process hop each time\n```\n\n**Solution**: Design for batch operations:\n\
+    ```python\n# Good: Batch fetch\nproducts = catalog.get_products([item.product_id\
+    \ for item in order.items])\n```\n\n### 3. **No Error Contracts**\nThrowing generic\
+    \ exceptions that consumers can't handle:\n\n```python\n# Bad: Generic error\n\
+    raise Exception(\"Something went wrong\")\n```\n\n**Solution**: Specific, typed\
+    \ errors:\n```python\nraise ProductNotFoundError(product_id)\nraise InsufficientStockError(product_id,\
+    \ requested, available)\n```\n\n### 4. **Ignoring Performance**\nNot setting or\
+    \ meeting SLAs:\n\n**Solution**: Define and test performance characteristics:\n\
+    - P50, P95, P99 latency targets\n- Throughput requirements\n- Error rate budgets\n\
+    \n### 5. **Tight Coupling via Events**\nEvents that expose internal state changes:\n\
+    \n```typescript\n// Bad: Event exposes internal implementation\nclass DatabaseRowUpdatedEvent\
+    \ {\n  table: 'products';\n  rowId: string;\n  columnChanges: Record<string, any>;\
+    \  // Raw DB changes\n}\n```\n\n**Solution**: Domain events that express business\
+    \ meaning:\n```typescript\n// Good: Business event\nclass ProductPriceChangedEvent\
+    \ {\n  productId: string;\n  oldPrice: Money;\n  newPrice: Money;\n  reason: 'scheduled_update'\
+    \ | 'promotion' | 'cost_change';\n}\n```\n\n## FOE Alignment\n\nThis method supports\
+    \ all three FOE principles:\n\n### Understanding\n- **Explicit contracts** make\
+    \ dependencies visible\n- **Clear interfaces** document how modules interact\n\
+    - **Versioning** communicates change impact\n\n### Fast Feedback\n- **Contract\
+    \ tests** catch integration issues early\n- **Compilation-time validation** of\
+    \ API usage\n- **IDE support** through typed interfaces\n\n### Confidence\n- **Stable\
+    \ contracts** mean changes are safer\n- **Clear error handling** makes failures\
+    \ predictable\n- **Versioning** provides upgrade confidence\n\n## References\n\
+    \n- [Kamil Grzybek - API Contracts in Modular Monolith](https://github.com/kgrzybek/modular-monolith-with-ddd#contracts)\n\
+    - [Martin Fowler - Public vs Published Interfaces](https://martinfowler.com/bliki/PublishedInterface.html)\n\
+    - [Semantic Versioning](https://semver.org/)\n- [API Design Patterns](https://www.amazon.com/API-Design-Patterns-JJ-Geewax/dp/161729585X)\n\
+    - [Consumer-Driven Contracts](https://martinfowler.com/articles/consumerDrivenContracts.html)"
+  lead: Internal API contracts establish the rules of engagement between modules in
+    a modular monolith. While modules live in the same process, treating their interactions
+    as formal APIs ensures loose coupling and enables independent evolution—whether
+    those modules stay in-process or eventually become distributed services.
+  docs_url_path: external-frameworks/modular-monolith/methods/M237-internal-api-contracts

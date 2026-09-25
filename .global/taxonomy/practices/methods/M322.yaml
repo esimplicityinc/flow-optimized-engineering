@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Ontology-First Design
+  description: Design the formal ontology of a domain — its entity types, relationship
+    types, properties, and constraints — before building retrieval pipelines or agent
+    prompts, so that the semantic architecture has a stable, principled foundation.
   title: Ontology-First Design
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M322-ontology-first-design.md

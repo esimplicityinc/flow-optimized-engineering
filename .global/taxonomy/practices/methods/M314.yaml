@@ -7,7 +7,10 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Authority-Recency-Scope Metadata
+  description: Tag every data artifact with structured metadata declaring its trust
+    level (authority), temporal validity (recency), and access permissions (scope)
+    so downstream agents and systems can reason about trustworthiness without inspecting
+    content.
   title: Authority-Recency-Scope Metadata
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M314-authority-recency-scope-metadata.md

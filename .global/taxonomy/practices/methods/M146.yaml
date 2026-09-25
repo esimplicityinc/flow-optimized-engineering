@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: observing
 spec:
-  description: Early Feedback Loop Investment
+  description: Treat CI, automated tests, and deployment pipelines as foundation,
+    not overhead—establish them early before the codebase grows large enough to make
+    adding them feel "monumental."
   title: Early Feedback Loop Investment
   annotations:
     foe.source_path: field-guides/agentic-coding/methods/emerging/M146-early-feedback-loop-investment.md

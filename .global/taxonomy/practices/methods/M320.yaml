@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Production-to-Eval Pipeline
+  description: Promote production trace failures directly into the evaluation test
+    suite so that real-world semantic layer failures become automated regression tests,
+    driving continuous improvement of the knowledge layer.
   title: Production-to-Eval Pipeline
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M320-production-to-eval-pipeline.md

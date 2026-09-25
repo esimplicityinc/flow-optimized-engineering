@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: hypothesized
 spec:
-  description: Context Contract Design
+  description: Attach a structured metadata sidecar to every piece of ingested information,
+    declaring its authority, recency, and scope so AI agents can reason about trustworthiness
+    before acting on content.
   title: Context Contract Design
   annotations:
     foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M300-context-contract-design.md

@@ -1,0 +1,79 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M301
+spec:
+  description: Prose for Instruction Layering.
+  body: "Separate system-level, domain-level, and task-level context into composable\
+    \ layers rather than monolithic prompts, enabling reuse, auditability, and targeted\
+    \ updates without full-prompt rewrites.\n\n:::caution Early Stage\nThis method\
+    \ is still being validated through observations.\n:::\n\n## Overview\n\nA monolithic\
+    \ prompt that combines \"you are an AI assistant\" with \"here are our company\
+    \ policies\" with \"the user wants to know X\" is fragile. Change the company\
+    \ policy section and you risk breaking the persona. Add a new use case and you\
+    \ rewrite the entire prompt. Audit what the agent was told about a specific domain\
+    \ and you grep through an undifferentiated wall of text.\n\nInstruction Layering\
+    \ treats the context delivered to an AI agent as a structured stack with distinct\
+    \ layers, each with its own purpose, owner, and update cadence:\n\n- **System\
+    \ layer** — immutable behavioral constraints, tone, safety rails (changes rarely,\
+    \ owned by platform team)\n- **Domain layer** — business rules, terminology, policy\
+    \ constraints for a specific domain (changes when policy changes, owned by domain\
+    \ experts)\n- **Task layer** — the specific request, retrieved context, and user\
+    \ input for this interaction (changes every request, assembled dynamically)\n\n\
+    Each layer is authored, versioned, and tested independently. They are composed\
+    \ at runtime, but their concerns remain separated.\n\n## When to Use\n\nUse this\
+    \ method when:\n\n- Building agents that serve multiple use cases sharing common\
+    \ behavior\n- Operating in domains where policy changes frequently and you need\
+    \ surgical prompt updates\n- Auditing is required — you need to be able to show\
+    \ exactly what the agent was told about a specific domain at a specific point\
+    \ in time\n- Multiple teams contribute to agent behavior (platform, domain experts,\
+    \ application developers)\n\n## When NOT to Use\n\nAvoid this method when:\n\n\
+    - Building a single-purpose, short-lived agent where layering overhead isn't justified\n\
+    - The domain and system contexts are so tightly coupled they can't meaningfully\
+    \ be separated\n- Your LLM provider's context window is so constrained that layered\
+    \ composition creates token budget problems\n\n## How It Works\n\n### Prerequisites\n\
+    \nBefore starting:\n- Identify the distinct audiences/owners for each layer in\
+    \ your context\n- Map your existing prompts to identify which content belongs\
+    \ in which layer\n- Establish a versioning convention for prompt artifacts (treat\
+    \ them as code)\n\n### Step 1: Define Layer Boundaries\n\nFor each agent you're\
+    \ building, explicitly declare what belongs in each layer:\n\n| Layer | Content\
+    \ | Update Trigger | Owner |\n|---|---|---|---|\n| System | Persona, safety rails,\
+    \ output format | Platform decision | Platform team |\n| Domain | Business rules,\
+    \ terminology, policy | Policy change | Domain experts |\n| Task | User query,\
+    \ retrieved chunks, current context | Every request | Application |\n\n### Step\
+    \ 2: Author Each Layer as a Separate Artifact\n\nStore system and domain layers\
+    \ as versioned files in source control — not embedded in application code. This\
+    \ makes them auditable, diffable, and independently testable.\n\n### Step 3: Compose\
+    \ at Runtime\n\nAt inference time, assemble the stack programmatically. Most LLM\
+    \ APIs support multi-message construction that maps naturally to layers (system\
+    \ message, domain context injection, user message).\n\n### Step 4: Test Layers\
+    \ in Isolation\n\nEach layer should be testable independently. The domain layer\
+    \ should be evaluable with a fixed system layer and synthetic task inputs. A change\
+    \ to the domain layer should trigger regression tests for that domain — not a\
+    \ full end-to-end suite.\n\n## Example\n\n**Without layering:**\n```\nYou are\
+    \ a helpful financial advisor AI. You follow SEC regulations. You speak formally.\
+    \ \nWhen asked about retirement planning, always mention tax implications. The\
+    \ user's question \nis: What should I invest in? Here are some relevant documents:\
+    \ [retrieved chunks]\n```\n\n**With layering:**\n```\n[System layer] You are a\
+    \ helpful financial advisor AI. You speak formally. Never provide \nspecific investment\
+    \ recommendations without surfacing relevant risk disclosures.\n\n[Domain layer]\
+    \ This agent operates under SEC compliance requirements for retail investors.\
+    \ \nWhen discussing retirement planning, always address tax implications. Applicable\
+    \ regulation: \nversion 2025-Q1 of the retail-investor-compliance policy.\n\n\
+    [Task layer] User query: \"What should I invest in?\" \nRetrieved context: [chunks\
+    \ with context contracts attached]\n```\n\n## Common Pitfalls\n\n1. **Layer bleed**\
+    \ — domain-specific rules creeping into the system layer, or task-specific context\
+    \ polluting the domain layer. Enforce layer boundaries with review.\n2. **Versioning\
+    \ neglect** — treating prompt layers as configuration rather than code. Version\
+    \ them, diff them, review changes.\n3. **Composition order matters** — later layers\
+    \ can inadvertently override earlier ones. Test layer composition explicitly for\
+    \ behavioral conflicts.\n\n## How You Can Help\n\nIf you're testing this method:\n\
+    \n1. Try separating an existing monolithic prompt into layers\n2. Document how\
+    \ many layers you ended up with and whether 3 was the right number\n3. Note whether\
+    \ the separation made updates easier or harder in practice"
+  lead: Separate system-level, domain-level, and task-level context into composable
+    layers rather than monolithic prompts, enabling reuse, auditability, and targeted
+    updates without full-prompt rewrites.
+  docs_url_path: field-guides/semantic-layer-engineering/methods/emerging/M301-instruction-layering

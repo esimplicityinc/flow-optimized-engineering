@@ -7,7 +7,9 @@ metadata:
   labels:
     foe.maturity: observing
 spec:
-  description: Explicit MCP Version Control
+  description: Pin MCP server versions explicitly to prevent unknown changes to agent
+    behavior. If an agent starts behaving differently, you want to know it was *your*
+    change, not a silent upstream update.
   title: Explicit MCP Version Control
   annotations:
     foe.source_path: field-guides/agentic-coding/methods/emerging/M161-explicit-mcp-version-control.md

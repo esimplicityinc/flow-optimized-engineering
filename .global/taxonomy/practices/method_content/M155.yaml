@@ -1,0 +1,83 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method_content
+metadata:
+  name: M155
+spec:
+  description: Prose for Verification Before Completion.
+  body: "Never claim work is complete without running verification commands. Claiming\
+    \ completion without evidence is not efficiency—it's wishful thinking that creates\
+    \ downstream problems.\n\n## Overview\n\nAI coding assistants are prone to optimistic\
+    \ completion claims. They may generate code that \"looks right\" but hasn't been\
+    \ tested, or claim a task is done when edge cases remain unhandled. This pattern\
+    \ is especially dangerous because the output *appears* professional and complete.\n\
+    \nThe **Verification Before Completion** method establishes a hard gate: no completion\
+    \ claim is valid without evidence from actual verification commands (tests passing,\
+    \ builds succeeding, linters clean, etc.). This transforms \"I think it works\"\
+    \ into \"I have evidence it works.\"\n\nThe core insight comes from the obra/superpowers\
+    \ skill: *\"Claiming work is complete without verification is dishonesty, not\
+    \ efficiency.\"* This framing shifts verification from overhead to professional\
+    \ obligation.\n\n## When to Use\n\nUse this method when:\n\n- Working with AI\
+    \ coding assistants on any production code\n- The cost of undetected bugs exceeds\
+    \ the cost of verification\n- You've experienced \"looks right but isn't\" problems\
+    \ before\n- Building confidence in AI-generated code matters\n\n## When NOT to\
+    \ Use\n\nAvoid this method when:\n\n- Pure exploration/prototyping where correctness\
+    \ doesn't matter yet\n- You're intentionally deferring verification (and tracking\
+    \ that decision)\n- The code is genuinely throwaway with no downstream consumers\n\
+    \n## How It Works\n\n### Prerequisites\n\nBefore starting:\n- Have runnable verification\
+    \ commands (tests, lints, builds, type checks)\n- Understand what \"done\" means\
+    \ for this task\n- Ensure verification commands are fast enough to run frequently\n\
+    \n### Step 1: Define Verification Evidence\n\nBefore starting work, identify what\
+    \ evidence would prove completion:\n\n| Claim Type | Required Evidence |\n|------------|------------------|\n\
+    | \"Feature works\" | Tests pass covering the feature |\n| \"Bug is fixed\" |\
+    \ Test that reproduced bug now passes |\n| \"Code is clean\" | Linter/formatter\
+    \ reports no issues |\n| \"Types are correct\" | Type checker passes |\n| \"Build\
+    \ succeeds\" | Build command completes without errors |\n\n### Step 2: Detect\
+    \ Completion Claims Without Evidence\n\nWatch for these red flags from AI assistants:\n\
+    \n- \"This should work\" (without running it)\n- \"The implementation is complete\"\
+    \ (without test results)\n- \"I've fixed the issue\" (without reproducing and\
+    \ verifying)\n- Providing code without showing verification output\n\nWhen you\
+    \ see these, pause and request verification before accepting.\n\n### Step 3: Require\
+    \ Evidence Before Accepting\n\nBefore accepting completion:\n\n```\n\"Before we\
+    \ consider this done, please run the tests and show me the results.\"\n\"Can you\
+    \ verify this builds successfully?\"\n\"Show me the linter output for these changes.\"\
+    \n```\n\nOnly accept completion claims that include verification output.\n\n###\
+    \ Step 4: Build Verification Into Your Workflow\n\nFor systematic application:\n\
+    \n1. **Add verification to your CLAUDE.md or agent instructions:**\n   ```markdown\n\
+    \   ## Completion Requirements\n   \n   Never claim a task is complete without:\n\
+    \   - Running relevant tests and showing results\n   - Confirming the build passes\n\
+    \   - Showing linter output is clean\n   ```\n\n2. **Create verification checkpoints:**\n\
+    \   - After implementing a feature: run its tests\n   - After fixing a bug: run\
+    \ the reproduction test\n   - Before any PR: full test suite + build\n\n## Example\n\
+    \n**Before (Unverified Completion):**\n```\nAssistant: I've implemented the user\
+    \ authentication feature. The code handles login, \nlogout, and session management.\
+    \ The implementation is complete.\n```\n❌ No evidence provided\n\n**After (Verified\
+    \ Completion):**\n```\nAssistant: I've implemented the user authentication feature.\
+    \ Here's the verification:\n\n$ npm test -- --grep \"auth\"\n  ✓ should log in\
+    \ with valid credentials (42ms)\n  ✓ should reject invalid password (15ms)\n \
+    \ ✓ should handle session expiration (28ms)\n  ✓ should log out and clear session\
+    \ (12ms)\n\n4 passing (97ms)\n\n$ npm run build\nBuild successful - no errors\n\
+    \n$ npm run lint\nNo linting errors found\n\nThe implementation is complete with\
+    \ all tests passing.\n```\n✅ Evidence provided\n\n## Common Pitfalls\n\n1. **\"\
+    I'll verify it later\"** - Later never comes. Verify immediately or explicitly\
+    \ track the debt.\n\n2. **Accepting verbal assurance** - \"I'm confident it works\"\
+    \ is not evidence. Output from verification commands is evidence.\n\n3. **Partial\
+    \ verification** - Running one test doesn't verify the whole feature. Ensure verification\
+    \ scope matches claim scope.\n\n4. **Forgetting negative cases** - Verification\
+    \ should include error handling and edge cases, not just happy paths.\n\n## FOE\
+    \ Alignment\n\nThis method directly supports **Build Confidence Through Evidence**:\n\
+    - You can't claim confidence without verification\n- Evidence creates justified\
+    \ confidence, not false confidence\n- Fast verification enables frequent confidence\
+    \ checks\n\n## External Evidence\n\n- **skills.sh obra/superpowers** (1.0K weekly\
+    \ installs): \"verification-before-completion\" skill with iron law enforcement\n\
+    - **RubberDuckBench research** (arXiv 2026): 58.3% hallucination rate across AI\
+    \ models underscores need for verification\n- **Industry practice**: Widespread\
+    \ adoption of CI/CD gates embodying this principle\n\n## How You Can Help\n\n\
+    If you're testing this method:\n\n1. Apply the verification gate to your AI-assisted\
+    \ development\n2. Track how often unverified claims would have been wrong\n3.\
+    \ Document your experience as an observation"
+  lead: Never claim work is complete without running verification commands. Claiming
+    completion without evidence is not efficiency—it's wishful thinking that creates
+    downstream problems.
+  docs_url_path: field-guides/agentic-coding/methods/established/M155-verification-before-completion
