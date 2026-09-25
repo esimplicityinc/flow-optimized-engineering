@@ -1,0 +1,183 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M231
+spec:
+  description: Prose for Distributed Tracing.
+  body: "**Pillar:** Operational Patterns\n\nDistributed tracing tracks requests as\
+    \ they flow through multiple microservices, recording the path taken, services\
+    \ touched, and time spent in each component. This provides end-to-end visibility\
+    \ into system behavior, enabling developers to understand service dependencies,\
+    \ identify performance bottlenecks, and diagnose failures in complex distributed\
+    \ systems.\n\n## Definition\n\n> \"Distributed tracing tracks requests as they\
+    \ flow through distributed systems. A trace represents the complete journey of\
+    \ a request through the system, while spans represent individual operations within\
+    \ that journey.\"\n> — OpenTelemetry Documentation\n\n## Why It Matters\n\nIn\
+    \ monolithic applications, debugging is straightforward—logs and stack traces\
+    \ tell the complete story. In microservices:\n\n- **Request path is unclear**\
+    \ - Which services were called?\n- **Latency sources are hidden** - Where did\
+    \ time get spent?\n- **Failures are hard to trace** - Which service failed and\
+    \ why?\n- **Dependencies are invisible** - What relies on what?\n\nWithout distributed\
+    \ tracing:\n- Debugging requires manually correlating logs across services\n-\
+    \ Performance optimization is guesswork\n- Failure analysis takes hours or days\n\
+    - System architecture is only understood by tribal knowledge\n\n## Core Concepts\n\
+    \n### Trace, Span, and Context\n\n```\n┌─────────────────────────────────────────────────────────────────────┐\n\
+    │                              TRACE                                  │\n│  Trace\
+    \ ID: trace_abc123                                             │\n│          \
+    \                                                           │\n│  ┌──────────────┐\
+    \                                                   │\n│  │   Span 1     │  Operation:\
+    \ GET /api/orders                       │\n│  │  (Root)      │  Service: API Gateway\
+    \                             │\n│  │              │  Duration: 250ms        \
+    \                          │\n│  └──────┬───────┘                            \
+    \                       │\n│         │                                       \
+    \                    │\n│    ┌────┴────┬───────────────┬───────────────┐     \
+    \                │\n│    │         │               │               │         \
+    \            │\n│    ▼         ▼               ▼               ▼             \
+    \        │\n│ ┌──────┐ ┌──────┐       ┌──────┐       ┌──────┐                \
+    \   │\n│ │Span 2│ │Span 3│       │Span 4│       │Span 5│                   │\n\
+    │ │Auth  │ │User  │       │Order │       │Invtry│                   │\n│ │50ms\
+    \  │ │75ms  │       │100ms │       │125ms │                   │\n│ └──────┘ └──────┘\
+    \       └──┬───┘       └──────┘                   │\n│                       \
+    \     │                                       │\n│                         ┌──┴───┐\
+    \                                   │\n│                         │Span 6│  Service:\
+    \ Payment                 │\n│                         │150ms │              \
+    \                     │\n│                         └──────┘                  \
+    \                 │\n└─────────────────────────────────────────────────────────────────────┘\n\
+    ```\n\n| Concept | Description | Example |\n|---------|-------------|---------|\n\
+    | **Trace** | End-to-end request journey | Complete order creation flow |\n| **Span**\
+    \ | Single operation within a trace | Call to user service |\n| **Span Context**\
+    \ | Metadata propagated across services | Trace ID, Span ID, baggage |\n| **Parent\
+    \ Span** | Calling operation | API Gateway span |\n| **Child Span** | Called operation\
+    \ | User service span |\n| **Baggage** | Context data passed through the trace\
+    \ | User ID, request type |\n\n### OpenTelemetry Data Model\n\n```javascript\n\
+    // Trace Context (propagated across service boundaries)\n{\n  traceparent: \"\
+    00-trace_id-span_id-01\",\n  tracestate: \"vendor=value\"\n}\n\n// Span Structure\n\
+    {\n  traceId: \"abc123...\",\n  spanId: \"def456...\",\n  parentSpanId: \"ghi789...\"\
+    ,\n  name: \"GET /users/123\",\n  kind: \"CLIENT\",  // or SERVER, PRODUCER, CONSUMER,\
+    \ INTERNAL\n  startTime: 1705312800000,\n  endTime: 1705312800075,\n  attributes:\
+    \ {\n    \"http.method\": \"GET\",\n    \"http.url\": \"/users/123\",\n    \"\
+    http.status_code\": 200,\n    \"service.name\": \"user-service\"\n  },\n  events:\
+    \ [\n    {\n      name: \"cache_miss\",\n      timestamp: 1705312800010,\n   \
+    \   attributes: { \"cache.key\": \"user:123\" }\n    }\n  ],\n  status: { code:\
+    \ \"OK\" }\n}\n```\n\n## Implementation\n\n### Instrumentation\n\n#### Automatic\
+    \ Instrumentation\n\nMost frameworks support automatic instrumentation:\n\n```javascript\n\
+    // Node.js with OpenTelemetry\nconst { NodeSDK } = require('@opentelemetry/sdk-node');\n\
+    const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');\n\
+    \nconst sdk = new NodeSDK({\n  traceExporter: new OTLPTraceExporter(),\n  instrumentations:\
+    \ [\n    getNodeAutoInstrumentations({\n      '@opentelemetry/instrumentation-http':\
+    \ { enabled: true },\n      '@opentelemetry/instrumentation-express': { enabled:\
+    \ true },\n      '@opentelemetry/instrumentation-mongodb': { enabled: true },\n\
+    \    }),\n  ],\n});\n\nsdk.start();\n```\n\n#### Manual Instrumentation\n\nAdd\
+    \ spans for custom operations:\n\n```javascript\nconst { trace, context } = require('@opentelemetry/api');\n\
+    const tracer = trace.getTracer('order-service');\n\nasync function processOrder(orderData)\
+    \ {\n  // Create a span for this operation\n  return await tracer.startActiveSpan('processOrder',\
+    \ async (span) => {\n    try {\n      span.setAttribute('order.id', orderData.id);\n\
+    \      span.setAttribute('customer.id', orderData.customerId);\n      \n     \
+    \ // Child span for validation\n      await tracer.startActiveSpan('validateOrder',\
+    \ async (validateSpan) => {\n        const isValid = await validate(orderData);\n\
+    \        validateSpan.setAttribute('validation.result', isValid);\n        validateSpan.end();\n\
+    \        \n        if (!isValid) throw new Error('Invalid order');\n      });\n\
+    \      \n      // Child span for database operation\n      await tracer.startActiveSpan('saveOrder',\
+    \ async (dbSpan) => {\n        const order = await db.orders.create(orderData);\n\
+    \        dbSpan.setAttribute('db.rows_affected', 1);\n        dbSpan.end();\n\
+    \        return order;\n      });\n      \n      span.setStatus({ code: SpanStatusCode.OK\
+    \ });\n      return order;\n      \n    } catch (error) {\n      span.recordException(error);\n\
+    \      span.setStatus({\n        code: SpanStatusCode.ERROR,\n        message:\
+    \ error.message\n      });\n      throw error;\n    } finally {\n      span.end();\n\
+    \    }\n  });\n}\n```\n\n### Context Propagation\n\nTrace context must flow across\
+    \ service boundaries:\n\n```javascript\n// HTTP Client - inject context\nconst\
+    \ { context, propagation } = require('@opentelemetry/api');\n\nasync function\
+    \ callUserService(userId) {\n  const headers = {};\n  \n  // Inject current trace\
+    \ context into headers\n  propagation.inject(context.active(), headers);\n  \n\
+    \  const response = await fetch(`http://user-service/users/${userId}`, {\n   \
+    \ headers\n  });\n  \n  return response.json();\n}\n\n// HTTP Server - extract\
+    \ context\napp.get('/orders/:id', async (req, res) => {\n  // Extract trace context\
+    \ from incoming request\n  const parentContext = propagation.extract(\n    context.active(),\n\
+    \    req.headers\n  );\n  \n  // Continue trace with extracted context\n  await\
+    \ context.with(parentContext, async () => {\n    const order = await getOrder(req.params.id);\n\
+    \    res.json(order);\n  });\n});\n```\n\n### Message Queue Context\n\nPropagate\
+    \ context through async messaging:\n\n```javascript\n// Producer\nasync function\
+    \ publishOrderCreated(order) {\n  const message = {\n    data: order,\n    //\
+    \ Inject trace context into message metadata\n    metadata: {\n      traceparent:\
+    \ getCurrentTraceparent()\n    }\n  };\n  \n  await messageQueue.publish('order.created',\
+    \ message);\n}\n\n// Consumer\nasync function handleOrderCreated(message) {\n\
+    \  // Extract and continue trace\n  const parentContext = extractContext(message.metadata.traceparent);\n\
+    \  \n  await context.with(parentContext, async () => {\n    const span = tracer.startSpan('processOrderCreated');\n\
+    \    // Process message...\n    span.end();\n  });\n}\n```\n\n## FOE Alignment\n\
+    \n**Primary: Optimize for Understanding**\n\nDistributed tracing transforms opaque\
+    \ distributed systems into visible, understandable flows. Developers can see exactly\
+    \ how a request traverses the system, which services it touches, and where time\
+    \ is spent. This visibility is essential for understanding complex microservices\
+    \ architectures.\n\n**Secondary: Fast Feedback Loops**\n\nTraces provide immediate\
+    \ feedback on system behavior. Performance bottlenecks are visible within seconds\
+    \ of occurring, not hours or days after log analysis. Failed requests show the\
+    \ exact service and operation where problems occurred, enabling rapid diagnosis\
+    \ and resolution.\n\n## Benefits\n\n- ✅ **End-to-end visibility** - See complete\
+    \ request flows across services\n- ✅ **Performance analysis** - Identify latency\
+    \ bottlenecks\n- ✅ **Dependency mapping** - Visualize service relationships\n\
+    - ✅ **Root cause analysis** - Pinpoint failure locations\n- ✅ **Anomaly detection**\
+    \ - Spot unusual patterns in traces\n- ✅ **Capacity planning** - Understand load\
+    \ distribution\n\n## Trade-offs\n\n- ⚠️ **Overhead** - Instrumentation adds latency\
+    \ (typically 1-5%)\n- ⚠️ **Storage costs** - Trace data volume can be substantial\n\
+    - ⚠️ **Complexity** - Requires instrumentation across all services\n- ⚠️ **Sampling\
+    \ challenges** - Deciding what to capture vs. discard\n\n## When to Use\n\n✅ **Essential\
+    \ for:**\n- Any system with 3+ services\n- Production environments\n- Performance-critical\
+    \ applications\n- Debugging complex failures\n- Understanding service dependencies\n\
+    \n❌ **Can defer when:**\n- Single-service applications\n- Early development phases\n\
+    - Simple request flows\n\n## Sampling Strategies\n\nTracing all requests creates\
+    \ too much data. Use sampling:\n\n### Head-Based Sampling\n\nDecide at the start\
+    \ of a trace whether to sample:\n\n```javascript\nconst sdk = new NodeSDK({\n\
+    \  sampler: new ParentBasedSampler({\n    root: new TraceIdRatioBasedSampler(0.1),\
+    \ // Sample 10%\n  }),\n});\n```\n\n**Pros:** Simple, consistent (whole trace\
+    \ sampled or not)\n**Cons:** Might miss rare but important traces\n\n### Tail-Based\
+    \ Sampling\n\nCollect all spans, decide at the end whether to keep:\n\n```javascript\n\
+    // Keep all error traces and slow traces\nconst tailSampler = {\n  shouldSample:\
+    \ (spans) => {\n    const hasError = spans.some(s => s.status.code === 'ERROR');\n\
+    \    const isSlow = spans.some(s => s.duration > 1000);\n    return hasError ||\
+    \ isSlow;\n  }\n};\n```\n\n**Pros:** Capture interesting traces, discard routine\
+    \ ones\n**Cons:** Higher resource usage during collection\n\n### Adaptive Sampling\n\
+    \nAdjust sample rate based on traffic:\n\n```javascript\n// Sample 100% of errors,\
+    \ 1% of successes\nif (span.status.code === 'ERROR') {\n  return ALWAYS_SAMPLE;\n\
+    } else {\n  return Math.random() < 0.01 ? ALWAYS_SAMPLE : NEVER_SAMPLE;\n}\n```\n\
+    \n## Observability Platforms\n\n| Platform | Features | Best For |\n|----------|----------|----------|\n\
+    | **Jaeger** | Open-source, OpenTelemetry native | Self-hosted, cost-conscious\
+    \ |\n| **Zipkin** | Open-source, simple | Getting started, smaller scale |\n|\
+    \ **Honeycomb** | High cardinality, fast queries | Debugging complex systems |\n\
+    | **Datadog APM** | Full observability suite | Integrated monitoring |\n| **AWS\
+    \ X-Ray** | AWS integration | AWS-centric architectures |\n| **Grafana Tempo**\
+    \ | Cost-efficient storage | Grafana ecosystem |\n\n## Anti-Patterns\n\n### ❌\
+    \ Missing Instrumentation\n\n```javascript\n// WRONG: Service not instrumented,\
+    \ creates trace gap\n// API Gateway → [missing trace] → Database\n\n// RIGHT:\
+    \ Every service adds spans\n// API Gateway → User Service → Database\n```\n\n\
+    ### ❌ Over-Instrumentation\n\n```javascript\n// WRONG: Too many fine-grained spans\n\
+    for (const item of order.items) {\n  await tracer.startActiveSpan(`processItem_${item.id}`,\
+    \ async (span) => {\n    // Creates span for every item - too noisy!\n  });\n\
+    }\n\n// RIGHT: Aggregate where possible\nawait tracer.startActiveSpan('processItems',\
+    \ async (span) => {\n  span.setAttribute('item.count', order.items.length);\n\
+    \  for (const item of order.items) {\n    await processItem(item);\n  }\n});\n\
+    ```\n\n### ❌ Not Propagating Context\n\n```javascript\n// WRONG: Context lost\
+    \ in async operation\nasync function processOrder(order) {\n  setImmediate(()\
+    \ => {\n    // Context lost! This span won't be connected\n    await tracer.startActiveSpan('backgroundTask',\
+    \ async (span) => {\n      // Orphan span\n    });\n  });\n}\n\n// RIGHT: Pass\
+    \ context explicitly\nasync function processOrder(order) {\n  const ctx = context.active();\n\
+    \  setImmediate(() => {\n    context.with(ctx, async () => {\n      await tracer.startActiveSpan('backgroundTask',\
+    \ async (span) => {\n        // Properly connected span\n      });\n    });\n\
+    \  });\n}\n```\n\n## Known Uses\n\n- **Netflix** - Custom distributed tracing\
+    \ for thousands of microservices\n- **Uber** - Jaeger created for internal use,\
+    \ open-sourced\n- **Google** - Dapper tracing system (inspiration for OpenTelemetry)\n\
+    - **Shopify** - OpenTelemetry for commerce platform tracing\n- **Airbnb** - Distributed\
+    \ tracing for service mesh\n\n## References\n\n- [OpenTelemetry Documentation](https://opentelemetry.io/docs/)\n\
+    - [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetry-specification)\n\
+    - Richardson, C. (2018). *Microservices Patterns*. Chapter 11: Developing Production-Ready\
+    \ Services.\n- [Distributed Tracing - microservices.io](https://microservices.io/patterns/observability/distributed-tracing.html)\n\
+    - Sigelman, B. H., et al. (2010). \"Dapper, a Large-Scale Distributed Systems\
+    \ Tracing Infrastructure.\" *Google Technical Report*.\n- [Jaeger Documentation](https://www.jaegertracing.io/docs/)\n\
+    - [Zipkin Documentation](https://zipkin.io/)"
+  lead: Distributed tracing tracks requests as they flow through multiple microservices,
+    recording the path taken, services touched, and time spent in each component.
+    This provides end-to-end visibility into system behavior, enabling developers
+    to understand service dependencies, identify performance bottlenecks, and diagnose
+    failures in complex distributed systems.
+  docs_url_path: external-frameworks/microservices/methods/M231-distributed-tracing

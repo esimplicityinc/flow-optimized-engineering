@@ -5,9 +5,13 @@ kind: practice
 metadata:
   name: layered-architecture
 spec:
-  description: Layered Architecture — external framework FOE draws methods from.
+  description: Layered Architecture is one of the most fundamental and widely-used
+    architectural patterns in software engineering. First formally described in the
+    seminal *Pattern-Oriented Software Architecture* (POSA1) by Buschmann et al. (1996),
+    it organizes software components into horizontal layers, each with a specific
+    responsibility and role within the application.
   title: Layered Architecture
-  canonical: layered-architecture
+  canonical: https://en.wikipedia.org/wiki/Multilayered_architecture
   methods:
   - M209
   - M210

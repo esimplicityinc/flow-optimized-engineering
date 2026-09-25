@@ -1,0 +1,148 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M224
+spec:
+  description: Prose for Circuit Breaker.
+  body: "**Pillar:** Foundational Patterns\n\nThe Circuit Breaker pattern prevents\
+    \ cascade failures in distributed systems by monitoring calls to remote services\
+    \ and \"opening the circuit\" when failures exceed a threshold. Instead of continuing\
+    \ to call a failing service, requests fail fast, allowing the service time to\
+    \ recover.\n\n## Definition\n\n> \"The Circuit Breaker pattern prevents an application\
+    \ from repeatedly trying to execute an operation that's likely to fail, allowing\
+    \ it to continue operating without waiting for the fault to be fixed or wasting\
+    \ CPU cycles.\n> — Michael Nygard, Release It!\n\n## Why It Matters\n\nIn distributed\
+    \ systems, failures are inevitable. Without circuit breakers:\n\n- **Cascade failures**\
+    \ - One slow service can exhaust all threads/resources in callers\n- **Resource\
+    \ exhaustion** - Threads blocked waiting for timeouts consume memory\n- **Slow\
+    \ recovery** - Retry storms prevent failing services from recovering\n- **Poor\
+    \ user experience** - Users wait for timeouts instead of immediate failure feedback\n\
+    \n## How It Works\n\n### Circuit States\n\n```\n                    ┌──────────────┐\n\
+    \         ┌─────────▶│    CLOSED    │◀────────┐\n         │          │ (Normal\
+    \ ops) │         │\n         │          └──────┬───────┘         │\n         │\
+    \                 │ Success         │\n         │                 │          \
+    \       │\n    Half-Open            Failure            Timeout\n    Test succeeds\
+    \       threshold          expires\n         │                 │             \
+    \    │\n         │          ┌──────▼───────┐         │\n         └──────────│\
+    \    OPEN      │─────────┘\n                    │ (Failing fast)│\n          \
+    \          └──────────────┘\n```\n\n| State | Behavior | Purpose |\n|-------|----------|---------|\n\
+    | **CLOSED** | Requests pass through to service | Normal operation |\n| **OPEN**\
+    \ | Requests fail immediately | Protect failing service, fail fast |\n| **HALF-OPEN**\
+    \ | Limited test requests allowed | Check if service recovered |\n\n### State\
+    \ Transitions\n\n1. **CLOSED → OPEN**: Failure rate exceeds threshold\n2. **OPEN\
+    \ → HALF-OPEN**: Timeout expires (e.g., 30 seconds)\n3. **HALF-OPEN → CLOSED**:\
+    \ Test request succeeds\n4. **HALF-OPEN → OPEN**: Test request fails\n\n## Implementation\n\
+    \n### Key Parameters\n\n```javascript\nconst circuitBreaker = {\n  failureThreshold:\
+    \ 5,        // Open after 5 failures\n  successThreshold: 2,        // Close after\
+    \ 2 successes in half-open\n  timeout: 30000,             // 30 seconds before\
+    \ attempting reset\n  monitoringPeriod: 60000,    // Count failures in 1-minute\
+    \ window\n  errorTypes: ['timeout', '5xx', 'connection refused']\n};\n```\n\n\
+    ### Example Implementation\n\n```javascript\nclass CircuitBreaker {\n  constructor(serviceCall,\
+    \ options) {\n    this.serviceCall = serviceCall;\n    this.state = 'CLOSED';\n\
+    \    this.failureCount = 0;\n    this.successCount = 0;\n    this.nextAttempt\
+    \ = Date.now();\n    this.options = options;\n  }\n\n  async call(request) {\n\
+    \    if (this.state === 'OPEN') {\n      if (Date.now() < this.nextAttempt) {\n\
+    \        throw new CircuitBreakerOpenError('Service temporarily unavailable');\n\
+    \      }\n      this.state = 'HALF_OPEN';\n    }\n\n    try {\n      const response\
+    \ = await this.serviceCall(request);\n      this.onSuccess();\n      return response;\n\
+    \    } catch (error) {\n      this.onFailure();\n      throw error;\n    }\n \
+    \ }\n\n  onSuccess() {\n    this.failureCount = 0;\n    if (this.state === 'HALF_OPEN')\
+    \ {\n      this.successCount++;\n      if (this.successCount >= this.options.successThreshold)\
+    \ {\n        this.state = 'CLOSED';\n        this.successCount = 0;\n      }\n\
+    \    }\n  }\n\n  onFailure() {\n    this.failureCount++;\n    if (this.failureCount\
+    \ >= this.options.failureThreshold) {\n      this.state = 'OPEN';\n      this.nextAttempt\
+    \ = Date.now() + this.options.timeout;\n    }\n  }\n}\n```\n\n### Libraries &\
+    \ Frameworks\n\n| Language | Library |\n|----------|---------|\n| Java | Resilience4j,\
+    \ Hystrix (legacy) |\n| JavaScript | opossum, cockatiel |\n| .NET | Polly |\n\
+    | Go | go-breaker, sony/gobreaker |\n| Python | pybreaker, circuitbreaker |\n\n\
+    ## FOE Alignment\n\n**Primary: Confidence to Act**\n\nCircuit breakers provide\
+    \ confidence that failures won't cascade through the system. When a service fails,\
+    \ the circuit breaker isolates the failure, giving teams confidence to deploy\
+    \ changes without fear of taking down the entire system.\n\n**Secondary: Fast\
+    \ Feedback Loops**\n\nWhen a circuit is open, clients receive immediate failure\
+    \ feedback rather than waiting for timeouts. This fast failure enables rapid fallback\
+    \ to alternative paths or graceful degradation.\n\n## Benefits\n\n- ✅ **Prevents\
+    \ cascade failures** - Failing fast protects upstream services\n- ✅ **Enables\
+    \ graceful degradation** - Fallback to cached data or reduced functionality\n\
+    - ✅ **Accelerates recovery** - Stops retry storms that prevent service recovery\n\
+    - ✅ **Provides monitoring hooks** - Track failure rates and circuit state\n- ✅\
+    \ **Self-healing** - Automatically retries when service recovers\n\n## Trade-offs\n\
+    \n- ⚠️ **Complexity** - Additional component to configure and monitor\n- ⚠️ **False\
+    \ positives** - Brief transient errors can open circuits\n- ⚠️ **Configuration\
+    \ tuning** - Thresholds must be calibrated for each service\n- ⚠️ **Testing difficulty**\
+    \ - Hard to test all state transitions\n\n## When to Use\n\n✅ **Essential for:**\n\
+    - Calls to external services (payment gateways, third-party APIs)\n- Inter-service\
+    \ communication in microservices\n- Database connections that may timeout\n- Any\
+    \ remote call with potential for high latency\n\n❌ **Not needed for:**\n- In-process\
+    \ calls\n- Calls to highly reliable, low-latency local services\n- Synchronous\
+    \ calls within a single transaction boundary\n\n## Integration with Other Patterns\n\
+    \n### With Fallback\n\n```javascript\nasync function getUserProfile(userId) {\n\
+    \  try {\n    return await circuitBreaker.call(() => userService.getProfile(userId));\n\
+    \  } catch (error) {\n    if (error instanceof CircuitBreakerOpenError) {\n  \
+    \    return await cache.get(`user:${userId}`); // Fallback to cache\n    }\n \
+    \   throw error;\n  }\n}\n```\n\n### With Retry\n\nApply retry _inside_ the circuit\
+    \ breaker, not outside:\n\n```javascript\n// ❌ Wrong: Retry outside breaker\n\
+    for (let i = 0; i < 3; i++) {\n  try {\n    return await circuitBreaker.call(serviceCall);\n\
+    \  } catch (e) {\n    await delay(1000);\n  }\n}\n\n// ✅ Right: Retry inside breaker\n\
+    return await circuitBreaker.call(async () => {\n  return await retryWithBackoff(serviceCall,\
+    \ { attempts: 3 });\n});\n```\n\n### With Bulkhead\n\nUse circuit breakers within\
+    \ bulkheads to prevent both cascade failures and resource exhaustion:\n\n```javascript\n\
+    // Reserve resources for critical paths\nconst criticalBulkhead = new Bulkhead({\
+    \ capacity: 10 });\nconst circuitBreaker = new CircuitBreaker(serviceCall);\n\n\
+    await criticalBulkhead.execute(() => circuitBreaker.call(request));\n```\n\n##\
+    \ Monitoring & Observability\n\nTrack these metrics:\n\n| Metric | Description\
+    \ | Alert Threshold |\n|--------|-------------|-----------------|\n| `circuit_state`\
+    \ | Current state (0=closed, 1=half-open, 2=open) | State = 2 |\n| `circuit_failures`\
+    \ | Count of failures | > threshold/minute |\n| `circuit_success_rate` | % successful\
+    \ calls | < 95% |\n| `circuit_open_duration` | Time spent in open state | > 5\
+    \ minutes |\n\n## Configuration Guidelines\n\n### Failure Threshold\n\n- **Aggressive**\
+    \ (5 failures): Fast failure detection, higher false positive rate\n- **Conservative**\
+    \ (20 failures): Tolerates brief issues, slower to react\n- **Recommendation**:\
+    \ Start with 5-10 failures in a 60-second window\n\n### Timeout Duration\n\n-\
+    \ **Short** (10 seconds): Quick recovery attempts, more oscillation\n- **Long**\
+    \ (60 seconds): Stable state, slower recovery\n- **Recommendation**: 30-60 seconds\
+    \ for most services\n\n### Context-Specific Tuning\n\n| Service Type | Failure\
+    \ Threshold | Timeout | Notes |\n|--------------|------------------|---------|-------|\n\
+    | Critical auth service | 3 | 10s | Fail fast, quick retry |\n| Analytics/logging\
+    \ | 20 | 120s | Tolerate brief issues |\n| Third-party API | 5 | 60s | Balance\
+    \ speed/stability |\n| Internal service | 10 | 30s | Default configuration |\n\
+    \n## Testing Circuit Breakers\n\n### Unit Tests\n\n```javascript\ndescribe('CircuitBreaker',\
+    \ () => {\n  it('should open after threshold failures', async () => {\n    const\
+    \ failingService = jest.fn().mockRejectedValue(new Error('Fail'));\n    const\
+    \ cb = new CircuitBreaker(failingService, { failureThreshold: 3 });\n    \n  \
+    \  // Trigger failures\n    await Promise.all([1, 2, 3].map(() => \n      cb.call().catch(()\
+    \ => {})\n    ));\n    \n    expect(cb.state).toBe('OPEN');\n  });\n  \n  it('should\
+    \ fail fast when open', async () => {\n    cb.state = 'OPEN';\n    cb.nextAttempt\
+    \ = Date.now() + 60000;\n    \n    await expect(cb.call()).rejects.toThrow(CircuitBreakerOpenError);\n\
+    \  });\n});\n```\n\n### Integration Tests\n\nUse chaos engineering to verify circuit\
+    \ breaker behavior:\n\n```javascript\n// Inject failures and verify circuit opens\n\
+    await chaos.injectLatency('payment-service', { duration: 5000 });\n// Verify circuit\
+    \ opens after threshold\n// Verify fallback activates\n// Verify circuit closes\
+    \ after recovery\n```\n\n## Anti-Patterns\n\n### ❌ Global Circuit Breaker\n\n\
+    Don't share one circuit breaker across all services:\n\n```javascript\n// Wrong:\
+    \ All services share one breaker\nconst globalBreaker = new CircuitBreaker();\n\
+    await globalBreaker.call(() => serviceA.call());\nawait globalBreaker.call(()\
+    \ => serviceB.call()); // Service B failures affect A\n```\n\nUse separate breakers\
+    \ per service or even per endpoint.\n\n### ❌ Circuit Breaker for Everything\n\n\
+    Don't wrap every function call:\n\n```javascript\n// Wrong: Unnecessary overhead\n\
+    await circuitBreaker.call(() => localCache.get(key));\n```\n\nReserve for remote\
+    \ calls with failure potential.\n\n### ❌ Ignoring Half-Open State\n\nDon't skip\
+    \ the half-open testing phase:\n\n```javascript\n// Wrong: Immediately reset on\
+    \ timer\nif (Date.now() > nextAttempt) {\n  state = 'CLOSED'; // Skip half-open\
+    \ testing!\n}\n```\n\nAlways test with limited traffic before fully closing.\n\
+    \n## Known Uses\n\n- **Netflix** - Hystrix (now Resilience4j), protection for\
+    \ 1000s of dependencies\n- **Amazon** - Internal circuit breaker libraries for\
+    \ service calls\n- **Spotify** - Circuit breakers in API gateway for third-party\
+    \ APIs\n- **SoundCloud** - Protection for social media integrations\n\n## References\n\
+    \n- Nygard, M. T. (2018). *Release It!* (2nd ed.). Pragmatic Bookshelf. Chapter\
+    \ 5: Stability Patterns.\n- Richardson, C. (2018). *Microservices Patterns*. Chapter\
+    \ 3: Interprocess Communication.\n- [Circuit Breaker - microservices.io](https://microservices.io/patterns/reliability/circuit-breaker.html)\n\
+    - [Netflix Tech Blog: Fault Tolerance](https://netflixtechblog.com/fault-tolerance-in-a-high-volume-distributed-system-91ab4faae74a)\n\
+    - [AWS Circuit Breaker Pattern](https://docs.aws.amazon.com/whitepapers/latest/modern-application-development-on-aws/circuit-breaker.html)"
+  lead: The Circuit Breaker pattern prevents cascade failures in distributed systems
+    by monitoring calls to remote services and "opening the circuit" when failures
+    exceed a threshold. Instead of continuing to call a failing service, requests
+    fail fast, allowing the service time to recover.
+  docs_url_path: external-frameworks/microservices/methods/M224-circuit-breaker

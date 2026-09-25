@@ -5,9 +5,13 @@ kind: practice
 metadata:
   name: double-diamond
 spec:
-  description: Double Diamond — external framework FOE draws methods from.
+  description: 'The Double Diamond is a visual representation of the design and innovation
+    process, developed by the Design Council (UK) in 2004. It maps the creative process
+    through four distinct phases: Discover, Define, Develop, and Deliver. The framework
+    illustrates how design thinking alternates between divergent thinking (exploring
+    widely) and convergent thinking (focusing narrowly).'
   title: Double Diamond
-  canonical: double-diamond
+  canonical: https://www.designcouncil.org.uk/our-resources/the-double-diamond/
   methods:
   - M109
   - M110

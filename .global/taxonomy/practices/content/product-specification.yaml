@@ -1,0 +1,109 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: product-specification
+spec:
+  description: Prose for Product Specification.
+  body: 'A collection of flow-optimized methods for requirements gathering, specification
+    writing, and product-engineering collaboration.
+
+
+    ## What This Guide Covers
+
+
+    Product specification bridges what users need with what engineers build. Requirements
+    gathering, user story writing, acceptance criteria, and validation practices all
+    determine how clearly intent is communicated and how confidently teams can deliver.
+    This guide collects methods for creating specifications that optimize for flow.
+
+
+    Good specification isn''t about comprehensive documentation -- it''s about shared
+    understanding through clear examples, testable criteria, and continuous collaboration
+    that reduces rework and accelerates delivery.
+
+
+    ### Requirements & User Stories
+
+
+    Requirements gathering techniques, user story writing, story mapping, and practices
+    for capturing user needs in ways that enable incremental delivery.
+
+
+    ### Acceptance Criteria
+
+
+    Given-When-Then format, definition of done, testable criteria, and practices for
+    making requirements verifiable and unambiguous.
+
+
+    ### Prototyping & Validation
+
+
+    Rapid prototyping, user validation, spec iteration, and practices for validating
+    assumptions before committing to full implementation.
+
+
+    ### Product-Engineering Workflow
+
+
+    Collaboration patterns, handoff processes, feedback loops, and practices for maintaining
+    shared understanding throughout the development lifecycle.
+
+
+    ## The Specification Workflow
+
+
+    These methods form a natural workflow from problem discovery through validated
+    delivery:
+
+
+    ### 1. Understand the Problem (Double Diamond)
+
+
+    Use the **Discover Phase** and **Define Phase** to understand and frame the problem
+    before writing specifications. This prevents the most expensive mistake: specifying
+    the wrong thing.
+
+
+    ### 2. Explore Requirements (BDD Discovery)
+
+
+    Use **Discovery Workshops**, **Three Amigos**, and **Example Mapping** to collaboratively
+    explore what the software should do. Use **User Story Templates** to capture requirements
+    with clear user value.
+
+
+    ### 3. Formalize Acceptance Criteria (BDD Formulation)
+
+
+    Use **Given-When-Then** and **Gherkin** to turn examples into precise, testable
+    acceptance criteria. Use **Ubiquitous Language** to ensure specifications use
+    the same terms as the code.
+
+
+    ### 4. Validate Through Delivery (BDD Automation + Double Diamond)
+
+
+    Use **Executable Specifications** to automate verification. Use the **Develop
+    Phase** and **Deliver Phase** to prototype, validate, and ship with confidence.
+    Scope specifications to **Bounded Contexts** for clarity.
+
+
+    ## Getting Started
+
+
+    1. Browse the methods in the table above
+
+    2. Start with the **Essential** methods -- Discovery Workshops, Three Amigos,
+    Given-When-Then, and Ubiquitous Language
+
+    3. Review the supporting observations to understand the evidence
+
+    4. Try the methods that fit your context
+
+    5. Consider [contributing your own observations](../contributing-observations)'
+  lead: A collection of flow-optimized methods for requirements gathering, specification
+    writing, and product-engineering collaboration.
+  docs_url_path: field-guides/product-specification/overview

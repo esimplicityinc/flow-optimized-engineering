@@ -5,7 +5,8 @@ kind: practice_area
 metadata:
   name: testing
 spec:
-  description: 'FOE field guide: Testing.'
+  description: A collection of flow-optimized methods for testing strategies, test
+    design, and quality assurance practices.
   title: Testing
   canonical: testing
   practices:

@@ -5,7 +5,8 @@ kind: practice_area
 metadata:
   name: system-architecture
 spec:
-  description: 'FOE field guide: System Architecture.'
+  description: A collection of flow-optimized methods for making structural decisions
+    about distributed systems and service organization.
   title: System Architecture
   canonical: system-architecture
   practices:

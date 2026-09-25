@@ -5,9 +5,12 @@ kind: practice
 metadata:
   name: dora
 spec:
-  description: DORA — external framework FOE draws methods from.
+  description: DORA (DevOps Research and Assessment) provides research-backed metrics
+    for measuring software delivery and operational performance. Originally developed
+    through the State of DevOps reports and the book *Accelerate*, DORA metrics have
+    become the industry standard for assessing engineering team effectiveness.
   title: DORA
-  canonical: dora
+  canonical: https://dora.dev
   methods:
   - M105
   - M111

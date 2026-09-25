@@ -5,9 +5,13 @@ kind: practice
 metadata:
   name: clean-architecture
 spec:
-  description: Clean Architecture — external framework FOE draws methods from.
+  description: Clean Architecture (Robert C. Martin, 2012) and Hexagonal Architecture
+    (Alistair Cockburn, 2005) are closely related architectural patterns that organize
+    code to maximize maintainability, testability, and independence from external
+    concerns. While they use different metaphors—concentric circles versus hexagons
+    with ports—they share the same fundamental principles.
   title: Clean Architecture
-  canonical: clean-architecture
+  canonical: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
   methods:
   - M200
   - M201

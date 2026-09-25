@@ -5,7 +5,10 @@ kind: practice
 metadata:
   name: continuous-delivery
 spec:
-  description: Continuous Delivery — external framework FOE draws methods from.
+  description: Continuous Delivery (CD) is a software development discipline where
+    software is built in such a way that it can be released to production at any time.
+    Developed by Jez Humble and David Farley and published in their 2010 book, CD
+    provides the technical practices that enable the outcomes measured by DORA metrics.
   title: Continuous Delivery
   canonical: https://continuousdelivery.com
   methods:

@@ -1,0 +1,95 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M164
+spec:
+  description: Prose for Test Pyramid.
+  body: "**Pillar:** Test-First\n\nThe Test Pyramid is a model for thinking about\
+    \ how different kinds of automated tests should be balanced. Its essential insight:\
+    \ you should have many more fast, focused unit tests at the base than slow, broad\
+    \ end-to-end tests at the top.\n\n## Definition\n\n> A visual model showing that\
+    \ a healthy test portfolio should have many unit tests (base), fewer integration\
+    \ tests (middle), and even fewer end-to-end/UI tests (top)—shaped like a pyramid,\
+    \ not an ice cream cone.\n\n## Why It Matters\n\nThe Test Pyramid addresses a\
+    \ common testing anti-pattern: over-reliance on end-to-end tests. Teams often\
+    \ gravitate toward E2E tests because they seem to test \"real\" behavior, but\
+    \ this creates problems:\n\n- **Slow feedback** - E2E tests take minutes or hours\
+    \ to run\n- **Brittle tests** - UI changes break many tests\n- **Hard to debug**\
+    \ - Failures don't pinpoint the problem\n- **Expensive to maintain** - High maintenance\
+    \ burden\n\nThe pyramid model guides teams toward a more sustainable test portfolio.\n\
+    \n## The Pyramid Structure\n\n```\n        /\\\n       /  \\   UI/E2E Tests (few)\n\
+    \      /----\\  \n     /      \\  Integration Tests (some)\n    /--------\\\n\
+    \   /          \\  Unit Tests (many)\n  /______________\\\n  \n  ← Slower, More\
+    \ Brittle, More Expensive\n  → Faster, More Stable, Cheaper\n```\n\n### Unit Tests\
+    \ (Base)\n\n**Characteristics:**\n- Test a single unit (function, class, module)\
+    \ in isolation\n- Run in milliseconds\n- No external dependencies (database, network,\
+    \ filesystem)\n- Easy to write and maintain\n- Pinpoint failures precisely\n\n\
+    **Example:**\n```javascript\ntest('calculateDiscount applies 10% for orders over\
+    \ $100', () => {\n  expect(calculateDiscount(150)).toBe(15);\n});\n```\n\n**Target:**\
+    \ Hundreds to thousands of tests\n\n### Integration Tests (Middle)\n\n**Characteristics:**\n\
+    - Test how units work together\n- May involve database, API calls, or multiple\
+    \ modules\n- Run in seconds\n- Test integration points and boundaries\n- Catch\
+    \ issues unit tests miss\n\n**Example:**\n```javascript\ntest('order service saves\
+    \ to database and sends confirmation', async () => {\n  const order = await orderService.create({\
+    \ items: [...] });\n  \n  const saved = await db.orders.findById(order.id);\n\
+    \  expect(saved).toBeDefined();\n  \n  const emails = await emailService.getSent();\n\
+    \  expect(emails).toContainEqual(expect.objectContaining({\n    to: order.customerEmail,\n\
+    \    subject: expect.stringContaining('confirmation')\n  }));\n});\n```\n\n**Target:**\
+    \ Tens to hundreds of tests\n\n### End-to-End Tests (Top)\n\n**Characteristics:**\n\
+    - Test complete user journeys through the UI\n- Run in minutes\n- Require full\
+    \ environment (browser, services, database)\n- Most realistic but most brittle\n\
+    - Expensive to write and maintain\n\n**Example:**\n```javascript\ntest('user can\
+    \ complete checkout flow', async () => {\n  await page.goto('/products');\n  await\
+    \ page.click('[data-testid=\"add-to-cart\"]');\n  await page.click('[data-testid=\"\
+    checkout\"]');\n  await page.fill('#email', 'test@example.com');\n  await page.click('[data-testid=\"\
+    place-order\"]');\n  \n  await expect(page.locator('.confirmation')).toBeVisible();\n\
+    });\n```\n\n**Target:** Tens of tests (critical paths only)\n\n## The Ice Cream\
+    \ Cone Anti-Pattern\n\nMany teams end up with an inverted pyramid—the \"ice cream\
+    \ cone\":\n\n```\n    ___________\n   /           \\   Many E2E Tests\n  /   \
+    \          \\\n /_______________\\\n       | |         Few Integration Tests\n\
+    \       |_|         Few Unit Tests\n```\n\n**Problems:**\n- Slow CI/CD pipelines\
+    \ (hours instead of minutes)\n- Flaky tests undermine confidence\n- Hard to debug\
+    \ failures\n- High maintenance cost\n- Developers avoid running tests locally\n\
+    \n## Balancing the Pyramid\n\n### When to Write Each Type\n\n| Test Type | Write\
+    \ When... |\n|-----------|---------------|\n| Unit | Testing logic, calculations,\
+    \ transformations |\n| Integration | Testing boundaries, database queries, API\
+    \ contracts |\n| E2E | Testing critical user journeys, smoke tests |\n\n### The\
+    \ \"Push Down\" Rule\n\nWhen a high-level test fails:\n1. Write a unit test that\
+    \ reproduces the bug\n2. Fix the bug (unit test catches it)\n3. The high-level\
+    \ test now passes\n4. You have better coverage at a lower level\n\nThis gradually\
+    \ improves your pyramid shape.\n\n## Modern Variations\n\n### The Testing Trophy\n\
+    \nKent C. Dodds proposed a variation emphasizing integration tests:\n\n```\n \
+    \       /\\        E2E\n       /  \\\n      /----\\      Integration (largest)\n\
+    \     /      \\\n    /--------\\    Unit\n   /__________\\   Static Analysis\n\
+    ```\n\nThe argument: integration tests provide the best balance of confidence\
+    \ and speed for modern applications.\n\n### The Testing Diamond\n\nSome teams\
+    \ find a diamond shape works better:\n\n```\n       /\\         E2E\n      / \
+    \ \\\n     /    \\       Integration (many)\n     \\    /\n      \\  /       \
+    \ Unit\n       \\/\n```\n\nThis acknowledges that some applications benefit from\
+    \ more integration testing.\n\n## Practical Guidelines\n\n### Pyramid Ratios\n\
+    \nA common starting point:\n\n| Level | Percentage | Example (1000 tests) |\n\
+    |-------|------------|---------------------|\n| Unit | 70% | 700 tests |\n| Integration\
+    \ | 20% | 200 tests |\n| E2E | 10% | 100 tests |\n\nAdjust based on your application's\
+    \ needs.\n\n### Speed Targets\n\n| Level | Target Duration |\n|-------|-----------------|\n\
+    | Unit | < 10ms each, < 1 min total |\n| Integration | < 1s each, < 5 min total\
+    \ |\n| E2E | < 30s each, < 15 min total |\n\n### What to Test Where\n\n| Concern\
+    \ | Test Level |\n|---------|------------|\n| Business logic | Unit |\n| Data\
+    \ transformations | Unit |\n| API contracts | Integration |\n| Database queries\
+    \ | Integration |\n| Authentication flows | Integration + E2E |\n| Critical user\
+    \ journeys | E2E |\n| Visual regression | E2E |\n\n## FOE Alignment\n\nThe Test\
+    \ Pyramid strongly supports FOE principles:\n\n- **Fast Feedback Loops** - Unit\
+    \ tests run in seconds, providing immediate feedback. The pyramid ensures most\
+    \ tests are fast.\n- **Build Confidence** - Comprehensive unit tests catch most\
+    \ bugs. Integration and E2E tests provide additional confidence for integration\
+    \ points.\n- **Optimize for Understanding** - Unit tests document behavior at\
+    \ the code level. The pyramid model itself provides shared vocabulary for discussing\
+    \ test strategy.\n\n## References\n\n- Cohn, M. (2009). *Succeeding with Agile*.\
+    \ Addison-Wesley.\n- Fowler, M. (2012). \"Test Pyramid.\" https://martinfowler.com/bliki/TestPyramid.html\n\
+    - Dodds, K.C. \"The Testing Trophy.\" https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications\n\
+    - Google Testing Blog. (2015). \"Just Say No to More End-to-End Tests.\""
+  lead: 'The Test Pyramid is a model for thinking about how different kinds of automated
+    tests should be balanced. Its essential insight: you should have many more fast,
+    focused unit tests at the base than slow, broad end-to-end tests at the top.'
+  docs_url_path: external-frameworks/tdd/methods/M164-test-pyramid

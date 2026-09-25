@@ -5,7 +5,9 @@ kind: practice_area
 metadata:
   name: semantic-layer-engineering
 spec:
-  description: 'FOE field guide: Semantic Layer Engineering.'
+  description: A collection of flow-optimized methods for making information legible
+    to both human and AI consumers — from raw data to a verifiable semantic operating
+    model of the enterprise.
   title: Semantic Layer Engineering
   canonical: semantic-layer-engineering
   practices:

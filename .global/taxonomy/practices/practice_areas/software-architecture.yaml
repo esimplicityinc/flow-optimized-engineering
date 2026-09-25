@@ -5,7 +5,8 @@ kind: practice_area
 metadata:
   name: software-architecture
 spec:
-  description: 'FOE field guide: Software Architecture.'
+  description: A collection of flow-optimized methods for internal code design, data
+    architecture, and architecture decision-making.
   title: Software Architecture
   canonical: software-architecture
   practices:

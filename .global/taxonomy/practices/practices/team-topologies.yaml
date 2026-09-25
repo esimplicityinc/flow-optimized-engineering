@@ -5,9 +5,13 @@ kind: practice
 metadata:
   name: team-topologies
 spec:
-  description: Team Topologies — external framework FOE draws methods from.
+  description: Team Topologies is a practical, adaptive approach for organizational
+    design and team interactions, developed by Matthew Skelton and Manuel Pais. First
+    published in 2019, the framework provides a systematic way to organize teams for
+    fast flow of value by treating teams—not individuals—as the fundamental means
+    of delivery.
   title: Team Topologies
-  canonical: https://teamtopologies.com/key-concepts
+  canonical: https://teamtopologies.com
   methods:
   - M106
   - M107

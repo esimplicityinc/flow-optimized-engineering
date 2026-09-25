@@ -4,17 +4,26 @@ FOE's method pages are MDX: they import three Docusaurus components and use
 admonition directives. Everything else is ordinary markdown — 116 code fences and
 103 tables across 192 files.
 
-The three components are stripped rather than translated, because each one renders
-chrome the consumer already draws natively:
+The components are stripped rather than translated, because each one renders chrome
+the consumer already draws natively:
 
-===========================  =============================================
-``<InternalMethodHeader />``  the tinted "FOE method" panel
-``<ExternalMethodHeader />``  the tinted "From <framework>" panel
-``<RelatedObservations />``   the supporting-evidence list
-===========================  =============================================
+============================  ============================================
+``<InternalMethodHeader />``   the tinted "FOE method" panel
+``<ExternalMethodHeader />``   the tinted "From <framework>" panel
+``<RelatedObservations />``    the supporting-evidence list
+``<FrameworkMethodList />``    a framework's method list
+``<MethodMaturityTable />``    a guide's methods as a table
+``<GuideMaturitySummary />``   a guide's maturity counts
+``<MaturityBadge />``          a single maturity pill
+============================  ============================================
 
 Leaving them in would duplicate that chrome; translating them would reimplement
 it. Their imports go with them, since they exist only to support them.
+
+The list is an explicit allowlist rather than "strip anything that looks like JSX",
+because M159's prose contains the literal text ``<IMPORTANT>`` inside a sentence
+about instructions hidden in MCP tool descriptions. A general rule would silently
+eat words.
 
 Admonitions are kept as-is. `:::caution` is meaningful content, and a renderer can
 map it to a panel — unlike a JSX component, the directive carries no dependency.
@@ -25,7 +34,15 @@ from __future__ import annotations
 import re
 
 #: Components whose output the consumer renders itself.
-_CHROME = ("InternalMethodHeader", "ExternalMethodHeader", "RelatedObservations")
+_CHROME = (
+    "InternalMethodHeader",
+    "ExternalMethodHeader",
+    "RelatedObservations",
+    "FrameworkMethodList",
+    "MethodMaturityTable",
+    "GuideMaturitySummary",
+    "MaturityBadge",
+)
 
 _IMPORT = re.compile(r"^import\s+.*?from\s+['\"][^'\"]+['\"];?\s*$", re.MULTILINE)
 _CHROME_TAG = re.compile(
@@ -64,31 +81,50 @@ def clean_body(body: str) -> str:
     out = "\n".join(lines)
     # Collapse the blank runs the removals leave behind.
     out = re.sub(r"\n{3,}", "\n\n", out)
-    return _drop_trailing_heading(out.strip())
+    return _drop_empty_sections(out.strip())
 
 
-_HEADING = re.compile(r"^#{1,6}\s+\S")
+def _heading_level(line: str) -> int | None:
+    match = re.match(r"^(#{1,6})\s+\S", line.strip())
+    return len(match.group(1)) if match else None
 
 
-def _drop_trailing_heading(body: str) -> str:
-    """Remove a heading left with nothing under it.
+def _drop_empty_sections(body: str) -> str:
+    """Remove headings left with nothing under them.
 
-    47 methods end with `## Supporting Evidence` followed only by
-    `<RelatedObservations />`. Stripping the component leaves the heading
-    promising content that is not there — and the consumer renders the evidence
-    itself, under its own heading, so the section is redundant as well as empty.
+    Stripping a component can empty the section that introduced it. 47 methods end
+    with `## Supporting Evidence` followed only by `<RelatedObservations />`, and
+    each guide has a `### Methods at a Glance` whose whole body was a
+    `<MethodMaturityTable />`. A heading promising content that is not there reads
+    as a rendering bug.
 
-    Only a *trailing* heading is removed. A heading followed by subheadings is
-    legitimate nesting, and an earlier version of this check mistook 115 of those
-    for empty sections.
+    A heading is empty when the next non-blank line is a heading of the *same or
+    higher* level, or nothing at all. A heading followed by a **deeper** one is
+    legitimate nesting — an earlier version of this check ignored depth and flagged
+    115 perfectly good sections.
+
+    Repeated until stable, because removing one empty heading can empty its parent.
     """
     lines = body.split("\n")
-    while lines:
-        tail = [i for i, line in enumerate(lines) if line.strip()]
-        if not tail or not _HEADING.match(lines[tail[-1]].strip()):
-            break
-        del lines[tail[-1] :]
-    return "\n".join(lines).strip()
+    changed = True
+    while changed:
+        changed = False
+        for i, line in enumerate(lines):
+            level = _heading_level(line)
+            if level is None:
+                continue
+            nxt = next((j for j in range(i + 1, len(lines)) if lines[j].strip()), None)
+            if nxt is None:
+                del lines[i:]
+                changed = True
+                break
+            following = _heading_level(lines[nxt])
+            if following is not None and following <= level:
+                del lines[i]
+                changed = True
+                break
+        # `_HEADING` stays used by nothing else; levels are what matter here.
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
 
 
 def lead_paragraph(body: str) -> str:

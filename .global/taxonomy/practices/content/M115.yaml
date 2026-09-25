@@ -1,0 +1,152 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M115
+spec:
+  description: Prose for Discovery Workshops.
+  body: '**Pillar:** Discovery
+
+
+    Discovery Workshops are collaborative sessions where business and technical team
+    members explore the desired behavior of a feature through concrete examples. Also
+    known as "Specification Workshops" or "Example Workshops," these sessions are
+    the foundation of BDD''s discovery phase.
+
+
+    ## Definition
+
+
+    > A structured, time-boxed conversation where team members collaboratively explore
+    a user story by generating concrete examples of how the system should behave in
+    different scenarios.
+
+
+    ## Why It Matters
+
+
+    Discovery Workshops provide critical benefits:
+
+
+    - **Surface misunderstandings early** - Before any code is written, when changes
+    are cheap
+
+    - **Build shared understanding** - Everyone hears the same examples and can ask
+    questions
+
+    - **Reduce rework** - Clarify edge cases and acceptance criteria upfront
+
+    - **Enable just-in-time requirements** - Explore stories right before implementation,
+    not months ahead
+
+
+    ## How to Run a Discovery Workshop
+
+
+    ### Preparation
+
+
+    1. **Select a user story** that''s ready for development (refined, prioritized)
+
+    2. **Invite the right people** - Product Owner, Developer(s), Tester(s), and relevant
+    domain experts
+
+    3. **Time-box strictly** - 25-30 minutes maximum per story
+
+    4. **Prepare the space** - Whiteboard, sticky notes, or digital collaboration
+    tool
+
+
+    ### During the Workshop
+
+
+    1. **Read the story** - Product Owner presents the user story and its context
+
+    2. **Ask clarifying questions** - Team members seek to understand the "why"
+
+    3. **Generate examples** - Collaboratively create concrete scenarios
+
+    4. **Identify edge cases** - Testers often excel at finding boundary conditions
+
+    5. **Capture questions** - Note anything that can''t be answered immediately
+
+
+    ### After the Workshop
+
+
+    1. **Document examples** - Formulate scenarios in Given-When-Then format
+
+    2. **Follow up on questions** - Research and resolve open items
+
+    3. **Estimate with confidence** - The team now understands what they''re building
+
+
+    ## Best Practices
+
+
+    | Practice | Rationale |
+
+    |----------|-----------|
+
+    | Keep sessions short (25-30 min) | Maintains focus and energy |
+
+    | One story per session | Prevents scope creep |
+
+    | Just-in-time discovery | Information is fresh when development starts |
+
+    | Include diverse perspectives | Different viewpoints surface different examples
+    |
+
+    | Focus on behavior, not implementation | Keep discussions at the right level
+    |
+
+
+    ## Common Anti-Patterns
+
+
+    - **Marathon sessions** - Long workshops lead to fatigue and diminishing returns
+
+    - **Missing stakeholders** - Key perspectives are lost
+
+    - **Too early discovery** - Details are forgotten by the time development starts
+
+    - **Solution-focused discussion** - Jumping to "how" before understanding "what"
+
+
+    ## Relationship to Other Methods
+
+
+    - **Three Amigos** - A specific format for discovery workshops
+
+    - **Example Mapping** - A structured technique for organizing workshop output
+
+    - **Given-When-Then** - The format used to document discovered examples
+
+
+    ## FOE Alignment
+
+
+    Discovery Workshops directly support the FOE principles of **Optimize for Understanding**
+    and **Fast Feedback Loops**:
+
+
+    - **Understanding**: The entire purpose is building shared understanding through
+    concrete examples
+
+    - **Fast Feedback**: Misunderstandings surface in minutes, not after code is written
+
+
+    ## References
+
+
+    - North, D. (2006). "Introducing BDD." Better Software Magazine. https://dannorth.net/introducing-bdd/
+
+    - Wynne, M. & Hellesøy, A. "The Cucumber Book." Pragmatic Bookshelf.
+
+    - Nagy, G. & Rose, S. "Discovery: Explore Behaviour Using Examples." Leanpub.'
+  lead: Discovery Workshops are collaborative sessions where business and technical
+    team members explore the desired behavior of a feature through concrete examples.
+    Also known as "Specification Workshops" or "Example Workshops," these sessions
+    are the foundation of BDD's discovery phase.
+  docs_url_path: external-frameworks/bdd/methods/M115-discovery-workshops

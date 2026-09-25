@@ -1,0 +1,43 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M114
+spec:
+  description: Prose for Discover Phase.
+  body: "**Pillar:** Problem Finding  \n**Thinking Mode:** Divergent (exploring widely)\n\
+    \nThe Discover phase is the first phase of the Double Diamond, where teams explore\
+    \ the problem space broadly before narrowing down. This divergent phase helps\
+    \ teams understand, rather than simply assume, what the problem is.\n\n## What\
+    \ It Is\n\nThe Discover phase involves speaking to and spending time with people\
+    \ who are affected by the issues. It's about building empathy and gathering insights\
+    \ that challenge assumptions. Teams cast a wide net to understand the full context\
+    \ of the problem space.\n\nKey activities in this phase include:\n- **User research**\
+    \ — Interviewing and observing people affected by the problem\n- **Contextual\
+    \ inquiry** — Understanding the environment where problems occur\n- **Secondary\
+    \ research** — Reviewing existing data and prior work\n- **Stakeholder mapping**\
+    \ — Identifying all parties involved in the problem space\n- **Empathy exercises**\
+    \ — Walking in users' shoes to build understanding\n\n## How to Measure\n\n- **Breadth\
+    \ of insights** — How many different perspectives have been captured?\n- **User\
+    \ coverage** — How many distinct user types have been researched?\n- **Assumption\
+    \ challenges** — How many initial assumptions were validated or invalidated?\n\
+    - **Problem understanding depth** — Can the team articulate the problem from the\
+    \ user's perspective?\n\n## FOE Alignment\n\nThe Discover phase strongly supports\
+    \ **Understanding** — the core FOE principle. By investing time to understand\
+    \ before solving, teams avoid the common failure of solving the wrong problem.\
+    \ The phase also supports **Fast Feedback** by testing assumptions early through\
+    \ user research.\n\n## When to Use\n\nUse the Discover phase when:\n- Starting\
+    \ a new project or initiative\n- Tackling a problem that isn't well understood\n\
+    - Initial assumptions about users need validation\n- The team is jumping too quickly\
+    \ to solutions\n\n## Common Pitfalls\n\n- **Confirmation bias** — Only talking\
+    \ to users who confirm existing beliefs\n- **Surface-level research** — Asking\
+    \ what users want instead of observing what they need\n- **Skipping this phase**\
+    \ — Assuming the problem is already understood\n- **Analysis paralysis** — Spending\
+    \ too long exploring without moving to Define\n\n## Further Reading\n\n- [Design\
+    \ Methods Step 1: Discover](https://www.designcouncil.org.uk/our-work/news-opinion/design-methods-step-1-discover/)\
+    \ — Design Council guide"
+  lead: The Discover phase is the first phase of the Double Diamond, where teams explore
+    the problem space broadly before narrowing down. This divergent phase helps teams
+    understand, rather than simply assume, what the problem is.
+  docs_url_path: external-frameworks/double-diamond/methods/M114-discover-phase

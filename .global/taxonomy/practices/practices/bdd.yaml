@@ -5,9 +5,13 @@ kind: practice
 metadata:
   name: bdd
 spec:
-  description: BDD — external framework FOE draws methods from.
+  description: Behavior-Driven Development (BDD) is a collaborative approach that
+    bridges business and technical teams through concrete examples, executable specifications,
+    and shared understanding. Originally introduced by Dan North in 2006 as an evolution
+    of Test-Driven Development (TDD), BDD shifts the focus from testing to specifying
+    behavior through conversations and examples.
   title: BDD
-  canonical: bdd
+  canonical: https://cucumber.io/docs/bdd/
   methods:
   - M115
   - M120

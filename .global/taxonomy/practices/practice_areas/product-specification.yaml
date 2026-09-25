@@ -5,7 +5,8 @@ kind: practice_area
 metadata:
   name: product-specification
 spec:
-  description: 'FOE field guide: Product Specification.'
+  description: A collection of flow-optimized methods for requirements gathering,
+    specification writing, and product-engineering collaboration.
   title: Product Specification
   canonical: product-specification
   practices:

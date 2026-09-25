@@ -1,0 +1,213 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M230
+spec:
+  description: Prose for Event Sourcing (Microservices).
+  body: "**Pillar:** Data Patterns\n\nEvent Sourcing persists the state of an application\
+    \ as a sequence of events rather than storing only the current state. Each change\
+    \ to the application state is captured as an immutable event appended to an event\
+    \ store. The current state is derived by replaying these events. This pattern\
+    \ naturally integrates with microservices through event-driven communication.\n\
+    \n## Definition\n\n> \"Event sourcing persists the state of a business entity,\
+    \ such as an Order or a Customer, as a stream of state-changing events. Whenever\
+    \ the state of a business entity changes, a new event is appended to the list\
+    \ of events. Since saving an event is a single operation, it is inherently atomic.\"\
+    \n> — Chris Richardson, Microservices Patterns\n\n## Why It Matters\n\nTraditional\
+    \ state storage has limitations:\n\n- **No history** - Only current state is stored,\
+    \ past states are lost\n- **Audit challenges** - Difficult to track who changed\
+    \ what and when\n- **Debugging difficulty** - Hard to understand how system reached\
+    \ current state\n- **Integration friction** - Services must poll or query for\
+    \ changes\n\nEvent Sourcing provides:\n- **Complete audit trail** - Every change\
+    \ recorded with context\n- **Temporal queries** - Query state at any point in\
+    \ time\n- **Natural event publishing** - Events already exist for integration\n\
+    - **Replay capability** - Reconstruct state or debug by replaying events\n- **Event-driven\
+    \ architecture** - Native integration with microservices\n\n## How It Works\n\n\
+    ### Core Concept\n\n```\nTraditional State Storage          Event Sourcing\n┌──────────────────┐\
+    \              ┌──────────────────┐\n│  Current State   │              │   Event\
+    \ Stream   │\n│                  │              │                  │\n│ Order:\
+    \           │              │ 1. OrderCreated  │\n│   id: 123        │        \
+    \      │ 2. ItemAdded     │\n│   items: [...]   │  ←── vs ──▶  │ 3. ItemAdded\
+    \     │\n│   status: paid   │              │ 4. PaymentMade   │\n│   total: $99\
+    \     │              │ 5. OrderShipped  │\n└──────────────────┘              └──────────────────┘\n\
+    \                                          │\n                               \
+    \           ▼\n                                   ┌──────────────────┐\n     \
+    \                              │  Replay events   │\n                        \
+    \           │  to get state    │\n                                   └──────────────────┘\n\
+    ```\n\n### Event Structure\n\n```javascript\n{\n  // Event identity\n  eventId:\
+    \ \"evt_abc123\",\n  eventType: \"OrderItemAdded\",\n  \n  // Temporal information\n\
+    \  timestamp: \"2024-01-15T10:30:00Z\",\n  version: 3,  // Sequence in the aggregate's\
+    \ stream\n  \n  // Domain data\n  aggregateId: \"order_123\",\n  aggregateType:\
+    \ \"Order\",\n  \n  // Event payload\n  payload: {\n    productId: \"prod_456\"\
+    ,\n    quantity: 2,\n    unitPrice: 29.99\n  },\n  \n  // Metadata\n  metadata:\
+    \ {\n    userId: \"user_789\",\n    correlationId: \"corr_xyz\",\n    causationId:\
+    \ \"evt_prev456\"\n  }\n}\n```\n\n### Reconstructing State\n\n```javascript\n\
+    class Order {\n  constructor(events) {\n    this.status = 'PENDING';\n    this.items\
+    \ = [];\n    this.total = 0;\n    \n    // Replay events to build current state\n\
+    \    events.forEach(event => this.apply(event));\n  }\n  \n  apply(event) {\n\
+    \    switch (event.eventType) {\n      case 'OrderCreated':\n        this.id =\
+    \ event.aggregateId;\n        this.customerId = event.payload.customerId;\n  \
+    \      this.createdAt = event.timestamp;\n        break;\n        \n      case\
+    \ 'OrderItemAdded':\n        this.items.push({\n          productId: event.payload.productId,\n\
+    \          quantity: event.payload.quantity,\n          unitPrice: event.payload.unitPrice\n\
+    \        });\n        this.total += event.payload.quantity * event.payload.unitPrice;\n\
+    \        break;\n        \n      case 'PaymentMade':\n        this.status = 'PAID';\n\
+    \        this.paymentId = event.payload.paymentId;\n        break;\n        \n\
+    \      case 'OrderShipped':\n        this.status = 'SHIPPED';\n        this.shippedAt\
+    \ = event.timestamp;\n        break;\n    }\n  }\n}\n\n// Load order from event\
+    \ store\nconst events = await eventStore.getEvents('order_123');\nconst order\
+    \ = new Order(events);\n```\n\n## Architecture\n\n### Components\n\n```\n┌─────────────────────────────────────────────────────────────┐\n\
+    │                      Command Handler                         │\n│  ┌──────────────┐\
+    \  ┌──────────────┐  ┌──────────────┐       │\n│  │   Validate   │  │  Create\
+    \      │  │   Persist    │       │\n│  │   Command    │─▶│   Events     │─▶│ \
+    \  Events     │       │\n│  └──────────────┘  └──────────────┘  └──────────────┘\
+    \       │\n└─────────────────────────────────────────────────────────────┘\n \
+    \                             │\n                              ▼\n┌─────────────────────────────────────────────────────────────┐\n\
+    │                       Event Store                            │\n│  ┌─────────────────────────────────────────────────────────┐│\n\
+    │  │ Aggregate Stream: \"order_123\"                           ││\n│  │ ┌─────────┐\
+    \ ┌─────────┐ ┌─────────┐ ┌─────────┐        ││\n│  │ │ Created │ │ ItemAdd │\
+    \ │ Payment │ │ Shipped │        ││\n│  │ │  v1     │ │  v2     │ │  v3     │\
+    \ │  v4     │        ││\n│  │ └─────────┘ └─────────┘ └─────────┘ └─────────┘\
+    \        ││\n│  └─────────────────────────────────────────────────────────┘│\n\
+    └─────────────────────────────────────────────────────────────┘\n            \
+    \                  │\n              ┌───────────────┼───────────────┐\n      \
+    \        ▼               ▼               ▼\n┌──────────────────┐ ┌──────────────────┐\
+    \ ┌──────────────────┐\n│   Projections    │ │   Event Bus      │ │   Snapshots\
+    \      │\n│  ┌────────────┐  │ │                  │ │                  │\n│  │\
+    \ Read Model │  │ │ Publish to       │ │ Periodic state   │\n│  │  Updates   │\
+    \  │ │ other services   │ │ caching for perf │\n│  └────────────┘  │ │       \
+    \           │ │                  │\n└──────────────────┘ └──────────────────┘\
+    \ └──────────────────┘\n```\n\n## Implementation\n\n### Aggregate Root\n\n```javascript\n\
+    class OrderAggregate {\n  constructor(id) {\n    this.id = id;\n    this.version\
+    \ = 0;\n    this.uncommittedEvents = [];\n    \n    // State\n    this.status\
+    \ = 'PENDING';\n    this.items = [];\n    this.customerId = null;\n  }\n  \n \
+    \ // Factory method with events\n  static loadFromHistory(id, events) {\n    const\
+    \ order = new OrderAggregate(id);\n    events.forEach(event => {\n      order.apply(event);\n\
+    \      order.version = event.version;\n    });\n    return order;\n  }\n  \n \
+    \ // Command handlers\n  addItem(productId, quantity, unitPrice) {\n    if (this.status\
+    \ !== 'PENDING') {\n      throw new Error('Cannot modify non-pending order');\n\
+    \    }\n    \n    this.raiseEvent('OrderItemAdded', {\n      productId,\n    \
+    \  quantity,\n      unitPrice\n    });\n  }\n  \n  makePayment(paymentId, amount)\
+    \ {\n    if (this.status !== 'PENDING') {\n      throw new Error('Order already\
+    \ paid');\n    }\n    \n    this.raiseEvent('PaymentMade', {\n      paymentId,\n\
+    \      amount\n    });\n  }\n  \n  // Internal: create and apply event\n  raiseEvent(eventType,\
+    \ payload) {\n    const event = {\n      eventId: generateId(),\n      eventType,\n\
+    \      aggregateId: this.id,\n      aggregateType: 'Order',\n      version: ++this.version,\n\
+    \      timestamp: new Date().toISOString(),\n      payload\n    };\n    \n   \
+    \ this.apply(event);\n    this.uncommittedEvents.push(event);\n  }\n  \n  // State\
+    \ mutation\n  apply(event) {\n    switch (event.eventType) {\n      case 'OrderItemAdded':\n\
+    \        this.items.push(event.payload);\n        break;\n      case 'PaymentMade':\n\
+    \        this.status = 'PAID';\n        break;\n    }\n  }\n}\n```\n\n### Event\
+    \ Store\n\n```javascript\nclass EventStore {\n  async appendEvents(aggregateId,\
+    \ expectedVersion, events) {\n    // Optimistic concurrency control\n    const\
+    \ currentVersion = await this.getCurrentVersion(aggregateId);\n    \n    if (currentVersion\
+    \ !== expectedVersion) {\n      throw new ConcurrencyException(\n        `Expected\
+    \ version ${expectedVersion} but found ${currentVersion}`\n      );\n    }\n \
+    \   \n    // Atomically append all events\n    await this.db.events.insertMany(\n\
+    \      events.map((event, index) => ({\n        ...event,\n        version: expectedVersion\
+    \ + index + 1,\n        sequenceNumber: await this.getNextGlobalSequence()\n \
+    \     }))\n    );\n    \n    // Publish to event bus\n    for (const event of\
+    \ events) {\n      await this.eventBus.publish(event);\n    }\n  }\n  \n  async\
+    \ getEvents(aggregateId, fromVersion = 0) {\n    return await this.db.events\n\
+    \      .find({ aggregateId, version: { $gt: fromVersion } })\n      .sort({ version:\
+    \ 1 })\n      .toArray();\n  }\n}\n```\n\n### Projections (Read Models)\n\n```javascript\n\
+    // Projection handler\neventBus.on('OrderItemAdded', async (event) => {\n  await\
+    \ readDb.orderItems.insert({\n    orderId: event.aggregateId,\n    productId:\
+    \ event.payload.productId,\n    quantity: event.payload.quantity,\n    addedAt:\
+    \ event.timestamp\n  });\n  \n  // Update order summary\n  await readDb.orderSummaries.updateOne(\n\
+    \    { orderId: event.aggregateId },\n    { \n      $inc: { itemCount: event.payload.quantity\
+    \ },\n      $set: { lastUpdated: event.timestamp }\n    }\n  );\n});\n\n// Multiple\
+    \ projections for different use cases\neventBus.on('OrderCreated', async (event)\
+    \ => {\n  // Projection for customer dashboard\n  await readDb.customerOrders.insert({\n\
+    \    orderId: event.aggregateId,\n    customerId: event.payload.customerId,\n\
+    \    createdAt: event.timestamp,\n    status: 'PENDING'\n  });\n  \n  // Projection\
+    \ for analytics\n  await analyticsDb.orders.insert({\n    orderId: event.aggregateId,\n\
+    \    region: event.payload.region,\n    createdAt: event.timestamp,\n    hourOfDay:\
+    \ new Date(event.timestamp).getHours()\n  });\n});\n```\n\n## FOE Alignment\n\n\
+    **Primary: Optimize for Understanding**\n\nEvent Sourcing makes system behavior\
+    \ fully transparent. Every state change is recorded with context—what happened,\
+    \ when, and why. This complete history enables developers to understand exactly\
+    \ how the system reached its current state, making debugging and auditing straightforward.\
+    \ The event stream tells the story of the domain.\n\n**Secondary: Confidence to\
+    \ Act**\n\nThe immutable event log provides confidence that no data is ever truly\
+    \ lost. Even if current projections are corrupted, they can be rebuilt from the\
+    \ event store. The audit trail ensures compliance requirements are met. Temporal\
+    \ queries enable analysis of historical states, supporting confident decision-making\
+    \ about the future.\n\n## Benefits\n\n- ✅ **Complete audit trail** - Every change\
+    \ recorded with full context\n- ✅ **Temporal queries** - Query state at any point\
+    \ in time\n- ✅ **Debugging capability** - Replay events to understand bugs\n-\
+    \ ✅ **Natural integration** - Events drive microservice communication\n- ✅ **Event-driven\
+    \ architecture** - Native support for reactive systems\n- ✅ **Immutable history**\
+    \ - Events never change, ensuring data integrity\n\n## Trade-offs\n\n- ⚠️ **Complexity**\
+    \ - Different paradigm from CRUD requires learning\n- ⚠️ **Event schema evolution**\
+    \ - Changing event structures is challenging\n- ⚠️ **Query complexity** - Current\
+    \ state must be projected from events\n- ⚠️ **Storage growth** - Event store grows\
+    \ indefinitely\n- ⚠️ **Learning curve** - Team must understand event-driven thinking\n\
+    \n## When to Use\n\n✅ **Use when:**\n- Audit trails are critical (financial, healthcare,\
+    \ compliance)\n- You need to analyze historical states\n- Event-driven architecture\
+    \ is already in use\n- Debugging complex state changes is important\n- You need\
+    \ temporal queries (\"what was the state on X date?\")\n\n❌ **Avoid when:**\n\
+    - Simple CRUD operations dominate\n- Storage costs are a major concern\n- Team\
+    \ is new to distributed systems\n- Query performance is critical (without projections)\n\
+    - Event schema stability cannot be guaranteed\n\n## Event Schema Evolution\n\n\
+    Events are immutable—once stored, they cannot change. But schemas evolve:\n\n\
+    ### Versioning Strategies\n\n```javascript\n// 1. Schema Version in Event\n{\n\
+    \  eventType: 'OrderCreated',\n  schemaVersion: 2,\n  payload: {\n    orderId:\
+    \ '123',\n    customerId: '456',\n    // New field added in v2\n    priority:\
+    \ 'HIGH'\n  }\n}\n\n// 2. Upcasting (transform on read)\nfunction upcastEvent(event)\
+    \ {\n  if (event.eventType === 'OrderCreated' && !event.schemaVersion) {\n   \
+    \ // v1 to v2 migration\n    return {\n      ...event,\n      schemaVersion: 2,\n\
+    \      payload: {\n        ...event.payload,\n        priority: 'NORMAL' // Default\
+    \ for old events\n      }\n    };\n  }\n  return event;\n}\n\n// 3. Multiple Event\
+    \ Types\n// Old events stay as-is, new events use new type\n'OrderCreated'   \
+    \   // v1\n'OrderCreatedV2'    // v2 with new fields\n```\n\n### Best Practices\n\
+    \n1. **Design events carefully upfront** - Changes are expensive\n2. **Use schema\
+    \ registries** - Enforce event contracts\n3. **Add fields, don't remove** - Maintain\
+    \ backward compatibility\n4. **Event types for breaking changes** - New type instead\
+    \ of breaking old\n5. **Test upcasters** - Ensure old events still process correctly\n\
+    \n## Snapshots\n\nReplaying thousands of events to get current state is slow.\
+    \ Snapshots cache state:\n\n```javascript\nclass SnapshotStore {\n  async saveSnapshot(aggregateId,\
+    \ version, state) {\n    await this.db.snapshots.updateOne(\n      { aggregateId\
+    \ },\n      {\n        aggregateId,\n        version,\n        state,\n      \
+    \  createdAt: new Date()\n      },\n      { upsert: true }\n    );\n  }\n  \n\
+    \  async loadAggregate(aggregateId) {\n    // Load latest snapshot\n    const\
+    \ snapshot = await this.db.snapshots.findOne({ aggregateId });\n    \n    // Load\
+    \ events after snapshot\n    const events = await this.eventStore.getEvents(\n\
+    \      aggregateId,\n      snapshot ? snapshot.version : 0\n    );\n    \n   \
+    \ // Reconstruct from snapshot + events\n    return OrderAggregate.loadFromSnapshot(snapshot,\
+    \ events);\n  }\n}\n\n// Create snapshot every N events\nif (aggregate.uncommittedEvents.length\
+    \ > 0 &&\n    aggregate.version % 100 === 0) {\n  await snapshotStore.saveSnapshot(\n\
+    \    aggregate.id,\n    aggregate.version,\n    aggregate.getState()\n  );\n}\n\
+    ```\n\n## Anti-Patterns\n\n### ❌ Event Sourcing Everything\n\nNot all data needs\
+    \ event sourcing:\n\n```javascript\n// WRONG: Event sourcing for simple lookup\
+    \ tables\n// RIGHT: Use event sourcing for core domain aggregates only\n```\n\n\
+    ### ❌ Command-Event Confusion\n\nDon't record commands as events:\n\n```javascript\n\
+    // WRONG: Record the command\n{\n  eventType: 'CreateOrderCommand',\n  payload:\
+    \ { customerId: '123', items: [...] }\n}\n\n// RIGHT: Record what happened\n{\n\
+    \  eventType: 'OrderCreated',\n  payload: { orderId: '456', customerId: '123',\
+    \ items: [...] }\n}\n```\n\n### ❌ External System State in Events\n\nEvents should\
+    \ capture your domain's decisions, not external states:\n\n```javascript\n// WRONG:\
+    \ Capturing external API response\n{\n  eventType: 'PaymentProcessed',\n  payload:\
+    \ {\n    gatewayResponse: { /* huge external payload */ }\n  }\n}\n\n// RIGHT:\
+    \ Capture only what your domain needs\n{\n  eventType: 'PaymentMade',\n  payload:\
+    \ {\n    paymentId: 'pay_123',\n    amount: 99.99,\n    gatewayReference: 'ref_abc'\n\
+    \  }\n}\n```\n\n## Known Uses\n\n- **Event Store** - Purpose-built event sourcing\
+    \ database\n- **Axon Framework** - Java framework for event sourcing\n- **Spotify**\
+    \ - Event sourcing for playlist and playback data\n- **Greg Young's Event Store**\
+    \ - Open-source event store\n- **Linedata** - Financial systems with full audit\
+    \ requirements\n- **Kansas City Development** - Government compliance tracking\n\
+    \n## References\n\n- Young, G. (2010). [Why use Event Sourcing?](https://codebetter.com/gregyoung/2010/02/20/why-use-event-sourcing/)\n\
+    - Fowler, M. (2005). [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html).\n\
+    - Richardson, C. (2018). *Microservices Patterns*. Chapter 6: Developing Business\
+    \ Logic with Event Sourcing.\n- [Event Sourcing - microservices.io](https://microservices.io/patterns/data/event-sourcing.html)\n\
+    - [Microsoft: Event Sourcing Pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)\n\
+    - [Vaughn Vernon: Implementing Domain-Driven Design](https://www.oreilly.com/library/view/implementing-domain-driven-design/9780133039900/)\n\
+    - [Event Store Documentation](https://developers.eventstore.com/)"
+  lead: Event Sourcing persists the state of an application as a sequence of events
+    rather than storing only the current state. Each change to the application state
+    is captured as an immutable event appended to an event store. The current state
+    is derived by replaying these events. This pattern naturally integrates with microservices
+    through event-driven communication.
+  docs_url_path: external-frameworks/microservices/methods/M230-event-sourcing-microservices

@@ -1,0 +1,203 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: event-sourcing
+spec:
+  description: Prose for Event Sourcing.
+  body: 'Event Sourcing is an architectural pattern where the state of an application
+    is determined by a sequence of events. Instead of storing just the current state
+    in a database, every change to the state is captured as an immutable event in
+    an append-only event store. The current state can be reconstructed by replaying
+    these events from the beginning of time.
+
+
+    ## Key Concepts
+
+
+    ### Events as Source of Truth
+
+
+    In traditional systems, the database holds the current state as the source of
+    truth. In Event Sourcing, the event store is the source of truth, and the current
+    state is a **derived view** created by applying all events in sequence.
+
+
+    This inversion has profound implications:
+
+    - **Complete audit trail** - Every change is permanently recorded with full context
+
+    - **Temporal queries** - You can ask "what was the state at time X?"
+
+    - **Debugging capability** - Replay events to reproduce bugs or understand system
+    behavior
+
+    - **Analytics** - Rich historical data for business intelligence
+
+
+    ### State Reconstruction
+
+
+    The current state is computed by applying a **left fold** (reduce) operation over
+    the event stream:
+
+
+    ```
+
+    CurrentState = foldl(applyEvent, initialState, events)
+
+    ```
+
+
+    Each event represents a state transition function that transforms the state from
+    one version to the next.
+
+
+    ### Append-Only Storage
+
+
+    Events are never updated or deleted—they are only appended to the event stream.
+    This immutability provides:
+
+    - **Strong audit capabilities** - Complete history preserved
+
+    - **Concurrency safety** - No conflicts from updates
+
+    - **Caching opportunities** - Immutable data can be cached indefinitely
+
+
+    ### Temporal Modeling
+
+
+    Event Sourcing naturally models business processes that unfold over time:
+
+    - Business events happen at specific moments
+
+    - State evolves as a sequence of facts
+
+    - The domain model reflects the temporal nature of reality
+
+
+    ## Event Sourcing vs CQRS
+
+
+    **Event Sourcing and CQRS are independent patterns that are often used together
+    but should not be conflated:**
+
+
+    | Aspect | Event Sourcing | CQRS |
+
+    |--------|---------------|------|
+
+    | **Focus** | How state is stored (as events) | Separating read and write models
+    |
+
+    | **Data Storage** | Append-only event store | Can use any storage |
+
+    | **State Access** | Replay events to reconstruct | Direct queries on read model
+    |
+
+    | **Relationship** | ES often uses CQRS for queries | CQRS doesn''t require ES
+    |
+
+
+    You can use Event Sourcing without CQRS (by projecting events into a single read/write
+    model), and you can use CQRS without Event Sourcing (with traditional CRUD storage).
+
+
+    ## When to Use Event Sourcing
+
+
+    ### Good Fit For:
+
+
+    - **Audit-heavy domains** - Financial systems, healthcare, compliance requirements
+
+    - **Complex business processes** - Workflows with many states and transitions
+
+    - **Temporal analysis needs** - Understanding how things changed over time
+
+    - **Event-driven architectures** - Systems already using events for communication
+
+    - **Collaborative domains** - Multiple users modifying shared state
+
+
+    ### NOT Recommended For:
+
+
+    - **Simple CRUD applications** - The complexity may not be justified
+
+    - **High-write, low-read scenarios** - Storage costs grow continuously
+
+    - **Teams new to DDD** - Requires strong domain modeling skills
+
+    - **Tight deadline projects** - Learning curve is significant
+
+    - **Systems requiring complex ad-hoc queries** - Event stores are poor for querying
+
+
+    ## Complexity Considerations
+
+
+    :::caution Complexity Warning
+
+
+    Event Sourcing significantly increases system complexity. Before adopting, ensure:
+
+
+    1. **Team expertise** - At least some team members have prior ES experience
+
+    2. **Infrastructure readiness** - Event store, projection systems, monitoring
+
+    3. **Domain complexity** - The domain justifies the investment
+
+    4. **Long-term commitment** - ES is hard to remove once adopted
+
+
+    :::
+
+
+    ## FOE Alignment
+
+
+    Event Sourcing strongly supports Flow Optimized Engineering principles:
+
+
+    - **Understanding** - Events make implicit domain concepts explicit. The complete
+    history provides unprecedented visibility into system behavior. Debugging becomes
+    "replay and observe" rather than "guess and check."
+
+
+    - **Confidence** - Immutable events eliminate entire categories of bugs related
+    to state mutation. The audit trail provides confidence in compliance and regulatory
+    scenarios.
+
+
+    - **Fast Feedback** - Events enable reactive architectures and real-time projections.
+    Changes propagate immediately to interested parties without polling.
+
+
+    ## Further Reading
+
+
+    - [Martin Fowler - Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
+    - Original article defining the pattern
+
+    - [Microsoft - Exploring CQRS and Event Sourcing](https://docs.microsoft.com/en-us/previous-versions/msp-n-p/jj554200(v=pandp.10))
+    - Comprehensive guide with patterns and practices
+
+    - [Event Store Documentation](https://developers.eventstore.com/) - Documentation
+    for Kurrent (formerly Event Store)
+
+    - [Greg Young''s CQRS Documents](https://cqrs.wordpress.com/documents/) - Original
+    materials on CQRS and Event Sourcing
+
+    - [Vaughn Vernon - Implementing Domain-Driven Design](https://www.informit.com/store/implementing-domain-driven-design-9780321834577)
+    - Practical DDD including Event Sourcing'
+  lead: Event Sourcing is an architectural pattern where the state of an application
+    is determined by a sequence of events. Instead of storing just the current state
+    in a database, every change to the state is captured as an immutable event in
+    an append-only event store. The current state can be reconstructed by replaying
+    these events from the beginning of time.
+  docs_url_path: external-frameworks/event-sourcing/overview

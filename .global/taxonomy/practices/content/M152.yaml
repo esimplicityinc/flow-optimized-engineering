@@ -1,0 +1,92 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M152
+spec:
+  description: Prose for Test-Driven Agent Development.
+  body: "Apply the red-green-refactor cycle when working with AI coding assistants.\
+    \ If you didn't watch the test fail, you don't know if it tests the right thing—this\
+    \ is doubly true when AI writes the test.\n\n## Overview\n\nAI coding assistants\
+    \ can generate tests alongside implementation code. This creates a dangerous situation:\
+    \ both the code and the test might be wrong in the same way, and the test passes\
+    \ because it validates the bug. The test provides false confidence.\n\n**Test-Driven\
+    \ Agent Development** applies the classic TDD discipline to AI-assisted work:\
+    \ always see the test fail before making it pass. This simple gate ensures that:\n\
+    1. The test actually tests what you think it tests\n2. The test can detect failures\n\
+    3. The implementation was necessary (the test didn't pass accidentally)\n\nThe\
+    \ iron law from obra/superpowers: *\"If you didn't watch the test fail, you don't\
+    \ know if it tests the right thing.\"*\n\n## When to Use\n\nUse this method when:\n\
+    \n- Working with AI on features that need to be correct\n- The AI is generating\
+    \ both tests and implementation\n- You've experienced \"tests pass but code is\
+    \ wrong\" situations\n- Building confidence in AI-generated code matters\n\n##\
+    \ When NOT to Use\n\nAvoid this method when:\n\n- Exploratory coding where you're\
+    \ discovering requirements\n- Adding tests to existing working code (test-after\
+    \ is fine there)\n- Time pressure genuinely outweighs correctness needs (rare\
+    \ but real)\n\n## How It Works\n\n### Prerequisites\n\nBefore starting:\n- Have\
+    \ a test framework configured and running\n- Tests should execute quickly (< 5\
+    \ seconds for unit tests)\n- Understand what behavior you want to implement\n\n\
+    ### Step 1: Write the Test First (Red)\n\nAsk the AI to write a test for the desired\
+    \ behavior *before* implementing it:\n\n```\n\"Write a test for a function that\
+    \ calculates compound interest. \nDon't implement the function yet—just the test.\"\
+    \n```\n\nThe AI produces a test. **Run it and watch it fail.**\n\n```bash\n$ npm\
+    \ test\n  ✗ should calculate compound interest correctly\n    Error: calculateCompoundInterest\
+    \ is not defined\n```\n\nThis failure proves:\n- The test runs\n- The test would\
+    \ detect a missing implementation\n- You're testing the right thing\n\n### Step\
+    \ 2: Verify the Failure is Meaningful\n\nEnsure the test fails for the right reason:\n\
+    - Not a syntax error in the test\n- Not a missing import (unless that's what you're\
+    \ testing)\n- The actual assertion would have executed\n\nIf the test fails before\
+    \ reaching the assertion, fix the test first.\n\n### Step 3: Implement to Pass\
+    \ (Green)\n\nNow ask the AI to implement just enough to make the test pass:\n\n\
+    ```\n\"Now implement calculateCompoundInterest to make this test pass.\nImplement\
+    \ the minimum needed—don't add extra features.\"\n```\n\nRun the test again. It\
+    \ should pass:\n\n```bash\n$ npm test\n  ✓ should calculate compound interest\
+    \ correctly\n```\n\n### Step 4: Refactor with Confidence\n\nWith a passing test,\
+    \ you can refactor safely:\n\n```\n\"Can you refactor this implementation to be\
+    \ more readable?\nThe test should still pass after.\"\n```\n\nRun tests after\
+    \ every refactor to ensure you haven't broken anything.\n\n### Step 5: Repeat\
+    \ for Additional Cases\n\nAdd edge cases one at a time, always following red-green-refactor:\n\
+    \n1. Write test for edge case → watch it fail\n2. Extend implementation → watch\
+    \ it pass\n3. Refactor if needed → confirm tests still pass\n\n## Example\n\n\
+    **Anti-pattern: Test and Implementation Together**\n\n```\nYou: \"Create a function\
+    \ to validate email addresses with tests.\"\n\nAI: Here's the implementation and\
+    \ tests:\n\nfunction isValidEmail(email) {\n  return email.includes('@');\n}\n\
+    \ntest('validates email', () => {\n  expect(isValidEmail('test@example.com')).toBe(true);\n\
+    });\n\nAll tests pass! ✓\n```\n\n❌ **Problem:** You never saw the test fail. The\
+    \ test might be testing the wrong thing. In fact, this implementation is buggy\
+    \ (`\"@@\"` would pass) but the test doesn't catch it.\n\n---\n\n**TDD Pattern:\
+    \ Red-Green-Refactor**\n\n```\nYou: \"Write a test for email validation. Don't\
+    \ implement yet.\"\n\nAI: Here's the test:\n\ntest('rejects email without @',\
+    \ () => {\n  expect(isValidEmail('invalid')).toBe(false);\n});\n\ntest('accepts\
+    \ valid email format', () => {\n  expect(isValidEmail('user@domain.com')).toBe(true);\n\
+    });\n\nYou: Run it.\n\nAI: $ npm test\n  ✗ rejects email without @ - isValidEmail\
+    \ is not defined\n  ✗ accepts valid email format - isValidEmail is not defined\n\
+    ```\n\n✅ **Good:** Tests fail because function doesn't exist. Now implement:\n\
+    \n```\nYou: \"Implement isValidEmail to pass these tests.\"\n\nAI: function isValidEmail(email)\
+    \ {\n  return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);\n}\n\n$ npm test\n\
+    \  ✓ rejects email without @\n  ✓ accepts valid email format\n```\n\n✅ **Confidence:**\
+    \ You saw the tests fail, then pass. The tests actually test something.\n\n##\
+    \ Common Pitfalls\n\n1. **\"The AI wrote tests, so we're covered\"** - AI-generated\
+    \ tests can have the same blind spots as AI-generated code. The red phase catches\
+    \ this.\n\n2. **Skipping the red phase \"just this once\"** - Every skip is a\
+    \ potential false-positive test. The discipline must be consistent.\n\n3. **Too\
+    \ many tests at once** - Write one test, see it fail, make it pass. Then the next.\
+    \ Batching tests defeats the purpose.\n\n4. **Confusing test errors with test\
+    \ failures** - A test that errors (crashes) before the assertion isn't the same\
+    \ as a test that fails (assertion not met). Fix errors first.\n\n## FOE Alignment\n\
+    \nThis method supports multiple FOE principles:\n\n- **Fast Feedback:** Immediate\
+    \ test results after each change\n- **Build Confidence:** Watching tests fail\
+    \ then pass proves the test works\n- **Incremental Development:** One test at\
+    \ a time, building up coverage\n\n## External Evidence\n\n- **skills.sh obra/superpowers**\
+    \ (1.3K weekly installs): \"test-driven-development\" skill with strict red-green-refactor\
+    \ enforcement\n- **RubberDuckBench research** (arXiv 2026): High hallucination\
+    \ rates in AI models make verification essential\n- **Classic TDD literature**:\
+    \ Kent Beck's principles apply equally to AI-assisted development\n\n## How You\
+    \ Can Help\n\nIf you're testing this method:\n\n1. Apply TDD discipline to your\
+    \ AI-assisted development\n2. Track instances where the red phase caught problems\n\
+    3. Document your experience as an observation"
+  lead: Apply the red-green-refactor cycle when working with AI coding assistants.
+    If you didn't watch the test fail, you don't know if it tests the right thing—this
+    is doubly true when AI writes the test.
+  docs_url_path: field-guides/agentic-coding/methods/established/M152-test-driven-agent-development

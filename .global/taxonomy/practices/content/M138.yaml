@@ -1,0 +1,203 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M138
+spec:
+  description: Prose for Three Amigos.
+  body: '**Pillar:** Discovery
+
+
+    Three Amigos is a meeting format that brings together three essential perspectives—business,
+    development, and testing—to collaboratively explore a user story and define its
+    acceptance criteria through concrete examples.
+
+
+    ## Definition
+
+
+    > A structured conversation involving at least three perspectives (Product Owner,
+    Developer, Tester) that transforms a user story into a shared understanding of
+    expected behavior through concrete examples.
+
+
+    ## Why It Matters
+
+
+    The Three Amigos approach ensures:
+
+
+    - **Complete perspective coverage** - Business value, technical feasibility, and
+    quality considerations
+
+    - **Early defect prevention** - Issues found in conversation cost far less than
+    issues found in code
+
+    - **Shared ownership** - All three perspectives contribute to and understand the
+    requirements
+
+    - **Reduced handoff waste** - No "throwing requirements over the wall"
+
+
+    ## The Three Perspectives
+
+
+    ### Business (Product Owner)
+
+
+    **Focus:** Scope and value
+
+
+    - Explains the business context and user needs
+
+    - Clarifies what''s in scope and what''s not
+
+    - Prioritizes which scenarios matter most
+
+    - Answers "why" questions about the feature
+
+
+    ### Development (Developer)
+
+
+    **Focus:** Implementation and feasibility
+
+
+    - Identifies technical constraints and dependencies
+
+    - Suggests alternative approaches
+
+    - Asks clarifying questions about behavior
+
+    - Estimates complexity based on examples
+
+
+    ### Testing (Tester/QA)
+
+
+    **Focus:** Edge cases and quality
+
+
+    - Probes for boundary conditions
+
+    - Asks "what if" questions
+
+    - Identifies scenarios others might miss
+
+    - Thinks about how to verify the behavior
+
+
+    ## How to Run a Three Amigos Session
+
+
+    ### Before the Meeting
+
+
+    1. **Select a story** - Choose one that''s ready for development
+
+    2. **Share context** - Distribute any relevant background material
+
+    3. **Schedule 30 minutes** - Keep it focused and time-boxed
+
+
+    ### During the Meeting
+
+
+    1. **Product Owner presents** (5 min) - Story context and business value
+
+    2. **Open discussion** (20 min) - Generate examples collaboratively
+
+    3. **Capture outcomes** (5 min) - Document scenarios and open questions
+
+
+    ### Key Questions to Ask
+
+
+    - "Can you give me an example of that?"
+
+    - "What happens when...?"
+
+    - "What''s the simplest case?"
+
+    - "What could go wrong?"
+
+    - "How will we know it''s working?"
+
+
+    ## Example Session Output
+
+
+    **Story:** As a customer, I want to apply a discount code so that I can save money
+    on my order.
+
+
+    **Examples discovered:**
+
+
+    | Scenario | Given | When | Then |
+
+    |----------|-------|------|------|
+
+    | Valid code | A 20% discount code "SAVE20" exists | Customer applies "SAVE20"
+    to a $100 order | Order total becomes $80 |
+
+    | Expired code | Code "OLD10" expired yesterday | Customer applies "OLD10" | Error
+    message shown, price unchanged |
+
+    | Already used | Customer already used "ONCE" | Customer applies "ONCE" again
+    | Error message shown |
+
+    | Minimum not met | Code requires $50 minimum | Customer applies to $30 order
+    | Error message explains minimum |
+
+
+    ## Best Practices
+
+
+    - **Rotate the "Amigos"** - Different developers and testers bring fresh perspectives
+
+    - **Stay at behavior level** - Avoid implementation details
+
+    - **Capture questions** - Don''t let unknowns block the conversation
+
+    - **One story at a time** - Maintain focus
+
+
+    ## Common Anti-Patterns
+
+
+    - **Missing amigo** - Running without all three perspectives
+
+    - **Monologue** - One person dominates the conversation
+
+    - **Solution design** - Discussing how to build instead of what to build
+
+    - **Skipping the session** - "We already know what to do"
+
+
+    ## FOE Alignment
+
+
+    Three Amigos strongly supports the FOE principle of **Optimize for Understanding**:
+
+
+    - Multiple perspectives ensure comprehensive understanding
+
+    - Concrete examples create shared mental models
+
+    - Questions surface assumptions before they become defects
+
+
+    ## References
+
+
+    - North, D. (2006). "Introducing BDD." https://dannorth.net/introducing-bdd/
+
+    - Adzic, G. (2009). "Bridging the Communication Gap." Neuri Limited.
+
+    - Smart, J.F. (2014). "BDD in Action." Manning Publications.'
+  lead: Three Amigos is a meeting format that brings together three essential perspectives—business,
+    development, and testing—to collaboratively explore a user story and define its
+    acceptance criteria through concrete examples.
+  docs_url_path: external-frameworks/bdd/methods/M138-three-amigos

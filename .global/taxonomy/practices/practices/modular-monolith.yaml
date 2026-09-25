@@ -5,9 +5,14 @@ kind: practice
 metadata:
   name: modular-monolith
 spec:
-  description: Modular Monolith — external framework FOE draws methods from.
+  description: The Modular Monolith architecture pattern represents a pragmatic middle
+    ground between traditional monolithic applications and distributed microservices
+    systems. Rather than accepting the operational complexity of microservices from
+    day one, this approach advocates for building a single deployable unit that maintains
+    strict internal modularity—allowing teams to defer distribution decisions until
+    they are truly necessary.
   title: Modular Monolith
-  canonical: modular-monolith
+  canonical: https://github.com/kgrzybek/modular-monolith-with-ddd
   methods:
   - M235
   - M236

@@ -1,0 +1,80 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M127
+spec:
+  description: Prose for Given-When-Then.
+  body: "**Pillar:** Formulation\n\nGiven-When-Then is a template for writing acceptance\
+    \ criteria as structured scenarios. Developed by Dan North and Chris Matts, it\
+    \ provides a consistent format that is readable by both humans and computers,\
+    \ bridging the gap between business requirements and automated tests.\n\n## Definition\n\
+    \n> A structured template for expressing a scenario as a sequence of preconditions\
+    \ (Given), an action (When), and expected outcomes (Then), creating specifications\
+    \ that serve as both documentation and automated tests.\n\n## Why It Matters\n\
+    \nThe Given-When-Then format provides:\n\n- **Ubiquitous language** - Business\
+    \ and technical teams use the same vocabulary\n- **Clear structure** - Consistent\
+    \ format makes scenarios easy to read and write\n- **Testable specifications**\
+    \ - Scenarios can be directly automated\n- **Living documentation** - Tests that\
+    \ describe behavior in plain language\n\n## The Template\n\n### Given (Preconditions)\n\
+    \nDescribes the initial context or state of the system before the action occurs.\n\
+    \n- Sets up the scenario\n- Establishes what already exists\n- Can include multiple\
+    \ Given clauses connected with \"And\"\n\n**Examples:**\n- Given a registered\
+    \ user \"alice@example.com\"\n- Given the shopping cart contains 3 items\n- Given\
+    \ today is December 25th\n\n### When (Action)\n\nDescribes the action or event\
+    \ that triggers the behavior being specified.\n\n- Usually a single action\n-\
+    \ Represents what the user or system does\n- The pivot point of the scenario\n\
+    \n**Examples:**\n- When the user clicks \"Submit Order\"\n- When the payment is\
+    \ processed\n- When midnight passes\n\n### Then (Outcome)\n\nDescribes the expected\
+    \ result or observable change after the action.\n\n- Verifiable outcomes\n- Can\
+    \ include multiple Then clauses connected with \"And\"\n- Should be observable,\
+    \ not internal state\n\n**Examples:**\n- Then the order confirmation is displayed\n\
+    - Then an email is sent to \"alice@example.com\"\n- Then the inventory is reduced\
+    \ by 3\n\n## Connectors: And / But\n\nUse \"And\" and \"But\" to add additional\
+    \ clauses without repeating Given/When/Then:\n\n```gherkin\nGiven a user is logged\
+    \ in\nAnd the user has items in their cart\nAnd the user has a valid payment method\n\
+    When the user clicks \"Checkout\"\nThen the order is created\nAnd the cart is\
+    \ emptied\nBut the wishlist remains unchanged\n```\n\n## Example Scenarios\n\n\
+    ### Simple Scenario\n\n```gherkin\nScenario: Successful login\n  Given a registered\
+    \ user with email \"user@example.com\"\n  And the password is \"correct-password\"\
+    \n  When the user submits the login form\n  Then the user is redirected to the\
+    \ dashboard\n  And a welcome message is displayed\n```\n\n### Scenario with Business\
+    \ Rules\n\n```gherkin\nScenario: Discount applied for orders over $100\n  Given\
+    \ a shopping cart with items totaling $150\n  And a discount code \"SAVE10\" for\
+    \ 10% off orders over $100\n  When the user applies the discount code\n  Then\
+    \ the order total becomes $135\n  And the discount is shown as \"$15 off\"\n```\n\
+    \n### Edge Case Scenario\n\n```gherkin\nScenario: Cannot checkout with empty cart\n\
+    \  Given the user is logged in\n  And the shopping cart is empty\n  When the user\
+    \ navigates to checkout\n  Then an error message \"Your cart is empty\" is displayed\n\
+    \  And the checkout process does not proceed\n```\n\n## Writing Good Scenarios\n\
+    \n### Do\n\n| Practice | Example |\n|----------|---------|\n| Use domain language\
+    \ | \"Given a premium subscriber\" not \"Given user.type = 'premium'\" |\n| Be\
+    \ specific | \"Given 3 items in cart\" not \"Given some items in cart\" |\n| Focus\
+    \ on behavior | \"Then error is displayed\" not \"Then exception is thrown\" |\n\
+    | One scenario, one behavior | Test one thing per scenario |\n\n### Don't\n\n\
+    | Anti-Pattern | Problem |\n|--------------|---------|\n| Implementation details\
+    \ | \"Given the database has a row...\" |\n| UI mechanics | \"When user clicks\
+    \ the blue button at coordinates...\" |\n| Multiple behaviors | Testing login\
+    \ AND checkout in one scenario |\n| Vague outcomes | \"Then it works correctly\"\
+    \ |\n\n## Origins and Influences\n\nGiven-When-Then was influenced by Hoare logic's\
+    \ precondition-action-postcondition pattern from computer science. Dan North and\
+    \ Chris Matts adapted this formal concept into a human-readable format that could\
+    \ serve as both specification and test.\n\nThe format has since been adopted beyond\
+    \ BDD into general acceptance criteria writing, even when not automated.\n\n##\
+    \ Relationship to Other Methods\n\n- **Gherkin** - The language that implements\
+    \ Given-When-Then syntax\n- **Example Mapping** - Green cards become Given-When-Then\
+    \ scenarios\n- **Executable Specifications** - Given-When-Then scenarios become\
+    \ automated tests\n\n## FOE Alignment\n\nGiven-When-Then supports multiple FOE\
+    \ principles:\n\n- **Optimize for Understanding** - Plain language format is accessible\
+    \ to all stakeholders\n- **Build Confidence** - Structured format ensures scenarios\
+    \ are complete and testable\n- **Fast Feedback** - Automated scenarios provide\
+    \ immediate verification\n\n## References\n\n- North, D. (2006). \"Introducing\
+    \ BDD.\" Better Software Magazine. https://dannorth.net/introducing-bdd/\n- North,\
+    \ D. & Matts, C. \"Given-When-Then\" origin story\n- Hoare, C.A.R. (1969). \"\
+    An Axiomatic Basis for Computer Programming.\" Communications of the ACM."
+  lead: Given-When-Then is a template for writing acceptance criteria as structured
+    scenarios. Developed by Dan North and Chris Matts, it provides a consistent format
+    that is readable by both humans and computers, bridging the gap between business
+    requirements and automated tests.
+  docs_url_path: external-frameworks/bdd/methods/M127-given-when-then

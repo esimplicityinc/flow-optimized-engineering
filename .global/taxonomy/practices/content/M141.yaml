@@ -1,0 +1,48 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M141
+spec:
+  description: Prose for Ubiquitous Language.
+  body: "**Pillar:** Strategic Design\n\nUbiquitous Language is the practice of building\
+    \ a common, rigorous language between developers and domain experts. This language\
+    \ is used consistently in all forms of communication: code, documentation, diagrams,\
+    \ and conversation.\n\n## Definition\n\n> A language structured around the domain\
+    \ model and used by all team members within a bounded context to connect all the\
+    \ activities of the team with the software.\n>\n> — Eric Evans, DDD Reference\n\
+    \n## Why It Matters\n\nUbiquitous Language is foundational because:\n\n- **Eliminates\
+    \ translation** - No mental mapping between \"what the business calls it\" and\
+    \ \"what the code calls it\"\n- **Makes code self-documenting** - Domain concepts\
+    \ are explicit in the codebase\n- **Catches misunderstandings early** - Linguistic\
+    \ precision surfaces conceptual gaps\n- **Enables domain expert participation**\
+    \ - Experts can read and validate the model\n- **Reduces bugs** - Many bugs stem\
+    \ from miscommunication about requirements\n\n## How to Develop Ubiquitous Language\n\
+    \n1. **Start with domain expert conversations** - Listen for the terms they use\
+    \ naturally\n2. **Create a glossary** - Document terms with precise definitions\n\
+    3. **Use terms in code** - Class names, method names, and variables should use\
+    \ the language\n4. **Refine iteratively** - The language evolves as understanding\
+    \ deepens\n5. **Challenge ambiguity** - When a term is unclear, dig deeper\n6.\
+    \ **Avoid technical jargon** - The language should be accessible to domain experts\n\
+    \n## Signs of Weak Ubiquitous Language\n\n- Developers use different terms than\
+    \ domain experts\n- The same term means different things to different people\n\
+    - Code uses generic names like `Manager`, `Handler`, `Processor`\n- Documentation\
+    \ requires translation to match the code\n- Domain experts can't understand class\
+    \ or method names\n\n## Example\n\n**Weak language:**\n```\nclass OrderProcessor\
+    \ {\n  void handleOrder(OrderData data) { ... }\n}\n```\n\n**Ubiquitous language:**\n\
+    ```\nclass OrderFulfillment {\n  void fulfillOrder(Order order) { ... }\n}\n```\n\
+    \nThe second version uses terms that domain experts would recognize and use themselves.\n\
+    \n## Relationship to Other Patterns\n\n- **Bounded Context** - Each context has\
+    \ its own ubiquitous language\n- **Domain Model** - The language is embodied in\
+    \ the model\n- **Entity/Value Object** - Named using the ubiquitous language\n\
+    - **Domain Events** - Named as domain experts would describe what happened\n\n\
+    ## FOE Alignment\n\nUbiquitous Language directly supports **Optimize for Understanding**.\
+    \ When code speaks the language of the domain, it becomes accessible to everyone\
+    \ on the team—not just developers. This shared vocabulary accelerates onboarding,\
+    \ improves collaboration with domain experts, and makes the codebase a living\
+    \ document of business knowledge."
+  lead: 'Ubiquitous Language is the practice of building a common, rigorous language
+    between developers and domain experts. This language is used consistently in all
+    forms of communication: code, documentation, diagrams, and conversation.'
+  docs_url_path: external-frameworks/domain-driven-design/methods/M141-ubiquitous-language

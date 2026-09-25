@@ -5,9 +5,13 @@ kind: practice
 metadata:
   name: event-sourcing
 spec:
-  description: Event Sourcing — external framework FOE draws methods from.
+  description: Event Sourcing is an architectural pattern where the state of an application
+    is determined by a sequence of events. Instead of storing just the current state
+    in a database, every change to the state is captured as an immutable event in
+    an append-only event store. The current state can be reconstructed by replaying
+    these events from the beginning of time.
   title: Event Sourcing
-  canonical: event-sourcing
+  canonical: https://martinfowler.com/eaaDev/EventSourcing.html
   methods:
   - M240
   - M241

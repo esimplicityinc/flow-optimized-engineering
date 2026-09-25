@@ -1,0 +1,99 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M151
+spec:
+  description: Prose for System Over Individuals.
+  body: "When performance is poor, optimize the system before blaming the people.\
+    \ The same individuals can produce dramatically different outcomes depending on\
+    \ the system they operate within.\n\n:::info Observing\nThis method has supporting\
+    \ external evidence from manufacturing. We're seeking internal \nobservations\
+    \ to validate it in software engineering contexts.\n:::\n\n## Overview\n\nWhen\
+    \ teams underperform, organizations often reach for the same solution: replace\
+    \ the people. Hire better developers. Fire the underperformers. Bring in consultants.\
+    \ But this response ignores a fundamental insight: **outcomes are determined primarily\
+    \ by system design, not individual capability**.\n\nThe NUMMI plant transformation\
+    \ provides the clearest evidence. GM's Fremont plant—described by UAW leadership\
+    \ as having \"the worst workforce in the automobile industry\"—was closed in 1982\
+    \ due to rampant absenteeism, sabotage, and quality problems. When Toyota reopened\
+    \ it in 1984 with the Toyota Production System, **85%+ of the same workers** achieved\
+    \ quality levels matching Toyota's Japanese plants.\n\nThe workers didn't change.\
+    \ The system did.\n\nThis principle applies directly to software engineering.\
+    \ When bugs escape to production, when deployments fail, when teams miss deadlines—the\
+    \ instinct to blame individuals is usually wrong. Instead, ask: What about the\
+    \ system made this outcome likely? What would prevent it from happening again\
+    \ regardless of who's working?\n\n## FOE Framing\n\nThis method is foundational\
+    \ to FOE's approach:\n\n- **Understanding:** Make work visible so everyone can\
+    \ see and improve the system\n- **Feedback:** Tighten feedback loops so problems\
+    \ surface early (NUMMI's andon cord)\n- **Confidence:** Build psychological safety\
+    \ so people can report problems and suggest improvements\n\n## When to Use\n\n\
+    Use this method when:\n\n- **Performance problems are blamed on individuals**\
+    \ — \"If only we had better developers...\"\n- **The same problems recur despite\
+    \ personnel changes** — New people hit the same walls\n- **Heroics are required\
+    \ for normal operation** — The system depends on exceptional individual effort\n\
+    - **Fear prevents honesty** — People hide problems rather than surface them\n\
+    - **Process improvement stalls** — Teams resist change because they fear blame\n\
+    \n## When NOT to Use\n\nAvoid this method when:\n\n- **Genuine skill gaps exist**\
+    \ — Sometimes training or hiring is the right answer\n- **Individual misconduct\
+    \ requires response** — Not every problem is systemic\n- **The system is already\
+    \ well-designed** — Don't over-engineer working systems\n- **Quick individual\
+    \ fixes are sufficient** — Not every problem needs systemic analysis\n\n## How\
+    \ It Works\n\n### Prerequisites\n\nBefore starting:\n- A team or system experiencing\
+    \ performance problems\n- Willingness to look beyond individual blame\n- Authority\
+    \ to change processes, not just people\n\n### Step 1: Observe the System, Not\
+    \ the People\n\nWhen problems occur, resist the urge to identify \"who failed.\"\
+    \ Instead, ask:\n- What about the system made this outcome possible?\n- Would\
+    \ a different person in this role have done better? Why or why not?\n- What information\
+    \ was missing? What feedback was delayed?\n\nMap the system: inputs, processes,\
+    \ handoffs, feedback loops, constraints.\n\n### Step 2: Identify System Failures\n\
+    \nLook for patterns that transcend individuals:\n- **Missing feedback loops:**\
+    \ Problems discovered late (in production, by customers)\n- **Information silos:**\
+    \ People lack context to make good decisions\n- **Misaligned incentives:** The\
+    \ system rewards behaviors that hurt outcomes\n- **Excessive coordination:** Progress\
+    \ requires too many approvals or handoffs\n- **Fear-based culture:** Problems\
+    \ are hidden rather than surfaced\n\n### Step 3: Design System Improvements\n\n\
+    For each system failure, design a systemic fix:\n\n| System Failure | Systemic\
+    \ Fix |\n|----------------|--------------|\n| Problems found late | Add earlier\
+    \ validation (tests, reviews, staging) |\n| Information silos | Make work visible\
+    \ (dashboards, standups, documentation) |\n| Misaligned incentives | Reward outcomes,\
+    \ not activity |\n| Excessive coordination | Reduce dependencies, increase team\
+    \ autonomy |\n| Fear-based culture | Model psychological safety, celebrate problem-finding\
+    \ |\n\n### Step 4: Implement with Worker Input\n\nThe people doing the work understand\
+    \ the system best. NUMMI succeeded partly because Toyota involved workers in process\
+    \ design—every worker could suggest improvements, and many were implemented.\n\
+    \nDon't design systems for people. Design systems with people.\n\n### Step 5:\
+    \ Measure System Outcomes\n\nTrack whether the system is improving:\n- Defect\
+    \ rates (are problems decreasing?)\n- Cycle time (is work flowing faster?)\n-\
+    \ Worker satisfaction (do people feel effective?)\n- Problem visibility (are issues\
+    \ surfacing earlier?)\n\nIf outcomes improve without changing personnel, the system\
+    \ was the problem.\n\n## Example\n\n**Before (GM Fremont):**\n- Workers passed\
+    \ defects down the line for later repair\n- No authority to stop production for\
+    \ quality issues\n- Adversarial management-labor relations\n- Fear of layoffs\
+    \ prevented honest problem reporting\n- Separate cafeterias, parking by rank\n\
+    \n**After (NUMMI with same workers):**\n- Any worker could pull the andon cord\
+    \ to stop the line for defects\n- Problems fixed at source, not downstream\n-\
+    \ Collaborative management-labor relations\n- No-layoff policy enabled honest\
+    \ feedback\n- Same uniforms, parking, cafeterias for all\n\n**Result:** Quality\
+    \ went from among GM's worst to matching Toyota Japan—with 85%+ of the same employees.\n\
+    \n## Common Pitfalls\n\n1. **Stopping at blame** — \"The deploy failed because\
+    \ Bob didn't test\" is not analysis. Why didn't the system catch the problem before\
+    \ Bob?\n\n2. **Designing systems without worker input** — Systems imposed from\
+    \ above often miss crucial context. Involve the people doing the work.\n\n3. **Expecting\
+    \ instant results** — System change takes time. The improvement comes from compounding\
+    \ small changes.\n\n4. **Ignoring culture** — Tools and processes aren't enough.\
+    \ NUMMI's transformation required cultural changes: no-layoff policy, equal treatment,\
+    \ worker voice.\n\n5. **Over-applying the principle** — Not every problem is systemic.\
+    \ Sometimes training, coaching, or personnel changes are appropriate. Use judgment.\n\
+    \n## How You Can Help\n\nThis method is hypothesized based on external evidence\
+    \ (NUMMI, Toyota Production System). We need software engineering observations\
+    \ to validate it:\n\n1. Have you seen a team improve dramatically with system\
+    \ changes (not personnel changes)?\n2. Have you seen the same people fail in one\
+    \ environment and succeed in another?\n3. What system changes had the biggest\
+    \ impact on your team's outcomes?\n\nDocument your observation and link it to\
+    \ this method."
+  lead: When performance is poor, optimize the system before blaming the people. The
+    same individuals can produce dramatically different outcomes depending on the
+    system they operate within.
+  docs_url_path: field-guides/system-architecture/methods/emerging/M151-system-over-individuals

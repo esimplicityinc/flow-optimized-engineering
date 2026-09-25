@@ -1,0 +1,66 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M143
+spec:
+  description: Prose for Value Object.
+  body: "**Pillar:** Tactical Design\n\nA Value Object is a domain object that is\
+    \ defined entirely by its attributes. Value objects have no conceptual identity—two\
+    \ value objects with the same attributes are considered equal and interchangeable.\n\
+    \n## Definition\n\n> An object that describes some characteristic or attribute\
+    \ but carries no concept of identity.\n>\n> — Eric Evans, DDD Reference\n\n##\
+    \ Why It Matters\n\nValue Objects are essential because:\n\n- **Eliminate bugs**\
+    \ - Immutability prevents accidental modification\n- **Simplify reasoning** -\
+    \ No need to track identity or worry about aliasing\n- **Enable optimization**\
+    \ - Can be freely shared, cached, or copied\n- **Express domain concepts** - Many\
+    \ domain concepts are naturally values (money, dates, addresses)\n- **Reduce primitive\
+    \ obsession** - Replace primitive types with meaningful domain types\n\n## Characteristics\n\
+    \n| Characteristic | Description |\n|----------------|-------------|\n| **No identity**\
+    \ | Not distinguished by an identifier |\n| **Immutable** | Cannot be changed\
+    \ after creation |\n| **Equality by attributes** | Two value objects are equal\
+    \ if all attributes are equal |\n| **Self-validating** | Invalid value objects\
+    \ cannot be created |\n| **Side-effect free** | Operations return new instances\
+    \ |\n\n## Example\n\n```typescript\nclass Money {\n  private readonly amount:\
+    \ number;\n  private readonly currency: Currency;\n\n  constructor(amount: number,\
+    \ currency: Currency) {\n    if (amount < 0) {\n      throw new Error(\"Amount\
+    \ cannot be negative\");\n    }\n    this.amount = amount;\n    this.currency\
+    \ = currency;\n  }\n\n  // Attribute-based equality\n  equals(other: Money): boolean\
+    \ {\n    return this.amount === other.amount && \n           this.currency.equals(other.currency);\n\
+    \  }\n\n  // Returns new instance, doesn't modify\n  add(other: Money): Money\
+    \ {\n    if (!this.currency.equals(other.currency)) {\n      throw new Error(\"\
+    Cannot add different currencies\");\n    }\n    return new Money(this.amount +\
+    \ other.amount, this.currency);\n  }\n}\n```\n\n## Common Value Objects\n\n| Domain\
+    \ | Value Objects |\n|--------|---------------|\n| **E-commerce** | Money, Address,\
+    \ SKU, Quantity |\n| **Healthcare** | BloodPressure, Dosage, DateRange |\n| **Finance**\
+    \ | AccountNumber, IBAN, ExchangeRate |\n| **General** | Email, PhoneNumber, DateRange,\
+    \ Coordinates |\n\n## Value Object vs Primitive\n\n**Primitive obsession (avoid):**\n\
+    ```typescript\nfunction createOrder(\n  customerId: string,\n  amount: number,\n\
+    \  currency: string,\n  email: string\n) { ... }\n```\n\n**Value objects (prefer):**\n\
+    ```typescript\nfunction createOrder(\n  customerId: CustomerId,\n  price: Money,\n\
+    \  email: Email\n) { ... }\n```\n\nValue objects provide:\n- Type safety (can't\
+    \ pass email where money is expected)\n- Validation (invalid values can't be created)\n\
+    - Domain behavior (money can be added, emails can be validated)\n\n## Implementation\
+    \ Guidelines\n\n1. **Make all fields readonly/final** - Enforce immutability at\
+    \ the language level\n2. **Validate in constructor** - Reject invalid states at\
+    \ creation time\n3. **Implement equality** - Override equals/hashCode based on\
+    \ attributes\n4. **Return new instances** - Operations that \"modify\" should\
+    \ return new objects\n5. **Consider making them records/data classes** - Many\
+    \ languages have built-in support\n\n## Common Mistakes\n\n- **Mutable value objects**\
+    \ - Defeats the purpose and introduces bugs\n- **Value objects with identity**\
+    \ - If it has an ID, it's probably an entity\n- **Skipping validation** - Value\
+    \ objects should be self-validating\n- **Too many fields** - Large value objects\
+    \ may indicate a missing entity\n\n## Relationship to Other Patterns\n\n- **Entity**\
+    \ - Entities often contain value objects as attributes\n- **Aggregate** - Value\
+    \ objects are often part of aggregates\n- **Factory** - Can create complex value\
+    \ objects\n- **Domain Event** - Events often carry value objects as payload\n\n\
+    ## FOE Alignment\n\nValue Objects strongly support **Confidence to Act**. Immutability\
+    \ eliminates entire categories of bugs—you can pass a value object to any function\
+    \ knowing it won't be modified. Self-validation ensures that if a value object\
+    \ exists, it's valid. These guarantees let developers make changes with confidence,\
+    \ knowing the type system is protecting them from common errors."
+  lead: A Value Object is a domain object that is defined entirely by its attributes.
+    Value objects have no conceptual identity—two value objects with the same attributes
+    are considered equal and interchangeable.
+  docs_url_path: external-frameworks/domain-driven-design/methods/M143-value-object

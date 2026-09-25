@@ -96,7 +96,7 @@ class Report:
     observations_parked: int = 0
     #: Methods whose documentation homes declare different maturities.
     maturity_conflicts: list[str] = field(default_factory=list[str])
-    method_content: int = 0
+    content: int = 0
     descriptions_filled: int = 0
 
     @property
@@ -105,7 +105,7 @@ class Report:
 
     @property
     def total(self) -> int:
-        return self.practice_areas + self.practices + self.methods + self.method_content
+        return self.practice_areas + self.practices + self.methods + self.content
 
 
 def parse_frontmatter(path: Path) -> dict[str, Any] | None:
@@ -224,6 +224,43 @@ def _guide_stages(rel_paths: list[str]) -> list[tuple[str, str]]:
         for guide, stage in re.findall(r"(?:^|/)field-guides/([^/]+)/methods/([^/]+)/", rel):
             out.append((guide, stage))
     return out
+
+
+def _emit_content(
+    out_root: Path,
+    name: str,
+    label: str,
+    overview: Path,
+    docs_root: Path,
+    report: Report,
+) -> str:
+    """Write a `foe_content` node from an `overview.md`, returning its lead paragraph.
+
+    Guides and frameworks keep their prose in `overview.md` rather than `index.md`
+    — worth stating because looking for the conventional names finds nothing and
+    reads as "there is no content here".
+    """
+    raw = overview.read_text(encoding="utf-8", errors="replace")
+    _, body = split_frontmatter(raw)
+    cleaned = clean_body(body)
+    if cleaned == "":
+        return ""
+    lead = lead_paragraph(cleaned)
+    _write(
+        out_root / "content" / f"{name}.yaml",
+        _document(
+            "foe_content",
+            name,
+            {
+                "description": f"Prose for {label}.",
+                "body": cleaned,
+                "lead": lead,
+                "docs_url_path": str(overview.relative_to(docs_root)).removesuffix(".md"),
+            },
+        ),
+    )
+    report.content += 1
+    return lead
 
 
 def generate(docs_root: Path, out_root: Path, report: Report) -> None:
@@ -359,9 +396,9 @@ def generate(docs_root: Path, out_root: Path, report: Report) -> None:
             # Same name as the method it extends: that is what makes it an
             # extension rather than a loosely associated node.
             _write(
-                out_root / "method_content" / f"{method_id}.yaml",
+                out_root / "content" / f"{method_id}.yaml",
                 _document(
-                    "method_content",
+                    "foe_content",
                     method_id,
                     {
                         "description": f"Prose for {spec.get('title', method_id)}.",
@@ -373,7 +410,7 @@ def generate(docs_root: Path, out_root: Path, report: Report) -> None:
                     },
                 ),
             )
-            report.method_content += 1
+            report.content += 1
 
     # ── Framework practices ─────────────────────────────────────────
     #
@@ -386,6 +423,16 @@ def generate(docs_root: Path, out_root: Path, report: Report) -> None:
             continue
         framework_methods.setdefault(framework, []).append(method_id)
     if frameworks_dir.is_dir():
+        # The canonical URL is declared on the framework's overview page under
+        # `source.url`. Method frontmatter carries `framework_url` only sometimes,
+        # and reading only that left most frameworks with no URL — which then fell
+        # back to the slug and made `canonical` point at the practice itself.
+        for overview in sorted(frameworks_dir.glob("*/overview.md")):
+            fm = parse_frontmatter(overview) or {}
+            source = fm.get("source") if isinstance(fm.get("source"), dict) else {}
+            url = source.get("url") or fm.get("framework_url")
+            if url:
+                framework_urls[overview.parent.name] = str(url)
         for path in sorted(frameworks_dir.rglob("M[0-9]*.md")):
             fm = parse_frontmatter(path) or {}
             url = fm.get("framework_url")
@@ -395,15 +442,21 @@ def generate(docs_root: Path, out_root: Path, report: Report) -> None:
 
     for framework, method_ids in sorted(framework_methods.items()):
         title = frameworkish_title(framework)
+        overview = frameworks_dir / framework / "overview.md"
+        lead = ""
+        if overview.is_file():
+            lead = _emit_content(out_root, _slug(framework), title, overview, docs_root, report)
         _write(
             out_root / "practices" / f"{_slug(framework)}.yaml",
             _document(
                 "practice",
                 _slug(framework),
                 {
-                    "description": f"{title} — external framework FOE draws methods from.",
+                    "description": lead or f"{title} — external framework FOE draws methods from.",
                     "title": title,
-                    "canonical": framework_urls.get(framework, framework),
+                    # Never the slug: `canonical` equal to the node's own name
+                    # reads as "curated from itself" downstream.
+                    "canonical": framework_urls.get(framework, ""),
                     "methods": sorted(method_ids),
                 },
             ),
@@ -462,13 +515,17 @@ def generate(docs_root: Path, out_root: Path, report: Report) -> None:
         if not practices:
             report.skipped.append(f"field-guides/{guide}: no methods, no practice area emitted")
             continue
+        overview = guides_dir / guide / "overview.md"
+        lead = ""
+        if overview.is_file():
+            lead = _emit_content(out_root, _slug(guide), title, overview, docs_root, report)
         _write(
             out_root / "practice_areas" / f"{_slug(guide)}.yaml",
             _document(
                 "practice_area",
                 _slug(guide),
                 {
-                    "description": f"FOE field guide: {title}.",
+                    "description": lead or f"FOE field guide: {title}.",
                     "title": title,
                     "canonical": guide,
                     "practices": practices,
@@ -529,8 +586,8 @@ def main(argv: list[str] | None = None) -> int:
     print(f"practice      : {report.practices}   "
           f"({report.framework_practices} frameworks + {report.curated_practices} curated)")
     print(f"method        : {report.methods}{merged}")
-    print(f"method_content: {report.method_content}   "
-          f"({report.descriptions_filled} descriptions filled from a lead paragraph)")
+    print(f"foe_content   : {report.content}   "
+          f"({report.descriptions_filled} method descriptions filled from a lead paragraph)")
     print(f"total nodes   : {report.total}")
     if report.maturity_conflicts:
         print(

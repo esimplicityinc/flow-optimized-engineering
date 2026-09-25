@@ -5,9 +5,12 @@ kind: practice
 metadata:
   name: tdd
 spec:
-  description: TDD — external framework FOE draws methods from.
+  description: 'Test-Driven Development (TDD) is a software development technique
+    that guides development by writing tests first. Developed by Kent Beck in the
+    late 1990s as part of Extreme Programming, TDD inverts the traditional code-then-test
+    approach: you write a failing test, make it pass with minimal code, then refactor.'
   title: TDD
-  canonical: https://tidyfirst.substack.com/p/canon-tdd
+  canonical: https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530
   methods:
   - M163
   - M164

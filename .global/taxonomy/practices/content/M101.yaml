@@ -1,0 +1,85 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M101
+spec:
+  description: Prose for Application Service.
+  body: "**Pillar:** Tactical Design\n\nAn Application Service orchestrates use cases\
+    \ by coordinating domain objects, repositories, and infrastructure services. It\
+    \ serves as the entry point to the domain layer, handling cross-cutting concerns\
+    \ like transactions and security.\n\n## Definition\n\n> Application Services are\
+    \ the direct clients of the domain model. These are responsible for task coordination\
+    \ of use case flows, one service method per flow. They are also the main interface\
+    \ to the domain model for external consumers.\n>\n> — Vaughn Vernon, Implementing\
+    \ Domain-Driven Design\n\n## Why It Matters\n\nApplication Services are essential\
+    \ because:\n\n- **Define use case boundaries** - Each method represents a complete\
+    \ use case\n- **Coordinate infrastructure** - Handle transactions, security, logging\n\
+    - **Keep domain pure** - Domain objects don't know about infrastructure\n- **Provide\
+    \ clear API** - External consumers interact through services\n- **Enable testing**\
+    \ - Use cases can be tested independently\n\n## Characteristics\n\n| Characteristic\
+    \ | Description |\n|----------------|-------------|\n| **Thin** | Contains no\
+    \ business logic |\n| **Orchestrating** | Coordinates domain objects and services\
+    \ |\n| **Transactional** | Manages transaction boundaries |\n| **Use case focused**\
+    \ | One method per use case |\n\n## What Application Services Do\n\n1. **Accept\
+    \ input** - DTOs, commands, or primitives\n2. **Load aggregates** - Via repositories\n\
+    3. **Execute domain logic** - Call methods on domain objects\n4. **Persist changes**\
+    \ - Save aggregates via repositories\n5. **Publish events** - Dispatch domain\
+    \ events\n6. **Return results** - DTOs or simple responses\n\n## Example\n\n```typescript\n\
+    class OrderApplicationService {\n  constructor(\n    private readonly orderRepository:\
+    \ OrderRepository,\n    private readonly customerRepository: CustomerRepository,\n\
+    \    private readonly eventPublisher: EventPublisher,\n    private readonly transactionManager:\
+    \ TransactionManager\n  ) {}\n\n  async placeOrder(command: PlaceOrderCommand):\
+    \ Promise<OrderId> {\n    return this.transactionManager.execute(async () => {\n\
+    \      // Load aggregates\n      const customer = await this.customerRepository.findById(\n\
+    \        command.customerId\n      );\n      if (!customer) {\n        throw new\
+    \ CustomerNotFoundError(command.customerId);\n      }\n\n      // Execute domain\
+    \ logic\n      const order = Order.create(\n        customer.id,\n        command.lineItems.map(li\
+    \ => \n          OrderLine.create(li.productId, li.quantity, li.price)\n     \
+    \   )\n      );\n\n      // Persist\n      await this.orderRepository.save(order);\n\
+    \n      // Publish events\n      const events = order.pullEvents();\n      await\
+    \ this.eventPublisher.publishAll(events);\n\n      return order.id;\n    });\n\
+    \  }\n}\n```\n\n## Application Service vs Domain Service\n\n| Aspect | Application\
+    \ Service | Domain Service |\n|--------|---------------------|----------------|\n\
+    | **Purpose** | Use case orchestration | Domain logic |\n| **Contains** | No business\
+    \ logic | Business logic |\n| **Knows about** | Repositories, transactions | Domain\
+    \ model only |\n| **Layer** | Application layer | Domain layer |\n\n## What Doesn't\
+    \ Belong in Application Services\n\n- **Business rules** - Belong in domain objects\
+    \ or domain services\n- **Data transformation logic** - Belongs in mappers or\
+    \ the domain\n- **Complex conditionals** - Usually indicates missing domain concepts\n\
+    - **Direct database access** - Use repositories\n\n## Input/Output Patterns\n\n\
+    ```typescript\n// Input: Command object\ninterface PlaceOrderCommand {\n  customerId:\
+    \ string;\n  lineItems: Array<{\n    productId: string;\n    quantity: number;\n\
+    \    price: number;\n  }>;\n}\n\n// Output: Simple result\ninterface PlaceOrderResult\
+    \ {\n  orderId: string;\n  status: 'success' | 'failed';\n  error?: string;\n\
+    }\n```\n\nApplication services work with DTOs at the boundary, not domain objects.\n\
+    \n## Common Mistakes\n\n- **Fat services** - Business logic creeping into application\
+    \ services\n- **Anemic domain** - All logic in services, entities are just data\n\
+    - **Exposing domain objects** - Return DTOs, not entities\n- **Missing transaction\
+    \ boundaries** - Each use case should be transactional\n- **Too granular** - One\
+    \ service method per use case, not per operation\n\n## Testing Application Services\n\
+    \n```typescript\ndescribe('OrderApplicationService', () => {\n  it('places order\
+    \ for valid customer', async () => {\n    // Arrange\n    const customerRepo =\
+    \ new InMemoryCustomerRepository();\n    const orderRepo = new InMemoryOrderRepository();\n\
+    \    const eventPublisher = new MockEventPublisher();\n    \n    customerRepo.save(Customer.create('cust-1',\
+    \ 'John'));\n    \n    const service = new OrderApplicationService(\n      orderRepo,\n\
+    \      customerRepo,\n      eventPublisher,\n      new NoOpTransactionManager()\n\
+    \    );\n\n    // Act\n    const orderId = await service.placeOrder({\n      customerId:\
+    \ 'cust-1',\n      lineItems: [{ productId: 'prod-1', quantity: 2, price: 100\
+    \ }]\n    });\n\n    // Assert\n    const order = orderRepo.findById(orderId);\n\
+    \    expect(order).not.toBeNull();\n    expect(eventPublisher.published).toContainEqual(\n\
+    \      expect.objectContaining({ type: 'OrderPlaced' })\n    );\n  });\n});\n\
+    ```\n\n## Relationship to Other Patterns\n\n- **Repository** - Application services\
+    \ use repositories\n- **Domain Service** - Application services may call domain\
+    \ services\n- **Aggregate** - Application services load and save aggregates\n\
+    - **Domain Event** - Application services publish events\n\n## FOE Alignment\n\
+    \nApplication Services support **Optimize for Understanding** by providing clear\
+    \ entry points to the domain. Each method represents a complete use case with\
+    \ a meaningful name. Developers can understand what the system does by reading\
+    \ service interfaces, without diving into implementation details. This clarity\
+    \ accelerates onboarding and makes the system's capabilities explicit."
+  lead: An Application Service orchestrates use cases by coordinating domain objects,
+    repositories, and infrastructure services. It serves as the entry point to the
+    domain layer, handling cross-cutting concerns like transactions and security.
+  docs_url_path: external-frameworks/domain-driven-design/methods/M101-application-service

@@ -5,9 +5,13 @@ kind: practice
 metadata:
   name: microservices
 spec:
-  description: Microservices — external framework FOE draws methods from.
+  description: Microservices Architecture is an approach to building software applications
+    as suites of independently deployable services, where each service runs in its
+    own process and communicates via lightweight mechanisms such as HTTP APIs or message
+    queues. First articulated by Martin Fowler and James Lewis in 2014, this architectural
+    style has become an industry standard for building scalable, resilient systems.
   title: Microservices
-  canonical: https://microservices.io/patterns/apigateway.html
+  canonical: https://martinfowler.com/articles/microservices.html
   methods:
   - M223
   - M224

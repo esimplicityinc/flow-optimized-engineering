@@ -1,0 +1,95 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: foe_content
+metadata:
+  name: M148
+spec:
+  description: Prose for Persistent Planning State.
+  body: "Maintain explicit planning state in markdown files that agents read before\
+    \ every decision. This keeps goals in the attention window and prevents context\
+    \ drift during long sessions.\n\n## Overview\n\nAI coding assistants lose context\
+    \ over long sessions. They start strong but gradually drift from the original\
+    \ goals, forget constraints, or repeat work already done. The longer the session,\
+    \ the worse the drift.\n\nThe **Persistent Planning State** pattern (popularized\
+    \ by the Manus agent that led to a $2B acquisition) solves this by externalizing\
+    \ state into markdown files that the agent reads before every decision. The key\
+    \ insight: *\"Agent reads plan before every decision to keep goals in attention\
+    \ window.\"*\n\nThis creates a simple but powerful feedback loop:\n1. Human and\
+    \ agent agree on a plan (written to file)\n2. Agent reads the plan before each\
+    \ action\n3. Agent updates progress after each action\n4. Drift is impossible\
+    \ because the plan is always in context\n\n## When to Use\n\nUse this method when:\n\
+    \n- Working on multi-step tasks that span long sessions\n- The AI has shown goal\
+    \ drift or forgotten earlier context\n- Multiple people (or future you) need to\
+    \ understand progress\n- Tasks have complex dependencies or sequencing\n\n## When\
+    \ NOT to Use\n\nAvoid this method when:\n\n- Simple, single-step tasks that complete\
+    \ quickly\n- Exploratory work where the plan is genuinely unknown\n- The overhead\
+    \ of file management exceeds the benefit\n\n## How It Works\n\n### Prerequisites\n\
+    \nBefore starting:\n- A workspace where the agent can read/write markdown files\n\
+    - Agreement on the overall goal or deliverable\n- Willingness to pause and plan\
+    \ before diving into code\n\n### Step 1: Create the Three Planning Files\n\nCreate\
+    \ three markdown files at the root of your workspace:\n\n**`task_plan.md`** -\
+    \ The master plan with phases and checkboxes:\n\n```markdown\n# Task Plan: [Goal\
+    \ Description]\n\n## Phase 1: Setup\n- [x] Initialize project structure\n- [x]\
+    \ Configure dependencies\n- [ ] Set up test framework\n\n## Phase 2: Core Implementation\n\
+    - [ ] Implement data models\n- [ ] Create API endpoints\n- [ ] Add validation\
+    \ logic\n\n## Phase 3: Polish\n- [ ] Error handling\n- [ ] Documentation\n- [\
+    \ ] Final testing\n```\n\n**`findings.md`** - Research and decisions storage:\n\
+    \n```markdown\n# Findings\n\n## Architecture Decisions\n- Using PostgreSQL over\
+    \ MongoDB because [reason]\n- Chose Express over Fastify because [reason]\n\n\
+    ## Research Notes\n- API rate limits: 100 req/min\n- Auth token format: JWT with\
+    \ 24h expiry\n\n## Open Questions\n- Should we cache user profiles?\n```\n\n**`progress.md`**\
+    \ - Session log with timestamps:\n\n```markdown\n# Progress Log\n\n## 2026-01-27\
+    \ Session 1\n- [10:30] Started Phase 1 setup\n- [10:45] Completed project initialization\n\
+    - [11:00] Hit issue with dependency conflict, resolved by pinning version\n- [11:15]\
+    \ Paused - next: set up test framework\n\n## 2026-01-27 Session 2\n- [14:00] Resumed\
+    \ from test framework setup\n- ...\n```\n\n### Step 2: Instruct Agent to Read\
+    \ Before Acting\n\nAdd to your CLAUDE.md or session instructions:\n\n```markdown\n\
+    ## Working Memory\n\nBefore taking any action, read these files:\n- task_plan.md\
+    \ - Current plan and progress\n- findings.md - Decisions and research\n- progress.md\
+    \ - Session history\n\nAfter completing any task:\n1. Update task_plan.md checkboxes\n\
+    2. Add any findings to findings.md\n3. Log the action in progress.md\n```\n\n\
+    ### Step 3: Review Plan Before Every Decision\n\nWhen working with the agent,\
+    \ periodically prompt:\n\n```\n\"Before we continue, check task_plan.md. What's\
+    \ the next uncompleted item?\"\n```\n\nThis forces the agent to re-ground in the\
+    \ plan, preventing drift.\n\n### Step 4: Update State After Every Action\n\nAfter\
+    \ completing work:\n\n```\n\"Update the planning files:\n1. Check off what we\
+    \ completed in task_plan.md\n2. Add any decisions we made to findings.md  \n3.\
+    \ Log this in progress.md with timestamp\"\n```\n\n### Step 5: Use Progress for\
+    \ Session Handoff\n\nWhen starting a new session:\n\n```\n\"Read progress.md to\
+    \ understand where we left off, then check \ntask_plan.md for the next item.\"\
+    \n```\n\nThe files provide complete context even across session boundaries.\n\n\
+    ## Example\n\n**Session 1: Planning**\n```\nYou: Let's build a REST API for user\
+    \ management. Create a task_plan.md \nwith the phases we need.\n\nAI: [Creates\
+    \ task_plan.md with phases: Setup, Models, Endpoints, Auth, Testing]\n\nYou: Good.\
+    \ Let's start with Setup.\n```\n\n**Session 1: Working**\n```\nAI: [Completes\
+    \ setup tasks, updates checkboxes]\nAI: [Logs findings about chosen libraries\
+    \ to findings.md]\nAI: [Records progress with timestamps to progress.md]\n```\n\
+    \n**Session 2: Resuming (hours later)**\n```\nYou: Read the planning files and\
+    \ tell me where we are.\n\nAI: Reading files...\n- task_plan.md: Phase 1 (Setup)\
+    \ complete, Phase 2 (Models) not started\n- findings.md: We chose Express + Prisma,\
+    \ PostgreSQL for persistence\n- progress.md: Last action was completing test framework\
+    \ setup at 11:15\n\nNext uncompleted item: \"Implement data models\" in Phase\
+    \ 2.\n```\n\nNo context lost. No drift. Work continues exactly where it stopped.\n\
+    \n## Common Pitfalls\n\n1. **Forgetting to update files** - The system only works\
+    \ if files are kept current. Build the update habit or automate it.\n\n2. **Plans\
+    \ that are too detailed** - Over-planning creates maintenance burden. Keep phases\
+    \ high-level with 3-7 items each.\n\n3. **Not reading before acting** - If the\
+    \ agent doesn't read the files, they don't help. Make reading explicit in your\
+    \ workflow.\n\n4. **Treating files as append-only** - It's okay to reorganize\
+    \ the plan as you learn. The plan should evolve.\n\n## FOE Alignment\n\nThis method\
+    \ directly supports **Optimize for Understanding**:\n- Explicit state prevents\
+    \ hidden assumptions\n- Written plans force clarity of thought\n- Session handoffs\
+    \ preserve understanding across time\n\nAlso supports **Incremental Development**:\n\
+    - Checkbox-driven progress makes increments visible\n- Each phase is a natural\
+    \ checkpoint\n\n## External Evidence\n\n- **Manus agent pattern** (led to $2B\
+    \ acquisition): Core workflow uses this 3-file structure\n- **planning-with-files**\
+    \ (GitHub, 11k stars): Open source implementation of the pattern\n- **Reddit r/ClaudeAI**\
+    \ (1049 upvotes): Thread discussing the pattern's effectiveness\n\n## How You\
+    \ Can Help\n\nIf you're testing this method:\n\n1. Apply the 3-file pattern to\
+    \ a multi-session project\n2. Track how often it prevents context drift\n3. Document\
+    \ your experience as an observation"
+  lead: Maintain explicit planning state in markdown files that agents read before
+    every decision. This keeps goals in the attention window and prevents context
+    drift during long sessions.
+  docs_url_path: field-guides/agentic-coding/methods/emerging/M148-persistent-planning-state
