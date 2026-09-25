@@ -1,0 +1,22 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: software-architecture-domain-driven-design
+spec:
+  description: 10 of 12 Domain-Driven Design methods, as adopted by the Software Architecture
+    field guide.
+  title: Domain-Driven Design for Software Architecture
+  canonical: domain-driven-design
+  methods:
+  - M100
+  - M101
+  - M103
+  - M108
+  - M116
+  - M117
+  - M119
+  - M132
+  - M134
+  - M143

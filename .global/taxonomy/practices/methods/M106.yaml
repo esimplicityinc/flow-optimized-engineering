@@ -1,17 +1,16 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M106
+  labels:
+    foe.principle: Understanding
+    foe.principle.secondary: Feedback
 spec:
   description: Two teams working closely together for a defined period to discover
     new things.
   title: Collaboration Mode
-  method_id: M106
-  framework: team-topologies
-  framework_url: https://teamtopologies.com/key-concepts
-  foe_principle: Understanding
-  foe_principle_secondary: Feedback
   status: well-established
-  source_path: external-frameworks/team-topologies/methods/M106-collaboration-mode.md
+  annotations:
+    foe.source_path: external-frameworks/team-topologies/methods/M106-collaboration-mode.md

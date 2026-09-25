@@ -1,0 +1,19 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: continuous-delivery
+spec:
+  description: Continuous Delivery — external framework FOE draws methods from.
+  title: Continuous Delivery
+  canonical: https://continuousdelivery.com
+  methods:
+  - M102
+  - M104
+  - M112
+  - M125
+  - M128
+  - M140
+  - M249
+  - M250

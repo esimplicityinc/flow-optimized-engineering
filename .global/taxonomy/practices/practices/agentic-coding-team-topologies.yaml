@@ -1,0 +1,15 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: agentic-coding-team-topologies
+spec:
+  description: 3 of 12 Team Topologies methods, as adopted by the Agentic Coding field
+    guide.
+  title: Team Topologies for Agentic Coding
+  canonical: team-topologies
+  methods:
+  - M118
+  - M124
+  - M136

@@ -1,17 +1,16 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M129
+  labels:
+    foe.principle: Understanding
+    foe.principle.secondary: Feedback
 spec:
   description: Deliberately designing team structures to produce a desired software
     architecture.
   title: Inverse Conway Maneuver
-  method_id: M129
-  framework: team-topologies
-  framework_url: https://teamtopologies.com/key-concepts
-  foe_principle: Understanding
-  foe_principle_secondary: Feedback
   status: well-established
-  source_path: external-frameworks/team-topologies/methods/M129-inverse-conway-maneuver.md
+  annotations:
+    foe.source_path: external-frameworks/team-topologies/methods/M129-inverse-conway-maneuver.md

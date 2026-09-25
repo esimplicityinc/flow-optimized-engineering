@@ -1,13 +1,13 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M236
 spec:
   description: A step-by-step approach to extracting modules into separate services
     when needed, minimizing risk while preserving the option to keep modules in-process.
   title: Gradual Extraction Strategy
-  method_id: M236
-  pillar: evolution
-  source_path: external-frameworks/modular-monolith/methods/M236-gradual-extraction-strategy.md
+  category: evolution
+  annotations:
+    foe.source_path: external-frameworks/modular-monolith/methods/M236-gradual-extraction-strategy.md

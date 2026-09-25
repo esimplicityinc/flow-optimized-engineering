@@ -1,17 +1,16 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M133
+  labels:
+    foe.principle: Feedback
+    foe.principle.secondary: Understanding
 spec:
   description: The primary team type aligned to a flow of work from a business domain
     segment.
   title: Stream-Aligned Team
-  method_id: M133
-  framework: team-topologies
-  framework_url: https://teamtopologies.com/key-concepts
-  foe_principle: Feedback
-  foe_principle_secondary: Understanding
   status: well-established
-  source_path: external-frameworks/team-topologies/methods/M133-stream-aligned-team.md
+  annotations:
+    foe.source_path: external-frameworks/team-topologies/methods/M133-stream-aligned-team.md

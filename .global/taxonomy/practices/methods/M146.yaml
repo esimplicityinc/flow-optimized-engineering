@@ -1,18 +1,13 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M146
+  labels:
+    foe.maturity: observing
 spec:
   description: Early Feedback Loop Investment
   title: Early Feedback Loop Investment
-  method_id: M146
-  maturity: observing
-  observations:
-  - O102
-  - O100
-  - O157
-  source_path: field-guides/agentic-coding/methods/emerging/M146-early-feedback-loop-investment.md
-  parents:
-    node: agentic-coding
+  annotations:
+    foe.source_path: field-guides/agentic-coding/methods/emerging/M146-early-feedback-loop-investment.md

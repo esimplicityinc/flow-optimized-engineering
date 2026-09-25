@@ -1,13 +1,13 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M208
 spec:
   description: Move all infrastructure concerns—databases, frameworks, external services—to
     the outermost layer, keeping the core technology-agnostic.
   title: Infrastructure Externalization
-  method_id: M208
-  pillar: technology-independence
-  source_path: external-frameworks/clean-architecture/methods/M208-infrastructure-externalization.md
+  category: technology-independence
+  annotations:
+    foe.source_path: external-frameworks/clean-architecture/methods/M208-infrastructure-externalization.md

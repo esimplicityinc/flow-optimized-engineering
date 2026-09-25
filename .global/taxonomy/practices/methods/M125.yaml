@@ -1,17 +1,16 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M125
+  labels:
+    foe.principle: Confidence
+    foe.principle.secondary: Feedback
 spec:
   description: Configuration options that allow hiding incomplete features from users
     while continuing to integrate code.
   title: Feature Flags
-  method_id: M125
-  framework: continuous-delivery
-  framework_url: https://continuousdelivery.com
-  foe_principle: Confidence
-  foe_principle_secondary: Feedback
   status: industry-standard
-  source_path: external-frameworks/continuous-delivery/methods/M125-feature-flags.md
+  annotations:
+    foe.source_path: external-frameworks/continuous-delivery/methods/M125-feature-flags.md

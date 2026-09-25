@@ -1,17 +1,16 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M245
+  labels:
+    foe.maturity: hypothesized
 spec:
   description: Managing schema evolution of events over time while maintaining backward
     compatibility.
   title: Event Versioning
-  method_id: M245
-  maturity: hypothesized
-  pillar: operational-patterns
-  source_path: external-frameworks/event-sourcing/methods/M245-event-versioning.md;
-    field-guides/software-architecture/methods/emerging/M245-event-versioning.md
-  parents:
-    node: software-architecture
+  category: operational-patterns
+  annotations:
+    foe.source_path: external-frameworks/event-sourcing/methods/M245-event-versioning.md;
+      field-guides/software-architecture/methods/emerging/M245-event-versioning.md

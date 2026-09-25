@@ -1,16 +1,15 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M242
+  labels:
+    foe.maturity: hypothesized
 spec:
   description: Rebuilding entity state by replaying events (left fold/reduction).
   title: State Reconstruction
-  method_id: M242
-  maturity: hypothesized
-  pillar: core-concepts
-  source_path: external-frameworks/event-sourcing/methods/M242-state-reconstruction.md;
-    field-guides/software-architecture/methods/emerging/M242-state-reconstruction.md
-  parents:
-    node: software-architecture
+  category: core-concepts
+  annotations:
+    foe.source_path: external-frameworks/event-sourcing/methods/M242-state-reconstruction.md;
+      field-guides/software-architecture/methods/emerging/M242-state-reconstruction.md

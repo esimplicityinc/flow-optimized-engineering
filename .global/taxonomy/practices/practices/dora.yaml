@@ -1,0 +1,15 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: dora
+spec:
+  description: DORA — external framework FOE draws methods from.
+  title: DORA
+  canonical: dora
+  methods:
+  - M105
+  - M111
+  - M130
+  - M139

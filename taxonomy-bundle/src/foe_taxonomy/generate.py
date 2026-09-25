@@ -18,6 +18,41 @@ Design notes:
 * **Unknown frontmatter is dropped, not guessed.** A field the bundle does not
   declare would land in a consumer's "not described by the schema" bucket, which
   is honest but noisy; the generator reports what it skipped instead.
+
+What it emits — all three are **Katalyst Forge kinds**, not FOE inventions:
+
+======================  ===================================================
+``practice_area``       a field guide
+``practice``            a framework (canonical), and one curated practice per
+                        (guide, framework) pair — the selective adoption
+``method``              a method, referenced by practices, owned by none
+======================  ===================================================
+
+Forge's ``practice`` is documented as "a bundle node that *references* (does not
+own) a **curated** set of standards and methods", and that is exactly what a
+field guide does to a framework: FOE's Agentic Coding guide adopts 3 of Team
+Topologies' 12 methods. Modelling adoption as its own practice is what makes
+partial adoption expressible — a guide pointing straight at ``team-topologies``
+would claim all twelve.
+
+Fields Forge's ``method`` has no room for are carried where they still work:
+
+* ``pillar`` becomes ``category``.
+* ``foe_alignment.primary`` / ``.secondary`` become **labels**, because a node
+  may carry two principles and ``category`` is a single string. Labels are
+  queryable (``label_key`` / ``label_value``), so nothing is lost but the
+  declared vocabulary.
+* ``maturity`` becomes a label too. It is preserved rather than dropped because
+  preserving it is free, but a label cannot declare ``allowed_values`` — so a
+  consumer gets the value and not the ordering.
+* ``source_path`` becomes a ``spec.annotations`` entry, since generated nodes
+  should say where they came from.
+
+**Observations are deliberately not emitted.** Without ``maturity`` as a
+first-class, ordered field there is no verdict for an observation to support, so
+the evidence layer is parked rather than half-modelled. The markdown in
+``docs/docs/`` remains authoritative and complete; regenerating them later is a
+small change, not a recovery.
 """
 
 from __future__ import annotations
@@ -47,17 +82,26 @@ GENERATED_HEADER = (
 
 @dataclass
 class Report:
-    field_guides: int = 0
+    practice_areas: int = 0
+    framework_practices: int = 0
+    curated_practices: int = 0
     methods: int = 0
-    observations: int = 0
     skipped: list[str] = field(default_factory=list[str])
     unknown_keys: dict[str, int] = field(default_factory=dict[str, int])
     merged: int = 0
-    conflicts: list[str] = field(default_factory=list[str])
+    #: Observations found in the docs but intentionally not emitted. Counted so
+    #: the parked evidence layer stays visible rather than silently absent.
+    observations_parked: int = 0
+    #: Methods whose documentation homes declare different maturities.
+    maturity_conflicts: list[str] = field(default_factory=list[str])
+
+    @property
+    def practices(self) -> int:
+        return self.framework_practices + self.curated_practices
 
     @property
     def total(self) -> int:
-        return self.field_guides + self.methods + self.observations
+        return self.practice_areas + self.practices + self.methods
 
 
 def parse_frontmatter(path: Path) -> dict[str, Any] | None:
@@ -150,41 +194,64 @@ def _id_from_filename(path: Path, prefix: str) -> str | None:
     return match.group(1) if match else None
 
 
+def _framework_of(rel_path: str, declared: str | None) -> str | None:
+    """Framework a method's canonical definition belongs to.
+
+    A field-guide copy carries no `framework` in frontmatter — only the external
+    path says which framework it came from, so the path is the fallback.
+    """
+    if declared:
+        return str(declared)
+    match = re.search(r"(?:^|/)external-frameworks/([^/]+)/", rel_path)
+    return match.group(1) if match else None
+
+
+def _guide_stages(rel_paths: list[str]) -> list[tuple[str, str]]:
+    """(guide, adoption stage) for every field guide documenting a method.
+
+    FOE encodes a *per-guide* stage in the folder — `methods/established/` vs
+    `methods/emerging/` — which is distinct from frontmatter maturity. M121 is
+    established for agentic-coding and emerging for testing. Nothing in this model
+    can hold a per-edge property, so the stage is returned but only the guide is
+    used; see the module docstring.
+    """
+    out: list[tuple[str, str]] = []
+    for rel in rel_paths:
+        for guide, stage in re.findall(r"(?:^|/)field-guides/([^/]+)/methods/([^/]+)/", rel):
+            out.append((guide, stage))
+    return out
+
+
 def generate(docs_root: Path, out_root: Path, report: Report) -> None:
-    """Emit every FOE node under ``out_root``."""
+    """Emit practice areas, practices and methods under ``out_root``."""
     guides_dir = docs_root / "field-guides"
     frameworks_dir = docs_root / "external-frameworks"
 
-    # ── Field guides ────────────────────────────────────────────────
-    guide_names: dict[str, str] = {}
+    guide_titles: dict[str, str] = {}
     if guides_dir.is_dir():
         for child in sorted(guides_dir.iterdir()):
             # `observations/` is a sibling of the guides, not a guide itself.
-            if not child.is_dir() or child.name == "observations":
-                continue
-            name = _slug(child.name)
-            guide_names[child.name] = name
-            title = child.name.replace("-", " ").title()
-            _write(
-                out_root / "field_guides" / f"{name}.yaml",
-                _document(
-                    "foe_field_guide",
-                    name,
-                    {"description": f"FOE field guide: {title}.", "title": title,
-                     "domain": child.name},
-                ),
-            )
-            report.field_guides += 1
+            if child.is_dir() and child.name != "observations":
+                guide_titles[child.name] = child.name.replace("-", " ").title()
 
     # ── Methods ─────────────────────────────────────────────────────
     #
-    # A method id can legitimately appear twice: 60 of FOE's methods are
-    # documented both as an external-framework pattern and inside a field guide
-    # (M100 "Aggregate" is in domain-driven-design *and* software-architecture).
-    # Those are one method with two documentation homes, so the specs are merged
-    # rather than one overwriting the other — which is what an earlier version of
-    # this generator did, silently losing 58 methods' worth of detail.
+    # A method id legitimately appears more than once: 58 of FOE's methods are
+    # documented both as an external-framework pattern and inside one or more
+    # field guides (M121 spans five files). Those are one method with several
+    # documentation homes, so specs are merged rather than one overwriting the
+    # other — which is what an earlier version did, silently losing 58 methods'
+    # worth of detail.
     collected: dict[str, dict[str, Any]] = {}
+    homes: dict[str, list[str]] = {}
+    declared_framework: dict[str, str | None] = {}
+    #: Maturity is collected as a set, not a value. FOE declares it per
+    #: *document*, and two methods' homes disagree — M121 is `proven` in the
+    #: Agentic Coding guide and `hypothesized` in Testing and Product
+    #: Specification. Keeping a set makes the disagreement visible instead of
+    #: letting whichever file sorts last silently win.
+    maturities: dict[str, set[str]] = {}
+
     for path in sorted(docs_root.rglob("M[0-9]*.md")):
         fm = parse_frontmatter(path)
         if fm is None:
@@ -192,113 +259,203 @@ def generate(docs_root: Path, out_root: Path, report: Report) -> None:
             continue
         method_id = str(fm.get("methodId") or _id_from_filename(path, "M") or "")
         if method_id == "":
-            report.skipped.append(f"{path.relative_to(docs_root)}: no methodId and no id in filename")
+            report.skipped.append(
+                f"{path.relative_to(docs_root)}: no methodId and no id in filename"
+            )
             continue
         _track_unknown(report, fm, METHOD_KEYS)
+        rel = str(path.relative_to(docs_root))
         alignment = fm.get("foe_alignment") or {}
-        parent = None
-        # A field-guide method nests under its guide; an external-framework
-        # method has no guide, which the parent rule allows.
-        for source_dir, guide_name in guide_names.items():
-            if f"/field-guides/{source_dir}/" in str(path):
-                parent = guide_name
-                break
+        if not isinstance(alignment, dict):
+            alignment = {}
+
+        labels: dict[str, str] = {}
+        # Two principles per method is normal — all 35 that declare one declare a
+        # secondary too — so these cannot collapse into `category`.
+        if alignment.get("primary"):
+            labels["foe.principle"] = str(alignment["primary"])
+        if alignment.get("secondary"):
+            labels["foe.principle.secondary"] = str(alignment["secondary"])
+        # FOE spells the same concept two ways: `maturity` on field-guide methods
+        # and `foe_maturity` on external ones. Read both rather than pick a
+        # winner, since neither is wrong in its own context.
+        maturity = fm.get("maturity") or fm.get("foe_maturity")
 
         spec: dict[str, Any] = {
             "description": str(fm.get("description") or fm.get("title") or method_id),
             "title": str(fm.get("title") or method_id),
-            "method_id": method_id,
-            # FOE uses two spellings for the same concept: `maturity` on
-            # field-guide methods (43 files) and `foe_maturity` on
-            # external-framework ones (60). Reading both rather than picking a
-            # winner, since neither is wrong in its own context.
-            "maturity": fm.get("maturity") or fm.get("foe_maturity"),
-            "observations": [_observation_ref(str(o)) for o in (fm.get("observations") or [])],
-            "framework": fm.get("framework"),
-            "framework_url": fm.get("framework_url"),
-            "pillar": fm.get("pillar"),
-            "foe_principle": alignment.get("primary") if isinstance(alignment, dict) else None,
-            "foe_principle_secondary": (
-                alignment.get("secondary") if isinstance(alignment, dict) else None
-            ),
+            # `pillar` is FOE's within-framework grouping; `category` is Forge's
+            # name for the same idea. Nothing validates either.
+            "category": fm.get("pillar"),
             "status": fm.get("status"),
-            "source_path": str(path.relative_to(docs_root)),
+            "annotations": {"foe.source_path": rel},
+            # `method_id` is not carried: metadata.name already *is* the id.
         }
-        if parent is not None:
-            spec["parents"] = {"node": parent}
+
+        homes.setdefault(method_id, []).append(rel)
+        if declared_framework.get(method_id) in (None, ""):
+            declared_framework[method_id] = _framework_of(rel, fm.get("framework"))
+
+        if maturity:
+            maturities.setdefault(method_id, set()).add(str(maturity))
 
         existing = collected.get(method_id)
         if existing is None:
             collected[method_id] = spec
+            collected[method_id]["_labels"] = labels
         else:
             report.merged += 1
-            # Field-guide data (maturity, observations, parent) and external data
-            # (framework, pillar, url) are complementary, so take the union and
-            # let a present value win over an absent one.
+            # Field-guide data and external data are complementary, so take the
+            # union and let a present value win over an absent one.
             for key, value in spec.items():
-                if value in (None, "", [], {}):
+                if value in (None, "", [], {}) or key == "annotations":
                     continue
                 if existing.get(key) in (None, "", [], {}):
                     existing[key] = value
-            # Both homes are real; record both so the provenance is not lost.
-            existing["source_path"] = "; ".join(
-                sorted({existing.get("source_path", ""), spec.get("source_path", "")} - {""})
-            )
+            existing["_labels"].update({k: v for k, v in labels.items() if v})
 
-    for method_id, spec in sorted(collected.items()):
-        _write(out_root / "methods" / f"{method_id}.yaml", _document("foe_method", method_id, spec))
+    for method_id in sorted(collected):
+        spec = dict(collected[method_id])
+        labels = spec.pop("_labels")
+        # Only label a maturity every home agrees on. Emitting one of two
+        # conflicting values would assert something FOE never claimed globally;
+        # the real fix is per-guide maturity, which this model cannot express.
+        found = maturities.get(method_id, set())
+        if len(found) == 1:
+            labels["foe.maturity"] = next(iter(found))
+        elif len(found) > 1:
+            report.maturity_conflicts.append(f"{method_id}: {sorted(found)}")
+        # Every home, so provenance survives the merge.
+        spec["annotations"] = {"foe.source_path": "; ".join(sorted(homes[method_id]))}
+        doc = _document("method", method_id, spec)
+        if labels:
+            doc["metadata"]["labels"] = dict(sorted(labels.items()))
+        _write(out_root / "methods" / f"{method_id}.yaml", doc)
         report.methods += 1
 
-    # ── Observations ────────────────────────────────────────────────
-    for path in sorted(docs_root.rglob("O[0-9]*.md")):
-        fm = parse_frontmatter(path)
-        if fm is None:
-            report.skipped.append(f"{path.relative_to(docs_root)}: no frontmatter")
+    # ── Framework practices ─────────────────────────────────────────
+    #
+    # The canonical home of a borrowed method. These own the full set; what a
+    # guide adopts is a separate, curated practice.
+    framework_methods: dict[str, list[str]] = {}
+    framework_urls: dict[str, str] = {}
+    for method_id, framework in declared_framework.items():
+        if framework is None:
             continue
-        obs_id = str(fm.get("observationId") or _id_from_filename(path, "O") or "")
-        if obs_id == "":
-            report.skipped.append(
-                f"{path.relative_to(docs_root)}: no observationId and no id in filename"
-            )
-            continue
-        _track_unknown(report, fm, OBSERVATION_KEYS)
-        source = fm.get("source") if isinstance(fm.get("source"), dict) else {}
+        framework_methods.setdefault(framework, []).append(method_id)
+    if frameworks_dir.is_dir():
+        for path in sorted(frameworks_dir.rglob("M[0-9]*.md")):
+            fm = parse_frontmatter(path) or {}
+            url = fm.get("framework_url")
+            slug = path.relative_to(frameworks_dir).parts[0]
+            if url and slug not in framework_urls:
+                framework_urls[slug] = str(url)
 
-        # Unlike methods, a repeated observation id is a genuine mistake rather
-        # than one observation with two homes: O126 is claimed by both the
-        # StrongDM software-factory writeup and the Data Link pilot, which are
-        # unrelated. Merging would fabricate a hybrid, so the collision is
-        # reported and the later file skipped — the fix belongs in FOE's
-        # frontmatter, not here.
-        target = out_root / "observations" / f"{obs_id}.yaml"
-        if target.exists():
-            report.conflicts.append(
-                f"{obs_id} is claimed by more than one observation; kept the first, "
-                f"skipped {path.relative_to(docs_root)}"
-            )
-            continue
+    for framework, method_ids in sorted(framework_methods.items()):
+        title = frameworkish_title(framework)
         _write(
-            target,
+            out_root / "practices" / f"{_slug(framework)}.yaml",
             _document(
-                "foe_observation",
-                obs_id,
+                "practice",
+                _slug(framework),
                 {
-                    "description": str(fm.get("title") or obs_id),
-                    "title": str(fm.get("title") or obs_id),
-                    "observation_id": obs_id,
-                    "source_type": fm.get("source_type"),
-                    "status": fm.get("status"),
-                    "methods": [_method_ref(m) for m in (fm.get("methods") or [])],
-                    "source_url": source.get("url"),
-                    "source_organization": source.get("organization"),
-                    "source_year": source.get("year"),
-                    "source_path": str(path.relative_to(docs_root)),
+                    "description": f"{title} — external framework FOE draws methods from.",
+                    "title": title,
+                    "canonical": framework_urls.get(framework, framework),
+                    "methods": sorted(method_ids),
                 },
             ),
         )
-        report.observations += 1
+        report.framework_practices += 1
 
-    del frameworks_dir  # methods carry `framework` as a field; no separate kind yet
+    # ── Curated practices, one per (guide, source) pair ─────────────
+    #
+    # This is the composition: what a field guide actually adopted. Keyed by
+    # framework so partial adoption is explicit — agentic-coding takes 3 of Team
+    # Topologies' 12, and a reference straight to the framework would claim all 12.
+    curated: dict[tuple[str, str], list[str]] = {}
+    for method_id, rel_paths in homes.items():
+        framework = declared_framework.get(method_id) or ""
+        for guide, _stage in _guide_stages(rel_paths):
+            curated.setdefault((guide, framework), []).append(method_id)
+
+    area_practices: dict[str, list[str]] = {}
+    for (guide, framework), method_ids in sorted(curated.items()):
+        if framework == "":
+            name = f"{_slug(guide)}-internal"
+            title = f"{guide_titles.get(guide, guide)} — FOE methods"
+            description = (
+                f"Methods FOE authored for the {guide_titles.get(guide, guide)} field guide."
+            )
+            canonical = ""
+        else:
+            name = f"{_slug(guide)}-{_slug(framework)}"
+            fw_title = frameworkish_title(framework)
+            title = f"{fw_title} for {guide_titles.get(guide, guide)}"
+            total = len(framework_methods.get(framework, []))
+            description = (
+                f"{len(set(method_ids))} of {total} {fw_title} methods, as adopted by the "
+                f"{guide_titles.get(guide, guide)} field guide."
+            )
+            canonical = framework
+        _write(
+            out_root / "practices" / f"{name}.yaml",
+            _document(
+                "practice",
+                name,
+                {
+                    "description": description,
+                    "title": title,
+                    "canonical": canonical,
+                    "methods": sorted(set(method_ids)),
+                },
+            ),
+        )
+        report.curated_practices += 1
+        area_practices.setdefault(guide, []).append(name)
+
+    # ── Practice areas (field guides) ───────────────────────────────
+    for guide, title in sorted(guide_titles.items()):
+        practices = sorted(area_practices.get(guide, []))
+        if not practices:
+            report.skipped.append(f"field-guides/{guide}: no methods, no practice area emitted")
+            continue
+        _write(
+            out_root / "practice_areas" / f"{_slug(guide)}.yaml",
+            _document(
+                "practice_area",
+                _slug(guide),
+                {
+                    "description": f"FOE field guide: {title}.",
+                    "title": title,
+                    "canonical": guide,
+                    "practices": practices,
+                },
+            ),
+        )
+        report.practice_areas += 1
+
+    # ── Observations: parked, but counted ───────────────────────────
+    report.observations_parked = sum(1 for _ in docs_root.rglob("O[0-9]*.md"))
+
+
+def frameworkish_title(slug: str) -> str:
+    """Display name for a framework slug, matching FOE's own casing."""
+    known = {
+        "bdd": "BDD",
+        "dora": "DORA",
+        "tdd": "TDD",
+        "team-topologies": "Team Topologies",
+        "continuous-delivery": "Continuous Delivery",
+        "domain-driven-design": "Domain-Driven Design",
+        "double-diamond": "Double Diamond",
+        "event-sourcing": "Event Sourcing",
+        "clean-architecture": "Clean Architecture",
+        "layered-architecture": "Layered Architecture",
+        "modular-monolith": "Modular Monolith",
+        "microservices": "Microservices",
+    }
+    return known.get(slug, slug.replace("-", " ").title())
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -325,14 +482,26 @@ def main(argv: list[str] | None = None) -> int:
     report = Report()
     generate(docs_root, out_root, report)
 
-    print(f"field guides : {report.field_guides}")
-    print(f"methods      : {report.methods}" + (f"  ({report.merged} merged from duplicate ids)" if report.merged else ""))
-    print(f"observations : {report.observations}")
-    print(f"total nodes  : {report.total}")
-    if report.conflicts:
-        print("ID CONFLICTS — these need fixing in FOE's frontmatter:")
-        for c in report.conflicts:
+    merged = f"  ({report.merged} merged from duplicate ids)" if report.merged else ""
+    print(f"practice_area : {report.practice_areas}   (field guides)")
+    print(f"practice      : {report.practices}   "
+          f"({report.framework_practices} frameworks + {report.curated_practices} curated)")
+    print(f"method        : {report.methods}{merged}")
+    print(f"total nodes   : {report.total}")
+    if report.maturity_conflicts:
+        print(
+            "\nmaturity differs between a method's homes, so no label was emitted.\n"
+            "FOE declares maturity per document; these need a per-guide model or a "
+            "single agreed value:"
+        )
+        for c in report.maturity_conflicts:
             print(f"  {c}")
+    if report.observations_parked:
+        print(
+            f"\nobservations  : {report.observations_parked} in the docs, intentionally NOT "
+            "emitted.\n                Without an ordered `maturity` field there is no verdict "
+            "for them to\n                support. The markdown stays authoritative."
+        )
     if report.unknown_keys:
         print("frontmatter keys not modelled by the bundle (dropped):")
         for key, count in sorted(report.unknown_keys.items(), key=lambda kv: -kv[1]):

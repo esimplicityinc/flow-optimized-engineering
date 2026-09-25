@@ -1,0 +1,12 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice_area
+metadata:
+  name: system-architecture
+spec:
+  description: 'FOE field guide: System Architecture.'
+  title: System Architecture
+  canonical: system-architecture
+  practices:
+  - system-architecture-internal

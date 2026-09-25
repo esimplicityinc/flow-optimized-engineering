@@ -1,16 +1,13 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M147
+  labels:
+    foe.maturity: observing
 spec:
   description: Knowledge Distribution as Reliability
   title: Knowledge Distribution as Reliability
-  method_id: M147
-  maturity: observing
-  observations:
-  - O102
-  source_path: field-guides/agentic-coding/methods/emerging/M147-knowledge-distribution-as-reliability.md
-  parents:
-    node: agentic-coding
+  annotations:
+    foe.source_path: field-guides/agentic-coding/methods/emerging/M147-knowledge-distribution-as-reliability.md

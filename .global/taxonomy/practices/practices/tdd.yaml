@@ -1,0 +1,14 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: tdd
+spec:
+  description: TDD — external framework FOE draws methods from.
+  title: TDD
+  canonical: https://tidyfirst.substack.com/p/canon-tdd
+  methods:
+  - M163
+  - M164
+  - M165

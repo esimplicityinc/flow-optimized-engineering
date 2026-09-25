@@ -1,20 +1,16 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M114
+  labels:
+    foe.maturity: hypothesized
 spec:
   description: The first divergent phase where teams explore the problem space broadly
     through user research and empathy.
   title: Discover Phase
-  method_id: M114
-  maturity: hypothesized
-  observations:
-  - O109
-  - O116
-  pillar: problem-finding
-  source_path: external-frameworks/double-diamond/methods/M114-discover-phase.md;
-    field-guides/product-specification/methods/emerging/M114-discover-phase.md
-  parents:
-    node: product-specification
+  category: problem-finding
+  annotations:
+    foe.source_path: external-frameworks/double-diamond/methods/M114-discover-phase.md;
+      field-guides/product-specification/methods/emerging/M114-discover-phase.md

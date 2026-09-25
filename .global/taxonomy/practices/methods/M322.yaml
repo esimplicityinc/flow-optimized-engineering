@@ -1,14 +1,13 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M322
+  labels:
+    foe.maturity: hypothesized
 spec:
   description: Ontology-First Design
   title: Ontology-First Design
-  method_id: M322
-  maturity: hypothesized
-  source_path: field-guides/semantic-layer-engineering/methods/emerging/M322-ontology-first-design.md
-  parents:
-    node: semantic-layer-engineering
+  annotations:
+    foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M322-ontology-first-design.md

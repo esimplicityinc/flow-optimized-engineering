@@ -1,0 +1,13 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: agentic-coding-dora
+spec:
+  description: 2 of 4 DORA methods, as adopted by the Agentic Coding field guide.
+  title: DORA for Agentic Coding
+  canonical: dora
+  methods:
+  - M111
+  - M130

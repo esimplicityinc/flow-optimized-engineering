@@ -1,18 +1,17 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M226
+  labels:
+    foe.principle: Confidence
+    foe.principle.secondary: Understanding
 spec:
   description: Manages distributed transactions across multiple services using a sequence
     of local transactions with compensating actions for rollback.
   title: Saga Pattern
-  method_id: M226
-  framework: microservices
-  framework_url: https://microservices.io/patterns/data/saga.html
-  pillar: foundational-patterns
-  foe_principle: Confidence
-  foe_principle_secondary: Understanding
+  category: foundational-patterns
   status: industry-standard
-  source_path: external-frameworks/microservices/methods/M226-saga-pattern.md
+  annotations:
+    foe.source_path: external-frameworks/microservices/methods/M226-saga-pattern.md

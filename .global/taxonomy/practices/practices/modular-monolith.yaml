@@ -1,0 +1,16 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: modular-monolith
+spec:
+  description: Modular Monolith — external framework FOE draws methods from.
+  title: Modular Monolith
+  canonical: modular-monolith
+  methods:
+  - M235
+  - M236
+  - M237
+  - M238
+  - M239

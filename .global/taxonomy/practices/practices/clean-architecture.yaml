@@ -1,0 +1,20 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: clean-architecture
+spec:
+  description: Clean Architecture — external framework FOE draws methods from.
+  title: Clean Architecture
+  canonical: clean-architecture
+  methods:
+  - M200
+  - M201
+  - M202
+  - M203
+  - M204
+  - M205
+  - M206
+  - M207
+  - M208

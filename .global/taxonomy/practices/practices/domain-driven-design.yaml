@@ -1,0 +1,23 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: domain-driven-design
+spec:
+  description: Domain-Driven Design — external framework FOE draws methods from.
+  title: Domain-Driven Design
+  canonical: domain-driven-design
+  methods:
+  - M100
+  - M101
+  - M103
+  - M108
+  - M116
+  - M117
+  - M119
+  - M123
+  - M132
+  - M134
+  - M141
+  - M143

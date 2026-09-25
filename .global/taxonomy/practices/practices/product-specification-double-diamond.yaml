@@ -1,0 +1,16 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: product-specification-double-diamond
+spec:
+  description: 4 of 4 Double Diamond methods, as adopted by the Product Specification
+    field guide.
+  title: Double Diamond for Product Specification
+  canonical: double-diamond
+  methods:
+  - M109
+  - M110
+  - M113
+  - M114

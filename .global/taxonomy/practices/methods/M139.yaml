@@ -1,17 +1,15 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M139
+  labels:
+    foe.maturity: hypothesized
 spec:
   description: How long it takes to recover from a failure in production.
   title: Time to Restore Service
-  method_id: M139
-  maturity: hypothesized
-  observations:
-  - O110
-  pillar: stability
-  source_path: external-frameworks/dora/methods/M139-time-to-restore-service.md; field-guides/testing/methods/emerging/M139-time-to-restore-service.md
-  parents:
-    node: testing
+  category: stability
+  annotations:
+    foe.source_path: external-frameworks/dora/methods/M139-time-to-restore-service.md;
+      field-guides/testing/methods/emerging/M139-time-to-restore-service.md

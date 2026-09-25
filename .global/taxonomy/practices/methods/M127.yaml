@@ -1,24 +1,17 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M127
+  labels:
+    foe.maturity: validated
 spec:
   description: A template for expressing acceptance criteria as structured scenarios
     readable by humans and computers.
   title: Given-When-Then
-  method_id: M127
-  maturity: validated
-  observations:
-  - O100
-  - O104
-  - O105
-  - O106
-  - O107
-  pillar: formulation
-  source_path: external-frameworks/bdd/methods/M127-given-when-then.md; field-guides/agentic-coding/methods/established/M127-given-when-then.md;
-    field-guides/product-specification/methods/established/M127-given-when-then.md;
-    field-guides/testing/methods/established/M127-given-when-then.md
-  parents:
-    node: agentic-coding
+  category: formulation
+  annotations:
+    foe.source_path: external-frameworks/bdd/methods/M127-given-when-then.md; field-guides/agentic-coding/methods/established/M127-given-when-then.md;
+      field-guides/product-specification/methods/established/M127-given-when-then.md;
+      field-guides/testing/methods/established/M127-given-when-then.md

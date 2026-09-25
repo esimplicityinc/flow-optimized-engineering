@@ -1,17 +1,13 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M148
+  labels:
+    foe.maturity: observing
 spec:
   description: Persistent Planning State
   title: Persistent Planning State
-  method_id: M148
-  maturity: observing
-  observations:
-  - O126
-  - O221
-  source_path: field-guides/agentic-coding/methods/emerging/M148-persistent-planning-state.md
-  parents:
-    node: agentic-coding
+  annotations:
+    foe.source_path: field-guides/agentic-coding/methods/emerging/M148-persistent-planning-state.md

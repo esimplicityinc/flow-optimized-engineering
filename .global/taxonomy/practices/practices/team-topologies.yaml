@@ -1,0 +1,23 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: team-topologies
+spec:
+  description: Team Topologies — external framework FOE draws methods from.
+  title: Team Topologies
+  canonical: https://teamtopologies.com/key-concepts
+  methods:
+  - M106
+  - M107
+  - M118
+  - M122
+  - M124
+  - M129
+  - M131
+  - M133
+  - M135
+  - M136
+  - M137
+  - M144

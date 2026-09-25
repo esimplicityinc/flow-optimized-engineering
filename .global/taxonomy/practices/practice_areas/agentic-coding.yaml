@@ -1,0 +1,16 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice_area
+metadata:
+  name: agentic-coding
+spec:
+  description: 'FOE field guide: Agentic Coding.'
+  title: Agentic Coding
+  canonical: agentic-coding
+  practices:
+  - agentic-coding-bdd
+  - agentic-coding-continuous-delivery
+  - agentic-coding-dora
+  - agentic-coding-internal
+  - agentic-coding-team-topologies

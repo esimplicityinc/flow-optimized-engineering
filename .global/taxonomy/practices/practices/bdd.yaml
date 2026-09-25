@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: bdd
+spec:
+  description: BDD — external framework FOE draws methods from.
+  title: BDD
+  canonical: bdd
+  methods:
+  - M115
+  - M120
+  - M121
+  - M126
+  - M127
+  - M138
+  - M142

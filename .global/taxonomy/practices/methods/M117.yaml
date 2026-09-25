@@ -1,19 +1,16 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M117
+  labels:
+    foe.maturity: hypothesized
 spec:
   description: Stateless operations that represent domain concepts not belonging to
     entities or value objects.
   title: Domain Service
-  method_id: M117
-  maturity: hypothesized
-  observations:
-  - O118
-  pillar: tactical-design
-  source_path: external-frameworks/domain-driven-design/methods/M117-domain-service.md;
-    field-guides/software-architecture/methods/emerging/M117-domain-service.md
-  parents:
-    node: software-architecture
+  category: tactical-design
+  annotations:
+    foe.source_path: external-frameworks/domain-driven-design/methods/M117-domain-service.md;
+      field-guides/software-architecture/methods/emerging/M117-domain-service.md

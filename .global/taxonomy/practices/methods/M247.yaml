@@ -1,16 +1,16 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M247
+  labels:
+    foe.maturity: hypothesized
 spec:
   description: Reprocessing events for debugging, testing, migration, or rebuilding
     read models.
   title: Event Replay
-  method_id: M247
-  maturity: hypothesized
-  pillar: advanced-patterns
-  source_path: external-frameworks/event-sourcing/methods/M247-event-replay.md; field-guides/software-architecture/methods/emerging/M247-event-replay.md
-  parents:
-    node: software-architecture
+  category: advanced-patterns
+  annotations:
+    foe.source_path: external-frameworks/event-sourcing/methods/M247-event-replay.md;
+      field-guides/software-architecture/methods/emerging/M247-event-replay.md

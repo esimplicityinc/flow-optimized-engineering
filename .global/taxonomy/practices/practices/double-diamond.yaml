@@ -1,0 +1,15 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: double-diamond
+spec:
+  description: Double Diamond — external framework FOE draws methods from.
+  title: Double Diamond
+  canonical: double-diamond
+  methods:
+  - M109
+  - M110
+  - M113
+  - M114

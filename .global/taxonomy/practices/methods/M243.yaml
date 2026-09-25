@@ -1,16 +1,15 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M243
+  labels:
+    foe.maturity: hypothesized
 spec:
   description: Creating read-optimized views from event streams for efficient querying.
   title: Projection Building
-  method_id: M243
-  maturity: hypothesized
-  pillar: operational-patterns
-  source_path: external-frameworks/event-sourcing/methods/M243-projection-building.md;
-    field-guides/software-architecture/methods/emerging/M243-projection-building.md
-  parents:
-    node: software-architecture
+  category: operational-patterns
+  annotations:
+    foe.source_path: external-frameworks/event-sourcing/methods/M243-projection-building.md;
+      field-guides/software-architecture/methods/emerging/M243-projection-building.md

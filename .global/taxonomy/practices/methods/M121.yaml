@@ -1,28 +1,16 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M121
 spec:
   description: Connecting formulated examples to the system as automated tests that
     guide development and verify behavior.
   title: Executable Specifications
-  method_id: M121
-  maturity: proven
-  observations:
-  - O100
-  - O157
-  - O104
-  - O105
-  - O106
-  - O107
-  - O120
-  - O124
-  pillar: automation
-  source_path: external-frameworks/bdd/methods/M121-executable-specifications.md;
-    field-guides/agentic-coding/methods/established/M121-executable-specifications.md;
-    field-guides/product-specification/methods/emerging/M121-executable-specifications.md;
-    field-guides/testing/methods/emerging/M121-executable-specifications.md
-  parents:
-    node: agentic-coding
+  category: automation
+  annotations:
+    foe.source_path: external-frameworks/bdd/methods/M121-executable-specifications.md;
+      field-guides/agentic-coding/methods/established/M121-executable-specifications.md;
+      field-guides/product-specification/methods/emerging/M121-executable-specifications.md;
+      field-guides/testing/methods/emerging/M121-executable-specifications.md

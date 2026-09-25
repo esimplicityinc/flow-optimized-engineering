@@ -1,0 +1,20 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: event-sourcing
+spec:
+  description: Event Sourcing — external framework FOE draws methods from.
+  title: Event Sourcing
+  canonical: event-sourcing
+  methods:
+  - M240
+  - M241
+  - M242
+  - M243
+  - M244
+  - M245
+  - M246
+  - M247
+  - M248

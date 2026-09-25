@@ -1,14 +1,13 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M305
+  labels:
+    foe.maturity: hypothesized
 spec:
   description: Lexical Precision Search
   title: Lexical Precision Search
-  method_id: M305
-  maturity: hypothesized
-  source_path: field-guides/semantic-layer-engineering/methods/emerging/M305-lexical-precision-search.md
-  parents:
-    node: semantic-layer-engineering
+  annotations:
+    foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M305-lexical-precision-search.md

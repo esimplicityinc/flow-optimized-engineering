@@ -1,0 +1,18 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: product-specification-bdd
+spec:
+  description: 7 of 7 BDD methods, as adopted by the Product Specification field guide.
+  title: BDD for Product Specification
+  canonical: bdd
+  methods:
+  - M115
+  - M120
+  - M121
+  - M126
+  - M127
+  - M138
+  - M142

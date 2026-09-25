@@ -1,16 +1,15 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M107
+  labels:
+    foe.principle: Confidence
+    foe.principle.secondary: Understanding
 spec:
   description: Teams responsible for components requiring deep technical expertise.
   title: Complicated-Subsystem Team
-  method_id: M107
-  framework: team-topologies
-  framework_url: https://teamtopologies.com/key-concepts
-  foe_principle: Confidence
-  foe_principle_secondary: Understanding
   status: well-established
-  source_path: external-frameworks/team-topologies/methods/M107-complicated-subsystem-team.md
+  annotations:
+    foe.source_path: external-frameworks/team-topologies/methods/M107-complicated-subsystem-team.md

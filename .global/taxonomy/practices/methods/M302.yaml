@@ -1,14 +1,13 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M302
+  labels:
+    foe.maturity: hypothesized
 spec:
   description: Global Context Assembly
   title: Global Context Assembly
-  method_id: M302
-  maturity: hypothesized
-  source_path: field-guides/semantic-layer-engineering/methods/emerging/M302-global-context-assembly.md
-  parents:
-    node: semantic-layer-engineering
+  annotations:
+    foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M302-global-context-assembly.md

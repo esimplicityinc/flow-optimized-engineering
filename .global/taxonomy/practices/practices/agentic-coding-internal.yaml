@@ -1,0 +1,23 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: agentic-coding-internal
+spec:
+  description: Methods FOE authored for the Agentic Coding field guide.
+  title: Agentic Coding — FOE methods
+  methods:
+  - M146
+  - M147
+  - M148
+  - M149
+  - M152
+  - M154
+  - M155
+  - M156
+  - M158
+  - M159
+  - M160
+  - M161
+  - M162

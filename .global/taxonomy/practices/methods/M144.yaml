@@ -1,17 +1,16 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M144
+  labels:
+    foe.principle: Feedback
+    foe.principle.secondary: Confidence
 spec:
   description: One team provides something "as a Service" with minimal interaction
     required.
   title: X-as-a-Service Mode
-  method_id: M144
-  framework: team-topologies
-  framework_url: https://teamtopologies.com/key-concepts
-  foe_principle: Feedback
-  foe_principle_secondary: Confidence
   status: well-established
-  source_path: external-frameworks/team-topologies/methods/M144-x-as-a-service-mode.md
+  annotations:
+    foe.source_path: external-frameworks/team-topologies/methods/M144-x-as-a-service-mode.md

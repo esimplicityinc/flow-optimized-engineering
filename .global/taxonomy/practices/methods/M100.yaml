@@ -1,18 +1,15 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M100
+  labels:
+    foe.maturity: hypothesized
 spec:
   description: A cluster of domain objects treated as a single unit for data changes.
   title: Aggregate
-  method_id: M100
-  maturity: hypothesized
-  observations:
-  - O118
-  pillar: tactical-design
-  source_path: external-frameworks/domain-driven-design/methods/M100-aggregate.md;
-    field-guides/software-architecture/methods/emerging/M100-aggregate.md
-  parents:
-    node: software-architecture
+  category: tactical-design
+  annotations:
+    foe.source_path: external-frameworks/domain-driven-design/methods/M100-aggregate.md;
+      field-guides/software-architecture/methods/emerging/M100-aggregate.md

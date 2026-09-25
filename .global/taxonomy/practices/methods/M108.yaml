@@ -1,19 +1,15 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M108
+  labels:
+    foe.maturity: hypothesized
 spec:
   description: Documenting and managing relationships between bounded contexts.
   title: Context Mapping
-  method_id: M108
-  maturity: hypothesized
-  observations:
-  - O115
-  - O121
-  pillar: strategic-design
-  source_path: external-frameworks/domain-driven-design/methods/M108-context-mapping.md;
-    field-guides/software-architecture/methods/emerging/M108-context-mapping.md
-  parents:
-    node: software-architecture
+  category: strategic-design
+  annotations:
+    foe.source_path: external-frameworks/domain-driven-design/methods/M108-context-mapping.md;
+      field-guides/software-architecture/methods/emerging/M108-context-mapping.md

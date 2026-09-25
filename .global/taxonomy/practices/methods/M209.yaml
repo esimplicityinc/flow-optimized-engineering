@@ -1,17 +1,16 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M209
+  labels:
+    foe.maturity: validated
 spec:
   description: Assigning clear responsibilities to Presentation, Business Logic, and
     Data Access layers
   title: Layer Responsibility Definition
-  method_id: M209
-  maturity: validated
-  pillar: separation-of-concerns
-  source_path: external-frameworks/layered-architecture/methods/M209-layer-responsibility-definition.md;
-    field-guides/software-architecture/methods/established/M209-layer-responsibility-definition.md
-  parents:
-    node: software-architecture
+  category: separation-of-concerns
+  annotations:
+    foe.source_path: external-frameworks/layered-architecture/methods/M209-layer-responsibility-definition.md;
+      field-guides/software-architecture/methods/established/M209-layer-responsibility-definition.md

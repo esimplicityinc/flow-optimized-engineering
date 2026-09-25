@@ -1,0 +1,19 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: software-architecture-layered-architecture
+spec:
+  description: 7 of 7 Layered Architecture methods, as adopted by the Software Architecture
+    field guide.
+  title: Layered Architecture for Software Architecture
+  canonical: layered-architecture
+  methods:
+  - M209
+  - M210
+  - M211
+  - M212
+  - M213
+  - M214
+  - M215

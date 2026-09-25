@@ -1,16 +1,15 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M210
+  labels:
+    foe.maturity: validated
 spec:
   description: Ensuring dependencies only point inward (toward the domain/core)
   title: Dependency Direction Enforcement
-  method_id: M210
-  maturity: validated
-  pillar: dependency-management
-  source_path: external-frameworks/layered-architecture/methods/M210-dependency-direction-enforcement.md;
-    field-guides/software-architecture/methods/established/M210-dependency-direction-enforcement.md
-  parents:
-    node: software-architecture
+  category: dependency-management
+  annotations:
+    foe.source_path: external-frameworks/layered-architecture/methods/M210-dependency-direction-enforcement.md;
+      field-guides/software-architecture/methods/established/M210-dependency-direction-enforcement.md

@@ -1,20 +1,16 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M249
+  labels:
+    foe.principle: Confidence
+    foe.principle.secondary: Feedback
 spec:
   description: The principle that deploying code to production and releasing features
     to users should be independent activities.
   title: Decouple Deployment from Release
-  method_id: M249
-  observations:
-  - O223
-  - O224
-  framework: continuous-delivery
-  framework_url: https://continuousdelivery.com
-  foe_principle: Confidence
-  foe_principle_secondary: Feedback
   status: industry-standard
-  source_path: external-frameworks/continuous-delivery/methods/M249-decouple-deployment-from-release.md
+  annotations:
+    foe.source_path: external-frameworks/continuous-delivery/methods/M249-decouple-deployment-from-release.md

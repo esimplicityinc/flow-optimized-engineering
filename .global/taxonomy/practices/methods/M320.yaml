@@ -1,14 +1,13 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M320
+  labels:
+    foe.maturity: hypothesized
 spec:
   description: Production-to-Eval Pipeline
   title: Production-to-Eval Pipeline
-  method_id: M320
-  maturity: hypothesized
-  source_path: field-guides/semantic-layer-engineering/methods/emerging/M320-production-to-eval-pipeline.md
-  parents:
-    node: semantic-layer-engineering
+  annotations:
+    foe.source_path: field-guides/semantic-layer-engineering/methods/emerging/M320-production-to-eval-pipeline.md

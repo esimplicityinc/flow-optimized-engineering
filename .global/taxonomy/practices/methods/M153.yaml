@@ -1,23 +1,13 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M153
+  labels:
+    foe.maturity: validated
 spec:
   description: True Microservices
   title: True Microservices
-  method_id: M153
-  maturity: validated
-  observations:
-  - O101
-  - O103
-  - O122
-  - O121
-  - O113
-  - O108
-  - O111
-  - O110
-  source_path: field-guides/system-architecture/methods/established/M153-true-microservices.md
-  parents:
-    node: system-architecture
+  annotations:
+    foe.source_path: field-guides/system-architecture/methods/established/M153-true-microservices.md

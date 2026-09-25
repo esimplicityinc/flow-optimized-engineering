@@ -1,0 +1,23 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: microservices
+spec:
+  description: Microservices — external framework FOE draws methods from.
+  title: Microservices
+  canonical: https://microservices.io/patterns/apigateway.html
+  methods:
+  - M223
+  - M224
+  - M225
+  - M226
+  - M227
+  - M228
+  - M229
+  - M230
+  - M231
+  - M232
+  - M233
+  - M234

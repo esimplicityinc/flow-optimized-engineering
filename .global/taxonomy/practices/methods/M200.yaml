@@ -1,13 +1,13 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M200
 spec:
   description: Dependencies in source code must only point inward toward higher-level
     policies, never outward toward implementation details.
   title: Dependency Rule
-  method_id: M200
-  pillar: dependency-management
-  source_path: external-frameworks/clean-architecture/methods/M200-dependency-rule.md
+  category: dependency-management
+  annotations:
+    foe.source_path: external-frameworks/clean-architecture/methods/M200-dependency-rule.md

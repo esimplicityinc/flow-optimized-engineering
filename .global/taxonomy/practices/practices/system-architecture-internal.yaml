@@ -1,0 +1,14 @@
+# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
+# Edit the markdown frontmatter in docs/docs/ and regenerate.
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: system-architecture-internal
+spec:
+  description: Methods FOE authored for the System Architecture field guide.
+  title: System Architecture — FOE methods
+  methods:
+  - M145
+  - M150
+  - M151
+  - M153

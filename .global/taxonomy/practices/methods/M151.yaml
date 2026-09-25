@@ -1,16 +1,13 @@
 # GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
 # Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
-kind: foe_method
+kind: method
 metadata:
   name: M151
+  labels:
+    foe.maturity: observing
 spec:
   description: System Over Individuals
   title: System Over Individuals
-  method_id: M151
-  maturity: observing
-  observations:
-  - O117
-  source_path: field-guides/system-architecture/methods/emerging/M151-system-over-individuals.md
-  parents:
-    node: system-architecture
+  annotations:
+    foe.source_path: field-guides/system-architecture/methods/emerging/M151-system-over-individuals.md
