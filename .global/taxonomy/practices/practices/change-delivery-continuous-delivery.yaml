@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: change-delivery-continuous-delivery
+spec:
+  title: Continuous Delivery for Change Delivery
+  canonical: continuous-delivery
+  practice_area: change-delivery
+  methods:
+  - m112-deployment-pipeline
+  - m140-trunk-based-development
+  description: '2 of 8 Continuous Delivery methods, as adopted by the Change Delivery
+    practice area: the pipeline every change travels, and trunk-based integration.'
+  owners:
+  - aaron.west@esimplicity.com

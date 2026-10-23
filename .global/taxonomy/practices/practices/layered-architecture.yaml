@@ -1,24 +1,110 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: "layered-architecture"
+  name: layered-architecture
   annotations:
-    "foe.source_path": "external-frameworks/layered-architecture/overview.md"
+    foe.source_path: external-frameworks/layered-architecture/overview.md
 spec:
-  title: "Layered Architecture"
-  canonical: "https://en.wikipedia.org/wiki/Multilayered_architecture"
+  title: Layered Architecture
+  canonical: https://en.wikipedia.org/wiki/Multilayered_architecture
   methods:
-    - "m209-layer-responsibility-definition"
-    - "m210-dependency-direction-enforcement"
-    - "m211-inter-layer-interface-design"
-    - "m212-data-transfer-object-pattern"
-    - "m213-repository-pattern"
-    - "m214-service-layer-pattern"
-    - "m215-layer-isolation-testing"
+  - m209-layer-responsibility-definition
+  - m210-dependency-direction-enforcement
+  - m211-inter-layer-interface-design
+  - m212-data-transfer-object-pattern
+  - m213-repository-pattern
+  - m214-service-layer-pattern
+  - m215-layer-isolation-testing
   references:
-    - "Pattern-Oriented Software Architecture (POSA1) — https://www.amazon.com/Pattern-Oriented-Software-Architecture-System-Patterns/dp/0471958697"
-    - "Martin Fowler - Patterns of Enterprise Application Architecture — https://martinfowler.com/books/eaa.html"
-    - "Clean Architecture by Robert C. Martin — https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html"
-  description: "Layered Architecture is one of the most fundamental and widely-used architectural patterns in software engineering. First formally described in the seminal *Pattern-Oriented Software Architecture* (POSA1) by Buschmann et al. (1996), it organizes software components into horizontal layers, each with a specific responsibility and role within the application.\n\nThis pattern remains relevant today as the foundation for many modern architectural approaches, including Clean Architecture and Hexagonal Architecture, which can be seen as evolutions that address some of layered architecture's limitations.\n\n## Key Concepts\n\n### Separation of Concerns\nEach layer has a distinct responsibility:\n- **Presentation Layer**: User interface, API endpoints, view rendering\n- **Business Logic Layer**: Domain rules, use cases, application services\n- **Data Access Layer**: Database access, external API clients, file systems\n\n### The Dependency Rule\nDependencies should only point inward. The domain layer at the center knows nothing about the presentation or data layers. This inversion of dependency direction is crucial for testability and flexibility.\n\n### Layer Isolation\nLayers communicate through well-defined interfaces. The implementation details of one layer should not leak into another.\n\n## From Layered to Modern Architecture\n\nLayered Architecture evolved into more sophisticated patterns:\n\n- **Hexagonal Architecture** (Ports & Adapters) - Makes dependencies explicit through ports\n- **Clean Architecture** (Onion Architecture) - Emphasizes the dependency rule more strictly\n- **Vertical Slice Architecture** - Organizes by feature rather than technical concern\n\nThese modern approaches address the \"Lasagna Architecture\" anti-pattern—excessive layering that creates unnecessary complexity.\n\n## FOE Alignment\n\nLayered Architecture supports FOE principles:\n\n- **Understanding** - Clear separation makes code organization obvious; developers know where to find specific functionality\n- **Fast Feedback** - Layer isolation enables targeted testing; changes in one layer don't require testing others\n- **Confidence** - Well-defined boundaries prevent unintended coupling; the dependency rule makes dependencies explicit\n\n## Further Reading\n\n- [Pattern-Oriented Software Architecture (POSA1)](https://www.amazon.com/Pattern-Oriented-Software-Architecture-System-Patterns/dp/0471958697) - The foundational text\n- [Martin Fowler - Patterns of Enterprise Application Architecture](https://martinfowler.com/books/eaa.html) - Repository and Service Layer patterns\n- [Clean Architecture by Robert C. Martin](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) - Evolution of layered principles"
+  - Pattern-Oriented Software Architecture (POSA1) — https://www.amazon.com/Pattern-Oriented-Software-Architecture-System-Patterns/dp/0471958697
+  - Martin Fowler - Patterns of Enterprise Application Architecture — https://martinfowler.com/books/eaa.html
+  - Clean Architecture by Robert C. Martin — https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
+  description: 'Layered Architecture is one of the most fundamental and widely-used
+    architectural patterns in software engineering. First formally described in the
+    seminal *Pattern-Oriented Software Architecture* (POSA1) by Buschmann et al. (1996),
+    it organizes software components into horizontal layers, each with a specific
+    responsibility and role within the application.
+
+
+    This pattern remains relevant today as the foundation for many modern architectural
+    approaches, including Clean Architecture and Hexagonal Architecture, which can
+    be seen as evolutions that address some of layered architecture''s limitations.
+
+
+    ## Key Concepts
+
+
+    ### Separation of Concerns
+
+    Each layer has a distinct responsibility:
+
+    - **Presentation Layer**: User interface, API endpoints, view rendering
+
+    - **Business Logic Layer**: Domain rules, use cases, application services
+
+    - **Data Access Layer**: Database access, external API clients, file systems
+
+
+    ### The Dependency Rule
+
+    Dependencies should only point inward. The domain layer at the center knows nothing
+    about the presentation or data layers. This inversion of dependency direction
+    is crucial for testability and flexibility.
+
+
+    ### Layer Isolation
+
+    Layers communicate through well-defined interfaces. The implementation details
+    of one layer should not leak into another.
+
+
+    ## From Layered to Modern Architecture
+
+
+    Layered Architecture evolved into more sophisticated patterns:
+
+
+    - **Hexagonal Architecture** (Ports & Adapters) - Makes dependencies explicit
+    through ports
+
+    - **Clean Architecture** (Onion Architecture) - Emphasizes the dependency rule
+    more strictly
+
+    - **Vertical Slice Architecture** - Organizes by feature rather than technical
+    concern
+
+
+    These modern approaches address the "Lasagna Architecture" anti-pattern—excessive
+    layering that creates unnecessary complexity.
+
+
+    ## FOE Alignment
+
+
+    Layered Architecture supports FOE principles:
+
+
+    - **Understanding** - Clear separation makes code organization obvious; developers
+    know where to find specific functionality
+
+    - **Fast Feedback** - Layer isolation enables targeted testing; changes in one
+    layer don''t require testing others
+
+    - **Confidence** - Well-defined boundaries prevent unintended coupling; the dependency
+    rule makes dependencies explicit
+
+
+    ## Further Reading
+
+
+    - [Pattern-Oriented Software Architecture (POSA1)](https://www.amazon.com/Pattern-Oriented-Software-Architecture-System-Patterns/dp/0471958697)
+    - The foundational text
+
+    - [Martin Fowler - Patterns of Enterprise Application Architecture](https://martinfowler.com/books/eaa.html)
+    - Repository and Service Layer patterns
+
+    - [Clean Architecture by Robert C. Martin](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+    - Evolution of layered principles'
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com
+  practice_area: software-architecture

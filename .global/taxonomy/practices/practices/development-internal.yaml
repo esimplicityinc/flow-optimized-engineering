@@ -1,0 +1,24 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: development-internal
+spec:
+  title: Development — FOE methods
+  practice_area: development
+  methods:
+  - m146-early-feedback-loop-investment
+  - m147-knowledge-distribution-as-reliability
+  - m148-persistent-planning-state
+  - m149-root-cause-first-debugging
+  - m152-test-driven-agent-development
+  - m154-conceptual-debt-prevention
+  - m155-verification-before-completion
+  - m156-agent-mediated-access
+  - m158-agentx-constrained-autonomy
+  - m159-use-governed-ai-coding-agents
+  - m160-plan-mode-first
+  - m161-explicit-mcp-version-control
+  - m162-worktree-based-agent-isolation
+  description: Methods FOE authored for the Development practice area.
+  owners:
+  - aaron.west@esimplicity.com

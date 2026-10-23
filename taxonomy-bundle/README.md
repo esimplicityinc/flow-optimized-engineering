@@ -64,7 +64,26 @@ from — M121 has four.
 
 ## Regenerating
 
-The markdown in `docs/docs/` is authoritative. Edit it, never the YAML.
+The markdown in `docs/docs/` is authoritative for **methods**: their titles, prose and
+labels. Edit it, never their YAML.
+
+**Practice areas and practices are not.** They were first generated from the field
+guides, then rearranged in the taxonomy with the CLI (`kata tax rename`, `create`,
+`update`, `delete`) into areas the docs don't have:
+
+| Area | Holds |
+|---|---|
+| Development | Agentic Coding's own methods, its BDD and Team Topologies adoptions, and the Team Topologies framework |
+| Testing | BDD and TDD adoptions, and the TDD framework |
+| Change Delivery | how change gets into a system: Continuous Delivery and DORA throughput, and both frameworks |
+| Platform & Operations | infrastructure and keeping it running: IaC, resilience patterns, platform teams, DORA stability |
+| Product Specification, Software Architecture, System Architecture, Semantic Layer Engineering | as generated, plus the frameworks that belong to them |
+
+Every practice is in an area; none is left over. **Running the generator and importing
+again would overwrite this layout with the docs' one.** Regenerate only to pick up method
+changes, and import methods only, or re-apply the layout afterwards.
+
+The generate → import → stamp sequence, for a first import or a rebuild:
 
 ```bash
 rm -rf .global/taxonomy/practices

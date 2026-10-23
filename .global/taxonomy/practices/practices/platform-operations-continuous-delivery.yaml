@@ -1,0 +1,13 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: "platform-operations-continuous-delivery"
+spec:
+  title: "Continuous Delivery for Platform & Operations"
+  canonical: "continuous-delivery"
+  practice_area: "platform-operations"
+  methods:
+    - "m128-infrastructure-as-code"
+  description: "1 of 8 Continuous Delivery methods, as adopted by the Platform & Operations practice area: infrastructure defined and changed as code."
+  owners:
+    - "aaron.west@esimplicity.com"

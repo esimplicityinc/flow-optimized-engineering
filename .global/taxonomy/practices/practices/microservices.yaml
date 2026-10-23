@@ -1,36 +1,379 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: "microservices"
+  name: microservices
   annotations:
-    "foe.source_path": "external-frameworks/microservices/overview.md"
+    foe.source_path: external-frameworks/microservices/overview.md
 spec:
-  title: "Microservices Architecture"
-  canonical: "https://martinfowler.com/articles/microservices.html"
+  title: Microservices Architecture
+  canonical: https://martinfowler.com/articles/microservices.html
   methods:
-    - "m223-api-gateway"
-    - "m224-circuit-breaker"
-    - "m225-database-per-service"
-    - "m226-saga-pattern"
-    - "m227-service-discovery"
-    - "m228-strangler-fig-pattern"
-    - "m229-cqrs-microservices"
-    - "m230-event-sourcing-microservices"
-    - "m231-distributed-tracing"
-    - "m232-bulkhead-pattern"
-    - "m233-backpressure"
-    - "m234-decompose-by-business-capability"
+  - m223-api-gateway
+  - m224-circuit-breaker
+  - m225-database-per-service
+  - m226-saga-pattern
+  - m227-service-discovery
+  - m228-strangler-fig-pattern
+  - m229-cqrs-microservices
+  - m230-event-sourcing-microservices
+  - m231-distributed-tracing
+  - m232-bulkhead-pattern
+  - m233-backpressure
+  - m234-decompose-by-business-capability
   references:
-    - "Microservices - Martin Fowler — https://martinfowler.com/articles/microservices.html"
-    - "Microservice Prerequisites - Martin Fowler — https://martinfowler.com/bliki/MicroservicePrerequisites.html"
-    - "Monolith First - Martin Fowler — https://martinfowler.com/bliki/MonolithFirst.html"
-    - "microservices.io — https://microservices.io"
-    - "Amazon Prime Video Case Study (2023) — https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90"
-    - "Netflix Tech Blog — https://netflixtechblog.com/"
-    - "Uber Engineering — https://www.uber.com/blog/engineering/"
-    - "Microservices.io Pattern Catalog — https://microservices.io/patterns/"
-    - "The Twelve-Factor App — https://12factor.net/"
-    - "AWS Microservices — https://aws.amazon.com/microservices/"
-  description: "Microservices Architecture is an approach to building software applications as suites of independently deployable services, where each service runs in its own process and communicates via lightweight mechanisms such as HTTP APIs or message queues. First articulated by Martin Fowler and James Lewis in 2014, this architectural style has become an industry standard for building scalable, resilient systems.\n\nThe core premise of microservices is that large, complex applications are easier to build and maintain when broken down into smaller, cohesive services that align with business capabilities. Each service can be developed, deployed, and scaled independently by small, autonomous teams.\n\n:::warning The Microservices Premium\n\nMartin Fowler famously warned of the \"Microservices Premium\"—the additional cost and complexity of distributed systems. Organizations should start with monolithic architectures and only decompose when the benefits outweigh the costs.\n\n**Prerequisites for success:**\n- Rapid provisioning (cloud infrastructure)\n- Basic monitoring and observability\n- Rapid application deployment (CI/CD pipelines)\n- DevOps culture and team autonomy\n\n:::\n\n## Key Characteristics\n\nMicroservices are defined by several key characteristics:\n\n| Characteristic | Description |\n|----------------|-------------|\n| **Componentization via Services** | Services are independently replaceable and upgradeable units |\n| **Organized Around Business Capabilities** | Services align with business domains, not technical layers |\n| **Products not Projects** | Teams own services throughout their entire lifecycle |\n| **Smart Endpoints, Dumb Pipes** | Logic lives in services, communication is simple |\n| **Decentralized Governance** | Teams choose the right tools for their services |\n| **Decentralized Data Management** | Each service owns its data persistence |\n| **Infrastructure Automation** | CI/CD pipelines for rapid, reliable deployment |\n| **Design for Failure** | Services must handle failure of dependencies gracefully |\n| **Evolutionary Design** | Services can be rewritten or retired independently |\n\n## The Monolith First Principle\n\nDespite the popularity of microservices, the default starting point should often be a monolith:\n\n> \"You shouldn't start a new project with microservices, even if you're sure your application will be big enough to make it worthwhile.\"\n> — Martin Fowler\n\n**Start with a monolith when:**\n- The team is small (< 10 developers)\n- The domain boundaries are unclear\n- Speed of delivery is the primary concern\n- Infrastructure automation is immature\n\n**Consider microservices when:**\n- Different parts of the system need to scale independently\n- Teams can be organized around business capabilities\n- The cost of coordination exceeds the cost of distribution\n- Infrastructure and DevOps practices are mature\n\n:::info The Monolith Revival\n\nRecent case studies (Amazon Prime Video, 2023) have shown teams migrating _back_ from microservices to monoliths for specific workloads. This isn't a rejection of microservices—it's a reminder to choose the right architecture for the context. Serverless functions and modular monoliths offer middle-ground approaches.\n\n:::\n\n## Pillars of Microservices\n\n### Foundational Patterns\n\nCore patterns that define the microservices approach:\n\n- **[Decompose by Business Capability](./methods/M234-decompose-by-business-capability)** - Identify service boundaries aligned with business domains\n- **[Database Per Service](./methods/M225-database-per-service)** - Ensure service autonomy through private data ownership\n- **[API Gateway](./methods/M223-api-gateway)** - Provide unified entry point for clients\n\n### Communication Patterns\n\nPatterns for inter-service communication and integration:\n\n- **[Circuit Breaker](./methods/M224-circuit-breaker)** - Prevent cascade failures through fault isolation\n- **[Saga Pattern](./methods/M226-saga-pattern)** - Manage distributed transactions without two-phase commit\n- **[Service Discovery](./methods/M227-service-discovery)** - Enable dynamic service location\n\n### Data Patterns\n\nPatterns for managing data in distributed systems:\n\n- **[CQRS](./methods/M229-cqrs-microservices)** - Separate read and write models\n- **[Event Sourcing](./methods/M230-event-sourcing-microservices)** - Use events as the source of truth\n\n### Operational Patterns\n\nPatterns for running microservices in production:\n\n- **[Distributed Tracing](./methods/M231-distributed-tracing)** - Visualize request flows across services\n- **[Bulkhead Pattern](./methods/M232-bulkhead-pattern)** - Isolate resources to prevent failure spread\n- **[Backpressure](./methods/M233-backpressure)** - Maintain system stability under load\n- **[Strangler Fig Pattern](./methods/M228-strangler-fig-pattern)** - Incrementally migrate from monoliths\n\n## Relationship to Domain-Driven Design\n\nMicroservices and Domain-Driven Design (DDD) are deeply connected:\n\n**Bounded Contexts as Service Boundaries:**\n- Each bounded context is a natural candidate for a microservice\n- The context map shows service dependencies and integration patterns\n- Ubiquitous language within each service ensures clarity\n\n**Strategic DDD Patterns:**\n- **Context Mapping** - Defines how services interact (partnerships, customer-supplier, etc.)\n- **Anti-Corruption Layer** - Protects services from external model changes\n- **Shared Kernel** - When multiple services must share a common model\n\n## Why Microservices Matter for FOE\n\nMicroservices Architecture aligns strongly with Flow Optimized Engineering principles:\n\n### Optimize for Understanding\n\n- **Bounded contexts** create natural boundaries for understanding—each service has a focused, comprehensible scope\n- **Service autonomy** means teams can fully understand and own their domain without needing to understand the entire system\n- **Decentralized data** ensures that data models are owned and understood by the service team\n\n### Fast Feedback Loops\n\n- **Independent deployment** enables teams to deploy changes without coordinating with other teams\n- **Service isolation** means failures are contained, allowing rapid experimentation\n- **CI/CD automation** provides immediate feedback on changes\n\n### Confidence to Act\n\n- **Design for failure** patterns (circuit breakers, bulkheads) give confidence that failures won't cascade\n- **Consumer contract testing** ensures changes don't break dependencies\n- **Observability** (distributed tracing, monitoring) provides confidence in system behavior\n\n## When to Use Microservices\n\n| When to Use | When NOT to Use |\n|-------------|-----------------|\n| Large, complex domains with clear boundaries | Small teams with unclear domain boundaries |\n| Need for independent scalability | Infrastructure automation is immature |\n| Multiple teams that can be aligned to services | Network latency is unacceptable |\n| Organizational readiness for DevOps practices | Simple CRUD applications |\n| Existing monolith is slowing delivery | Team lacks distributed systems experience |\n\n## The Distributed Systems Challenge\n\nMicroservices trade code complexity for operational complexity:\n\n**New challenges you'll face:**\n- **Distributed transactions** - No simple ACID across services\n- **Eventual consistency** - Data may be temporarily inconsistent\n- **Network failures** - Services must handle communication failures\n- **Observability** - Harder to trace requests across service boundaries\n- **Testing** - Integration testing becomes more complex\n- **Deployment coordination** - Managing dependent service deployments\n\n## Further Reading\n\n### Foundational Sources\n\n- [Microservices - Martin Fowler](https://martinfowler.com/articles/microservices.html) - The original article (2014)\n- [Microservice Prerequisites - Martin Fowler](https://martinfowler.com/bliki/MicroservicePrerequisites.html) - When you're ready\n- [Monolith First - Martin Fowler](https://martinfowler.com/bliki/MonolithFirst.html) - Start simple\n\n### Books\n\n- Richardson, C. (2018). *Microservices Patterns*. Manning Publications.\n- Newman, S. (2021). *Building Microservices* (2nd ed.). O'Reilly Media.\n- Richardson, C. (2023). *Microservices.io* - Comprehensive pattern catalog at [microservices.io](https://microservices.io)\n\n### Case Studies\n\n- [Amazon Prime Video Case Study (2023)](https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90) - Monolith revival example\n- [Netflix Tech Blog](https://netflixtechblog.com/) - Microservices at scale\n- [Uber Engineering](https://www.uber.com/blog/engineering/) - Microservices migration stories\n\n### Pattern Catalogs\n\n- [Microservices.io Pattern Catalog](https://microservices.io/patterns/) - Chris Richardson's comprehensive patterns\n- [The Twelve-Factor App](https://12factor.net/) - Methodology for building SaaS apps\n- [AWS Microservices](https://aws.amazon.com/microservices/) - Cloud-native patterns"
+  - Microservices - Martin Fowler — https://martinfowler.com/articles/microservices.html
+  - Microservice Prerequisites - Martin Fowler — https://martinfowler.com/bliki/MicroservicePrerequisites.html
+  - Monolith First - Martin Fowler — https://martinfowler.com/bliki/MonolithFirst.html
+  - microservices.io — https://microservices.io
+  - Amazon Prime Video Case Study (2023) — https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90
+  - Netflix Tech Blog — https://netflixtechblog.com/
+  - Uber Engineering — https://www.uber.com/blog/engineering/
+  - Microservices.io Pattern Catalog — https://microservices.io/patterns/
+  - The Twelve-Factor App — https://12factor.net/
+  - AWS Microservices — https://aws.amazon.com/microservices/
+  description: 'Microservices Architecture is an approach to building software applications
+    as suites of independently deployable services, where each service runs in its
+    own process and communicates via lightweight mechanisms such as HTTP APIs or message
+    queues. First articulated by Martin Fowler and James Lewis in 2014, this architectural
+    style has become an industry standard for building scalable, resilient systems.
+
+
+    The core premise of microservices is that large, complex applications are easier
+    to build and maintain when broken down into smaller, cohesive services that align
+    with business capabilities. Each service can be developed, deployed, and scaled
+    independently by small, autonomous teams.
+
+
+    :::warning The Microservices Premium
+
+
+    Martin Fowler famously warned of the "Microservices Premium"—the additional cost
+    and complexity of distributed systems. Organizations should start with monolithic
+    architectures and only decompose when the benefits outweigh the costs.
+
+
+    **Prerequisites for success:**
+
+    - Rapid provisioning (cloud infrastructure)
+
+    - Basic monitoring and observability
+
+    - Rapid application deployment (CI/CD pipelines)
+
+    - DevOps culture and team autonomy
+
+
+    :::
+
+
+    ## Key Characteristics
+
+
+    Microservices are defined by several key characteristics:
+
+
+    | Characteristic | Description |
+
+    |----------------|-------------|
+
+    | **Componentization via Services** | Services are independently replaceable and
+    upgradeable units |
+
+    | **Organized Around Business Capabilities** | Services align with business domains,
+    not technical layers |
+
+    | **Products not Projects** | Teams own services throughout their entire lifecycle
+    |
+
+    | **Smart Endpoints, Dumb Pipes** | Logic lives in services, communication is
+    simple |
+
+    | **Decentralized Governance** | Teams choose the right tools for their services
+    |
+
+    | **Decentralized Data Management** | Each service owns its data persistence |
+
+    | **Infrastructure Automation** | CI/CD pipelines for rapid, reliable deployment
+    |
+
+    | **Design for Failure** | Services must handle failure of dependencies gracefully
+    |
+
+    | **Evolutionary Design** | Services can be rewritten or retired independently
+    |
+
+
+    ## The Monolith First Principle
+
+
+    Despite the popularity of microservices, the default starting point should often
+    be a monolith:
+
+
+    > "You shouldn''t start a new project with microservices, even if you''re sure
+    your application will be big enough to make it worthwhile."
+
+    > — Martin Fowler
+
+
+    **Start with a monolith when:**
+
+    - The team is small (< 10 developers)
+
+    - The domain boundaries are unclear
+
+    - Speed of delivery is the primary concern
+
+    - Infrastructure automation is immature
+
+
+    **Consider microservices when:**
+
+    - Different parts of the system need to scale independently
+
+    - Teams can be organized around business capabilities
+
+    - The cost of coordination exceeds the cost of distribution
+
+    - Infrastructure and DevOps practices are mature
+
+
+    :::info The Monolith Revival
+
+
+    Recent case studies (Amazon Prime Video, 2023) have shown teams migrating _back_
+    from microservices to monoliths for specific workloads. This isn''t a rejection
+    of microservices—it''s a reminder to choose the right architecture for the context.
+    Serverless functions and modular monoliths offer middle-ground approaches.
+
+
+    :::
+
+
+    ## Pillars of Microservices
+
+
+    ### Foundational Patterns
+
+
+    Core patterns that define the microservices approach:
+
+
+    - **[Decompose by Business Capability](./methods/M234-decompose-by-business-capability)**
+    - Identify service boundaries aligned with business domains
+
+    - **[Database Per Service](./methods/M225-database-per-service)** - Ensure service
+    autonomy through private data ownership
+
+    - **[API Gateway](./methods/M223-api-gateway)** - Provide unified entry point
+    for clients
+
+
+    ### Communication Patterns
+
+
+    Patterns for inter-service communication and integration:
+
+
+    - **[Circuit Breaker](./methods/M224-circuit-breaker)** - Prevent cascade failures
+    through fault isolation
+
+    - **[Saga Pattern](./methods/M226-saga-pattern)** - Manage distributed transactions
+    without two-phase commit
+
+    - **[Service Discovery](./methods/M227-service-discovery)** - Enable dynamic service
+    location
+
+
+    ### Data Patterns
+
+
+    Patterns for managing data in distributed systems:
+
+
+    - **[CQRS](./methods/M229-cqrs-microservices)** - Separate read and write models
+
+    - **[Event Sourcing](./methods/M230-event-sourcing-microservices)** - Use events
+    as the source of truth
+
+
+    ### Operational Patterns
+
+
+    Patterns for running microservices in production:
+
+
+    - **[Distributed Tracing](./methods/M231-distributed-tracing)** - Visualize request
+    flows across services
+
+    - **[Bulkhead Pattern](./methods/M232-bulkhead-pattern)** - Isolate resources
+    to prevent failure spread
+
+    - **[Backpressure](./methods/M233-backpressure)** - Maintain system stability
+    under load
+
+    - **[Strangler Fig Pattern](./methods/M228-strangler-fig-pattern)** - Incrementally
+    migrate from monoliths
+
+
+    ## Relationship to Domain-Driven Design
+
+
+    Microservices and Domain-Driven Design (DDD) are deeply connected:
+
+
+    **Bounded Contexts as Service Boundaries:**
+
+    - Each bounded context is a natural candidate for a microservice
+
+    - The context map shows service dependencies and integration patterns
+
+    - Ubiquitous language within each service ensures clarity
+
+
+    **Strategic DDD Patterns:**
+
+    - **Context Mapping** - Defines how services interact (partnerships, customer-supplier,
+    etc.)
+
+    - **Anti-Corruption Layer** - Protects services from external model changes
+
+    - **Shared Kernel** - When multiple services must share a common model
+
+
+    ## Why Microservices Matter for FOE
+
+
+    Microservices Architecture aligns strongly with Flow Optimized Engineering principles:
+
+
+    ### Optimize for Understanding
+
+
+    - **Bounded contexts** create natural boundaries for understanding—each service
+    has a focused, comprehensible scope
+
+    - **Service autonomy** means teams can fully understand and own their domain without
+    needing to understand the entire system
+
+    - **Decentralized data** ensures that data models are owned and understood by
+    the service team
+
+
+    ### Fast Feedback Loops
+
+
+    - **Independent deployment** enables teams to deploy changes without coordinating
+    with other teams
+
+    - **Service isolation** means failures are contained, allowing rapid experimentation
+
+    - **CI/CD automation** provides immediate feedback on changes
+
+
+    ### Confidence to Act
+
+
+    - **Design for failure** patterns (circuit breakers, bulkheads) give confidence
+    that failures won''t cascade
+
+    - **Consumer contract testing** ensures changes don''t break dependencies
+
+    - **Observability** (distributed tracing, monitoring) provides confidence in system
+    behavior
+
+
+    ## When to Use Microservices
+
+
+    | When to Use | When NOT to Use |
+
+    |-------------|-----------------|
+
+    | Large, complex domains with clear boundaries | Small teams with unclear domain
+    boundaries |
+
+    | Need for independent scalability | Infrastructure automation is immature |
+
+    | Multiple teams that can be aligned to services | Network latency is unacceptable
+    |
+
+    | Organizational readiness for DevOps practices | Simple CRUD applications |
+
+    | Existing monolith is slowing delivery | Team lacks distributed systems experience
+    |
+
+
+    ## The Distributed Systems Challenge
+
+
+    Microservices trade code complexity for operational complexity:
+
+
+    **New challenges you''ll face:**
+
+    - **Distributed transactions** - No simple ACID across services
+
+    - **Eventual consistency** - Data may be temporarily inconsistent
+
+    - **Network failures** - Services must handle communication failures
+
+    - **Observability** - Harder to trace requests across service boundaries
+
+    - **Testing** - Integration testing becomes more complex
+
+    - **Deployment coordination** - Managing dependent service deployments
+
+
+    ## Further Reading
+
+
+    ### Foundational Sources
+
+
+    - [Microservices - Martin Fowler](https://martinfowler.com/articles/microservices.html)
+    - The original article (2014)
+
+    - [Microservice Prerequisites - Martin Fowler](https://martinfowler.com/bliki/MicroservicePrerequisites.html)
+    - When you''re ready
+
+    - [Monolith First - Martin Fowler](https://martinfowler.com/bliki/MonolithFirst.html)
+    - Start simple
+
+
+    ### Books
+
+
+    - Richardson, C. (2018). *Microservices Patterns*. Manning Publications.
+
+    - Newman, S. (2021). *Building Microservices* (2nd ed.). O''Reilly Media.
+
+    - Richardson, C. (2023). *Microservices.io* - Comprehensive pattern catalog at
+    [microservices.io](https://microservices.io)
+
+
+    ### Case Studies
+
+
+    - [Amazon Prime Video Case Study (2023)](https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90)
+    - Monolith revival example
+
+    - [Netflix Tech Blog](https://netflixtechblog.com/) - Microservices at scale
+
+    - [Uber Engineering](https://www.uber.com/blog/engineering/) - Microservices migration
+    stories
+
+
+    ### Pattern Catalogs
+
+
+    - [Microservices.io Pattern Catalog](https://microservices.io/patterns/) - Chris
+    Richardson''s comprehensive patterns
+
+    - [The Twelve-Factor App](https://12factor.net/) - Methodology for building SaaS
+    apps
+
+    - [AWS Microservices](https://aws.amazon.com/microservices/) - Cloud-native patterns'
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com
+  practice_area: system-architecture

@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice_area
+metadata:
+  name: "platform-operations"
+spec:
+  description: "How we build infrastructure and keep it running: infrastructure as code, resilience under failure and load, observability, the platform teams that own it, and the stability measures that say whether it is working. Close to site reliability engineering."
+  owners:
+    - "aaron.west@esimplicity.com"
+  title: "Platform & Operations"
+  # canonical: ""  # Canonical reference identifier
+  practices:
+    - "platform-operations-continuous-delivery"
+    - "platform-operations-dora"
+    - "platform-operations-microservices"
+    - "platform-operations-team-topologies"
