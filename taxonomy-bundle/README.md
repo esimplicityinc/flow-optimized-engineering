@@ -1,63 +1,114 @@
-# FOE taxonomy bundle
+# FOE → Katalyst taxonomy
 
-Flow Optimized Engineering as a Katalyst taxonomy bundle: methods, observations
-and field guides become taxonomy nodes, so any consumer — CLI, MCP, REST, or a
-UI — can render them without knowing anything about FOE.
+Flow Optimized Engineering's field guides, the frameworks they draw on, and the
+methods themselves, as nodes of Katalyst Forge's **practices** wing. Any
+consumer — `kata`, MCP, REST, a UI — reads them without knowing anything about
+FOE.
 
-## What it provides
+This package declares **no schema**. Everything is a Forge kind:
 
-Three kinds, joining the existing **`practices`** wing rather than declaring a
-new one. FOE methods *are* practices; a separate wing would fragment the domain.
+| Forge kind | FOE | Count |
+|---|---|---|
+| `practice_area` | a field guide; its `overview.md` is the description | 6 |
+| `practice` | a framework's full, canonical set, with its overview and reading list | 12 |
+| `practice` | what one guide adopted from one framework (`practice_area` names the guide) | 17 |
+| `method` | a method, prescribed by practices and owned by none | 134 |
 
-| Kind | Notes |
+```
+practice_area agentic-coding
+  └─ INCLUDES_PRACTICE → practice agentic-coding-team-topologies   (3 of 12 methods)
+                           ├─ canonical: team-topologies           (the framework practice)
+                           └─ PRESCRIBES_METHOD → method m124-fast-flow
+```
+
+A guide's adoption is its own practice because adoption is partial: Agentic
+Coding takes 3 of Team Topologies' 12 methods, and an area pointing straight at
+the framework would claim all twelve.
+
+## A method's write-up
+
+Forge's `method` has fields for the parts a reader compares across methods, and
+`body` for the rest. The generator splits each write-up by section:
+
+| Field | From | Methods |
+|---|---|---|
+| `definition` | `Definition`; else the first paragraph of `Overview` / `What It Is` | 132 |
+| `when_to_use` | `When to Use` | 71 |
+| `when_not_to_use` | `When NOT to Use`, `Trade-offs` | 58 |
+| `pitfalls` | `Common Pitfalls`, `Common Mistakes`, `Anti-Patterns` | 100 |
+| `body` | the preamble and every other section, in order | 134 |
+| `description` | frontmatter `description`, else the lead paragraph | 134 |
+
+Every line of every write-up lands in exactly one field; a test checks it.
+
+## Names and labels
+
+A method is named `<lowercase id>-<slug>`, so `M121` is
+`m121-executable-specifications`. FQTN names are lowercase, so `M121` was never
+a valid one.
+
+| Label | Holds |
 |---|---|
-| `foe_field_guide` | 6 guides, the parent of field-guide methods |
-| `foe_method` | 134 distinct methods. `maturity` declares `allowed_values`, so the progression is data |
-| `foe_observation` | 65 observations. `source_type` declares internal/external |
+| `foe.method-id` | FOE's id, `M121` |
+| `foe.principle`, `foe.principle.secondary` | Understanding / Feedback / Confidence |
+| `foe.maturity` | only when every documentation home agrees |
 
-Methods and observations cross-reference each other in both directions, because
-FOE's markdown maintains both. The engine derives `SUPPORTED_BY` and
-`EVIDENCE_FOR` relationships from those declarations.
+`foe.method-id` is not `governance-id` on purpose. Katalyst governance ids are
+`SERIES-number` with a series of two or more letters (`CAP-001`); `M121` does not
+match, and lint silently skips an id it cannot parse, so the label would claim
+the convention without getting its uniqueness check. Adopting a conforming id
+scheme is FOE's call.
 
-The existing `method` kind is deliberately **not** reused: its fields (category,
-rationale, alternatives) describe an ADR-style decision record, not an
-evidence-backed practice, and overloading it would mean neither shape validates.
+The annotation `foe.source_path` lists every documentation home a node was built
+from — M121 has four.
 
-## Generating nodes
+## Regenerating
 
-The markdown in `docs/docs/` stays authoritative. Nodes are derived from it:
-
-```bash
-uv run --project taxonomy-bundle python -m foe_taxonomy.generate --repo .
-```
-
-Output goes to `.global/taxonomy/practices/` and the directory is rewritten each
-run — a node whose markdown was deleted would otherwise linger with nothing able
-to tell it was orphaned.
-
-## Two things the generator found in FOE's data
-
-**58 method ids are documented twice.** `M100 "Aggregate"` appears in both
-`external-frameworks/domain-driven-design/` and
-`field-guides/software-architecture/`. These are one method with two
-documentation homes, so the generator **merges** them — taking maturity and
-observations from the field guide and framework/pillar from the external entry,
-and recording both source paths. `M121` merges five homes. An earlier version
-overwrote instead, silently losing 58 methods' worth of detail.
-
-**`O126` is claimed by two unrelated observations** — StrongDM's software
-factory and the Data Link pilot. That is a genuine mistake rather than two homes
-for one thing, so the generator reports it as a conflict and keeps the first
-rather than fabricating a hybrid. **The fix belongs in FOE's frontmatter.**
-
-It also reports frontmatter keys the bundle does not model (`external_method`,
-`priority`, `aliases`) rather than passing them through, so the gap is visible.
-
-## Viewing it
-
-With this bundle installed in the same environment as the taxonomy API:
+The markdown in `docs/docs/` is authoritative. Edit it, never the YAML.
 
 ```bash
-katalyst-server --path .            # serve this repo's taxonomy
-kata tax bard serve --api-url ...   # the Practices board
+rm -rf .global/taxonomy/practices
+uv run --project taxonomy-bundle python -m foe_taxonomy.generate --repo . --out /tmp/foe.yaml
+kata tax import /tmp/foe.yaml --backend foe
+uv run --project taxonomy-bundle python -m foe_taxonomy.stamp --repo . --change-set /tmp/foe.yaml
+kata tax lint --strict
 ```
+
+Three steps instead of one, for reasons worth knowing:
+
+- **The change set goes outside the repository.** `kata tax import` loads the
+  backend's documents, so a change set inside the repo is read as nodes too:
+  every reference becomes ambiguous ("matches 2 method"), and the rollback then
+  **deletes the change-set file** rather than the node it created. The generator
+  refuses an `--out` inside the repo.
+- **`stamp` writes labels and annotations.** `kata tax import` creates each node
+  through `kata tax create`, which writes the spec and drops
+  `metadata.labels` and `metadata.annotations`; neither `create` nor `update`
+  can set them. `stamp` inserts both blocks as text, leaving what kata wrote
+  untouched, and is idempotent.
+- **Owners are explicit.** With no owner, `kata tax create` writes the
+  placeholder `team@example.com`.
+
+## What is not modelled
+
+The generator reports what it drops rather than passing it through:
+
+- **Observations** (66) are not emitted. Without maturity as a first-class,
+  ordered field there is no verdict for evidence to support.
+- **Per-guide maturity.** Guide overviews declare `adopted_methods`, each with a
+  `foe_maturity`, and the folders say `established` vs `emerging`. Both are a
+  property of the area → method edge, and a practice's `methods` list has
+  nowhere to hold it. Two methods' homes disagree outright: M121 is `proven` in
+  Agentic Coding and `hypothesized` elsewhere, so it carries no maturity label.
+- Overview frontmatter `status`, `related_frameworks`, `version`, `pillars`, and
+  method frontmatter `external_method`, `priority`, `aliases`.
+
+## Tests
+
+```bash
+uv run --project taxonomy-bundle --group dev pytest taxonomy-bundle/tests
+```
+
+They run against the real `docs/docs/` and assert properties — names valid and
+unique, every reference resolves, every method prescribed, no prose lost — rather
+than counts, so a new method does not break them.

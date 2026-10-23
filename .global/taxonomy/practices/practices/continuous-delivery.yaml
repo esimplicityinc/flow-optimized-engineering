@@ -1,22 +1,26 @@
-# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
-# Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: continuous-delivery
+  name: "continuous-delivery"
+  annotations:
+    "foe.source_path": "external-frameworks/continuous-delivery/overview.md"
 spec:
-  description: Continuous Delivery (CD) is a software development discipline where
-    software is built in such a way that it can be released to production at any time.
-    Developed by Jez Humble and David Farley and published in their 2010 book, CD
-    provides the technical practices that enable the outcomes measured by DORA metrics.
-  title: Continuous Delivery
-  canonical: https://continuousdelivery.com
+  title: "Continuous Delivery"
+  canonical: "https://continuousdelivery.com"
   methods:
-  - M102
-  - M104
-  - M112
-  - M125
-  - M128
-  - M140
-  - M249
-  - M250
+    - "m102-blue-green-deployment"
+    - "m104-canary-release"
+    - "m112-deployment-pipeline"
+    - "m125-feature-flags"
+    - "m128-infrastructure-as-code"
+    - "m140-trunk-based-development"
+    - "m249-decouple-deployment-from-release"
+    - "m250-definitive-deployment-pipeline"
+  references:
+    - "Continuous Delivery Website — https://continuousdelivery.com"
+    - "Continuous Delivery Book — https://www.informit.com/store/continuous-delivery-reliable-software-releases-through-9780321601919"
+    - "Accelerate — https://itrevolution.com/product/accelerate/"
+    - "Martin Fowler's Continuous Delivery — https://martinfowler.com/bliki/ContinuousDelivery.html"
+  description: "Continuous Delivery (CD) is a software development discipline where software is built in such a way that it can be released to production at any time. Developed by Jez Humble and David Farley and published in their 2010 book, CD provides the technical practices that enable the outcomes measured by DORA metrics.\n\nThe core insight of Continuous Delivery is that deployment should be boring, routine, and low-risk. By automating the build, test, and deployment process and working in small batches, teams can release changes with confidence at any time.\n\n## Key Principles\n\nContinuous Delivery is built on five foundational principles:\n\n**1. Build Quality In**\n\nFind and fix problems immediately rather than through downstream inspection. Create feedback loops to detect problems as early as possible.\n\n**2. Work in Small Batches**\n\nGet every change as far towards release as possible. Smaller batches mean faster feedback and easier triage when problems occur.\n\n**3. Automate Repetitive Tasks**\n\nComputers perform repetitive tasks; people solve problems. Automate testing and deployment so humans can focus on creative work.\n\n**4. Relentlessly Pursue Continuous Improvement**\n\nTreat improvement as essential daily work. Never be satisfied with the status quo.\n\n**5. Everyone is Responsible**\n\nNothing is \"somebody else's problem.\" Quality is everyone's responsibility.\n\n## Relationship to DORA\n\nContinuous Delivery practices are the **\"how\"** that achieves DORA metrics (the **\"what\"**). Jez Humble co-authored both frameworks.\n\n| CD Practice | Enables DORA Metric |\n|-------------|---------------------|\n| Deployment Pipeline | Lead Time for Changes |\n| Trunk-Based Development | Deployment Frequency |\n| Blue-Green/Canary Release | Change Failure Rate |\n| Feature Flags | Time to Restore Service |\n\nThe Accelerate research (2018) validated that organizations implementing CD practices achieve higher DORA metrics and better business outcomes.\n\n## Why Continuous Delivery Matters for FOE\n\nContinuous Delivery aligns strongly with all three Flow Optimized Engineering principles:\n\n- **Fast Feedback Loops** - The deployment pipeline provides progressive feedback at each stage. Small batches and trunk-based development ensure rapid feedback on integration issues. Canary releases provide real production feedback with limited risk.\n\n- **Confidence to Act** - Blue-green deployments enable instant rollback. Feature flags decouple deployment from release. Automated testing at every stage builds confidence that changes work correctly.\n\n- **Optimize for Understanding** - The deployment pipeline makes the path to production visible and understandable. Infrastructure as Code makes system state explicit and auditable.\n\n## Methods\n\nCore Continuous Delivery methods:\n\n- [Deployment Pipeline](./methods/M112-deployment-pipeline) - Automated path from commit to production\n- [Definitive Deployment Pipeline](./methods/M250-definitive-deployment-pipeline) - The pipeline as sole path to production and verification authority\n- [Trunk-Based Development](./methods/M140-trunk-based-development) - Collaborate on a single branch\n- [Feature Flags](./methods/M125-feature-flags) - Decouple deployment from release\n- [Decouple Deployment from Release](./methods/M249-decouple-deployment-from-release) - Separate the act of deploying code from releasing features to users\n- [Blue-Green Deployment](./methods/M102-blue-green-deployment) - Zero-downtime deployments\n- [Canary Release](./methods/M104-canary-release) - Gradual rollout to detect issues\n- [Infrastructure as Code](./methods/M128-infrastructure-as-code) - Treat infrastructure like application code\n\n## Further Reading\n\n- [Continuous Delivery Website](https://continuousdelivery.com) - Official website maintained by Jez Humble\n- [Continuous Delivery Book](https://www.informit.com/store/continuous-delivery-reliable-software-releases-through-9780321601919) - \"Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation\" (2010)\n- [Accelerate](https://itrevolution.com/product/accelerate/) - Research validating CD practices\n- [Martin Fowler's Continuous Delivery](https://martinfowler.com/bliki/ContinuousDelivery.html) - Concise definition"
+  owners:
+    - "aaron.west@esimplicity.com"

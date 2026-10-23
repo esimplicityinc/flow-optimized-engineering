@@ -1,0 +1,18 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: "m103-bounded-context"
+  labels:
+    "foe.maturity": "hypothesized"
+    "foe.method-id": "M103"
+  annotations:
+    "foe.source_path": "external-frameworks/domain-driven-design/methods/M103-bounded-context.md; field-guides/product-specification/methods/emerging/M103-bounded-context.md; field-guides/software-architecture/methods/emerging/M103-bounded-context.md"
+spec:
+  title: "Bounded Context"
+  category: "strategic-design"
+  definition: "> A description of a boundary (typically a subsystem, or the work of a particular team) within which a particular model is defined and applicable.\n>\n> — Eric Evans, DDD Reference"
+  pitfalls: "- **Too large** - A bounded context that encompasses the entire system provides no benefit\n- **Too small** - Creating a context for every entity leads to excessive integration overhead\n- **Ignoring linguistic differences** - Forcing a single model when terms have different meanings\n- **Coupling contexts** - Sharing databases or models across context boundaries"
+  body: "**Pillar:** Strategic Design\n\nA Bounded Context is the central pattern in Domain-Driven Design's strategic design. It explicitly defines the boundary within which a particular domain model is defined and applicable. Within a bounded context, terms have precise, unambiguous meanings.\n\n## Why It Matters\n\nBounded Contexts are essential because:\n\n- **Prevents model corruption** - Different parts of a system can use the same term with different meanings without conflict\n- **Enables team autonomy** - Teams can evolve their models independently within their context\n- **Supports microservices** - Each microservice typically represents one bounded context\n- **Reduces cognitive load** - Developers only need to understand the model within their context\n- **Clarifies integration points** - Relationships between contexts are explicit and managed\n\n## How to Identify Bounded Contexts\n\nLook for these signals when identifying context boundaries:\n\n1. **Linguistic boundaries** - The same term means different things to different groups (e.g., \"Account\" in billing vs. authentication)\n2. **Team boundaries** - Different teams own different parts of the system\n3. **Business capability boundaries** - Distinct business functions (ordering, shipping, billing)\n4. **Legacy system boundaries** - Existing systems that have their own models\n5. **Consistency requirements** - Areas that need strong transactional consistency\n\n## Relationship to Other Patterns\n\n- **Ubiquitous Language** - Each bounded context has its own ubiquitous language\n- **Context Mapping** - Documents relationships between bounded contexts\n- **Aggregates** - Live within a single bounded context\n- **Anti-Corruption Layer** - Protects a context from external model corruption\n\n## FOE Alignment\n\nBounded Context strongly supports the FOE principle of **Optimize for Understanding**. By limiting the scope of any single model, it reduces the cognitive load on developers. You don't need to understand the entire system—just your context. This constraint enables faster onboarding, clearer code ownership, and more confident changes within the boundary.\n\n## Related Observations\n\n- [DDD Bounded Contexts Observation](/docs/field-guides/observations/external/O108-ddd-bounded-contexts) - External observation linking Bounded Contexts to the True Microservices method"
+  description: "A boundary within which a particular domain model is defined and applicable."
+  owners:
+    - "aaron.west@esimplicity.com"

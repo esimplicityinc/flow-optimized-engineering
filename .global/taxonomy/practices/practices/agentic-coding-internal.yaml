@@ -1,23 +1,24 @@
-# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
-# Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: agentic-coding-internal
+  name: "agentic-coding-internal"
 spec:
-  description: Methods FOE authored for the Agentic Coding field guide.
-  title: Agentic Coding — FOE methods
+  title: "Agentic Coding — FOE methods"
+  practice_area: "agentic-coding"
   methods:
-  - M146
-  - M147
-  - M148
-  - M149
-  - M152
-  - M154
-  - M155
-  - M156
-  - M158
-  - M159
-  - M160
-  - M161
-  - M162
+    - "m146-early-feedback-loop-investment"
+    - "m147-knowledge-distribution-as-reliability"
+    - "m148-persistent-planning-state"
+    - "m149-root-cause-first-debugging"
+    - "m152-test-driven-agent-development"
+    - "m154-conceptual-debt-prevention"
+    - "m155-verification-before-completion"
+    - "m156-agent-mediated-access"
+    - "m158-agentx-constrained-autonomy"
+    - "m159-use-governed-ai-coding-agents"
+    - "m160-plan-mode-first"
+    - "m161-explicit-mcp-version-control"
+    - "m162-worktree-based-agent-isolation"
+  description: "Methods FOE authored for the Agentic Coding field guide."
+  owners:
+    - "aaron.west@esimplicity.com"

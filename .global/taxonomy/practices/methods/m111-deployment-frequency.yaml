@@ -1,0 +1,16 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: "m111-deployment-frequency"
+  labels:
+    "foe.maturity": "observing"
+    "foe.method-id": "M111"
+  annotations:
+    "foe.source_path": "external-frameworks/dora/methods/M111-deployment-frequency.md; field-guides/agentic-coding/methods/emerging/M111-deployment-frequency.md"
+spec:
+  title: "Deployment Frequency"
+  category: "throughput"
+  body: "## Why This Matters for Agentic Coding\n\nDeployment frequency takes on special significance when working with AI coding assistants. The combination of faster code generation and the need for rapid verification creates both opportunities and risks:\n\n**Opportunities:**\n- AI can help generate deployment configurations, CI/CD scripts, and infrastructure code quickly\n- Faster implementation cycles mean more potential deployments per day\n- AI can help automate pre-deployment checks and validations\n\n**Risks:**\n- Higher code velocity without corresponding deployment frequency creates inventory (undeployed code)\n- AI-generated code that sits undeployed loses the fast feedback that catches AI mistakes\n- Teams may over-focus on code generation speed while neglecting deployment pipeline investment\n\n## Adaptations for Agentic Coding\n\n### Measure AI-Assisted vs Manual Deployments\n\nConsider tracking:\n- Deployments containing AI-generated code\n- Time from AI code generation to production deployment\n- Deployment success rate for AI-assisted vs manual changes\n\n### Tighter Integration with Verification\n\nIn agentic coding, deployment frequency should be paired with:\n- **Automated verification** - Every deployment triggers automated checks\n- **Fast rollback capability** - AI-generated code may have subtle issues that only appear in production\n- **Observability investment** - More deployments means more need for production monitoring\n\n### Small Batches Are Even More Critical\n\nWhen AI generates code quickly, the temptation is to batch up changes. Resist this:\n- Deploy AI-generated changes individually when possible\n- Each deployment becomes a verification point for AI output quality\n- Smaller batches mean faster identification of which AI-generated code caused issues\n\n## Questions We're Exploring\n\n- Does AI-assisted development naturally lead to higher deployment frequency?\n- What deployment frequency is sustainable when AI is generating significant code volume?\n- How should we adjust deployment practices when AI is handling more of the implementation?"
+  description: "How often code is successfully deployed to production."
+  owners:
+    - "aaron.west@esimplicity.com"

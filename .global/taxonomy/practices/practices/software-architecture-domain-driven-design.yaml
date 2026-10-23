@@ -1,22 +1,22 @@
-# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
-# Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: software-architecture-domain-driven-design
+  name: "software-architecture-domain-driven-design"
 spec:
-  description: 10 of 12 Domain-Driven Design methods, as adopted by the Software Architecture
-    field guide.
-  title: Domain-Driven Design for Software Architecture
-  canonical: domain-driven-design
+  title: "Domain-Driven Design for Software Architecture"
+  canonical: "domain-driven-design"
+  practice_area: "software-architecture"
   methods:
-  - M100
-  - M101
-  - M103
-  - M108
-  - M116
-  - M117
-  - M119
-  - M132
-  - M134
-  - M143
+    - "m100-aggregate"
+    - "m101-application-service"
+    - "m103-bounded-context"
+    - "m108-context-mapping"
+    - "m116-domain-event"
+    - "m117-domain-service"
+    - "m119-entity"
+    - "m132-repository"
+    - "m134-subdomains"
+    - "m143-value-object"
+  description: "10 of 12 Domain-Driven Design methods, as adopted by the Software Architecture field guide."
+  owners:
+    - "aaron.west@esimplicity.com"

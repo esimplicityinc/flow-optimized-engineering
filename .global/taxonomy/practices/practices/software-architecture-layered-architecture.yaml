@@ -1,19 +1,19 @@
-# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
-# Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: software-architecture-layered-architecture
+  name: "software-architecture-layered-architecture"
 spec:
-  description: 7 of 7 Layered Architecture methods, as adopted by the Software Architecture
-    field guide.
-  title: Layered Architecture for Software Architecture
-  canonical: layered-architecture
+  title: "Layered Architecture for Software Architecture"
+  canonical: "layered-architecture"
+  practice_area: "software-architecture"
   methods:
-  - M209
-  - M210
-  - M211
-  - M212
-  - M213
-  - M214
-  - M215
+    - "m209-layer-responsibility-definition"
+    - "m210-dependency-direction-enforcement"
+    - "m211-inter-layer-interface-design"
+    - "m212-data-transfer-object-pattern"
+    - "m213-repository-pattern"
+    - "m214-service-layer-pattern"
+    - "m215-layer-isolation-testing"
+  description: "7 of 7 Layered Architecture methods, as adopted by the Software Architecture field guide."
+  owners:
+    - "aaron.west@esimplicity.com"

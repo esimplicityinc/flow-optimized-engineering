@@ -1,17 +1,21 @@
-# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
-# Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: tdd
+  name: "tdd"
+  annotations:
+    "foe.source_path": "external-frameworks/tdd/overview.md"
 spec:
-  description: 'Test-Driven Development (TDD) is a software development technique
-    that guides development by writing tests first. Developed by Kent Beck in the
-    late 1990s as part of Extreme Programming, TDD inverts the traditional code-then-test
-    approach: you write a failing test, make it pass with minimal code, then refactor.'
-  title: TDD
-  canonical: https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530
+  title: "Test-Driven Development"
+  canonical: "https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530"
   methods:
-  - M163
-  - M164
-  - M165
+    - "m163-red-green-refactor"
+    - "m164-test-pyramid"
+    - "m165-test-list"
+  references:
+    - "Test-Driven Development: By Example — https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530"
+    - "Canon TDD — https://tidyfirst.substack.com/p/canon-tdd"
+    - "Martin Fowler on TDD — https://martinfowler.com/bliki/TestDrivenDevelopment.html"
+    - "The Art of Agile Development — https://www.jamesshore.com/v2/books/aoad2"
+  description: "Test-Driven Development (TDD) is a software development technique that guides development by writing tests first. Developed by Kent Beck in the late 1990s as part of Extreme Programming, TDD inverts the traditional code-then-test approach: you write a failing test, make it pass with minimal code, then refactor.\n\n## Key Concepts\n\nTDD emerged from Kent Beck's observation that writing tests after code often leads to tests that verify implementation rather than behavior, and that the pressure to ship often means tests get skipped entirely. By writing tests first, TDD ensures every piece of functionality has a test and that tests drive design decisions.\n\nThe core insight of TDD is that **tests are a design tool, not just a verification tool**. Writing the test first forces you to think about the interface before the implementation, leading to more modular, testable code.\n\n## The Red-Green-Refactor Cycle\n\nTDD follows a simple three-step cycle:\n\n### 1. Red: Write a Failing Test\n\nWrite a test for the next bit of functionality you want to add. The test should fail because the functionality doesn't exist yet. This confirms the test is actually testing something.\n\n### 2. Green: Make It Pass\n\nWrite the minimum code necessary to make the test pass. Don't worry about elegance—just make it work. This keeps you focused on one thing at a time.\n\n### 3. Refactor: Clean Up\n\nWith the safety net of passing tests, refactor both the new code and existing code to improve design. Remove duplication, improve naming, extract methods. The tests ensure you don't break anything.\n\nThen repeat: write the next failing test.\n\n## The Test List\n\nBefore diving into red-green-refactor, TDD practitioners typically write out a list of test cases they'll need. This list:\n\n- Captures all the behaviors the code should have\n- Helps sequence tests from simple to complex\n- Prevents forgetting edge cases\n- Provides a progress tracker\n\nAs you work, you'll add new tests to the list as they occur to you.\n\n## FOE Alignment\n\nTDD aligns strongly with Flow Optimized Engineering principles:\n\n- **Fast Feedback Loops** - Each red-green-refactor cycle takes minutes. You know immediately if your code works. Bugs are caught when the code is fresh in your mind.\n\n- **Build Confidence** - Comprehensive test coverage means you can refactor fearlessly. The tests prove the code works. Regression bugs become rare.\n\n- **Optimize for Understanding** - Tests serve as executable documentation. Reading the tests shows what the code is supposed to do. Test names describe behavior in plain language.\n\n## Relationship to BDD\n\nBehavior-Driven Development (BDD) evolved from TDD. While TDD focuses on unit-level tests written by developers, BDD extends the test-first approach to acceptance tests written in business language. The Given-When-Then format came from applying TDD principles at a higher level.\n\n## Further Reading\n\n- [Test-Driven Development: By Example](https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530) - Kent Beck's foundational book (2002)\n- [Canon TDD](https://tidyfirst.substack.com/p/canon-tdd) - Kent Beck's canonical summary\n- [Martin Fowler on TDD](https://martinfowler.com/bliki/TestDrivenDevelopment.html) - Concise overview\n- [The Art of Agile Development](https://www.jamesshore.com/v2/books/aoad2) - James Shore's comprehensive guide"
+  owners:
+    - "aaron.west@esimplicity.com"

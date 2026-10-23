@@ -1,22 +1,26 @@
-# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
-# Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: bdd
+  name: "bdd"
+  annotations:
+    "foe.source_path": "external-frameworks/bdd/overview.md"
 spec:
-  description: Behavior-Driven Development (BDD) is a collaborative approach that
-    bridges business and technical teams through concrete examples, executable specifications,
-    and shared understanding. Originally introduced by Dan North in 2006 as an evolution
-    of Test-Driven Development (TDD), BDD shifts the focus from testing to specifying
-    behavior through conversations and examples.
-  title: BDD
-  canonical: https://cucumber.io/docs/bdd/
+  title: "Behavior-Driven Development"
+  canonical: "https://cucumber.io/docs/bdd/"
   methods:
-  - M115
-  - M120
-  - M121
-  - M126
-  - M127
-  - M138
-  - M142
+    - "m115-discovery-workshops"
+    - "m120-example-mapping"
+    - "m121-executable-specifications"
+    - "m126-gherkin"
+    - "m127-given-when-then"
+    - "m138-three-amigos"
+    - "m142-user-story-template"
+  references:
+    - "Cucumber BDD Documentation — https://cucumber.io/docs/bdd/"
+    - "Introducing BDD — https://dannorth.net/introducing-bdd/"
+    - "BDD in Action — https://www.manning.com/books/bdd-in-action-second-edition"
+    - "The Cucumber Book — https://pragprog.com/titles/hwcuc2/the-cucumber-book-second-edition/"
+    - "Discovery: Explore Behaviour Using Examples — https://leanpub.com/bddbooks-discovery"
+  description: "Behavior-Driven Development (BDD) is a collaborative approach that bridges business and technical teams through concrete examples, executable specifications, and shared understanding. Originally introduced by Dan North in 2006 as an evolution of Test-Driven Development (TDD), BDD shifts the focus from testing to specifying behavior through conversations and examples.\n\n## Key Concepts\n\nBDD emerged from the observation that the word \"test\" in TDD was causing confusion. Developers were uncertain about what to test, how much to test, and what to call their tests. By reframing tests as \"behaviors\" and focusing on examples of how the system should behave, BDD makes the development process more accessible to non-technical stakeholders.\n\nThe core insight of BDD is that **examples are the best way to communicate requirements**. Rather than abstract specifications, concrete examples of how the system should behave in specific situations create shared understanding between business and technical team members.\n\nBDD follows a three-phase cycle: **Discovery** (exploring what to build through conversation), **Formulation** (documenting examples in a structured format), and **Automation** (implementing tests that verify the documented behavior).\n\n## The Three Pillars\n\n### Discovery\n\nDiscovery is about having the right conversations at the right time. Through structured workshops and collaborative sessions, teams explore what the system should do using concrete examples. This phase surfaces misunderstandings early, before code is written.\n\n**Methods:** Discovery Workshops, Three Amigos, Example Mapping, User Story Template\n\n### Formulation\n\nFormulation transforms the examples discovered in conversations into a structured, readable format. Using the Given-When-Then template and Gherkin language, teams create documentation that serves as both specification and test.\n\n**Methods:** Given-When-Then, Gherkin\n\n### Automation\n\nAutomation connects the formulated examples to the actual system. By implementing step definitions that execute against the code, the specifications become living documentation that stays in sync with the system's actual behavior.\n\n**Methods:** Executable Specifications\n\n## FOE Alignment\n\nBDD aligns strongly with Flow Optimized Engineering principles:\n\n- **Optimize for Understanding** - BDD's core purpose is creating shared understanding through concrete examples. Discovery workshops, Three Amigos, and Example Mapping all focus on building shared mental models before code is written.\n\n- **Fast Feedback Loops** - Discovery sessions surface misunderstandings in minutes rather than days. Executable specifications provide immediate feedback on whether the system behaves as expected.\n\n- **Build Confidence** - Living documentation that stays in sync with code builds confidence that the system does what it's supposed to do. The Given-When-Then format makes it easy to verify expected behavior.\n\n## Further Reading\n\n- [Cucumber BDD Documentation](https://cucumber.io/docs/bdd/) - Official BDD guide\n- [Introducing BDD](https://dannorth.net/introducing-bdd/) - Dan North's original article (2006)\n- [BDD in Action](https://www.manning.com/books/bdd-in-action-second-edition) - John Ferguson Smart, Manning Publications\n- [The Cucumber Book](https://pragprog.com/titles/hwcuc2/the-cucumber-book-second-edition/) - Matt Wynne & Aslak Hellesøy, Pragmatic Bookshelf\n- [Discovery: Explore Behaviour Using Examples](https://leanpub.com/bddbooks-discovery) - Gaspar Nagy & Seb Rose"
+  owners:
+    - "aaron.west@esimplicity.com"

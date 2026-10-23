@@ -127,6 +127,36 @@ def _drop_empty_sections(body: str) -> str:
     return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
 
 
+def split_sections(body: str) -> tuple[str, list[tuple[str, str]]]:
+    """(preamble, [(heading, text), ...]) for the body's top-level `##` sections.
+
+    A `##` inside a code fence is not a heading, so fences are tracked. Deeper
+    headings stay inside their section's text.
+    """
+    preamble: list[str] = []
+    sections: list[tuple[str, list[str]]] = []
+    in_fence = False
+    for line in body.split("\n"):
+        if line.lstrip().startswith("```"):
+            in_fence = not in_fence
+        match = None if in_fence else re.match(r"^##\s+(.+?)\s*$", line)
+        if match is not None:
+            sections.append((match.group(1), []))
+        elif sections:
+            sections[-1][1].append(line)
+        else:
+            preamble.append(line)
+    return (
+        "\n".join(preamble).strip(),
+        [(heading, "\n".join(lines).strip()) for heading, lines in sections],
+    )
+
+
+def section_text(heading: str, text: str) -> str:
+    """A section put back together, for the fields that keep it as markdown."""
+    return f"## {heading}\n\n{text}".strip()
+
+
 def lead_paragraph(body: str) -> str:
     """First prose paragraph, for a method with no `description` in frontmatter.
 

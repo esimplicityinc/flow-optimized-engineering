@@ -1,13 +1,14 @@
-# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
-# Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: testing-dora
+  name: "testing-dora"
 spec:
-  description: 2 of 4 DORA methods, as adopted by the Testing field guide.
-  title: DORA for Testing
-  canonical: dora
+  title: "DORA for Testing"
+  canonical: "dora"
+  practice_area: "testing"
   methods:
-  - M105
-  - M139
+    - "m105-change-failure-rate"
+    - "m139-time-to-restore-service"
+  description: "2 of 4 DORA methods, as adopted by the Testing field guide."
+  owners:
+    - "aaron.west@esimplicity.com"

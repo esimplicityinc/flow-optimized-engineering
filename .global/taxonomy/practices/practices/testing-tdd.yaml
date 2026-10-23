@@ -1,14 +1,15 @@
-# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
-# Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: testing-tdd
+  name: "testing-tdd"
 spec:
-  description: 3 of 3 TDD methods, as adopted by the Testing field guide.
-  title: TDD for Testing
-  canonical: tdd
+  title: "TDD for Testing"
+  canonical: "tdd"
+  practice_area: "testing"
   methods:
-  - M163
-  - M164
-  - M165
+    - "m163-red-green-refactor"
+    - "m164-test-pyramid"
+    - "m165-test-list"
+  description: "3 of 3 TDD methods, as adopted by the Testing field guide."
+  owners:
+    - "aaron.west@esimplicity.com"

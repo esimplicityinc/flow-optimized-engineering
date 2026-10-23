@@ -1,14 +1,15 @@
-# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
-# Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: agentic-coding-bdd
+  name: "agentic-coding-bdd"
 spec:
-  description: 3 of 7 BDD methods, as adopted by the Agentic Coding field guide.
-  title: BDD for Agentic Coding
-  canonical: bdd
+  title: "BDD for Agentic Coding"
+  canonical: "bdd"
+  practice_area: "agentic-coding"
   methods:
-  - M121
-  - M126
-  - M127
+    - "m121-executable-specifications"
+    - "m126-gherkin"
+    - "m127-given-when-then"
+  description: "3 of 7 BDD methods, as adopted by the Agentic Coding field guide."
+  owners:
+    - "aaron.west@esimplicity.com"

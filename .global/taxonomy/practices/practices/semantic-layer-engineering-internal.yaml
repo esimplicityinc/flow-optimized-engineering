@@ -1,35 +1,36 @@
-# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
-# Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: semantic-layer-engineering-internal
+  name: "semantic-layer-engineering-internal"
 spec:
-  description: Methods FOE authored for the Semantic Layer Engineering field guide.
-  title: Semantic Layer Engineering — FOE methods
+  title: "Semantic Layer Engineering — FOE methods"
+  practice_area: "semantic-layer-engineering"
   methods:
-  - M300
-  - M301
-  - M302
-  - M303
-  - M304
-  - M305
-  - M306
-  - M307
-  - M308
-  - M309
-  - M310
-  - M311
-  - M312
-  - M313
-  - M314
-  - M315
-  - M316
-  - M317
-  - M318
-  - M319
-  - M320
-  - M321
-  - M322
-  - M323
-  - M324
+    - "m300-context-contract-design"
+    - "m301-instruction-layering"
+    - "m302-global-context-assembly"
+    - "m303-retriever-ensemble"
+    - "m304-semantic-vector-search"
+    - "m305-lexical-precision-search"
+    - "m306-graph-based-reasoning"
+    - "m307-entity-resolution-and-linking"
+    - "m308-taxonomy-anchoring"
+    - "m309-information-distillation"
+    - "m310-working-memory-vs-long-term-memory"
+    - "m311-consolidation-cycles"
+    - "m312-stateful-agent-design"
+    - "m313-source-attribution"
+    - "m314-authority-recency-scope-metadata"
+    - "m315-verification-loops"
+    - "m316-harness-engineering"
+    - "m317-quality-gates"
+    - "m318-retrieval-evaluation-ragas"
+    - "m319-semantic-observability"
+    - "m320-production-to-eval-pipeline"
+    - "m321-semantic-operating-model"
+    - "m322-ontology-first-design"
+    - "m323-responsibility-action-linking"
+    - "m324-semantic-maturity-ladder"
+  description: "Methods FOE authored for the Semantic Layer Engineering field guide."
+  owners:
+    - "aaron.west@esimplicity.com"

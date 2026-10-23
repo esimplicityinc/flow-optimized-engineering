@@ -1,21 +1,21 @@
-# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
-# Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: software-architecture-event-sourcing
+  name: "software-architecture-event-sourcing"
 spec:
-  description: 9 of 9 Event Sourcing methods, as adopted by the Software Architecture
-    field guide.
-  title: Event Sourcing for Software Architecture
-  canonical: event-sourcing
+  title: "Event Sourcing for Software Architecture"
+  canonical: "event-sourcing"
+  practice_area: "software-architecture"
   methods:
-  - M240
-  - M241
-  - M242
-  - M243
-  - M244
-  - M245
-  - M246
-  - M247
-  - M248
+    - "m240-domain-event-modeling"
+    - "m241-event-stream-storage"
+    - "m242-state-reconstruction"
+    - "m243-projection-building"
+    - "m244-snapshotting"
+    - "m245-event-versioning"
+    - "m246-temporal-queries"
+    - "m247-event-replay"
+    - "m248-cqrs-integration"
+  description: "9 of 9 Event Sourcing methods, as adopted by the Software Architecture field guide."
+  owners:
+    - "aaron.west@esimplicity.com"

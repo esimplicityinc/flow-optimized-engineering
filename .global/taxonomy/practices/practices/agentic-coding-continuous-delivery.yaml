@@ -1,14 +1,14 @@
-# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
-# Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: agentic-coding-continuous-delivery
+  name: "agentic-coding-continuous-delivery"
 spec:
-  description: 2 of 8 Continuous Delivery methods, as adopted by the Agentic Coding
-    field guide.
-  title: Continuous Delivery for Agentic Coding
-  canonical: continuous-delivery
+  title: "Continuous Delivery for Agentic Coding"
+  canonical: "continuous-delivery"
+  practice_area: "agentic-coding"
   methods:
-  - M112
-  - M140
+    - "m112-deployment-pipeline"
+    - "m140-trunk-based-development"
+  description: "2 of 8 Continuous Delivery methods, as adopted by the Agentic Coding field guide."
+  owners:
+    - "aaron.west@esimplicity.com"

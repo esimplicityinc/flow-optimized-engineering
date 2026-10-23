@@ -1,15 +1,15 @@
-# GENERATED from FOE documentation by foe_taxonomy.generate — do not edit.
-# Edit the markdown frontmatter in docs/docs/ and regenerate.
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: agentic-coding-team-topologies
+  name: "agentic-coding-team-topologies"
 spec:
-  description: 3 of 12 Team Topologies methods, as adopted by the Agentic Coding field
-    guide.
-  title: Team Topologies for Agentic Coding
-  canonical: team-topologies
+  title: "Team Topologies for Agentic Coding"
+  canonical: "team-topologies"
+  practice_area: "agentic-coding"
   methods:
-  - M118
-  - M124
-  - M136
+    - "m118-enabling-team"
+    - "m124-fast-flow"
+    - "m136-team-cognitive-load"
+  description: "3 of 12 Team Topologies methods, as adopted by the Agentic Coding field guide."
+  owners:
+    - "aaron.west@esimplicity.com"
