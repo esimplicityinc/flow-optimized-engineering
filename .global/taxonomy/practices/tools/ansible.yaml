@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "ansible"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "Agentless configuration management for hosts that IaC provisions."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "configuration-management"
+  docs_url: "https://www.ansible.com"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

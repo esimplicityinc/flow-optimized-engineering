@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: "change-failure-rate"
+  annotations:
+    foe.source: "QDAS practices: Development - Standards; Testing Standards, Measures"
+spec:
+  title: "Change Failure Rate"
+  unit: "percentage"
+  direction: "lower_is_better"
+  category: "stability"
+  aggregation: "mean"
+  description: "The percentage of deployments that cause a failure in production. One of the four DORA metrics, and the Testing practice's outcome measure: tests exist to keep it low."
+  owners:
+    - "aaron.west@esimplicity.com"

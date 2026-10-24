@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: "unit-test-coverage"
+  annotations:
+    foe.source: "QDAS practices: Development - Standards, Measures"
+spec:
+  title: "Unit test coverage"
+  unit: "percentage"
+  direction: "higher_is_better"
+  category: "quality"
+  aggregation: "mean"
+  description: "The percentage of production code covered by unit tests, across every stack a team maintains."
+  owners:
+    - "aaron.west@esimplicity.com"

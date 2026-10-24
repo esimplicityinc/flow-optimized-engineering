@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "husky"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "Runs commands on git hooks in a Node project; paired with lint-staged to lint only staged files."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "git-hooks"
+  docs_url: "https://typicode.github.io/husky/"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

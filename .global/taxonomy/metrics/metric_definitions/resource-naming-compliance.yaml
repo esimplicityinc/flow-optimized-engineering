@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: "resource-naming-compliance"
+  annotations:
+    foe.source: "QDAS practices: DevOps - Standards, Measures"
+spec:
+  title: "Resource naming compliance"
+  unit: "percentage"
+  direction: "higher_is_better"
+  category: "consistency"
+  aggregation: "mean"
+  description: "The percentage of cloud resources that follow the standard naming conventions."
+  owners:
+    - "aaron.west@esimplicity.com"

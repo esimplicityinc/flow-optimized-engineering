@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "pyenv"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "Installs and switches between Python versions, per project."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "language-runtime"
+  docs_url: "https://github.com/pyenv/pyenv"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

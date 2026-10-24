@@ -1,0 +1,16 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: "testing-standards"
+  annotations:
+    foe.source: "QDAS practices: Testing Standards"
+spec:
+  title: "Testing standards"
+  category: "reliability"
+  status: "active"
+  priority: "high"
+  enforcement: "automated"
+  rationale: "Tests give the safety and accuracy that let a team change a system quickly. A level that is missing is a kind of failure nothing will catch before production."
+  description: "Every system meets these testing standards. Teams document the tests for each system and stack, and\nimplement the following test levels for each system, stack and layer (see\n[test levels](test-levels) for what each one is):\n\n| Scope | Test level | Standard |\n|---|---|---|\n| System | System integration | All system capabilities are covered |\n| System | Acceptance | All user stories and acceptance criteria are validated |\n| Stack | Stack integration | All stack capabilities are validated |\n| Layer (app) | Unit | All app code has more than 80% coverage |\n| Layer (app) | App integration | All app dependencies are tested |\n"
+  owners:
+    - "aaron.west@esimplicity.com"

@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: "pull-request-time-to-trunk"
+  annotations:
+    foe.source: "QDAS practices: Development - Standards, Measures"
+spec:
+  title: "Pull request time to trunk"
+  unit: "hours"
+  direction: "lower_is_better"
+  category: "throughput"
+  aggregation: "mean"
+  description: "How long code waits in a pull request before it enters trunk. Long waits mean large batches and late feedback."
+  owners:
+    - "aaron.west@esimplicity.com"

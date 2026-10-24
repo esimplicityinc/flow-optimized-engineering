@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "terraform"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "Declares cloud infrastructure as code; plan shows a change before it is applied."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "infrastructure-as-code"
+  docs_url: "https://developer.hashicorp.com/terraform"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

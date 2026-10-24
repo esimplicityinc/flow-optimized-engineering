@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: "incidents-not-alerted"
+  annotations:
+    foe.source: "QDAS practices: Observability Standards, Measures"
+spec:
+  title: "Incidents not alerted on"
+  unit: "percentage"
+  direction: "lower_is_better"
+  category: "observability"
+  aggregation: "mean"
+  description: "The percentage of declared incidents that no alert caught first. Each one is a gap in monitoring."
+  owners:
+    - "aaron.west@esimplicity.com"

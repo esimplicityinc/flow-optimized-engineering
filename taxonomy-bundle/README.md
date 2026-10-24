@@ -73,11 +73,33 @@ guides, then rearranged in the taxonomy with the CLI (`kata tax rename`, `create
 
 | Area | Holds |
 |---|---|
-| Development | Agentic Coding's own methods, its BDD and Team Topologies adoptions, and the Team Topologies framework |
-| Testing | BDD and TDD adoptions, and the TDD framework |
-| Change Delivery | how change gets into a system: Continuous Delivery and DORA throughput, and both frameworks |
-| Platform & Operations | infrastructure and keeping it running: IaC, resilience patterns, platform teams, DORA stability |
+| Development | development in general: the development standards, Python and Node.js standards, FOE's four general methods, the BDD and Team Topologies adoptions, and the Team Topologies framework |
+| Agent-Assisted Development | Agentic Coding's overview and its nine agent methods |
+| Testing | the test levels and testing standards, BDD and TDD adoptions, and the TDD framework |
+| Change Delivery | how change gets into a system: CI/CD pipelines and standards, Continuous Delivery and DORA throughput, and both frameworks |
+| Platform & Operations | infrastructure and keeping it running: infrastructure as code, Kubernetes delivery, resilience patterns, platform teams, DORA stability |
+| Observability | full-stack observability: insight areas, indicators, metrics/traces/logs, the tabletop exercise, and the observability standards |
 | Product Specification, Software Architecture, System Architecture, Semantic Layer Engineering | as generated, plus the frameworks that belong to them |
+
+### Content from the QDAS practice pages
+
+The QDAS program's practice pages (Development, Testing, CI/CD, DevOps, Observability) were
+adapted into the taxonomy with `kata tax import` and `kata tax update`. They are not in
+`docs/docs/`; the taxonomy is their source. Each node carries the annotation `foe.source`
+naming the page it came from. They follow the QDAS pillars as Forge models them:
+
+| Pillar | Here |
+|---|---|
+| Strategy | `strategy` on Development, Testing, Change Delivery, Platform & Operations, Observability and Agent-Assisted Development |
+| Standards | 9 `standard`s (development, Python, Node.js, testing, CI/CD, IaC, Terraform, Kubernetes, observability), prescribed by the new practices |
+| Frameworks, Processes | 14 `method`s with a `pillar`: the six test levels, trunk-based development, the system taxonomy, IaC, shared modules, insight areas, indicators, metrics/traces/logs, the tabletop exercise |
+| Measures | 19 `metric_definition`s (the DORA four, coverage, IaC and observability measures), a practice's `measures` |
+| Tooling | 23 `tool`s, a practice's `tools` |
+
+People, page indexes, competencies, and program-specific links and systems were left out.
+A standard's requirements are a table in its description rather than `nfr` nodes: an NFR is
+a threshold a system's Circuit verifies, and `lint --strict` requires a verifying Operation
+for each, which a practice library with no systems cannot give.
 
 Every practice is in an area; none is left over. **Running the generator and importing
 again would overwrite this layout with the docs' one.** Regenerate only to pick up method

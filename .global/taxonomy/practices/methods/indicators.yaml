@@ -1,0 +1,16 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: "indicators"
+  annotations:
+    foe.source: "QDAS practices: Observability Framework"
+spec:
+  title: "Indicators"
+  pillar: "framework"
+  category: "observability"
+  status: "active"
+  definition: "Indicators are the kinds of metrics each insight area should have."
+  body: "## Availability/status\n\nA binary check on a resource: is it up, and available to the rest of the system? Usually run from\noutside the system. It is the foundation for alerting and for root cause analysis.\n\n## Performance/health\n\nWhether a resource responds in a reasonable time: a sign of the health of what is underneath. A\nservice can be available without being healthy. Some of these metrics have fixed thresholds (page\nload under *n* seconds), but usually a deviation from the baseline is the signal. Used for root\ncause analysis and for proactive and reactive alerting.\n\n## Capacity\n\nHow much of a defined capacity a resource is consuming, usually tightly linked to usage. Most outages\nare a system running out of a limited resource; an alert on high utilisation gives time to act before\nit fails. Capacity consumed without matching usage can itself point to a problem.\n\n## Usage\n\nHow much a resource is used by users or other systems. Useful in troubleshooting and root cause\nanalysis, and for capacity planning and business questions.\n"
+  description: "The kinds of metric every insight area has: availability/status, performance/health, capacity and usage."
+  owners:
+    - "aaron.west@esimplicity.com"

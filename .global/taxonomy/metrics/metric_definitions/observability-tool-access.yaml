@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: "observability-tool-access"
+  annotations:
+    foe.source: "QDAS practices: Observability Standards, Measures"
+spec:
+  title: "Team access to observability tools"
+  unit: "percentage"
+  direction: "higher_is_better"
+  category: "observability"
+  aggregation: "mean"
+  description: "The percentage of a team's members who have access to its observability tools."
+  owners:
+    - "aaron.west@esimplicity.com"

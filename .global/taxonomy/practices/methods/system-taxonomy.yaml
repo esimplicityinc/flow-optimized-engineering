@@ -1,0 +1,17 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: "system-taxonomy"
+  annotations:
+    foe.source: "QDAS practices: DevOps - Framework"
+spec:
+  title: "System taxonomy"
+  pillar: "framework"
+  category: "organisation"
+  status: "active"
+  definition: "A shared vocabulary for how systems are organised, so teams can aim for independently deployable systems insulated from other teams' changes."
+  body: "| Level | What it is |\n|---|---|\n| Namespace | The organisation the systems belong to |\n| System | A system, or group of systems, that provides a business with a service |\n| Subsystem | An independently deployable part of a larger system |\n| Stack | A logical component of a subsystem (potentially independently deployable) |\n| Layer | A logical layer of the stack: app, IaC, tests |\n| Environment | Where the stack is deployed: dev, test, impl, prod |\n| Resource | The actual resource created |\n\nThe test levels and the observability standards are stated in these terms: a stack's integration\ntests, a system's acceptance tests, an operational resource's alerts.\n"
+  rationale: "Release frequency improves when the architecture, and the way it is organised, lets each team's services deploy without waiting on anyone else's."
+  description: "Organise what a team runs as namespace, system, subsystem, stack, layer, environment and resource, aiming for independently deployable systems."
+  owners:
+    - "aaron.west@esimplicity.com"

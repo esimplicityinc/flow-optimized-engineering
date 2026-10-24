@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "opentelemetry"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "Vendor-neutral APIs, SDKs and a collector for metrics, traces and logs."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "observability"
+  docs_url: "https://opentelemetry.io"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

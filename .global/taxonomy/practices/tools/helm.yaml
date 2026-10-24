@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "helm"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "The package manager for Kubernetes: versioned charts of manifests."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "deployment"
+  docs_url: "https://helm.sh"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

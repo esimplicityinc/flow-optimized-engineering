@@ -1,0 +1,25 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: "development-standards"
+  annotations:
+    foe.source: "QDAS practices: Development - Standards"
+spec:
+  title: "Development standards"
+  practice_area: "development"
+  enforcement: "required"
+  standards:
+    - "development-standards"
+  methods:
+    - "trunk-based-development"
+  measures:
+    - "unit-test-coverage"
+    - "coding-standards-compliance"
+    - "pull-request-time-to-trunk"
+    - "deployment-frequency"
+    - "lead-time-for-changes"
+    - "change-failure-rate"
+    - "time-to-restore-service"
+  description: "The bar every change meets: trunk-based development, review before production, unit test\ncoverage, automated linting and formatting, validated API contracts, and runnable, documented stacks.\n\n**Measures.** Teams are assessed once per program increment. A team's maturity in the practice is its unit test coverage across all of its\nstacks, its coding standards compliance, how long code waits in pull requests before it enters trunk,\nand the four DORA metrics.\n"
+  owners:
+    - "aaron.west@esimplicity.com"

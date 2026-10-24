@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: "stack-iac-compliance"
+  annotations:
+    foe.source: "QDAS practices: DevOps - Standards, Measures"
+spec:
+  title: "Stack IaC compliance"
+  unit: "percentage"
+  direction: "higher_is_better"
+  category: "consistency"
+  aggregation: "mean"
+  description: "The percentage of a stack's IaC that meets the IaC standards: pinned, shared modules, no public sources."
+  owners:
+    - "aaron.west@esimplicity.com"

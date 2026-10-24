@@ -1,0 +1,16 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: "kubernetes-standards"
+  annotations:
+    foe.source: "QDAS practices: k8s Standards"
+spec:
+  title: "Kubernetes standards"
+  category: "operability"
+  status: "active"
+  priority: "high"
+  enforcement: "review"
+  rationale: "A cluster changed only through git is auditable and reproducible; secrets that never leave their store cannot leak from a repository."
+  description: "- **Deployment through GitOps.** Argo CD is the way applications reach a cluster: git holds the\n  declarative definitions of the infrastructure and the applications, and Argo CD keeps the cluster\n  in step. Argo CD itself is installed from its Helm chart, at a pinned version.\n- **Secrets from an external store.** The External Secrets Operator syncs secrets from an external\n  store (AWS Secrets Manager or Parameter Store) into Kubernetes Secrets, so no secret is copied by\n  hand or written into an application. Three objects: a `SecretStore` (the store and how to\n  authenticate to it), an `ExternalSecret` (what to fetch), and the Kubernetes `Secret` the operator\n  creates and keeps in sync.\n- **Load balancers from Ingress.** The AWS Load Balancer Controller creates an Application Load\n  Balancer from an `Ingress` with the `alb` ingress class. Annotations set its name, listen ports,\n  health check (path, interval, timeout, healthy and unhealthy thresholds), subnets and certificate;\n  `alb.ingress.kubernetes.io/group.name` shares one ALB across several Ingresses.\n- **Logging.** Fluent Bit ships the cluster's logs.\n\n### Requirements\n\n| Requirement | Detail | Enforcement | Threshold |\n|---|---|---|---|\n| Applications are deployed with Argo CD | Applications reach a Kubernetes cluster through Argo CD, from git. | required |  |\n| Secrets come from the External Secrets Operator | Kubernetes Secrets are synced from the external store by the External Secrets Operator, never applied by hand. | required |  |\n| Helm charts are pinned | Every Helm chart is installed at a pinned version. | required |  |\n"
+  owners:
+    - "aaron.west@esimplicity.com"

@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "splunk"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "Centralised log search and analysis."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "observability"
+  docs_url: "https://www.splunk.com"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

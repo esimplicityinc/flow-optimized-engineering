@@ -1,0 +1,20 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: "nodejs-development"
+  annotations:
+    foe.source: "QDAS practices: Node.js Standards"
+spec:
+  title: "Node.js and TypeScript development"
+  practice_area: "development"
+  enforcement: "required"
+  standards:
+    - "nodejs-standards"
+  tools:
+    - "eslint"
+    - "prettier"
+    - "husky"
+    - "vitest"
+  description: "How Node.js stacks are written and packaged: TypeScript only, ESLint and Prettier, git hooks, and lean deployments."
+  owners:
+    - "aaron.west@esimplicity.com"

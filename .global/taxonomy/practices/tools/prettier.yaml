@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "prettier"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "An opinionated code formatter for JavaScript, TypeScript, JSON, YAML and Markdown."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "formatting"
+  docs_url: "https://prettier.io"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

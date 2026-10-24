@@ -1,0 +1,17 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: "observability-tabletop-exercise"
+  annotations:
+    foe.source: "QDAS practices: Observability Standards, Measures"
+spec:
+  title: "Observability tabletop exercise"
+  pillar: "process"
+  category: "observability"
+  status: "active"
+  definition: "A periodic, facilitated walk-through of a failure scenario in which a team shows how it would detect, diagnose and recover from it using its observability tools."
+  when_to_use: "Once per program increment, alongside the observability assessment."
+  body: "The exercise is scored, and the score is one of the practice's measures. Gaps it finds (an incident with no alert, an alert with no documented action) become work."
+  description: "Once a planning increment, a team walks through a failure scenario to test whether its telemetry and alerts would find and explain it."
+  owners:
+    - "aaron.west@esimplicity.com"

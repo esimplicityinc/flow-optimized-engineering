@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "poetry"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "Python packaging and dependency management, with a lock file."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "package-management"
+  docs_url: "https://python-poetry.org"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

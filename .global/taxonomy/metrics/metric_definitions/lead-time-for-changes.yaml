@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: "lead-time-for-changes"
+  annotations:
+    foe.source: "QDAS practices: Development - Standards, Measures"
+spec:
+  title: "Lead Time for Changes"
+  unit: "hours"
+  direction: "lower_is_better"
+  category: "throughput"
+  aggregation: "mean"
+  description: "The time it takes a commit to get into production. One of the four DORA metrics."
+  owners:
+    - "aaron.west@esimplicity.com"

@@ -1,0 +1,17 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: "unit-tests"
+  annotations:
+    foe.source: "QDAS practices: Testing Framework"
+spec:
+  title: "Unit tests"
+  pillar: "framework"
+  category: "test-level"
+  status: "active"
+  definition: "Unit tests test the functionality of a piece of code, usually a function."
+  when_to_use: "All code: it needs 80% coverage before it can be deployed."
+  body: "## When and where it runs\n\nBefore commit, and in the pipeline as a quality gate during the CI step, run by the CI tool.\n\n## Tooling\n\nThe language's own test packages, usually wrapped in a single command (for example, `pytest` with `tox`, or `npm test`). Shared IaC modules are unit tested too, with Terratest.\n\n## Dependencies\n\nMocked in the code.\n"
+  description: "Unit tests test the functionality of a piece of code, usually a function."
+  owners:
+    - "aaron.west@esimplicity.com"

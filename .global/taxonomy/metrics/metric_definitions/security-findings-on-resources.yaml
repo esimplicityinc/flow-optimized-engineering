@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: "security-findings-on-resources"
+  annotations:
+    foe.source: "QDAS practices: DevOps - Standards, Measures"
+spec:
+  title: "Resources with security findings"
+  unit: "count"
+  direction: "lower_is_better"
+  category: "security"
+  aggregation: "mean"
+  description: "The number of a stack's resources with open findings from the cloud security posture service (AWS Security Hub, for example)."
+  owners:
+    - "aaron.west@esimplicity.com"

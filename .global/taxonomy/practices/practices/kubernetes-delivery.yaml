@@ -1,0 +1,21 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: "kubernetes-delivery"
+  annotations:
+    foe.source: "QDAS practices: k8s Standards"
+spec:
+  title: "Kubernetes delivery"
+  practice_area: "platform-operations"
+  enforcement: "required"
+  standards:
+    - "kubernetes-standards"
+  tools:
+    - "argo-cd"
+    - "helm"
+    - "external-secrets-operator"
+    - "aws-load-balancer-controller"
+    - "fluent-bit"
+  description: "How applications are deployed and configured on Kubernetes: Argo CD and GitOps, Helm, secrets from an external store, load balancers from Ingress, and log shipping."
+  owners:
+    - "aaron.west@esimplicity.com"

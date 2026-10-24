@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: "deployment-frequency"
+  annotations:
+    foe.source: "QDAS practices: Development - Standards, Measures"
+spec:
+  title: "Deployment Frequency"
+  unit: "per_day"
+  direction: "higher_is_better"
+  category: "throughput"
+  aggregation: "mean"
+  description: "How often a team successfully releases to production. One of the four DORA metrics."
+  owners:
+    - "aaron.west@esimplicity.com"

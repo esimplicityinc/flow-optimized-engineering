@@ -111,3 +111,46 @@ spec:
   - testing-bdd
   - testing-tdd
   - tdd
+  - test-levels
+  strategy: 'The defining characteristic of a system''s quality is its ability to
+    change. So we optimise our processes
+
+    and systems for the capacity to make change accurately, quickly and safely.
+
+
+    | Goal | Meaning |
+
+    |---|---|
+
+    | **Accuracy** | The change was the one intended, and meets the technical or business
+    need |
+
+    | **Velocity** | The rate at which change can be made |
+
+    | **Safety** | The change can be made with an acceptable amount of risk |
+
+
+    ### Why we test
+
+
+    Testing gives us the safety and accuracy we need to improve velocity. It builds
+    confidence that:
+
+
+    - what we build provides the capabilities intended;
+
+    - what we want to deploy will work when it is deployed;
+
+    - what we deployed is actually working.
+
+
+    ### Why we automate testing
+
+
+    - **Fast feedback.** A test that runs on every commit tells the developer within
+    minutes.
+
+    - **No manual steps.** A manual step is slow, skipped under pressure, and a bottleneck
+    on every release.
+
+    '

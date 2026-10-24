@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "terragrunt"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "A thin wrapper over Terraform that keeps per-environment configuration DRY."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "infrastructure-as-code"
+  docs_url: "https://terragrunt.gruntwork.io"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

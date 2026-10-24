@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "tox"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "Runs a Python project's tests across environments and Python versions, in one command."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "testing"
+  docs_url: "https://tox.wiki"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

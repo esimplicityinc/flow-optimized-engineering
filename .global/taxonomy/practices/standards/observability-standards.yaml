@@ -1,0 +1,16 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: "observability-standards"
+  annotations:
+    foe.source: "QDAS practices: Observability Standards"
+spec:
+  title: "Observability standards"
+  category: "observability"
+  status: "active"
+  priority: "high"
+  enforcement: "review"
+  rationale: "Observability is what lets a team understand its system's state at any moment: the basis of monitoring, and of root cause analysis in an incident."
+  description: "Each system meets these standards (see [insight areas](insight-areas) and [indicators](indicators)\nfor the terms).\n\n- Teams implement **dashboards** showing the metrics of each stack and all of its resources.\n- Teams implement **alerts** on availability and health for each operational resource.\n- Systems reach **full-stack observability**: telemetry in every insight area, for\n  availability/status, performance/health, capacity and usage.\n- Monitoring is implemented **as code**.\n\n| Scope | Insight area | Indicators |\n|---|---|---|\n| Stack | User/client experience | Availability/status, performance/health |\n| Operational resource | Infrastructure | Availability/status, performance/health, capacity |\n\nEvery alert is **actionable**, and has a known, documented action.\n"
+  owners:
+    - "aaron.west@esimplicity.com"

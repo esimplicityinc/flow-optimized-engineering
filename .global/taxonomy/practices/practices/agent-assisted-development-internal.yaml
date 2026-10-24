@@ -1,0 +1,22 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: "agent-assisted-development-internal"
+  annotations:
+    foe.source_path: "field-guides/agentic-coding/overview.md"
+spec:
+  title: "Agent-Assisted Development — FOE methods"
+  practice_area: "agent-assisted-development"
+  methods:
+    - "m148-persistent-planning-state"
+    - "m152-test-driven-agent-development"
+    - "m155-verification-before-completion"
+    - "m156-agent-mediated-access"
+    - "m158-agentx-constrained-autonomy"
+    - "m159-use-governed-ai-coding-agents"
+    - "m160-plan-mode-first"
+    - "m161-explicit-mcp-version-control"
+    - "m162-worktree-based-agent-isolation"
+  description: "Methods FOE authored for working with AI coding agents: governing them, verifying their work, and collaborating with them."
+  owners:
+    - "aaron.west@esimplicity.com"

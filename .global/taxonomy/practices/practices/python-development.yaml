@@ -1,0 +1,21 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: "python-development"
+  annotations:
+    foe.source: "QDAS practices: Python Standards"
+spec:
+  title: "Python development"
+  practice_area: "development"
+  enforcement: "required"
+  standards:
+    - "python-standards"
+  tools:
+    - "pyenv"
+    - "poetry"
+    - "tox"
+    - "pytest"
+    - "pre-commit"
+  description: "How Python stacks are written, packaged, tested and linted: PEP 8, pyenv, poetry, tox and pre-commit."
+  owners:
+    - "aaron.west@esimplicity.com"

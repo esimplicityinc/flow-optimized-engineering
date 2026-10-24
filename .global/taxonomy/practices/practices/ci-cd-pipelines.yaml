@@ -1,0 +1,22 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: "ci-cd-pipelines"
+  annotations:
+    foe.source: "QDAS practices: CI/CD - Strategy; CI/CD - Standards"
+spec:
+  title: "CI/CD pipelines"
+  practice_area: "change-delivery"
+  enforcement: "required"
+  standards:
+    - "ci-cd-standards"
+  methods:
+    - "trunk-based-development"
+  measures:
+    - "deployment-frequency"
+    - "lead-time-for-changes"
+    - "change-failure-rate"
+    - "time-to-restore-service"
+  description: "Workflows and pipelines that take a change from commit to production: integrated often, kept green,\nbuilt once, tested in a lower environment first, configured without repetition, and free of secrets.\nPipelines are assembled from modular, shareable workflows and actions rather than written from\nscratch.\n\n**Measures.** The four DORA metrics.\n"
+  owners:
+    - "aaron.west@esimplicity.com"

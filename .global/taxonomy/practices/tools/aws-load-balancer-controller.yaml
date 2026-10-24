@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "aws-load-balancer-controller"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "Creates AWS Application Load Balancers from Kubernetes Ingress resources."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "networking"
+  docs_url: "https://kubernetes-sigs.github.io/aws-load-balancer-controller/"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

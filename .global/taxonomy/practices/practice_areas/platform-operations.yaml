@@ -1,15 +1,63 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice_area
 metadata:
-  name: "platform-operations"
+  name: platform-operations
 spec:
-  description: "How we build infrastructure and keep it running: infrastructure as code, resilience under failure and load, observability, the platform teams that own it, and the stability measures that say whether it is working. Close to site reliability engineering."
+  description: 'How we build infrastructure and keep it running: infrastructure as
+    code, resilience under failure and load, observability, the platform teams that
+    own it, and the stability measures that say whether it is working. Close to site
+    reliability engineering.'
   owners:
-    - "aaron.west@esimplicity.com"
-  title: "Platform & Operations"
-  # canonical: ""  # Canonical reference identifier
+  - aaron.west@esimplicity.com
+  title: Platform & Operations
   practices:
-    - "platform-operations-continuous-delivery"
-    - "platform-operations-dora"
-    - "platform-operations-microservices"
-    - "platform-operations-team-topologies"
+  - platform-operations-continuous-delivery
+  - platform-operations-dora
+  - platform-operations-microservices
+  - platform-operations-team-topologies
+  - infrastructure-as-code-delivery
+  - kubernetes-delivery
+  strategy: '### Use infrastructure as code
+
+
+    Define infrastructure in code, and provision every environment from it: automation
+    instead of manual,
+
+    error-prone steps; environments that are consistent, reproducible and free of
+    drift; infrastructure
+
+    changes reviewed, versioned and rolled back like any other code; and the same
+    pipelines, tests and
+
+    security rules for infrastructure as for applications. Tooling: Terraform with
+    Terragrunt, and
+
+    Ansible.
+
+
+    ### Use shared modules
+
+
+    Build infrastructure from a shared, inner-sourced library of battle-tested modules:
+    faster to start,
+
+    more reliable for having been proven in real deployments, reviewed and improved
+    by everyone who uses
+
+    them, and carrying security and compliance work into every stack.
+
+
+    ### Organise for independent deployment
+
+
+    Release frequency improves when each team''s services deploy without waiting on
+    anyone else''s. The
+
+    system taxonomy (system, subsystem, stack, layer, environment, resource) is how
+    systems are organised
+
+    and talked about, with independently deployable subsystems as the aim: see
+
+    [system taxonomy](system-taxonomy).
+
+    '

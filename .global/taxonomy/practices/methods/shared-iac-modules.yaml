@@ -1,0 +1,16 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: "shared-iac-modules"
+  annotations:
+    foe.source: "QDAS practices: DevOps - Strategy"
+spec:
+  title: "Shared IaC modules"
+  pillar: "process"
+  category: "inner-source"
+  status: "active"
+  definition: "Infrastructure is composed from a shared library of battle-tested modules, inner-sourced and maintained by the teams that use them."
+  rationale: "1. **Accelerated development.** Pre-built, customisable components that embody best practice save\n   time and effort.\n2. **Reliability and stability.** Modules that have been through rigorous testing and real\n   deployments avoid common pitfalls: less downtime, fewer errors.\n3. **Collaboration and knowledge sharing.** Inner source brings peer review and continuous\n   improvement, and spreads the team's expertise.\n4. **Scalability and flexibility.** Modules that have already handled a wide range of scenarios\n   are ready for the next one.\n5. **Security and compliance.** Modules scrutinised for vulnerabilities and aligned with standards\n   carry that work into every stack that uses them.\n"
+  description: "Build infrastructure from a shared, inner-sourced library of tested modules instead of writing each stack's from scratch."
+  owners:
+    - "aaron.west@esimplicity.com"

@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: "resources-as-code"
+  annotations:
+    foe.source: "QDAS practices: DevOps - Standards, Measures"
+spec:
+  title: "Resources implemented as code"
+  unit: "percentage"
+  direction: "higher_is_better"
+  category: "automation"
+  aggregation: "mean"
+  description: "The percentage of a system's resources and configuration that is created by infrastructure as code."
+  owners:
+    - "aaron.west@esimplicity.com"

@@ -1,0 +1,17 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: "synthetic-monitoring"
+  annotations:
+    foe.source: "QDAS practices: Testing Framework"
+spec:
+  title: "Synthetic monitoring"
+  pillar: "framework"
+  category: "test-level"
+  status: "active"
+  definition: "Synthetic monitors are automated tests of a system's or stack's functionality in real time, in the running environment."
+  when_to_use: "To validate, continually, every capability of a stack and a system."
+  body: "## When and where it runs\n\nContinually, on the synthetic monitoring tool.\n\n## Tooling\n\nA synthetic monitoring tool (for example, New Relic synthetics or AWS CloudWatch Synthetics canaries).\n\n## Dependencies\n\nReal: the monitor exercises the live system.\n"
+  description: "Synthetic monitors are automated tests of a system's or stack's functionality in real time, in the running environment."
+  owners:
+    - "aaron.west@esimplicity.com"

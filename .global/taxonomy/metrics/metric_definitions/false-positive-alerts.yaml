@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: "false-positive-alerts"
+  annotations:
+    foe.source: "QDAS practices: Observability Standards, Measures"
+spec:
+  title: "False positive alerts"
+  unit: "percentage"
+  direction: "lower_is_better"
+  category: "observability"
+  aggregation: "mean"
+  description: "The percentage of alerts that fired without a real problem. Noise teaches people to ignore alerts."
+  owners:
+    - "aaron.west@esimplicity.com"

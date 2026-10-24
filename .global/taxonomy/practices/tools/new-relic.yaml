@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "new-relic"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "An observability platform: APM, infrastructure metrics, dashboards, alerts and synthetic monitors."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "observability"
+  docs_url: "https://newrelic.com"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

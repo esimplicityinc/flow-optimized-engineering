@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: "observability-confidence"
+  annotations:
+    foe.source: "QDAS practices: Observability Standards, Measures"
+spec:
+  title: "Observability confidence"
+  unit: "score"
+  direction: "higher_is_better"
+  category: "observability"
+  aggregation: "mean"
+  description: "A team's self-assessed confidence that it would see, and understand, a failure in its systems."
+  owners:
+    - "aaron.west@esimplicity.com"

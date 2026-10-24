@@ -1,0 +1,16 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: "development-standards"
+  annotations:
+    foe.source: "QDAS practices: Development - Standards"
+spec:
+  title: "Development standards"
+  category: "maintainability"
+  status: "active"
+  priority: "high"
+  enforcement: "review"
+  rationale: "Code is produced by the team, not by individuals: every change is held to one collective bar, so any pair can change any code and it still reads as if one developer wrote it."
+  description: "What all code meets before it is deployed: integrated to trunk often, reviewed, covered by unit tests, linted and formatted automatically, its API contract validated, and its stack documented well enough to run.\n\n### Requirements\n\n| Requirement | Detail | Enforcement | Threshold |\n|---|---|---|---|\n| Merge into trunk frequently | Developers merge into trunk as frequently as possible. Work that lives on a branch for days is a large batch, and integrates late. | required | Ideal: a branch lives 1-2 days before it merges |\n| Code is reviewed before production | Code is reviewed before it can be deployed to production and its stories completed. A team may require review at any earlier step too (for example, on every pull request). | required |  |\n| Production code has 80% unit test coverage | Production code reaches at least 80% unit test coverage. This matters most for code that has external stakeholders. | required | ≥ 80% line coverage |\n| Code passes linting and formatting, checked automatically | Code passes the linting and formatting standards set by the program, project or team, and the check is automated (a pre-commit hook and a CI step), never left to review. | required |  |\n| Larger patterns are agreed by the team | Patterns that shape more than one change (an architecture style, a library choice, an error-handling convention) are agreed by the team before they spread. | advisory |  |\n| API requests and responses are validated against OpenAPI | Every API endpoint validates its requests and responses against its OpenAPI description, so the document and the behaviour cannot drift apart. | required |  |\n| A stack's README says how to run it | Each stack has a README.md with simple instructions for running it both in a shell and in Docker. | required |  |\n| New environment variables and libraries are documented | A new environment variable or library added to a stack is documented in that stack's README.md, in the change that adds it. | required |  |\n"
+  owners:
+    - "aaron.west@esimplicity.com"

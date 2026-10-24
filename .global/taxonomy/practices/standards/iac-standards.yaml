@@ -1,0 +1,16 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: "iac-standards"
+  annotations:
+    foe.source: "QDAS practices: DevOps - Standards"
+spec:
+  title: "Infrastructure as code standards"
+  category: "operability"
+  status: "active"
+  priority: "high"
+  enforcement: "review"
+  rationale: "Infrastructure written by hand cannot be reviewed, reproduced or rolled back; infrastructure built from shared, pinned modules inherits their testing and stays consistent across teams."
+  description: "Every resource and configuration of a system and its stacks is created as code, from shared, pinned modules, and named to convention.\n\n### Requirements\n\n| Requirement | Detail | Enforcement | Threshold |\n|---|---|---|---|\n| All resources and configuration are code | A system's and its stacks' resources and configurations are all created by IaC. | required |  |\n| External modules are pinned to a stable version | Every reference to an external module is pinned to a stable version. | required |  |\n| Modules are not sourced from public repositories | Modules are not referenced directly from public repositories; they come from the shared module library. | required |  |\n| IaC uses shared modules | IaC is composed from the shared module library rather than written from scratch. | advisory |  |\n| Cloud resources follow the naming conventions | Every cloud resource follows the standard naming conventions. | required |  |\n"
+  owners:
+    - "aaron.west@esimplicity.com"

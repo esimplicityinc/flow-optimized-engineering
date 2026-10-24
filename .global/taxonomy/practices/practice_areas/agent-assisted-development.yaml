@@ -1,0 +1,16 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice_area
+metadata:
+  name: "agent-assisted-development"
+  annotations:
+    foe.source_path: "field-guides/agentic-coding/overview.md"
+spec:
+  description: "A collection of flow-optimized methods for AI-assisted software development.\n\n## What This Guide Covers\n\nAgentic coding -- working with AI coding assistants -- changes how we write software. But not all\napproaches are equal. This guide collects methods that have been tested and refined through real\nobservations.\n\n### Agent Governance & Safety\n\nConstrained autonomy patterns, version pinning, governed agent architectures, and practices for\nmaintaining control over AI-assisted workflows.\n\n### Feedback & Verification\n\nTest-driven agent development, verification-before-completion, and practices for building confidence in\nAI-generated code.\n\n### Collaboration & Knowledge\n\nAgent-mediated access, planning state management, and practices for effective human-agent\ncollaboration.\n\n## Getting Started\n\n1. Browse the methods of the practice below\n2. Start with the **Essential** methods -- they form the foundation for safe, effective agentic coding\n3. Try the methods that fit your context\n\nThe general development practice these build on (integrating constantly, collective ownership,\nroot-cause-first debugging) is in [Development](development).\n"
+  owners:
+    - "aaron.west@esimplicity.com"
+  title: "Agent-Assisted Development"
+  canonical: "agentic-coding"
+  strategy: "Agents change who writes the code, not the bar it meets. Agent-written changes go through the\nsame trunk, the same review, the same tests and the same standards as anyone's, so the methods\nhere are about keeping an agent inside that system: constraining its autonomy, giving it fast and\nhonest feedback, and verifying its work before it is called done.\n"
+  practices:
+    - "agent-assisted-development-internal"
+  # groups: []  # Practice groups this area is a member of

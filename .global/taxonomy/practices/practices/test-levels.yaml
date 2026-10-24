@@ -1,0 +1,33 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: "test-levels"
+  annotations:
+    foe.source: "QDAS practices: Testing Framework; Testing Standards"
+spec:
+  title: "Test levels"
+  practice_area: "testing"
+  enforcement: "required"
+  standards:
+    - "testing-standards"
+  methods:
+    - "unit-tests"
+    - "app-integration-tests"
+    - "stack-integration-tests"
+    - "system-integration-tests"
+    - "acceptance-tests"
+    - "synthetic-monitoring"
+  measures:
+    - "testing-standards-compliance"
+    - "change-failure-rate"
+  tools:
+    - "pytest"
+    - "tox"
+    - "vitest"
+    - "selenium"
+    - "cucumber"
+    - "terratest"
+    - "new-relic"
+  description: "The levels of automated test every system, stack and layer has, where each runs in the pipeline,\nand how it treats dependencies.\n\n| Level | Tests | Runs | Dependencies |\n|---|---|---|---|\n| Unit | A piece of code, usually a function | Before commit; CI quality gate | Mocked |\n| App integration | An app and its dependencies | Before commit; CI quality gate | Mocked locally, real in the pipeline |\n| Stack integration | A deployed stack | After deploy, in CD | Real |\n| System integration | A deployed system, as a whole | After deploy, in CD | Real |\n| Acceptance | The business functionality | Before release to production | Real |\n| Synthetic monitoring | Live functionality | Continually | Real |\n\n### Example\n\nA tenant-management stack calls the portal to onboard an organisation. Its tests, level by level:\n\n| Scope | Level | Tool | Runs on |\n|---|---|---|---|\n| IaC (shared module) | Unit | Terratest | Locally; the pipeline's runner |\n| IaC | Integration | `terraform plan` | Locally; the pipeline's runner |\n| App | Unit | `npm test` | Locally (pre-commit); the pipeline's runner |\n| App | App integration | `npm run integration-test` | Locally (Docker Compose); the pipeline's runner |\n| Stack | Stack integration | Selenium | Locally (Docker Compose); the pipeline's runner |\n| Stack | Synthetic monitor | New Relic | New Relic's runner |\n| Subsystem | System integration | Selenium | Locally (Docker Compose); the pipeline's runner |\n| Subsystem | Synthetic monitor | New Relic | New Relic's runner |\n| Subsystem | Acceptance | Selenium | The acceptance test environment |\n\n**Measures.** Teams are assessed once per program increment. Teams are measured on their compliance with the testing standards on the\nsystems they maintain, and by the change failure rate of their deployments.\n"
+  owners:
+    - "aaron.west@esimplicity.com"

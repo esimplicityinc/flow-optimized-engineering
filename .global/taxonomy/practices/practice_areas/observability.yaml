@@ -1,0 +1,16 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice_area
+metadata:
+  name: "observability"
+  annotations:
+    foe.source: "QDAS practices: Observability"
+spec:
+  description: "Telemetry and monitoring for systems, subsystems and stacks: being able to monitor, measure and\nunderstand a system's internal state and behaviour from what it emits, its metrics, traces and logs,\nso a team can see a problem coming and find its cause quickly.\n\nObservability is organised by **insight areas** (what is monitored: infrastructure, application, user\nexperience) and **indicators** (what each is measured by: availability/status, performance/health,\ncapacity, usage).\n"
+  owners:
+    - "aaron.west@esimplicity.com"
+  title: "Observability"
+  # canonical: ""  # Canonical reference identifier
+  strategy: "Observability is critical to improving the velocity at which teams can implement change to their systems.\nIt gives the ability to understand the current state at any moment in time, and it is the basis for\nmonitoring and for root cause analysis during incidents.\n\n### Why observability\n\n- **Troubleshooting and debugging.** Monitoring application performance, error rates and system health\n  lets developers find and isolate an issue before it becomes a critical problem.\n- **Performance optimisation.** Response times and resource utilisation show where code and\n  infrastructure can be optimised for performance and scale.\n- **User experience.** Seeing how users interact with an application shows what to improve, and which\n  features to prioritise.\n- **Compliance and security.** Monitoring access logs and system health lets a team find and respond to\n  security threats, and show that its applications meet regulatory requirements.\n\nTeams implement systems that meet the observability standards.\n"
+  practices:
+    - "full-stack-observability"
+  # groups: []  # Practice groups this area is a member of

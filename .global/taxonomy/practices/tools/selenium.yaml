@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: tool
+metadata:
+  name: "selenium"
+  annotations:
+    foe.source: "QDAS practices: tooling sections"
+spec:
+  description: "Browser automation, used for stack and system integration and acceptance tests."
+  owners:
+    - "aaron.west@esimplicity.com"
+  category: "testing"
+  docs_url: "https://www.selenium.dev"
+  # owner: ""  # Tool owner/maintainer
+  # tool_tags: []

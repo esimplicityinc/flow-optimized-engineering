@@ -1,0 +1,17 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: "stack-integration-tests"
+  annotations:
+    foe.source: "QDAS practices: Testing Framework"
+spec:
+  title: "Stack integration tests"
+  pillar: "framework"
+  category: "test-level"
+  status: "active"
+  definition: "Stack integration tests test a stack's functionality after it is deployed."
+  when_to_use: "To validate every capability of a stack."
+  body: "## When and where it runs\n\nAfter deploy, as the validation step of continuous delivery, run by the CI/CD system as part of the workflow.\n\n## Tooling\n\nA testing framework that drives the deployed stack (for example, Selenium).\n\n## Dependencies\n\nNone are mocked: the stack is deployed, so every dependency is tested end to end.\n"
+  description: "Stack integration tests test a stack's functionality after it is deployed."
+  owners:
+    - "aaron.west@esimplicity.com"
