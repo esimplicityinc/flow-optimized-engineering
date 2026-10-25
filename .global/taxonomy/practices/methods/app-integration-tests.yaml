@@ -11,7 +11,7 @@ spec:
   status: "active"
   definition: "App integration tests test an application's functionality and its integration with its dependencies, before deploy."
   when_to_use: "To validate every capability and every dependency of a stack."
-  body: "## When and where it runs\n\nBefore commit, and in the pipeline as a quality gate during the CI step, run by the CI tool.\n\n## Tooling\n\nThe language's test packages (for example, `pytest` with `tox`, or `npm run integration-test`).\n\n## Dependencies\n\nLocally, mocked (Docker Compose) or real in dev. In the pipeline, real.\nFor infrastructure, the equivalent check is `terraform plan`, run locally and on the pipeline's runner.\n"
+  body: "## When and where it runs\n\nBefore commit, and in the pipeline as a quality gate during the CI step, run by the CI tool.\n\n## Tooling\n\nThe language's test framework, behind its own command, apart from the unit tests.\n\n## Dependencies\n\nLocally, mocked (local containers) or real in dev. In the pipeline, real.\nFor infrastructure, the equivalent check is a plan of the change (a dry run that shows what would be created, changed or destroyed), run locally and on the pipeline's runner.\n"
   description: "App integration tests test an application's functionality and its integration with its dependencies, before deploy."
   owners:
     - "aaron.west@esimplicity.com"

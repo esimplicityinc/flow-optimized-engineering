@@ -16,7 +16,6 @@ spec:
   - platform-operations-microservices
   - platform-operations-team-topologies
   - infrastructure-as-code-delivery
-  - kubernetes-delivery
   strategy: '### Use infrastructure as code
 
 
@@ -29,10 +28,7 @@ spec:
     changes reviewed, versioned and rolled back like any other code; and the same
     pipelines, tests and
 
-    security rules for infrastructure as for applications. Tooling: Terraform with
-    Terragrunt, and
-
-    Ansible.
+    security rules for infrastructure as for applications.
 
 
     ### Use shared modules

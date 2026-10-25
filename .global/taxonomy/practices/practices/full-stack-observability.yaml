@@ -23,11 +23,6 @@ spec:
     - "stacks-with-dashboards"
     - "observability-tabletop-score"
     - "observability-confidence"
-  tools:
-    - "opentelemetry"
-    - "new-relic"
-    - "splunk"
-    - "fluent-bit"
   description: "Telemetry in every insight area, measured with every indicator, shown on dashboards and alerted on,\nall defined as code: so a team can understand its system's state at any moment.\n\n**Measures.** Teams are assessed once per program increment. Once a program increment, each team also runs an observability tabletop\nexercise. Teams are measured on their compliance with the observability NFRs on the systems they\nmaintain; the share of team members with access to the observability tools; the share of incidents\nthat were declared but not alerted on; the share of false positive alerts; their confidence\nself-assessment; their tabletop score; and the share of their stacks with dashboards.\n"
   owners:
     - "aaron.west@esimplicity.com"

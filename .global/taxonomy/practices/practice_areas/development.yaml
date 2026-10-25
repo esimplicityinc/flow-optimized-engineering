@@ -20,10 +20,7 @@ spec:
     ### Development standards
 
 
-    The bar every change meets before it is deployed, and the language standards for
-    Python and Node.js
-
-    stacks.
+    The bar every change meets before it is deployed.
 
 
     ### Team practice
@@ -46,8 +43,6 @@ spec:
   title: Development
   practices:
   - development-standards
-  - python-development
-  - nodejs-development
   - development-bdd
   - development-internal
   - development-team-topologies

@@ -10,6 +10,6 @@ spec:
   direction: "lower_is_better"
   category: "security"
   aggregation: "mean"
-  description: "The number of a stack's resources with open findings from the cloud security posture service (AWS Security Hub, for example)."
+  description: "The number of a stack's resources with open findings from the cloud security posture service."
   owners:
     - "aaron.west@esimplicity.com"
