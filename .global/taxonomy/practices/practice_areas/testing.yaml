@@ -112,45 +112,42 @@ spec:
   - testing-tdd
   - tdd
   - test-levels
-  strategy: 'The defining characteristic of a system''s quality is its ability to
-    change. So we optimise our processes
-
-    and systems for the capacity to make change accurately, quickly and safely.
+  strategy: 'The quality of a system is its ability to change. Thus, we make our processes
+    and systems able to change accurately, quickly and safely.
 
 
     | Goal | Meaning |
 
     |---|---|
 
-    | **Accuracy** | The change was the one intended, and meets the technical or business
-    need |
+    | **Accuracy** | The change is the correct change. It satisfies the technical
+    or business need. |
 
-    | **Velocity** | The rate at which change can be made |
+    | **Velocity** | The speed at which the team can make changes. |
 
-    | **Safety** | The change can be made with an acceptable amount of risk |
+    | **Safety** | The team can make the change with an acceptable risk. |
 
 
     ### Why we test
 
 
-    Testing gives us the safety and accuracy we need to improve velocity. It builds
-    confidence that:
+    Tests give the safety and accuracy that let a team change faster. Tests show that:
 
 
-    - what we build provides the capabilities intended;
+    - The things that we build do what we intended.
 
-    - what we want to deploy will work when it is deployed;
+    - The things that we want to deploy will operate after we deploy them.
 
-    - what we deployed is actually working.
-
-
-    ### Why we automate testing
+    - The things that we deployed operate correctly.
 
 
-    - **Fast feedback.** A test that runs on every commit tells the developer within
-    minutes.
+    ### Why we automate tests
 
-    - **No manual steps.** A manual step is slow, skipped under pressure, and a bottleneck
-    on every release.
+
+    - **Fast feedback.** An automated test runs on each commit (each saved change
+    to the code). It tells the developer the result in minutes.
+
+    - **No manual steps.** A manual step is slow. People do not do it when they are
+    under pressure. It delays each release.
 
     '

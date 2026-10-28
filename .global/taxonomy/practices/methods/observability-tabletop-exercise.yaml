@@ -1,17 +1,26 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: method
 metadata:
-  name: "observability-tabletop-exercise"
+  name: observability-tabletop-exercise
   annotations:
-    foe.source: "QDAS practices: Observability Standards, Measures"
+    foe.source: 'QDAS practices: Observability Standards, Measures'
 spec:
-  title: "Observability tabletop exercise"
-  pillar: "process"
-  category: "observability"
-  status: "active"
-  definition: "A periodic, facilitated walk-through of a failure scenario in which a team shows how it would detect, diagnose and recover from it using its observability tools."
-  when_to_use: "Once per program increment, alongside the observability assessment."
-  body: "The exercise is scored, and the score is one of the practice's measures. Gaps it finds (an incident with no alert, an alert with no documented action) become work."
-  description: "Once a planning increment, a team walks through a failure scenario to test whether its telemetry and alerts would find and explain it."
+  title: Observability tabletop exercise
+  pillar: process
+  category: observability
+  status: active
+  definition: In a tabletop exercise, a facilitator gives a team a failure scenario.
+    The team shows how it finds the failure, how it finds the cause, and how it recovers.
+    It uses only its observability tools.
+  when_to_use: Do the exercise one time in each planning period (for example, each
+    quarter), at the same time as the observability assessment.
+  body: 'The facilitator gives the exercise a score. The score is one of the measures
+    of the practice. Record each gap that the exercise finds as work to do. For example:
+    an incident that had no alert, or an alert that has no documented action.'
+  description: One time in each planning period, a team examines a failure scenario.
+    The team shows how its telemetry and alerts find the failure and explain it.
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com
+  rationale: A team finds gaps in its observability during an incident, when it is
+    too late. A tabletop exercise finds the same gaps when there is no pressure. It
+    also lets the team practise the response.

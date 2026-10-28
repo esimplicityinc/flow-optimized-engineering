@@ -19,41 +19,42 @@ spec:
   strategy: '### Use infrastructure as code
 
 
-    Define infrastructure in code, and provision every environment from it: automation
-    instead of manual,
+    Infrastructure as code (IaC) means that you define the infrastructure in code.
+    Make each environment from that code. This gives these results:
 
-    error-prone steps; environments that are consistent, reproducible and free of
-    drift; infrastructure
 
-    changes reviewed, versioned and rolled back like any other code; and the same
-    pipelines, tests and
+    - Automation replaces manual steps, which cause errors.
 
-    security rules for infrastructure as for applications.
+    - All environments are the same. You can make them again, and they do not change
+    without control.
+
+    - You review, version and roll back infrastructure changes as you do other code.
+
+    - Infrastructure uses the same pipelines, tests and security rules as applications.
 
 
     ### Use shared modules
 
 
-    Build infrastructure from a shared, inner-sourced library of battle-tested modules:
-    faster to start,
+    A module is a part of infrastructure code that many teams can use again. Make
+    infrastructure from a shared library of tested modules. This gives these results:
 
-    more reliable for having been proven in real deployments, reviewed and improved
-    by everyone who uses
 
-    them, and carrying security and compliance work into every stack.
+    - Teams start faster.
+
+    - The modules are more reliable, because real deployments tested them.
+
+    - Each team that uses a module also reviews it and makes it better.
+
+    - The security and compliance work in a module goes into each component that uses
+    it.
 
 
     ### Organise for independent deployment
 
 
-    Release frequency improves when each team''s services deploy without waiting on
-    anyone else''s. The
-
-    system taxonomy (system, subsystem, stack, layer, environment, resource) is how
-    systems are organised
-
-    and talked about, with independently deployable subsystems as the aim: see
-
-    [system taxonomy](system-taxonomy).
+    Teams release more frequently when each team can deploy its services without waiting
+    for other teams. Use the [system taxonomy](system-taxonomy) to organise and talk
+    about systems. The aim is subsystems that you can deploy independently.
 
     '

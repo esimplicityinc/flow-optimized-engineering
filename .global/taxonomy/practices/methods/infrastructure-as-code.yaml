@@ -1,16 +1,58 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: method
 metadata:
-  name: "infrastructure-as-code"
+  name: infrastructure-as-code
   annotations:
-    foe.source: "QDAS practices: DevOps - Strategy"
+    foe.source: 'QDAS practices: DevOps - Strategy'
 spec:
-  title: "Infrastructure as code"
-  pillar: "process"
-  category: "automation"
-  status: "active"
-  definition: "Infrastructure is defined in code, and every environment is provisioned, changed and re-created from that code rather than by hand."
-  rationale: "1. **Agility and speed.** Automation replaces manual, error-prone steps: resources are provisioned,\n   deployed and updated quickly and the same way every time.\n2. **Consistency and reproducibility.** The code is a record of the desired state; environments can\n   be re-created across stages without configuration drift.\n3. **Collaboration and version control.** Changes are tracked, reviewed and rolled back like any\n   other code.\n4. **Scalability and flexibility.** Adding capacity or replicating an environment is a code change.\n5. **Risk mitigation and compliance.** Fewer human errors, and security and compliance rules\n   applied the same way everywhere.\n6. **Cost optimisation.** Resources can be right-sized, and unnecessary ones found and removed.\n7. **Continuous delivery.** Infrastructure changes go through the same pipelines as application\n   changes: tested, delivered quickly, with minimal disruption.\n"
-  description: "Define infrastructure in code, versioned and reviewed, and provision every environment from it."
+  title: Infrastructure as code
+  pillar: process
+  category: automation
+  status: active
+  definition: Infrastructure as code (IaC) means that you define the infrastructure
+    in code. You make, change and make again each environment from that code, not
+    by hand.
+  rationale: '1. **Speed.** Automation replaces manual steps, which cause errors.
+    You make, deploy and update resources quickly, and the same way each time.
+
+    2. **Consistency.** The code is a record of the state that you want. You can make
+    an environment again in each stage. The configuration does not change without
+    control.
+
+    3. **Version control.** You track, review and roll back changes as you do other
+    code.
+
+    4. **Scale.** More capacity, or a copy of an environment, is only a change to
+    the code.
+
+    5. **Risk and compliance.** People make fewer errors. The same security and compliance
+    rules apply in all locations.
+
+    6. **Cost.** You can give each resource the correct size. You can find and remove
+    resources that nobody needs.
+
+    7. **Continuous delivery.** Infrastructure changes go through the same pipelines
+    as application changes. The pipeline tests them and delivers them quickly, with
+    little effect on users.
+
+    '
+  description: Define the infrastructure in code. Keep the code in version control
+    and review it. Make each environment from it.
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com
+  when_to_use: Use this method for all infrastructure in all environments, from the
+    first environment.
+  body: '## Procedure
+
+
+    1. Write the infrastructure of each environment as code.
+
+    2. Keep the code in version control, with the component that it is for.
+
+    3. Review each change to the code as you review application code.
+
+    4. Apply the code through the pipeline. Do not make changes by hand.
+
+    5. To change an environment, change the code and apply it again.
+
+    '

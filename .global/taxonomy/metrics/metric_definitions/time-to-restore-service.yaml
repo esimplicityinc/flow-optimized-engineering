@@ -1,15 +1,17 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: metric_definition
 metadata:
-  name: "time-to-restore-service"
+  name: time-to-restore-service
   annotations:
-    foe.source: "QDAS practices: Development - Standards, Measures"
+    foe.source: 'QDAS practices: Development - Standards, Measures'
 spec:
-  title: "Time to Restore Service (MTTR)"
-  unit: "hours"
-  direction: "lower_is_better"
-  category: "stability"
-  aggregation: "mean"
-  description: "How long it takes to recover from a failure in production. One of the four DORA metrics."
+  title: Time to Restore Service (MTTR)
+  unit: hours
+  direction: lower_is_better
+  category: stability
+  aggregation: mean
+  description: 'How long it takes to recover from a failure in production. It is one
+    of the four DORA metrics. MTTR means mean time to restore. Why: failures will
+    occur. A fast recovery decreases the effect on users.'
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com

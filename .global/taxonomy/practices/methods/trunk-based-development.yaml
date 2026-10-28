@@ -1,18 +1,45 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: method
 metadata:
-  name: "trunk-based-development"
+  name: trunk-based-development
   annotations:
-    foe.source: "QDAS practices: Development - Strategy; CI/CD - Standards"
+    foe.source: 'QDAS practices: Development - Strategy; CI/CD - Standards'
 spec:
-  title: "Trunk-based development"
-  pillar: "process"
-  category: "branching"
-  status: "active"
-  definition: "Developers work in small batches and merge their work frequently into a shared trunk."
-  when_to_use: "Always, as the default branching strategy: a branch lives a day or two, not a sprint."
-  body: "## References\n\n- [Trunk-based development](https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development) (DORA)\n- [Git branching strategies vs. trunk-based development](https://launchdarkly.com/blog/git-branching-strategies-vs-trunk-based-development/)\n- [Working in small batches](https://cloud.google.com/architecture/devops/devops-process-working-in-small-batches) (DORA)\n"
-  rationale: "According to the 2021 Accelerate State of DevOps report, high-performing organisations tend to use\ntrunk-based development, and elite performers who meet their reliability targets are 2.3 times more\nlikely to use it. It is closely related to continuous integration, and has more impact with it.\nGitLab's 2020 Global Developer Report found more than 40% of organisations use it, and that teams\nusing it had a lower change failure rate than teams using feature branching.\n"
-  description: "Developers work in small batches and merge frequently into one shared trunk, rather than on long-lived feature branches."
+  title: Trunk-based development
+  pillar: process
+  category: branching
+  status: active
+  definition: Developers make small changes. They merge each change frequently into
+    one shared branch, the trunk.
+  when_to_use: Use this method always, as the usual way to use branches. A branch
+    stays for one or two days, not for a full work period.
+  body: '## References
+
+
+    - [Trunk-based development](https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development)
+    (DORA)
+
+    - [Git branching strategies vs. trunk-based development](https://launchdarkly.com/blog/git-branching-strategies-vs-trunk-based-development/)
+
+    - [Working in small batches](https://cloud.google.com/architecture/devops/devops-process-working-in-small-batches)
+    (DORA)
+
+    '
+  rationale: 'The 2021 Accelerate State of DevOps report found that teams with high
+    performance usually use trunk-based development. The best teams that also meet
+    their reliability targets are 2.3 times more likely to use it.
+
+
+    Trunk-based development is closely related to continuous integration. The two
+    methods have more effect together.
+
+
+    The 2020 GitLab Global Developer Report found that more than 40% of organisations
+    use trunk-based development. It also found that these teams had fewer failed changes
+    than teams that use feature branches.
+
+    '
+  description: Developers make small changes and merge them frequently into one shared
+    branch, the trunk. They do not use feature branches that stay for a long time.
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com

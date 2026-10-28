@@ -1,16 +1,67 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: standard
 metadata:
-  name: "iac-standards"
+  name: iac-standards
   annotations:
-    foe.source: "QDAS practices: DevOps - Standards"
+    foe.source: 'QDAS practices: DevOps - Standards'
 spec:
-  title: "Infrastructure as code standards"
-  category: "operability"
-  status: "active"
-  priority: "high"
-  enforcement: "review"
-  rationale: "Infrastructure written by hand cannot be reviewed, reproduced or rolled back; infrastructure built from shared, pinned modules inherits their testing and stays consistent across teams."
-  description: "Every resource and configuration of a system and its stacks is created as code, from shared, pinned modules, laid out the same way in every stack, and named to convention.\n\n### Requirements\n\n| Requirement | Detail | Enforcement | Threshold |\n|---|---|---|---|\n| All resources and configuration are code | A system's and its stacks' resources and configurations are all created by IaC. | required |  |\n| External modules are pinned to a stable version | Every reference to an external module is pinned to a stable version. | required |  |\n| Modules are not sourced from public repositories | Modules are not referenced directly from public repositories; they come from the shared module library. | required |  |\n| IaC uses shared modules | IaC is composed from the shared module library rather than written from scratch. | advisory |  |\n| Cloud resources follow the naming conventions | Every cloud resource follows the standard naming conventions. | required |  |\n| One composite module per stack, a folder per environment | Each stack has an IaC layer holding all of its IaC: one composite module applied to every environment, and a folder per environment holding only what differs. | advisory |  |\n"
+  title: Infrastructure must be code, by the infrastructure-as-code standards
+  category: operability
+  status: active
+  priority: high
+  enforcement: review
+  rationale: Nobody can review, make again or roll back infrastructure that a person
+    makes by hand. Infrastructure from shared modules with fixed versions gets the
+    tests of those modules. It stays the same across teams.
+  description: '**Standard.** Each resource and each configuration of a system must
+    be made with code that obeys these rules.
+
+
+    **Applies to:** each resource and each configuration of each system, in each environment.
+
+
+    In this standard, *must* is a requirement. *Should* is a recommendation.
+
+
+    1. **All resources and configuration are code** (required). Code must make all
+    the resources and configurations of a system and its components. *Conforms when:*
+    no resource exists that code does not define.
+
+    2. **Pin external modules** (required). Each reference to an external module must
+    be pinned to a stable version. *Conforms when:* no module reference uses a branch
+    or a range of versions.
+
+    3. **No modules from public repositories** (required). Modules must not come directly
+    from a public repository. They must come from the shared module library. *Conforms
+    when:* each module source is the shared module library.
+
+    4. **Use shared modules** (advisory). Infrastructure code should use the shared
+    module library, and not be written from the start. *Conforms when:* each resource
+    type that has a shared module uses it.
+
+    5. **Obey the naming rules** (required). Each cloud resource must have a name
+    that obeys the standard naming rules. *Conforms when:* each resource name passes
+    the naming check.
+
+    6. **One shared module for each component, one folder for each environment** (advisory).
+    Each deployable component should have an infrastructure layer with one shared
+    module for all environments, and one folder for each environment that contains
+    only the differences. *Conforms when:* the layout of the infrastructure code agrees
+    with this rule.
+
+
+    **Terms:**
+
+
+    - **Infrastructure as code (IaC):** infrastructure that you define in code.
+
+    - **Module:** a part of infrastructure code that many teams can use again.
+
+    - **Pin:** to fix a reference to one exact, stable version.
+
+    - **Deployable component:** a service, application, job or pipeline that you build,
+    deploy and run as one unit.
+
+    '
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com

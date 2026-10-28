@@ -1,17 +1,41 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: method
 metadata:
-  name: "synthetic-monitoring"
+  name: synthetic-monitoring
   annotations:
-    foe.source: "QDAS practices: Testing Framework"
+    foe.source: 'QDAS practices: Testing Framework'
 spec:
-  title: "Synthetic monitoring"
-  pillar: "framework"
-  category: "test-level"
-  status: "active"
-  definition: "Synthetic monitors are automated tests of a system's or stack's functionality in real time, in the running environment."
-  when_to_use: "To validate, continually, every capability of a stack and a system."
-  body: "## When and where it runs\n\nContinually, on the synthetic monitoring tool.\n\n## Tooling\n\nA synthetic monitoring service that runs scripted checks on a schedule against the live system.\n\n## Dependencies\n\nReal: the monitor exercises the live system.\n"
-  description: "Synthetic monitors are automated tests of a system's or stack's functionality in real time, in the running environment."
+  title: Synthetic monitoring
+  pillar: framework
+  category: test-level
+  status: active
+  definition: A synthetic monitor is an automated test that examines the live system
+    on a schedule, in the environment where it operates.
+  when_to_use: Use synthetic monitors to examine each capability of each deployable
+    component and each system, all the time.
+  body: '## When and where it runs
+
+
+    Synthetic monitors run all the time, on a schedule, in the monitoring service.
+
+
+    ## Tools
+
+
+    Use a synthetic monitoring service. The service runs scripted checks on a schedule
+    against the live system.
+
+
+    ## Dependencies
+
+
+    Use the real dependencies. The monitor examines the live system.
+
+    '
+  description: A synthetic monitor is an automated test that examines the live system
+    on a schedule, in the environment where it operates.
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com
+  rationale: 'A system can fail when nobody changes it: a certificate expires, a dependency
+    stops. Synthetic monitors find these failures all the time, also when no users
+    are active.'

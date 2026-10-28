@@ -1,0 +1,17 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: observability-standards-compliance
+  annotations:
+    foe.source: 'QDAS practices: Observability Standards, Measures'
+spec:
+  title: Observability standards compliance
+  unit: percentage
+  direction: higher_is_better
+  category: observability
+  aggregation: mean
+  description: 'How fully the systems of a team obey the observability standards.
+    Why: each standard that a system does not obey is a gap where the team cannot
+    see a failure.'
+  owners:
+  - aaron.west@esimplicity.com

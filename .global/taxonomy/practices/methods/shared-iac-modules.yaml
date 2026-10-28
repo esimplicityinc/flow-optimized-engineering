@@ -1,16 +1,51 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: method
 metadata:
-  name: "shared-iac-modules"
+  name: shared-iac-modules
   annotations:
-    foe.source: "QDAS practices: DevOps - Strategy"
+    foe.source: 'QDAS practices: DevOps - Strategy'
 spec:
-  title: "Shared IaC modules"
-  pillar: "process"
-  category: "inner-source"
-  status: "active"
-  definition: "Infrastructure is composed from a shared library of battle-tested modules, inner-sourced and maintained by the teams that use them."
-  rationale: "1. **Accelerated development.** Pre-built, customisable components that embody best practice save\n   time and effort.\n2. **Reliability and stability.** Modules that have been through rigorous testing and real\n   deployments avoid common pitfalls: less downtime, fewer errors.\n3. **Collaboration and knowledge sharing.** Inner source brings peer review and continuous\n   improvement, and spreads the team's expertise.\n4. **Scalability and flexibility.** Modules that have already handled a wide range of scenarios\n   are ready for the next one.\n5. **Security and compliance.** Modules scrutinised for vulnerabilities and aligned with standards\n   carry that work into every stack that uses them.\n"
-  description: "Build infrastructure from a shared, inner-sourced library of tested modules instead of writing each stack's from scratch."
+  title: Shared infrastructure modules
+  pillar: process
+  category: inner-source
+  status: active
+  definition: 'A module is a part of infrastructure code that many teams can use again.
+    Make infrastructure from a shared library of tested modules. The teams that use
+    the modules also keep them correct. This is inner source: teams share code inside
+    the organisation as in an open-source project.'
+  rationale: '1. **Faster development.** Modules that are ready, and that you can
+    adjust, save time and effort.
+
+    2. **Reliability.** Strict tests and real deployments tested the modules. Thus,
+    they prevent usual errors and cause less downtime.
+
+    3. **Shared knowledge.** Inner source gives reviews from other teams and continuous
+    improvement. It shares the knowledge of the team.
+
+    4. **Scale.** The modules already operate in many conditions. They are ready for
+    the next condition.
+
+    5. **Security and compliance.** Teams examined the modules for vulnerabilities
+    and made them obey the standards. Each component that uses a module gets this
+    work.
+
+    '
+  description: Make infrastructure from a shared library of tested modules. Do not
+    write the infrastructure of each component from the start.
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com
+  when_to_use: Use a shared module each time that one exists for the resource that
+    you need. If none exists, make one and share it.
+  body: '## Procedure
+
+
+    1. Look in the shared module library for a module for the resource that you need.
+
+    2. Use the module. Pin it to a stable version.
+
+    3. If the module does not do what you need, change the module in the library.
+    Do not copy it.
+
+    4. If no module exists, write one, test it, and add it to the library.
+
+    '

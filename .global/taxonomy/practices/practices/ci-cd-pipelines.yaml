@@ -1,22 +1,59 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: "ci-cd-pipelines"
+  name: ci-cd-pipelines
   annotations:
-    foe.source: "QDAS practices: CI/CD - Strategy; CI/CD - Standards"
+    foe.source: 'QDAS practices: CI/CD - Strategy; CI/CD - Standards'
 spec:
-  title: "CI/CD pipelines"
-  practice_area: "change-delivery"
-  enforcement: "required"
+  title: CI/CD pipelines
+  practice_area: change-delivery
+  enforcement: required
   standards:
-    - "ci-cd-standards"
+  - ci-cd-standards
   methods:
-    - "trunk-based-development"
+  - trunk-based-development
   measures:
-    - "deployment-frequency"
-    - "lead-time-for-changes"
-    - "change-failure-rate"
-    - "time-to-restore-service"
-  description: "Workflows and pipelines that take a change from commit to production: integrated often, kept green,\nbuilt once, tested in a lower environment first, configured without repetition, and free of secrets.\nPipelines are assembled from modular, shareable workflows and actions rather than written from\nscratch.\n\n**Measures.** The four DORA metrics.\n"
+  - deployment-frequency
+  - lead-time-for-changes
+  - change-failure-rate
+  - time-to-restore-service
+  description: 'A pipeline is the automated sequence of steps that takes a change
+    from commit to production. CI/CD means continuous integration and continuous delivery.
+    Continuous integration builds and tests each change when a developer merges it.
+    Continuous delivery deploys each change that passes.
+
+
+    Pipelines in this practice:
+
+
+    - Integrate changes frequently.
+
+    - Always pass (they stay "green").
+
+    - Build each artifact one time.
+
+    - Test each change in a lower environment first.
+
+    - Have no repeated configuration.
+
+    - Contain no secrets.
+
+
+    Make pipelines from shared workflows and actions. Do not write each pipeline from
+    the start.
+
+
+    ## Why
+
+
+    An automated pipeline is the only path to production. Thus, each change gets the
+    same tests and checks, and the team can deploy many times each day with little
+    risk.
+
+
+    **Measures.** The four DORA metrics: deployment frequency, lead time for changes,
+    change failure rate and time to restore service.
+
+    '
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com

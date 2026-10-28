@@ -1,17 +1,44 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: method
 metadata:
-  name: "acceptance-tests"
+  name: acceptance-tests
   annotations:
-    foe.source: "QDAS practices: Testing Framework"
+    foe.source: 'QDAS practices: Testing Framework'
 spec:
-  title: "Acceptance tests"
-  pillar: "framework"
-  category: "test-level"
-  status: "active"
-  definition: "Acceptance tests test that the desired business functionality is achieved."
-  when_to_use: "To validate every user story and acceptance criterion."
-  body: "## When and where it runs\n\nBefore release to production, run on or triggered by the CI/CD system as part of the production workflow.\n\n## Tooling\n\nA framework that runs acceptance criteria written as examples (Given / When / Then) against the system.\n\n## Dependencies\n\nThe system under test is deployed; dependencies are real.\n"
-  description: "Acceptance tests test that the desired business functionality is achieved."
+  title: Acceptance tests
+  pillar: framework
+  category: test-level
+  status: active
+  definition: An acceptance test examines if the system does the business function
+    that the users need.
+  when_to_use: Use these tests to examine each user story and each acceptance criterion.
+    A user story is a short description of a need of a user. An acceptance criterion
+    is a condition that the story must satisfy.
+  body: '## When and where it runs
+
+
+    Acceptance tests run before release to production. The CI/CD system runs them,
+    or starts them, in the production workflow.
+
+
+    ## Tools
+
+
+    Use a framework that runs acceptance criteria written as examples. Write each
+    example in three parts: Given (the start condition), When (the action), Then (the
+    result).
+
+
+    ## Dependencies
+
+
+    Deploy the system before the test. Use the real dependencies.
+
+    '
+  description: An acceptance test examines if the system does the business function
+    that the users need.
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com
+  rationale: The other test levels show that the code operates as the developers intended.
+    Acceptance tests show that the system does what the users need. The examples are
+    also documentation that business people and developers can both read.

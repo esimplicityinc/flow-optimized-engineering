@@ -10,8 +10,8 @@ spec:
   - m147-knowledge-distribution-as-reliability
   - m149-root-cause-first-debugging
   - m154-conceptual-debt-prevention
-  description: 'Methods FOE authored for development in general: root-cause-first
-    debugging, conceptual debt prevention, knowledge distribution, and early investment
-    in feedback loops.'
+  description: 'The methods that FOE wrote for development in general: find the root
+    cause before you fix a problem, prevent conceptual debt, share knowledge, and
+    make feedback loops early.'
   owners:
   - aaron.west@esimplicity.com

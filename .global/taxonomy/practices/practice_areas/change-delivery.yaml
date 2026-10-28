@@ -15,31 +15,34 @@ spec:
   - continuous-delivery
   - dora
   - ci-cd-pipelines
-  strategy: '**Primary goal: implement change to our systems as quickly and safely
-    as possible.**
+  strategy: '**The primary goal: change our systems as quickly and safely as possible.**
 
 
-    - Fast feedback for developers
+    To do this:
 
-    - Promote small changes over big-bang approaches
 
-    - Lower the maintenance burden
+    - Give developers fast feedback.
 
-    - Shift security left, to eliminate patching
+    - Make small changes, not large changes all at one time.
 
-    - Remove manual steps, to make deployments simple
+    - Decrease the maintenance work.
 
-    - Provide modular, shareable workflows and actions, to make pipelines simple to
-    implement
+    - Find security problems early, before you deploy. Then you do not have to patch
+    them later.
+
+    - Remove manual steps, so that deployment is simple.
+
+    - Make workflows and actions that teams can share and combine. Then each team
+    can make a pipeline easily.
 
 
     ### Key goals
 
 
-    - Zero-downtime deployment
+    - Deploy with no downtime.
 
-    - Deploy multiple times a day
+    - Deploy many times each day.
 
-    - Minimal manual configuration
+    - Use a minimum of manual configuration.
 
     '

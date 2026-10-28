@@ -1,17 +1,41 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: method
 metadata:
-  name: "system-integration-tests"
+  name: system-integration-tests
   annotations:
-    foe.source: "QDAS practices: Testing Framework"
+    foe.source: 'QDAS practices: Testing Framework'
 spec:
-  title: "System integration tests"
-  pillar: "framework"
-  category: "test-level"
-  status: "active"
-  definition: "System integration tests test a system's functionality as a whole, after deploy."
-  when_to_use: "To validate every capability of a system."
-  body: "## When and where it runs\n\nAfter deploy, as the validation step of continuous delivery, run by the CI/CD system as part of the workflow.\n\n## Tooling\n\nA test framework that drives the deployed system through its interfaces: its UI or its API.\n\n## Dependencies\n\nNone are mocked: every dependency is tested end to end.\n"
-  description: "System integration tests test a system's functionality as a whole, after deploy."
+  title: System integration tests
+  pillar: framework
+  category: test-level
+  status: active
+  definition: A system integration test examines a full system (a set of components
+    that together give one service to its users), after you deploy it.
+  when_to_use: Use these tests to examine each capability of a system.
+  body: '## When and where it runs
+
+
+    System integration tests run after deployment. They are the test step of continuous
+    delivery (CD). The CI/CD system runs them in the workflow.
+
+
+    ## Tools
+
+
+    Use a test framework that operates the deployed system through its user interface
+    or its API.
+
+
+    ## Dependencies
+
+
+    Do not use mocks. The tests examine each dependency from end to end.
+
+    '
+  description: A system integration test examines a full system (a set of components
+    that together give one service to its users), after you deploy it.
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com
+  rationale: Each component can pass its own tests, and the system can still fail
+    when the components operate together. Only a test of the full system finds these
+    failures.

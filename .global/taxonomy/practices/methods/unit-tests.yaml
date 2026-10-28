@@ -1,17 +1,43 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: method
 metadata:
-  name: "unit-tests"
+  name: unit-tests
   annotations:
-    foe.source: "QDAS practices: Testing Framework"
+    foe.source: 'QDAS practices: Testing Framework'
 spec:
-  title: "Unit tests"
-  pillar: "framework"
-  category: "test-level"
-  status: "active"
-  definition: "Unit tests test the functionality of a piece of code, usually a function."
-  when_to_use: "All code: it needs 80% coverage before it can be deployed."
-  body: "## When and where it runs\n\nBefore commit, and in the pipeline as a quality gate during the CI step, run by the CI tool.\n\n## Tooling\n\nThe language's own unit test framework, behind one command that runs the same way locally and in CI. Shared IaC modules are unit tested too.\n\n## Dependencies\n\nMocked in the code.\n"
-  description: "Unit tests test the functionality of a piece of code, usually a function."
+  title: Unit tests
+  pillar: framework
+  category: test-level
+  status: active
+  definition: A unit test examines one small part of the code, usually one function.
+  when_to_use: Write unit tests for all code. The unit tests must cover 80% of the
+    code before you can deploy it.
+  body: '## When and where it runs
+
+
+    Unit tests run before each commit. They also run in the pipeline, in the continuous
+    integration (CI) step. CI is the step that builds and tests each change when a
+    developer merges it. If a unit test fails, the change stops there.
+
+
+    ## Tools
+
+
+    Use the unit test framework of the programming language. Run all the unit tests
+    with one command. The command must operate the same on a local computer and in
+    CI. Write unit tests for shared infrastructure modules too.
+
+
+    ## Dependencies
+
+
+    Use mocks for all dependencies. A mock is a simple replacement for a dependency,
+    for use in a test.
+
+    '
+  description: A unit test examines one small part of the code, usually one function.
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com
+  rationale: Unit tests are the fastest feedback. They run in seconds, so a developer
+    finds an error before the change leaves the computer. A unit test also shows exactly
+    which part of the code has the error.

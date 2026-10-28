@@ -1,0 +1,88 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: correlated-telemetry
+  annotations:
+    foe.source: 'QDAS practices: Observability Primer'
+spec:
+  title: Correlated three-signal telemetry
+  pillar: framework
+  category: observability
+  status: active
+  definition: 'Telemetry is the data that a component sends about itself. Each component
+    of a system sends three types of telemetry: metrics, traces and logs. The three
+    have the same identifiers, for example a trace ID (a unique number for one request),
+    the service name and the environment. With these identifiers, a team can go from
+    an alert, to the request that failed, to the event that explains the failure.'
+  body: '## Procedure
+
+
+    1. **Use metrics to find a problem.** Make alerts and dashboards from metrics.
+    Metrics cost little to keep and you can query them quickly.
+
+    2. **Use traces to find where the problem is.** Follow the request that failed,
+    or was slow, through each component.
+
+    3. **Use logs to find why.** Read the events at the location that the trace shows.
+
+    4. **Connect the three.** Put the same identifiers on all three types of data.
+    For example, put the trace ID in each log line. Then each step is one click, not
+    a search.
+
+
+    ## Metrics
+
+
+    A metric is a number that you measure over a period of time. Examples: a count,
+    an average, or a percentile. A percentile is the value below which a given percentage
+    of the measurements fall. For example, the 99th percentile of response time is
+    slower than 99% of the responses. A metric has a name, a time and labels. Metrics
+    cost little to store, so you can keep them for a long time and see trends. Use
+    metrics to find unusual behaviour and to show the health of the system on dashboards.
+    An alert on a metric is much faster than a query on logs. Many different label
+    values increase the cost to store and query metrics.
+
+
+    ## Traces
+
+
+    A trace shows the path of one request through the components of the system: the
+    application, proxies, libraries, databases and caches. It shows each step across
+    a boundary, each branch, and how much work each layer does. A trace is a set of
+    spans. A span is one unit of work, for example one call to a database. References
+    connect the spans.
+
+
+    ## Logs
+
+
+    A log is a record of one event. The record does not change. It has a time and
+    data about the event. It can be plain text, structured data (for example JSON)
+    or binary data. Send logs to a central system. Logs give details that averages
+    and percentiles cannot give.
+
+    '
+  pitfalls: '- **Too many logs.** Too many logs increase the cost of storage and make
+    searches slower. Decide what to log.
+
+    - **Not sufficient context.** Each log line must contain the data that makes the
+    event clear.
+
+    - **Blocked requests.** Write logs asynchronously. Logs must not stop the processing
+    of a request.
+
+    - **Sensitive data.** Do not log sensitive data. If it is necessary, mask it first.
+
+    - **No retention policy.** Most event logs are important for a short time only.
+    Archive them after that time.
+
+    '
+  description: Make each component send metrics, traces and logs. Connect the three
+    with the same identifiers. Use each type of data for the task that it does best.
+  owners:
+  - aaron.west@esimplicity.com
+  when_to_use: Use this method each time you make or change a component. One type
+    of telemetry answers only one type of question.
+  rationale: Each signal answers one question only. Metrics show that there is a problem.
+    Traces show where it is. Logs show why. Without shared identifiers, the team must
+    search each signal by hand during an incident, and this takes time.

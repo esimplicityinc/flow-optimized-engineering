@@ -1,0 +1,18 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: components-with-dashboards
+  annotations:
+    foe.source: 'QDAS practices: Observability Standards, Measures'
+spec:
+  title: Deployable components with dashboards
+  unit: percentage
+  direction: higher_is_better
+  category: observability
+  aggregation: mean
+  description: 'The percentage of the deployable components of a team that have a
+    dashboard with their indicators. A deployable component is a service, application,
+    job or pipeline that you build, deploy and run as one unit. Why: during an incident,
+    a component without a dashboard has no data to look at first.'
+  owners:
+  - aaron.west@esimplicity.com

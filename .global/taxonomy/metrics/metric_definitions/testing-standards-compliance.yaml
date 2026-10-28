@@ -1,15 +1,17 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: metric_definition
 metadata:
-  name: "testing-standards-compliance"
+  name: testing-standards-compliance
   annotations:
-    foe.source: "QDAS practices: Testing Standards, Measures"
+    foe.source: 'QDAS practices: Testing Standards, Measures'
 spec:
-  title: "Testing standards compliance"
-  unit: "percentage"
-  direction: "higher_is_better"
-  category: "quality"
-  aggregation: "mean"
-  description: "How fully the systems a team maintains meet the testing standards: each required test level present for each system, stack and layer."
+  title: Testing standards compliance
+  unit: percentage
+  direction: higher_is_better
+  category: quality
+  aggregation: mean
+  description: 'How fully the systems of a team obey the testing standards. For each
+    system, deployable component and layer, each necessary test level must be present.
+    Why: a missing test level is a type of failure that nobody finds before production.'
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com

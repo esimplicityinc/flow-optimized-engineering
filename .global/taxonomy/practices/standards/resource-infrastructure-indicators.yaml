@@ -1,0 +1,58 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: resource-infrastructure-indicators
+  annotations:
+    foe.source: 'QDAS practices: Observability Standards'
+spec:
+  title: Each operational resource must measure availability, health and capacity
+  category: observability
+  status: active
+  priority: high
+  enforcement: review
+  rationale: 'Each of the three indicators answers a different question about a resource:
+
+
+    - **Availability/status: is the resource up?** If a resource stops, the components
+    that use it fail. This check finds the failure first, and it shows where the failure
+    started.
+
+    - **Performance/health: does the resource respond in an acceptable time?** A resource
+    can be up but slow. A slow resource makes each component that uses it slow, so
+    the cause is difficult to find from the components only.
+
+    - **Capacity: how much of its limit does the resource use?** Most outages occur
+    when a resource has no more capacity: a full disk, all of the memory, all of the
+    connections. A capacity indicator shows the problem before it occurs. Then the
+    team has time to act.
+
+
+    Without these three indicators, the team sees a problem only when users see it.
+    The team must then find the cause without data.
+
+    '
+  description: '**Standard.** Each operational resource must have an availability/status
+    indicator, a performance/health indicator and a capacity indicator.
+
+
+    **Applies to:** each operational resource that a deployable component uses in
+    production.
+
+
+    **Conforms when:** the three indicators collect data, and the dashboard of the
+    component shows them.
+
+
+    **Terms:**
+
+
+    - **Operational resource:** a resource that a component needs when it operates.
+    Examples: a server, a container cluster, a database, a queue, storage, a load
+    balancer.
+
+    - **Indicator:** a type of measurement: availability/status, performance/health,
+    capacity or usage. See [Indicators](indicators).
+
+    '
+  owners:
+  - aaron.west@esimplicity.com

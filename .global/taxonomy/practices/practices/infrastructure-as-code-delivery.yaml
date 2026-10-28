@@ -1,24 +1,51 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: "infrastructure-as-code-delivery"
+  name: infrastructure-as-code-delivery
   annotations:
-    foe.source: "QDAS practices: DevOps - Strategy; DevOps - Framework; DevOps - Standards; Terraform / Terragrunt Standards (layout)"
+    foe.source: 'QDAS practices: DevOps - Strategy; DevOps - Framework; DevOps - Standards;
+      Terraform / Terragrunt Standards (layout)'
 spec:
-  title: "Infrastructure as code"
-  practice_area: "platform-operations"
-  enforcement: "required"
+  title: Infrastructure as code
+  practice_area: platform-operations
+  enforcement: required
   standards:
-    - "iac-standards"
+  - iac-standards
   methods:
-    - "system-taxonomy"
-    - "infrastructure-as-code"
-    - "shared-iac-modules"
+  - system-taxonomy
+  - infrastructure-as-code
+  - shared-iac-modules
   measures:
-    - "resources-as-code"
-    - "resource-naming-compliance"
-    - "stack-iac-compliance"
-    - "security-findings-on-resources"
-  description: "Every resource and configuration created as code, from shared, pinned modules, laid out the same way\nin every stack, and organised by the system taxonomy.\n\n**Measures.** Teams are assessed once per program increment. The percentage of system resources and configuration implemented as code;\nresources that meet the naming standard; stacks whose IaC meets the standards; and resources with\nopen security findings.\n"
+  - resources-as-code
+  - resource-naming-compliance
+  - component-iac-compliance
+  - security-findings-on-resources
+  description: 'Make each resource and each configuration with code. Use shared modules
+    with fixed versions. Use the same layout in each deployable component. Organise
+    all of it with the system taxonomy.
+
+
+    ## Why
+
+
+    Infrastructure that code makes is the same in each environment. You can review
+    it, make it again and roll it back. Shared modules give each team the tests and
+    security work of the other teams.
+
+
+    **Measures.** Assess each team one time in each planning period (for example,
+    each quarter). The measures are:
+
+
+    - The percentage of the resources and configuration of each system that code makes.
+
+    - The percentage of resources that obey the naming rules.
+
+    - The percentage of deployable components whose infrastructure code obeys the
+    standards.
+
+    - The number of resources that have open security findings.
+
+    '
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com

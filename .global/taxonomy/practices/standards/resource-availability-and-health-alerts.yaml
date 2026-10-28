@@ -1,0 +1,36 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: resource-availability-and-health-alerts
+  annotations:
+    foe.source: 'QDAS practices: Observability Standards'
+spec:
+  title: Each operational resource must have availability and health alerts
+  category: observability
+  status: active
+  priority: high
+  enforcement: review
+  rationale: When a resource stops or becomes slow, the team must know before a user
+    knows.
+  description: '**Standard.** Each operational resource must have an alert on its
+    availability and an alert on its health.
+
+
+    **Applies to:** each operational resource that a deployable component uses in
+    production.
+
+
+    **Conforms when:** both alerts exist, they are active, and they send a notification
+    to the team that owns the resource.
+
+
+    **Terms:**
+
+
+    - **Operational resource:** a resource that a component needs when it operates.
+    Examples: a server, a container cluster, a database, a queue, storage, a load
+    balancer.
+
+    '
+  owners:
+  - aaron.west@esimplicity.com
