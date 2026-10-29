@@ -1,0 +1,16 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: observability-tabletop-score
+  annotations:
+    foe.source: 'QDAS practices: Observability Standards, Measures'
+spec:
+  title: Observability tabletop score
+  unit: score
+  direction: higher_is_better
+  category: observability
+  aggregation: mean
+  description: 'The score that a team gets in its observability tabletop exercise.
+    Why: the score shows how ready the team is for a real incident.'
+  owners:
+  - aaron.west@esimplicity.com

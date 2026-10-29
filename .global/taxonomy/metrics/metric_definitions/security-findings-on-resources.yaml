@@ -1,0 +1,17 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: security-findings-on-resources
+  annotations:
+    foe.source: 'QDAS practices: DevOps - Standards, Measures'
+spec:
+  title: Resources with security findings
+  unit: count
+  direction: lower_is_better
+  category: security
+  aggregation: mean
+  description: 'The number of resources of a deployable component that have open findings
+    from the cloud security service. A finding is a security problem that the service
+    found. Why: each open finding is a known risk that an attacker can use.'
+  owners:
+  - aaron.west@esimplicity.com

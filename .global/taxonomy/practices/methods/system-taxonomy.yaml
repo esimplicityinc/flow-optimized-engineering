@@ -1,0 +1,53 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: system-taxonomy
+  annotations:
+    foe.source: 'QDAS practices: DevOps - Framework'
+spec:
+  title: System taxonomy
+  pillar: framework
+  category: organisation
+  status: active
+  definition: A system taxonomy is a set of words, with one meaning each, for how
+    systems are organised. With it, teams can make systems that they can deploy independently.
+    Then the changes of other teams do not stop them.
+  body: '| Level | What it is |
+
+    |---|---|
+
+    | Organisation | The organisation that owns the systems. |
+
+    | System | A set of components that together give one service to its users. Example:
+    an online store. |
+
+    | Subsystem | A part of a system that you can deploy independently. |
+
+    | Deployable component | A service, application, job or pipeline that you build,
+    deploy and run as one unit. |
+
+    | Layer | One part of a deployable component, for example its application code,
+    its infrastructure code or its tests. |
+
+    | Environment | A location where you deploy a component, for example development,
+    test or production. |
+
+    | Resource | One real item that the infrastructure code makes, for example a server
+    or a database. |
+
+
+    The test levels and the observability standards use these words. Examples: the
+    integration tests of a deployable component, the acceptance tests of a system,
+    the alerts of an operational resource.
+
+    '
+  rationale: When teams use the same words with the same meaning, they plan, test
+    and monitor the same things. A team that can deploy its part of the system independently
+    releases more frequently.
+  description: 'Organise the things that a team operates in levels: system, subsystem,
+    deployable component, layer, environment and resource. The aim is systems that
+    you can deploy independently.'
+  owners:
+  - aaron.west@esimplicity.com
+  when_to_use: Use this taxonomy when you design a system, when you plan its tests
+    and monitoring, and when you decide which team owns which part.

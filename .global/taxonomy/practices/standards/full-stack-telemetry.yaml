@@ -1,0 +1,41 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: full-stack-telemetry
+  annotations:
+    foe.source: 'QDAS practices: Observability Standards'
+spec:
+  title: Each system must send telemetry from each insight area
+  category: observability
+  status: active
+  priority: high
+  enforcement: review
+  rationale: If an insight area has no telemetry, the team cannot see a failure in
+    that area, or cannot explain it.
+  description: '**Standard.** Each system must send telemetry from each insight area:
+    infrastructure, application and user experience. Each insight area must have each
+    indicator that applies to it.
+
+
+    **Applies to:** each system in production.
+
+
+    **Conforms when:** for each insight area of the system, there is telemetry for
+    each applicable indicator, and the team can query it.
+
+
+    **Terms:**
+
+
+    - **System:** a set of components that together give one service to its users.
+    Example: an online store.
+
+    - **Insight area:** a layer of a system that you monitor: infrastructure, application
+    or user experience. See [Break the system into insight areas](insight-area-decomposition).
+
+    - **Indicator:** a type of measurement: availability/status, performance/health,
+    capacity or usage. See [Indicators](indicators).
+
+    '
+  owners:
+  - aaron.west@esimplicity.com

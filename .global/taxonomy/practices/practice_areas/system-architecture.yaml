@@ -1,0 +1,67 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice_area
+metadata:
+  name: system-architecture
+  annotations:
+    foe.source_path: field-guides/system-architecture/overview.md
+spec:
+  description: 'A collection of flow-optimized methods for making structural decisions
+    about distributed systems and service organization.
+
+
+    ## What This Guide Covers
+
+
+    System architecture decisions shape how distributed systems evolve. Service boundaries,
+    inter-service communication, deployment topology, and team ownership all determine
+    how easily a system can be understood, changed, and operated independently. This
+    guide collects methods for making these structural decisions in ways that optimize
+    for flow.
+
+
+    Good system architecture isn''t about following patterns -- it''s about making
+    service boundaries explicit where they naturally exist, enabling independent deployment,
+    and maintaining confidence through contract testing and graceful degradation.
+
+
+    ### Service Design & Boundaries
+
+
+    Microservice patterns, service boundary extraction, and approaches for decomposing
+    systems into independently deployable units.
+
+
+    ### Integration & Contracts
+
+
+    Consumer contract testing, API design, inter-service communication patterns, and
+    strategies for maintaining confidence across service boundaries.
+
+
+    ### System Thinking
+
+
+    System-level optimization, team ownership models, and approaches for understanding
+    how distributed systems behave as a whole.
+
+
+    ## Getting Started
+
+
+    1. Browse the methods in the table above
+
+    2. Start with the **Essential** methods -- True Microservices and Consumer Contract
+    Testing form the foundation
+
+    3. Review the supporting observations to understand the evidence
+
+    4. Try the methods that fit your context
+
+    5. Consider [contributing your own observations](../contributing-observations)'
+  owners:
+  - aaron.west@esimplicity.com
+  title: System Architecture
+  canonical: system-architecture
+  practices:
+  - system-architecture-internal
+  - microservices

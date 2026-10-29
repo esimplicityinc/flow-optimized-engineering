@@ -1,0 +1,58 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: indicators
+  annotations:
+    foe.source: 'QDAS practices: Observability Framework'
+spec:
+  title: Indicators
+  pillar: framework
+  category: observability
+  status: active
+  definition: An indicator is a type of measurement. Measure each insight area with
+    the indicators that apply to it.
+  body: '## Availability/status
+
+
+    This indicator is a yes-or-no check: is the resource up, and can other parts of
+    the system use it? Usually, a check from outside the system does this test. This
+    indicator is the base for alerts and for root cause analysis. Root cause analysis
+    is the work to find the first cause of a problem.
+
+
+    ## Performance/health
+
+
+    This indicator shows if a resource responds in an acceptable time. It shows the
+    health of the parts below the resource. A service can be available but not healthy.
+    Some of these measurements have a fixed limit (for example, a page loads in less
+    than 2 seconds). Usually, a change from the normal value shows a problem. Use
+    this indicator for root cause analysis and for alerts.
+
+
+    ## Capacity
+
+
+    This indicator shows how much of a fixed capacity a resource uses. Usually, it
+    changes when the usage changes. Most outages occur when a system uses all of a
+    limited resource. An alert on high use gives the team time to act before a failure.
+    If the capacity used increases but the usage does not, there can be a problem.
+
+
+    ## Usage
+
+
+    This indicator shows how much users or other systems use a resource. Use it for
+    troubleshooting and root cause analysis. Also use it to plan capacity and to answer
+    business questions.
+
+    '
+  description: 'The four types of measurement for each insight area: availability/status,
+    performance/health, capacity and usage.'
+  owners:
+  - aaron.west@esimplicity.com
+  rationale: One type of measurement does not show all problems. A resource can be
+    up but slow, or fast but nearly full. With the four indicators, each type of problem
+    has a measurement that shows it.
+  when_to_use: Use the indicators each time that you plan the monitoring of a resource,
+    an application or a user task.

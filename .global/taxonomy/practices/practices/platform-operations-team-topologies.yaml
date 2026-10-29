@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: "platform-operations-team-topologies"
+spec:
+  title: "Team Topologies for Platform & Operations"
+  canonical: "team-topologies"
+  practice_area: "platform-operations"
+  methods:
+    - "m131-platform-team"
+    - "m137-thinnest-viable-platform"
+  description: "2 of 12 Team Topologies methods, as adopted by the Platform & Operations practice area: the platform team and the thinnest platform that serves its streams."
+  owners:
+    - "aaron.west@esimplicity.com"

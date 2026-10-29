@@ -1,0 +1,43 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: insight-area-decomposition
+  annotations:
+    foe.source: 'QDAS practices: Observability Framework'
+spec:
+  title: Break the system into insight areas
+  pillar: framework
+  category: observability
+  status: active
+  definition: Divide a system (a set of components that together give one service
+    to its users) into insight areas. An insight area is a layer of the system that
+    you can monitor. Put each component in an area. Then plan the monitoring area
+    by area.
+  body: "## Procedure\n\n1. Make a list of the parts of the system: its resources,\
+    \ its applications and services, and the tasks that its users do.\n2. Put each\
+    \ part in an insight area:\n\n   | Insight area | What it contains | Examples\
+    \ |\n   |---|---|---|\n   | Infrastructure | The compute, storage and network\
+    \ resources that the applications use | Servers, container clusters, databases,\
+    \ block and file storage, load balancers |\n   | Application | The behaviour and\
+    \ health of each application | Request rates, errors and latency; service status;\
+    \ metrics for the application |\n   | User experience | The system as its users\
+    \ see it | Page load times, the success of user tasks, scripted end-to-end checks\
+    \ |\n\n3. Measure each part with the applicable [indicators](indicators): availability/status,\
+    \ performance/health, capacity and usage.\n4. Look for empty cells. An empty cell\
+    \ is a failure that the team cannot see.\n\n## Example: indicators for each resource\n\
+    \n| Resource | Availability/status | Performance/health | Capacity | Usage |\n\
+    |---|---|---|---|---|\n| Server | Status check | Ping latency | CPU %, memory\
+    \ % | |\n| Block storage | | Average read and write latency | | Read and write\
+    \ operations |\n| File storage | | Read and write round-trip time | Throughput\
+    \ used | Client connections, size of the file system |\n"
+  description: 'Divide a system into insight areas: infrastructure, application and
+    user experience. Monitor each area. Then no part of the system that can fail is
+    without monitoring.'
+  owners:
+  - aaron.west@esimplicity.com
+  when_to_use: Use this method when you add monitoring to a new system. Also use it
+    when you look for gaps in the monitoring of a system that exists. An area that
+    has no monitoring is a gap.
+  rationale: Teams usually add monitoring where they had a problem before. This leaves
+    gaps. When you divide the system into insight areas first, you can see each gap
+    before it causes an incident.

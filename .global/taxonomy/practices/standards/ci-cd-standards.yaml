@@ -1,0 +1,90 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: ci-cd-standards
+  annotations:
+    foe.source: 'QDAS practices: CI/CD - Standards'
+spec:
+  title: Changes must move through pipelines by the CI/CD standards
+  category: delivery
+  status: active
+  priority: high
+  enforcement: review
+  rationale: Small changes, integrated frequently, through pipelines that always pass,
+    make it safe to deploy many times each day.
+  description: '**Standard.** Each change must move to production through a pipeline
+    that obeys these rules.
+
+
+    **Applies to:** each pipeline, and each change that a team deploys.
+
+
+    In this standard, *must* is a requirement. *Should* is a recommendation.
+
+
+    1. **Integrate at least once each work period** (required). Each developer must
+    commit and integrate to the trunk one time or more in each work period. *Conforms
+    when:* no work stays out of the trunk for longer than one work period.
+
+    2. **Integrate each day** (advisory). Each developer should commit and integrate
+    to the trunk each day. *Conforms when:* each developer integrates each working
+    day.
+
+    3. **Run pipelines frequently** (required). Each pipeline must run frequently,
+    so that it stays healthy. Development pipelines should run one time each day.
+    *Conforms when:* each pipeline has a successful run in the agreed period.
+
+    4. **Keep pipelines green** (required). A broken pipeline must be fixed in an
+    agreed time. Until it passes, only the fix can be committed. If it cannot be fixed
+    in time, the change must be rolled back. *Conforms when:* no pipeline stays broken
+    for longer than the agreed time.
+
+    5. **Test in a lower environment first** (required). A change must not go to production
+    before it is tested in a lower environment. *Conforms when:* each production deployment
+    has a passed test run in a lower environment.
+
+    6. **Use trunk-based development** (advisory). Teams should use [trunk-based development](trunk-based-development).
+    *Conforms when:* branches stay one or two days.
+
+    7. **Build each artifact one time** (advisory). Each artifact should be built
+    one time, put in a registry, and deployed from there to each environment. *Conforms
+    when:* the artifact in production is the same artifact that was tested.
+
+    8. **Keep lower environments recreatable** (required). Each lower environment
+    must be removable and recreatable with little or no manual work. *Conforms when:*
+    the team can remove and recreate the environment from code.
+
+    9. **Do not repeat configuration** (required). Configuration must be written one
+    time, in one shared file, with parameters for each environment. *Conforms when:*
+    no configuration value is written in more than one location.
+
+    10. **No secrets in git** (required). Secrets must never be in a git repository.
+    *Conforms when:* a scan of the repository finds no secrets.
+
+    11. **Use a managed secret store** (advisory). Secrets should be kept in a managed
+    secret store and read at deploy time or run time. *Conforms when:* each secret
+    that the pipeline uses comes from the store.
+
+
+    **Terms:**
+
+
+    - **Trunk:** the shared main branch of the code.
+
+    - **Lower environment:** an environment before production, for example development
+    or test.
+
+    - **Artifact:** the output of a build, for example a container image, a library
+    or a package.
+
+    - **Registry:** a store for artifacts.
+
+    - **Secret:** a password, key or token that gives access to a system.
+
+
+    CI/CD means continuous integration and continuous delivery. A pipeline is the
+    automated sequence of steps that builds, tests and deploys a change.
+
+    '
+  owners:
+  - aaron.west@esimplicity.com

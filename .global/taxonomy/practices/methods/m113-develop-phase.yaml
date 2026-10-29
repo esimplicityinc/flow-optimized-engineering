@@ -1,0 +1,19 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: "m113-develop-phase"
+  labels:
+    "foe.maturity": "hypothesized"
+    "foe.method-id": "M113"
+  annotations:
+    "foe.source_path": "external-frameworks/double-diamond/methods/M113-develop-phase.md; field-guides/product-specification/methods/emerging/M113-develop-phase.md"
+spec:
+  title: "Develop Phase"
+  category: "problem-solving"
+  when_to_use: "Use the Develop phase when:\n- The problem is well-defined and the team is ready to explore solutions\n- There's pressure to commit to the first idea (resist and explore more)\n- The team needs to break out of conventional thinking\n- User validation of solution concepts is needed before major investment"
+  pitfalls: "- **Idea attachment** — Falling in love with the first idea and not exploring alternatives\n- **Perfectionism** — Over-polishing prototypes instead of testing rough concepts\n- **Skipping user testing** — Developing in isolation without feedback\n- **Committee design** — Trying to incorporate everyone's feedback into one compromise solution"
+  definition: "The Develop phase encourages teams to give different answers to the clearly defined problem. It involves seeking inspiration from elsewhere, co-designing with a range of different people, and rapidly prototyping ideas to learn what works."
+  body: "**Pillar:** Problem Solving  \n**Thinking Mode:** Divergent (exploring widely)\n\nThe Develop phase is the third phase of the Double Diamond, where teams generate multiple potential solutions to the defined problem. This divergent phase encourages creativity and exploration before committing to a single solution.\n\n## What It Is\n\nThe Develop phase encourages teams to give different answers to the clearly defined problem. It involves seeking inspiration from elsewhere, co-designing with a range of different people, and rapidly prototyping ideas to learn what works.\n\nKey activities in this phase include:\n- **Ideation** — Generating many potential solutions without judgment\n- **Prototyping** — Creating rough versions of ideas to make them tangible\n- **Co-design** — Involving users in solution creation\n- **Testing** — Getting rapid feedback on prototype concepts\n- **Iteration** — Refining ideas based on what's learned\n\n## How to Measure\n\n- **Solution diversity** — How many distinct approaches were explored?\n- **Prototype count** — How many ideas were made tangible and testable?\n- **User feedback cycles** — How many rounds of testing with real users?\n- **Learning velocity** — How quickly did the team learn what works and what doesn't?\n\n## FOE Alignment\n\nThe Develop phase strongly supports **Fast Feedback** through rapid prototyping and testing. By making ideas tangible quickly and getting user feedback early, teams learn faster and waste less effort on unvalidated solutions. It also builds **Confidence** — testing multiple solutions provides evidence for which direction to pursue.\n\n## Further Reading\n\n- [Design Methods Step 3: Develop](https://www.designcouncil.org.uk/our-work/news-opinion/design-methods-step-3-develop/) — Design Council guide"
+  description: "The second divergent phase where teams generate multiple potential solutions through ideation and prototyping."
+  owners:
+    - "aaron.west@esimplicity.com"

@@ -1,0 +1,18 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: pull-request-time-to-trunk
+  annotations:
+    foe.source: 'QDAS practices: Development - Standards, Measures'
+spec:
+  title: Pull request time to trunk
+  unit: hours
+  direction: lower_is_better
+  category: throughput
+  aggregation: mean
+  description: 'How long code stays in a pull request before it goes into the trunk
+    (the shared main branch). A pull request is a request to review a change and merge
+    it. A long time shows large batches and late feedback. Why: code that waits gets
+    feedback late, and it is more difficult to merge.'
+  owners:
+  - aaron.west@esimplicity.com

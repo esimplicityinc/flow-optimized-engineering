@@ -1,12 +1,13 @@
 [project]
 name = "foe-taxonomy"
-version = "0.1.0"
-description = "Flow Optimized Engineering as a Katalyst taxonomy bundle"
+version = "0.3.0"
+description = "Generate Katalyst taxonomy nodes from Flow Optimized Engineering docs"
 requires-python = ">=3.12"
-dependencies = ["katalyst-engine>=4.1.0"]
-
-[project.entry-points."katalyst_engine.bundles"]
-foe = "foe_taxonomy:FoeBundle"
+# No katalyst-engine dependency and no bundle entry point: this package declares no
+# node types. FOE's field guides, frameworks and methods are Katalyst Forge's
+# practice_area, practice and method kinds, prose included, so it only reads markdown
+# and writes a change set for `kata tax import`.
+dependencies = ["pyyaml>=6.0"]
 
 [build-system]
 requires = ["hatchling"]

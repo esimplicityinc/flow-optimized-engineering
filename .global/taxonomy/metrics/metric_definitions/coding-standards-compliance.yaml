@@ -1,0 +1,17 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: coding-standards-compliance
+  annotations:
+    foe.source: 'QDAS practices: Development - Standards, Measures'
+spec:
+  title: Coding standards compliance
+  unit: percentage
+  direction: higher_is_better
+  category: quality
+  aggregation: mean
+  description: 'The percentage of the code of a team that passes the linting and format
+    rules of the team. Why: code in one style is easier for all developers to read
+    and change.'
+  owners:
+  - aaron.west@esimplicity.com

@@ -1,0 +1,16 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: development-team-topologies
+spec:
+  title: Team Topologies for Development
+  canonical: team-topologies
+  practice_area: development
+  methods:
+  - m118-enabling-team
+  - m124-fast-flow
+  - m136-team-cognitive-load
+  description: 3 of 12 Team Topologies methods, as adopted by the Development practice
+    area.
+  owners:
+  - aaron.west@esimplicity.com

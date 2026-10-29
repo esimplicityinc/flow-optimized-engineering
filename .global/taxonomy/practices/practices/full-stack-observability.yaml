@@ -1,0 +1,67 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: full-stack-observability
+  annotations:
+    foe.source: 'QDAS practices: Observability Framework; Observability Primer; Observability
+      Standards'
+spec:
+  title: Full-stack observability
+  practice_area: observability
+  enforcement: required
+  standards:
+  - component-dashboards
+  - resource-availability-and-health-alerts
+  - full-stack-telemetry
+  - user-experience-indicators
+  - resource-infrastructure-indicators
+  - monitoring-as-code
+  - actionable-alerts
+  methods:
+  - insight-area-decomposition
+  - indicators
+  - correlated-telemetry
+  - observability-tabletop-exercise
+  measures:
+  - observability-standards-compliance
+  - observability-tool-access
+  - incidents-not-alerted
+  - false-positive-alerts
+  - components-with-dashboards
+  - observability-tabletop-score
+  - observability-confidence
+  description: 'Send telemetry from each insight area of a system. Measure each insight
+    area with each indicator. Show the data on dashboards. Make alerts from the data.
+    Define all of this as code. Then a team knows the state of its system at all times.
+
+
+    ## Why
+
+
+    A team cannot fix a problem that it cannot see. When each insight area has telemetry,
+    dashboards and alerts, the team sees problems before users do, and finds the cause
+    quickly.
+
+
+    **Measures.** Assess each team one time in each planning period (for example,
+    each quarter). In each planning period, each team also does an observability tabletop
+    exercise. The measures are:
+
+
+    - How fully the team''s systems obey the observability standards.
+
+    - The percentage of team members who can use the observability tools.
+
+    - The percentage of incidents that had no alert.
+
+    - The percentage of alerts that were false.
+
+    - The team''s own score for its confidence.
+
+    - The team''s tabletop exercise score.
+
+    - The percentage of the team''s deployable components that have a dashboard.
+
+    '
+  owners:
+  - aaron.west@esimplicity.com

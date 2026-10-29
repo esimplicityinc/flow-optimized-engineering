@@ -1,0 +1,77 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice_area
+metadata:
+  name: agent-assisted-development
+  annotations:
+    foe.source_path: field-guides/agentic-coding/overview.md
+spec:
+  description: 'This area contains flow-optimized methods for software development
+    with AI coding agents. An AI coding agent is an AI tool that writes and changes
+    code for a developer.
+
+
+    ## What this area contains
+
+
+    Agentic coding is work with AI coding agents. It changes how we write software.
+    Some ways of working are better than others. The methods in this area come from
+    real observations, and teams tested and improved them.
+
+
+    ### Agent governance and safety
+
+
+    How to limit what an agent can do. How to fix the versions of agent tools. How
+    to keep control of work that an agent does.
+
+
+    ### Feedback and verification
+
+
+    How to develop with tests when an agent writes the code. How to verify the work
+    before you call it complete. How to get confidence in code that an agent wrote.
+
+
+    ### Collaboration and knowledge
+
+
+    How to give an agent access to systems. How to keep the state of a plan. How people
+    and agents work together.
+
+
+    ## Procedure to start
+
+
+    1. Look at the methods of the practice below.
+
+    2. Start with the **Essential** methods. They are the base for safe and effective
+    work with agents.
+
+    3. Try the methods that apply to your work.
+
+
+    This area builds on the general development practices: merge frequently, own the
+    code as a team, and find the root cause first. These are in [Development](development).
+
+    '
+  owners:
+  - aaron.west@esimplicity.com
+  title: Agent-Assisted Development
+  canonical: agentic-coding
+  strategy: 'Agents change who writes the code. They do not change the standard that
+    the code must obey. A change that an agent writes goes through the same shared
+    branch, the same review, the same tests and the same standards as all other changes.
+
+
+    Thus, the methods in this area keep an agent inside that process:
+
+
+    - Limit what the agent can do.
+
+    - Give the agent fast and honest feedback.
+
+    - Verify the work of the agent before you call it complete.
+
+    '
+  practices:
+  - agent-assisted-development-internal

@@ -1,0 +1,80 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: development-standards
+  annotations:
+    foe.source: 'QDAS practices: Development - Standards'
+spec:
+  title: Code must obey the development standards before deployment
+  category: maintainability
+  status: active
+  priority: high
+  enforcement: review
+  rationale: The team writes the code, not one person. Each change obeys one standard
+    of the team. Thus, any two developers can change any code, and the code seems
+    to come from one developer.
+  description: '**Standard.** All code must obey these rules before deployment.
+
+
+    **Applies to:** all code that a team deploys to production.
+
+
+    In this standard, *must* is a requirement. *Should* is a recommendation.
+
+
+    1. **Merge into the trunk frequently** (required). Each developer must merge work
+    into the trunk as frequently as possible. A branch should stay 1 to 2 days or
+    less. *Conforms when:* no branch is older than the agreed limit when it merges.
+
+    2. **Review code before production** (required). Another person must review each
+    change before it goes to production. A team can also require a review at an earlier
+    step, for example on each pull request. *Conforms when:* each change in production
+    has a recorded review.
+
+    3. **Cover production code with unit tests** (required). Unit tests must cover
+    80% or more of the production code. *Conforms when:* the coverage report shows
+    80% or more of the lines.
+
+    4. **Lint and format automatically** (required). Code must obey the linting and
+    format rules of the program, the project or the team. An automatic check must
+    do this, before each commit and in the pipeline. *Conforms when:* the automatic
+    check runs on each change, and it passes.
+
+    5. **Agree large patterns as a team** (advisory). A pattern that affects more
+    than one change should have the agreement of the team before people use it. Examples:
+    an architecture style, a library, a method for errors. *Conforms when:* the team
+    has recorded its agreement to each such pattern.
+
+    6. **Validate each API against its OpenAPI description** (required). Each API
+    endpoint must validate its requests and its responses against its OpenAPI description.
+    *Conforms when:* each endpoint has an OpenAPI description, and the code validates
+    against it.
+
+    7. **Document how to run each component** (required). The README of each deployable
+    component must tell how to run it in a shell and in a container. *Conforms when:*
+    a new developer can run the component from its README only.
+
+    8. **Document new settings and libraries** (required). When a change adds an environment
+    variable or a library to a component, the same change must document it in the
+    README of the component. *Conforms when:* each environment variable and library
+    of the component is in its README.
+
+
+    **Terms:**
+
+
+    - **Trunk:** the shared main branch of the code.
+
+    - **Linting:** an automatic check of the code for errors and for the style rules.
+
+    - **OpenAPI:** a standard format to describe an API (application programming interface).
+
+    - **README:** the file that tells a person what a component is and how to use
+    it.
+
+    - **Deployable component:** a service, application, job or pipeline that you build,
+    deploy and run as one unit.
+
+    '
+  owners:
+  - aaron.west@esimplicity.com

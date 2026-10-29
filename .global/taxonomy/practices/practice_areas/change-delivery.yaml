@@ -1,0 +1,48 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice_area
+metadata:
+  name: change-delivery
+spec:
+  description: 'How change gets into a system: the pipeline every change travels to
+    production, integrating on trunk, releasing safely, and measuring how fast and
+    how often change flows.'
+  owners:
+  - aaron.west@esimplicity.com
+  title: Change Delivery
+  practices:
+  - change-delivery-continuous-delivery
+  - change-delivery-dora
+  - continuous-delivery
+  - dora
+  - ci-cd-pipelines
+  strategy: '**The primary goal: change our systems as quickly and safely as possible.**
+
+
+    To do this:
+
+
+    - Give developers fast feedback.
+
+    - Make small changes, not large changes all at one time.
+
+    - Decrease the maintenance work.
+
+    - Find security problems early, before you deploy. Then you do not have to patch
+    them later.
+
+    - Remove manual steps, so that deployment is simple.
+
+    - Make workflows and actions that teams can share and combine. Then each team
+    can make a pipeline easily.
+
+
+    ### Key goals
+
+
+    - Deploy with no downtime.
+
+    - Deploy many times each day.
+
+    - Use a minimum of manual configuration.
+
+    '

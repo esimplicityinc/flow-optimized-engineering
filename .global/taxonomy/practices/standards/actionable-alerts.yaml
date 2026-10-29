@@ -1,0 +1,32 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: actionable-alerts
+  annotations:
+    foe.source: 'QDAS practices: Observability Standards'
+spec:
+  title: Each alert must have a documented action
+  category: observability
+  status: active
+  priority: high
+  enforcement: review
+  rationale: If people cannot act on alerts, they learn to ignore all alerts.
+  description: '**Standard.** Each alert must have a known action. The action must
+    be documented for the person who receives the alert. An alert without an action
+    must be removed, or changed to a metric on a dashboard.
+
+
+    **Applies to:** each alert of each system.
+
+
+    **Conforms when:** each alert links to its documented action (for example, a runbook
+    entry), and no alert exists without one.
+
+
+    **Terms:**
+
+
+
+    '
+  owners:
+  - aaron.west@esimplicity.com

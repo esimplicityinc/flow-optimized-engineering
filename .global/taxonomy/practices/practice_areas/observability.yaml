@@ -1,0 +1,69 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice_area
+metadata:
+  name: observability
+  annotations:
+    foe.source: 'QDAS practices: Observability'
+spec:
+  description: 'Observability is the ability to know the internal state of a system
+    from the data that it sends out. This data is its metrics, traces and logs.
+
+
+    With observability, a team can see a problem before it becomes serious. The team
+    can also find the cause of a problem quickly.
+
+
+    ## Terms
+
+
+    | Term | Meaning |
+
+    |---|---|
+
+    | System | A set of components that together give one service to its users. Example:
+    an online store. |
+
+    | Deployable component | A service, application, job or pipeline that you build,
+    deploy and run as one unit. |
+
+    | Operational resource | A resource that a component needs when it operates. Examples:
+    a server, a container cluster, a database, a queue, storage, a load balancer.
+    |
+
+    | Insight area | A layer of a system that you monitor: infrastructure, application
+    or user experience. |
+
+    | Indicator | A type of measurement for an insight area: availability/status,
+    performance/health, capacity or usage. |
+
+    '
+  owners:
+  - aaron.west@esimplicity.com
+  title: Observability
+  strategy: 'Observability lets teams change their systems faster and more safely.
+    It shows the current state of a system at all times. It is the base for monitoring,
+    and for root cause analysis during incidents.
+
+
+    ### Why observability is necessary
+
+
+    - **Troubleshooting.** Monitor performance, error rates and the health of the
+    system. Then you can find and isolate a problem before it becomes critical.
+
+    - **Performance.** Response times and resource use show where to improve the code
+    and the infrastructure.
+
+    - **User experience.** Data about how users use an application shows what to improve.
+    It also shows which features to do first.
+
+    - **Compliance and security.** Monitor access logs and system health. Then you
+    can find security threats and respond to them. You can also show that an application
+    obeys the applicable regulations.
+
+
+    All systems must obey the observability standards.
+
+    '
+  practices:
+  - full-stack-observability

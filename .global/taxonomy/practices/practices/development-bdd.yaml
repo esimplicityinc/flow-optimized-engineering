@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: development-bdd
+spec:
+  title: BDD for Development
+  canonical: bdd
+  practice_area: development
+  methods:
+  - m121-executable-specifications
+  - m126-gherkin
+  - m127-given-when-then
+  description: 3 of 7 BDD methods, as adopted by the Development practice area.
+  owners:
+  - aaron.west@esimplicity.com

@@ -1,0 +1,14 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: "product-specification-domain-driven-design"
+spec:
+  title: "Domain-Driven Design for Product Specification"
+  canonical: "domain-driven-design"
+  practice_area: "product-specification"
+  methods:
+    - "m103-bounded-context"
+    - "m141-ubiquitous-language"
+  description: "2 of 12 Domain-Driven Design methods, as adopted by the Product Specification field guide."
+  owners:
+    - "aaron.west@esimplicity.com"

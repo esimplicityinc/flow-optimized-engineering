@@ -1,0 +1,132 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice_area
+metadata:
+  name: development
+  annotations:
+    foe.source_path: field-guides/agentic-coding/overview.md
+spec:
+  description: 'This area is about how teams write and change code together. Teams
+    merge their changes frequently, in small parts, into one shared branch. The team
+    owns all the code. Tests specify the behaviour of the code. All code obeys one
+    standard, at all times.
+
+
+    ## What this area contains
+
+
+    ### Development standards
+
+
+    The rules that each change must obey before you deploy it.
+
+
+    ### Team practices
+
+
+    Behaviour-driven development, Team Topologies, and the general methods of FOE:
+    find the root cause before you fix a problem, prevent conceptual debt, share knowledge,
+    and make feedback loops early.
+
+
+    Work with AI coding agents is in a different area: [Agent-Assisted Development](agent-assisted-development).
+
+    '
+  owners:
+  - aaron.west@esimplicity.com
+  title: Development
+  practices:
+  - development-standards
+  - development-bdd
+  - development-internal
+  - development-team-topologies
+  - team-topologies
+  strategy: '### Continuous integration
+
+
+    Teams do not wait until a work period is complete. They merge their changes all
+    the time, frequently many times each day. This is continuous integration: each
+    merge goes into the shared main branch, and an automated build tests it.
+
+
+    ### Communication
+
+
+    Development needs fast responses and good communication. Thus, the team members
+    must be open and honest with each other. When there is a problem, tell the team.
+    Frequently, another person already has a solution. If not, a group finds a solution
+    faster than one person.
+
+
+    ### Small batches
+
+
+    Do work in [small batches](https://cloud.google.com/architecture/devops/devops-process-working-in-small-batches).
+    A small batch is a small change that you can finish and release quickly. Small
+    batches are necessary when feedback is important, or when you want to learn quickly
+    from your decisions. With small batches, you can quickly see if a change has the
+    effect that you want. If it does not, you can change direction or examine your
+    assumptions again.
+
+
+    ### Trunk-based development
+
+
+    Developers make small changes and merge them frequently into one shared branch,
+    the trunk. Teams with high performance use this method much more than other teams.
+    They also have fewer failed changes than teams that use feature branches. See
+    [trunk-based development](trunk-based-development).
+
+
+    ### Collective ownership
+
+
+    Any two developers can change any code at any time, also if they did not write
+    it. The team writes the code, not one person. All work must obey the standard
+    of the team.
+
+
+    ### Test-driven development
+
+
+    Fast feedback needs many tests. In short cycles, developers write an automated
+    test, and then write the code that makes the test pass. Many people do not understand
+    test-driven development (TDD), because of the word *test*. TDD is less about tests.
+    It is more about how to specify requirements, how to show your work (as in mathematics),
+    and how this improves the design. Robert C. Martin compares TDD to double-entry
+    bookkeeping:
+
+
+    > Software is a remarkably sensitive discipline. If you reach into a base of code
+    and you change one
+
+    > bit you can crash the software. […] Very few disciplines are that sensitive.
+    But there is one other
+
+    > that is, and that''s Accounting. […] How do accountants deal with that sensitivity?
+    Well, they have
+
+    > disciplines. And one of the primary disciplines is dual-entry bookkeeping. Everything
+    is said
+
+    > twice. […] This is what test-driven development is: dual-entry bookkeeping.
+    Everything is said
+
+    > twice — once on the test side and once on the production code side and everything
+    runs in an
+
+    > execution that yields either a green bar or a red bar just like the zero on
+    the balance sheet.
+
+    >
+
+    > — Robert C. Martin
+
+
+    ### Coding standards
+
+
+    Teams use one coding standard. A company''s writers use one style, so that all
+    text seems to come from one person. In the same way, developers write code in
+    one style, so that all code seems to come from one developer.
+
+    '

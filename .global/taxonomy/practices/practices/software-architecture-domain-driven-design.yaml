@@ -1,0 +1,22 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: "software-architecture-domain-driven-design"
+spec:
+  title: "Domain-Driven Design for Software Architecture"
+  canonical: "domain-driven-design"
+  practice_area: "software-architecture"
+  methods:
+    - "m100-aggregate"
+    - "m101-application-service"
+    - "m103-bounded-context"
+    - "m108-context-mapping"
+    - "m116-domain-event"
+    - "m117-domain-service"
+    - "m119-entity"
+    - "m132-repository"
+    - "m134-subdomains"
+    - "m143-value-object"
+  description: "10 of 12 Domain-Driven Design methods, as adopted by the Software Architecture field guide."
+  owners:
+    - "aaron.west@esimplicity.com"

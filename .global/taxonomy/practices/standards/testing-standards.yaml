@@ -1,0 +1,67 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: testing-standards
+  annotations:
+    foe.source: 'QDAS practices: Testing Standards'
+spec:
+  title: Each system must have the required test levels
+  category: reliability
+  status: active
+  priority: high
+  enforcement: automated
+  rationale: Tests give the safety and accuracy that let a team change a system quickly.
+    If a test level is missing, a type of failure gets to production and nobody sees
+    it first.
+  description: '**Standard.** Each system must have the tests in these rules. See
+    [test levels](test-levels) for the meaning of each level.
+
+
+    **Applies to:** each system, each of its deployable components, and the application
+    code of each component.
+
+
+    In this standard, *must* is a requirement. *Should* is a recommendation.
+
+
+    1. **Document the tests** (required). The team must document the tests of each
+    system and each deployable component. *Conforms when:* the documentation lists
+    the tests of each level for each system and component.
+
+    2. **System integration** (required). System integration tests must cover each
+    capability of the system. *Conforms when:* each capability of the system has a
+    system integration test.
+
+    3. **Acceptance** (required). Acceptance tests must examine each user story and
+    each acceptance criterion. *Conforms when:* each acceptance criterion has an acceptance
+    test that passes before release.
+
+    4. **Component integration** (required). Component integration tests must examine
+    each capability of each deployable component. *Conforms when:* each capability
+    of each component has a component integration test.
+
+    5. **Unit** (required). Unit tests must cover more than 80% of the application
+    code. *Conforms when:* the coverage report shows more than 80%.
+
+    6. **Application integration** (required). Application integration tests must
+    examine each dependency of the application. *Conforms when:* each dependency of
+    the application has an application integration test.
+
+
+    **Terms:**
+
+
+    - **System:** a set of components that together give one service to its users.
+    Example: an online store.
+
+    - **Deployable component:** a service, application, job or pipeline that you build,
+    deploy and run as one unit.
+
+
+    A user story is a short description of a need of a user. An acceptance criterion
+    is a condition that the story must satisfy. A dependency is another component
+    or service that the code uses.
+
+    '
+  owners:
+  - aaron.west@esimplicity.com

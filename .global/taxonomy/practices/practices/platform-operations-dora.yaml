@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: platform-operations-dora
+spec:
+  title: DORA for Platform & Operations
+  canonical: dora
+  practice_area: platform-operations
+  methods:
+  - m105-change-failure-rate
+  - m139-time-to-restore-service
+  description: '2 of 4 DORA metrics, as adopted by the Platform & Operations practice
+    area: the stability measures, change failure rate and time to restore service.'
+  owners:
+  - aaron.west@esimplicity.com

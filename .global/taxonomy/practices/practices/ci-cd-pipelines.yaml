@@ -1,0 +1,59 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: ci-cd-pipelines
+  annotations:
+    foe.source: 'QDAS practices: CI/CD - Strategy; CI/CD - Standards'
+spec:
+  title: CI/CD pipelines
+  practice_area: change-delivery
+  enforcement: required
+  standards:
+  - ci-cd-standards
+  methods:
+  - trunk-based-development
+  measures:
+  - deployment-frequency
+  - lead-time-for-changes
+  - change-failure-rate
+  - time-to-restore-service
+  description: 'A pipeline is the automated sequence of steps that takes a change
+    from commit to production. CI/CD means continuous integration and continuous delivery.
+    Continuous integration builds and tests each change when a developer merges it.
+    Continuous delivery deploys each change that passes.
+
+
+    Pipelines in this practice:
+
+
+    - Integrate changes frequently.
+
+    - Always pass (they stay "green").
+
+    - Build each artifact one time.
+
+    - Test each change in a lower environment first.
+
+    - Have no repeated configuration.
+
+    - Contain no secrets.
+
+
+    Make pipelines from shared workflows and actions. Do not write each pipeline from
+    the start.
+
+
+    ## Why
+
+
+    An automated pipeline is the only path to production. Thus, each change gets the
+    same tests and checks, and the team can deploy many times each day with little
+    risk.
+
+
+    **Measures.** The four DORA metrics: deployment frequency, lead time for changes,
+    change failure rate and time to restore service.
+
+    '
+  owners:
+  - aaron.west@esimplicity.com

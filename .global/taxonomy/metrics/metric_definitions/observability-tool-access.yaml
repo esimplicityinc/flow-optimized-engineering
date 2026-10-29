@@ -1,0 +1,16 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: observability-tool-access
+  annotations:
+    foe.source: 'QDAS practices: Observability Standards, Measures'
+spec:
+  title: Team access to observability tools
+  unit: percentage
+  direction: higher_is_better
+  category: observability
+  aggregation: mean
+  description: 'The percentage of the members of a team who can use the observability
+    tools of the team. Why: a team member without access cannot help during an incident.'
+  owners:
+  - aaron.west@esimplicity.com

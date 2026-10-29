@@ -1,0 +1,17 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: metric_definition
+metadata:
+  name: lead-time-for-changes
+  annotations:
+    foe.source: 'QDAS practices: Development - Standards, Measures'
+spec:
+  title: Lead Time for Changes
+  unit: hours
+  direction: lower_is_better
+  category: throughput
+  aggregation: mean
+  description: 'The time from a commit to the release of that commit in production.
+    It is one of the four DORA metrics. Why: a short lead time gives fast feedback
+    from users and fixes problems quickly.'
+  owners:
+  - aaron.west@esimplicity.com

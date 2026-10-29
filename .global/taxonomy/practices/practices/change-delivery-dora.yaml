@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: change-delivery-dora
+spec:
+  title: DORA for Change Delivery
+  canonical: dora
+  practice_area: change-delivery
+  methods:
+  - m111-deployment-frequency
+  - m130-lead-time-for-changes
+  description: '2 of 4 DORA metrics, as adopted by the Change Delivery practice area:
+    the throughput measures, deployment frequency and lead time for changes.'
+  owners:
+  - aaron.west@esimplicity.com

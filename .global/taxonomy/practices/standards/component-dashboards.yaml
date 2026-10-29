@@ -1,0 +1,61 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: component-dashboards
+  annotations:
+    foe.source: 'QDAS practices: Observability Standards'
+spec:
+  title: Each deployable component must have a dashboard
+  category: observability
+  status: active
+  priority: high
+  enforcement: review
+  rationale: 'During an incident, a team looks at the dashboard first. Without a dashboard,
+    the team must find the cause with no data.
+
+
+    **Why one dashboard for each deployable component, not one for the system:**
+
+
+    - **A component fails as one unit.** You deploy, roll back, restart and scale
+    each component separately. Its dashboard shows the data for the unit that you
+    can change.
+
+    - **A system dashboard hides the cause.** It shows that the system has a problem.
+    It does not show which component has the problem. A slow component looks like
+    a slow system.
+
+    - **A change has one place to look.** After you deploy a component, its dashboard
+    shows the effect of that deployment only. The data of other components does not
+    hide the effect.
+
+    - **Each component has one owner.** The team that owns the component owns its
+    dashboard and keeps it correct.
+
+
+    Use a system dashboard as well, to show the user experience of the whole system.
+    Link it to the dashboard of each component.
+
+    '
+  description: '**Standard.** Each deployable component must have a dashboard. The
+    dashboard must show the metrics of the component and the metrics of the resources
+    that it uses.
+
+
+    **Applies to:** each deployable component of each system, in each environment
+    that users use.
+
+
+    **Conforms when:** the dashboard exists, the team can open it, and it shows current
+    data for the component and for each resource that it uses.
+
+
+    **Terms:**
+
+
+    - **Deployable component:** a service, application, job or pipeline that you build,
+    deploy and run as one unit.
+
+    '
+  owners:
+  - aaron.west@esimplicity.com

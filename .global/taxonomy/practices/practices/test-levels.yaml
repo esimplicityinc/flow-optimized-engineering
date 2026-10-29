@@ -1,0 +1,113 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: test-levels
+  annotations:
+    foe.source: 'QDAS practices: Testing Framework; Testing Standards'
+spec:
+  title: Test levels
+  practice_area: testing
+  enforcement: required
+  standards:
+  - testing-standards
+  methods:
+  - unit-tests
+  - application-integration-tests
+  - component-integration-tests
+  - system-integration-tests
+  - acceptance-tests
+  - synthetic-monitoring
+  measures:
+  - testing-standards-compliance
+  - change-failure-rate
+  description: 'Each system (a set of components that together give one service to
+    its users) has automated tests at each test level. This practice gives each test
+    level, when it runs, and how it uses dependencies. A dependency is another component
+    or service that the code uses. A mock is a simple replacement for a dependency,
+    for use in a test.
+
+
+    | Level | What it tests | When it runs | Dependencies |
+
+    |---|---|---|---|
+
+    | Unit | One small part of the code, usually a function | Before commit, and in
+    the pipeline | Mocks |
+
+    | Application integration | One application and its dependencies | Before commit,
+    and in the pipeline | Mocks on the local computer; real in the pipeline |
+
+    | Component integration | One deployable component, after deployment | After deployment
+    | Real |
+
+    | System integration | The full system, after deployment | After deployment |
+    Real |
+
+    | Acceptance | The business functions | Before release to production | Real |
+
+    | Synthetic monitoring | The live system | All the time, on a schedule | Real
+    |
+
+
+    The pipeline is the automated sequence of steps that builds, tests and deploys
+    a change. Production is the environment that real users use.
+
+
+    ### Example
+
+
+    A tenant-management component calls a portal to add a new organisation. These
+    are its tests, level by level:
+
+
+    | Scope | Level | How | Where it runs |
+
+    |---|---|---|---|
+
+    | Infrastructure code (shared module) | Unit | The tests of the module | Local
+    computer; pipeline |
+
+    | Infrastructure code | Integration | A plan of the change (a dry run) | Local
+    computer; pipeline |
+
+    | Application | Unit | The unit test command | Local computer, before commit;
+    pipeline |
+
+    | Application | Application integration | The integration test command | Local
+    computer, with local containers; pipeline |
+
+    | Component | Component integration | Automation of the user interface or API
+    | Local computer, with local containers; pipeline |
+
+    | Component | Synthetic monitoring | A scripted check on a schedule | The monitoring
+    service |
+
+    | Subsystem | System integration | Automation of the user interface or API | Local
+    computer, with local containers; pipeline |
+
+    | Subsystem | Synthetic monitoring | A scripted check on a schedule | The monitoring
+    service |
+
+    | Subsystem | Acceptance | Acceptance criteria written as examples | The acceptance
+    test environment |
+
+
+    ## Why
+
+
+    Each test level finds a different type of failure, at a different time. When a
+    level is missing, that type of failure gets to production. When the levels are
+    in the pipeline, each change gets the tests automatically.
+
+
+    **Measures.** Assess each team one time in each planning period (for example,
+    each quarter). The measures are:
+
+
+    - How fully the team''s systems obey the testing standards.
+
+    - The change failure rate of the team''s deployments.
+
+    '
+  owners:
+  - aaron.west@esimplicity.com

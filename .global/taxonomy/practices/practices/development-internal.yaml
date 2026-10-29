@@ -1,0 +1,17 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: development-internal
+spec:
+  title: Development — FOE methods
+  practice_area: development
+  methods:
+  - m146-early-feedback-loop-investment
+  - m147-knowledge-distribution-as-reliability
+  - m149-root-cause-first-debugging
+  - m154-conceptual-debt-prevention
+  description: 'The methods that FOE wrote for development in general: find the root
+    cause before you fix a problem, prevent conceptual debt, share knowledge, and
+    make feedback loops early.'
+  owners:
+  - aaron.west@esimplicity.com

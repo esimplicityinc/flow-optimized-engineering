@@ -1,0 +1,60 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice_area
+metadata:
+  name: platform-operations
+spec:
+  description: 'How we build infrastructure and keep it running: infrastructure as
+    code, resilience under failure and load, observability, the platform teams that
+    own it, and the stability measures that say whether it is working. Close to site
+    reliability engineering.'
+  owners:
+  - aaron.west@esimplicity.com
+  title: Platform & Operations
+  practices:
+  - platform-operations-continuous-delivery
+  - platform-operations-dora
+  - platform-operations-microservices
+  - platform-operations-team-topologies
+  - infrastructure-as-code-delivery
+  strategy: '### Use infrastructure as code
+
+
+    Infrastructure as code (IaC) means that you define the infrastructure in code.
+    Make each environment from that code. This gives these results:
+
+
+    - Automation replaces manual steps, which cause errors.
+
+    - All environments are the same. You can make them again, and they do not change
+    without control.
+
+    - You review, version and roll back infrastructure changes as you do other code.
+
+    - Infrastructure uses the same pipelines, tests and security rules as applications.
+
+
+    ### Use shared modules
+
+
+    A module is a part of infrastructure code that many teams can use again. Make
+    infrastructure from a shared library of tested modules. This gives these results:
+
+
+    - Teams start faster.
+
+    - The modules are more reliable, because real deployments tested them.
+
+    - Each team that uses a module also reviews it and makes it better.
+
+    - The security and compliance work in a module goes into each component that uses
+    it.
+
+
+    ### Organise for independent deployment
+
+
+    Teams release more frequently when each team can deploy its services without waiting
+    for other teams. Use the [system taxonomy](system-taxonomy) to organise and talk
+    about systems. The aim is subsystems that you can deploy independently.
+
+    '

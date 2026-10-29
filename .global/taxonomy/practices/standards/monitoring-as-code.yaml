@@ -1,0 +1,62 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: standard
+metadata:
+  name: monitoring-as-code
+  annotations:
+    foe.source: 'QDAS practices: Observability Standards'
+spec:
+  title: Monitoring must be code
+  category: observability
+  status: active
+  priority: high
+  enforcement: review
+  rationale: 'Monitoring that a person makes by hand changes without control. It is
+    lost when its environment is lost. Nobody can review it.
+
+
+    **Manual monitoring makes each change slower and less safe.** If a person must
+    add the monitoring by hand after each deployment, each change to the system has
+    an extra manual task:
+
+
+    - **Each change waits.** A new component, a new resource or a new endpoint has
+    no monitoring until a person adds it. Until then, nobody can see a failure in
+    it.
+
+    - **The work increases with each change.** More components and more changes give
+    more manual tasks. The team spends more time on monitoring and less time on the
+    system.
+
+    - **People forget.** Under pressure, a person does not do the manual task, or
+    does it differently each time. The monitoring and the system become different.
+
+    - **A rollback does not include it.** When you roll back a change, the manual
+    monitoring stays at the new version.
+
+
+    When monitoring is code, it changes in the same commit as the system. It is reviewed
+    with the change, deployed with the change, and rolled back with the change. The
+    team does not have an extra task, so it can change the system frequently and safely.
+
+    '
+  description: '**Standard.** Dashboards, alerts and synthetic monitors must be defined
+    as code. The code must be in version control with the system that it monitors.
+    The code must get a review, as other code does.
+
+
+    **Applies to:** each dashboard, alert and synthetic monitor of each system.
+
+
+    **Conforms when:** no dashboard, alert or synthetic monitor exists that its code
+    does not define, and each change to them goes through a review.
+
+
+    **Terms:**
+
+
+    - **Synthetic monitor:** an automated test that examines the live system on a
+    schedule.
+
+    '
+  owners:
+  - aaron.west@esimplicity.com

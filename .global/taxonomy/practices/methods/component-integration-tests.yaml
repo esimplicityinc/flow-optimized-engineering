@@ -1,0 +1,45 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: component-integration-tests
+  annotations:
+    foe.source: 'QDAS practices: Testing Framework'
+spec:
+  title: Component integration tests
+  pillar: framework
+  category: test-level
+  status: active
+  definition: A component integration test examines one deployable component (a service,
+    application, job or pipeline that you build, deploy and run as one unit), after
+    you deploy it.
+  when_to_use: Use these tests to examine each capability of a deployable component.
+  body: '## When and where it runs
+
+
+    Component integration tests run after deployment. They are the test step of continuous
+    delivery (CD), the part of the pipeline that deploys each change. The CI/CD system
+    runs them in the workflow.
+
+
+    ## Tools
+
+
+    Use a test framework that operates the deployed component through its user interface
+    or its API (application programming interface).
+
+
+    ## Dependencies
+
+
+    Do not use mocks. The component is deployed, so the tests examine each dependency
+    from end to end.
+
+    '
+  description: A component integration test examines one deployable component (a service,
+    application, job or pipeline that you build, deploy and run as one unit), after
+    you deploy it.
+  owners:
+  - aaron.west@esimplicity.com
+  rationale: 'Some failures occur only after deployment: wrong configuration, missing
+    permissions, a network rule. Tests before deployment cannot find them. Component
+    integration tests find them before users do.'

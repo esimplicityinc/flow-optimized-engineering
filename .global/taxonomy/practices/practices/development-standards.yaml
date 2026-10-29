@@ -1,0 +1,51 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: development-standards
+  annotations:
+    foe.source: 'QDAS practices: Development - Standards'
+spec:
+  title: Development standards
+  practice_area: development
+  enforcement: required
+  standards:
+  - development-standards
+  methods:
+  - trunk-based-development
+  measures:
+  - unit-test-coverage
+  - coding-standards-compliance
+  - pull-request-time-to-trunk
+  - deployment-frequency
+  - lead-time-for-changes
+  - change-failure-rate
+  - time-to-restore-service
+  description: 'The rules that each change must obey. Merge into the shared branch
+    frequently. Get a review before production. Cover the code with unit tests. Lint
+    and format the code automatically. Validate each API against its contract. Document
+    each deployable component so that a person can run it.
+
+
+    **Measures.** Assess each team one time in each planning period (for example,
+    each quarter). The measures are:
+
+
+    - The unit test coverage of each deployable component of the team.
+
+    - How fully the team''s code obeys the coding standards.
+
+    - How long code stays in a pull request before it goes into the shared branch.
+
+    - The four DORA metrics: deployment frequency, lead time for changes, change failure
+    rate and time to restore service.
+
+
+    ## Why
+
+
+    When all changes obey the same rules, any developer can change any code safely.
+    Small, reviewed and tested changes go to production quickly and fail less frequently.
+
+    '
+  owners:
+  - aaron.west@esimplicity.com

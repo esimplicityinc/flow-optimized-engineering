@@ -1,0 +1,15 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: "testing-tdd"
+spec:
+  title: "TDD for Testing"
+  canonical: "tdd"
+  practice_area: "testing"
+  methods:
+    - "m163-red-green-refactor"
+    - "m164-test-pyramid"
+    - "m165-test-list"
+  description: "3 of 3 TDD methods, as adopted by the Testing field guide."
+  owners:
+    - "aaron.west@esimplicity.com"

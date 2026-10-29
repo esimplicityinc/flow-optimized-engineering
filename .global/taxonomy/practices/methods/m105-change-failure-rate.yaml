@@ -1,0 +1,17 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: "m105-change-failure-rate"
+  labels:
+    "foe.maturity": "hypothesized"
+    "foe.method-id": "M105"
+  annotations:
+    "foe.source_path": "external-frameworks/dora/methods/M105-change-failure-rate.md; field-guides/testing/methods/emerging/M105-change-failure-rate.md"
+spec:
+  title: "Change Failure Rate"
+  category: "stability"
+  definition: "> The percentage of changes to production that result in degraded service (e.g., service impairment, outage) and subsequently require remediation (e.g., hotfix, rollback, patch)."
+  body: "**Pillar:** Stability\n\nChange Failure Rate measures the percentage of deployments that result in degraded service or require remediation. It is a key DORA stability metric that balances the throughput metrics.\n\n## Why It Matters\n\nLow change failure rate indicates:\n\n- **High quality** of changes being deployed\n- **Effective testing** catching issues before production\n- **Good architectural practices** limiting blast radius\n- **Confidence to deploy** frequently without fear\n\n## Performance Benchmarks\n\n| Performance Level | Change Failure Rate |\n|-------------------|---------------------|\n| Elite | 0-15% |\n| High | 16-30% |\n| Medium | 16-30% |\n| Low | 16-30% |\n\nNote: DORA research shows even low performers can maintain moderate change failure rates - what differentiates high performers is their ability to maintain low rates while deploying frequently.\n\n## How to Measure\n\n1. **Count deployments** in a time period\n2. **Count failures** requiring rollback, hotfix, or incident response\n3. **Calculate percentage**: (failures / deployments) × 100\n4. **Define \"failure\" clearly** for your context\n\n## What Counts as a Failure?\n\nInclude:\n- Deployments that were rolled back\n- Deployments requiring immediate hotfixes\n- Deployments causing service degradation or outages\n- Deployments requiring incident response\n\nExclude:\n- Planned rollbacks (feature flag disables)\n- Issues found before production (caught in staging)\n- Unrelated incidents\n\n## Improving Change Failure Rate\n\nCommon practices that reduce change failure rate:\n\n- **Comprehensive Testing** - Unit, integration, E2E, contract tests\n- **Code Review** - Catch issues before merge\n- **Gradual Rollouts** - Canary, blue-green deployments\n- **Feature Flags** - Quickly disable problematic features\n- **Observability** - Catch issues quickly before widespread impact\n\n## Relationship to Other Metrics\n\n- **Deployment Frequency** - High performers maintain low CFR with high frequency\n- **Time to Restore** - Fast recovery reduces impact of failures\n- **Lead Time** - Thorough testing may add time but reduces failures\n\n## FOE Alignment\n\nChange Failure Rate directly measures **Confidence** - the ability to deploy knowing the change is safe. It's the quality gate that enables fast iteration."
+  description: "Percentage of deployments causing failures requiring remediation."
+  owners:
+    - "aaron.west@esimplicity.com"

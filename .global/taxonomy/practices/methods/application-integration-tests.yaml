@@ -1,0 +1,48 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: method
+metadata:
+  name: application-integration-tests
+  annotations:
+    foe.source: 'QDAS practices: Testing Framework'
+spec:
+  title: Application integration tests
+  pillar: framework
+  category: test-level
+  status: active
+  definition: An application integration test examines one application and how it
+    operates with its dependencies, before deployment.
+  when_to_use: Use these tests to examine each capability and each dependency of a
+    deployable component.
+  body: '## When and where it runs
+
+
+    Application integration tests run before each commit. They also run in the pipeline,
+    in the continuous integration (CI) step. If a test fails, the change stops there.
+
+
+    ## Tools
+
+
+    Use the test framework of the programming language. Run these tests with a command
+    that is different from the unit test command.
+
+
+    ## Dependencies
+
+
+    On a local computer, use mocks, local containers, or the real dependencies in
+    the development environment. In the pipeline, use the real dependencies.
+
+
+    For infrastructure code, the equivalent test is a plan of the change. A plan is
+    a dry run: it shows what the change will make, change or remove, but it does not
+    do it. Run the plan on a local computer and in the pipeline.
+
+    '
+  description: An application integration test examines one application and how it
+    operates with its dependencies, before deployment.
+  owners:
+  - aaron.west@esimplicity.com
+  rationale: Many failures occur where an application connects to a dependency, not
+    inside the application. Unit tests use mocks, so they cannot find these failures.
+    Application integration tests find them before deployment.

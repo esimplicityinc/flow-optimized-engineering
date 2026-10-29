@@ -1,0 +1,124 @@
+apiVersion: katalyst.taxonomy/v2alpha
+kind: practice
+metadata:
+  name: double-diamond
+  annotations:
+    foe.source_path: external-frameworks/double-diamond/overview.md
+spec:
+  title: Double Diamond
+  canonical: https://www.designcouncil.org.uk/our-resources/the-double-diamond/
+  methods:
+  - m109-define-phase
+  - m110-deliver-phase
+  - m113-develop-phase
+  - m114-discover-phase
+  references:
+  - The Double Diamond — https://www.designcouncil.org.uk/our-resources/the-double-diamond/
+  - Framework for Innovation — https://www.designcouncil.org.uk/our-resources/framework-for-innovation/
+  description: 'The Double Diamond is a visual representation of the design and innovation
+    process, developed by the Design Council (UK) in 2004. It maps the creative process
+    through four distinct phases: Discover, Define, Develop, and Deliver. The framework
+    illustrates how design thinking alternates between divergent thinking (exploring
+    widely) and convergent thinking (focusing narrowly).
+
+
+    The first diamond represents "designing the right thing" — ensuring you''re solving
+    the correct problem through deep understanding. The second diamond represents
+    "designing the thing right" — creating effective solutions through iteration and
+    validation.
+
+
+    ## Key Concepts
+
+
+    The Double Diamond is built on the insight that successful design requires both
+    problem-finding and problem-solving, and that each of these activities involves
+    both expansion and focus. Teams often fail by jumping straight to solutions without
+    adequately understanding the problem, or by settling on the first solution without
+    exploring alternatives.
+
+
+    The framework visualizes this through two connected diamonds. In each diamond,
+    the process starts narrow (a brief or challenge), expands outward (divergent thinking
+    to explore possibilities), then narrows again (convergent thinking to focus on
+    what matters). This rhythm of expansion and contraction is fundamental to creative
+    problem-solving.
+
+
+    The Design Council also identified four core principles that underpin effective
+    use of the Double Diamond:
+
+    1. **Put people first** — Start with understanding the people you''re designing
+    for
+
+    2. **Communicate visually and inclusively** — Make ideas tangible and accessible
+
+    3. **Collaborate and co-create** — Involve diverse perspectives throughout
+
+    4. **Iterate, iterate, iterate** — Learn through making and testing
+
+
+    ## Problem Finding (First Diamond)
+
+
+    The first diamond focuses on understanding the problem space before committing
+    to solutions. It contains the **Discover** and **Define** phases.
+
+
+    - **Discover** (Divergent): Explore the problem space broadly through research,
+    observation, and empathy
+
+    - **Define** (Convergent): Synthesize insights into a clear, evidence-based problem
+    definition
+
+
+    ## Problem Solving (Second Diamond)
+
+
+    The second diamond focuses on creating and validating solutions. It contains the
+    **Develop** and **Deliver** phases.
+
+
+    - **Develop** (Divergent): Generate multiple potential solutions through ideation
+    and prototyping
+
+    - **Deliver** (Convergent): Test, refine, and launch the solution through phased
+    delivery
+
+
+    ## FOE Alignment
+
+
+    The Double Diamond aligns strongly with Flow Optimized Engineering principles:
+
+
+    - **Understanding** — The entire first diamond is dedicated to understanding before
+    solving. The core principle "put people first" directly mirrors FOE''s emphasis
+    on optimizing for understanding. The Discover and Define phases ensure teams build
+    deep comprehension of user needs and problem context.
+
+
+    - **Fast Feedback** — "Iterate, iterate, iterate" is one of the four core principles.
+    The Develop phase emphasizes rapid prototyping and testing ideas quickly with
+    users. The phased approach to delivery creates multiple feedback opportunities.
+
+
+    - **Confidence** — The progressive validation through four phases builds confidence
+    systematically. By validating the problem definition before developing solutions,
+    and testing solutions before full launch, teams reduce risk and build justified
+    confidence in outcomes.
+
+
+    ## Further Reading
+
+
+    - [The Double Diamond](https://www.designcouncil.org.uk/our-resources/the-double-diamond/)
+    — Official Design Council resource
+
+    - [Framework for Innovation](https://www.designcouncil.org.uk/our-resources/framework-for-innovation/)
+    — Extended framework with enabling factors
+
+    - Design Council. "Eleven Lessons: Managing Design in Eleven Global Brands." 2007.'
+  owners:
+  - aaron.west@esimplicity.com
+  practice_area: product-specification
