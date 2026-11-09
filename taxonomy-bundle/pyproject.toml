@@ -1,6 +1,6 @@
 [project]
 name = "foe-taxonomy"
-version = "0.3.0"
+version = "0.4.0"
 description = "Generate Katalyst taxonomy nodes from Flow Optimized Engineering docs"
 requires-python = ">=3.12"
 # No katalyst-engine dependency and no bundle entry point: this package declares no
