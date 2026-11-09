@@ -113,8 +113,6 @@ def test_every_reference_names_an_emitted_node(documents: list[dict]) -> None:
             assert set(spec["practices"]) <= by_kind["practice"]
         if d["kind"] == "practice":
             assert set(spec.get("methods", [])) <= by_kind["method"]
-            if "practice_area" in spec:
-                assert spec["practice_area"] in by_kind["practice_area"]
 
 
 def test_every_method_is_prescribed_by_some_practice(documents: list[dict]) -> None:
@@ -125,16 +123,38 @@ def test_every_method_is_prescribed_by_some_practice(documents: list[dict]) -> N
     assert methods - prescribed == set()
 
 
-def test_a_curated_practice_names_its_area_and_the_area_lists_it(
-    documents: list[dict],
-) -> None:
-    areas = {
-        d["metadata"]["name"]: d for d in documents if d["kind"] == "practice_area"
+def test_no_practice_carries_a_practice_area(documents: list[dict]) -> None:
+    # Forge 11 retired the field: the area lists its practices, and lint rejects
+    # a practice that points back.
+    carrying = [
+        d["metadata"]["name"]
+        for d in documents
+        if d["kind"] == "practice" and "practice_area" in d["spec"]
+    ]
+    assert carrying == []
+
+
+def test_each_practice_area_lists_its_practices(documents: list[dict]) -> None:
+    practices = {
+        d["metadata"]["name"]: d["spec"] for d in documents if d["kind"] == "practice"
     }
+    listed: list[str] = []
     for d in documents:
-        area = d["spec"].get("practice_area") if d["kind"] == "practice" else None
-        if area:
-            assert d["metadata"]["name"] in areas[area]["spec"]["practices"]
+        if d["kind"] != "practice_area":
+            continue
+        area = d["metadata"]["name"]
+        assert d["spec"]["practices"], f"{area} lists no practice"
+        assert d["spec"]["practices"] == sorted(d["spec"]["practices"])
+        for name in d["spec"]["practices"]:
+            assert name.startswith(f"{area}-"), f"{name} is not {area}'s adoption"
+        listed += d["spec"]["practices"]
+    assert set(listed) <= set(practices)
+    assert len(listed) == len(set(listed)), "a practice is listed by two areas"
+    # What no area lists is a framework's canonical set, which an adoption names.
+    unlisted = set(practices) - set(listed)
+    assert unlisted
+    for name in listed:
+        assert practices[name].get("canonical", "") in unlisted | {""}
 
 
 def test_the_fqtn_never_carries_the_id_in_uppercase(documents: list[dict]) -> None:
