@@ -11,7 +11,7 @@ This package declares **no schema**. Everything is a Forge kind:
 |---|---|---|
 | `practice_area` | a field guide; its `overview.md` is the description | 6 |
 | `practice` | a framework's full, canonical set, with its overview and reading list | 12 |
-| `practice` | what one guide adopted from one framework (`practice_area` names the guide) | 17 |
+| `practice` | what one guide adopted from one framework (the guide's `practice_area` lists it) | 17 |
 | `method` | a method, prescribed by practices and owned by none | 134 |
 
 ```
@@ -20,6 +20,9 @@ practice_area agentic-coding
                            ├─ canonical: team-topologies           (the framework practice)
                            └─ PRESCRIBES_METHOD → method m124-fast-flow
 ```
+
+A practice does not name its area: Forge 11 retired the `practice_area` field on
+`practice` (lint rejects it), and the area's `practices` list is the only link.
 
 A guide's adoption is its own practice because adoption is partial: Agentic
 Coding takes 3 of Team Topologies' 12 methods, and an area pointing straight at

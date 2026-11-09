@@ -21,7 +21,8 @@ The model, all of it Katalyst Forge's own kinds:
 ``practice_area``       a field guide; its overview page is the description
 ``practice``            a framework's canonical set, with its overview as the
                         description; and one curated practice per (guide,
-                        framework) pair, naming its area in ``practice_area``
+                        framework) pair, which the area lists in its
+                        ``practices``
 ``method``              a method, referenced by practices and owned by none
 ======================  ==========================================================
 
@@ -500,7 +501,6 @@ def generate(docs_root: Path, report: Report) -> list[dict[str, Any]]:
                     "title": title,
                     "description": description,
                     "canonical": canonical,
-                    "practice_area": _slug(guide),
                     "methods": sorted(set(method_names)),
                 },
             )
