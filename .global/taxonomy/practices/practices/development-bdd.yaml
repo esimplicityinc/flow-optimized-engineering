@@ -5,7 +5,6 @@ metadata:
 spec:
   title: BDD for Development
   canonical: bdd
-  practice_area: development
   methods:
   - m121-executable-specifications
   - m126-gherkin

@@ -6,7 +6,6 @@ metadata:
     foe.source_path: field-guides/agentic-coding/overview.md
 spec:
   title: Agent-Assisted Development — FOE methods
-  practice_area: agent-assisted-development
   methods:
   - m148-persistent-planning-state
   - m152-test-driven-agent-development

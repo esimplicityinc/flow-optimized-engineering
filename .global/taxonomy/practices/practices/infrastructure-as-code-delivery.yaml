@@ -7,7 +7,6 @@ metadata:
       Terraform / Terragrunt Standards (layout)'
 spec:
   title: Infrastructure as code
-  practice_area: platform-operations
   enforcement: required
   standards:
   - iac-standards

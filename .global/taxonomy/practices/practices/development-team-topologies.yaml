@@ -5,7 +5,6 @@ metadata:
 spec:
   title: Team Topologies for Development
   canonical: team-topologies
-  practice_area: development
   methods:
   - m118-enabling-team
   - m124-fast-flow

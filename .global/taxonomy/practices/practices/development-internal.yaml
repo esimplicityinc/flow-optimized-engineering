@@ -4,7 +4,6 @@ metadata:
   name: development-internal
 spec:
   title: Development — FOE methods
-  practice_area: development
   methods:
   - m146-early-feedback-loop-investment
   - m147-knowledge-distribution-as-reliability

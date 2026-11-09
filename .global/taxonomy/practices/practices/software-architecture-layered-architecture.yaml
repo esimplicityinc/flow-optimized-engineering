@@ -1,19 +1,19 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: "software-architecture-layered-architecture"
+  name: software-architecture-layered-architecture
 spec:
-  title: "Layered Architecture for Software Architecture"
-  canonical: "layered-architecture"
-  practice_area: "software-architecture"
+  title: Layered Architecture for Software Architecture
+  canonical: layered-architecture
   methods:
-    - "m209-layer-responsibility-definition"
-    - "m210-dependency-direction-enforcement"
-    - "m211-inter-layer-interface-design"
-    - "m212-data-transfer-object-pattern"
-    - "m213-repository-pattern"
-    - "m214-service-layer-pattern"
-    - "m215-layer-isolation-testing"
-  description: "7 of 7 Layered Architecture methods, as adopted by the Software Architecture field guide."
+  - m209-layer-responsibility-definition
+  - m210-dependency-direction-enforcement
+  - m211-inter-layer-interface-design
+  - m212-data-transfer-object-pattern
+  - m213-repository-pattern
+  - m214-service-layer-pattern
+  - m215-layer-isolation-testing
+  description: 7 of 7 Layered Architecture methods, as adopted by the Software Architecture
+    field guide.
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com

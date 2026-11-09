@@ -6,7 +6,6 @@ metadata:
     foe.source: 'QDAS practices: CI/CD - Strategy; CI/CD - Standards'
 spec:
   title: CI/CD pipelines
-  practice_area: change-delivery
   enforcement: required
   standards:
   - ci-cd-standards

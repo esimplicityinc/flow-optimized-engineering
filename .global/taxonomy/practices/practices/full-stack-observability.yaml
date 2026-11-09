@@ -7,7 +7,6 @@ metadata:
       Standards'
 spec:
   title: Full-stack observability
-  practice_area: observability
   enforcement: required
   standards:
   - component-dashboards

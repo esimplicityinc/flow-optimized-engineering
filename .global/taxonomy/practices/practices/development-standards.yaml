@@ -6,7 +6,6 @@ metadata:
     foe.source: 'QDAS practices: Development - Standards'
 spec:
   title: Development standards
-  practice_area: development
   enforcement: required
   standards:
   - development-standards

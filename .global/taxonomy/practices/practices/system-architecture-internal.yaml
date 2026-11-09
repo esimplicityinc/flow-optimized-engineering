@@ -1,15 +1,14 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: "system-architecture-internal"
+  name: system-architecture-internal
 spec:
-  title: "System Architecture — FOE methods"
-  practice_area: "system-architecture"
+  title: System Architecture — FOE methods
   methods:
-    - "m145-consumer-contract-testing"
-    - "m150-service-boundary-extraction"
-    - "m151-system-over-individuals"
-    - "m153-true-microservices"
-  description: "Methods FOE authored for the System Architecture field guide."
+  - m145-consumer-contract-testing
+  - m150-service-boundary-extraction
+  - m151-system-over-individuals
+  - m153-true-microservices
+  description: Methods FOE authored for the System Architecture field guide.
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com
