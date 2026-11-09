@@ -1,16 +1,17 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: "platform-operations-microservices"
+  name: platform-operations-microservices
 spec:
-  title: "Microservices for Platform & Operations"
-  canonical: "microservices"
-  practice_area: "platform-operations"
+  title: Microservices for Platform & Operations
+  canonical: microservices
   methods:
-    - "m224-circuit-breaker"
-    - "m231-distributed-tracing"
-    - "m232-bulkhead-pattern"
-    - "m233-backpressure"
-  description: "4 of 12 Microservices patterns, as adopted by the Platform & Operations practice area: keeping a distributed system up under failure and load, and seeing into it."
+  - m224-circuit-breaker
+  - m231-distributed-tracing
+  - m232-bulkhead-pattern
+  - m233-backpressure
+  description: '4 of 12 Microservices patterns, as adopted by the Platform & Operations
+    practice area: keeping a distributed system up under failure and load, and seeing
+    into it.'
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com

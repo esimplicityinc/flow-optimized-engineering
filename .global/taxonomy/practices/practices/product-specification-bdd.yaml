@@ -1,19 +1,18 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: "product-specification-bdd"
+  name: product-specification-bdd
 spec:
-  title: "BDD for Product Specification"
-  canonical: "bdd"
-  practice_area: "product-specification"
+  title: BDD for Product Specification
+  canonical: bdd
   methods:
-    - "m115-discovery-workshops"
-    - "m120-example-mapping"
-    - "m121-executable-specifications"
-    - "m126-gherkin"
-    - "m127-given-when-then"
-    - "m138-three-amigos"
-    - "m142-user-story-template"
-  description: "7 of 7 BDD methods, as adopted by the Product Specification field guide."
+  - m115-discovery-workshops
+  - m120-example-mapping
+  - m121-executable-specifications
+  - m126-gherkin
+  - m127-given-when-then
+  - m138-three-amigos
+  - m142-user-story-template
+  description: 7 of 7 BDD methods, as adopted by the Product Specification field guide.
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com

@@ -1,21 +1,21 @@
 apiVersion: katalyst.taxonomy/v2alpha
 kind: practice
 metadata:
-  name: "software-architecture-event-sourcing"
+  name: software-architecture-event-sourcing
 spec:
-  title: "Event Sourcing for Software Architecture"
-  canonical: "event-sourcing"
-  practice_area: "software-architecture"
+  title: Event Sourcing for Software Architecture
+  canonical: event-sourcing
   methods:
-    - "m240-domain-event-modeling"
-    - "m241-event-stream-storage"
-    - "m242-state-reconstruction"
-    - "m243-projection-building"
-    - "m244-snapshotting"
-    - "m245-event-versioning"
-    - "m246-temporal-queries"
-    - "m247-event-replay"
-    - "m248-cqrs-integration"
-  description: "9 of 9 Event Sourcing methods, as adopted by the Software Architecture field guide."
+  - m240-domain-event-modeling
+  - m241-event-stream-storage
+  - m242-state-reconstruction
+  - m243-projection-building
+  - m244-snapshotting
+  - m245-event-versioning
+  - m246-temporal-queries
+  - m247-event-replay
+  - m248-cqrs-integration
+  description: 9 of 9 Event Sourcing methods, as adopted by the Software Architecture
+    field guide.
   owners:
-    - "aaron.west@esimplicity.com"
+  - aaron.west@esimplicity.com

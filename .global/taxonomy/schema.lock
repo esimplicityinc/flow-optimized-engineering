@@ -1,6 +1,6 @@
 # Written by kata. Change it with `kata tax migrate`, not by hand.
 bundles:
-  forge: 9.0.0
-  harness-schema: 0.1.0
-  katalyst-core: 0.2.0
+  forge: 11.0.0
+  harness-schema: 0.4.0
+  katalyst-core: 0.3.0
   scaffolding-schema: 0.1.0

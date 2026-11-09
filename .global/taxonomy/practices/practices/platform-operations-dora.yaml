@@ -5,7 +5,6 @@ metadata:
 spec:
   title: DORA for Platform & Operations
   canonical: dora
-  practice_area: platform-operations
   methods:
   - m105-change-failure-rate
   - m139-time-to-restore-service

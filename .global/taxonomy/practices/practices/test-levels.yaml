@@ -6,7 +6,6 @@ metadata:
     foe.source: 'QDAS practices: Testing Framework; Testing Standards'
 spec:
   title: Test levels
-  practice_area: testing
   enforcement: required
   standards:
   - testing-standards

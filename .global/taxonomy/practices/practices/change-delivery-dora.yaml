@@ -5,7 +5,6 @@ metadata:
 spec:
   title: DORA for Change Delivery
   canonical: dora
-  practice_area: change-delivery
   methods:
   - m111-deployment-frequency
   - m130-lead-time-for-changes

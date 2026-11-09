@@ -111,4 +111,3 @@ spec:
     - [Hexagonal Architecture Explained (2024)](https://medium.com/idealo-tech-blog/hexagonal-ports-adapters-architecture-e3617bcf00a)'
   owners:
   - aaron.west@esimplicity.com
-  practice_area: software-architecture
